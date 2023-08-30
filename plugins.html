@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Основы создания плагинов Rails" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Основы создания плагинов Rails" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/plugins" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Основы создания плагинов Rails
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="Gs76ksV1NsEM/YeAmY0Xuy90Eg1V+pf68rZg2Py8RMZW9Fo0Wngj28cSqv26gu8YFZX93ARShe0VUDvWHCpCIQ==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#nastroyka">1. Настройка</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#sozdanie-gema">1.1. Создание гема.</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#testirovanie-svoego-novogo-plagina">2. Тестирование своего нового плагина</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#rasshirenie-klassov-yadra">3. Расширение классов ядра</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#dobavlenie-metoda-acts_as-v-active-record">4. Добавление метода &quot;acts_as&quot; в Active Record</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#dobavlenie-metoda-klassa">4.1. Добавление метода класса</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#dobavlenie-metoda-ekzemplyara">4.2. Добавление метода экземпляра</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#generatory">5. Генераторы</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#publikatsiya-vashego-gema">6. Публикация вашего гема</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#dokumentatsiya-rdoc">7. Документация RDoc</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#ssylki">7.1. Ссылки</a>
+</h5>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='osnovy-sozdaniya-plaginov-rails' class='inside_page_header'> Основы создания плагинов Rails</h2><p>Плагин Rails - это либо расширение, либо модификация основного фреймворка. Плагины представляют:</p><ul><li>Способ для разработчиков делиться новыми идеями без затрагивания стабильной кодовой базы.
+</li><li>Сегментную архитектуру, такую, что часть кода может быть исправлена или изменена по своему собственному графику.
+</li><li>Решение для разработчиков ядра приложения, чтобы не включать каждую новую особенность в свой код.
+</li></ul><p>После прочтения этого руководства, вы узнаете:</p><ul><li>Как создать плагин с нуля.
+</li><li>Как написать и запустить тесты для плагина.
+</li></ul><p>Это руководство описывает, как создать плагин, движимый тестами (TDD), который будет:</p><ul><li>Расширять классы ядра Ruby, такие как Hash и String.
+</li><li>Добавлять методы в <code>ApplicationRecord</code> в традициях плагинов <code>acts_as</code>.
+</li><li>Представлять информацию о том, где разместить генераторы в вашем плагине.
+</li></ul><p>Для целей этого руководства представьте на момент, что вы заядлый любитель птиц. Вашей любимой птицей является дятел (Yaffle), и вы хотите создать плагин, позволяющий другим разработчикам пользоваться особенностями дятлов.</p><h3 id='nastroyka' class='inside_page_header'><a href="#nastroyka">1.</a> Настройка</h3><p>В настоящее время плагины Rails создаются как гемы (<em>gemified plugins</em>). Они могут использоваться сразу несколькими приложениями Rails с помощью RubyGems и Bundler.</p><h4 id='sozdanie-gema' class='inside_page_header'><a href="#sozdanie-gema">1.1.</a> Создание гема.</h4><p>Rails поставляется с командой <code>rails plugin new</code>, создающей скелет для разработки любого типа расширения Rails со способностью запуска интеграционных тестов с помощью приложения-заглушки Rails. Создайте свой плагин с помощью команды:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>plugin new yaffle
+</code></pre>
+</div>
+<p>Как ее использовать и ее опции смотрите:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>plugin new <span class="nt">--help</span>
+</code></pre>
+</div>
+<h3 id='testirovanie-svoego-novogo-plagina' class='inside_page_header'><a href="#testirovanie-svoego-novogo-plagina">2.</a> Тестирование своего нового плагина</h3><p>Можете перейти в директорию, содержащую плагин, изменить следующие строчки в <code>yaffle.gemspec</code></p><div class="code_container">
+  <pre><code class="highlight ruby">  <span class="n">spec</span><span class="p">.</span><span class="nf">summary</span>     <span class="o">=</span> <span class="s2">"Summary of Yaffle."</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">description</span> <span class="o">=</span> <span class="s2">"Description of Yaffle."</span>
+<span class="o">...</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">homepage</span>    <span class="o">=</span> <span class="s2">"http://example.com"</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">metadata</span><span class="p">[</span><span class="s2">"source_code_uri"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"http://example.com"</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">metadata</span><span class="p">[</span><span class="s2">"changelog_uri"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"http://example.com"</span>
+</code></pre>
+</div>
+<p>запустить команду <code>bundle install</code>, и запустить сгенерированный тест с использованием команды <code>bin/test</code>.</p><p>Вы должны увидеть:</p><div class="code_container">
+  <pre><code class="highlight plaintext">  1 runs, 1 assertions, 0 failures, 0 errors, 0 skips
+</code></pre>
+</div>
+<p>Это сообщает, что все сгенерировалось правильно, и можно начать добавлять функциональность.</p><h3 id='rasshirenie-klassov-yadra' class='inside_page_header'><a href="#rasshirenie-klassov-yadra">3.</a> Расширение классов ядра</h3><p>Этот раздел объясняет, как добавить метод в String, который будет доступен везде в вашем приложении Rails.</p><p>В следующем примере мы добавим метод в String с именем <code>to_squawk</code>. Для начала создайте новый файл теста с несколькими утверждениями:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># yaffle/test/core_ext_test.rb</span>
+
+<span class="nb">require</span> <span class="s2">"test_helper"</span>
+
+<span class="k">class</span> <span class="nc">CoreExtTest</span> <span class="o">&lt;</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">TestCase</span>
+  <span class="k">def</span> <span class="nf">test_to_squawk_prepends_the_word_squawk</span>
+    <span class="n">assert_equal</span> <span class="s2">"squawk! Hello World"</span><span class="p">,</span> <span class="s2">"Hello World"</span><span class="p">.</span><span class="nf">to_squawk</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Запустите <code>bin/test</code> для запуска теста. Этот тест должен провалиться, так как мы еще не реализовали метод <code>to_squawk</code>:</p><div class="code_container">
+  <pre><code class="highlight plaintext">E
+
+Error:
+CoreExtTest#test_to_squawk_prepends_the_word_squawk:
+NoMethodError: undefined method `to_squawk' for "Hello World":String
+
+
+bin/test /path/to/yaffle/test/core_ext_test.rb:4
+
+.
+
+Finished in 0.003358s, 595.6483 runs/s, 297.8242 assertions/s.
+
+2 runs, 1 assertions, 0 failures, 1 errors, 0 skips
+</code></pre>
+</div>
+<p>Отлично - теперь мы готовы начать разработку.</p><p>В <code>lib/yaffle.rb</code> добавьте <code>require &quot;yaffle/core_ext&quot;</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># yaffle/lib/yaffle.rb</span>
+
+<span class="nb">require</span> <span class="s2">"yaffle/version"</span>
+<span class="nb">require</span> <span class="s2">"yaffle/railtie"</span>
+<span class="nb">require</span> <span class="s2">"yaffle/core_ext"</span>
+
+<span class="k">module</span> <span class="nn">Yaffle</span>
+  <span class="c1"># Тут какой-нибудь код...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Наконец, создайте файл <code>core_ext.rb</code> и добавьте метод <code>to_squawk</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># yaffle/lib/yaffle/core_ext.rb</span>
+
+<span class="k">class</span> <span class="nc">String</span>
+  <span class="k">def</span> <span class="nf">to_squawk</span>
+    <span class="s2">"squawk! </span><span class="si">#{</span><span class="nb">self</span><span class="si">}</span><span class="s2">"</span><span class="p">.</span><span class="nf">strip</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Чтобы проверить, что этот метод делает то, что нужно, запустите юнит-тесты с помощью <code>bin/test</code> из директории плагина.</p><div class="code_container">
+  <pre><code class="highlight plaintext">  2 runs, 2 assertions, 0 failures, 0 errors, 0 skips
+</code></pre>
+</div>
+<p>Чтобы увидеть его в действии, измените директорию на <code>test/dummy</code>, запустите <code>bin/rails console</code> и начните squawking:</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="s2">"Hello World"</span><span class="p">.</span><span class="nf">to_squawk</span>
+<span class="p">=&gt;</span> <span class="s2">"squawk! Hello World"</span>
+</code></pre>
+</div>
+<h3 id='dobavlenie-metoda-acts_as-v-active-record' class='inside_page_header'><a href="#dobavlenie-metoda-acts_as-v-active-record">4.</a> Добавление метода &quot;acts_as&quot; в Active Record</h3><p>Обычным паттерном для плагинов является добавление в модель метода с именем <code>acts_as_something</code>. В нашем случае мы хотим написать метод с именем <code>acts_as_yaffle</code>, добавляющий метод <code>squawk</code> в модель Active Record.</p><p>Для начала настройте свои файлы, вам нужны:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># yaffle/test/acts_as_yaffle_test.rb</span>
+
+<span class="nb">require</span> <span class="s2">"test_helper"</span>
+
+<span class="k">class</span> <span class="nc">ActsAsYaffleTest</span> <span class="o">&lt;</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">TestCase</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># yaffle/lib/yaffle.rb</span>
+
+<span class="nb">require</span> <span class="s2">"yaffle/version"</span>
+<span class="nb">require</span> <span class="s2">"yaffle/railtie"</span>
+<span class="nb">require</span> <span class="s2">"yaffle/core_ext"</span>
+<span class="nb">require</span> <span class="s2">"yaffle/acts_as_yaffle"</span>
+
+<span class="k">module</span> <span class="nn">Yaffle</span>
+  <span class="c1"># Тут какой-нибудь код...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># yaffle/lib/yaffle/acts_as_yaffle.rb</span>
+
+<span class="k">module</span> <span class="nn">Yaffle</span>
+  <span class="k">module</span> <span class="nn">ActsAsYaffle</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='dobavlenie-metoda-klassa' class='inside_page_header'><a href="#dobavlenie-metoda-klassa">4.1.</a> Добавление метода класса</h4><p>Этот плагин ожидает, что мы добавим в модель метод с именем <code>last_squawk</code>. Однако, у пользователей плагина уже может быть определен метод в модели <code>last_squawk</code>, который они используют для чего-то иного. Этот плагин позволит имени быть измененным, добавив метод класса <code>yaffle_text_field</code>.</p><p>Для начала напишем падающий тест, показывающий нужное нам поведение:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># yaffle/test/acts_as_yaffle_test.rb</span>
+
+<span class="nb">require</span> <span class="s2">"test_helper"</span>
+
+<span class="k">class</span> <span class="nc">ActsAsYaffleTest</span> <span class="o">&lt;</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">TestCase</span>
+  <span class="k">def</span> <span class="nf">test_a_hickwalls_yaffle_text_field_should_be_last_squawk</span>
+    <span class="n">assert_equal</span> <span class="s2">"last_squawk"</span><span class="p">,</span> <span class="no">Hickwall</span><span class="p">.</span><span class="nf">yaffle_text_field</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_a_wickwalls_yaffle_text_field_should_be_last_tweet</span>
+    <span class="n">assert_equal</span> <span class="s2">"last_tweet"</span><span class="p">,</span> <span class="no">Wickwall</span><span class="p">.</span><span class="nf">yaffle_text_field</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>При запуске <code>bin/test</code> вы увидите следующее:</p><div class="code_container">
+  <pre><code class="highlight plaintext"># Running:
+
+..E
+
+Error:
+ActsAsYaffleTest#test_a_wickwalls_yaffle_text_field_should_be_last_tweet:
+NameError: uninitialized constant ActsAsYaffleTest::Wickwall
+
+bin/test /path/to/yaffle/test/acts_as_yaffle_test.rb:8
+
+E
+
+Error:
+ActsAsYaffleTest#test_a_hickwalls_yaffle_text_field_should_be_last_squawk:
+NameError: uninitialized constant ActsAsYaffleTest::Hickwall
+
+
+bin/test /path/to/yaffle/test/acts_as_yaffle_test.rb:4
+
+
+
+Finished in 0.004812s, 831.2949 runs/s, 415.6475 assertions/s.
+
+4 runs, 2 assertions, 0 failures, 2 errors, 0 skips
+</code></pre>
+</div>
+<p>Это сообщает нам об отсутствии необходимых моделей (Hickwall и Wickwall), которые мы пытаемся протестировать. Эти модели можно с легкостью создать в нашем &quot;dummy&quot; приложении Rails, запустив следующие команды в директории <code>test/dummy</code>:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd test</span>/dummy
+<span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate model Hickwall last_squawk:string
+<span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate model Wickwall last_squawk:string last_tweet:string
+</code></pre>
+</div>
+<p>Теперь можно создать необходимые таблицы в вашей тестовой базе данных, перейдя в приложение-заглушку и мигрировав базу данных. Сначала запустите:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd test</span>/dummy
+<span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>db:migrate
+</code></pre>
+</div>
+<p>Пока вы тут, измените модели Hickwall и Wickwall так, чтобы они знали, что они должны действовать как дятлы.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># test/dummy/app/models/hickwall.rb</span>
+
+<span class="k">class</span> <span class="nc">Hickwall</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">acts_as_yaffle</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># test/dummy/app/models/wickwall.rb</span>
+
+<span class="k">class</span> <span class="nc">Wickwall</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">acts_as_yaffle</span> <span class="ss">yaffle_text_field: :last_tweet</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Также добавим код, определяющий метод <code>acts_as_yaffle</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># yaffle/lib/yaffle/acts_as_yaffle.rb</span>
+
+<span class="k">module</span> <span class="nn">Yaffle</span>
+  <span class="k">module</span> <span class="nn">ActsAsYaffle</span>
+    <span class="kp">extend</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Concern</span>
+
+    <span class="n">class_methods</span> <span class="k">do</span>
+      <span class="k">def</span> <span class="nf">acts_as_yaffle</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># test/dummy/app/models/application_record.rb</span>
+
+<span class="k">class</span> <span class="nc">ApplicationRecord</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="kp">include</span> <span class="no">Yaffle</span><span class="o">::</span><span class="no">ActsAsYaffle</span>
+
+  <span class="nb">self</span><span class="p">.</span><span class="nf">abstract_class</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Затем можно вернуться в корневую директорию плагина (<code>cd ../..</code>) и перезапустить тесты с помощью <code>bin/test</code>.</p><div class="code_container">
+  <pre><code class="highlight plaintext"># Running:
+
+.E
+
+Error:
+ActsAsYaffleTest#test_a_hickwalls_yaffle_text_field_should_be_last_squawk:
+NoMethodError: undefined method `yaffle_text_field' for #&lt;Class:0x0055974ebbe9d8&gt;
+
+
+bin/test /path/to/yaffle/test/acts_as_yaffle_test.rb:4
+
+E
+
+Error:
+ActsAsYaffleTest#test_a_wickwalls_yaffle_text_field_should_be_last_tweet:
+NoMethodError: undefined method `yaffle_text_field' for #&lt;Class:0x0055974eb8cfc8&gt;
+
+
+bin/test /path/to/yaffle/test/acts_as_yaffle_test.rb:8
+
+.
+
+Finished in 0.008263s, 484.0999 runs/s, 242.0500 assertions/s.
+
+4 runs, 2 assertions, 0 failures, 2 errors, 0 skips
+</code></pre>
+</div>
+<p>Подбираемся ближе... Теперь мы реализуем код метода <code>acts_as_yaffle</code>, чтобы тесты проходили.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># yaffle/lib/yaffle/acts_as_yaffle.rb</span>
+
+<span class="k">module</span> <span class="nn">Yaffle</span>
+  <span class="k">module</span> <span class="nn">ActsAsYaffle</span>
+    <span class="kp">extend</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Concern</span>
+
+    <span class="n">class_methods</span> <span class="k">do</span>
+      <span class="k">def</span> <span class="nf">acts_as_yaffle</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>
+        <span class="n">cattr_accessor</span> <span class="ss">:yaffle_text_field</span><span class="p">,</span> <span class="ss">default: </span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="ss">:yaffle_text_field</span><span class="p">]</span> <span class="o">||</span> <span class="ss">:last_squawk</span><span class="p">).</span><span class="nf">to_s</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># test/dummy/app/models/application_record.rb</span>
+
+<span class="k">class</span> <span class="nc">ApplicationRecord</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="kp">include</span> <span class="no">Yaffle</span><span class="o">::</span><span class="no">ActsAsYaffle</span>
+
+  <span class="nb">self</span><span class="p">.</span><span class="nf">abstract_class</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Когда запустите <code>bin/test</code>, все тесты должны пройти:</p><div class="code_container">
+  <pre><code class="highlight plaintext">  4 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+</code></pre>
+</div>
+<h4 id='dobavlenie-metoda-ekzemplyara' class='inside_page_header'><a href="#dobavlenie-metoda-ekzemplyara">4.2.</a> Добавление метода экземпляра</h4><p>Этот плагин добавит метод &#39;squawk&#39; в любой объект Active Record, который вызовет <code>acts_as_yaffle</code>. Метод &#39;squawk&#39; просто установит значение одному из полей в базе данных.</p><p>Для начала напишем падающий тест, показывающий желаемое поведение:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># yaffle/test/acts_as_yaffle_test.rb</span>
+<span class="nb">require</span> <span class="s2">"test_helper"</span>
+
+<span class="k">class</span> <span class="nc">ActsAsYaffleTest</span> <span class="o">&lt;</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">TestCase</span>
+  <span class="k">def</span> <span class="nf">test_a_hickwalls_yaffle_text_field_should_be_last_squawk</span>
+    <span class="n">assert_equal</span> <span class="s2">"last_squawk"</span><span class="p">,</span> <span class="no">Hickwall</span><span class="p">.</span><span class="nf">yaffle_text_field</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_a_wickwalls_yaffle_text_field_should_be_last_tweet</span>
+    <span class="n">assert_equal</span> <span class="s2">"last_tweet"</span><span class="p">,</span> <span class="no">Wickwall</span><span class="p">.</span><span class="nf">yaffle_text_field</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_hickwalls_squawk_should_populate_last_squawk</span>
+    <span class="n">hickwall</span> <span class="o">=</span> <span class="no">Hickwall</span><span class="p">.</span><span class="nf">new</span>
+    <span class="n">hickwall</span><span class="p">.</span><span class="nf">squawk</span><span class="p">(</span><span class="s2">"Hello World"</span><span class="p">)</span>
+    <span class="n">assert_equal</span> <span class="s2">"squawk! Hello World"</span><span class="p">,</span> <span class="n">hickwall</span><span class="p">.</span><span class="nf">last_squawk</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_wickwalls_squawk_should_populate_last_tweet</span>
+    <span class="n">wickwall</span> <span class="o">=</span> <span class="no">Wickwall</span><span class="p">.</span><span class="nf">new</span>
+    <span class="n">wickwall</span><span class="p">.</span><span class="nf">squawk</span><span class="p">(</span><span class="s2">"Hello World"</span><span class="p">)</span>
+    <span class="n">assert_equal</span> <span class="s2">"squawk! Hello World"</span><span class="p">,</span> <span class="n">wickwall</span><span class="p">.</span><span class="nf">last_tweet</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Запустите тест, чтобы убедиться, что последние два теста упадут с ошибкой, содержащей &quot;NoMethodError: undefined method `squawk&#39;&quot;, затем обновите <code>acts_as_yaffle.rb</code>, чтобы он выглядел так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># yaffle/lib/yaffle/acts_as_yaffle.rb</span>
+
+<span class="k">module</span> <span class="nn">Yaffle</span>
+  <span class="k">module</span> <span class="nn">ActsAsYaffle</span>
+    <span class="kp">extend</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Concern</span>
+
+    <span class="n">included</span> <span class="k">do</span>
+      <span class="k">def</span> <span class="nf">squawk</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+        <span class="n">write_attribute</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">yaffle_text_field</span><span class="p">,</span> <span class="n">string</span><span class="p">.</span><span class="nf">to_squawk</span><span class="p">)</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="n">class_methods</span> <span class="k">do</span>
+      <span class="k">def</span> <span class="nf">acts_as_yaffle</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>
+        <span class="n">cattr_accessor</span> <span class="ss">:yaffle_text_field</span><span class="p">,</span> <span class="ss">default: </span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="ss">:yaffle_text_field</span><span class="p">]</span> <span class="o">||</span> <span class="ss">:last_squawk</span><span class="p">).</span><span class="nf">to_s</span>
+
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># test/dummy/app/models/application_record.rb</span>
+
+<span class="k">class</span> <span class="nc">ApplicationRecord</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="kp">include</span> <span class="no">Yaffle</span><span class="o">::</span><span class="no">ActsAsYaffle</span>
+
+  <span class="nb">self</span><span class="p">.</span><span class="nf">abstract_class</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Запустите <code>bin/test</code> в последний раз, вы должны увидеть:</p><div class="code_container">
+  <pre><code class="highlight plaintext">  6 runs, 6 assertions, 0 failures, 0 errors, 0 skips
+</code></pre>
+</div>
+<div class="note"><p>Использование <code>write_attribute</code> для записи в поле модели - это всего лишь пример того, как плагин может взаимодействовать с моделью, но не всегда правильный метод для использования. Например, также можно использовать:</p></div><div class="code_container">
+  <pre><code class="highlight ruby"><span class="nb">send</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">yaffle_text_field</span><span class="si">}</span><span class="s2">="</span><span class="p">,</span> <span class="n">string</span><span class="p">.</span><span class="nf">to_squawk</span><span class="p">)</span>
+</code></pre>
+</div>
+<h3 id='generatory' class='inside_page_header'><a href="#generatory">5.</a> Генераторы</h3><p>Генераторы могут быть включены в гем простым добавлением в директорию <code>lib/generators</code> плагина. Подробнее о создании генераторов смотрите в руководстве <a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>.</p><h3 id='publikatsiya-vashego-gema' class='inside_page_header'><a href="#publikatsiya-vashego-gema">6.</a> Публикация вашего гема</h3><p>Плагины в виде гемов, которые в текущий момент в разработке, могут с легкостью быть доступны из любого репозитория Git. Чтобы поделиться гемом Yaffle с другими, просто передайте код в репозиторий Git (такой как GitHub) и добавьте строчку в <code>Gemfile</code> требуемого приложения:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s2">"yaffle"</span><span class="p">,</span> <span class="ss">git: </span><span class="s2">"https://github.com/rails/yaffle.git"</span>
+</code></pre>
+</div>
+<p>После запуска <code>bundle install</code> функциональность гема будет доступна в приложении.</p><p>Когда гем готов к официальному релизу, он может быть опубликован на <a href="https://rubygems.org">RubyGems</a>.</p><p>Альтернативно можно воспользоваться задачами Rake от Bundler. Полный список можно увидеть ниже:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake</span> <span class="nt">-T</span>
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake </span>build
+<span class="gp">#</span><span class="w"> </span>Build yaffle-0.1.0.gem into the pkg directory
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake install</span>
+<span class="gp">#</span><span class="w"> </span>Build and <span class="nb">install </span>yaffle-0.1.0.gem into system gems
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake </span>release
+<span class="gp">#</span><span class="w"> </span>Create tag v0.1.0 and build and push yaffle-0.1.0.gem to Rubygems
+</code></pre>
+</div>
+<p>Подробнее о публикации гемов на RubyGems смотрите: <a href="https://guides.rubygems.org/publishing">Publishing your gem</a></p><h3 id='dokumentatsiya-rdoc' class='inside_page_header'><a href="#dokumentatsiya-rdoc">7.</a> Документация RDoc</h3><p>Как только ваш плагин станет стабильным, и вы будете готовы его разместить, сделайте хорошее дело, документировав его! К счастью, написание документации для вашего плагина - это очень просто.</p><p>Первым шагом является обновление файла README детальной информацией о том, как использовать ваш плагин. Ключевые вещи, которые следует включить, следующие:</p><ul><li>Ваше имя
+</li><li>Как установить
+</li><li>Как добавить функциональность в приложение (несколько примеров обычных ситуаций использования)
+</li><li>Предупреждения, хитрости или подсказки, которые могут помочь пользователям и сохранить их время
+</li></ul><p>Как только README готов, пройдитесь и добавьте комментарии rdoc ко всем методам, которые будут использовать разработчики. Также принято добавить комментарии <code># :nodoc:</code> к тем частям кода, которые не включены в публичный API.</p><p>Как только ваши комментарии закончены, перейдите в директорию плагины и запустите:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake </span>rdoc
+</code></pre>
+</div>
+<h4 id='ssylki' class='inside_page_header'><a href="#ssylki">7.1.</a> Ссылки</h4><ul><li><a href="https://github.com/radar/guides/blob/master/gem-development.md">Developing a RubyGem using Bundler</a>
+</li><li><a href="https://yehudakatz.com/2010/04/02/using-gemspecs-as-intended/">Using .gemspecs as Intended</a>
+</li><li><a href="https://guides.rubygems.org/specification-reference/">Gemspec Reference</a>
+</li></ul>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

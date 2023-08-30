@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Заметки о релизе Ruby on Rails 6.0" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Заметки о релизе Ruby on Rails 6.0" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/6_0_release_notes" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Заметки о релизе Ruby on Rails 6.0
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="58JvvwoKnnZ5ekYIO7QgBPAT2lv5PspF1mKXU2h1tO7zuV4BQejwyWThAFwDeUxPvwExaWRC24M5zSYdFSxbJQ==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#apgreyd-do-rails-6-0">1. Апгрейд до Rails 6.0</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#osnovnye-osobennosti">2. Основные особенности</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#action-mailbox">2.1. Action Mailbox</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#action-text">2.2. Action Text</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#parallelnoe-testirovanie">2.3. Параллельное тестирование</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#testirovanie-action-cable">2.4. Тестирование Action Cable</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#railties">3. Railties</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno">3.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo">3.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya">3.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-cable">4. Action Cable</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno2">4.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo2">4.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya2">4.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-pack">5. Action Pack</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno3">5.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo3">5.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya3">5.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-view">6. Action View</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno4">6.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo4">6.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya4">6.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-mailer">7. Action Mailer</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno5">7.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo5">7.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya5">7.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-record">8. Active Record</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno6">8.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo6">8.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya6">8.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-storage">9. Active Storage</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno7">9.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo7">9.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya7">9.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-model">10. Active Model</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno8">10.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo8">10.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya8">10.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-support">11. Active Support</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno9">11.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo9">11.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya9">11.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-job">12. Active Job</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno10">12.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo10">12.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya10">12.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#rukovodstva-ruby-on-rails">13. Руководства Ruby on Rails</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya11">13.1. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#blagodarnosti">14. Благодарности</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='zametki-o-relize-ruby-on-rails-6-0' class='inside_page_header'> Заметки о релизе Ruby on Rails 6.0</h2><p>Ключевые новинки в Rails 6.0:</p><ul><li>Action Mailbox
+</li><li>Action Text
+</li><li>Параллельное тестирование
+</li><li>Тестирование Action Cable
+</li></ul><p>Эти заметки о релизе покрывают только основные изменения. Чтобы узнать о других обновлениях, различных исправлениях программных ошибок и изменениях, обратитесь к логам изменений или к <a href="https://github.com/rails/rails/commits/6-0-stable">списку коммитов</a> в главном репозитории Rails на GitHub.</p>
+<hr>
+<h3 id='apgreyd-do-rails-6-0' class='inside_page_header'><a href="#apgreyd-do-rails-6-0">1.</a> Апгрейд до Rails 6.0</h3><p>Прежде чем апгрейднуть существующее приложение, было бы хорошо иметь перед этим покрытие тестами. Также, до попытки обновиться до Rails 6.0, необходимо сначала произвести апгрейд до Rails 5.2 и убедиться, что приложение все еще выполняется так, как нужно. Список вещей, которые нужно выполнить для апгрейда доступен в руководстве <a href="/upgrading-ruby-on-rails#upgrading-from-rails-5-2-to-rails-6-0">Апгрейд Ruby on Rails</a>.</p><h3 id='osnovnye-osobennosti' class='inside_page_header'><a href="#osnovnye-osobennosti">2.</a> Основные особенности</h3><h4 id='action-mailbox' class='inside_page_header'><a href="#action-mailbox">2.1.</a> Action Mailbox</h4><p><a href="https://github.com/rails/rails/pull/34786">Pull Request</a></p><p><a href="https://github.com/rails/rails/tree/6-0-stable/actionmailbox">Action Mailbox</a> позволяет направлять входящие письма в подобные контроллерам почтовые ящики. Подробнее об Action Mailbox можно прочитать в руководстве <a href="/action-mailbox-basics">Основы Action Mailbox</a>.</p><h4 id='action-text' class='inside_page_header'><a href="#action-text">2.2.</a> Action Text</h4><p><a href="https://github.com/rails/rails/pull/34873">Pull Request</a></p><p><a href="https://github.com/rails/rails/tree/6-0-stable/actiontext">Action Text</a> добавляет возможность хранения и редактирования обогащенного текста в Rails. Это включает <a href="https://trix-editor.org">редактор Trix</a>, обрабатывающий все от форматирования до ссылок, цитирования, списков, вложенных изображений и галерей. Содержимое обогащенного текста, сгенерированного редактором Trix, сохраняется в собственной модели RichText, которая связывается с существующими моделями Active Record в приложении. Любые встроенные изображения (или другие вложения) автоматически сохраняются с помощью Active Storage и связываются с включающей моделью RichText.</p><p>Подробнее об Action Text можно прочитать в руководстве <a href="/action-text-overview">Обзор Action Text</a>.</p><h4 id='parallelnoe-testirovanie' class='inside_page_header'><a href="#parallelnoe-testirovanie">2.3.</a> Параллельное тестирование</h4><p><a href="https://github.com/rails/rails/pull/31900">Pull Request</a></p><p><a href="/testing#parallel-testing">Параллельное тестирование</a> позволяет распараллелить тестовый набор. Хотя форк процессов является методом по умолчанию, треды также поддерживаются. Запуск тестов параллельно сокращает время, затрачиваемое на запуск всего тестового набора.</p><h4 id='testirovanie-action-cable' class='inside_page_header'><a href="#testirovanie-action-cable">2.4.</a> Тестирование Action Cable</h4><p><a href="https://github.com/rails/rails/pull/33659">Pull Request</a></p><p><a href="/testing#testing-action-cable">Инструменты тестирования Action Cable</a> позволяют тестировать функционал Action Cable на любом уровне: соединения, каналы, трансляции.</p><h3 id='railties' class='inside_page_header'><a href="#railties">3.</a> Railties</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/6-0-stable/railties/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno' class='inside_page_header'><a href="#udaleno">3.1.</a> Удалено</h4><ul><li><p>  Удален устаревший хелпер <code>after_bundle</code> в шаблонах плагинов.
+(<a href="https://github.com/rails/rails/commit/4d51efe24e461a2a3ed562787308484cd48370c7">Commit</a>)</p></li><li><p>  Удалена устаревшая поддержка <code>config.ru</code>, использующая класс приложения в качестве аргумента для <code>run</code>.
+(<a href="https://github.com/rails/rails/commit/553b86fc751c751db504bcbe2d033eb2bb5b6a0b">Commit</a>)</p></li><li><p>  Удален устаревший аргумент <code>environment</code> из команд rails.
+(<a href="https://github.com/rails/rails/commit/e20589c9be09c7272d73492d4b0f7b24e5595571">Commit</a>)</p></li><li><p>  Удален устаревший метод <code>capify!</code> в генераторах и шаблонах.
+(<a href="https://github.com/rails/rails/commit/9d39f81d512e0d16a27e2e864ea2dd0e8dc41b17">Commit</a>)</p></li><li><p>  Удален устаревший <code>config.secret_token</code>.
+(<a href="https://github.com/rails/rails/commit/46ac5fe69a20d4539a15929fe48293e1809a26b0">Commit</a>)</p></li></ul><h4 id='ustarelo' class='inside_page_header'><a href="#ustarelo">3.2.</a> Устарело</h4><ul><li><p>  Устарела передача имени сервера Rack в качестве обычного аргумента в <code>rails server</code>.
+(<a href="https://github.com/rails/rails/pull/32058">Pull Request</a>)</p></li><li><p>  Устарела поддержка использования переменной среды <code>HOST</code> для определения IP сервера.
+(<a href="https://github.com/rails/rails/pull/32540">Pull Request</a>)</p></li><li><p>  Устарел доступ к кэшам, возвращаемым <code>config_for</code>, по не символьным ключам.
+(<a href="https://github.com/rails/rails/pull/35198">Pull Request</a>)</p></li></ul><h4 id='znachimye-izmeneniya' class='inside_page_header'><a href="#znachimye-izmeneniya">3.3.</a> Значимые изменения</h4><ul><li><p>  Добавлена явная опция <code>--using</code> или <code>-u</code> для указания сервера для команды <code>rails server</code>.
+(<a href="https://github.com/rails/rails/pull/32058">Pull Request</a>)</p></li><li><p>  Добавлена возможность увидеть вывод <code>rails routes</code> в расширенном формате.
+(<a href="https://github.com/rails/rails/pull/32130">Pull Request</a>)</p></li><li><p>  Запуск задачи заполнения базы данных с помощью встроенного адаптера Active Job.
+(<a href="https://github.com/rails/rails/pull/34953">Pull Request</a>)</p></li><li><p>  Добавлена команда <code>rails db:system:change</code> для изменения базы данных приложения.
+(<a href="https://github.com/rails/rails/pull/34832">Pull Request</a>)</p></li><li><p>  Добавлена команда <code>rails test:channels</code> для тестирования только каналов Action Cable.
+(<a href="https://github.com/rails/rails/pull/34947">Pull Request</a>)</p></li><li><p>  Представлена защита против атак перепривязывания DNS.
+(<a href="https://github.com/rails/rails/pull/33145">Pull Request</a>)</p></li><li><p>  Добавлена возможность прерваться при неудаче во время запуска команд генератора.
+(<a href="https://github.com/rails/rails/pull/34420">Pull Request</a>)</p></li><li><p>  Webpacker сделан компилятором JavaScript по умолчанию в Rails 6.
+(<a href="https://github.com/rails/rails/pull/33079">Pull Request</a>)</p></li><li><p>  Добавлена поддержка нескольких баз данных для команды <code>rails db:migrate:status</code>.
+(<a href="https://github.com/rails/rails/pull/34137">Pull Request</a>)</p></li><li><p>  Добавлена возможность использования различных путей миграции из нескольких баз данных в генераторах.
+(<a href="https://github.com/rails/rails/pull/34021">Pull Request</a>)</p></li><li><p>  Добавлена поддержка учетных данных для нескольких сред.
+(<a href="https://github.com/rails/rails/pull/33521">Pull Request</a>)</p></li><li><p>  <code>null_store</code> сделан хранилищем кэша по умолчанию в тестовой среде.
+(<a href="https://github.com/rails/rails/pull/33773">Pull Request</a>)</p></li></ul><h3 id='action-cable' class='inside_page_header'><a href="#action-cable">4.</a> Action Cable</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/6-0-stable/actioncable/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno2' class='inside_page_header'><a href="#udaleno2">4.1.</a> Удалено</h4><ul><li>  Заменены <code>ActionCable.startDebugging()</code> и <code>ActionCable.stopDebugging()</code> с помощью <code>ActionCable.logger.enabled</code>.
+(<a href="https://github.com/rails/rails/pull/34370">Pull Request</a>)
+</li></ul><h4 id='ustarelo2' class='inside_page_header'><a href="#ustarelo2">4.2.</a> Устарело</h4><ul><li>  Для Action Cable не было устареваний в Rails 6.0.
+</li></ul><h4 id='znachimye-izmeneniya2' class='inside_page_header'><a href="#znachimye-izmeneniya2">4.3.</a> Значимые изменения</h4><ul><li><p>  Добавлена поддержка опции <code>channel_prefix</code> для адаптеров подписки PostgreSQL в <code>cable.yml</code>.
+(<a href="https://github.com/rails/rails/pull/35276">Pull Request</a>)</p></li><li><p>  Разрешена передача произвольной конфигурации в <code>ActionCable::Server::Base</code>.
+(<a href="https://github.com/rails/rails/pull/34714">Pull Request</a>)</p></li><li><p>  Добавлены хуки загрузки <code>:action_cable_connection</code> и <code>:action_cable_channel</code>.
+(<a href="https://github.com/rails/rails/pull/35094">Pull Request</a>)</p></li><li><p>  Добавлены <code>Channel::Base#broadcast_to</code> и <code>Channel::Base.broadcasting_for</code>.
+(<a href="https://github.com/rails/rails/pull/35021">Pull Request</a>)</p></li><li><p>  Закрытие соединения при вызове <code>reject_unauthorized_connection</code> из <code>ActionCable::Connection</code>.
+(<a href="https://github.com/rails/rails/pull/34194">Pull Request</a>)</p></li><li><p>  Пакет Action Cable JavaScript преобразован из CoffeeScript в ES2015, и его исходники опубликованы в npm.
+(<a href="https://github.com/rails/rails/pull/34370">Pull Request</a>)</p></li><li><p>  Конфигурация адаптера WebSocket и адаптера logger перемещена из свойств <code>ActionCable</code> в <code>ActionCable.adapters</code>.
+(<a href="https://github.com/rails/rails/pull/34370">Pull Request</a>)</p></li><li><p>  Добавлена опция <code>id</code> в адаптере Redis для различения Redis-соединений Action Cable.
+(<a href="https://github.com/rails/rails/pull/33798">Pull Request</a>)</p></li></ul><h3 id='action-pack' class='inside_page_header'><a href="#action-pack">5.</a> Action Pack</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/6-0-stable/actionpack/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno3' class='inside_page_header'><a href="#udaleno3">5.1.</a> Удалено</h4><ul><li><p>  Удален устаревший хелпер <code>fragment_cache_key</code> в пользу <code>combined_fragment_cache_key</code>.
+(<a href="https://github.com/rails/rails/commit/e70d3df7c9b05c129b0fdcca57f66eca316c5cfc">Commit</a>)</p></li><li><p>  Удалены устаревшие методы в <code>ActionDispatch::TestResponse</code>: <code>#success?</code> в пользу <code>#successful?</code>, <code>#missing?</code> в пользу <code>#not_found?</code>, <code>#error?</code> в пользу <code>#server_error?</code>.
+(<a href="https://github.com/rails/rails/commit/13ddc92e079e59a0b894e31bf5bb4fdecbd235d1">Commit</a>)</p></li></ul><h4 id='ustarelo3' class='inside_page_header'><a href="#ustarelo3">5.2.</a> Устарело</h4><ul><li><p>  Устарел <code>ActionDispatch::Http::ParameterFilter</code> в пользу <code>ActiveSupport::ParameterFilter</code>.
+(<a href="https://github.com/rails/rails/pull/34039">Pull Request</a>)</p></li><li><p>  Устарел <code>force_ssl</code> на уровне контроллера в пользу <code>config.force_ssl</code>.
+(<a href="https://github.com/rails/rails/pull/32277">Pull Request</a>)</p></li></ul><h4 id='znachimye-izmeneniya3' class='inside_page_header'><a href="#znachimye-izmeneniya3">5.3.</a> Значимые изменения</h4><ul><li><p>  Изменен <code>ActionDispatch::Response#content_type</code>. возвращающий заголовок Content-Type как есть.
+(<a href="https://github.com/rails/rails/pull/36034">Pull Request</a>)</p></li><li><p>  Вызывается <code>ArgumentError</code>, если параметр ресурса содержит двоеточие.
+(<a href="https://github.com/rails/rails/pull/35236">Pull Request</a>)</p></li><li><p>  Разрешено вызывать <code>ActionDispatch::SystemTestCase.driven_by</code> с блоком для определения специфичных возможностей браузера.
+(<a href="https://github.com/rails/rails/pull/35081">Pull Request</a>)</p></li><li><p>  Добавлена промежуточная программа <code>ActionDispatch::HostAuthorization</code>, защищающая от атак перепривязывания DNS.
+(<a href="https://github.com/rails/rails/pull/33145">Pull Request</a>)</p></li><li><p>  Разрешено использование <code>parsed_body</code> в <code>ActionController::TestCase</code>.
+(<a href="https://github.com/rails/rails/pull/34717">Pull Request</a>)</p></li><li><p>  Вызывается <code>ArgumentError</code>, когда существуют несколько корневых маршрутов в том же контексте без использования указаний именования <code>as:</code>.
+(<a href="https://github.com/rails/rails/pull/34494">Pull Request</a>)</p></li><li><p>  Разрешено использование <code>#rescue_from</code> для обработки ошибок парсинга параметра.
+(<a href="https://github.com/rails/rails/pull/34341">Pull Request</a>)</p></li><li><p>  Добавлен <code>ActionController::Parameters#each_value</code> для перебора параметров.
+(<a href="https://github.com/rails/rails/pull/33979">Pull Request</a>)</p></li><li><p>  Имена файлов кодируются в Content-Disposition при <code>send_data</code> и <code>send_file</code>.
+(<a href="https://github.com/rails/rails/pull/33829">Pull Request</a>)</p></li><li><p>  Раскрыт <code>ActionController::Parameters#each_key</code>.
+(<a href="https://github.com/rails/rails/pull/33758">Pull Request</a>)</p></li><li><p>  Добавлены метаданные назначения и прекращения внутри подписанных/зашифрованных куки для предотвращения копирования значения из одного в другое куки.
+(<a href="https://github.com/rails/rails/pull/32937">Pull Request</a>)</p></li><li><p>  Вызывается <code>ActionController::RespondToMismatchError</code> для конфликтующих вызовов <code>respond_to</code>.
+(<a href="https://github.com/rails/rails/pull/33446">Pull Request</a>)</p></li><li><p>  Добавлена явная страница ошибки когда отсутствует шаблон для формата запроса.
+(<a href="https://github.com/rails/rails/pull/29286">Pull Request</a>)</p></li><li><p>  Представлен <code>ActionDispatch::DebugExceptions.register_interceptor</code>, способ вклиниться в DebugExceptions и обработать исключение, перед тем, как оно будет отрендерено.
+(<a href="https://github.com/rails/rails/pull/23868">Pull Request</a>)</p></li><li><p>  Выводится только один заголовок Content-Security-Policy на запрос.
+(<a href="https://github.com/rails/rails/pull/32602">Pull Request</a>)</p></li><li><p>  Добавлен модуль, специальный для конфигурации Rails для заголовков по умолчанию, который может быть явно включен в контроллерах.
+(<a href="https://github.com/rails/rails/pull/32484">Pull Request</a>)</p></li><li><p>  Добавлен <code>#dig</code> в <code>ActionDispatch::Request::Session</code>.
+(<a href="https://github.com/rails/rails/pull/32446">Pull Request</a>)</p></li></ul><h3 id='action-view' class='inside_page_header'><a href="#action-view">6.</a> Action View</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/6-0-stable/actionview/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno4' class='inside_page_header'><a href="#udaleno4">6.1.</a> Удалено</h4><ul><li><p>  Удален устаревший хелпер <code>image_alt</code>.
+(<a href="https://github.com/rails/rails/commit/60c8a03c8d1e45e48fcb1055ba4c49ed3d5ff78f">Commit</a>)</p></li><li><p>  Убран пустой модуль <code>RecordTagHelper</code>, функционал которого уже был перенесен в гем <code>record_tag_helper</code>.
+(<a href="https://github.com/rails/rails/commit/5c5ddd69b1e06fb6b2bcbb021e9b8dae17e7cb31">Commit</a>)</p></li></ul><h4 id='ustarelo4' class='inside_page_header'><a href="#ustarelo4">6.2.</a> Устарело</h4><ul><li><p>  Устарел <code>ActionView::Template.finalize_compiled_template_methods</code> без замены.
+(<a href="https://github.com/rails/rails/pull/35036">Pull Request</a>)</p></li><li><p>  Устарел <code>config.action_view.finalize_compiled_template_methods</code> без замены.
+(<a href="https://github.com/rails/rails/pull/35036">Pull Request</a>)</p></li><li><p>  Устарел вызов приватных методов модели из хелпера вью <code>options_from_collection_for_select</code>.
+(<a href="https://github.com/rails/rails/pull/33547">Pull Request</a>)</p></li></ul><h4 id='znachimye-izmeneniya4' class='inside_page_header'><a href="#znachimye-izmeneniya4">6.3.</a> Значимые изменения</h4><ul><li><p>  Кэш Action View очищается в разработке только при изменении файла, что ускоряет режим разработки.
+(<a href="https://github.com/rails/rails/pull/35629">Pull Request</a>)</p></li><li><p>  Все npm-пакеты Rails перемещены в пространстве имен <code>@rails</code>.
+(<a href="https://github.com/rails/rails/pull/34905">Pull Request</a>)</p></li><li><p>  Принимаются только форматы из зарегистрированных типов MIME.
+(<a href="https://github.com/rails/rails/pull/35604">Pull Request</a>, <a href="https://github.com/rails/rails/pull/35753">Pull Request</a>)</p></li><li><p>  В вывод сервера о рендере шаблона и партиала добавлены allocations.
+(<a href="https://github.com/rails/rails/pull/34136">Pull Request</a>)</p></li><li><p>  В тег <code>date_select</code> добавлена опция <code>year_format</code>, позволяющая настроить имена годов.
+(<a href="https://github.com/rails/rails/pull/32190">Pull Request</a>)</p></li><li><p>  Для хелпера <code>javascript_include_tag</code> добавлена опция <code>nonce: true</code> для поддержки автоматической генерации nonce для Политики безопасности контента.
+(<a href="https://github.com/rails/rails/pull/32607">Pull Request</a>)</p></li><li><p>  Добавлена конфигурация <code>action_view.finalize_compiled_template_methods</code>, чтобы включить или отключить финализаторы <code>ActionView::Template</code>.
+(<a href="https://github.com/rails/rails/pull/32418">Pull Request</a>)</p></li><li><p>  Вызов JavaScript <code>confirm</code> извлечен в собственный переопределяемый метод в <code>rails_ujs</code>.
+(<a href="https://github.com/rails/rails/pull/32404">Pull Request</a>)</p></li><li><p>  Добавлена конфигурационная опция <code>action_controller.default_enforce_utf8</code> для управления принуждением кодировки UTF-8. По умолчанию <code>false</code>.
+(<a href="https://github.com/rails/rails/pull/32125">Pull Request</a>)</p></li><li><p>  Добавлена поддержка ключей локалей I18n для тегов submit.
+(<a href="https://github.com/rails/rails/pull/26799">Pull Request</a>)</p></li></ul><h3 id='action-mailer' class='inside_page_header'><a href="#action-mailer">7.</a> Action Mailer</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/6-0-stable/actionmailer/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno5' class='inside_page_header'><a href="#udaleno5">7.1.</a> Удалено</h4><h4 id='ustarelo5' class='inside_page_header'><a href="#ustarelo5">7.2.</a> Устарело</h4><ul><li><p>  Устарел <code>ActionMailer::Base.receive</code> в пользу Action Mailbox.
+(<a href="https://github.com/rails/rails/commit/e3f832a7433a291a51c5df397dc3dd654c1858cb">Commit</a>)</p></li><li><p>  Устарели <code>DeliveryJob</code> и <code>Parameterized::DeliveryJob</code> в пользу <code>MailDeliveryJob</code>.
+(<a href="https://github.com/rails/rails/pull/34591">Pull Request</a>)</p></li></ul><h4 id='znachimye-izmeneniya5' class='inside_page_header'><a href="#znachimye-izmeneniya5">7.3.</a> Значимые изменения</h4><ul><li><p>  Добавлен <code>MailDeliveryJob</code> для отправки и обычных, и параметризованных писем.
+(<a href="https://github.com/rails/rails/pull/34591">Pull Request</a>)</p></li><li><p>  Позволена работа произвольных заданий доставки с тестовыми утверждениями Action Mailer.
+(<a href="https://github.com/rails/rails/pull/34339">Pull Request</a>)</p></li><li><p>  Позволено указание имени шаблона для multipart писем с блоками вместо просто имени экшна.
+(<a href="https://github.com/rails/rails/pull/22534">Pull Request</a>)</p></li><li><p>  В полезную нагрузку уведомления <code>deliver.action_mailer</code> добавлены <code>perform_deliveries</code>.
+(<a href="https://github.com/rails/rails/pull/33824">Pull Request</a>)</p></li><li><p>  Улучшено сообщение лога, когда <code>perform_deliveries</code> является false, чтобы указать, что отправка письма была пропущена.
+(<a href="https://github.com/rails/rails/pull/33824">Pull Request</a>)</p></li><li><p>  Позволен вызов <code>assert_enqueued_email_with</code> без блока.
+(<a href="https://github.com/rails/rails/pull/33258">Pull Request</a>)</p></li><li><p>  Выполняются задания доставки писем из очереди в блоке <code>assert_emails</code>.
+(<a href="https://github.com/rails/rails/pull/32231">Pull Request</a>)</p></li><li><p>  <code>ActionMailer::Base</code> позволено отменять регистрацию обсерверов и перехватчиков.
+(<a href="https://github.com/rails/rails/pull/32207">Pull Request</a>)</p></li></ul><h3 id='active-record' class='inside_page_header'><a href="#active-record">8.</a> Active Record</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/6-0-stable/activerecord/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno6' class='inside_page_header'><a href="#udaleno6">8.1.</a> Удалено</h4><ul><li><p>  Убран устаревший <code>#set_state</code> из объекта транзакции.
+(<a href="https://github.com/rails/rails/commit/6c745b0c5152a4437163a67707e02f4464493983">Commit</a>)</p></li><li><p>  Убран устаревший <code>#supports_statement_cache?</code> из адаптеров базы данных.
+(<a href="https://github.com/rails/rails/commit/5f3ed8784383fb4eb0f9959f31a9c28a991b7553">Commit</a>)</p></li><li><p>  Убран устаревший <code>#insert_fixtures</code> из адаптеров базы данных.
+(<a href="https://github.com/rails/rails/commit/400ba786e1d154448235f5f90183e48a1043eece">Commit</a>)</p></li><li><p>  Убран устаревший <code>ActiveRecord::ConnectionAdapters::SQLite3Adapter#valid_alter_table_type?</code>.
+(<a href="https://github.com/rails/rails/commit/45b4d5f81f0c0ca72c18d0dea4a3a7b2ecc589bf">Commit</a>)</p></li><li><p>  Убрана поддержка передачи имени столбца в <code>sum</code>, когда передан блок.
+(<a href="https://github.com/rails/rails/commit/91ddb30083430622188d76eb9f29b78131df67f9">Commit</a>)</p></li><li><p>  Убрана поддержка передачи имени столбца в <code>count</code>, когда передан блок.
+(<a href="https://github.com/rails/rails/commit/67356f2034ab41305af7218f7c8b2fee2d614129">Commit</a>)</p></li><li><p>  Убрана поддержка делегации отсутствующих методов в relation к Arel.
+(<a href="https://github.com/rails/rails/commit/d97980a16d76ad190042b4d8578109714e9c53d0">Commit</a>)</p></li><li><p>  Убрана поддержка делегации отсутствующих методов в relation к приватным методам класса.
+(<a href="https://github.com/rails/rails/commit/a7becf147afc85c354e5cfa519911a948d25fc4d">Commit</a>)</p></li><li><p>  Убрана поддержка указания имени временной метки для <code>#cache_key</code>.
+(<a href="https://github.com/rails/rails/commit/0bef23e630f62e38f20b5ae1d1d5dbfb087050ea">Commit</a>)</p></li><li><p>  Убран устаревший <code>ActiveRecord::Migrator.migrations_path=</code>.
+(<a href="https://github.com/rails/rails/commit/90d7842186591cae364fab3320b524e4d31a7d7d">Commit</a>)</p></li><li><p>  Убран устаревший <code>expand_hash_conditions_for_aggregates</code>.
+(<a href="https://github.com/rails/rails/commit/27b252d6a85e300c7236d034d55ec8e44f57a83e">Commit</a>)</p></li></ul><h4 id='ustarelo6' class='inside_page_header'><a href="#ustarelo6">8.2.</a> Устарело</h4><ul><li><p>  Устарели сопоставительные сравнения с несоответствующей чувствительностью к регистру для валидатора уникальности.
+(<a href="https://github.com/rails/rails/commit/9def05385f1cfa41924bb93daa187615e88c95b9">Commit</a>)</p></li><li><p>  Устарело использование запрашивающих методов, если получающий скоуп утек.
+(<a href="https://github.com/rails/rails/pull/35280">Pull Request</a>)</p></li><li><p>  Устарел <code>config.active_record.sqlite3.represent_boolean_as_integer</code>.
+(<a href="https://github.com/rails/rails/commit/f59b08119bc0c01a00561d38279b124abc82561b">Commit</a>)</p></li><li><p>  Устарела передача <code>migrations_paths</code> в <code>connection.assume_migrated_upto_version</code>.
+(<a href="https://github.com/rails/rails/commit/c1b14aded27e063ead32fa911aa53163d7cfc21a">Commit</a>)</p></li><li><p>  Устарел <code>ActiveRecord::Result#to_hash</code> в пользу <code>ActiveRecord::Result#to_a</code>.
+(<a href="https://github.com/rails/rails/commit/16510d609c601aa7d466809f3073ec3313e08937">Commit</a>)</p></li><li><p>  Устарели методы в <code>DatabaseLimits</code>: <code>column_name_length</code>, <code>table_name_length</code>,
+<code>columns_per_table</code>, <code>indexes_per_table</code>, <code>columns_per_multicolumn_index</code>,
+<code>sql_query_length</code> и <code>joins_per_query</code>.
+(<a href="https://github.com/rails/rails/commit/e0a1235f7df0fa193c7e299a5adee88db246b44f">Commit</a>)</p></li><li><p>  Устарел <code>update_attributes</code>/<code>!</code> в пользу <code>update</code>/<code>!</code>.
+(<a href="https://github.com/rails/rails/commit/5645149d3a27054450bd1130ff5715504638a5f5">Commit</a>)</p></li></ul><h4 id='znachimye-izmeneniya6' class='inside_page_header'><a href="#znachimye-izmeneniya6">8.3.</a> Значимые изменения</h4><ul><li><p>  Установлена минимальная версия гема <code>sqlite3</code> 1.4.
+(<a href="https://github.com/rails/rails/pull/35844">Pull Request</a>)</p></li><li><p>  Добавлена <code>rails db:prepare</code>, чтобы создать базу данных, если она не существует, и запустить ее миграции.
+(<a href="https://github.com/rails/rails/pull/35768">Pull Request</a>)</p></li><li><p>  Добавлен колбэк <code>after_save_commit</code> в качестве сокращения для <code>after_commit :hook, on: [ :create, :update ]</code>.
+(<a href="https://github.com/rails/rails/pull/35804">Pull Request</a>)</p></li><li><p>  Добавлен <code>ActiveRecord::Relation#extract_associated</code> для извлечения связанных записей из relation.
+(<a href="https://github.com/rails/rails/pull/35784">Pull Request</a>)</p></li><li><p>  Добавлен <code>ActiveRecord::Relation#annotate</code> для добавления комментариев SQL в запросы ActiveRecord::Relation.
+(<a href="https://github.com/rails/rails/pull/35617">Pull Request</a>)</p></li><li><p>  Добавлена поддержка для настройки Optimizer Hints на базах данных.
+(<a href="https://github.com/rails/rails/pull/35615">Pull Request</a>)</p></li><li><p>  Добавлены методы <code>insert_all</code>/<code>insert_all!</code>/<code>upsert_all</code> для выполнения массовых вставок.
+(<a href="https://github.com/rails/rails/pull/35631">Pull Request</a>)</p></li><li><p>  Добавлена <code>rails db:seed:replant</code>, которая очищает таблицы каждой базы данных для текущего окружения и загружает сиды.
+(<a href="https://github.com/rails/rails/pull/34779">Pull Request</a>)</p></li><li><p>  Добавлен метод <code>reselect</code>, являющийся сокращением для <code>unscope(:select).select(fields)</code>.
+(<a href="https://github.com/rails/rails/pull/33611">Pull Request</a>)</p></li><li><p>  Добавлены отрицающие скоупы для всех значений enum.
+(<a href="https://github.com/rails/rails/pull/35381">Pull Request</a>)</p></li><li><p>  Добавлены <code>#destroy_by</code> и <code>#delete_by</code> для условных удалений.
+(<a href="https://github.com/rails/rails/pull/35316">Pull Request</a>)</p></li><li><p>  Добавлена возможность автоматически переключать соединения с базой данной.
+(<a href="https://github.com/rails/rails/pull/35073">Pull Request</a>)</p></li><li><p>  Добавлена возможность предотвращать записи в базу данных на протяжении блока.
+(<a href="https://github.com/rails/rails/pull/34505">Pull Request</a>)</p></li><li><p>  Добавлен API для переключения соединений для поддержки нескольких баз данных.
+(<a href="https://github.com/rails/rails/pull/34052">Pull Request</a>)</p></li><li><p>  Временные метки с точностью сделаны по умолчанию в миграциях.
+(<a href="https://github.com/rails/rails/pull/34970">Pull Request</a>)</p></li><li><p>  Поддерживается опция <code>:size</code> для изменения размера текста и бинарного объекта в MySQL.
+(<a href="https://github.com/rails/rails/pull/35071">Pull Request</a>)</p></li><li><p>  Столбцы внешнего ключа и внешнего типа устанавливаются NULL для полиморфных связей при стратегии <code>dependent: :nullify</code>.
+(<a href="https://github.com/rails/rails/pull/28078">Pull Request</a>)</p></li><li><p>  Разрешенному экземпляру <code>ActionController::Parameters</code> разрешается быть переданным в качестве аргумента в <code>ActiveRecord::Relation#exists?</code>.
+(<a href="https://github.com/rails/rails/pull/34891">Pull Request</a>)</p></li><li><p>  В <code>#where</code> добавлена поддержка бесконечных диапазонов, представленных в Ruby 2.6.
+(<a href="https://github.com/rails/rails/pull/34906">Pull Request</a>)</p></li><li><p>  <code>ROW_FORMAT=DYNAMIC</code> сделан опцией создания таблиц по умолчанию для MySQL.
+(<a href="https://github.com/rails/rails/pull/34742">Pull Request</a>)</p></li><li><p>  Добавлена возможность отключить скоупы, генерируемые <code>ActiveRecord.enum</code>.
+(<a href="https://github.com/rails/rails/pull/34605">Pull Request</a>)</p></li><li><p>  Неявное упорядочивание для столбца сделано настраиваемым.
+(<a href="https://github.com/rails/rails/pull/34480">Pull Request</a>)</p></li><li><p>  Установлена минимальная версия PostgreSQL как 9.3, отброшена поддержка для 9.1 и 9.2.
+(<a href="https://github.com/rails/rails/pull/34520">Pull Request</a>)</p></li><li><p>  Значения перечисления сделаны замороженными, вызывая ошибку при попытке их изменить.
+(<a href="https://github.com/rails/rails/pull/34517">Pull Request</a>)</p></li><li><p>  SQL ошибок <code>ActiveRecord::StatementInvalid</code> сделан свойством ошибки, и подстановки в SQL отдельным свойством ошибки.
+(<a href="https://github.com/rails/rails/pull/34468">Pull Request</a>)</p></li><li><p>  В <code>create_table</code> добавлена опция <code>:if_not_exists</code>.
+(<a href="https://github.com/rails/rails/pull/31382">Pull Request</a>)</p></li><li><p>  Добавлена поддержка нескольких баз данных в <code>rails db:schema:cache:dump</code> и <code>rails db:schema:cache:clear</code>.
+(<a href="https://github.com/rails/rails/pull/34181">Pull Request</a>)</p></li><li><p>  Добавлена поддержка хэшей и конфигов url в хэше базы данных <code>ActiveRecord::Base.connected_to</code>.
+(<a href="https://github.com/rails/rails/pull/34196">Pull Request</a>)</p></li><li><p>  Добавлена поддержка для выражений по умолчанию и индексов выражений для MySQL.
+(<a href="https://github.com/rails/rails/pull/34307">Pull Request</a>)</p></li><li><p>  Добавлена опция <code>index</code> для хелперов миграции <code>change_table</code>.
+(<a href="https://github.com/rails/rails/pull/23593">Pull Request</a>)</p></li><li><p>  Починен откат <code>transaction</code> для миграций. Ранее команды внутри <code>transaction</code> в откатываемой миграции запускались не в обратном порядке. Изменение чинит это.
+(<a href="https://github.com/rails/rails/pull/31604">Pull Request</a>)</p></li><li><p>  Разрешено настраивать <code>ActiveRecord::Base.configurations=</code> с помощью символьного хэша.
+(<a href="https://github.com/rails/rails/pull/33968">Pull Request</a>)</p></li><li><p>  Починен кэш счетчика, чтобы он обновлялся, только когда запись фактически сохраняется.
+(<a href="https://github.com/rails/rails/pull/33913">Pull Request</a>)</p></li><li><p>  Добавлена поддержка индексов выражений для адаптера SQLite.
+(<a href="https://github.com/rails/rails/pull/33874">Pull Request</a>)</p></li><li><p>  Подклассам разрешено переопределять колбэки автоматического сохранения для связанных записей.
+(<a href="https://github.com/rails/rails/pull/33378">Pull Request</a>)</p></li><li><p>  Установлена минимальная версия MySQL как 5.5.8.
+(<a href="https://github.com/rails/rails/pull/33853">Pull Request</a>)</p></li><li><p>  В MySQL используется кодировка по умолчанию utf8mb4.
+(<a href="https://github.com/rails/rails/pull/33608">Pull Request</a>)</p></li><li><p>  Добавлена возможность фильтровать чувствительные данные в <code>#inspect</code>
+(<a href="https://github.com/rails/rails/pull/33756">Pull Request</a>, <a href="https://github.com/rails/rails/pull/34208">Pull Request</a>)</p></li><li><p>  Изменен <code>ActiveRecord::Base.configurations</code>, чтобы возвращать объект вместо хэша.
+(<a href="https://github.com/rails/rails/pull/33637">Pull Request</a>)</p></li><li><p>  Добавлена настройка базы данных, чтобы отключать рекомендательные блокировки.
+(<a href="https://github.com/rails/rails/pull/33691">Pull Request</a>)</p></li><li><p>  Обновлен метод адаптера SQLite3 <code>alter_table</code>, чтобы восстанавливались внешние ключи.
+(<a href="https://github.com/rails/rails/pull/33585">Pull Request</a>)</p></li><li><p>  Опции <code>:to_table</code> метода <code>remove_foreign_key</code> разрешено быть откатанной.
+(<a href="https://github.com/rails/rails/pull/33530">Pull Request</a>)</p></li><li><p>  Починено значение по умолчанию для типов времени MySQL с указанной точностью.
+(<a href="https://github.com/rails/rails/pull/33280">Pull Request</a>)</p></li><li><p>  Починена опция <code>touch</code>, чтобы вести себя в соответствии с методом <code>Persistence#touch</code>.
+(<a href="https://github.com/rails/rails/pull/33107">Pull Request</a>)</p></li><li><p>  Вызывается исключение для определений дубликата столбца в миграциях.
+(<a href="https://github.com/rails/rails/pull/33029">Pull Request</a>)</p></li><li><p>  Установлена минимальная версия SQLite как 3.8.
+(<a href="https://github.com/rails/rails/pull/32923">Pull Request</a>)</p></li><li><p>  Починено, что родительские записи не сохранялись с дубликатами дочерних записей.
+(<a href="https://github.com/rails/rails/pull/32952">Pull Request</a>)</p></li><li><p>  Гарантируется, что <code>Associations::CollectionAssociation#size</code> и <code>Associations::CollectionAssociation#empty?</code> используют загруженные связи, если они присутствуют.
+(<a href="https://github.com/rails/rails/pull/32617">Pull Request</a>)</p></li><li><p>  Добавлена поддержка предварительной загрузки полиморфных связей, когда не у всех записей имеются требуемые связи.
+(<a href="https://github.com/rails/rails/commit/75ef18c67c29b1b51314b6c8a963cee53394080b">Commit</a>)</p></li><li><p>  В <code>ActiveRecord::Relation</code> добавлен метод <code>touch_all</code>.
+(<a href="https://github.com/rails/rails/pull/31513">Pull Request</a>)</p></li><li><p>  Добавлен предикат <code>ActiveRecord::Base.base_class?</code>.
+(<a href="https://github.com/rails/rails/pull/32417">Pull Request</a>)</p></li><li><p>  Добавлены опции пользовательского префикса/суффикса в <code>ActiveRecord::Store.store_accessor</code>.
+(<a href="https://github.com/rails/rails/pull/32306">Pull Request</a>)</p></li><li><p>  Добавлены <code>ActiveRecord::Base.create_or_find_by</code>/<code>!</code>, чтобы разобраться с SELECT/INSERT состоянием гонки в    <code>ActiveRecord::Base.find_or_create_by</code>/<code>!</code> на основе ограничений уникальности в базе данных.
+(<a href="https://github.com/rails/rails/pull/31989">Pull Request</a>)</p></li><li><p>  Добавлен <code>Relation#pick</code> в качестве сокращения для pluck одиночного значения.
+(<a href="https://github.com/rails/rails/pull/31941">Pull Request</a>)</p></li></ul><h3 id='active-storage' class='inside_page_header'><a href="#active-storage">9.</a> Active Storage</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/6-0-stable/activestorage/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno7' class='inside_page_header'><a href="#udaleno7">9.1.</a> Удалено</h4><h4 id='ustarelo7' class='inside_page_header'><a href="#ustarelo7">9.2.</a> Устарело</h4><ul><li><p>  Устарел  <code>config.active_storage.queue</code> в пользу <code>config.active_storage.queues.analysis</code> и <code>config.active_storage.queues.purge</code>.
+(<a href="https://github.com/rails/rails/pull/34838">Pull Request</a>)</p></li><li><p>  Устарел <code>ActiveStorage::Downloading</code> в пользу <code>ActiveStorage::Blob#open</code>.
+(<a href="https://github.com/rails/rails/commit/ee21b7c2eb64def8f00887a9fafbd77b85f464f1">Commit</a>)</p></li><li><p>  Устарело непосредственное использование <code>mini_magick</code> для генерации вариантов изображения в пользу <code>image_processing</code>.
+(<a href="https://github.com/rails/rails/commit/697f4a93ad386f9fb7795f0ba68f815f16ebad0f">Commit</a>)</p></li><li><p>  Устарела <code>:combine_options</code> в преобразователе ImageProcessing в Active Storage без замены.
+(<a href="https://github.com/rails/rails/commit/697f4a93ad386f9fb7795f0ba68f815f16ebad0f">Commit</a>)</p></li></ul><h4 id='znachimye-izmeneniya7' class='inside_page_header'><a href="#znachimye-izmeneniya7">9.3.</a> Значимые изменения</h4><ul><li><p>  Добавлена поддержка для генерации вариантов изображения BMP.
+(<a href="https://github.com/rails/rails/pull/36051">Pull Request</a>)</p></li><li><p>  Добавлена поддержка для генерации вариантов изображения TIFF.
+(<a href="https://github.com/rails/rails/pull/34824">Pull Request</a>)</p></li><li><p>  Добавлена поддержка для генерации вариантов изображения прогрессивного JPEG.
+(<a href="https://github.com/rails/rails/pull/34455">Pull Request</a>)</p></li><li><p>  Добавлен <code>ActiveStorage.routes_prefix</code> для настройки генерируемых маршрутов Active Storage.
+(<a href="https://github.com/rails/rails/pull/33883">Pull Request</a>)</p></li><li><p>  В <code>ActiveStorage::DiskController#show</code> генерируется отклик 404 Not Found, когда запрашиваемый файл отсутствует на дисковом сервисе.
+(<a href="https://github.com/rails/rails/pull/33666">Pull Request</a>)</p></li><li><p>  Для <code>ActiveStorage::Blob#download</code> и <code>ActiveStorage::Blob#open</code> вызывается <code>ActiveStorage::FileNotFoundError</code>, когда запрашиваемый файл отсутствует.
+(<a href="https://github.com/rails/rails/pull/33666">Pull Request</a>)</p></li><li><p>  Добавлен общий класс <code>ActiveStorage::Error</code>, от которого наследуются исключения Active Storage.
+(<a href="https://github.com/rails/rails/commit/18425b837149bc0d50f8d5349e1091a623762d6b">Commit</a>)</p></li><li><p>  Файлы модели, предназначенные для хранения, сохраняются, когда сохраняется модель, а не немедленно.
+(<a href="https://github.com/rails/rails/pull/33303">Pull Request</a>)</p></li><li><p>  Существующие изображения опционально заменяются вместо добавления к ним при присвоении к коллекции вложений (как в <code>@user.update!(images: [ … ])</code>). Используйте <code>config.active_storage.replace_on_assign_to_many</code> для контроля этого поведения.
+(<a href="https://github.com/rails/rails/pull/33303">Pull Request</a>,
+ <a href="https://github.com/rails/rails/pull/36716">Pull Request</a>)</p></li><li><p>  Добавлена способность отражать на определенных вложениях с помощью существующего механизма отражения Active Record.
+(<a href="https://github.com/rails/rails/pull/33018">Pull Request</a>)</p></li><li><p>  Добавлен <code>ActiveStorage::Blob#open</code>, который загружает бинарный объект во временный файл на диске, и передает этот временный файл.
+(<a href="https://github.com/rails/rails/commit/ee21b7c2eb64def8f00887a9fafbd77b85f464f1">Commit</a>)</p></li><li><p>  Поддержка потоковых загрузок из Google Cloud Storage. Требуется версия 1.11+ гема <code>google-cloud-storage</code>.
+(<a href="https://github.com/rails/rails/pull/32788">Pull Request</a>)</p></li><li><p>  Использован гем <code>image_processing</code> для вариантов Active Storage. Это заменяет непосредственное использование <code>mini_magick</code>.
+(<a href="https://github.com/rails/rails/pull/32471">Pull Request</a>)</p></li></ul><h3 id='active-model' class='inside_page_header'><a href="#active-model">10.</a> Active Model</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/6-0-stable/activemodel/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno8' class='inside_page_header'><a href="#udaleno8">10.1.</a> Удалено</h4><h4 id='ustarelo8' class='inside_page_header'><a href="#ustarelo8">10.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya8' class='inside_page_header'><a href="#znachimye-izmeneniya8">10.3.</a> Значимые изменения</h4><ul><li><p>  Добавлена конфигурационная опция для настройки формата <code>ActiveModel::Errors#full_message</code>.
+(<a href="https://github.com/rails/rails/pull/32956">Pull Request</a>)</p></li><li><p>  Добавлена поддержка настройки имени атрибута для <code>has_secure_password</code>.
+(<a href="https://github.com/rails/rails/pull/26764">Pull Request</a>)</p></li><li><p>  В <code>ActiveModel::Errors</code> добавлен метод <code>#slice!</code>.
+(<a href="https://github.com/rails/rails/pull/34489">Pull Request</a>)</p></li><li><p>  Добавлен <code>ActiveModel::Errors#of_kind?</code> для проверки существования конкретной ошибки.
+(<a href="https://github.com/rails/rails/pull/34866">Pull Request</a>)</p></li><li><p>  Починен метод <code>ActiveModel::Serializers::JSON#as_json</code> для временных меток.
+(<a href="https://github.com/rails/rails/pull/31503">Pull Request</a>)</p></li><li><p>  Починен валидатор численности, чтобы использовать значение до приведения типов, кроме Active Record.
+(<a href="https://github.com/rails/rails/pull/33654">Pull Request</a>)</p></li><li><p>  Починена валидация равенства численности для <code>BigDecimal</code> и <code>Float</code>, приводя к <code>BigDecimal</code> обе стороны валидации.
+(<a href="https://github.com/rails/rails/pull/32852">Pull Request</a>)</p></li><li><p>  Починено значение года при приведении многопараметрового хэша времени.
+(<a href="https://github.com/rails/rails/pull/34990">Pull Request</a>)</p></li><li><p>  Ложные булевы символы на булевых атрибутах приводятся как false.
+(<a href="https://github.com/rails/rails/pull/35794">Pull Request</a>)</p></li><li><p>  Возвращается правильная дата при конвертировании параметров в <code>value_from_multiparameter_assignment</code> для <code>ActiveModel::Type::Date</code>.
+(<a href="https://github.com/rails/rails/pull/29651">Pull Request</a>)</p></li><li><p>  Берется родительская локаль, перед тем как взять пространство имен <code>:errors</code> при извлечении переводов ошибки.
+(<a href="https://github.com/rails/rails/pull/35424">Pull Request</a>)</p></li></ul><h3 id='active-support' class='inside_page_header'><a href="#active-support">11.</a> Active Support</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/6-0-stable/activesupport/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno9' class='inside_page_header'><a href="#udaleno9">11.1.</a> Удалено</h4><ul><li><p>  Удален устаревший метод <code>#acronym_regex</code> из <code>Inflections</code>.
+(<a href="https://github.com/rails/rails/commit/0ce67d3cd6d1b7b9576b07fecae3dd5b422a5689">Commit</a>)</p></li><li><p>  Удален устаревший метод <code>Module#reachable?</code>.
+(<a href="https://github.com/rails/rails/commit/6eb1d56a333fd2015610d31793ed6281acd66551">Commit</a>)</p></li><li><p>  Удален <code>Kernel#`</code> без каких-либо замен.
+(<a href="https://github.com/rails/rails/pull/31253">Pull Request</a>)</p></li></ul><h4 id='ustarelo9' class='inside_page_header'><a href="#ustarelo9">11.2.</a> Устарело</h4><ul><li><p>  Устарело использование отрицательных числовых аргументов для <code>String#first</code> и <code>String#last</code>.
+(<a href="https://github.com/rails/rails/pull/33058">Pull Request</a>)</p></li><li><p>  Устарел <code>ActiveSupport::Multibyte::Unicode#downcase/upcase/swapcase</code> в пользу <code>String#downcase/upcase/swapcase</code>.
+(<a href="https://github.com/rails/rails/pull/34123">Pull Request</a>)</p></li><li><p>  Устарели <code>ActiveSupport::Multibyte::Unicode#normalize</code> и <code>ActiveSupport::Multibyte::Chars#normalize</code> в пользу <code>String#unicode_normalize</code>.
+(<a href="https://github.com/rails/rails/pull/34202">Pull Request</a>)</p></li><li><p>  Устарел <code>ActiveSupport::Multibyte::Chars.consumes?</code> в пользу <code>String#is_utf8?</code>.
+(<a href="https://github.com/rails/rails/pull/34215">Pull Request</a>)</p></li><li><p>  Устарели <code>ActiveSupport::Multibyte::Unicode#pack_graphemes(array)</code> и <code>ActiveSupport::Multibyte::Unicode#unpack_graphemes(string)</code> в пользу <code>array.flatten.pack(&quot;U*&quot;)</code> и <code>string.scan(/\X/).map(&amp;:codepoints)</code> соответственно.
+(<a href="https://github.com/rails/rails/pull/34254">Pull Request</a>)</p></li></ul><h4 id='znachimye-izmeneniya9' class='inside_page_header'><a href="#znachimye-izmeneniya9">11.3.</a> Значимые изменения</h4><ul><li><p>  Добавлена поддержка параллельного тестирования.
+(<a href="https://github.com/rails/rails/pull/31900">Pull Request</a>)</p></li><li><p>  Обеспечивается, что <code>String#strip_heredoc</code> сохраняет замороженность строк.
+(<a href="https://github.com/rails/rails/pull/32037">Pull Request</a>)</p></li><li><p>  Добавлен <code>String#truncate_bytes</code> для обрезания строки до максимального байтового размера без разбивания многобайтовых символов или кластеров графемы.
+(<a href="https://github.com/rails/rails/pull/27319">Pull Request</a>)</p></li><li><p>  В метод <code>delegate</code> добавлена опция <code>private</code>, чтобы делегировать к приватным методам. Эта опция принимает значения <code>true/false</code>.
+(<a href="https://github.com/rails/rails/pull/31944">Pull Request</a>)</p></li><li><p>  Добавлена поддержка переводов с помощью I18n для <code>ActiveSupport::Inflector#ordinal</code> и <code>ActiveSupport::Inflector#ordinalize</code>.
+(<a href="https://github.com/rails/rails/pull/32168">Pull Request</a>)</p></li><li><p>  В <code>Date</code>, <code>DateTime</code>, <code>Time</code> и <code>TimeWithZone</code> добавлены методы <code>before?</code> и <code>after?</code>.
+(<a href="https://github.com/rails/rails/pull/32185">Pull Request</a>)</p></li><li><p>  Починена ошибка, когда <code>URI.unescape</code> мог упасть при смешанном Unicode/escaped символьном вводе.
+(<a href="https://github.com/rails/rails/pull/32183">Pull Request</a>)</p></li><li><p>  Починена ошибка, когда <code>ActiveSupport::Cache</code> мог сильно раздуть размер хранилища, когда включено сжатие.
+(<a href="https://github.com/rails/rails/pull/32539">Pull Request</a>)</p></li><li><p>  Хранилище кэша Redis: <code>delete_matched</code> больше не блокирует сервер Redis.
+(<a href="https://github.com/rails/rails/pull/32614">Pull Request</a>)</p></li><li><p>  Починена ошибка, когда <code>ActiveSupport::TimeZone.all</code> мог упасть, когда отсутствовали данные tzinfo для любой временной зоны, определенной в <code>ActiveSupport::TimeZone::MAPPING</code>.
+(<a href="https://github.com/rails/rails/pull/32613">Pull Request</a>)</p></li><li><p>  Добавлен <code>Enumerable#index_with</code>, позволяющий создать хэш из перечисления с помощью значения из переданного блока или аргумента по умолчанию.
+(<a href="https://github.com/rails/rails/pull/32523">Pull Request</a>)</p></li><li><p>  Методам <code>Range#===</code> и <code>Range#cover?</code> разрешено работать с аргументом <code>Range</code>.
+(<a href="https://github.com/rails/rails/pull/32938">Pull Request</a>)</p></li><li><p>  Поддерживается устаревание ключа в операциях <code>increment/decrement</code> в RedisCacheStore.
+(<a href="https://github.com/rails/rails/pull/33254">Pull Request</a>)</p></li><li><p>  В события подписчика лога добавлены время cpu, время простоя и особенности аллокаций.
+(<a href="https://github.com/rails/rails/pull/33449">Pull Request</a>)</p></li><li><p>  В систему нотификаций Active Support добавлена поддержка объекта события.
+(<a href="https://github.com/rails/rails/pull/33451">Pull Request</a>)</p></li><li><p>  Добавлена поддержка для отсутствия кэширования вхождений <code>nil</code>, с помощью новой опции <code>skip_nil</code> для <code>ActiveSupport::Cache#fetch</code>.
+(<a href="https://github.com/rails/rails/pull/25437">Pull Request</a>)</p></li><li><p>  Добавлен метод <code>Array#extract!</code>, убирающий и возвращающий элементы, для которых блок возвращает истинное значение.
+(<a href="https://github.com/rails/rails/pull/33137">Pull Request</a>)</p></li><li><p>  HTML-безопасная строка остается HTML-безопасной после нарезки (slice).
+(<a href="https://github.com/rails/rails/pull/33808">Pull Request</a>)</p></li><li><p>  Добавлена поддержка отслеживания автозагрузки констант с помощью логирования.
+(<a href="https://github.com/rails/rails/commit/c03bba4f1f03bad7dc034af555b7f2b329cf76f5">Commit</a>)</p></li><li><p>  Определен <code>unfreeze_time</code> в качестве псевдонима для <code>travel_back</code>.
+(<a href="https://github.com/rails/rails/pull/33813">Pull Request</a>)</p></li><li><p>  Изменен <code>ActiveSupport::TaggedLogging.new</code>, чтобы возвращался экземпляр нового логгера вместо мутации полученного в качестве аргумента.
+(<a href="https://github.com/rails/rails/pull/27792">Pull Request</a>)</p></li><li><p>  Методы <code>#delete_prefix</code>, <code>#delete_suffix</code> и <code>#unicode_normalize</code> трактуются не как HTML-безопасные.
+(<a href="https://github.com/rails/rails/pull/33990">Pull Request</a>)</p></li><li><p>  Починена ошибка, когда <code>#without</code> для <code>ActiveSupport::HashWithIndifferentAccess</code> падал с символьными аргументам.
+(<a href="https://github.com/rails/rails/pull/34012">Pull Request</a>)</p></li><li><p>  Переименованы <code>Module#parent</code>, <code>Module#parents</code> и <code>Module#parent_name</code> в <code>module_parent</code>, <code>module_parents</code> и <code>module_parent_name</code>.
+(<a href="https://github.com/rails/rails/pull/34051">Pull Request</a>)</p></li><li><p>  Добавлен <code>ActiveSupport::ParameterFilter</code>.
+(<a href="https://github.com/rails/rails/pull/34039">Pull Request</a>)</p></li><li><p>  Починена проблема, когда продолжительность округлялась до полной секунды, когда float добавлялось к продолжительности.
+(<a href="https://github.com/rails/rails/pull/34135">Pull Request</a>)</p></li><li><p>  <code>#to_options</code> сделан псевдонимом <code>#symbolize_keys</code> в <code>ActiveSupport::HashWithIndifferentAccess</code>.
+(<a href="https://github.com/rails/rails/pull/34360">Pull Request</a>)</p></li><li><p>  БОльше не вызывается ошибка, если тот же самый блок включается несколько раз для Concern.
+(<a href="https://github.com/rails/rails/pull/34553">Pull Request</a>)</p></li><li><p>  Сохраняется порядок ключей, переданных в <code>ActiveSupport::CacheStore#fetch_multi</code>.
+(<a href="https://github.com/rails/rails/pull/34700">Pull Request</a>)</p></li><li><p>  Починен <code>String#safe_constantize</code>, чтобы не вызывалась <code>LoadError</code> для ссылок на константу в некорректном регистре.
+(<a href="https://github.com/rails/rails/pull/34892">Pull Request</a>)</p></li><li><p>  Добавлены <code>Hash#deep_transform_values</code> и <code>Hash#deep_transform_values!</code>.
+(<a href="https://github.com/rails/rails/commit/b8dc06b8fdc16874160f61dcf58743fcc10e57db">Commit</a>)</p></li><li><p>  Добавлен <code>ActiveSupport::HashWithIndifferentAccess#assoc</code>.
+(<a href="https://github.com/rails/rails/pull/35080">Pull Request</a>)</p></li><li><p>  Добавлен колбэк <code>before_reset</code> в <code>CurrentAttributes</code> и симметрично определен <code>after_reset</code> как псевдоним <code>resets</code>.
+(<a href="https://github.com/rails/rails/pull/35063">Pull Request</a>)</p></li><li><p>  Пересмотрен <code>ActiveSupport::Notifications.unsubscribe</code>, чтобы корректно обрабатывать Regex или другие multiple-pattern подписчики.
+(<a href="https://github.com/rails/rails/pull/32861">Pull Request</a>)</p></li><li><p>  Добавлен новый механизм автозагрузки с помощью Zeitwerk.
+(<a href="https://github.com/rails/rails/commit/e53430fa9af239e21e11548499d814f540d421e5">Commit</a>)</p></li><li><p>  Добавлены <code>Array#including</code> и <code>Enumerable#including</code> для удобства увеличения коллекции.
+(<a href="https://github.com/rails/rails/commit/bfaa3091c3c32b5980a614ef0f7b39cbf83f6db3">Commit</a>)</p></li><li><p>  Переименованы <code>Array#without</code> и <code>Enumerable#without</code> в <code>Array#excluding</code> и <code>Enumerable#excluding</code>. Старые имена методов оставлены в качестве псевдонимов.
+(<a href="https://github.com/rails/rails/commit/bfaa3091c3c32b5980a614ef0f7b39cbf83f6db3">Commit</a>)</p></li><li><p>  Добавлена поддержка доставления <code>locale</code> в <code>transliterate</code> и <code>parameterize</code>.
+(<a href="https://github.com/rails/rails/pull/35571">Pull Request</a>)</p></li><li><p>  Починен <code>Time#advance</code> для работы с датами до 1001-03-07.
+(<a href="https://github.com/rails/rails/pull/35659">Pull Request</a>)</p></li><li><p>  Обновлен <code>ActiveSupport::Notifications::Instrumenter#instrument</code>. чтобы позволить не передавать блок.
+(<a href="https://github.com/rails/rails/pull/35705">Pull Request</a>)</p></li><li><p>  В трекере потомков используются слабые ссылки, чтобы позволить анонимным подклассам быть собранным сборщиком мусора.
+(<a href="https://github.com/rails/rails/pull/31442">Pull Request</a>)</p></li><li><p>  Вызов тестовых методов с помощью метода <code>with_info_handler</code>, чтобы позволить работать плагинам minitest-hooks.
+(<a href="https://github.com/rails/rails/commit/758ba117a008b6ea2d3b92c53b6a7a8d7ccbca69">Commit</a>)</p></li><li><p>  Сохраняется статус <code>html_safe?</code> на <code>ActiveSupport::SafeBuffer#*</code>.
+(<a href="https://github.com/rails/rails/pull/36012">Pull Request</a>)</p></li></ul><h3 id='active-job' class='inside_page_header'><a href="#active-job">12.</a> Active Job</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/6-0-stable/activejob/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno10' class='inside_page_header'><a href="#udaleno10">12.1.</a> Удалено</h4><ul><li>  удалена поддержка гема Qu.
+(<a href="https://github.com/rails/rails/pull/32300">Pull Request</a>)
+</li></ul><h4 id='ustarelo10' class='inside_page_header'><a href="#ustarelo10">12.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya10' class='inside_page_header'><a href="#znachimye-izmeneniya10">12.3.</a> Значимые изменения</h4><ul><li><p>  Добавлена поддержка пользовательских сериализаторов для аргументов Active Job.
+(<a href="https://github.com/rails/rails/pull/30941">Pull Request</a>)</p></li><li><p>  Добавлена поддержка для запуска Active Jobs во временной зоне, в которой они были поставлены в очередь.
+(<a href="https://github.com/rails/rails/pull/32085">Pull Request</a>)</p></li><li><p>  Разрешена передача нескольких исключений в <code>retry_on</code>/<code>discard_on</code>.
+(<a href="https://github.com/rails/rails/commit/3110caecbebdad7300daaf26bfdff39efda99e25">Commit</a>)</p></li><li><p>  Разрешен вызов <code>assert_enqueued_with</code> и <code>assert_enqueued_email_with</code> без блока.
+(<a href="https://github.com/rails/rails/pull/33258">Pull Request</a>)</p></li><li><p>  Уведомления для <code>enqueue</code> и <code>enqueue_at</code> обернуты в колбэк <code>around_enqueue</code> вместо колбэка <code>after_enqueue</code>.
+(<a href="https://github.com/rails/rails/pull/33171">Pull Request</a>)</p></li><li><p>  Разрешен вызов <code>perform_enqueued_jobs</code> без блока.
+(<a href="https://github.com/rails/rails/pull/33626">Pull Request</a>)</p></li><li><p>  Разрешен вызов <code>assert_performed_with</code> без блока.
+(<a href="https://github.com/rails/rails/pull/33635">Pull Request</a>)</p></li><li><p>  Добавлена опция <code>:queue</code> к хелперам и утверждениям задач.
+(<a href="https://github.com/rails/rails/pull/33635">Pull Request</a>)</p></li><li><p>  Добавлены хуки вокруг попыток и отмен Active Job.
+(<a href="https://github.com/rails/rails/pull/33751">Pull Request</a>)</p></li><li><p>  Добавлен способ тестирования для набора аргументов при выполнении задач.
+(<a href="https://github.com/rails/rails/pull/33995">Pull Request</a>)</p></li><li><p>  В задания, возвращаемых тестовыми хелперами Active Job, включаются десериализованные аргументы.
+(<a href="https://github.com/rails/rails/pull/34204">Pull Request</a>)</p></li><li><p>  Хелперам утверждений Active Job разрешается принимать Proc для ключевого слова <code>only</code>.
+(<a href="https://github.com/rails/rails/pull/34339">Pull Request</a>)</p></li><li><p>  В хелперах утверждений отбрасываются микросекунды и наносекунды из аргументов задачи.
+(<a href="https://github.com/rails/rails/pull/35713">Pull Request</a>)</p></li></ul><h3 id='rukovodstva-ruby-on-rails' class='inside_page_header'><a href="#rukovodstva-ruby-on-rails">13.</a> Руководства Ruby on Rails</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/6-0-stable/guides/CHANGELOG.md">Changelog</a>.</p><h4 id='znachimye-izmeneniya11' class='inside_page_header'><a href="#znachimye-izmeneniya11">13.1.</a> Значимые изменения</h4><ul><li><p>  Добавлено руководство по нескольким базам данных с Active Record.
+(<a href="https://github.com/rails/rails/pull/36389">Pull Request</a>)</p></li><li><p>  Добавлен раздел о разрешении проблем автозагрузки констант.
+(<a href="https://github.com/rails/rails/commit/c03bba4f1f03bad7dc034af555b7f2b329cf76f5">Commit</a>)</p></li><li><p>  Добавлено руководство по основам Action Mailbox.
+(<a href="https://github.com/rails/rails/pull/34812">Pull Request</a>)</p></li><li><p>  Добавлено обзорное руководство по Action Text.
+(<a href="https://github.com/rails/rails/pull/34878">Pull Request</a>)</p></li></ul><h3 id='blagodarnosti' class='inside_page_header'><a href="#blagodarnosti">14.</a> Благодарности</h3><p>Взгляните <a href="http://contributors.rubyonrails.org/">на полный список контрибьюторов Rails</a>, на людей, которые потратили много часов, сделав Rails стабильнее и надёжнее. Спасибо им всем.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

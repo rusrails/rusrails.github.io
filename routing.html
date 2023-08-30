@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Роутинг в Rails" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Роутинг в Rails" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/routing" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Роутинг в Rails
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="5lcicC0jS3cf1OfXfqRHH3Xvkxj4ygZ2xekHDhFmB/YyP8mtXRqSZF2SXhyv9e1t0hVmy7Xj3gSocJ3UVzDFpg==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#tsel-routera-rails">1. Цель роутера Rails</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#soedinenie-url-s-kodom">1.1. Соединение URL с кодом</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#sozdanie-url-iz-koda">1.2. Создание URL из кода</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#nastroyka-marshrutizatora-rails">1.3. Настройка маршрутизатора Rails</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#resource-routing-the-rails-default">2.  Ресурсный роутинг: по умолчанию в Rails</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#resursy-v-vebe">2.1. Ресурсы в вебе</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#crud-metody-i-ekshny">2.2. CRUD, методы и экшны</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#put-i-helpery-url">2.3. Путь и хелперы URL</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#opredelenie-neskolkih-resursov-odnovremenno">2.4. Определение нескольких ресурсов одновременно</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#singular-resources">2.5.  Одиночные ресурсы</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#prostranstvo-imen-kontrollera-i-routing">2.6. Пространство имен контроллера и роутинг</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#vlozhennye-resursy">2.7. Вложенные ресурсы</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#ogranicheniya-dlya-vlozheniya">2.7.1. Ограничения для вложения</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#melkoe-vlozhenie">2.7.2. Мелкое вложение</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#kontserny-marshrutov">2.8. Концерны маршрутов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#sozdanie-putey-i-url-iz-ob-ektov">2.9. Создание путей и URL из объектов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#opredelenie-dopolnitelnyh-ekshnov-restful">2.10. Определение дополнительных экшнов RESTful</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#dobavlenie-marshrutov-k-elementam">2.10.1. Добавление маршрутов к элементам</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#dobavlenie-marshrutov-k-kollektsii">2.10.2. Добавление маршрутов к коллекции</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#dobavlenie-marshrutov-dlya-dopolnitelnyh-ekshnov-new">2.10.3. Добавление маршрутов для дополнительных экшнов new</a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#neresursnye-marshruty">3. Нересурсные маршруты</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#neobyazatelnye-parametry">3.1. Необязательные параметры</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#dynamic-segments">3.2.  Динамические сегменты</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#statichnye-segmenty">3.3. Статичные сегменты</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#parametry-stroki-zaprosa">3.4. Параметры строки запроса</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#opredelenie-znacheniy-po-umolchaniyu">3.5. Определение значений по умолчанию</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#imenovanie-marshrutov">3.6. Именование маршрутов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ogranicheniya-metoda-http">3.7. Ограничения метода HTTP</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#segment-constraints">3.8.  Ограничения сегмента</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ogranicheniya-osnovannye-na-zaprose">3.9. Ограничения, основанные на запросе</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#advanced-constraints">3.10.  Продвинутые ограничения</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#ogranicheniya-v-blochnoy-forme">3.10.1. Ограничения в блочной форме</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#podstanovka-marshrutov-i-podstanovochnye-segmenty">3.11. Подстановка маршрутов и подстановочные сегменты</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#perenapravlenie">3.12. Перенаправление</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#routing-k-prilozheniyam-rack">3.13. Роутинг к приложениям Rack</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-root">3.14. Использование <code>root</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#marshruty-s-simvolami-unicode">3.15. Маршруты с символами Unicode</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#pryamye-marshruty">3.16. Прямые маршруты</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-resolve">3.17. Использование <code>resolve</code></a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#nastroyka-resursnyh-marshrutov">4. Настройка ресурсных маршрутов</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#opredelenie-ispolzuemogo-kontrollera">4.1. Определение используемого контроллера</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#opredelenie-ogranicheniy">4.2. Определение ограничений</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#pereopredelenie-imenovannyh-helperov-marshruta">4.3. Переопределение именованных хелперов маршрута</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#pereopredelenie-segmentov-new-i-edit">4.4. Переопределение сегментов <code>new</code> и <code>edit</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#prefiks-imenovannyh-marshrutnyh-helperov">4.5. Префикс именованных маршрутных хелперов</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#parametrizovannye-prostranstva">4.5.1. Параметризованные пространства</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#restricting-the-routes-created">4.6.  Ограничение создаваемых маршрутов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#perevedennye-puti">4.7. Переведенные пути</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#pereopredelenie-edinstvennogo-chisla">4.8. Переопределение единственного числа</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-as-vo-vlozhennyh-resursah">4.9. Использование <code>:as</code> во вложенных ресурсах</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#pereopredelenie-parametrov-imenovannyh-marshrutov">4.10. Переопределение параметров именованных маршрутов</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#razdelenie-ochen-bolshogo-marshrutnogo-fayla-na-neskolko-nebolshih">5. Разделение <em>очень</em> большого маршрутного файла на несколько небольших</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#ne-ispolzuyte-etu-osobennost-esli-vy-ne-nuzhdaetes-v-ney-realno">5.1. Не используйте эту особенность, если вы не нуждаетесь в ней реально</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#osmotr-i-testirovanie-marshrutov">6. Осмотр и тестирование маршрутов</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#listing-existing-routes">6.1.  Список существующих маршрутов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#testirovanie-marshrutov">6.2. Тестирование маршрутов</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#operator-kontrolya-assert_generates">6.2.1. Оператор контроля <code>assert_generates</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#operator-kontrolya-assert_recognizes">6.2.2. Оператор контроля <code>assert_recognizes</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#operator-kontrolya-assert_routing">6.2.3. Оператор контроля <code>assert_routing</code></a>
+</h6>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='routing-v-rails' class='inside_page_header'> Роутинг в Rails</h2><p>Это руководство охватывает открытые для пользователя функции роутинга Rails.</p><p>После прочтения этого руководства вы узнаете:</p><ul><li>Как интерпретировать код в <code>config/routes.rb</code>
+</li><li>Как создавать свои собственные маршруты, используя либо предпочтительный ресурсный стиль, либо метод <code>match</code>
+</li><li>Как определять параметры маршрута, которые передаются в экшн контроллера
+</li><li>Как автоматически создавать пути и URL, используя маршрутные хелперы
+</li><li>О продвинутых техниках, таких как создание ограничений и монтирование точек назначения Rack
+</li></ul><h3 id='tsel-routera-rails' class='inside_page_header'><a href="#tsel-routera-rails">1.</a> Цель роутера Rails</h3><p>Роутер Rails распознает URL и направляет его в экшн контроллера или в приложение Rack. Он также может генерировать пути и URL, избегая необходимость жестко прописывать строки в ваших вью.</p><h4 id='soedinenie-url-s-kodom' class='inside_page_header'><a href="#soedinenie-url-s-kodom">1.1.</a> Соединение URL с кодом</h4><p>Когда ваше приложение на Rails получает входящий запрос для:</p><div class="code_container">
+  <pre><code class="highlight plaintext">GET /patients/17
+</code></pre>
+</div>
+<p>оно опрашивает роутер на предмет соответствия экшну контроллера. Если первый соответствующий маршрут это:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'/patients/:id'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'patients#show'</span>
+</code></pre>
+</div>
+<p>то запрос будет направлен в контроллер <code>patients</code> в экшн <code>show</code> с <code>{ id: &#39;17&#39; }</code> в <code>params</code>.</p><div class="note"><p>Rails здесь использует именование в змеином_регистре (snake_case) для имен контроллера, если имя контроллера состоит из несколько слов, то, например, <code>MonsterTrucksController</code> необходимо использовать как <code>monster_trucks#show</code>.</p></div><h4 id='sozdanie-url-iz-koda' class='inside_page_header'><a href="#sozdanie-url-iz-koda">1.2.</a> Создание URL из кода</h4><p>Также можно генерировать пути и URL. Если вышеуказанный маршрут модифицировать на:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'/patients/:id'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'patients#show'</span><span class="p">,</span> <span class="ss">as: </span><span class="s1">'patient'</span>
+</code></pre>
+</div>
+<p>и ваше приложение содержит код в контроллере:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="vi">@patient</span> <span class="o">=</span> <span class="no">Patient</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+</code></pre>
+</div>
+<p>и такой в соответствующей вью:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s1">'Patient Record'</span><span class="p">,</span> <span class="n">patient_path</span><span class="p">(</span><span class="vi">@patient</span><span class="p">)</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>тогда роутер сгенерирует путь <code>/patients/17</code>. Это увеличит устойчивость вашей вью и упростит код для понимания. Отметьте, что id не нужно указывать в маршрутном хелпере.</p><h4 id='nastroyka-marshrutizatora-rails' class='inside_page_header'><a href="#nastroyka-marshrutizatora-rails">1.3.</a> Настройка маршрутизатора Rails</h4><p>Маршруты для приложения или engine располагаются в файле <code>config/routes.rb</code> и обычно выглядят так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:brands</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:index</span><span class="p">,</span> <span class="ss">:show</span><span class="p">]</span> <span class="k">do</span>
+    <span class="n">resources</span> <span class="ss">:products</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:index</span><span class="p">,</span> <span class="ss">:show</span><span class="p">]</span>
+  <span class="k">end</span>
+
+  <span class="n">resource</span> <span class="ss">:basket</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:show</span><span class="p">,</span> <span class="ss">:update</span><span class="p">,</span> <span class="ss">:destroy</span><span class="p">]</span>
+
+  <span class="n">resolve</span><span class="p">(</span><span class="s2">"Basket"</span><span class="p">)</span> <span class="p">{</span> <span class="n">route_for</span><span class="p">(</span><span class="ss">:basket</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Поскольку это обычный исходный файл Ruby, можно использовать все его особенности, чтобы помочь определять маршруты, но необходимо быть осторожным с именами переменных, так как они могут конфликтовать с методами DSL маршрутизатора.</p><div class="note"><p>Блок <code>Rails.application.routes.draw do ... end</code>, который оборачивает определения маршрутов, требует создания области видимости для DSL маршрутизатора и не должен быть удален.</p></div><h3 id='resource-routing-the-rails-default' class='inside_page_header'><a href="#resource-routing-the-rails-default">2.</a>  Ресурсный роутинг: по умолчанию в Rails</h3><p>Ресурсный роутинг позволяет быстро объявлять все общие маршруты для заданного ресурсного контроллера. Единственный вызов <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Resources.html#method-i-resources"><code>resources</code></a> может объявить все маршруты, необходимые для экшнов <code>index</code>, <code>show</code>, <code>new</code>, <code>edit</code>, <code>create</code>, <code>update</code> и <code>destroy</code>.</p><h4 id='resursy-v-vebe' class='inside_page_header'><a href="#resursy-v-vebe">2.1.</a> Ресурсы в вебе</h4><p>Браузеры запрашивают страницы от Rails, выполняя запрос по URL, используя определенный метод HTTP, такой как <code>GET</code>, <code>POST</code>, <code>PATCH</code>, <code>PUT</code> и <code>DELETE</code>. Каждый метод - это запрос на выполнение операции с ресурсом. Ресурсный маршрут соединяет несколько родственных запросов с экшнами в одном контроллере.</p><p>Когда приложение на Rails получает входящий запрос для:</p><div class="code_container">
+  <pre><code class="highlight plaintext">DELETE /photos/17
+</code></pre>
+</div>
+<p>оно просит роутер соединить его с экшном контроллера. Если первый соответствующий маршрут такой:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:photos</span>
+</code></pre>
+</div>
+<p>Rails будет направлять этот запрос в экшн <code>destroy</code> контроллера <code>photos</code> с <code>{ id: &#39;17&#39; }</code> в <code>params</code>.</p><h4 id='crud-metody-i-ekshny' class='inside_page_header'><a href="#crud-metody-i-ekshny">2.2.</a> CRUD, методы и экшны</h4><p>В Rails ресурсный маршрут предоставляет сопоставление между методами HTTP и URL к экшнам контроллера. По соглашению, каждый экшн также соединяется с определенной операцией CRUD в базе данных. Одна запись в файле роутинга, такая как:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:photos</span>
+</code></pre>
+</div>
+<p>создает семь различных маршрутов в приложении, все сопоставления с контроллером <code>Photos</code>:</p><table class='table table-striped'><tr>
+<th>Метод HTTP</th>
+<th>Путь</th>
+<th>Контроллер#Экшн</th>
+<th>Использование</th>
+</tr>
+<tr>
+<td>GET</td>
+<td>/photos</td>
+<td>photos#index</td>
+<td>отображает список всех фото</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/photos/new</td>
+<td>photos#new</td>
+<td>возвращает форму HTML для создания нового фото</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/photos</td>
+<td>photos#create</td>
+<td>создает новое фото</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/photos/:id</td>
+<td>photos#show</td>
+<td>отображает определенное фото</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/photos/:id/edit</td>
+<td>photos#edit</td>
+<td>возвращает форму HTML для редактирования фото</td>
+</tr>
+<tr>
+<td>PATCH/PUT</td>
+<td>/photos/:id</td>
+<td>photos#update</td>
+<td>обновляет определенное фото</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/photos/:id</td>
+<td>photos#destroy</td>
+<td>удаляет определенное фото</td>
+</tr>
+</table><div class="note"><p>Поскольку роутер использует как метод HTTP, так и URL, для сопоставления с входящими запросами, четыре URL соединяют с семью различными экшнами.</p></div><div class="note"><p>Маршруты Rails сравниваются в том порядке, в котором они определены, поэтому, если имеется <code>resources :photos</code> до <code>get &#39;photos/poll&#39;</code> маршрут для экшна <code>show</code> в строчке <code>resources</code> совпадет до строчки <code>get</code>. Чтобы это исправить, переместите строчку <code>get</code> <strong>выше</strong> строчки <code>resources</code>, чтобы она сравнивалась первой.</p></div><h4 id='put-i-helpery-url' class='inside_page_header'><a href="#put-i-helpery-url">2.3.</a> Путь и хелперы URL</h4><p>Создание ресурсного маршрута также сделает доступными множество хелперов в контроллере вашего приложения. В случае с <code>resources :photos</code>:</p><ul><li><code>photos_path</code> возвращает <code>/photos</code>
+</li><li><code>new_photo_path</code> возвращает <code>/photos/new</code>
+</li><li><code>edit_photo_path(:id)</code> возвращает <code>/photos/:id/edit</code> (например, <code>edit_photo_path(10)</code> возвращает <code>/photos/10/edit</code>)
+</li><li><code>photo_path(:id)</code> возвращает <code>/photos/:id</code> (например, <code>photo_path(10)</code> возвращает <code>/photos/10</code>)
+</li></ul><p>Каждый из этих хелперов имеет соответствующий хелпер <code>_url</code> (такой как <code>photos_url</code>), который возвращает тот же путь с добавленными текущими хостом, портом и префиксом пути.</p><div class="info"><p>Чтобы найти имена маршрутных хелперов для ваших маршрутов, смотрите <a href="#listing-existing-routes">Список существующих маршрутов</a> ниже.</p></div><h4 id='opredelenie-neskolkih-resursov-odnovremenno' class='inside_page_header'><a href="#opredelenie-neskolkih-resursov-odnovremenno">2.4.</a> Определение нескольких ресурсов одновременно</h4><p>Если необходимо создать маршруты для более чем одного ресурса, можете сократить ввод, определив их в одном вызове <code>resources</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">:books</span><span class="p">,</span> <span class="ss">:videos</span>
+</code></pre>
+</div>
+<p>Это приведет к такому же результату, как и:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:photos</span>
+<span class="n">resources</span> <span class="ss">:books</span>
+<span class="n">resources</span> <span class="ss">:videos</span>
+</code></pre>
+</div>
+<h4 id='singular-resources' class='inside_page_header'><a href="#singular-resources">2.5.</a>  Одиночные ресурсы</h4><p>Иногда имеется ресурс, который клиенты всегда просматривают без ссылки на ID. Обычный пример, <code>/profile</code> всегда показывает профиль текущего зарегистрированного пользователя. Для этого можно использовать одиночный ресурс, чтобы связать <code>/profile</code> (а не <code>/profile/:id</code>) с экшном <code>show</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'profile'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'users#show'</span>
+</code></pre>
+</div>
+<p>Передавая <code>String</code> в <code>to:</code> ожидается следующий формат - <code>controller#action</code>. Когда используется <code>Symbol</code>, опция <code>to:</code> должна быть заменена на <code>action:</code>. Когда используется <code>String</code> без <code>#</code>, опция <code>to:</code> должна быть заменена на <code>controller:</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'profile'</span><span class="p">,</span> <span class="ss">action: :show</span><span class="p">,</span> <span class="ss">controller: </span><span class="s1">'users'</span>
+</code></pre>
+</div>
+<p>Этот ресурсный маршрут:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resource</span> <span class="ss">:geocoder</span>
+<span class="n">resolve</span><span class="p">(</span><span class="s1">'Geocoder'</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="ss">:geocoder</span><span class="p">]</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>создаст шесть различных маршрутов в приложении, все сопоставления с контроллером <code>Geocoders</code>:</p><table class='table table-striped'><tr>
+<th>Метод HTTP</th>
+<th>Путь</th>
+<th>Контроллер#Экшн</th>
+<th>Использование</th>
+</tr>
+<tr>
+<td>GET</td>
+<td>/geocoder/new</td>
+<td>geocoders#new</td>
+<td>возвращает форму HTML для создания нового геокодера</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/geocoder</td>
+<td>geocoders#create</td>
+<td>создает новый геокодер</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/geocoder</td>
+<td>geocoders#show</td>
+<td>отображает один и только один ресурс геокодера</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/geocoder/edit</td>
+<td>geocoders#edit</td>
+<td>возвращает форму HTML для редактирования геокодера</td>
+</tr>
+<tr>
+<td>PATCH/PUT</td>
+<td>/geocoder</td>
+<td>geocoders#update</td>
+<td>обновляет один и только один ресурс геокодера</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/geocoder</td>
+<td>geocoders#destroy</td>
+<td>удаляет ресурс геокодера</td>
+</tr>
+</table><div class="note"><p>Поскольку вы можете захотеть использовать один и тот же контроллер и для одиночного маршрута (<code>/account</code>), и для множественного маршрута (<code>/accounts/45</code>), одиночные ресурсы ведут на множественные контроллеры. По этой причине, например, <code>resource :photo</code> и <code>resources :photos</code> создадут и одиночные, и множественные маршруты, привязанные к одному и тому же контроллеру (<code>PhotosController</code>).</p></div><p>Одиночный ресурсный маршрут генерирует эти хелперы:</p><ul><li><code>new_geocoder_path</code> возвращает <code>/geocoder/new</code>
+</li><li><code>edit_geocoder_path</code> возвращает <code>/geocoder/edit</code>
+</li><li><code>geocoder_path</code> возвращает <code>/geocoder</code>
+</li></ul><div class="note"><p>Вызов <code>resolve</code> необходим для преобразования экземпляров <code>Geocoder</code> в маршруты через <a href="/form-helpers#relying-on-record-identification">идентификацию записи</a>.</p></div><p>Как и в случае с множественными ресурсами, те же хелперы, оканчивающиеся на <code>_url</code> также включают хост, порт и префикс пути.</p><h4 id='prostranstvo-imen-kontrollera-i-routing' class='inside_page_header'><a href="#prostranstvo-imen-kontrollera-i-routing">2.6.</a> Пространство имен контроллера и роутинг</h4><p>Возможно, вы захотите организовать группы контроллеров в пространстве имен. Чаще всего группируют административные контроллеры в пространство имен <code>Admin::</code> и размещают их в директории <code>app/controllers/admin</code>. Можно маршрутизировать на такую группу с помощью блока <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Scoping.html#method-i-namespace"><code>namespace</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">namespace</span> <span class="ss">:admin</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:articles</span><span class="p">,</span> <span class="ss">:comments</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это создаст ряд маршрутов для каждого контроллера <code>articles</code> и <code>comments</code>. Для <code>Admin::ArticlesController</code>, Rails создаст:</p><table class='table table-striped'><tr>
+<th>Метод HTTP</th>
+<th>Путь</th>
+<th>Контроллер#Экшн</th>
+<th>Именованный хелпер маршрута</th>
+</tr>
+<tr>
+<td>GET</td>
+<td>/admin/articles</td>
+<td>admin/articles#index</td>
+<td>admin_articles_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/admin/articles/new</td>
+<td>admin/articles#new</td>
+<td>new_admin_article_path</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/admin/articles</td>
+<td>admin/articles#create</td>
+<td>admin_articles_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/admin/articles/:id</td>
+<td>admin/articles#show</td>
+<td>admin_article_path(:id)</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/admin/articles/:id/edit</td>
+<td>admin/articles#edit</td>
+<td>edit_admin_article_path(:id)</td>
+</tr>
+<tr>
+<td>PATCH/PUT</td>
+<td>/admin/articles/:id</td>
+<td>admin/articles#update</td>
+<td>admin_article_path(:id)</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/admin/articles/:id</td>
+<td>admin/articles#destroy</td>
+<td>admin_article_path(:id)</td>
+</tr>
+</table><p>Если вместо этого хотите маршрут <code>/articles</code> (без префикса <code>/admin</code>) к <code>Admin::ArticlesController</code>, можно указать модуль в блоке <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Scoping.html#method-i-scope"><code>scope</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">scope</span> <span class="ss">module: </span><span class="s1">'admin'</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:articles</span><span class="p">,</span> <span class="ss">:comments</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это также можно сделать одиночным маршрутом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:articles</span><span class="p">,</span> <span class="ss">module: </span><span class="s1">'admin'</span>
+</code></pre>
+</div>
+<p>Если вместо этого хотите маршрут <code>/admin/articles</code> к <code>ArticlesController</code> (без префикса модуля <code>Admin::</code>), можно указать путь с помощью блока <code>scope</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">scope</span> <span class="s1">'/admin'</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:articles</span><span class="p">,</span> <span class="ss">:comments</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это также можно сделать одиночным маршрутом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:articles</span><span class="p">,</span> <span class="ss">path: </span><span class="s1">'/admin/articles'</span>
+</code></pre>
+</div>
+<p>В обоих случаях, хелперы именованных маршрутов остаются теми же, что и без использования <code>scope</code>. В последнем случае, следующие пути соединят с <code>ArticlesController</code>:</p><table class='table table-striped'><tr>
+<th>Метод HTTP</th>
+<th>Путь</th>
+<th>Контроллер#Экшн</th>
+<th>Именованный хелпер маршрута</th>
+</tr>
+<tr>
+<td>GET</td>
+<td>/admin/articles</td>
+<td>articles#index</td>
+<td>articles_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/admin/articles/new</td>
+<td>articles#new</td>
+<td>new_article_path</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/admin/articles</td>
+<td>articles#create</td>
+<td>articles_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/admin/articles/:id</td>
+<td>articles#show</td>
+<td>article_path(:id)</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/admin/articles/:id/edit</td>
+<td>articles#edit</td>
+<td>edit_article_path(:id)</td>
+</tr>
+<tr>
+<td>PATCH/PUT</td>
+<td>/admin/articles/:id</td>
+<td>articles#update</td>
+<td>article_path(:id)</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/admin/articles/:id</td>
+<td>articles#destroy</td>
+<td>article_path(:id)</td>
+</tr>
+</table><div class="info"><p>Если хотите использовать другое пространство имен контроллера в блоке <code>namespace</code>, можно указать абсолютный путь контроллера, т.е: <code>get &#39;/foo&#39;, to: &#39;/foo#index&#39;</code>.</p></div><h4 id='vlozhennye-resursy' class='inside_page_header'><a href="#vlozhennye-resursy">2.7.</a> Вложенные ресурсы</h4><p>Нормально иметь ресурсы, которые логически подчинены другим ресурсам. Например, предположим ваше приложение включает эти модели:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Magazine</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:ads</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Ad</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">belongs_to</span> <span class="ss">:magazine</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Вложенные маршруты позволяют захватить эти отношения в вашем роутинге. В этом случае можете включить такое объявление маршрута:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:magazines</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:ads</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>В дополнение к маршрутам для magazines, это объявление также создаст маршруты для ads в <code>AdsController</code>. URL с ad требует magazine:</p><table class='table table-striped'><tr>
+<th>Метод HTTP</th>
+<th>Путь</th>
+<th>Контроллер#Экшн</th>
+<th>Использование</th>
+</tr>
+<tr>
+<td>GET</td>
+<td>/magazines/:magazine_id/ads</td>
+<td>ads#index</td>
+<td>отображает список всех ads для определенного magazine</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/magazines/:magazine_id/ads/new</td>
+<td>ads#new</td>
+<td>возвращает форму HTML для создания новой ad, принадлежащей определенному magazine</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/magazines/:magazine_id/ads</td>
+<td>ads#create</td>
+<td>создает новую ad, принадлежащую указанному magazine</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/magazines/:magazine_id/ads/:id</td>
+<td>ads#show</td>
+<td>отражает определенную ad, принадлежащую определенному magazine</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/magazines/:magazine_id/ads/:id/edit</td>
+<td>ads#edit</td>
+<td>возвращает форму HTML для редактирования ad, принадлежащей определенному magazine</td>
+</tr>
+<tr>
+<td>PATCH/PUT</td>
+<td>/magazines/:magazine_id/ads/:id</td>
+<td>ads#update</td>
+<td>обновляет определенную ad, принадлежащую определенному magazine</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/magazines/:magazine_id/ads/:id</td>
+<td>ads#destroy</td>
+<td>удаляет определенную ad, принадлежащую определенному magazine</td>
+</tr>
+</table><p>Также будут созданы маршрутные хелперы, такие как <code>magazine_ads_url</code> и <code>edit_magazine_ad_path</code>. Эти хелперы принимают экземпляр Magazine как первый параметр (<code>magazine_ads_url(@magazine)</code>).</p><h5 id='ogranicheniya-dlya-vlozheniya' class='inside_page_header'><a href="#ogranicheniya-dlya-vlozheniya">2.7.1.</a> Ограничения для вложения</h5><p>Вы можете вкладывать ресурсы в другие вложенные ресурсы, если хотите. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:publishers</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:magazines</span> <span class="k">do</span>
+    <span class="n">resources</span> <span class="ss">:photos</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Глубоко вложенные ресурсы быстро становятся громоздкими. В этом случае, например, приложение будет распознавать пути, такие как:</p><div class="code_container">
+  <pre><code class="highlight plaintext">/publishers/1/magazines/2/photos/3
+</code></pre>
+</div>
+<p>Соответствующий маршрутный хелпер будет <code>publisher_magazine_photo_url</code>, требующий определения объектов на всех трех уровнях. Действительно, эта ситуация достаточно запутана, так что в <a href="http://weblog.jamisbuck.org/2007/2/5/nesting-resources">статье Jamis Buck</a> предлагает правило хорошей разработки на Rails:</p><div class="info"><p>Ресурсы никогда не должны быть вложены глубже, чем на 1 уровень.</p></div><h5 id='melkoe-vlozhenie' class='inside_page_header'><a href="#melkoe-vlozhenie">2.7.2.</a> Мелкое вложение</h5><p>Один из способов избежать глубокой вложенности (как рекомендовано выше) состоит в том, чтобы генерировать экшны коллекции в области видимости родителя, получая представление об иерархии, но не вкладывать экшны элементов. Другими словами, создавать маршруты с минимальным количеством информации для однозначной идентификации ресурса, например так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:articles</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:comments</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:index</span><span class="p">,</span> <span class="ss">:new</span><span class="p">,</span> <span class="ss">:create</span><span class="p">]</span>
+<span class="k">end</span>
+<span class="n">resources</span> <span class="ss">:comments</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:show</span><span class="p">,</span> <span class="ss">:edit</span><span class="p">,</span> <span class="ss">:update</span><span class="p">,</span> <span class="ss">:destroy</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Эта идея балансирует на грани между наглядностью маршрутов и глубоким вложением. Существует сокращенный синтаксис для получения подобного с помощью опции <code>:shallow</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:articles</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:comments</span><span class="p">,</span> <span class="ss">shallow: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это сгенерирует те же самые маршруты из первого примера. Также можно определить опцию <code>:shallow</code> в родительском ресурсе, в этом случае все вложенные ресурсы будут мелкие:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:articles</span><span class="p">,</span> <span class="ss">shallow: </span><span class="kp">true</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:comments</span>
+  <span class="n">resources</span> <span class="ss">:quotes</span>
+  <span class="n">resources</span> <span class="ss">:drafts</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Тут для ресурса articles будут сгенерированы следующие маршруты:</p><table class='table table-striped'><tr>
+<th>Метод HTTP</th>
+<th>Путь</th>
+<th>Контроллер#Экшн</th>
+<th>Именованный маршрутный хелпер</th>
+</tr>
+<tr>
+<td>GET</td>
+<td>/articles/:article_id/comments(.:format)</td>
+<td>comments#index</td>
+<td>article_comments_path</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/articles/:article_id/comments(.:format)</td>
+<td>comments#create</td>
+<td>article_comments_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/articles/:article_id/comments/new(.:format)</td>
+<td>comments#new</td>
+<td>new_article_comment_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/comments/:id/edit(.:format)</td>
+<td>comments#edit</td>
+<td>edit_comment_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/comments/:id(.:format)</td>
+<td>comments#show</td>
+<td>comment_path</td>
+</tr>
+<tr>
+<td>PATCH/PUT</td>
+<td>/comments/:id(.:format)</td>
+<td>comments#update</td>
+<td>comment_path</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/comments/:id(.:format)</td>
+<td>comments#destroy</td>
+<td>comment_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/articles/:article_id/quotes(.:format)</td>
+<td>quotes#index</td>
+<td>article_quotes_path</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/articles/:article_id/quotes(.:format)</td>
+<td>quotes#create</td>
+<td>article_quotes_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/articles/:article_id/quotes/new(.:format)</td>
+<td>quotes#new</td>
+<td>new_article_quote_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/quotes/:id/edit(.:format)</td>
+<td>quotes#edit</td>
+<td>edit_quote_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/quotes/:id(.:format)</td>
+<td>quotes#show</td>
+<td>quote_path</td>
+</tr>
+<tr>
+<td>PATCH/PUT</td>
+<td>/quotes/:id(.:format)</td>
+<td>quotes#update</td>
+<td>quote_path</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/quotes/:id(.:format)</td>
+<td>quotes#destroy</td>
+<td>quote_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/articles/:article_id/drafts(.:format)</td>
+<td>drafts#index</td>
+<td>article_drafts_path</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/articles/:article_id/drafts(.:format)</td>
+<td>drafts#create</td>
+<td>article_drafts_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/articles/:article_id/drafts/new(.:format)</td>
+<td>drafts#new</td>
+<td>new_article_draft_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/drafts/:id/edit(.:format)</td>
+<td>drafts#edit</td>
+<td>edit_draft_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/drafts/:id(.:format)</td>
+<td>drafts#show</td>
+<td>draft_path</td>
+</tr>
+<tr>
+<td>PATCH/PUT</td>
+<td>/drafts/:id(.:format)</td>
+<td>drafts#update</td>
+<td>draft_path</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/drafts/:id(.:format)</td>
+<td>drafts#destroy</td>
+<td>draft_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/articles(.:format)</td>
+<td>articles#index</td>
+<td>articles_path</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/articles(.:format)</td>
+<td>articles#create</td>
+<td>articles_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/articles/new(.:format)</td>
+<td>articles#new</td>
+<td>new_article_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/articles/:id/edit(.:format)</td>
+<td>articles#edit</td>
+<td>edit_article_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/articles/:id(.:format)</td>
+<td>articles#show</td>
+<td>article_path</td>
+</tr>
+<tr>
+<td>PATCH/PUT</td>
+<td>/articles/:id(.:format)</td>
+<td>articles#update</td>
+<td>article_path</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/articles/:id(.:format)</td>
+<td>articles#destroy</td>
+<td>article_path</td>
+</tr>
+</table><p>Метод <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Resources.html#method-i-shallow"><code>shallow</code></a> в DSL создает область видимости, в котором каждое вложение мелкое. Это генерирует те же самые маршруты из предыдущего примера:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">shallow</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:articles</span> <span class="k">do</span>
+    <span class="n">resources</span> <span class="ss">:comments</span>
+    <span class="n">resources</span> <span class="ss">:quotes</span>
+    <span class="n">resources</span> <span class="ss">:drafts</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Также существуют две опции для <code>scope</code> для настройки мелких маршрутов. <code>:shallow_path</code> добавляет к путям элемента префикс с указанным параметром:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">scope</span> <span class="ss">shallow_path: </span><span class="s2">"sekret"</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:articles</span> <span class="k">do</span>
+    <span class="n">resources</span> <span class="ss">:comments</span><span class="p">,</span> <span class="ss">shallow: </span><span class="kp">true</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Для ресурса комментариев будут сгенерированы следующие маршруты:</p><table class='table table-striped'><tr>
+<th>Метод HTTP</th>
+<th>Путь</th>
+<th>Контроллер#Экшн</th>
+<th>Именованный хелпер маршрута</th>
+</tr>
+<tr>
+<td>GET</td>
+<td>/articles/:article_id/comments(.:format)</td>
+<td>comments#index</td>
+<td>article_comments_path</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/articles/:article_id/comments(.:format)</td>
+<td>comments#create</td>
+<td>article_comments_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/articles/:article_id/comments/new(.:format)</td>
+<td>comments#new</td>
+<td>new_article_comment_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/sekret/comments/:id/edit(.:format)</td>
+<td>comments#edit</td>
+<td>edit_comment_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/sekret/comments/:id(.:format)</td>
+<td>comments#show</td>
+<td>comment_path</td>
+</tr>
+<tr>
+<td>PATCH/PUT</td>
+<td>/sekret/comments/:id(.:format)</td>
+<td>comments#update</td>
+<td>comment_path</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/sekret/comments/:id(.:format)</td>
+<td>comments#destroy</td>
+<td>comment_path</td>
+</tr>
+</table><p>Опция <code>:shallow_prefix</code> добавляет указанный параметр к именованным хелперам маршрута:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">scope</span> <span class="ss">shallow_prefix: </span><span class="s2">"sekret"</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:articles</span> <span class="k">do</span>
+    <span class="n">resources</span> <span class="ss">:comments</span><span class="p">,</span> <span class="ss">shallow: </span><span class="kp">true</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Для ресурса комментариев будут сгенерированы следующие маршруты:</p><table class='table table-striped'><tr>
+<th>Метод HTTP</th>
+<th>Путь</th>
+<th>Контроллер#Экшн</th>
+<th>Именованный хелпер маршрута</th>
+</tr>
+<tr>
+<td>GET</td>
+<td>/articles/:article_id/comments(.:format)</td>
+<td>comments#index</td>
+<td>article_comments_path</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/articles/:article_id/comments(.:format)</td>
+<td>comments#create</td>
+<td>article_comments_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/articles/:article_id/comments/new(.:format)</td>
+<td>comments#new</td>
+<td>new_article_comment_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/comments/:id/edit(.:format)</td>
+<td>comments#edit</td>
+<td>edit_sekret_comment_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/comments/:id(.:format)</td>
+<td>comments#show</td>
+<td>sekret_comment_path</td>
+</tr>
+<tr>
+<td>PATCH/PUT</td>
+<td>/comments/:id(.:format)</td>
+<td>comments#update</td>
+<td>sekret_comment_path</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/comments/:id(.:format)</td>
+<td>comments#destroy</td>
+<td>sekret_comment_path</td>
+</tr>
+</table><h4 id='kontserny-marshrutov' class='inside_page_header'><a href="#kontserny-marshrutov">2.8.</a> Концерны маршрутов</h4><p>Концерны маршрутов позволяют объявлять общие маршруты, которые затем могут быть повторно использованы внутри других ресурсов и маршрутов. Чтобы определить концерн, используйте блок <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Concerns.html#method-i-concern"><code>concern</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">concern</span> <span class="ss">:commentable</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:comments</span>
+<span class="k">end</span>
+
+<span class="n">concern</span> <span class="ss">:image_attachable</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:images</span><span class="p">,</span> <span class="ss">only: :index</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Эти концерны могут быть использованы в ресурсах, чтобы избежать дублирования кода и разделить поведение между несколькими маршрутами:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:messages</span><span class="p">,</span> <span class="ss">concerns: :commentable</span>
+
+<span class="n">resources</span> <span class="ss">:articles</span><span class="p">,</span> <span class="ss">concerns: </span><span class="p">[</span><span class="ss">:commentable</span><span class="p">,</span> <span class="ss">:image_attachable</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Вышеуказанное эквивалентно:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:messages</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:comments</span>
+<span class="k">end</span>
+
+<span class="n">resources</span> <span class="ss">:articles</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:comments</span>
+  <span class="n">resources</span> <span class="ss">:images</span><span class="p">,</span> <span class="ss">only: :index</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Также их можно использовать где угодно, с помощью <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Concerns.html#method-i-concerns"><code>concerns</code></a>. Например, в блоке <code>scope</code> или <code>namespace</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">namespace</span> <span class="ss">:articles</span> <span class="k">do</span>
+  <span class="n">concerns</span> <span class="ss">:commentable</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='sozdanie-putey-i-url-iz-ob-ektov' class='inside_page_header'><a href="#sozdanie-putey-i-url-iz-ob-ektov">2.9.</a> Создание путей и URL из объектов</h4><p>В дополнение к использованию маршрутных хелперов, Rails может также создавать пути и URL из массива параметров. Например, предположим, у вас есть этот набор маршрутов:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:magazines</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:ads</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>При использовании <code>magazine_ad_path</code>, можно передать экземпляры <code>Magazine</code> и <code>Ad</code> вместо числовых ID:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s1">'Ad details'</span><span class="p">,</span> <span class="n">magazine_ad_path</span><span class="p">(</span><span class="vi">@magazine</span><span class="p">,</span> <span class="vi">@ad</span><span class="p">)</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Можно также использовать <a href="https://api.rubyonrails.org/classes/ActionView/RoutingUrlFor.html#method-i-url_for"><code>url_for</code></a> с набором объектов, и Rails автоматически определит, какой маршрут вам нужен:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s1">'Ad details'</span><span class="p">,</span> <span class="n">url_for</span><span class="p">([</span><span class="vi">@magazine</span><span class="p">,</span> <span class="vi">@ad</span><span class="p">])</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>В этом случае Rails увидит, что <code>@magazine</code> это <code>Magazine</code> и <code>@ad</code> это <code>Ad</code>, и поэтому использует хелпер <code>magazine_ad_path</code>. В хелперах, таких как <code>link_to</code>, можно определить лишь объект вместо полного вызова <code>url_for</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s1">'Ad details'</span><span class="p">,</span> <span class="p">[</span><span class="vi">@magazine</span><span class="p">,</span> <span class="vi">@ad</span><span class="p">]</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Если хотите ссылку только на magazine:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s1">'Magazine details'</span><span class="p">,</span> <span class="vi">@magazine</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Для других экшнов следует всего лишь вставить имя экшна как первый элемент массива:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s1">'Edit Ad'</span><span class="p">,</span> <span class="p">[</span><span class="ss">:edit</span><span class="p">,</span> <span class="vi">@magazine</span><span class="p">,</span> <span class="vi">@ad</span><span class="p">]</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Это позволит рассматривать экземпляры модели как URL, что является ключевым преимуществом ресурсного стиля.</p><h4 id='opredelenie-dopolnitelnyh-ekshnov-restful' class='inside_page_header'><a href="#opredelenie-dopolnitelnyh-ekshnov-restful">2.10.</a> Определение дополнительных экшнов RESTful</h4><p>Вы не ограничены семью маршрутами, которые создает роутинг RESTful по умолчанию. Если хотите, можете добавить дополнительные маршруты, применяющиеся к коллекции или отдельным элементам коллекции.</p><h5 id='dobavlenie-marshrutov-k-elementam' class='inside_page_header'><a href="#dobavlenie-marshrutov-k-elementam">2.10.1.</a> Добавление маршрутов к элементам</h5><p>Для добавления маршрута к элементу, добавьте блок <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Resources.html#method-i-member"><code>member</code></a> в блок ресурса:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:photos</span> <span class="k">do</span>
+  <span class="n">member</span> <span class="k">do</span>
+    <span class="n">get</span> <span class="s1">'preview'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это распознает <code>/photos/1/preview</code> с GET и направит в экшн <code>preview</code> контроллера <code>PhotosController</code> со значением id ресурса, переданного в <code>params[:id]</code>. Это также создаст хелперы <code>preview_photo_url</code> и <code>preview_photo_path</code>.</p><p>В блоке маршрутов элемента каждое имя маршрута определяет метод HTTP, с которым он будет связан. Тут можно использовать <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-get"><code>get</code></a>, <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-patch"><code>patch</code></a>, <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-put"><code>put</code></a>, <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-post"><code>post</code></a> или <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-delete"><code>delete</code></a>. Если у вас нет нескольких маршрутов к <code>member</code>, также можно передать <code>:on</code> к маршруту, избавившись от блока:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:photos</span> <span class="k">do</span>
+  <span class="n">get</span> <span class="s1">'preview'</span><span class="p">,</span> <span class="ss">on: :member</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Можно опустить опцию <code>:on</code>, это создаст такой же маршрут для элемента, за исключением того, что значение id ресурса будет доступно в <code>params[:photo_id]</code> вместо <code>params[:id]</code>. Хелперы маршрутов также будут переименованы из <code>preview_photo_url</code> и <code>preview_photo_path</code> в <code>photo_preview_url</code> и <code>photo_preview_path</code>.</p><h5 id='dobavlenie-marshrutov-k-kollektsii' class='inside_page_header'><a href="#dobavlenie-marshrutov-k-kollektsii">2.10.2.</a> Добавление маршрутов к коллекции</h5><p>Чтобы добавить маршрут к коллекции, используйте блок <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Resources.html#method-i-collection"><code>collection</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:photos</span> <span class="k">do</span>
+  <span class="n">collection</span> <span class="k">do</span>
+    <span class="n">get</span> <span class="s1">'search'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это позволит Rails распознавать пути, такие как <code>/photos/search</code> с GET и направить в экшн <code>search</code> контроллера <code>PhotosController</code>. Это также создаст маршрутные хелперы <code>search_photos_url</code> и <code>search_photos_path</code>.</p><p>Как и с маршрутами к элементу, можно передать <code>:on</code> к маршруту:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:photos</span> <span class="k">do</span>
+  <span class="n">get</span> <span class="s1">'search'</span><span class="p">,</span> <span class="ss">on: :collection</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="note"><p>Если определяете дополнительные ресурсные маршруты с символом в качестве первого аргумента, помните, что это не эквивалент использования строки. Символы означают экшны контроллера, а строки означают пути.</p></div><h5 id='dobavlenie-marshrutov-dlya-dopolnitelnyh-ekshnov-new' class='inside_page_header'><a href="#dobavlenie-marshrutov-dlya-dopolnitelnyh-ekshnov-new">2.10.3.</a> Добавление маршрутов для дополнительных экшнов new</h5><p>Чтобы добавить альтернативный экшн new, используйте сокращенный вариант <code>:on</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:comments</span> <span class="k">do</span>
+  <span class="n">get</span> <span class="s1">'preview'</span><span class="p">,</span> <span class="ss">on: :new</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это позволит Rails распознавать пути, такие как <code>/comments/new/preview</code> с GET, и направлять их в экшн <code>preview</code> в <code>CommentsController</code>. Он также создаст маршрутные хелперы <code>preview_new_comment_url</code> и <code>preview_new_comment_path</code>.</p><div class="info"><p>Если вдруг вы захотели добавить много дополнительных экшнов в ресурсный маршрут, нужно остановиться и спросить себя, может быть, от вас утаилось присутствие другого ресурса.</p></div><h3 id='neresursnye-marshruty' class='inside_page_header'><a href="#neresursnye-marshruty">3.</a> Нересурсные маршруты</h3><p>В дополнению к ресурсному роутингу, Rails поддерживает роутинг произвольных URL к экшнам. Тут не будет групп маршрутов, генерируемых автоматически ресурсным роутингом. Вместо этого вы должны настроить каждый маршрут отдельно в вашем приложении.</p><p>Хотя обычно следует пользоваться ресурсным роутингом, все еще есть много мест, где более подходит простой роутинг. Нет необходимости пытаться заворачивать каждый кусочек своего приложения в ресурсные рамки, если это менее удобно.</p><p>В частности, простой роутинг облегчает привязку унаследованных URL к новым экшнам Rails.</p><h4 id='neobyazatelnye-parametry' class='inside_page_header'><a href="#neobyazatelnye-parametry">3.1.</a> Необязательные параметры</h4><p>При настройке обычного маршрута вы предоставляете ряд символов, которые Rails связывает с частями входящего запроса HTTP. Например, рассмотрим следующий маршрут:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'photos(/:id)'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'photos#display'</span>
+</code></pre>
+</div>
+<p>Если входящий запрос <code>/photos/1</code> обрабатывается этим маршрутом (так как он не соответствует любому предыдущему маршруту до этого), то результатом будет вызов экшна <code>display</code> в <code>PhotosController</code>, и результирующий параметр <code>&quot;1&quot;</code> будет доступен как <code>params[:id]</code>. Этот маршрут также свяжет входящий запрос <code>/photos</code> с <code>PhotosController#display</code>, поскольку <code>:id</code> — опциональный параметр, обозначенный скобками.</p><h4 id='dynamic-segments' class='inside_page_header'><a href="#dynamic-segments">3.2.</a>  Динамические сегменты</h4><p>Можете настроить сколько угодно динамических сегментов в обычном маршруте. Любой сегмент будет доступен для соответствующего экшна как часть хэша params. Таким образом, если настроите такой маршрут:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'photos/:id/:user_id'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'photos#show'</span>
+</code></pre>
+</div>
+<p>Входящий путь <code>/photos/1/2</code> будет направлен на экшн <code>show</code> в <code>PhotosController</code>. <code>params[:id]</code> будет установлен как &quot;1&quot;, и <code>params[:user_id]</code> будет установлен как &quot;2&quot;.</p><div class="info"><p>По умолчанию динамические сегменты не принимают точки - потому что точка используется как разделитель для формата маршрутов. Если в динамическом сегменте необходимо использовать точку, добавьте ограничение, переопределяющее это – к примеру, <code>id: /[^\/]+/</code> позволяет все, кроме слэша.</p></div><h4 id='statichnye-segmenty' class='inside_page_header'><a href="#statichnye-segmenty">3.3.</a> Статичные сегменты</h4><p>Можете определить статичные сегменты при создании маршрута, не начинающиеся с двоеточия в сегменте:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'photos/:id/with_user/:user_id'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'photos#show'</span>
+</code></pre>
+</div>
+<p>Этот маршрут соответствует путям, таким как <code>/photos/1/with_user/2</code>. В этом случае <code>params</code> будет <code>{ controller: &#39;photos&#39;, action: &#39;show&#39;, id: &#39;1&#39;, user_id: &#39;2&#39; }</code>.</p><h4 id='parametry-stroki-zaprosa' class='inside_page_header'><a href="#parametry-stroki-zaprosa">3.4.</a> Параметры строки запроса</h4><p><code>params</code> также включает любые параметры из строки запроса. Например, с таким маршрутом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'photos/:id'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'photos#show'</span>
+</code></pre>
+</div>
+<p>Входящий путь <code>/photos/1?user_id=2</code> будет направлен на экшн <code>show</code> контроллера <code>Photos</code>. <code>params</code> будет <code>{ controller: &#39;photos&#39;, action: &#39;show&#39;, id: &#39;1&#39;, user_id: &#39;2&#39; }</code>.</p><h4 id='opredelenie-znacheniy-po-umolchaniyu' class='inside_page_header'><a href="#opredelenie-znacheniy-po-umolchaniyu">3.5.</a> Определение значений по умолчанию</h4><p>Можно определить значения по умолчанию в маршруте, предоставив хэш для опции <code>:defaults</code>. Это также относится к параметрам, которые не определены как динамические сегменты. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'photos/:id'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'photos#show'</span><span class="p">,</span> <span class="ss">defaults: </span><span class="p">{</span> <span class="ss">format: </span><span class="s1">'jpg'</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>Rails направит <code>photos/12</code> в экшн <code>show</code> <code>PhotosController</code>, и установит <code>params[:format]</code> как <code>&quot;jpg&quot;</code>.</p><p>Вы также можете использовать блок <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Scoping.html#method-i-defaults"><code>defaults</code></a>, чтобы определить значения по умолчанию для нескольких элементов:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">defaults</span> <span class="ss">format: :json</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:photos</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="note"><p>Невозможно переопределить значения по умолчанию с помощью параметров строки запроса - по причине безопасности. Единственные значения по умолчанию, которые могут быть переопределены - это динамические сегменты, с помощью подстановки в путь URL.</p></div><h4 id='imenovanie-marshrutov' class='inside_page_header'><a href="#imenovanie-marshrutov">3.6.</a> Именование маршрутов</h4><p>Можно определить имя для любого маршрута, используя опцию <code>:as</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'exit'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'sessions#destroy'</span><span class="p">,</span> <span class="ss">as: :logout</span>
+</code></pre>
+</div>
+<p>Это создаст <code>logout_path</code> и <code>logout_url</code> как именованные хелперы маршрута в вашем приложении. Вызов <code>logout_path</code> вернет <code>/exit</code></p><p>Также это можно использовать для переопределения маршрутных методов, определенных ресурсами, поместив свой маршрут перед определением ресурсного маршрута, следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">':username'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'users#show'</span><span class="p">,</span> <span class="ss">as: :user</span>
+<span class="n">resources</span> <span class="ss">:users</span>
+</code></pre>
+</div>
+<p>Что определит метод <code>user_path</code>, который будет доступен в контроллерах, хелперах и вью, и будет вести на маршрут, такой как <code>/bob</code>. В экшне <code>show</code> из <code>UsersController</code>, <code>params[:username]</code> будет содержать имя пользователя. Измените <code>:username</code> в определении маршрута, если не хотите, чтобы имя параметра было <code>:username</code>.</p><h4 id='ogranicheniya-metoda-http' class='inside_page_header'><a href="#ogranicheniya-metoda-http">3.7.</a> Ограничения метода HTTP</h4><p>В основном следует использовать методы <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-get"><code>get</code></a>, <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-post"><code>post</code></a>, <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-put"><code>put</code></a>, <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-patch"><code>patch</code></a> и <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-delete"><code>delete</code></a> для ограничения маршрута определенным методом. Можно использовать метод <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Base.html#method-i-match"><code>match</code></a> с опцией <code>:via</code> для соответствия нескольким методам сразу:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">match</span> <span class="s1">'photos'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'photos#show'</span><span class="p">,</span> <span class="ss">via: </span><span class="p">[</span><span class="ss">:get</span><span class="p">,</span> <span class="ss">:post</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Также можно установить соответствие всем методам для определенного маршрута, используя <code>:via: :all</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">match</span> <span class="s1">'photos'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'photos#show'</span><span class="p">,</span> <span class="ss">via: :all</span>
+</code></pre>
+</div>
+<div class="note"><p>Роутинг запросов <code>GET</code> и <code>POST</code> одновременно в один экшн небезопасен. В основном, следует избегать роутинг всех методов в экшн, если нет веской причины делать так.</p></div><div class="note"><p><code>GET</code> в Rails не проверяет токен CSRF. Никогда не пишите в базу данных из <code>GET</code> запросов, подробнее о контрмерах CSRF смотрите в руководстве <a href="/security#csrf-countermeasures">Безопасность приложений на Rails</a>.</p></div><h4 id='segment-constraints' class='inside_page_header'><a href="#segment-constraints">3.8.</a>  Ограничения сегмента</h4><p>Можно использовать опцию <code>:constraints</code> для соблюдения формата динамического сегмента:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'photos/:id'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'photos#show'</span><span class="p">,</span> <span class="ss">constraints: </span><span class="p">{</span> <span class="ss">id: </span><span class="sr">/[A-Z]\d{5}/</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>Этот маршрут соответствует путям, таким как <code>/photos/A12345</code>, но не <code>/photos/893</code>. Можно выразить тот же маршрут более кратко:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'photos/:id'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'photos#show'</span><span class="p">,</span> <span class="ss">id: </span><span class="sr">/[A-Z]\d{5}/</span>
+</code></pre>
+</div>
+<p><code>:constraints</code> принимает регулярное выражение c тем ограничением, что якоря regexp не могут использоваться. Например, следующий маршрут не работает:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'/:id'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'articles#show'</span><span class="p">,</span> <span class="ss">constraints: </span><span class="p">{</span><span class="ss">id: </span><span class="sr">/^\d/</span><span class="p">}</span>
+</code></pre>
+</div>
+<p>Однако отметьте, что нет необходимости использовать якоря, поскольку все маршруты заякорены в начале и в конце.</p><p>Например, следующие маршруты приведут к <code>articles</code> со значениями <code>to_param</code> наподобие <code>1-hello-world</code>, которые всегда начинаются с цифры, и к <code>users</code> со значениями <code>to_param</code> наподобие <code>david</code>, которые никогда не начинаются с цифры, чтобы можно было использовать общее корневое пространство имен:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'/:id'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'articles#show'</span><span class="p">,</span> <span class="ss">constraints: </span><span class="p">{</span> <span class="ss">id: </span><span class="sr">/\d.+/</span> <span class="p">}</span>
+<span class="n">get</span> <span class="s1">'/:username'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'users#show'</span>
+</code></pre>
+</div>
+<h4 id='ogranicheniya-osnovannye-na-zaprose' class='inside_page_header'><a href="#ogranicheniya-osnovannye-na-zaprose">3.9.</a> Ограничения, основанные на запросе</h4><p>Также можно ограничить маршрут, основываясь на любом методе в <a href="/action-controller-overview#the-request-and-response-objects">объекте Request</a>, который возвращает <code>String</code>.</p><p>Ограничение, основанное на запросе, определяется так же, как и сегментное ограничение:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'photos'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'photos#index'</span><span class="p">,</span> <span class="ss">constraints: </span><span class="p">{</span> <span class="ss">subdomain: </span><span class="s1">'admin'</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>Также можно определить ограничения, используя блок <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Scoping.html#method-i-constraints"><code>constraints</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">namespace</span> <span class="ss">:admin</span> <span class="k">do</span>
+  <span class="n">constraints</span> <span class="ss">subdomain: </span><span class="s1">'admin'</span> <span class="k">do</span>
+    <span class="n">resources</span> <span class="ss">:photos</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="note"><p>Ограничения запроса работают, вызывая метод на <a href="/action-controller-overview#the-request-and-response-objects">объекте Request</a> с тем же именем, что и ключ хэша, а затем сравнивают возвращенное значение со значением хэша. Следовательно, значения ограничений должны соответствовать возвращаемому типу соответствующего метода объекта Request. Например: <code>constraints: { subdomain: &#39;api&#39; }</code> будет соответствовать поддомену <code>api</code>, как и ожидалось, однако, использование символа <code>constraints: { subdomain: :api }</code> не будет, так как <code>request.subdomain</code> возвращает <code>&#39;api&#39;</code> как строку.</p></div><div class="note"><p>Имеется исключения для ограничения <code>format</code>: так как это метод на объекте Request, это также неявный опциональный параметр для каждого пути. Ограничения сегмента имеют приоритет, и ограничение <code>format</code> применяется как есть, даже когда передано в хэше. Например, <code>get &#39;foo&#39;, constraints: { format: &#39;json&#39; }</code> будет соответствовать <code>GET  /foo</code>, так как формат опциональный по умолчанию. Однако, <a href="#advanced-constraints">используя lambda</a>, как в <code>get &#39;foo&#39;, constraints: lambda { |req| req.format == :json }</code>, маршрут будет соответствовать только явным запросам JSON.</p></div><h4 id='advanced-constraints' class='inside_page_header'><a href="#advanced-constraints">3.10.</a>  Продвинутые ограничения</h4><p>Если имеется более продвинутое ограничение, можете предоставить объект, отвечающий на <code>matches?</code>, который будет использовать Rails. Скажем, вы хотите направить всех пользователей через список ограничений в <code>RestrictedListController</code>. Можно сделать так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">RestrictedListController</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@ips</span> <span class="o">=</span> <span class="no">RestrictedList</span><span class="p">.</span><span class="nf">retrieve_ips</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">matches?</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="vi">@ips</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">remote_ip</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">get</span> <span class="s1">'*path'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'restricted_list#index'</span><span class="p">,</span>
+    <span class="ss">constraints: </span><span class="no">RestrictedListConstraint</span><span class="p">.</span><span class="nf">new</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Ограничения также можно определить как лямбду:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">get</span> <span class="s1">'*path'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'restricted_list#index'</span><span class="p">,</span>
+    <span class="ss">constraints: </span><span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">request</span><span class="o">|</span> <span class="no">RestrictedList</span><span class="p">.</span><span class="nf">retrieve_ips</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">remote_ip</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>И метод <code>matches?</code>, и лямбда получают объект <code>request</code> в качестве аргумента.</p><h5 id='ogranicheniya-v-blochnoy-forme' class='inside_page_header'><a href="#ogranicheniya-v-blochnoy-forme">3.10.1.</a> Ограничения в блочной форме</h5><p>Можно указывать ограничения в блочной форме. Это полезно, когда нужно применить одно и то же правило к нескольким маршрутам. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">RestrictedListConstraint</span>
+  <span class="c1"># ...То же, что и в предыдущем примере</span>
+<span class="k">end</span>
+
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">constraints</span><span class="p">(</span><span class="no">RestrictedListConstraint</span><span class="p">.</span><span class="nf">new</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">get</span> <span class="s1">'*path'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'restricted_list#index'</span>
+    <span class="n">get</span> <span class="s1">'*other-path'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'other_restricted_list#index'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Также можно использовать <code>lambda</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">constraints</span><span class="p">(</span><span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">request</span><span class="o">|</span> <span class="no">RestrictedList</span><span class="p">.</span><span class="nf">retrieve_ips</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">remote_ip</span><span class="p">)</span> <span class="p">})</span> <span class="k">do</span>
+    <span class="n">get</span> <span class="s1">'*path'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'restricted_list#index'</span>
+    <span class="n">get</span> <span class="s1">'*other-path'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'other_restricted_list#index'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='podstanovka-marshrutov-i-podstanovochnye-segmenty' class='inside_page_header'><a href="#podstanovka-marshrutov-i-podstanovochnye-segmenty">3.11.</a> Подстановка маршрутов и подстановочные сегменты</h4><p>Подстановка маршрутов - это способ указать, что определенные параметры должны соответствовать остальным частям маршрута. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'photos/*other'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'photos#unknown'</span>
+</code></pre>
+</div>
+<p>Этот маршрут будет соответствовать <code>photos/12</code> или <code>/photos/long/path/to/12</code>, установив <code>params[:other]</code> как <code>&quot;12&quot;</code>, или <code>&quot;long/path/to/12&quot;</code>. Сегменты, начинающиеся со звездочки, называются &quot;подстановочные сегменты&quot; (&quot;wildcard segments&quot;).</p><p>Подстановочные сегменты могут быть где угодно в маршруте. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'books/*section/:title'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'books#show'</span>
+</code></pre>
+</div>
+<p>будет соответствовать <code>books/some/section/last-words-a-memoir</code> с <code>params[:section]</code> равным <code>&#39;some/section&#39;</code>, и <code>params[:title]</code> равным <code>&#39;last-words-a-memoir&#39;</code>.</p><p>На самом деле технически маршрут может иметь более одного динамического сегмента, matcher назначает параметры интуитивным образом. Для примера:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'*a/foo/*b'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'test#index'</span>
+</code></pre>
+</div>
+<p>будет соответствовать <code>zoo/woo/foo/bar/baz</code> с <code>params[:a]</code> равным <code>&#39;zoo/woo&#39;</code>, и <code>params[:b]</code> равным <code>&#39;bar/baz&#39;</code>.</p><div class="note"><p>Запросив <code>&#39;/foo/bar.json&#39;</code>, ваш <code>params[:pages]</code> будет равен <code>&#39;foo/bar&#39;</code> с форматом запроса JSON. Если вам нужно вернуть старое поведение 3.0.x, можете предоставить <code>format: false</code> вот так:</p></div><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'*pages'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'pages#show'</span><span class="p">,</span> <span class="ss">format: </span><span class="kp">false</span>
+</code></pre>
+</div>
+<div class="note"><p>Если хотите сделать сегмент формата обязательным, чтобы его нельзя было опустить, укажите <code>format: true</code> подобным образом:</p></div><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'*pages'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'pages#show'</span><span class="p">,</span> <span class="ss">format: </span><span class="kp">true</span>
+</code></pre>
+</div>
+<h4 id='perenapravlenie' class='inside_page_header'><a href="#perenapravlenie">3.12.</a> Перенаправление</h4><p>Можно перенаправить любой путь на другой путь, используя хелпер <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Redirection.html#method-i-redirect"><code>redirect</code></a> в вашем роутере:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'/stories'</span><span class="p">,</span> <span class="ss">to: </span><span class="n">redirect</span><span class="p">(</span><span class="s1">'/articles'</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Также можно повторно использовать динамические сегменты для соответствия пути, на который перенаправляем:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'/stories/:name'</span><span class="p">,</span> <span class="ss">to: </span><span class="n">redirect</span><span class="p">(</span><span class="s1">'/articles/%{name}'</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Также можно предоставить блок для <code>redirect</code>, который получает символизированные параметры пути и объект request:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'/stories/:name'</span><span class="p">,</span> <span class="ss">to: </span><span class="n">redirect</span> <span class="p">{</span> <span class="o">|</span><span class="n">path_params</span><span class="p">,</span> <span class="n">req</span><span class="o">|</span> <span class="s2">"/articles/</span><span class="si">#{</span><span class="n">path_params</span><span class="p">[</span><span class="ss">:name</span><span class="p">].</span><span class="nf">pluralize</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+<span class="n">get</span> <span class="s1">'/stories'</span><span class="p">,</span> <span class="ss">to: </span><span class="n">redirect</span> <span class="p">{</span> <span class="o">|</span><span class="n">path_params</span><span class="p">,</span> <span class="n">req</span><span class="o">|</span> <span class="s2">"/articles/</span><span class="si">#{</span><span class="n">req</span><span class="p">.</span><span class="nf">subdomain</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>Пожалуйста, отметьте, что перенаправлением по умолчанию является 301 &quot;Moved Permanently&quot;. Учтите, что некоторые браузеры или прокси серверы закэшируют этот тип перенаправления, сделав старые страницы недоступными. Чтобы изменить статус отклика, можно использовать опцию <code>:status</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'/stories/:name'</span><span class="p">,</span> <span class="ss">to: </span><span class="n">redirect</span><span class="p">(</span><span class="s1">'/articles/%{name}'</span><span class="p">,</span> <span class="ss">status: </span><span class="mi">302</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Во всех этих случаях, если не предоставить предшествующий хост (<code>http://www.example.com</code>), Rails возьмет эти детали из текущего запроса.</p><h4 id='routing-k-prilozheniyam-rack' class='inside_page_header'><a href="#routing-k-prilozheniyam-rack">3.13.</a> Роутинг к приложениям Rack</h4><p>Вместо строки, подобной <code>&#39;articles#index&#39;</code>, соответствующей экшну <code>index</code> в <code>ArticlesController</code>, можно определить любое <a href="/rails-on-rack">приложение Rack</a> как конечную точку совпадения.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">match</span> <span class="s1">'/application.js'</span><span class="p">,</span> <span class="ss">to: </span><span class="no">MyRackApp</span><span class="p">,</span> <span class="ss">via: :all</span>
+</code></pre>
+</div>
+<p>Пока <code>MyRackApp</code> отвечает на <code>call</code> и возвращает <code>[status, headers, body]</code>, роутер не будет различать приложение Rack и экшн. Здесь подходит использование <code>via: :all</code>, если вы хотите позволить своему приложению Rack обрабатывать все методы так, как оно посчитает нужным.</p><div class="note"><p>Для любопытства, <code>&#39;articles#index&#39;</code> фактически расширяется до <code>ArticlesController.action(:index)</code>, который возвращает валидное приложение Rack.</p></div><div class="note"><p>Так как proc/lambda это объекты, отвечающие на <code>call</code>, можно реализовывать очень простые маршруты (например, для проверки здоровья) в одну строку:<br><code>get &#39;/health&#39;, to: -&gt;(env) { [204, {}, [&#39;&#39;]] }</code></p></div><p>Если вы указываете приложение Rack как конечную точку совпадения, помните что маршрут будет неизменным в принимающем приложении. Со следующим маршрутом ваше приложение Rack будет ожидать маршрут <code>/admin</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">match</span> <span class="s1">'/admin'</span><span class="p">,</span> <span class="ss">to: </span><span class="no">AdminApp</span><span class="p">,</span> <span class="ss">via: :all</span>
+</code></pre>
+</div>
+<p>Если вы предпочитаете, чтобы ваше приложение Rack получало запросы на корневой путь, используйте вместо этого <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Base.html#method-i-mount"><code>mount</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">mount</span> <span class="no">AdminApp</span><span class="p">,</span> <span class="ss">at: </span><span class="s1">'/admin'</span>
+</code></pre>
+</div>
+<h4 id='ispolzovanie-root' class='inside_page_header'><a href="#ispolzovanie-root">3.14.</a> Использование <code>root</code></h4><p>Можно определить, с чем Rails должен связать <code>&#39;/&#39;</code> с помощью метода <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Resources.html#method-i-root"><code>root</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">root</span> <span class="ss">to: </span><span class="s1">'pages#main'</span>
+<span class="n">root</span> <span class="s1">'pages#main'</span> <span class="c1"># то же самое в краткой форме</span>
+</code></pre>
+</div>
+<p>Следует поместить маршрут <code>root</code> в начало файла, поскольку это наиболее популярный маршрут и должен быть проверен первым.</p><div class="note"><p>Маршрут <code>root</code> связывает с экшном только запросы <code>GET</code>.</p></div><p><code>root</code> также можно использовать внутри пространств имен и областей видимости. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">namespace</span> <span class="ss">:admin</span> <span class="k">do</span>
+  <span class="n">root</span> <span class="ss">to: </span><span class="s2">"admin#index"</span>
+<span class="k">end</span>
+
+<span class="n">root</span> <span class="ss">to: </span><span class="s2">"home#index"</span>
+</code></pre>
+</div>
+<h4 id='marshruty-s-simvolami-unicode' class='inside_page_header'><a href="#marshruty-s-simvolami-unicode">3.15.</a> Маршруты с символами Unicode</h4><p>Маршруты с символами unicode можно определять явно. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'こんにちは'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'welcome#index'</span>
+</code></pre>
+</div>
+<h4 id='pryamye-marshruty' class='inside_page_header'><a href="#pryamye-marshruty">3.16.</a> Прямые маршруты</h4><p>Можно создавать собственные хелперы URL напрямую, вызывая <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/CustomUrls.html#method-i-direct"><code>direct</code></a>. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">direct</span> <span class="ss">:homepage</span> <span class="k">do</span>
+  <span class="s2">"https://rubyonrails.org"</span>
+<span class="k">end</span>
+
+<span class="c1"># &gt;&gt; homepage_url</span>
+<span class="c1"># =&gt; "https://rubyonrails.org"</span>
+</code></pre>
+</div>
+<p>Возвращаемое значение блока должно быть валидным аргументом для метода <code>url_for</code>. Таким образом, можно передать валидный строковый URL, хэш, массив, экземпляр Active Model или класс Active Model.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">direct</span> <span class="ss">:commentable</span> <span class="k">do</span> <span class="o">|</span><span class="n">model</span><span class="o">|</span>
+  <span class="p">[</span> <span class="n">model</span><span class="p">,</span> <span class="ss">anchor: </span><span class="n">model</span><span class="p">.</span><span class="nf">dom_id</span> <span class="p">]</span>
+<span class="k">end</span>
+
+<span class="n">direct</span> <span class="ss">:main</span> <span class="k">do</span>
+  <span class="p">{</span> <span class="ss">controller: </span><span class="s1">'pages'</span><span class="p">,</span> <span class="ss">action: </span><span class="s1">'index'</span><span class="p">,</span> <span class="ss">subdomain: </span><span class="s1">'www'</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='ispolzovanie-resolve' class='inside_page_header'><a href="#ispolzovanie-resolve">3.17.</a> Использование <code>resolve</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/CustomUrls.html#method-i-resolve"><code>resolve</code></a> позволяет настраивать полиморфное сопоставление моделей. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resource</span> <span class="ss">:basket</span>
+
+<span class="n">resolve</span><span class="p">(</span><span class="s2">"Basket"</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="ss">:basket</span><span class="p">]</span> <span class="p">}</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@basket</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="c">&lt;!-- basket form --&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Это сгенерирует URL в единственном числе <code>/basket</code> вместо обычного <code>/baskets/:id</code>.</p><h3 id='nastroyka-resursnyh-marshrutov' class='inside_page_header'><a href="#nastroyka-resursnyh-marshrutov">4.</a> Настройка ресурсных маршрутов</h3><p>Хотя дефолтные маршруты и хелперы, сгенерированные <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Resources.html#method-i-resources"><code>resources</code></a>, как правило, нормально работают, возможно, может понадобиться некоторым образом их настроить. Rails позволяет настроить практически любую часть ресурсных хелперов.</p><h4 id='opredelenie-ispolzuemogo-kontrollera' class='inside_page_header'><a href="#opredelenie-ispolzuemogo-kontrollera">4.1.</a> Определение используемого контроллера</h4><p>Опция <code>:controller</code> позволяет явно определить контроллер, используемый ресурсом. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">controller: </span><span class="s1">'images'</span>
+</code></pre>
+</div>
+<p>распознает входящие пути, начинающиеся с <code>/photos</code>, но маршрутизирует к контроллеру <code>Images</code>:</p><table class='table table-striped'><tr>
+<th>Метод HTTP</th>
+<th>Путь</th>
+<th>Контроллер#Экшн</th>
+<th>Именованный хелпер маршрута</th>
+</tr>
+<tr>
+<td>GET</td>
+<td>/photos</td>
+<td>images#index</td>
+<td>photos_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/photos/new</td>
+<td>images#new</td>
+<td>new_photo_path</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/photos</td>
+<td>images#create</td>
+<td>photos_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/photos/:id</td>
+<td>images#show</td>
+<td>photo_path(:id)</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/photos/:id/edit</td>
+<td>images#edit</td>
+<td>edit_photo_path(:id)</td>
+</tr>
+<tr>
+<td>PATCH/PUT</td>
+<td>/photos/:id</td>
+<td>images#update</td>
+<td>photo_path(:id)</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/photos/:id</td>
+<td>images#destroy</td>
+<td>photo_path(:id)</td>
+</tr>
+</table><div class="note"><p>Используйте <code>photos_path</code>, <code>new_photo_path</code> и т.д. для генерации путей для этого ресурса.</p></div><p>Для контроллеров в пространстве имен можно использовать нотацию директории. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:user_permissions</span><span class="p">,</span> <span class="ss">controller: </span><span class="s1">'admin/user_permissions'</span>
+</code></pre>
+</div>
+<p>Это будет маршрутизировано на контроллер <code>Admin::UserPermissions</code>.</p><div class="note"><p>Поддерживается только нотация директории. Определение контроллера с помощью нотации константы Ruby (т.е. <code>controller: &#39;Admin::UserPermissions&#39;</code>) может привести к маршрутным проблемам, и в итоге к предупреждению.</p></div><h4 id='opredelenie-ogranicheniy' class='inside_page_header'><a href="#opredelenie-ogranicheniy">4.2.</a> Определение ограничений</h4><p>Можно использовать опцию <code>:constraints</code> для определения требуемого формата на неявном <code>id</code>. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">constraints: </span><span class="p">{</span> <span class="ss">id: </span><span class="sr">/[A-Z][A-Z][0-9]+/</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>Это объявление ограничивает параметр <code>:id</code> соответствием предоставленному регулярному выражению. Итак, в этом случае роутер больше не будет сопоставлять <code>/photos/1</code> этому маршруту. Вместо этого он будет соответствовать <code>/photos/RR27</code>.</p><p>Можно определить одиночное ограничение, применив его к ряду маршрутов, используя блочную форму:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">constraints</span><span class="p">(</span><span class="ss">id: </span><span class="sr">/[A-Z][A-Z][0-9]+/</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:photos</span>
+  <span class="n">resources</span> <span class="ss">:accounts</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="note"><p>Конечно, можно использовать более продвинутые ограничения, доступные в нересурсных маршрутах, в этом контексте.</p></div><div class="info"><p>По умолчанию параметр <code>:id</code> не принимает точки - так как точка используется как разделитель для отформатированного маршрута. Если необходимо использовать точку в <code>:id</code>, добавьте ограничение, которое переопределит это - к примеру, <code>id: /[^\/]+/</code> позволяет все, кроме слэша.</p></div><h4 id='pereopredelenie-imenovannyh-helperov-marshruta' class='inside_page_header'><a href="#pereopredelenie-imenovannyh-helperov-marshruta">4.3.</a> Переопределение именованных хелперов маршрута</h4><p>Опция <code>:as</code> позволяет переопределить нормальное именование для именованных маршрутных хелперов. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">as: </span><span class="s1">'images'</span>
+</code></pre>
+</div>
+<p>распознает входящие пути, начинающиеся с <code>/photos</code> и маршрутизирует запросы к <code>PhotosController</code>, но использует значение опции <code>:as</code> для наименования хелпера:</p><table class='table table-striped'><tr>
+<th>Метод HTTP</th>
+<th>Путь</th>
+<th>Контроллер#Экшн</th>
+<th>Именованный хелпер маршрута</th>
+</tr>
+<tr>
+<td>GET</td>
+<td>/photos</td>
+<td>photos#index</td>
+<td>images_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/photos/new</td>
+<td>photos#new</td>
+<td>new_image_path</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/photos</td>
+<td>photos#create</td>
+<td>images_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/photos/:id</td>
+<td>photos#show</td>
+<td>image_path(:id)</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/photos/:id/edit</td>
+<td>photos#edit</td>
+<td>edit_image_path(:id)</td>
+</tr>
+<tr>
+<td>PATCH/PUT</td>
+<td>/photos/:id</td>
+<td>photos#update</td>
+<td>image_path(:id)</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/photos/:id</td>
+<td>photos#destroy</td>
+<td>image_path(:id)</td>
+</tr>
+</table><h4 id='pereopredelenie-segmentov-new-i-edit' class='inside_page_header'><a href="#pereopredelenie-segmentov-new-i-edit">4.4.</a> Переопределение сегментов <code>new</code> и <code>edit</code></h4><p>Опция <code>:path_names</code> позволяет переопределить автоматически генерируемые сегменты <code>new</code> и <code>edit</code> в путях, как тут:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">path_names: </span><span class="p">{</span> <span class="ss">new: </span><span class="s1">'make'</span><span class="p">,</span> <span class="ss">edit: </span><span class="s1">'change'</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>Это приведет к тому, что роутинг распознает пути, такие как:</p><div class="code_container">
+  <pre><code class="highlight plaintext">/photos/make
+/photos/1/change
+</code></pre>
+</div>
+<div class="note"><p>Фактические имена экшнов не меняются этой опцией. Два показанных пути все еще ведут к экшнам <code>new</code> и <code>edit</code>.</p></div><div class="info"><p>Если вдруг захотите изменить эту опцию одинаково для всех маршрутов, можно использовать scope:</p></div><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">scope</span> <span class="ss">path_names: </span><span class="p">{</span> <span class="ss">new: </span><span class="s1">'make'</span> <span class="p">}</span> <span class="k">do</span>
+  <span class="c1"># остальные ваши маршруты</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='prefiks-imenovannyh-marshrutnyh-helperov' class='inside_page_header'><a href="#prefiks-imenovannyh-marshrutnyh-helperov">4.5.</a> Префикс именованных маршрутных хелперов</h4><p>Можно использовать опцию <code>:as</code> для задания префикса именованных маршрутных хелперов, генерируемых Rails для маршрута. Используйте эту опцию для предотвращения коллизий имен между маршрутами, использующими область видимости пути. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">scope</span> <span class="s1">'admin'</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">as: </span><span class="s1">'admin_photos'</span>
+<span class="k">end</span>
+
+<span class="n">resources</span> <span class="ss">:photos</span>
+</code></pre>
+</div>
+<p>Это предоставит маршрутные хелперы, такие как <code>admin_photos_path</code>, <code>new_admin_photo_path</code> и т.д. Это изменяет маршрутные хелперы для <code>/admin/photos</code> с <code>photos_path</code>, <code>new_photos_path</code> и т.д. на <code>admin_photos_path</code>, <code>new_admin_photo_path</code> и т.д. Без добавления <code>as: &#39;admin_photos</code> на <code>resources :photos</code> в области видимости, у <code>resources :photos</code> вне области видимости не будет каких-либо маршрутных хелперов.</p><p>Для задания префикса группы маршрутов, используйте <code>:as</code> со <code>scope</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">scope</span> <span class="s1">'admin'</span><span class="p">,</span> <span class="ss">as: </span><span class="s1">'admin'</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">:accounts</span>
+<span class="k">end</span>
+
+<span class="n">resources</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">:accounts</span>
+</code></pre>
+</div>
+<p>Как и прежде, это изменит ресурсные хелперы для области видимости <code>/admin</code> на <code>admin_photos_path</code> and <code>admin_accounts_path</code> и позволяет ресурсам вне области видимости использовать <code>photos_path</code> и <code>accounts_path</code>.</p><div class="note"><p>Область видимости <code>namespace</code> автоматически добавляет <code>:as</code>, так же как и префиксы <code>:module</code> и <code>:path</code>.</p></div><h5 id='parametrizovannye-prostranstva' class='inside_page_header'><a href="#parametrizovannye-prostranstva">4.5.1.</a> Параметризованные пространства</h5><p>Можно задать префикс маршрута именованным параметром так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">scope</span> <span class="s1">':account_id'</span><span class="p">,</span> <span class="ss">as: </span><span class="s1">'account'</span><span class="p">,</span> <span class="ss">constraints: </span><span class="p">{</span> <span class="ss">account_id: </span><span class="sr">/\d+/</span> <span class="p">}</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:articles</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это предоставит пути, такие как <code>/1/articles/9</code> и позволит обратиться к части пути <code>account_id</code> в контроллерах, хелперах и вью как <code>params[:account_id]</code>.</p><p>Это также сгенерирует хелперы путей и URL, начинающиеся с <code>account_</code>, в которые можно передать ваши объекты:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">account_article_path</span><span class="p">(</span><span class="vi">@account</span><span class="p">,</span> <span class="vi">@article</span><span class="p">)</span> <span class="c1"># =&gt; /1/article/9</span>
+<span class="n">url_for</span><span class="p">([</span><span class="vi">@account</span><span class="p">,</span> <span class="vi">@article</span><span class="p">])</span>            <span class="c1"># =&gt; /1/article/9</span>
+<span class="n">form_with</span><span class="p">(</span><span class="ss">model: </span><span class="p">[</span><span class="vi">@account</span><span class="p">,</span> <span class="vi">@article</span><span class="p">])</span>   <span class="c1"># =&gt; &lt;form action="/1/article/9" ...&gt;</span>
+</code></pre>
+</div>
+<p>Мы <a href="#segment-constraints">используем ограничения сегмента</a>, чтобы ограничить пространство, соответствующее только строкам, похожим на ID. Это ограничение можно изменить, приспособив к вашим нуждам, или полностью пропустить. Опция <code>:as</code> также не строго обязательна, но без нее Rails вызовет ошибку при вычислении <code>url_for([@account, @article])</code> или других хелперов, полагающихся на <code>url_for</code>, таких как <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_with"><code>form_with</code></a>.</p><h4 id='restricting-the-routes-created' class='inside_page_header'><a href="#restricting-the-routes-created">4.6.</a>  Ограничение создаваемых маршрутов</h4><p>По умолчанию Rails создает маршруты для всех семи дефолтных экшнов (<code>index</code>, <code>show</code>, <code>new</code>, <code>create</code>, <code>edit</code>, <code>update</code> и <code>destroy</code>) для каждого маршрута RESTful вашего приложения. Можно использовать опции <code>:only</code> и <code>:except</code> для точной настройки этого поведения. Опция <code>:only</code> говорит Rails создать только определенные маршруты:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:index</span><span class="p">,</span> <span class="ss">:show</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Теперь запрос <code>GET</code> к <code>/photos</code> будет успешным, а запрос <code>POST</code> к <code>/photos</code> (который обычно соединяется с экшном <code>create</code>) провалится.</p><p>Опция <code>:except</code> определяет маршрут или перечень маршрутов, который Rails <em>не</em> должен создавать:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">except: :destroy</span>
+</code></pre>
+</div>
+<p>В этом случае Rails создаст все нормальные маршруты за исключением маршрута для <code>destroy</code> (запрос <code>DELETE</code> к <code>/photos/:id</code>).</p><div class="info"><p>Если в вашем приложении много маршрутов RESTful, использование <code>:only</code> и <code>:except</code> для генерации только тех маршрутов, которые Вам фактически нужны, позволит снизить использование памяти и ускорить процесс роутинга.</p></div><h4 id='perevedennye-puti' class='inside_page_header'><a href="#perevedennye-puti">4.7.</a> Переведенные пути</h4><p>Используя <code>scope</code>, можно изменить имена путей, генерируемых с помощью <code>resources</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">scope</span><span class="p">(</span><span class="ss">path_names: </span><span class="p">{</span> <span class="ss">new: </span><span class="s1">'neu'</span><span class="p">,</span> <span class="ss">edit: </span><span class="s1">'bearbeiten'</span> <span class="p">})</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:categories</span><span class="p">,</span> <span class="ss">path: </span><span class="s1">'kategorien'</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Rails теперь создаст маршруты к <code>CategoriesController</code>.</p><table class='table table-striped'><tr>
+<th>Метод HTTP</th>
+<th>Путь</th>
+<th>Контроллер#Экшн</th>
+<th>Именованный хелпер маршрута</th>
+</tr>
+<tr>
+<td>GET</td>
+<td>/kategorien</td>
+<td>categories#index</td>
+<td>categories_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/kategorien/neu</td>
+<td>categories#new</td>
+<td>new_category_path</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/kategorien</td>
+<td>categories#create</td>
+<td>categories_path</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/kategorien/:id</td>
+<td>categories#show</td>
+<td>category_path(:id)</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/kategorien/:id/bearbeiten</td>
+<td>categories#edit</td>
+<td>edit_category_path(:id)</td>
+</tr>
+<tr>
+<td>PATCH/PUT</td>
+<td>/kategorien/:id</td>
+<td>categories#update</td>
+<td>category_path(:id)</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/kategorien/:id</td>
+<td>categories#destroy</td>
+<td>category_path(:id)</td>
+</tr>
+</table><h4 id='pereopredelenie-edinstvennogo-chisla' class='inside_page_header'><a href="#pereopredelenie-edinstvennogo-chisla">4.8.</a> Переопределение единственного числа</h4><p>Если хотите переопределить единственное число ресурса, следует добавить дополнительные правила в инфлектор с помощью <a href="https://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-inflections"><code>inflections</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Inflector</span><span class="p">.</span><span class="nf">inflections</span> <span class="k">do</span> <span class="o">|</span><span class="n">inflect</span><span class="o">|</span>
+  <span class="n">inflect</span><span class="p">.</span><span class="nf">irregular</span> <span class="s1">'tooth'</span><span class="p">,</span> <span class="s1">'teeth'</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='ispolzovanie-as-vo-vlozhennyh-resursah' class='inside_page_header'><a href="#ispolzovanie-as-vo-vlozhennyh-resursah">4.9.</a> Использование <code>:as</code> во вложенных ресурсах</h4><p>Опция <code>:as</code> переопределяет автоматически генерируемое имя для ресурса в хелперах вложенного маршрута. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:magazines</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:ads</span><span class="p">,</span> <span class="ss">as: </span><span class="s1">'periodical_ads'</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это создаст маршрутные хелперы, такие как <code>magazine_periodical_ads_url</code> и <code>edit_magazine_periodical_ad_path</code>.</p><h4 id='pereopredelenie-parametrov-imenovannyh-marshrutov' class='inside_page_header'><a href="#pereopredelenie-parametrov-imenovannyh-marshrutov">4.10.</a> Переопределение параметров именованных маршрутов</h4><p>Опция <code>:param</code> переопределяет дефолтный идентификатор ресурса <code>:id</code> (имя <a href="#dynamic-segments">динамического сегмента</a>, используемого для генерации маршрутов). К этому сегменту можно обратиться из контроллера с помощью <code>params[&lt;:param&gt;]</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:videos</span><span class="p">,</span> <span class="ss">param: :identifier</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight plaintext">    videos GET  /videos(.:format)                  videos#index
+           POST /videos(.:format)                  videos#create
+ new_video GET  /videos/new(.:format)              videos#new
+edit_video GET  /videos/:identifier/edit(.:format) videos#edit
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Video</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">identifier: </span><span class="n">params</span><span class="p">[</span><span class="ss">:identifier</span><span class="p">])</span>
+</code></pre>
+</div>
+<p>Можно переопределить <code>ActiveRecord::Base#to_param</code> связанной модели, чтобы создать URL:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Video</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="k">def</span> <span class="nf">to_param</span>
+    <span class="n">identifier</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">video</span> <span class="o">=</span> <span class="no">Video</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">identifier: </span><span class="s2">"Roman-Holiday"</span><span class="p">)</span>
+<span class="n">edit_video_path</span><span class="p">(</span><span class="n">video</span><span class="p">)</span> <span class="c1"># =&gt; "/videos/Roman-Holiday/edit"</span>
+</code></pre>
+</div>
+<h3 id='razdelenie-ochen-bolshogo-marshrutnogo-fayla-na-neskolko-nebolshih' class='inside_page_header'><a href="#razdelenie-ochen-bolshogo-marshrutnogo-fayla-na-neskolko-nebolshih">5.</a> Разделение <em>очень</em> большого маршрутного файла на несколько небольших</h3><p>Если вы работаете в большом приложении с тысячами маршрутов, единственный файл <code>config/routes.rb</code> может стать громоздким и тяжелым для прочтения.</p><p>Rails предлагает способ разделения гигантского единого <code>routes.rb</code> на несколько небольших с помощью макроса <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Resources.html#method-i-draw"><code>draw</code></a>.</p><p>У вас может быть маршрут <code>admin.rb</code>, который содержит все маршруты для административной области, другой файл <code>api.rb</code> для ресурсов API, и т.д.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/routes.rb</span>
+
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">get</span> <span class="s1">'foo'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'foo#bar'</span>
+
+  <span class="n">draw</span><span class="p">(</span><span class="ss">:admin</span><span class="p">)</span> <span class="c1"># Загрузит другой маршрутный файл, расположенный в `config/routes/admin.rb`</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/routes/admin.rb</span>
+
+<span class="n">namespace</span> <span class="ss">:admin</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:comments</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Вызов <code>draw(:admin)</code> в блоке <code>Rails.application.routes.draw</code> попытается загрузить маршрутный файл, по имени. заданному аргументом (в этом примере <code>admin.rb</code>). Файл должен быть расположен в директории <code>config/routes</code> или любой поддиректории (например, <code>config/routes/admin.rb</code> , <code>config/routes/external/admin.rb</code>).</p><p>Внутри маршрутного файла <code>admin.rb</code> можно использовать любой маршрутный DSL, но <strong>не следует</strong> оборачивать его в блок <code>Rails.application.routes.draw</code>, как это сделано в основном файле <code>config/routes.rb</code>.</p><h4 id='ne-ispolzuyte-etu-osobennost-esli-vy-ne-nuzhdaetes-v-ney-realno' class='inside_page_header'><a href="#ne-ispolzuyte-etu-osobennost-esli-vy-ne-nuzhdaetes-v-ney-realno">5.1.</a> Не используйте эту особенность, если вы не нуждаетесь в ней реально</h4><p>Множество маршрутных файлов делает сложнее понятность и понимание. Для большинства приложений - даже с сотнями маршрутов - разработчикам проще иметь один маршрутный файл. DSL маршрутизации Rails уже предлагает способ разделения маршрутов организованным способом с помощью <code>namespaces</code> и <code>scopes</code>.</p><h3 id='osmotr-i-testirovanie-marshrutov' class='inside_page_header'><a href="#osmotr-i-testirovanie-marshrutov">6.</a> Осмотр и тестирование маршрутов</h3><p>Rails предлагает инструменты для осмотра и тестирования маршрутов.</p><h4 id='listing-existing-routes' class='inside_page_header'><a href="#listing-existing-routes">6.1.</a>  Список существующих маршрутов</h4><p>Чтобы получить полный список всех доступных маршрутов вашего приложения, посетите <a href="http://localhost:3000/rails/info/routes">http://localhost:3000/rails/info/routes</a> в браузере, в то время как ваш сервер запущен в режиме <strong>development</strong>. Команда <code>bin/rails routes</code>, выполненная в терминале, выдаст тот же результат.</p><p>Оба метода напечатают все ваши маршруты, в том же порядке, что они появляются в <code>config/routes.rb</code>. Для каждого маршрута вы увидите:</p><ul><li>Имя маршрута (если имеется)
+</li><li>Используемый метод HTTP (если маршрут реагирует не на все методы)
+</li><li>Шаблон URL
+</li><li>Параметры роутинга для этого маршрута
+</li></ul><p>Например, вот небольшая часть результата команды <code>bin/rails routes</code> для маршрута RESTful:</p><div class="code_container">
+  <pre><code class="highlight plaintext">    users GET    /users(.:format)          users#index
+          POST   /users(.:format)          users#create
+ new_user GET    /users/new(.:format)      users#new
+edit_user GET    /users/:id/edit(.:format) users#edit
+</code></pre>
+</div>
+<p>Также можно использовать опцию <code>--expanded</code> для включения режима расширенного табличного форматирования.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>routes <span class="nt">--expanded</span>
+<span class="go">
+--[ Route 1 ]----------------------------------------------------
+Prefix            | users
+Verb              | GET
+URI               | /users(.:format)
+</span><span class="gp">Controller#</span>Action | <span class="nb">users</span><span class="c">#index</span>
+<span class="go">--[ Route 2 ]----------------------------------------------------
+Prefix            |
+Verb              | POST
+URI               | /users(.:format)
+</span><span class="gp">Controller#</span>Action | <span class="nb">users</span><span class="c">#create</span>
+<span class="go">--[ Route 3 ]----------------------------------------------------
+Prefix            | new_user
+Verb              | GET
+URI               | /users/new(.:format)
+</span><span class="gp">Controller#</span>Action | <span class="nb">users</span><span class="c">#new</span>
+<span class="go">--[ Route 4 ]----------------------------------------------------
+Prefix            | edit_user
+Verb              | GET
+URI               | /users/:id/edit(.:format)
+</span><span class="gp">Controller#</span>Action | <span class="nb">users</span><span class="c">#edit</span>
+</code></pre>
+</div>
+<p>Можно искать маршруты с помощью опции grep: -g. Это выведет любые маршруты, которые частично соответствуют по имени метода хелпера URL, метода HTTP или пути URL.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>routes <span class="nt">-g</span> new_comment
+<span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>routes <span class="nt">-g</span> POST
+<span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>routes <span class="nt">-g</span> admin
+</code></pre>
+</div>
+<p>Если хотите просмотреть маршруты, ведущие на определенный контроллер, имеется опция -c.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>routes <span class="nt">-c</span> <span class="nb">users</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>routes <span class="nt">-c</span> admin/users
+<span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>routes <span class="nt">-c</span> Comments
+<span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>routes <span class="nt">-c</span> Articles::CommentsController
+</code></pre>
+</div>
+<div class="info"><p>Результат команды <code>bin/rails routes</code> более читаемый, если у вас в окне терминала прокрутка, а не перенос строчек.</p></div><h4 id='testirovanie-marshrutov' class='inside_page_header'><a href="#testirovanie-marshrutov">6.2.</a> Тестирование маршрутов</h4><p>Маршруты должны быть включены в вашу стратегию тестирования (так же, как и остальное в вашем приложении). Rails предлагает три встроенных оператора контроля, разработанных для того, чтобы сделать тестирование маршрутов проще:</p><ul><li><a href="https://api.rubyonrails.org/classes/ActionDispatch/Assertions/RoutingAssertions.html#method-i-assert_generates"><code>assert_generates</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/ActionDispatch/Assertions/RoutingAssertions.html#method-i-assert_recognizes"><code>assert_recognizes</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/ActionDispatch/Assertions/RoutingAssertions.html#method-i-assert_routing"><code>assert_routing</code></a>
+</li></ul><h5 id='operator-kontrolya-assert_generates' class='inside_page_header'><a href="#operator-kontrolya-assert_generates">6.2.1.</a> Оператор контроля <code>assert_generates</code></h5><p>Используйте <a href="https://api.rubyonrails.org/classes/ActionDispatch/Assertions/RoutingAssertions.html#method-i-assert_generates"><code>assert_generates</code></a>, чтобы убедиться в том, что определенный набор опций генерирует конкретный путь и может использоваться с дефолтными маршрутами или своими маршрутами. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">assert_generates</span> <span class="s1">'/photos/1'</span><span class="p">,</span> <span class="p">{</span> <span class="ss">controller: </span><span class="s1">'photos'</span><span class="p">,</span> <span class="ss">action: </span><span class="s1">'show'</span><span class="p">,</span> <span class="ss">id: </span><span class="s1">'1'</span> <span class="p">}</span>
+<span class="n">assert_generates</span> <span class="s1">'/about'</span><span class="p">,</span> <span class="ss">controller: </span><span class="s1">'pages'</span><span class="p">,</span> <span class="ss">action: </span><span class="s1">'about'</span>
+</code></pre>
+</div>
+<h5 id='operator-kontrolya-assert_recognizes' class='inside_page_header'><a href="#operator-kontrolya-assert_recognizes">6.2.2.</a> Оператор контроля <code>assert_recognizes</code></h5><p>Оператор контроля <a href="https://api.rubyonrails.org/classes/ActionDispatch/Assertions/RoutingAssertions.html#method-i-assert_recognizes"><code>assert_recognizes</code></a> - это противоположность <code>assert_generates</code>. Он убеждается, что Rails распознает предложенный путь и маршрутизирует его в конкретную точку в вашем приложении. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">assert_recognizes</span><span class="p">({</span> <span class="ss">controller: </span><span class="s1">'photos'</span><span class="p">,</span> <span class="ss">action: </span><span class="s1">'show'</span><span class="p">,</span> <span class="ss">id: </span><span class="s1">'1'</span> <span class="p">},</span> <span class="s1">'/photos/1'</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Можете задать аргумент <code>:method</code>, чтобы определить метод HTTP:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">assert_recognizes</span><span class="p">({</span> <span class="ss">controller: </span><span class="s1">'photos'</span><span class="p">,</span> <span class="ss">action: </span><span class="s1">'create'</span> <span class="p">},</span> <span class="p">{</span> <span class="ss">path: </span><span class="s1">'photos'</span><span class="p">,</span> <span class="ss">method: :post</span> <span class="p">})</span>
+</code></pre>
+</div>
+<h5 id='operator-kontrolya-assert_routing' class='inside_page_header'><a href="#operator-kontrolya-assert_routing">6.2.3.</a> Оператор контроля <code>assert_routing</code></h5><p>Оператор контроля <a href="https://api.rubyonrails.org/classes/ActionDispatch/Assertions/RoutingAssertions.html#method-i-assert_routing"><code>assert_routing</code></a> проверяет маршрут с двух сторон: он тестирует, что путь создает опции, и что опции создают путь. Таким образом, он комбинирует функции <code>assert_generates</code> и <code>assert_recognizes</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">assert_routing</span><span class="p">({</span> <span class="ss">path: </span><span class="s1">'photos'</span><span class="p">,</span> <span class="ss">method: :post</span> <span class="p">},</span> <span class="p">{</span> <span class="ss">controller: </span><span class="s1">'photos'</span><span class="p">,</span> <span class="ss">action: </span><span class="s1">'create'</span> <span class="p">})</span>
+</code></pre>
+</div>
+
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Обзор Action Controller" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Обзор Action Controller" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/action-controller-overview" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Обзор Action Controller
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="6F31/+zlsr+4TmeL4lk9kuNwf8rOgiPiZOAHr61MhpduGctzXk2TjZnWOMvb5th5CiyLBFbofc3EosQ8CBH10g==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#chto-delaet-kontroller">1. Что делает контроллер?</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#soglashenie-po-imenovaniyu-kontrollerov">2. Соглашение по именованию контроллеров</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#metody-i-ekshny">3. Методы и экшны</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#parametry">4. Параметры</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#parametry-v-heshe-i-v-massive">4.1. Параметры в хэше и в массиве</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#parametry-json">4.2. Параметры JSON</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#parametry-routinga">4.3. Параметры роутинга</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#default_url_options">4.4. <code>default_url_options</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#strong-parameters">4.5. Strong Parameters</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#razreshennye-skalyarnye-znacheniya">4.5.1. Разрешенные скалярные значения</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#vlozhennye-parametry">4.5.2. Вложенные параметры</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#dopolnitelnye-primery">4.5.3. Дополнительные примеры</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#za-predelami-oblasti-vidimosti-strong-parameters">4.5.4. За пределами области видимости Strong Parameters</a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#session">5.  Сессия</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#dostup-k-sessii">5.1. Доступ к сессии</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#flash">5.2. Flash</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#flash-now">5.2.1. <code>flash.now</code></a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#cookies">6.  Куки</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#rendering-dannyh-xml-i-json">7. Рендеринг данных XML и JSON</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#filtry">8. Фильтры</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#after-filtry-i-around-filtry">8.1. After фильтры и around фильтры</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#drugie-sposoby-ispolzovaniya-filtrov">8.2. Другие способы использования фильтров</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#zaschita-ot-poddelki-zaprosa">9. Защита от подделки запроса</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#the-request-and-response-objects">10.  Объекты Request и Response</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#ob-ekt-request">10.1. Объект <code>request</code></a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#path_parameters-query_parameters-i-request_parameters">10.1.1. <code>path_parameters</code>, <code>query_parameters</code> и <code>request_parameters</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#ob-ekt-response">10.2. Объект <code>response</code></a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#ustanovka-polzovatelskih-zagolovkov">10.2.1. Установка пользовательских заголовков</a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#autentifikatsii-http">11. Аутентификации HTTP</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#bazovaya-autentifikatsiya-http">11.1. Базовая аутентификация HTTP</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#daydzhest-autentifikatsiya-http">11.2. Дайджест-аутентификация HTTP</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#autentifikatsiya-http-po-tokenu">11.3. Аутентификация HTTP по токену</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#potoki-i-zagruzka-faylov">12. Потоки и загрузка файлов</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#otpravka-faylov">12.1. Отправка файлов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#zagruzka-restful">12.2. Загрузка RESTful</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#live-streaming-of-arbitrary-data">12.3.  Live Streaming произвольных данных</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#podklyuchenie-live-streaming">12.3.1. Подключение Live Streaming</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#primer-ispolzovaniya">12.3.2. Пример использования</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#obsuzhdenie-potokovoy-peredachi">12.3.3. Обсуждение потоковой передачи</a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#filtratsiya-loga">13. Фильтрация лога</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#parameters-filtering">13.1.  Фильтрация параметров</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#filtratsiya-redirektov">13.2. Фильтрация редиректов</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#obrabotka-oshibok">14. Обработка ошибок</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#defoltnye-shablony-500-i-404">14.1. Дефолтные шаблоны 500 и 404</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#rescue_from">14.2. <code>rescue_from</code></a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#navyazyvanie-protokola-https">15. Навязывание протокола HTTPS</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='obzor-action-controller' class='inside_page_header'> Обзор Action Controller</h2><p>По этому руководству вы изучите, как работают контроллеры, и как они вписываются в цикл запроса к вашему приложению.</p><p>После его прочтения, вы узнаете:</p><ul><li>Как следить за ходом запроса через контроллер.
+</li><li>Как ограничить параметры, переданные в контроллер.
+</li><li>Как и зачем хранятся данные в сессии или куки.
+</li><li>Как работать с фильтрами для выполнения кода в течение обработки запроса.
+</li><li>Как использовать встроенную в Action Controller HTTP аутентификацию.
+</li><li>Как направлять потоковые данные прямо в браузер пользователя.
+</li><li>Как отфильтровывать чувствительные параметры, чтобы они не появлялись в логах приложения.
+</li><li>Как работать с исключениями, которые могут порождаться в течение обработки запроса.
+</li></ul><h3 id='chto-delaet-kontroller' class='inside_page_header'><a href="#chto-delaet-kontroller">1.</a> Что делает контроллер?</h3><p>Action Controller это C в аббревиатуре <a href="https://ru.wikipedia.org/wiki/Model-View-Controller">MVC</a>. После того, как роутер определит, какой контроллер использовать для обработки запроса, контроллер ответственен за осмысление запроса и генерацию подходящего ответа. К счастью, Action Controller делает за вас большую часть грязной работы и использует элегантные соглашения, чтобы сделать это по возможности максимально просто.</p><p>Для большинства приложений, основанных на <a href="https://ru.wikipedia.org/wiki/REST">RESTful</a>, контроллер получает запрос (это невидимо для вас, как для разработчика), извлекает или сохраняет данные в модели и использует вью для создания результирующего HTML. Если контроллеру необходимо работать немного по-другому, не проблема, это всего лишь наиболее распространенный способ работы контроллера.</p><p>Таким образом, контроллер можно рассматривать как посредника между моделями и вью. Он делает данные модели доступными вью, так что она может отображать эти данные пользователю, и он сохраняет или обновляет данные от пользователя в модель.</p><div class="note"><p>Более детально о процессе маршрутизации смотрите <a href="/routing">Роутинг в Rails</a>.</p></div><h3 id='soglashenie-po-imenovaniyu-kontrollerov' class='inside_page_header'><a href="#soglashenie-po-imenovaniyu-kontrollerov">2.</a> Соглашение по именованию контроллеров</h3><p>Соглашение по именованию контроллеров в Rails устанавливает предпочтение множественного числа в последнем слове имени контроллера, хотя строго это не требуется (например, <code>ApplicationController</code>). К примеру, <code>ClientsController</code> более предпочтителен, чем <code>ClientController</code>, <code>SiteAdminsController</code> более предпочтителен, чем <code>SiteAdminController</code> или <code>SitesAdminsController</code>, и так далее.</p><p>Следование этому соглашению позволяет вам использовать генераторы маршрутов по умолчанию (например, <code>resources</code> и т.п.) без необходимости определять каждый <code>:path</code> или <code>:controller</code>, и сохраняет последовательным использование хелперов именованных путей во всем вашем приложении. Подробнее смотрите в руководстве <a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>.</p><div class="note"><p>Соглашение по именованию контроллеров отличается от соглашения по именованию моделей, которые, как ожидается, будут именоваться в единственном числе.</p></div><h3 id='metody-i-ekshny' class='inside_page_header'><a href="#metody-i-ekshny">3.</a> Методы и экшны</h3><p>Контроллер - это класс Ruby, унаследованный от <code>ApplicationController</code> и содержащий методы, как и любой другой класс. Когда ваше приложение получает запрос, роутинг определяет, какой контроллер и экшн нужно запустить, затем Rails создает экземпляр этого контроллера и запускает метод с именем, как у экшна.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ClientsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">new</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>В качестве примера, если пользователь перейдет на <code>/clients/new</code> в приложении, чтобы добавить нового клиента, Rails создаст экземпляр <code>ClientsController</code> и вызовет метод <code>new</code>. Отметьте, что пустой метод из вышеприведенного примера будет прекрасно работать, так как Rails по умолчанию отрендерит вью <code>new.html.erb</code>, если в экшне не будет указано иное. При создании нового <code>Client</code>, метод <code>new</code> может сделать переменную экземпляра <code>@client</code> доступной во вью:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">new</span>
+  <span class="vi">@client</span> <span class="o">=</span> <span class="no">Client</span><span class="p">.</span><span class="nf">new</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Руководство <a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a> объясняет это более детально.</p><p><code>ApplicationController</code> унаследован от <a href="https://api.rubyonrails.org/classes/ActionController/Base.html"><code>ActionController::Base</code></a>, который определяет несколько полезных методов. Это руководство раскроет часть из них, но если вы любопытны, можете увидеть их все в <a href="https://api.rubyonrails.org/classes/ActionController.html">документации по API</a>.</p><p>Только public методы могут быть вызваны как экшны. Хорошей практикой является уменьшение области видимости методов (при помощи <code>private</code> или <code>protected</code>), не предназначенных быть экшнами, таких как вспомогательные методы и фильтры.</p><div class="warning"><p>Некоторые имена методов зарезервированы в Controller. Случайное переопределение их как экшны, или даже как вспомогательные методы, может привести к <code>SystemStackError</code>. Если вы ограничиваете свои контроллеры иметь только RESTful экшны в [Ресурсном роутинге][], об этом можно не беспокоиться.</p></div><div class="note"><p>Если вы должны использовать зарезервированные методы в качестве имени экшна, это можно обойти, используя пользовательский маршрут, для направления зарезервированного имени метода на не зарезервированный метод экшна.</p></div><h3 id='parametry' class='inside_page_header'><a href="#parametry">4.</a> Параметры</h3><p>Возможно, вы хотите получить доступ к данным, посланным пользователем, или к другим параметрам в экшнах вашего контроллера. Существует два типа параметров, доступных в веб-приложениях. Первый - это параметры, посланные как часть URL, называемые параметрами строки запроса. Строка запроса всегда следует после &quot;?&quot; в URL. Второй тип параметров обычно упоминается как данные POST. Эта информация обычно приходит из формы HTML, заполняемой пользователем. Эти параметры еще называют данными POST, так как могут быть посланы только как часть HTTP-запроса метода POST. Rails не делает каких-либо различий между строковыми параметрами и параметрами POST, и они оба доступны в хэше <a href="https://api.rubyonrails.org/classes/ActionController/StrongParameters.html#method-i-params"><code>params</code></a> в вашем контроллере:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ClientsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="c1"># Этот экшн использует параметры строки запроса, потому что он</span>
+  <span class="c1"># запускается HTTP-запросом метода GET, но это не влияет на</span>
+  <span class="c1"># то, как можно получить доступ к ним.</span>
+  <span class="c1"># URL для этого экшна выглядит как этот, запрашивающий список</span>
+  <span class="c1"># активированных клиентов: /clients?status=activated</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="ss">:status</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"activated"</span>
+      <span class="vi">@clients</span> <span class="o">=</span> <span class="no">Client</span><span class="p">.</span><span class="nf">activated</span>
+    <span class="k">else</span>
+      <span class="vi">@clients</span> <span class="o">=</span> <span class="no">Client</span><span class="p">.</span><span class="nf">inactivated</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Этот экшн использует параметры POST. Они, скорее всего, пришли от</span>
+  <span class="c1"># формы HTML, которую подтвердил пользователь. URL для этого</span>
+  <span class="c1"># RESTful запроса будет "/clients", и данные будут посланы</span>
+  <span class="c1"># как часть тела запроса.</span>
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@client</span> <span class="o">=</span> <span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:client</span><span class="p">])</span>
+    <span class="k">if</span> <span class="vi">@client</span><span class="p">.</span><span class="nf">save</span>
+      <span class="n">redirect_to</span> <span class="vi">@client</span>
+    <span class="k">else</span>
+      <span class="c1"># Эта строчка переопределяет поведение рендеринга по умолчанию,</span>
+      <span class="c1"># который отрендерил бы вью "create".</span>
+      <span class="n">render</span> <span class="s2">"new"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='parametry-v-heshe-i-v-massive' class='inside_page_header'><a href="#parametry-v-heshe-i-v-massive">4.1.</a> Параметры в хэше и в массиве</h4><p>Хэш <code>params</code> не ограничен одномерными ключами и значениями. Он может содержать вложенные массивы и хэши. Чтобы послать массив значений, добавьте пустую пару квадратных скобок &quot;[]&quot; к имени ключа:</p><div class="code_container">
+  <pre><code class="highlight plaintext">GET /clients?ids[]=1&amp;ids[]=2&amp;ids[]=3
+</code></pre>
+</div>
+<div class="note"><p>Фактический URL в этом примере будет перекодирован как &quot;/clients?ids%5b%5d=1&amp;ids%5b%5d=2&amp;ids%5b%5b=3&quot;, так как &quot;[&quot; и &quot;]&quot; недопустимы в URL. В основном, вам не придется беспокоиться об этом, так как браузер позаботится об этом за вас, а Rails декодирует это обратно, когда получит, но если вы когда-нибудь будете отправлять эти запросы вручную, имейте это в виду.</p></div><p>Значение <code>params[:ids]</code> теперь будет <code>[&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]</code>. Отметьте, что значения параметра всегда строковое; Rails не пытается угадать или предсказать тип.</p><div class="note"><p>Значения, такие как <code>[nil]</code> или <code>[nil, nil, ...]</code> в <code>params</code> по умолчанию заменяются на <code>[]</code> по причине безопасности. Подробнее смотрите в руководстве <a href="/security#unsafe-query-generation">Безопасность приложений на Rails</a>.</p></div><p>Чтобы послать хэш, следует заключить имя ключа в скобки:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;form</span> <span class="na">accept-charset=</span><span class="s">"UTF-8"</span> <span class="na">action=</span><span class="s">"/clients"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"client[name]"</span> <span class="na">value=</span><span class="s">"Acme"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"client[phone]"</span> <span class="na">value=</span><span class="s">"12345"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"client[address][postcode]"</span> <span class="na">value=</span><span class="s">"12345"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"client[address][city]"</span> <span class="na">value=</span><span class="s">"Carrot City"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre>
+</div>
+<p>Когда эта форма будет подтверждена, значение <code>params[:client]</code> будет <code>{ &quot;name&quot; =&gt; &quot;Acme&quot;, &quot;phone&quot; =&gt; &quot;12345&quot;, &quot;address&quot; =&gt; { &quot;postcode&quot; =&gt; &quot;12345&quot;, &quot;city&quot; =&gt; &quot;Carrot City&quot; } }</code>. Обратите внимание на вложенный хэш в <code>params[:client][:address]</code>.</p><p>Объект <code>params</code> ведет себя как хэш, но позволяет взаимозаменяемо использовать символы и строки как ключи.</p><h4 id='parametry-json' class='inside_page_header'><a href="#parametry-json">4.2.</a> Параметры JSON</h4><p>Если вы пишете приложение веб-сервиса, возможно вам более комфортно принимать параметры в формате JSON. Если заголовок &quot;Content-Type&quot; вашего запроса установлен в &quot;application/json&quot;, Rails автоматически загружает ваши параметры в хэш <code>params</code>, к которому можно получить доступ обычным образом.</p><p>Так, к примеру, если вы пошлете такое содержимое JSON:</p><div class="code_container">
+  <pre><code class="highlight json"><span class="p">{</span><span class="w"> </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acme"</span><span class="p">,</span><span class="w"> </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Carrot Street"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>Ваш контроллер будет получать <code>params[:company]</code> как <code>{ &quot;name&quot; =&gt; &quot;acme&quot;, &quot;address&quot; =&gt; &quot;123 Carrot Street&quot; }</code>.</p><p>Также, если включите <code>config.wrap_parameters</code> в своем инициализаторе или вызовете <a href="https://api.rubyonrails.org/classes/ActionController/ParamsWrapper/Options/ClassMethods.html#method-i-wrap_parameters"><code>wrap_parameters</code></a> в своем контроллере, можно безопасно опустить корневой элемент в параметре JSON. Параметры будут клонированы и обернуты в ключ, соответствующий по умолчанию имени вашего контроллера. Таким образом, вышеупомянутый запрос JSON может быть записан как:</p><div class="code_container">
+  <pre><code class="highlight json"><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acme"</span><span class="p">,</span><span class="w"> </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Carrot Street"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>И предположим, что мы посылаем данные в <code>CompaniesController</code>, тогда он будет обернут в ключ <code>:company</code> следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="ss">name: </span><span class="s2">"acme"</span><span class="p">,</span> <span class="ss">address: </span><span class="s2">"123 Carrot Street"</span><span class="p">,</span> <span class="ss">company: </span><span class="p">{</span> <span class="ss">name: </span><span class="s2">"acme"</span><span class="p">,</span> <span class="ss">address: </span><span class="s2">"123 Carrot Street"</span> <span class="p">}</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>Вы сможете настроить имя ключа или определенные параметры, которые вы хотите обернуть, ознакомившись с <a href="https://api.rubyonrails.org/classes/ActionController/ParamsWrapper.html">документацией по API</a>.</p><div class="note"><p>Поддержка парсинга параметров XML была извлечена в гем <code>actionpack-xml_parser</code>.</p></div><h4 id='parametry-routinga' class='inside_page_header'><a href="#parametry-routinga">4.3.</a> Параметры роутинга</h4><p>Хэш <code>params</code> будет всегда содержать ключи <code>:controller</code> и <code>:action</code>, но следует использовать методы <a href="https://api.rubyonrails.org/classes/ActionController/Metal.html#method-i-controller_name"><code>controller_name</code></a> и <a href="https://api.rubyonrails.org/classes/AbstractController/Base.html#method-i-action_name"><code>action_name</code></a> вместо них для доступа к этим значениям. Любой другой параметр, определенный роутингом, такой как <code>:id</code>, также будет доступен. Например, рассмотрим перечень клиентов, где список может быть показан либо для активных, либо для неактивных клиентов. Мы можем добавить маршрут, перехватывающий параметр <code>:status</code> в &quot;красивом&quot; URL:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'/clients/:status'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'clients#index'</span><span class="p">,</span> <span class="ss">foo: </span><span class="s1">'bar'</span>
+</code></pre>
+</div>
+<p>В этом случае, когда пользователь откроет URL <code>/clients/active</code>, <code>params[:status]</code> будет установлен в &quot;active&quot;. Когда использован этот маршрут, <code>params[:foo]</code> также будет установлен в &quot;bar&quot;, как будто он был передан в строке запроса. Ваш контроллер также получит <code>params[:action]</code> как &quot;index&quot; и <code>params[:controller]</code> как &quot;clients&quot;.</p><h4 id='default_url_options' class='inside_page_header'><a href="#default_url_options">4.4.</a> <code>default_url_options</code></h4><p>Можно установить глобальные параметры по умолчанию для генерации URL, определив в контроллере метод по имени <code>default_url_options</code>. Этот метод должен возвращать хэш с желаемыми значениями по умолчанию, ключи которого должны быть символами:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="k">def</span> <span class="nf">default_url_options</span>
+    <span class="p">{</span> <span class="ss">locale: </span><span class="no">I18n</span><span class="p">.</span><span class="nf">locale</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Эти опции будут использованы как начальная точка при генерации URL, поэтому они могут быть переопределены опциями, переданными в <code>url_for</code>.</p><p>Если определить <code>default_url_options</code> в <code>ApplicationController</code>, как это показано в вышеприведенном примере, эти значения по умолчанию будут использованы для генерации всех URL. Этот метод также может быть определен в одном отдельном контроллере, и в этом случае он влияет только на URL, сгенерированные в нем.</p><p>В данном запросе, на самом деле, метод не вызывается для каждого сгенерированного URL; для повышения производительности, возвращаемый хэш кэшируется, и метод выполняется не более одного раза за запрос.</p><h4 id='strong-parameters' class='inside_page_header'><a href="#strong-parameters">4.5.</a> Strong Parameters</h4><p>С помощью сильных параметров (strong parameters) параметры Action Controller запрещены к использованию в массовых назначениях Active Model до тех пор, пока они не разрешены. Это означает, что нужно будет принять осознанное решение о том, какие атрибуты будут разрешены для массового обновления. Это лучший способ предотвратить случайную уязвимость, позволяющую пользователям обновлять чувствительные атрибуты модели.</p><p>Кроме того, параметры могут быть помечены как обязательные и будут проходить через предопределенные raise/rescue, что приведет к 400 Bad Request, если не будут переданы все обязательные параметры.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">PeopleController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="c1"># Это вызовет исключение ActiveModel::ForbiddenAttributesError,</span>
+  <span class="c1"># так как используется массовое назначение без явного шага permit.</span>
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="no">Person</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:person</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Это будет выполняться должным образом, пока в параметрах есть ключ person, иначе будет</span>
+  <span class="c1"># вызвано исключение ActionController::ParameterMissing, которое будет</span>
+  <span class="c1"># поймано в ActionController::Base и превращено в ошибку 400 Bad Request.</span>
+  <span class="k">def</span> <span class="nf">update</span>
+    <span class="n">person</span> <span class="o">=</span> <span class="n">current_account</span><span class="p">.</span><span class="nf">people</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+    <span class="n">person</span><span class="p">.</span><span class="nf">update!</span><span class="p">(</span><span class="n">person_params</span><span class="p">)</span>
+    <span class="n">redirect_to</span> <span class="n">person</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+    <span class="c1"># Использование приватного метода для инкапсуляции разрешенных параметров -</span>
+    <span class="c1"># это всего лишь хороший паттерн, с помощью которого можно повторно</span>
+    <span class="c1"># использовать тот же самый список разрешений при создании и обновлении.</span>
+    <span class="c1"># Этот метод также можно адаптировать к проверке разрешенных атрибутов для</span>
+    <span class="c1"># каждого пользователя.</span>
+    <span class="k">def</span> <span class="nf">person_params</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:person</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:age</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='razreshennye-skalyarnye-znacheniya' class='inside_page_header'><a href="#razreshennye-skalyarnye-znacheniya">4.5.1.</a> Разрешенные скалярные значения</h5><p>Вызов <a href="https://api.rubyonrails.org/classes/ActionController/Parameters.html#method-i-permit"><code>permit</code></a> подобный:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">params</span><span class="p">.</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:id</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>разрешает указанный ключ (<code>:id</code>) для включения, если он появится в <code>params</code> и будет иметь разрешенное скалярное значение. В ином случае ключ будет отфильтрован, таким образом, массивы, хэши и любые другие объекты не смогут быть переданы.</p><p>Разрешенные скалярные типы следующие <code>String</code>, <code>Symbol</code>, <code>NilClass</code>, <code>Numeric</code>, <code>TrueClass</code>, <code>FalseClass</code>, <code>Date</code>, <code>Time</code>, <code>DateTime</code>, <code>StringIO</code>, <code>IO</code>, <code>ActionDispatch::Http::UploadedFile</code> и <code>Rack::Test::UploadedFile</code>.</p><p>Чтобы объявить, что значение в <code>params</code> должно быть массивом разрешенных скалярных значений, свяжите ключ с пустым массивом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">params</span><span class="p">.</span><span class="nf">permit</span><span class="p">(</span><span class="ss">id: </span><span class="p">[])</span>
+</code></pre>
+</div>
+<p>Иногда невозможно или неудобно объявлять валидные ключи параметров хэша или его внутреннюю структуру. Просто укажите пустой хэш:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">params</span><span class="p">.</span><span class="nf">permit</span><span class="p">(</span><span class="ss">preferences: </span><span class="p">{})</span>
+</code></pre>
+</div>
+<p>но будьте осторожны, так это открывает возможность произвольного ввода. В этом случае <code>permit</code> гарантирует, что значения в возвращаемой структуре являются разрешенными скалярными величинами и отфильтровывает все иное.</p><p>Чтобы разрешить полный хэш параметров, можно использовать метод <a href="https://api.rubyonrails.org/classes/ActionController/Parameters.html#method-i-permit-21"><code>permit!</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:log_entry</span><span class="p">).</span><span class="nf">permit!</span>
+</code></pre>
+</div>
+<p>Это помечает хэш параметров <code>:log_entry</code> и любые вложенные хэши как разрешенные, и не проверяет разрешенные скалярные величины, принимается все. Следует соблюдать предельную осторожность при использовании <code>permit!</code>, так как он позволит массовое назначение всех текущих и будущих атрибутов модели.</p><h5 id='vlozhennye-parametry' class='inside_page_header'><a href="#vlozhennye-parametry">4.5.2.</a> Вложенные параметры</h5><p>Также можно использовать <code>permit</code> c вложенными параметрами, например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">params</span><span class="p">.</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="p">{</span> <span class="ss">emails: </span><span class="p">[]</span> <span class="p">},</span>
+              <span class="ss">friends: </span><span class="p">[</span> <span class="ss">:name</span><span class="p">,</span>
+                         <span class="p">{</span> <span class="ss">family: </span><span class="p">[</span> <span class="ss">:name</span> <span class="p">],</span> <span class="ss">hobbies: </span><span class="p">[]</span> <span class="p">}])</span>
+</code></pre>
+</div>
+<p>Это объявление разрешает атрибуты <code>name</code>, <code>emails</code> и <code>friends</code>. Ожидается, что <code>emails</code> будет массивом разрешенных скалярных значений, и что <code>friends</code> будет массивом ресурсов с определенными атрибутами: у них будет атрибут <code>name</code> (допустимо любое скалярное значение), атрибут <code>hobbies</code> как массив разрешенных скалярных значений, и атрибут <code>family</code>, который может иметь только <code>name</code> (также допустимо любое скалярное значение).</p><h5 id='dopolnitelnye-primery' class='inside_page_header'><a href="#dopolnitelnye-primery">4.5.3.</a> Дополнительные примеры</h5><p>Возможно вы захотите использовать разрешенные атрибуты в экшне <code>new</code>. В этой связи возникает проблема, из-за которой нельзя использовать <a href="https://api.rubyonrails.org/classes/ActionController/Parameters.html#method-i-require"><code>require</code></a> на корневом ключе, так как обычно он не существует при вызове <code>new</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># используя `fetch`, можно предоставить значение по умолчанию и использовать</span>
+<span class="c1"># далее Strong Parameters API.</span>
+<span class="n">params</span><span class="p">.</span><span class="nf">fetch</span><span class="p">(</span><span class="ss">:blog</span><span class="p">,</span> <span class="p">{}).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:author</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Метод класса модели <code>accepts_nested_attributes_for</code> позволяет обновлять и удалять связанные записи. Он основывается на параметрах <code>id</code> и <code>_destroy</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># permit :id и :_destroy</span>
+<span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:author</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">books_attributes: </span><span class="p">[</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:_destroy</span><span class="p">])</span>
+</code></pre>
+</div>
+<p>Хэши с числовыми ключами трактуются по-другому, и можно объявить атрибуты так, как будто они являются прямыми детьми. Такой тип параметров можно получить при использовании <code>accepts_nested_attributes_for</code> в сочетании со связью <code>has_many</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Чтобы разрешить следующие данные:</span>
+<span class="c1"># {"book" =&gt; {"title" =&gt; "Some Book",</span>
+<span class="c1">#             "chapters_attributes" =&gt; { "1" =&gt; {"title" =&gt; "First Chapter"},</span>
+<span class="c1">#                                        "2" =&gt; {"title" =&gt; "Second Chapter"}}}}</span>
+
+<span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:book</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">chapters_attributes: </span><span class="p">[</span><span class="ss">:title</span><span class="p">])</span>
+</code></pre>
+</div>
+<p>Рассмотрим ситуацию, когда есть параметры, представляющие имя продукта, и хэш произвольных данных, связанных с этим продуктом, и нужно разрешить атрибут name продукта, а также весь хэш данных:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">product_params</span>
+  <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:product</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">data: </span><span class="p">{})</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='za-predelami-oblasti-vidimosti-strong-parameters' class='inside_page_header'><a href="#za-predelami-oblasti-vidimosti-strong-parameters">4.5.4.</a> За пределами области видимости Strong Parameters</h5><p>Strong parameter API был разработан для наиболее общих вариантов использования. Это не панацея от всех ваших проблем белого списка. Однако можно легко смешивать API с вашим собственным кодом для адаптации к вашей ситуации.</p><h3 id='session' class='inside_page_header'><a href="#session">5.</a>  Сессия</h3><p>В приложении есть сессия для каждого пользователя, в которой можно хранить небольшие объемы данных, которые будут персистентными между запросами. Сессия доступна только в контроллере и во вью, и может использовать один из нескольких механизмов хранения:</p><ul><li><a href="https://api.rubyonrails.org/classes/ActionDispatch/Session/CookieStore.html"><code>ActionDispatch::Session::CookieStore</code></a> - Хранит все на клиенте.
+</li><li><a href="https://api.rubyonrails.org/classes/ActionDispatch/Session/CacheStore.html"><code>ActionDispatch::Session::CacheStore</code></a> - Хранит данные в кэше Rails.
+</li><li><a href="https://api.rubyonrails.org/classes/ActionDispatch/Session/MemCacheStore.html"><code>ActionDispatch::Session::MemCacheStore</code></a> - Хранит данные в кластере memcached (эта устаревшая реализация, вместо нее рассмотрите использование <code>CacheStore</code>).
+</li><li><code>ActionDispatch::Session::ActiveRecordStore</code> - Хранит данные в базе данных с использованием Active Record. (требует гем <a href="https://github.com/rails/activerecord-session_store"><code>activerecord-session_store</code></a>).
+</li><li>Пользовательское хранилище или хранилище, предоставленное сторонним гемом
+</li></ul><p>Все хранилища сессии используют куки для хранения уникального ID каждой сессии (вы должны использовать куки, Rails не позволяет передавать ID сессии в URL, так как это менее безопасно).</p><p>В большинстве хранилищ этот ID используется для поиска данных сессии на сервере, в т.ч. в таблице базы данных. Имеется одно исключение, это дефолтное и рекомендуемое хранилище сессии - CookieStore - которое хранит все данные сессии в куки (ID остается по-прежнему доступным, если он нужен). Преимущества его заключаются в легкости, отсутствии необходимости настройки для нового приложения чтобы использовать сессию. Данные в куки криптографически подписаны, что делает их защищенными от взлома. И они также зашифрованы, таким образом любой получивший к ним доступ, не сможет прочитать их содержимое (Rails не примет их, если они были отредактированы).</p><p>CookieStore могут хранить около 4 Кбайт данных - намного меньше, чем остальные - но этого обычно хватает. Хранение большего количества данных в сессии не рекомендуется, вне зависимости от того, какое хранилище сессии используется в приложении. Особенно следует избегать хранения в сессии сложных объектов (такие как экземпляры модели), так как сервер может не собрать их между запросами, что приведет к ошибке.</p><p>Если пользовательские сессии не хранят критически важные данные или нет необходимости в ее сохранности на долгий период (скажем, если она используется только для флеш-сообщений), можно рассмотреть использование <code>ActionDispatch::Session::CacheStore</code>. Он сохранит сессии с использованием реализации кэша, которая была настроена для приложения. Преимущество этого заключается в том, что для хранения сессий можно использовать существующую инфраструктуру кэширования без необходимости дополнительных настроек или администрирования. Недостатком, разумеется, является то, что сессии будут недолговечными и могут исчезнуть в любое время.</p><p>Читайте подробнее о хранении сессий в руководстве <a href="/security">Безопасность приложений на Rails</a>.</p><p>Если вы нуждаетесь в другом механизме хранения сессий, измените его в инициализаторе:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">session_store</span> <span class="ss">:cache_store</span>
+</code></pre>
+</div>
+<p>Подробности смотрите в <a href="/configuring#config-session-store"><code>config.session_store</code></a> в руководстве по конфигурации.</p><p>Rails устанавливает ключ сессии (имя куки) при подписании данных сессии. Он также может быть изменен в инициализаторе:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Be sure to restart your server when you modify this file.</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">session_store</span> <span class="ss">:cookie_store</span><span class="p">,</span> <span class="ss">key: </span><span class="s1">'_your_app_session'</span>
+</code></pre>
+</div>
+<p>Можете также передать ключ <code>:domain</code> и определить имя домена для куки:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Be sure to restart your server when you modify this file.</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">session_store</span> <span class="ss">:cookie_store</span><span class="p">,</span> <span class="ss">key: </span><span class="s1">'_your_app_session'</span><span class="p">,</span> <span class="ss">domain: </span><span class="s2">".example.com"</span>
+</code></pre>
+</div>
+<p>Rails устанавливает (для CookieStore) секретный ключ, используемый для подписания данных сессии, в <code>config/credentials.yml.enc</code>. Он может быть изменен с помощью <code>bin/rails credentials:edit</code>.</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="c1"># aws:</span>
+<span class="c1">#   access_key_id: 123</span>
+<span class="c1">#   secret_access_key: 345</span>
+
+<span class="c1"># Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.</span>
+<span class="na">secret_key_base</span><span class="pi">:</span> <span class="s">492f...</span>
+</code></pre>
+</div>
+<div class="note"><p>Изменение secret_key_base при использовании <code>CookieStore</code> делает все предыдущие сессии невалидными.</p></div><h4 id='dostup-k-sessii' class='inside_page_header'><a href="#dostup-k-sessii">5.1.</a> Доступ к сессии</h4><p>В контроллере можно получить доступ к сессии с помощью метода экземпляра <code>session</code>.</p><div class="note"><p>Сессии лениво загружаются. Если не получать доступ к сессиям в коде экшна, они не будут загружаться. Следовательно, никогда не придется отключать сессии, просто не обращайтесь к ним, и они будут выполнять свое задание.</p></div><p>Значения сессии хранятся, используя пары ключ/значение, подобно хэшу:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+
+  <span class="kp">private</span>
+
+  <span class="c1"># Находим пользователя с ID, хранящимся в сессии с ключом</span>
+  <span class="c1"># :current_user_id Это обычный способ обрабатывать вход пользователя</span>
+  <span class="c1"># в приложении на Rails; вход устанавливает значение сессии, а</span>
+  <span class="c1"># выход убирает его.</span>
+  <span class="k">def</span> <span class="nf">current_user</span>
+    <span class="vi">@_current_user</span> <span class="o">||=</span> <span class="n">session</span><span class="p">[</span><span class="ss">:current_user_id</span><span class="p">]</span> <span class="o">&amp;&amp;</span>
+      <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">id: </span><span class="n">session</span><span class="p">[</span><span class="ss">:current_user_id</span><span class="p">])</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Чтобы что-то хранить в сессии, просто присвойте это ключу, как в хэше:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">LoginsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="c1"># "Создаем" логин (при входе пользователя)</span>
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="k">if</span> <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:username</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="ss">:password</span><span class="p">])</span>
+      <span class="c1"># Сохраняем ID пользователя в сессии, так что он может быть использован</span>
+      <span class="c1"># в последующих запросах</span>
+      <span class="n">session</span><span class="p">[</span><span class="ss">:current_user_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="p">.</span><span class="nf">id</span>
+      <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="ss">status: :see_other</span> <span class="n">root_url</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Чтобы убрать что-то из сессии, удалите пару ключ/значение:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">LoginsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="c1"># "Удаляем" логин (при выходе пользователя)</span>
+  <span class="k">def</span> <span class="nf">destroy</span>
+    <span class="c1"># Убираем id пользователя из сессии</span>
+    <span class="n">session</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="ss">:current_user_id</span><span class="p">)</span>
+    <span class="c1"># Очистить мемоизированного текущего пользователя</span>
+    <span class="vi">@_current_user</span> <span class="o">=</span> <span class="kp">nil</span>
+    <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="ss">status: :see_other</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Для сброса текущей сессии, используйте <a href="https://api.rubyonrails.org/classes/ActionController/Metal.html#method-i-reset_session"><code>reset_session</code></a>.</p><h4 id='flash' class='inside_page_header'><a href="#flash">5.2.</a> Flash</h4><p>Flash - это специальная часть сессии, которая очищается с каждым запросом. Это означает, что сохраненные там значения будут доступны только в следующем запросе, что полезно для передачи сообщений об ошибках и т.п.</p><p>К флэшу можно получить доступ с помощью метода <a href="https://api.rubyonrails.org/classes/ActionDispatch/Flash/RequestMethods.html#method-i-flash"><code>flash</code></a>. Подобно сессии, флэш представлен хэшем.</p><p>Давайте рассмотрим случай логаута в качестве примера. Контроллер может послать сообщение, которое будет отображено пользователю при следующем запросе:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">LoginsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">destroy</span>
+    <span class="n">session</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="ss">:current_user_id</span><span class="p">)</span>
+    <span class="n">flash</span><span class="p">[</span><span class="ss">:notice</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"You have successfully logged out."</span>
+    <span class="n">redirect_to</span> <span class="n">root_url</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Отметьте, что также возможно назначить сообщение флэш как часть перенаправления. Можно назначить <code>:notice</code>, <code>:alert</code> или общего назначения <code>:flash</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"You have successfully logged out."</span>
+<span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="ss">alert: </span><span class="s2">"You're stuck here!"</span>
+<span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="ss">flash: </span><span class="p">{</span> <span class="ss">referral_code: </span><span class="mi">1234</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>Экшн <code>destroy</code> перенаправляет на <code>root_url</code> приложения, где будет отображено сообщение. Отметьте, что от следующего экшна полностью зависит решение, будет ли он или не будет что-то делать с тем, что предыдущий экшн вложил во flash. Принято отображать любые сообщения об ошибке или уведомления из flash в макете приложения:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+  <span class="o">&lt;!--</span> <span class="o">&lt;</span><span class="n">head</span><span class="o">/&gt;</span> <span class="o">--&gt;</span>
+  <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="sx">% flash.each </span><span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="p">,</span> <span class="n">msg</span><span class="o">|</span> <span class="o">-</span><span class="sx">%&gt;
+      &lt;%= content_tag :div, msg, class: name %&gt;</span>
+    <span class="o">&lt;</span><span class="sx">% end </span><span class="o">-</span><span class="sx">%&gt;
+
+    &lt;!-- дальнейшее содержимое --&gt;</span>
+  <span class="o">&lt;</span><span class="sr">/body&gt;
+&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</code></pre>
+</div>
+<p>В этом случае, если экшн установил сообщения уведомления или предупреждения, макет отобразит их автоматически.</p><p>Можно передать все, что только сессия может хранить; вы не ограничены уведомлениями или предупреждениями:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">flash</span><span class="p">[</span><span class="ss">:just_signed_up</span><span class="p">]</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"welcome"</span><span class="nt">&gt;</span>Welcome to our site!<span class="nt">&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Если хотите, чтобы значение flash было перенесено в другой запрос, используйте <a href="https://api.rubyonrails.org/classes/ActionDispatch/Flash/FlashHash.html#method-i-keep"><code>flash.keep</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">MainController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="c1"># Давайте скажем этому экшну, соответствующему root_url, что хотим</span>
+  <span class="c1"># все запросы сюда перенаправить на UsersController#index. Если</span>
+  <span class="c1"># экшн установил flash и направил сюда, значения в нормальной ситуации</span>
+  <span class="c1"># будут потеряны, когда произойдет другой редирект, но Вы можете</span>
+  <span class="c1"># использовать 'keep', чтобы сделать его персистентным для другого запроса.</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="c1"># Все значения flash будут персистентными.</span>
+    <span class="n">flash</span><span class="p">.</span><span class="nf">keep</span>
+
+    <span class="c1"># Можете также использовать ключ для сохранения определенных значений.</span>
+    <span class="c1"># flash.keep(:notice)</span>
+    <span class="n">redirect_to</span> <span class="n">users_url</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='flash-now' class='inside_page_header'><a href="#flash-now">5.2.1.</a> <code>flash.now</code></h5><p>По умолчанию, добавление значений во flash делает их доступными для следующего запроса, но иногда хочется иметь доступ к этим значениям в том же запросе. Например, если экшн <code>create</code> проваливается при сохранении ресурса, и будет отрендерен непосредственно макет <code>new</code>, что не приведет к новому запросу, но все равно можно отобразить сообщение, используя flash. Чтобы это сделать, используйте <a href="https://api.rubyonrails.org/classes/ActionDispatch/Flash/FlashHash.html#method-i-now"><code>flash.now</code></a> так же, как используете обычный <code>flash</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ClientsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@client</span> <span class="o">=</span> <span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">client_params</span><span class="p">)</span>
+    <span class="k">if</span> <span class="vi">@client</span><span class="p">.</span><span class="nf">save</span>
+      <span class="c1"># ...</span>
+    <span class="k">else</span>
+      <span class="n">flash</span><span class="p">.</span><span class="nf">now</span><span class="p">[</span><span class="ss">:error</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Could not save client"</span>
+      <span class="n">render</span> <span class="ss">action: </span><span class="s2">"new"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h3 id='cookies' class='inside_page_header'><a href="#cookies">6.</a>  Куки</h3><p>Приложение может хранить небольшое количество данных у клиента - в так называемых куки - которые будут персистентными между запросами и даже сессиями. Rails обеспечивает простой доступ к куки посредством метода <a href="https://api.rubyonrails.org/classes/ActionController/Cookies.html#method-i-cookies"><code>cookies</code></a>, который - очень похож на <code>session</code> - и работает как хэш:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CommentsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">new</span>
+    <span class="c1"># Автозаполнение имени комментатора, если оно хранится в куки.</span>
+    <span class="vi">@comment</span> <span class="o">=</span> <span class="no">Comment</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">author: </span><span class="n">cookies</span><span class="p">[</span><span class="ss">:commenter_name</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@comment</span> <span class="o">=</span> <span class="no">Comment</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">comment_params</span><span class="p">)</span>
+    <span class="k">if</span> <span class="vi">@comment</span><span class="p">.</span><span class="nf">save</span>
+      <span class="n">flash</span><span class="p">[</span><span class="ss">:notice</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Thanks for your comment!"</span>
+      <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="ss">:remember_name</span><span class="p">]</span>
+        <span class="c1"># Запоминаем имя комментатора.</span>
+        <span class="n">cookies</span><span class="p">[</span><span class="ss">:commenter_name</span><span class="p">]</span> <span class="o">=</span> <span class="vi">@comment</span><span class="p">.</span><span class="nf">author</span>
+      <span class="k">else</span>
+        <span class="c1"># Удаляем из куки имя комментатора, если оно есть.</span>
+        <span class="n">cookies</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="ss">:commenter_name</span><span class="p">)</span>
+      <span class="k">end</span>
+      <span class="n">redirect_to</span> <span class="vi">@comment</span><span class="p">.</span><span class="nf">article</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="ss">action: </span><span class="s2">"new"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Отметьте, что если для удаления значений сессии можно установить ключ в <code>nil</code>, то для удаления значений куки следует использовать <code>cookies.delete(:key)</code>.</p><p>Rails также предоставляет подписанные куки и зашифрованные куки для хранения чувствительных данных. В подписанные куки добавляется криптографическая сигнатура значений куки для защиты их целостности. Зашифрованные куки шифруют значения в дополнение к их подписи, поэтому они не могут быть прочитаны пользователем. За подробностями обратитесь к <a href="https://api.rubyonrails.org/classes/ActionDispatch/Cookies.html">документации API</a>.</p><p>Эти специальные куки используют сериализатор для сериализации назначенных значений в строки и десериализации их в объекты Ruby при чтении.</p><p>Можно определить, какой сериализатор использовать:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">action_dispatch</span><span class="p">.</span><span class="nf">cookies_serializer</span> <span class="o">=</span> <span class="ss">:json</span>
+</code></pre>
+</div>
+<p>Для новых приложений сериализатором по умолчанию является <code>:json</code>. Для совместимости со старыми приложениями с существующими куки, используется <code>:marshal</code>, когда не определена опция <code>serializer</code>.</p><p>Также можно установить этой опции <code>:hybrid</code>, в этом случае Rails десериализует существующие (сериализованные <code>Marshal</code>) куки при чтении и перезапишет их в формате <code>JSON</code>. Это полезно при миграции существующих приложений на сериализатор <code>:json</code>.</p><p>Также возможно передать произвольный сериализатор, откликающийся на <code>load</code> и <code>dump</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">action_dispatch</span><span class="p">.</span><span class="nf">cookies_serializer</span> <span class="o">=</span> <span class="no">MyCustomSerializer</span>
+</code></pre>
+</div>
+<p>При использовании сериализатора <code>:json</code> или <code>:hybrid</code>, следует знать, что не все объекты Ruby могут быть сериализованы как JSON. Например, объекты <code>Date</code> и <code>Time</code> будут сериализованы как строки, и у хэшей ключи будут преобразованы в строки.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CookiesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">set_cookie</span>
+    <span class="n">cookies</span><span class="p">.</span><span class="nf">encrypted</span><span class="p">[</span><span class="ss">:expiration_date</span><span class="p">]</span> <span class="o">=</span> <span class="no">Date</span><span class="p">.</span><span class="nf">tomorrow</span> <span class="c1"># =&gt; Thu, 20 Mar 2014</span>
+    <span class="n">redirect_to</span> <span class="ss">action: </span><span class="s1">'read_cookie'</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">read_cookie</span>
+    <span class="n">cookies</span><span class="p">.</span><span class="nf">encrypted</span><span class="p">[</span><span class="ss">:expiration_date</span><span class="p">]</span> <span class="c1"># =&gt; "2014-03-20"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Желательно, чтобы в куки хранились только простые данные (строки и числа). Если храните сложные объекты, вам необходимо преобразовывать вручную при чтении значений в последующих запросах.</p><p>Если вы храните сессию в куки, все перечисленное также применяется к хэшам <code>session</code> и <code>flash</code>.</p><h3 id='rendering-dannyh-xml-i-json' class='inside_page_header'><a href="#rendering-dannyh-xml-i-json">7.</a> Рендеринг данных XML и JSON</h3><p>ActionController позволяет очень просто рендерить данные <code>XML</code> или <code>JSON</code>. Если сгенерируете контроллер с помощью скаффолда, то он будет выглядеть следующим образом.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">UsersController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@users</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">all</span>
+    <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+      <span class="nb">format</span><span class="p">.</span><span class="nf">html</span> <span class="c1"># index.html.erb</span>
+      <span class="nb">format</span><span class="p">.</span><span class="nf">xml</span>  <span class="p">{</span> <span class="n">render</span> <span class="ss">xml: </span><span class="vi">@users</span> <span class="p">}</span>
+      <span class="nb">format</span><span class="p">.</span><span class="nf">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">json: </span><span class="vi">@users</span> <span class="p">}</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Отметьте, что в вышеописанном коде использован <code>render xml: @users</code>, а не <code>render xml: @users.to_xml</code>. Если объект не String, то Rails автоматически вызовет <code>to_xml</code>.</p><h3 id='filtry' class='inside_page_header'><a href="#filtry">8.</a> Фильтры</h3><p>Фильтры - это методы, которые запускаются &quot;до&quot;, &quot;после&quot; или &quot;до и после&quot; экшна контроллера.</p><p>Фильтры наследуются, поэтому, если вы установите фильтр в <code>ApplicationController</code>, он будет запущен в каждом контроллере вашего приложения.</p><p>Фильтры &quot;before&quot; регистрируются с помощью <a href="https://api.rubyonrails.org/classes/AbstractController/Callbacks/ClassMethods.html#method-i-before_action"><code>before_action</code></a>. Они могут прерывать цикл запроса. Обычный фильтр &quot;before&quot; - это, например, тот, который требует, чтобы пользователь был авторизован для запуска экшна. Метод фильтра можно определить следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">before_action</span> <span class="ss">:require_login</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">require_login</span>
+    <span class="k">unless</span> <span class="n">logged_in?</span>
+      <span class="n">flash</span><span class="p">[</span><span class="ss">:error</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"You must be logged in to access this section"</span>
+      <span class="n">redirect_to</span> <span class="n">new_login_url</span> <span class="c1"># прерывает цикл запроса</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Метод просто записывает сообщение об ошибке во flash и перенаправляет на форму авторизации, если пользователь не авторизовался. Если фильтр &quot;before&quot; рендерит или перенаправляет, экшн не запустится. Если есть дополнительные фильтры в очереди, они также будут отменены.</p><p>В этом примере фильтр добавлен в <code>ApplicationController</code>, и поэтому все контроллеры в приложении наследуют его. Это приводит к тому, что всё в приложении требует, чтобы пользователь был авторизован, чтобы пользоваться им. По понятным причинам (пользователь не сможет зарегистрироваться в первую очередь!), не все контроллеры или экшны должны требовать его. Вы можете не допустить запуск этого фильтра перед определенными экшнами с помощью <a href="https://api.rubyonrails.org/classes/AbstractController/Callbacks/ClassMethods.html#method-i-skip_before_action"><code>skip_before_action</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">LoginsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">skip_before_action</span> <span class="ss">:require_login</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:new</span><span class="p">,</span> <span class="ss">:create</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь, экшны <code>LoginsController</code> <code>new</code> и <code>create</code> будут работать как раньше, без требования к пользователю быть зарегистрированным. Опция <code>:only</code> используется для пропуска фильтра только для этих экшнов, а также есть опция <code>:except</code>, которая работает наоборот. Эти опции можно использовать и при добавлении фильтров, поэтому необходимо добавить фильтр, который запускается только для выбранных экшнов в первую очередь.</p><div class="note"><p>Вызов одного и того же фильтра несколько раз с разными опциями не будет работать, поскольку последнее определение фильтра перезапишет предыдущие.</p></div><h4 id='after-filtry-i-around-filtry' class='inside_page_header'><a href="#after-filtry-i-around-filtry">8.1.</a> After фильтры и around фильтры</h4><p>В дополнение к фильтрам &quot;before&quot;, можно запустить фильтры после того, как экшн был выполнен, или &quot;и до, и после&quot;.</p><p>Фильтры &quot;after&quot; регистрируются с помощью <a href="https://api.rubyonrails.org/classes/AbstractController/Callbacks/ClassMethods.html#method-i-after_action"><code>after_action</code></a>. Они похожи на &quot;before&quot;, но поскольку экшн уже был запущен, у них есть доступ к данным отклика, которые будут отосланы клиенту. Очевидно, фильтры &quot;after&quot; не могут остановить экшн от запуска. Обратите внимание, что фильтры &quot;after&quot; выполняются только после успешного выполнения экшна, но не при возникновении исключения в цикле запроса.</p><p>Фильтры &quot;around&quot; регистрируются с помощью <a href="https://api.rubyonrails.org/classes/AbstractController/Callbacks/ClassMethods.html#method-i-around_action"><code>around_action</code></a>. Они ответственны за запуск связанных с ними экшнов с помощью yield, подобно тому, как работают промежуточные программы Rack.</p><p>Например, на веб-сайте, где для изменений есть процедура утверждения информации, администратор может легко их просмотреть, применив их внутри транзакции:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ChangesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">around_action</span> <span class="ss">:wrap_in_transaction</span><span class="p">,</span> <span class="ss">only: :show</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">wrap_in_transaction</span>
+    <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span><span class="p">.</span><span class="nf">transaction</span> <span class="k">do</span>
+      <span class="k">begin</span>
+        <span class="k">yield</span>
+      <span class="k">ensure</span>
+        <span class="k">raise</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Rollback</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Отметьте, что фильтры &quot;around&quot; также оборачивают рендеринг. В частности, в вышеуказанном примере, если вью сама начнет считывать из базы данных (например через скоуп), она это осуществит внутри транзакции, предоставив, таким образом, данные для предварительного просмотра.</p><p>Можно не вызывать yield и создать отклик самостоятельно, в этом случае экшн не будет запущен.</p><h4 id='drugie-sposoby-ispolzovaniya-filtrov' class='inside_page_header'><a href="#drugie-sposoby-ispolzovaniya-filtrov">8.2.</a> Другие способы использования фильтров</h4><p>Хотя наиболее распространенный способ использование фильтров - это создание private методов и использование <code>before_action</code>, <code>after_action</code> или <code>around_action</code> для их добавления, есть два других способа делать то же самое.</p><p>Первый - это использовать блок прямо в методах <code>*_action</code>. Блок получает контроллер как аргумент. Фильтр <code>require_login</code> может быть переписан с использованием блока:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">before_action</span> <span class="k">do</span> <span class="o">|</span><span class="n">controller</span><span class="o">|</span>
+    <span class="k">unless</span> <span class="n">controller</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:logged_in?</span><span class="p">)</span>
+      <span class="n">flash</span><span class="p">[</span><span class="ss">:error</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"You must be logged in to access this section"</span>
+      <span class="n">redirect_to</span> <span class="n">new_login_url</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Отметьте, что фильтр в этом случае использует метод <code>send</code>, так как <code>logged_in?</code> является private, и фильтр не запустится в области видимости контроллера. Это не рекомендуемый способ применения такого особого фильтра, но в простых задачах он может быть полезен.</p><p>В частности, для <code>around_action</code> в блок также вкладывается <code>action</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">around_action</span> <span class="p">{</span> <span class="o">|</span><span class="n">_controller</span><span class="p">,</span> <span class="n">action</span><span class="o">|</span> <span class="n">time</span><span class="p">(</span><span class="o">&amp;</span><span class="n">action</span><span class="p">)</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>Второй способ - это использовать класс (фактически, подойдет любой объект, реагирующий правильными методами) для управления фильтрацией. Это полезно для более сложных задач, которые не могут быть осуществлены предыдущими двумя способами по причине трудности читаемости и повторного использования. Как пример, можете переписать фильтр авторизации снова, использовав класс:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">before_action</span> <span class="no">LoginFilter</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">LoginFilter</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">before</span><span class="p">(</span><span class="n">controller</span><span class="p">)</span>
+    <span class="k">unless</span> <span class="n">controller</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:logged_in?</span><span class="p">)</span>
+      <span class="n">controller</span><span class="p">.</span><span class="nf">flash</span><span class="p">[</span><span class="ss">:error</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"You must be logged in to access this section"</span>
+      <span class="n">controller</span><span class="p">.</span><span class="nf">redirect_to</span> <span class="n">controller</span><span class="p">.</span><span class="nf">new_login_url</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Опять же, это не идеальный пример для этого фильтра, поскольку он не запускается в области видимости контроллера, а получает контроллер как аргумент. Класс фильтра должен реализовывать метод с тем же именем, что и фильтр, поэтому для фильтра <code>before_action</code> класс должен реализовать метод <code>before</code>, и так далее. Метод <code>around</code> должен иметь <code>yield</code> для выполнения экшна.</p><h3 id='zaschita-ot-poddelki-zaprosa' class='inside_page_header'><a href="#zaschita-ot-poddelki-zaprosa">9.</a> Защита от подделки запроса</h3><p>Межсайтовая подделка запроса (CSRF, Cross-Site Request Forgery) - это тип атаки, в которой сайт обманом заставляет пользователя сделать запрос на другой сайт, возможно, добавляя, модифицируя или удаляя данные на этом сайте без ведома или прав доступа пользователя.</p><p>Первый шаг, чтобы избежать это - убедиться, что все &quot;разрушительные&quot; экшны (создание, обновление и уничтожение) могут быть доступны только не-GET-запросам. Если вы следуете соглашениям RESTful, то уже делаете это. Однако, сайт злоумышленника может также легко послать не-GET-запрос на ваш сайт, поэтому и необходима защита от подделки запроса. Как сказано в названии, он защищает от подделки запроса.</p><p>Это можно сделать, добавив неугадываемый токен, известный только вашему серверу, в каждый запрос. При этом способе, если запрос приходит без подходящего токена, ему будет отказано в доступе.</p><p>Если вы генерируете подобную форму:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@user</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:username</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:password</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>то увидите, как токен будет добавлен в скрытое поле:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;form</span> <span class="na">accept-charset=</span><span class="s">"UTF-8"</span> <span class="na">action=</span><span class="s">"/users/1"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span>
+       <span class="na">value=</span><span class="s">"67250ab105eb5ad10851c00a5621854a23af5489"</span>
+       <span class="na">name=</span><span class="s">"authenticity_token"</span><span class="nt">/&gt;</span>
+<span class="c">&lt;!-- fields --&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre>
+</div>
+<p>Rails добавит этот токен в каждую форму, генерируемую с помощью <a href="/form-helpers">хелперов форм</a>, таким образом, большую часть времени можете об этом не беспокоиться. Если вы пишете формы вручную или хотите добавить токен по другой причине, это можно сделать, используя метод <code>form_authenticity_token</code>:</p><p><code>form_authenticity_token</code> генерирует валидный аутентификационный токен. Его полезно размещать в тех местах, куда Rails не добавляет его автоматически, например в произвольные вызовы Ajax.</p><p>В руководстве <a href="/security">Безопасность приложений на Rails</a> имеется более подробная информация об этом, и множество других вопросов, посвященных безопасности, которые вы должны принимать во внимание при разработке веб-приложения.</p><h3 id='the-request-and-response-objects' class='inside_page_header'><a href="#the-request-and-response-objects">10.</a>  Объекты Request и Response</h3><p>В каждом контроллере есть два акцессор-метода, указывающих на объекты запроса и отклика, связанные с циклом запроса, находящегося в текущее время на стадии выполнения. Метод <a href="https://api.rubyonrails.org/classes/ActionController/Base.html#method-i-request"><code>request</code></a> содержит экземпляр <a href="https://api.rubyonrails.org/classes/ActionDispatch/Request.html"><code>ActionDispatch::Request</code></a>, а метод <a href="https://api.rubyonrails.org/classes/ActionController/Base.html#method-i-response"><code>response</code></a> возвращает объект отклика, представляющий то, что будет отправлено обратно на клиента.</p><h4 id='ob-ekt-request' class='inside_page_header'><a href="#ob-ekt-request">10.1.</a> Объект <code>request</code></h4><p>Объект request содержит множество полезной информации о запросе, полученном с клиента. Чтобы получить полный перечень доступных методов, обратитесь к <a href="https://api.rubyonrails.org/classes/ActionDispatch/Request.html">документации по Rails API</a> и <a href="https://www.rubydoc.info/github/rack/rack/Rack/Request">документации по Rack</a>. В числе свойств, доступных для этого объекта, следующие:</p><table class='table table-striped'><tr>
+<th>Свойство <code>request</code></th>
+<th>Назначение</th>
+</tr>
+<tr>
+<td><code>host</code></td>
+<td>Имя хоста, используемого для этого запроса.</td>
+</tr>
+<tr>
+<td><code>domain(n=2)</code></td>
+<td>Первые <code>n</code> сегментов имени хоста, начиная справа (домен верхнего уровня).</td>
+</tr>
+<tr>
+<td><code>format</code></td>
+<td>Тип содержимого, запрошенного с клиента.</td>
+</tr>
+<tr>
+<td><code>method</code></td>
+<td>Метод HTTP, использованного для запроса.</td>
+</tr>
+<tr>
+<td><code>get?</code>, <code>post?</code>, <code>patch?</code>, <code>put?</code>, <code>delete?</code>, <code>head?</code></td>
+<td>Возвращает true, если метод HTTP - это GET/POST/PATCH/PUT/DELETE/HEAD.</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td>Возвращает хэш, содержащий заголовки, связанные с запросом.</td>
+</tr>
+<tr>
+<td><code>port</code></td>
+<td>Номер порта (целое число), использованного для запроса.</td>
+</tr>
+<tr>
+<td><code>protocol</code></td>
+<td>Возвращает строку, содержащую использованный протокол плюс &quot;://&quot;, например &quot;http://&quot;.</td>
+</tr>
+<tr>
+<td><code>query_string</code></td>
+<td>Часть URL со строкой запроса, т.е. все после &quot;?&quot;.</td>
+</tr>
+<tr>
+<td><code>remote_ip</code></td>
+<td>Адрес IP клиента.</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td>Полный URL, использованный для запроса.</td>
+</tr>
+</table><h5 id='path_parameters-query_parameters-i-request_parameters' class='inside_page_header'><a href="#path_parameters-query_parameters-i-request_parameters">10.1.1.</a> <code>path_parameters</code>, <code>query_parameters</code> и <code>request_parameters</code></h5><p>Rails собирает все параметры, посланные вместе с запросом, в хэше <code>params</code>, были ли они посланы как часть строки запроса, либо в теле запроса post. У объекта request имеется три акцессора, которые предоставляют доступ к этим параметрам в зависимости от того, откуда они пришли. Хэш <a href="https://api.rubyonrails.org/classes/ActionDispatch/Request.html#method-i-query_parameters"><code>query_parameters</code></a> содержит параметры, посланные как часть строки запроса, в то время как хэш <a href="https://api.rubyonrails.org/classes/ActionDispatch/Request.html#method-i-request_parameters"><code>request_parameters</code></a> содержит параметры, посланные как часть тела post. Хэш <a href="https://api.rubyonrails.org/classes/ActionDispatch/Http/Parameters.html#method-i-path_parameters"><code>path_parameters</code></a> содержит параметры, распознанные роутингом как часть пути, ведущего к определенному контроллеру и экшну.</p><h4 id='ob-ekt-response' class='inside_page_header'><a href="#ob-ekt-response">10.2.</a> Объект <code>response</code></h4><p>Объект response (отклик) обычно не используется напрямую, а создается во время выполнения экшна и рендеринга данных, которые посылаются обратно пользователю, но иногда - например, в последующем фильтре - бывает полезно иметь доступ к отклику напрямую. Некоторые из этих акцессор-методов имеют сеттеры, позволяющие изменять их значения. Чтобы получить полный перечень доступных методов, обратитесь к <a href="https://api.rubyonrails.org/classes/ActionDispatch/Response.html">документации по Rails API</a> и <a href="https://www.rubydoc.info/github/rack/rack/Rack/Response">документации по Rack</a>.</p><table class='table table-striped'><tr>
+<th>Свойство <code>response</code></th>
+<th>Назначение</th>
+</tr>
+<tr>
+<td><code>body</code></td>
+<td>Это строка данных, которая будет возвращена клиенту. Чаще всего это HTML.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>Код статуса HTTP для отклика, например 200 для успешного запроса или 404 для ненайденного файла.</td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td>URL, по которому клиент будет перенаправлен, если указан.</td>
+</tr>
+<tr>
+<td><code>content_type</code></td>
+<td>Тип содержимого отклика.</td>
+</tr>
+<tr>
+<td><code>charset</code></td>
+<td>Кодировка, используемая для отклика. По умолчанию это &quot;utf-8&quot;.</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td>Заголовки, используемые для отклика.</td>
+</tr>
+</table><h5 id='ustanovka-polzovatelskih-zagolovkov' class='inside_page_header'><a href="#ustanovka-polzovatelskih-zagolovkov">10.2.1.</a> Установка пользовательских заголовков</h5><p>Если хотите установить произвольные заголовки для отклика, то <code>response.headers</code> - как раз то место, что нужно. Атрибут headers - это хэш, который связывает имена заголовков с их значениями, а Rails устанавливает некоторые из них автоматически. Если нужно добавить или изменить заголовок, просто назначьте его <code>response.headers</code> следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">response</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/pdf"</span>
+</code></pre>
+</div>
+<div class="note"><p>В вышеприведенном случае более очевидным было бы использование сеттера <code>content_type</code>.</p></div><h3 id='autentifikatsii-http' class='inside_page_header'><a href="#autentifikatsii-http">11.</a> Аутентификации HTTP</h3><p>Rails поставляется с тремя встроенными механизмами аутентификации HTTP:</p><ul><li>Базовая аутентификация
+</li><li>Дайджест-аутентификация
+</li><li>Аутентификация по токену
+</li></ul><h4 id='bazovaya-autentifikatsiya-http' class='inside_page_header'><a href="#bazovaya-autentifikatsiya-http">11.1.</a> Базовая аутентификация HTTP</h4><p>Базовая аутентификация HTTP - это аутентификационная схема, поддерживаемая большинством браузеров и других клиентов HTTP. Как пример, рассмотрим раздел администрирования, который доступен только при вводе имени пользователя и пароля в основном диалоговом окне браузера. Использование встроенной аутентификации достаточно простое и требует использования одного метода <a href="https://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Basic/ControllerMethods/ClassMethods.html#method-i-http_basic_authenticate_with"><code>http_basic_authenticate_with</code></a>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">AdminsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">http_basic_authenticate_with</span> <span class="ss">name: </span><span class="s2">"humbaba"</span><span class="p">,</span> <span class="ss">password: </span><span class="s2">"5baa61e4"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Благодаря этому можно создавать именованные контроллеры, наследуемые от <code>AdminsController</code>. Таким образом, предварительный фильтр будет запущен для всех экшнов в этих контроллерах, защищая их с помощью базовой аутентификации <code>HTTP</code>.</p><h4 id='daydzhest-autentifikatsiya-http' class='inside_page_header'><a href="#daydzhest-autentifikatsiya-http">11.2.</a> Дайджест-аутентификация HTTP</h4><p>Дайджест-аутентификация HTTP превосходит базовую аутентификацию, так как она не требует от клиента посылать незашифрованный пароль по сети (хотя базовая аутентификация HTTP безопасна через HTTPS). Использовать дайджест-аутентификацию с Rails просто, и это потребует только один метод <a href="https://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Digest/ControllerMethods.html#method-i-authenticate_or_request_with_http_digest"><code>authenticate_or_request_with_http_digest</code></a>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">AdminsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="no">USERS</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"lifo"</span> <span class="o">=&gt;</span> <span class="s2">"world"</span> <span class="p">}</span>
+
+  <span class="n">before_action</span> <span class="ss">:authenticate</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">authenticate</span>
+      <span class="n">authenticate_or_request_with_http_digest</span> <span class="k">do</span> <span class="o">|</span><span class="n">username</span><span class="o">|</span>
+        <span class="no">USERS</span><span class="p">[</span><span class="n">username</span><span class="p">]</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Как мы видим из примера, блок <code>authenticate_or_request_with_http_digest</code> принимает только один аргумент - имя пользователя. И блок возвращает пароль. Возврат <code>false</code> или <code>nil</code> из <code>authenticate_or_request_with_http_digest</code> вызовет провал аутентификации.</p><h4 id='autentifikatsiya-http-po-tokenu' class='inside_page_header'><a href="#autentifikatsiya-http-po-tokenu">11.3.</a> Аутентификация HTTP по токену</h4><p>Аутентификация HTTP по токену — это схема для использования токенов Bearer в заголовке HTTP <code>Authorization</code>. Имеется множество доступных форматов токенов, но их описание выходит за рамки этой документации.</p><p>В качестве примера, предположим вы хотите использовать аутентификационный токен, выпущенный заранее, для аутентификации и доступа. Реализация аутентификации по токену с помощью Rails довольно простая и требует использования лишь одного метода, <a href="https://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Token/ControllerMethods.html#method-i-authenticate_or_request_with_http_token"><code>authenticate_or_request_with_http_token</code></a>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">PostsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="no">TOKEN</span> <span class="o">=</span> <span class="s2">"secret"</span>
+
+  <span class="n">before_action</span> <span class="ss">:authenticate</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">authenticate</span>
+      <span class="n">authenticate_or_request_with_http_token</span> <span class="k">do</span> <span class="o">|</span><span class="n">token</span><span class="p">,</span> <span class="n">options</span><span class="o">|</span>
+        <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">SecurityUtils</span><span class="p">.</span><span class="nf">secure_compare</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="no">TOKEN</span><span class="p">)</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Как видно из примера, блок <code>authenticate_or_request_with_http_token</code> принимает два аргумента - токен и <code>Hash</code>, содержащий опции, которые были взяты из заголовка HTTP <code>Authorization</code>. Блок должен вернуть <code>true</code>, если аутентификация успешная. Возврат <code>false</code> или <code>nil</code> в нем вызовет неудачу в аутентификации.</p><h3 id='potoki-i-zagruzka-faylov' class='inside_page_header'><a href="#potoki-i-zagruzka-faylov">12.</a> Потоки и загрузка файлов</h3><p>Иногда хочется послать пользователю файл вместо рендеринга страницы HTML. Все контроллеры в Rails имеют методы <a href="https://api.rubyonrails.org/classes/ActionController/DataStreaming.html#method-i-send_data"><code>send_data</code></a> и <a href="https://api.rubyonrails.org/classes/ActionController/DataStreaming.html#method-i-send_file"><code>send_file</code></a>, которые направляют данные на клиента. <code>send_file</code> - это удобный метод, который позволяет указать имя файла на диске, а он направит содержимое этого файла вам.</p><p>Чтобы направить данные на клиента, используйте <code>send_data</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="nb">require</span> <span class="s2">"prawn"</span>
+<span class="k">class</span> <span class="nc">ClientsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="c1"># Генерирует документ PDF с информацией на клиента и возвращает</span>
+  <span class="c1"># его. Пользователь получает PDF как загрузку файла.</span>
+  <span class="k">def</span> <span class="nf">download_pdf</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="no">Client</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+    <span class="n">send_data</span> <span class="n">generate_pdf</span><span class="p">(</span><span class="n">client</span><span class="p">),</span>
+              <span class="ss">filename: </span><span class="s2">"</span><span class="si">#{</span><span class="n">client</span><span class="p">.</span><span class="nf">name</span><span class="si">}</span><span class="s2">.pdf"</span><span class="p">,</span>
+              <span class="ss">type: </span><span class="s2">"application/pdf"</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">generate_pdf</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+      <span class="no">Prawn</span><span class="o">::</span><span class="no">Document</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span>
+        <span class="n">text</span> <span class="n">client</span><span class="p">.</span><span class="nf">name</span><span class="p">,</span> <span class="ss">align: :center</span>
+        <span class="n">text</span> <span class="s2">"Address: </span><span class="si">#{</span><span class="n">client</span><span class="p">.</span><span class="nf">address</span><span class="si">}</span><span class="s2">"</span>
+        <span class="n">text</span> <span class="s2">"Email: </span><span class="si">#{</span><span class="n">client</span><span class="p">.</span><span class="nf">email</span><span class="si">}</span><span class="s2">"</span>
+      <span class="k">end</span><span class="p">.</span><span class="nf">render</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Экшн <code>download_pdf</code> в примере вызовет private метод, который фактически сгенерирует документ PDF и возвратит его как строку. Эта строка будет направлена клиенту как загрузка файла, и пользователю будет предложено имя файла. Иногда при потоковой передаче файлов пользователю может не потребоваться загрузка файла. Возьмите, например, изображения, которые могут быть встроены в страницы HTML. Чтобы сказать браузеру, что файл не предназначен для скачивания, нужно установить опцию <code>:disposition</code> как &quot;inline&quot;. Противоположное дефолтное значение этой опции - &quot;attachment&quot;.</p><h4 id='otpravka-faylov' class='inside_page_header'><a href="#otpravka-faylov">12.1.</a> Отправка файлов</h4><p>Если хотите отправить файл, уже существующий на диске, используйте метод <code>send_file</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ClientsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="c1"># Потоковая передача файла, который уже был сгенерирован и сохранен на диск.</span>
+  <span class="k">def</span> <span class="nf">download_pdf</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="no">Client</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+    <span class="n">send_file</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/files/clients/</span><span class="si">#{</span><span class="n">client</span><span class="p">.</span><span class="nf">id</span><span class="si">}</span><span class="s2">.pdf"</span><span class="p">,</span>
+              <span class="ss">filename: </span><span class="s2">"</span><span class="si">#{</span><span class="n">client</span><span class="p">.</span><span class="nf">name</span><span class="si">}</span><span class="s2">.pdf"</span><span class="p">,</span>
+              <span class="ss">type: </span><span class="s2">"application/pdf"</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это прочтет и передаст файл блоками в 4 Кбайт за раз, избегая загрузки в память сразу целого файла. Можно отключить потоковую передачу с помощью опции <code>:stream</code> или отрегулировать размер блока с помощью опции <code>:buffer_size</code>.</p><p>Если не указан <code>:type</code>, он будет определяться по расширению файла, указанного в <code>:filename</code>. Если для расширения не зарегистрирован тип содержимого, будет использован <code>application/octet-stream</code>.</p><div class="warning"><p>Будьте осторожны, когда используете данные, пришедшие с клиента (params, куки и т.д.), для обнаружения файла на диске, так как есть риск безопасности в том, что кто-то может получить доступ к файлам, к которым иметь он не должен.</p></div><div class="info"><p>Не рекомендуется передавать в потоке статичные файлы через Rails, если можно вместо этого разместить их в папке public на веб-сервере. Более эффективно разрешить пользователям скачивать файлы напрямую, используя Apache или другой веб-сервер, сохраняя запрос от ненужного прогона через весь стек Rails.</p></div><h4 id='zagruzka-restful' class='inside_page_header'><a href="#zagruzka-restful">12.2.</a> Загрузка RESTful</h4><p>Хотя <code>send_data</code> работает прекрасно, если вы создаете приложение на принципах RESTful, наличие отдельных экшнов для загрузок файла обычно не требуется. В терминологии REST файл PDF из вышеприведенного примера можно рассматривать еще одним представлением ресурса client. Rails предоставляет простой и наглядный способ осуществления загрузок в стиле RESTful. Вот как можно переписать пример, чтобы загрузка PDF была частью экшна <code>show</code> без какой-либо потоковой передачи:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ClientsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="c1"># Пользователь может запросить получение этого ресурса как HTML или PDF.</span>
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="vi">@client</span> <span class="o">=</span> <span class="no">Client</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+
+    <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+      <span class="nb">format</span><span class="p">.</span><span class="nf">html</span>
+      <span class="nb">format</span><span class="p">.</span><span class="nf">pdf</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">pdf: </span><span class="n">generate_pdf</span><span class="p">(</span><span class="vi">@client</span><span class="p">)</span> <span class="p">}</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Чтобы этот пример заработал, нужно добавить PDF тип MIME в Rails. Это можно сделать, добавив следующую строчку в файл <code>config/initializers/mime_types.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Mime</span><span class="o">::</span><span class="no">Type</span><span class="p">.</span><span class="nf">register</span> <span class="s2">"application/pdf"</span><span class="p">,</span> <span class="ss">:pdf</span>
+</code></pre>
+</div>
+<div class="note"><p>Конфигурационные файлы не перезагружаются с каждым запросом, поэтому необходимо перезапустить сервер для того, чтобы их изменения вступили в силу.</p></div><p>Теперь пользователь может запрашивать получение версии в PDF, просто добавив &quot;.pdf&quot; в URL:</p><div class="code_container">
+  <pre><code class="highlight plaintext">GET /clients/1.pdf
+</code></pre>
+</div>
+<h4 id='live-streaming-of-arbitrary-data' class='inside_page_header'><a href="#live-streaming-of-arbitrary-data">12.3.</a>  Live Streaming произвольных данных</h4><p>Rails позволяет отдавать в потоке не только файлы. Фактически, в объекте отклика можно отдать все, что хотите. Модуль <a href="https://api.rubyonrails.org/classes/ActionController/Live.html"><code>ActionController::Live</code></a> позволяет создать персистентное соединение с браузером. Используя этот модуль, можно послать в браузер произвольные данные в определенные моменты времени.</p><h5 id='podklyuchenie-live-streaming' class='inside_page_header'><a href="#podklyuchenie-live-streaming">12.3.1.</a> Подключение Live Streaming</h5><p>Включение <code>ActionController::Live</code> в класс вашего контроллера предоставит всем экшнам контроллера возможность отдавать данные в потоке. Этот модуль можно включить следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">MyController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="kp">include</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Live</span>
+
+  <span class="k">def</span> <span class="nf">stream</span>
+    <span class="n">response</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="s1">'Content-Type'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'text/event-stream'</span>
+    <span class="mi">100</span><span class="p">.</span><span class="nf">times</span> <span class="p">{</span>
+      <span class="n">response</span><span class="p">.</span><span class="nf">stream</span><span class="p">.</span><span class="nf">write</span> <span class="s2">"hello world</span><span class="se">\n</span><span class="s2">"</span>
+      <span class="nb">sleep</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="k">ensure</span>
+    <span class="n">response</span><span class="p">.</span><span class="nf">stream</span><span class="p">.</span><span class="nf">close</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Вышеприведенный код будет поддерживать персистентное соединение с браузером и пошлет 100 сообщений <code>&quot;hello world\n&quot;</code>, раз в секунду каждое.</p><p>В вышеприведенном примере нужно обратить внимание на ряд вещей. Необходимо убедиться, что потоковый отклик будет закрыт. Если забыть закрыть, поток оставит навсегда открытым сокет. Также необходимо установить тип содержимого <code>text/event-stream</code> до записи в поток отклика. Это так, потому что заголовки не могут быть записаны после того, как отклик был совершен (когда <code>response.committed?</code> возвращает истинное значение), которое возникает, когда вызывается <code>write</code> или <code>commit</code> для потокового отклика.</p><h5 id='primer-ispolzovaniya' class='inside_page_header'><a href="#primer-ispolzovaniya">12.3.2.</a> Пример использования</h5><p>Предположим, мы создаем машину караоке, и пользователь хочет получить слова для определенной песни. В каждом <code>Song</code> имеется определенное количество строчек, и у каждой строчки есть время <code>num_beats</code> для завершения пения.</p><p>Если мы хотим возвращать слова по принципу караоке (посылая строчку, только когда певец закончил предыдущую), можно использовать <code>ActionController::Live</code> следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">LyricsController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="kp">include</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Live</span>
+
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="n">response</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="s1">'Content-Type'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'text/event-stream'</span>
+    <span class="n">song</span> <span class="o">=</span> <span class="no">Song</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+
+    <span class="n">song</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>
+      <span class="n">response</span><span class="p">.</span><span class="nf">stream</span><span class="p">.</span><span class="nf">write</span> <span class="n">line</span><span class="p">.</span><span class="nf">lyrics</span>
+      <span class="nb">sleep</span> <span class="n">line</span><span class="p">.</span><span class="nf">num_beats</span>
+    <span class="k">end</span>
+  <span class="k">ensure</span>
+    <span class="n">response</span><span class="p">.</span><span class="nf">stream</span><span class="p">.</span><span class="nf">close</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Вышеприведенный код посылает следующую строчку только после того, как певец завершил предыдущую строчку.</p><h5 id='obsuzhdenie-potokovoy-peredachi' class='inside_page_header'><a href="#obsuzhdenie-potokovoy-peredachi">12.3.3.</a> Обсуждение потоковой передачи</h5><p>Потоковая передача произвольных данных – чрезвычайно мощный инструмент. Как показано в предыдущих примерах, можно выбирать, когда и что посылать в потоковом отклике. Однако, также необходимо отметить следующие вещи:</p><ul><li>Каждый потоковый отклик создает новый тред и копирует тредовые локальные переменные из текущего треда. Наличие большого количество тредовых локальных переменных может отрицательно сказаться на производительности. Большое количество тредов также препятствует производительности.
+</li><li>Незакрытие потокового отклика оставит соответствующий сокет открытым навсегда. Убедитесь, что вызываете <code>close</code> при использовании потокового отклика.
+</li><li>Серверы WEBrick буферизируют все отклики, поэтому включение <code>ActionController::Live</code> не будет работать. Необходимо использовать веб-сервер, не буферизирующий отклики автоматически.
+</li></ul><h3 id='filtratsiya-loga' class='inside_page_header'><a href="#filtratsiya-loga">13.</a> Фильтрация лога</h3><p>Rails ведет лог-файл для каждой среды в папке <code>log</code>. Это чрезвычайно полезно при отладке того, что происходит в приложении, но в реальной жизни может быть не нужно хранение каждого бита информации в лог-файле.</p><h4 id='parameters-filtering' class='inside_page_header'><a href="#parameters-filtering">13.1.</a>  Фильтрация параметров</h4><p>Можно фильтровать чувствительные параметры запроса в файлах лога, присоединив их к <a href="/configuring#config-filter-parameters"><code>config.filter_parameters</code></a> в настройках приложения. Эти параметры будут помечены в логе как [FILTERED].</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">filter_parameters</span> <span class="o">&lt;&lt;</span> <span class="ss">:password</span>
+</code></pre>
+</div>
+<div class="note"><p>Предоставленные параметры будут отфильтрованы с помощью частично соответствующего регулярного выражения. Rails добавляет список фильтров по умолчанию, включающий <code>:passw</code>, <code>:secret</code> и <code>:token</code>, в соответствующем инициализаторе (<code>initializers/filter_parameter_logging.rb</code>), чтобы обрабатывать типичные параметры приложения, такие как <code>password</code>, <code>password_confirmation</code> и <code>my_token</code>.</p></div><h4 id='filtratsiya-redirektov' class='inside_page_header'><a href="#filtratsiya-redirektov">13.2.</a> Фильтрация редиректов</h4><p>Иногда нужно фильтровать из файлов лога некоторые чувствительные места расположения, на которые перенаправляет приложение. Это можно осуществить с использованием конфигурационной опции <code>config.filter_redirect</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">filter_redirect</span> <span class="o">&lt;&lt;</span> <span class="s1">'s3.amazonaws.com'</span>
+</code></pre>
+</div>
+<p>Ей можно передать строку, регулярное выражение или массив из них.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">filter_redirect</span><span class="p">.</span><span class="nf">concat</span> <span class="p">[</span><span class="s1">'s3.amazonaws.com'</span><span class="p">,</span> <span class="sr">/private_path/</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Соответствующие URL будут помечены как &#39;[FILTERED]&#39;.</p><h3 id='obrabotka-oshibok' class='inside_page_header'><a href="#obrabotka-oshibok">14.</a> Обработка ошибок</h3><p>Скорее всего, ваше приложение будет содержать программные ошибки или, другими словами, вызывать исключения, которые нужно обработать. Например, если пользователь переходит по ссылке на ресурс, который больше не существует в базе данных, Active Record вызовет исключение <code>ActiveRecord::RecordNotFound</code>.</p><p>Дефолтный обработчик исключений Rails отображает сообщение &quot;500 Server Error&quot; для всех исключений. Если запрос сделан локально, отображается прекрасная трассировка и добавляется дополнительная информация, чтобы можно было выяснить, что пошло не так, и разобраться с этим. Если запрос был удаленным, Rails отобразит пользователю лишь простое сообщение &quot;500 Server Error&quot;, или &quot;404 Not Found&quot;, если была проблема с роутингом или запись не была найдена. Иногда может понадобиться настроить, как эти ошибки будут перехвачены и как они будут отображены пользователю. В приложении на Rails доступны несколько уровней обработки исключений:</p><h4 id='defoltnye-shablony-500-i-404' class='inside_page_header'><a href="#defoltnye-shablony-500-i-404">14.1.</a> Дефолтные шаблоны 500 и 404</h4><p>По умолчанию в среде production приложение будет рендерить или 404, или 500 сообщение об ошибке. В среде development будут просто вызываться все необрабатываемые исключения. Эти сообщения содержатся в статичных файлах HTML в папке public, в <code>404.html</code> и <code>500.html</code> соответственно. Можно настроить эти файлы, добавив дополнительную информацию и стили, но помните, что они статичные; т.е. нельзя использовать ERB, SCSS, CoffeeScript или макеты для них.</p><h4 id='rescue_from' class='inside_page_header'><a href="#rescue_from">14.2.</a> <code>rescue_from</code></h4><p>Если хотите сделать нечто более сложное при перехвате ошибок, можете использовать <a href="https://api.rubyonrails.org/classes/ActiveSupport/Rescuable/ClassMethods.html#method-i-rescue_from"><code>rescue_from</code></a>, который обрабатывает исключения определенного типа (или нескольких типов) во всем контроллере и его подклассах.</p><p>Когда возникает исключение, которое перехватывается директивой <code>rescue_from</code>, объект исключения передается в обработчик. Обработчик может быть методом или объектом <code>Proc</code>, переданным опции <code>:with</code>. Также можно использовать блок вместо объекта <code>Proc</code>.</p><p>Вот как можно использовать <code>rescue_from</code> для перехвата всех ошибок <code>ActiveRecord::RecordNotFound</code> и что-то с ними делать.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">rescue_from</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">RecordNotFound</span><span class="p">,</span> <span class="ss">with: :record_not_found</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">record_not_found</span>
+      <span class="n">render</span> <span class="ss">plain: </span><span class="s2">"404 Not Found"</span><span class="p">,</span> <span class="ss">status: </span><span class="mi">404</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Конечно, этот пример далеко недоработан, и ничуть не улучшает обработку исключений по умолчанию, но раз вы уже перехватили все эти исключения, то вольны делать с ними все, что хотите. Например, можете создать свои классы исключений, которые будут вызваны, когда у пользователя нет доступа в определенные разделы вашего приложения:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">rescue_from</span> <span class="no">User</span><span class="o">::</span><span class="no">NotAuthorized</span><span class="p">,</span> <span class="ss">with: :user_not_authorized</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">user_not_authorized</span>
+      <span class="n">flash</span><span class="p">[</span><span class="ss">:error</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"You don't have access to this section."</span>
+      <span class="n">redirect_back</span><span class="p">(</span><span class="ss">fallback_location: </span><span class="n">root_path</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">ClientsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="c1"># Проверим, что пользователь имеет права авторизации для доступа к клиентам.</span>
+  <span class="n">before_action</span> <span class="ss">:check_authorization</span>
+
+  <span class="c1"># Отметьте, как экшны не беспокоятся об авторизационных делах.</span>
+  <span class="k">def</span> <span class="nf">edit</span>
+    <span class="vi">@client</span> <span class="o">=</span> <span class="no">Client</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+    <span class="c1"># Если пользователь не авторизован, просто вызываем исключение.</span>
+    <span class="k">def</span> <span class="nf">check_authorization</span>
+      <span class="k">raise</span> <span class="no">User</span><span class="o">::</span><span class="no">NotAuthorized</span> <span class="k">unless</span> <span class="n">current_user</span><span class="p">.</span><span class="nf">admin?</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="warning"><p>Использование <code>rescue_from</code> c <code>Exception</code> или <code>StandardError</code> вызовет серьезные побочные эффекты, поскольку это препятствует Rails правильно обрабатывать исключения. Таким образом, это не рекомендуется делать, если нет для того веской причины.</p></div><div class="note"><p>При запуске в среде running production все ошибки <code>ActiveRecord::RecordNotFound</code> рендерят страницу ошибки 404. Если вам не нужно другое поведение, их не нужно обрабатывать.</p></div><div class="note"><p>Некоторые исключения перехватываемы только из класса <code>ApplicationController</code>, так как они вызываются до того, как контроллер будет инициализирован и экшны будут выполнены.</p></div><h3 id='navyazyvanie-protokola-https' class='inside_page_header'><a href="#navyazyvanie-protokola-https">15.</a> Навязывание протокола HTTPS</h3><p>Если необходимо обеспечить доступ к определенному контроллеру только через HTTPS, нужно сделать это, включив промежуточную программу <a href="https://api.rubyonrails.org/classes/ActionDispatch/SSL.html"><code>ActionDispatch::SSL</code></a> через <a href="/configuring#config-force-ssl"><code>config.force_ssl</code></a> в конфигурациях среды.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

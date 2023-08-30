@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Хелперы форм в Action View" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Хелперы форм в Action View" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/form-helpers" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Хелперы форм в Action View
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="5romLzUXSn19mbo1fZAu+wgRC0Tt+agzCoS1RcENXzISZINdeITxt0WNtGJ9KeU8zDyf7VuiogDRRiY9BnuCig==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#razbiraemsya-s-prostymi-formami">1. Разбираемся с простыми формами</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#harakternaya-forma-poiska">1.1. Характерная форма поиска</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#helpery-dlya-generatsii-elementov-formy">1.2. Хелперы для генерации элементов формы</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#chekboksy">1.2.1. Чекбоксы</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#radioknopki">1.2.2. Радиокнопки</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#drugie-interesnye-helpery">1.3. Другие интересные хелперы</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#rabotaem-s-ob-ektami-modeli">2. Работаем с объектами модели</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#privyazyvanie-formy-k-ob-ektu">2.1. Привязывание формы к объекту</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#helper-fields_for">2.1.1. Хелпер <code>fields_for</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#relying-on-record-identification">2.2.  Положитесь на идентификацию записи</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#rabotaem-s-prostranstvami-imen">2.2.1. Работаем с пространствами имен</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#kak-formy-rabotayut-s-metodami-patch-put-ili-delete">2.3. Как формы работают с методами PATCH, PUT или DELETE?</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#legkoe-sozdanie-spiskov-vybora">3. Легкое создание списков выбора</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#gruppy-optsiy">3.1. Группы опций</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#spiski-vybora-i-ob-ekty-modeli">3.2. Списки выбора и объекты модели</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#vybor-chasovogo-poyasa-i-strany">3.3. Выбор часового пояса и страны</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#ispolzovanie-helperov-daty-i-vremeni">4. Использование хелперов даты и времени</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#spiski-vybora-s-otdelnymi-elementami-vremeni">4.1. Списки выбора с отдельными элементами времени</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#vybor-iz-kollektsii-proizvolnyh-ob-ektov">5. Выбор из коллекции произвольных объектов</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#helper-collection_select">5.1. Хелпер <code>collection_select</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#helper-collection_radio_buttons">5.2. Хелпер <code>collection_radio_buttons</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#helper-collection_check_boxes">5.3. Хелпер <code>collection_check_boxes</code></a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#uploading-files">6.  Загрузка файлов</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#chto-imeem-zagruzhennym">6.1. Что имеем загруженным</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#nastroyka-form-builder">7. Настройка Form Builder</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#understanding-parameter-naming-conventions">8.  Понимание соглашений по именованию параметров</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#bazovye-struktury">8.1. Базовые структуры</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#kombiniruem-ih">8.2. Комбинируем их</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#optsiya-index-helpera-fields_for">8.3. Опция <code>:index</code> хелпера <code>fields_for</code></a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#formy-k-vneshnim-resursam">9. Формы к внешним ресурсам</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#sozdanie-slozhnyh-form">10. Создание сложных форм</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#nastroyka-modeli">10.1. Настройка модели</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#vlozhennye-formy">10.2. Вложенные формы</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#kontroller">10.3. Контроллер</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#udalenie-ob-ektov">10.4. Удаление объектов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#predotvraschenie-pustyh-zapisey">10.5. Предотвращение пустых записей</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#dobavlenie-poley-na-letu">10.6. Добавление полей на лету</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#ispolzovanie-helperov-tega-bez-postroitelya-form">11. Использование хелперов тега без построителя форм</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#ispolzovanie-form_tag-i-form_for">12. Использование <code>form_tag</code> и <code>form_for</code></a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='helpery-form-v-action-view' class='inside_page_header'> Хелперы форм в Action View</h2><p>Формы в веб-приложениях - это основной интерфейс для пользовательского ввода. Однако, разметка форм может быстро стать нудной в написании и поддержке из-за необходимости обрабатывать имена элементов управления формы и их бесчисленные атрибуты. Rails устраняет эту сложность, предоставляя хелперы вью для генерации разметки форм. Однако, поскольку эти хелперы имеют разные принципы использования, разработчикам нужно знать различия между похожими методами хелперов, прежде чем начать их использовать.</p><p>После прочтения этого руководства, вы узнаете:</p><ul><li>Как создавать формы поиска и подобного рода формы, не представляющие определенную модель вашего приложения
+</li><li>Как сделать модельно-ориентированные формы для создания и редактирования определенных записей базы данных
+</li><li>Как сгенерировать списки выбора (select box) с различными типами данных
+</li><li>Какие хелперы даты и времени предоставляет Rails
+</li><li>В чем особенность формы загрузки файлов
+</li><li>Как отправлять формы на внешние ресурсы и указывать настройку <code>authenticity_token</code>.
+</li><li>Как создавать сложные формы
+</li></ul><div class="note"><p>Это руководство не является подробной документацией по доступным хелперам форм и их аргументам. Для получения полной информации, обратитесь к <a href="http://api.rubyonrails.org/">документации по Rails API</a>.</p></div><h3 id='razbiraemsya-s-prostymi-formami' class='inside_page_header'><a href="#razbiraemsya-s-prostymi-formami">1.</a> Разбираемся с простыми формами</h3><p>Главный хелпер форм - это <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_with"><code>form_with</code></a>.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  Содержимое формы
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>При подобном вызове без аргументов, он создает тег формы, который при отправке сформирует POST-запрос на текущую страницу. Например, предположим текущая страница является домашней, тогда сгенерированный HTML будет выглядеть следующим образом (некоторые разрывы строчек добавлены для читаемости):</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;form</span> <span class="na">accept-charset=</span><span class="s">"UTF-8"</span> <span class="na">action=</span><span class="s">"/"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"authenticity_token"</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">value=</span><span class="s">"J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts="</span> <span class="nt">/&gt;</span>
+  Содержимое формы
+<span class="nt">&lt;/form&gt;</span>
+</code></pre>
+</div>
+<p>Можно увидеть, что HTML содержит элемент <code>input</code> с типом <code>hidden</code>. Этот <code>input</code> важен, поскольку без него формы, у которых action не &quot;GET&quot;, не могут быть успешно отправлены. Скрытый элемент input с именем <code>authenticity_token</code> является особенностью безопасности Rails, называемой <strong>защитой от межсайтовой подделки запроса</strong>, и хелперы форм генерируют его для каждой формы, у которых action не &quot;GET&quot; (при условии, что эта особенность безопасности включена). Подробнее об этом можно прочитать в руководстве <a href="/security#cross-site-request-forgery-csrf">Безопасность приложений на Rails</a>.</p><h4 id='harakternaya-forma-poiska' class='inside_page_header'><a href="#harakternaya-forma-poiska">1.1.</a> Характерная форма поиска</h4><p>Одной из наиболее простых форм, встречающихся в вебе, является форма поиска. Эта форма содержит:</p><ul><li>элемент формы с методом &quot;GET&quot;,
+</li><li>метку для поля ввода,
+</li><li>элемент поля ввода текста и
+</li><li>элемент отправки.
+</li></ul><p>Чтобы создать эту форму, используем <code>form_with</code> и объект построителя формы, который он вкладывает. Как тут:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">url: </span><span class="s2">"/search"</span><span class="p">,</span> <span class="ss">method: :get</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:query</span><span class="p">,</span> <span class="s2">"Search for:"</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:query</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">submit</span> <span class="s2">"Search"</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Это сгенерирует следующий HTML:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"/search"</span> <span class="na">method=</span><span class="s">"get"</span> <span class="na">accept-charset=</span><span class="s">"UTF-8"</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"query"</span><span class="nt">&gt;</span>Search for:<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"query"</span> <span class="na">name=</span><span class="s">"query"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"commit"</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Search"</span> <span class="na">data-disable-with=</span><span class="s">"Search"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre>
+</div>
+<div class="info"><p>Передача <code>url: my_specified_path</code> в <code>form_with</code> сообщает форме, куда осуществлять запрос. Однако, как объясняется ниже, в форму также можно передавать объекты Active Record.</p></div><div class="info"><p>Для каждого поля ввода формы генерируется атрибут ID из его имени (<code>&quot;query&quot;</code> в примере). Эти ID могут быть очень полезны для стилизации CSS или управления элементами форм с помощью JavaScript.</p></div><div class="warning"><p>Используйте &quot;GET&quot; как метод для форм поиска. Это позволяет пользователям добавлять в закладки определенный поиск и потом возвращаться к нему. В более общем смысле Rails призывает вас использовать правильный метод HTTP для экшна.</p></div><h4 id='helpery-dlya-generatsii-elementov-formy' class='inside_page_header'><a href="#helpery-dlya-generatsii-elementov-formy">1.2.</a> Хелперы для генерации элементов формы</h4><p>Объект построителя формы, вкладываемый <code>form_with</code>, предоставляет ряд вспомогательных методов для генерации элементов формы, таких как чекбоксы, текстовые поля, радиокнопки и так далее. Первый параметр у них это всегда имя поля ввода. Когда форма будет отправлена, имя будет передано вместе с данными формы, и, в свою очередь, помещено в <code>params</code> в контроллере со значением, введенным пользователем для этого поля. Например, если форма содержит <code>&lt;%= form.text_field :query %&gt;</code>, то значение этого поля можно получить в контроллере с помощью <code>params[:query]</code>.</p><p>При именовании полей ввода Rails использует определенные соглашения, делающие возможным отправлять параметры с нескалярными величинами, такими как массивы и хэши, которые также будут доступны в <code>params</code>. Подробнее об этом можно прочесть в <a href="#understanding-parameter-naming-conventions">разделе про именование параметров</a>. Для подробностей по точному использованию этих хелперов, обратитесь к <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html">документации по API</a>.</p><h5 id='chekboksy' class='inside_page_header'><a href="#chekboksy">1.2.1.</a> Чекбоксы</h5><p>Чекбоксы - это элементы управления формой, которые дают пользователю ряд опций, которые он может включить или выключить:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">check_box</span> <span class="ss">:pet_dog</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:pet_dog</span><span class="p">,</span> <span class="s2">"I own a dog"</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">check_box</span> <span class="ss">:pet_cat</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:pet_cat</span><span class="p">,</span> <span class="s2">"I own a cat"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Это сгенерирует следующее:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"pet_dog"</span> <span class="na">name=</span><span class="s">"pet_dog"</span> <span class="na">value=</span><span class="s">"1"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"pet_dog"</span><span class="nt">&gt;</span>I own a dog<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"pet_cat"</span> <span class="na">name=</span><span class="s">"pet_cat"</span> <span class="na">value=</span><span class="s">"1"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"pet_cat"</span><span class="nt">&gt;</span>I own a cat<span class="nt">&lt;/label&gt;</span>
+</code></pre>
+</div>
+<p>Первый параметр у <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-check_box"><code>check_box</code></a> - это имя поля ввода. Значения чекбокса (значения, которые появятся <code>params</code>) могут быть опционально указаны с помощью третьего и четвертого параметра. Подробности смотрите в документации API.</p><h5 id='radioknopki' class='inside_page_header'><a href="#radioknopki">1.2.2.</a> Радиокнопки</h5><p>Радиокнопки, чем-то похожие на чекбоксы, являются элементами управления, которые определяют набор взаимоисключающих опций (т.е. пользователь может выбрать только одну):</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">radio_button</span> <span class="ss">:age</span><span class="p">,</span> <span class="s2">"child"</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:age_child</span><span class="p">,</span> <span class="s2">"I am younger than 21"</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">radio_button</span> <span class="ss">:age</span><span class="p">,</span> <span class="s2">"adult"</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:age_adult</span><span class="p">,</span> <span class="s2">"I am over 21"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Результат:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">id=</span><span class="s">"age_child"</span> <span class="na">name=</span><span class="s">"age"</span> <span class="na">value=</span><span class="s">"child"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"age_child"</span><span class="nt">&gt;</span>I am younger than 21<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">id=</span><span class="s">"age_adult"</span> <span class="na">name=</span><span class="s">"age"</span> <span class="na">value=</span><span class="s">"adult"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"age_adult"</span><span class="nt">&gt;</span>I am over 21<span class="nt">&lt;/label&gt;</span>
+</code></pre>
+</div>
+<p>Второй параметр для <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-radio_button"><code>radio_button</code></a> - это значение поля ввода. Так как эти две радиокнопки имеют одинаковое имя (<code>age</code>), пользователь может выбрать одну, и <code>params[:age]</code> будет содержать или <code>&quot;child&quot;</code>, или <code>&quot;adult&quot;</code>.</p><div class="note"><p>Всегда используйте метки (labels) для чекбоксов и радиокнопок. Они связывают текст с определенной опцией и, предоставляя большее пространство для клика, упрощают выбор пользователем нужного пункта радиокнопки.</p></div><h4 id='drugie-interesnye-helpery' class='inside_page_header'><a href="#drugie-interesnye-helpery">1.3.</a> Другие интересные хелперы</h4><p>Среди других элементов управления формой стоит упомянуть текстовые области и следующие поля: паролей, числовые, даты и времени, и так далее:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_area</span> <span class="ss">:message</span><span class="p">,</span> <span class="ss">size: </span><span class="s2">"70x5"</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">hidden_field</span> <span class="ss">:parent_id</span><span class="p">,</span> <span class="ss">value: </span><span class="s2">"foo"</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">password_field</span> <span class="ss">:password</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">number_field</span> <span class="ss">:price</span><span class="p">,</span> <span class="ss">in: </span><span class="mf">1.0</span><span class="o">..</span><span class="mf">20.0</span><span class="p">,</span> <span class="ss">step: </span><span class="mf">0.5</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">range_field</span> <span class="ss">:discount</span><span class="p">,</span> <span class="ss">in: </span><span class="mi">1</span><span class="o">..</span><span class="mi">100</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">date_field</span> <span class="ss">:born_on</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">time_field</span> <span class="ss">:started_at</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">datetime_local_field</span> <span class="ss">:graduation_day</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">month_field</span> <span class="ss">:birthday_month</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">week_field</span> <span class="ss">:birthday_week</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">search_field</span> <span class="ss">:name</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">email_field</span> <span class="ss">:address</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">telephone_field</span> <span class="ss">:phone</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">url_field</span> <span class="ss">:homepage</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">color_field</span> <span class="ss">:favorite_color</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Результат:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">"message"</span> <span class="na">id=</span><span class="s">"message"</span> <span class="na">cols=</span><span class="s">"70"</span> <span class="na">rows=</span><span class="s">"5"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"parent_id"</span> <span class="na">id=</span><span class="s">"parent_id"</span> <span class="na">value=</span><span class="s">"foo"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">name=</span><span class="s">"password"</span> <span class="na">id=</span><span class="s">"password"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"number"</span> <span class="na">name=</span><span class="s">"price"</span> <span class="na">id=</span><span class="s">"price"</span> <span class="na">step=</span><span class="s">"0.5"</span> <span class="na">min=</span><span class="s">"1.0"</span> <span class="na">max=</span><span class="s">"20.0"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"range"</span> <span class="na">name=</span><span class="s">"discount"</span> <span class="na">id=</span><span class="s">"discount"</span> <span class="na">min=</span><span class="s">"1"</span> <span class="na">max=</span><span class="s">"100"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"date"</span> <span class="na">name=</span><span class="s">"born_on"</span> <span class="na">id=</span><span class="s">"born_on"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"time"</span> <span class="na">name=</span><span class="s">"started_at"</span> <span class="na">id=</span><span class="s">"started_at"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"datetime-local"</span> <span class="na">name=</span><span class="s">"graduation_day"</span> <span class="na">id=</span><span class="s">"graduation_day"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"month"</span> <span class="na">name=</span><span class="s">"birthday_month"</span> <span class="na">id=</span><span class="s">"birthday_month"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"week"</span> <span class="na">name=</span><span class="s">"birthday_week"</span> <span class="na">id=</span><span class="s">"birthday_week"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"search"</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">id=</span><span class="s">"name"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">name=</span><span class="s">"address"</span> <span class="na">id=</span><span class="s">"address"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"tel"</span> <span class="na">name=</span><span class="s">"phone"</span> <span class="na">id=</span><span class="s">"phone"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"url"</span> <span class="na">name=</span><span class="s">"homepage"</span> <span class="na">id=</span><span class="s">"homepage"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"color"</span> <span class="na">name=</span><span class="s">"favorite_color"</span> <span class="na">id=</span><span class="s">"favorite_color"</span> <span class="na">value=</span><span class="s">"#000000"</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+<p>Скрытые поля не отображаются пользователю, вместо этого они содержат данные, как и любое текстовое поле. Их значения могут быть изменены с помощью JavaScript.</p><div class="warning"><p>Поля поиска, ввода телефона, даты, времени, цвета, даты-времени, локальных даты-времени, месяца, недели, url, email, числовые и интервалов - это элементы управления HTML5. Если необходимо, чтобы у вашего приложения была совместимость со старыми браузерами, вам необходим HTML5 polyfill (предоставляемый с помощью CSS и/или JavaScript). Хотя в таких решениях <a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills">нет недостатка</a>, популярным инструментом на сегодняшний момент является <a href="http://www.modernizr.com/">Modernizr</a>, предоставляющий простой способ добавить функциональность, основанной на обнаружении установленных особенностей HTML5.</p></div><div class="info"><p>Если используются поля для ввода пароля (для любых целей), вы можете настроить свое приложение для предотвращения появления их значений в логах приложения. Это можно изучить в руководстве <a href="/security">Безопасность приложений на Rails</a>.</p></div><h3 id='rabotaem-s-ob-ektami-modeli' class='inside_page_header'><a href="#rabotaem-s-ob-ektami-modeli">2.</a> Работаем с объектами модели</h3><h4 id='privyazyvanie-formy-k-ob-ektu' class='inside_page_header'><a href="#privyazyvanie-formy-k-ob-ektu">2.1.</a> Привязывание формы к объекту</h4><p>Аргумент <code>:model</code> в <code>form_with</code> позволяет связать объект построителя формы с объектом модели. Это означает, что эта форма будет будет ограничена этим объектом модели, и поля формы будут предзаполнены значениями из этого объекта модели.</p><p>К примеру, если у нас есть такой объект модели <code>@article</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="c1"># =&gt; #&lt;Article id: 42, title: "My Title", body: "My Body"&gt;</span>
+</code></pre>
+</div>
+<p>Следующая форма:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@article</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:title</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_area</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">size: </span><span class="s2">"60x10"</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">submit</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Выведет:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"/articles/42"</span> <span class="na">method=</span><span class="s">"post"</span> <span class="na">accept-charset=</span><span class="s">"UTF-8"</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"authenticity_token"</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">value=</span><span class="s">"..."</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"article[title]"</span> <span class="na">id=</span><span class="s">"article_title"</span> <span class="na">value=</span><span class="s">"My Title"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">"article[body]"</span> <span class="na">id=</span><span class="s">"article_body"</span> <span class="na">cols=</span><span class="s">"60"</span> <span class="na">rows=</span><span class="s">"10"</span><span class="nt">&gt;</span>
+    My Body
+  <span class="nt">&lt;/textarea&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">name=</span><span class="s">"commit"</span> <span class="na">value=</span><span class="s">"Update Article"</span> <span class="na">data-disable-with=</span><span class="s">"Update Article"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre>
+</div>
+<p>Тут нужно отметить несколько вещей:</p><ul><li><code>action</code> формы автоматически заполняется подходящим значением для <code>@article</code>.
+</li><li>Поля формы автоматически заполняются соответствующими значениями из <code>@article</code>.
+</li><li>Имена полей формы ограничиваются с помощью <code>article[...]</code>. Это означает, что <code>params[:article]</code> будет хэшем, содержащим все значения этих полей. Подробнее о значении имен полей ввода можно прочитать в разделе <a href="#understanding-parameter-naming-conventions">про именование параметров</a> этого руководства.
+</li><li>Кнопке отправки автоматически присвоено подходящее текстовое значение.
+</li></ul><div class="info"><p>По соглашению, поля ввода будут отражать атрибуты модели. Однако, это необязательно! Если имеется иная необходимая информация, ее можно включить в форму, также как атрибут, и она будет доступна как <code>params[:article][:my_nifty_non_attribute_input]</code>.</p></div><h5 id='helper-fields_for' class='inside_page_header'><a href="#helper-fields_for">2.1.1.</a> Хелпер <code>fields_for</code></h5><p>Хелпер <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-fields_for"><code>fields_for</code></a> создает подобное привязывание без фактического создания тега <code>&lt;form&gt;</code>. Он может быть использован для рендера полей ввода для дополнительных объектов модели в той же форме. Например, если имеется модель <code>Person</code> со связанной моделью <code>ContactDetail</code>, можно создать форму для создания обеих моделей подобным образом:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@person</span> <span class="k">do</span> <span class="o">|</span><span class="n">person_form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">person_form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:name</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">fields_for</span> <span class="ss">:contact_detail</span><span class="p">,</span> <span class="vi">@person</span><span class="p">.</span><span class="nf">contact_detail</span> <span class="k">do</span> <span class="o">|</span><span class="n">contact_detail_form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">contact_detail_form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:phone_number</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Которая выдаст такой результат:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"/people"</span> <span class="na">accept-charset=</span><span class="s">"UTF-8"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"authenticity_token"</span> <span class="na">value=</span><span class="s">"bL13x72pldyDD8bgtkjKQakJCpd4A8JdXGbfksxBDHdf1uC0kCMqe2tvVdUYfidJt0fj3ihC4NxiVHv8GVYxJA=="</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"person[name]"</span> <span class="na">id=</span><span class="s">"person_name"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"contact_detail[phone_number]"</span> <span class="na">id=</span><span class="s">"contact_detail_phone_number"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre>
+</div>
+<p>Объект, предоставляемый <code>fields_for</code> - это form builder, подобный тому, который предоставляется <code>form_with</code>.</p><h4 id='relying-on-record-identification' class='inside_page_header'><a href="#relying-on-record-identification">2.2.</a>  Положитесь на идентификацию записи</h4><p>Модель Article непосредственно доступна пользователям приложения, и таким образом, следуя лучшим рекомендациям разработки на Rails, вы должны объявить ее как <strong>ресурс</strong>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:articles</span>
+</code></pre>
+</div>
+<div class="info"><p>Объявление ресурса имеет несколько побочных эффектов. Смотрите руководство <a href="/routing">Роутинг в Rails</a> для получения более подробной информации по настройке и использованию ресурсов.</p></div><p>Когда работаем с ресурсами RESTful, вызовы <code>form_with</code> становятся значительно проще, если они основываются на <strong>идентификации записи</strong>. Вкратце, вы должны всего лишь передать экземпляр модели и позволить Rails выяснить имя модели и остальное. В обоих примерах, длинный и короткий стили приведет к тому же результату:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1">## Создание новой статьи</span>
+<span class="c1"># длинный стиль:</span>
+<span class="n">form_with</span><span class="p">(</span><span class="ss">model: </span><span class="vi">@article</span><span class="p">,</span> <span class="ss">url: </span><span class="n">articles_path</span><span class="p">)</span>
+<span class="c1"># короткий стиль:</span>
+<span class="n">form_with</span><span class="p">(</span><span class="ss">model: </span><span class="vi">@article</span><span class="p">)</span>
+
+<span class="c1">## Редактирование существующей статьи</span>
+<span class="c1"># длинный стиль:</span>
+<span class="n">form_with</span><span class="p">(</span><span class="ss">model: </span><span class="vi">@article</span><span class="p">,</span> <span class="ss">url: </span><span class="n">article_path</span><span class="p">(</span><span class="vi">@article</span><span class="p">),</span> <span class="ss">method: </span><span class="s2">"patch"</span><span class="p">)</span>
+<span class="c1"># короткий стиль:</span>
+<span class="n">form_with</span><span class="p">(</span><span class="ss">model: </span><span class="vi">@article</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Отметьте, что вызов короткого стиля <code>form_with</code> является идентичным, независимо от того, запись новая или уже существует. Идентификация записи достаточно сообразительная, чтобы выяснить, новая ли запись, запрашивая <code>record.persisted?</code>. Она также выбирает правильный путь для подтверждения и имя, основанное на классе объекта.</p><p>Если у вас <a href="/routing#singular-resources">одиночный ресурс</a>, нужно вызвать <code>resource</code> и <code>resolve</code> для работы с <code>form_with</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resource</span> <span class="ss">:geocoder</span>
+<span class="n">resolve</span><span class="p">(</span><span class="s1">'Geocoder'</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="ss">:geocoder</span><span class="p">]</span> <span class="p">}</span>
+</code></pre>
+</div>
+<div class="warning"><p>Когда используется STI (наследование с единой таблицей) с вашими моделями, нельзя полагаться на идентификацию записей подкласса, если только их родительский класс определен ресурсом. Необходимо явно указывать <code>:url</code> и <code>:scope</code> (имя модели).</p></div><h5 id='rabotaem-s-prostranstvami-imen' class='inside_page_header'><a href="#rabotaem-s-prostranstvami-imen">2.2.1.</a> Работаем с пространствами имен</h5><p>Если создать пространство имен для маршрутов, <code>form_with</code> также можно изящно сократить. Если в приложении есть пространство имен admin, то</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">form_with</span> <span class="ss">model: </span><span class="p">[</span><span class="ss">:admin</span><span class="p">,</span> <span class="vi">@article</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>создаст форму, которая передается <code>ArticlesController</code> в пространстве имен admin (передача в <code>admin_article_path(@article)</code> в случае с обновлением). Если у вас несколько уровней пространства имен, тогда синтаксис подобный:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">form_with</span> <span class="ss">model: </span><span class="p">[</span><span class="ss">:admin</span><span class="p">,</span> <span class="ss">:management</span><span class="p">,</span> <span class="vi">@article</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Более подробно о системе маршрутизации Rails и связанным соглашениям смотрите руководство <a href="/routing">Роутинг в Rails</a>.</p><h4 id='kak-formy-rabotayut-s-metodami-patch-put-ili-delete' class='inside_page_header'><a href="#kak-formy-rabotayut-s-metodami-patch-put-ili-delete">2.3.</a> Как формы работают с методами PATCH, PUT или DELETE?</h4><p>Фреймворк Rails поддерживает стиль RESTful в ваших приложениях, что подразумевает частое использование запросов &quot;PATCH&quot;, &quot;PUT&quot; и &quot;DELETE&quot; (помимо &quot;GET&quot; и &quot;POST&quot;). Однако, большинство браузеров <em>не поддерживают</em> методы, отличные от &quot;GET&quot; и &quot;POST&quot;, когда дело доходит до подтверждения форм.</p><p>Rails работает с этой проблемой, эмулируя другие методы с помощью POST со скрытым полем, названным <code>&quot;_method&quot;</code>, который установлен для отображения желаемого метода:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">form_with</span><span class="p">(</span><span class="ss">url: </span><span class="n">search_path</span><span class="p">,</span> <span class="ss">method: </span><span class="s2">"patch"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Результат:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;form</span> <span class="na">accept-charset=</span><span class="s">"UTF-8"</span> <span class="na">action=</span><span class="s">"/search"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"_method"</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">value=</span><span class="s">"patch"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"authenticity_token"</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">value=</span><span class="s">"f755bb0ed134b76c432144748a6d4b7a7ddf2b71"</span> <span class="nt">/&gt;</span>
+  <span class="c">&lt;!-- ... --&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre>
+</div>
+<p>При парсинге данных, отправленных с помощью POST, Rails принимает во внимание специальный параметр <code>_method</code> и ведет себя так, как будто бы в нем был определен этот метод HTTP (&quot;PATCH&quot; в этом примере).</p><p>При рендере формы кнопки отправки могут переопределять атрибут <code>method</code> с помощью ключевого слова <code>formmethod:</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">url: </span><span class="s2">"/posts/1"</span><span class="p">,</span> <span class="ss">method: :patch</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">button</span> <span class="s2">"Delete"</span><span class="p">,</span> <span class="ss">formmethod: :delete</span><span class="p">,</span> <span class="ss">data: </span><span class="p">{</span> <span class="ss">confirm: </span><span class="s2">"Are you sure?"</span> <span class="p">}</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">button</span> <span class="s2">"Update"</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Как и для элементов <code>&lt;form&gt;</code>, многие браузеры <em>не поддерживают</em> переопределение методов формы, объявленные с помощью <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formmethod">formmethod</a>, отличные от &quot;GET&quot; и &quot;POST&quot;.</p><p>Rails обходит эту проблему, эмулируя остальные методы на основе POST с помощью комбинации атрибутов <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formmethod">formmethod</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-value">value</a> и <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-name">name</a>:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;form</span> <span class="na">accept-charset=</span><span class="s">"UTF-8"</span> <span class="na">action=</span><span class="s">"/posts/1"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"_method"</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">value=</span><span class="s">"patch"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"authenticity_token"</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">value=</span><span class="s">"f755bb0ed134b76c432144748a6d4b7a7ddf2b71"</span> <span class="nt">/&gt;</span>
+  <span class="c">&lt;!-- ... --&gt;</span>
+
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">formmethod=</span><span class="s">"post"</span> <span class="na">name=</span><span class="s">"_method"</span> <span class="na">value=</span><span class="s">"delete"</span> <span class="na">data-confirm=</span><span class="s">"Are you sure?"</span><span class="nt">&gt;</span>Delete<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">name=</span><span class="s">"button"</span><span class="nt">&gt;</span>Update<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre>
+</div>
+<div class="warning"><p>В Rails 6.0 and 5.2 все формы с использованием <code>form_with</code> по умолчанию реализуют <code>remote: true</code>. Эти формы будут отправлять данные с помощью запроса XHR (Ajax). Чтобы это отключить, добавьте <code>local: true</code>. Подробности смотрите в руководстве <a href="/working-with-javascript-in-rails#remote-elements">Работа с JavaScript в Rails</a>.</p></div><h3 id='legkoe-sozdanie-spiskov-vybora' class='inside_page_header'><a href="#legkoe-sozdanie-spiskov-vybora">3.</a> Легкое создание списков выбора</h3><p>Списки выбора в HTML требуют значительного количества разметки - один элемент <code>OPTION</code> для каждого пункта списка. Поэтому Rails предоставляет вспомогательные методы для облегчения этого бремени.</p><p>Например, скажем у нас есть список городов для выбора пользователем. Можно использовать хелпер <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-select"><code>select</code></a> таким образом:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">select</span> <span class="ss">:city</span><span class="p">,</span> <span class="p">[</span><span class="s2">"Berlin"</span><span class="p">,</span> <span class="s2">"Lisbon"</span><span class="p">,</span> <span class="s2">"Madrid"</span><span class="p">]</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Результат:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"city"</span> <span class="na">id=</span><span class="s">"city"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"Berlin"</span><span class="nt">&gt;</span>Berlin<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"Chicago"</span><span class="nt">&gt;</span>Chicago<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"Madrid"</span><span class="nt">&gt;</span>Madrid<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre>
+</div>
+<p>Можно назначить значения <code>&lt;option&gt;</code> отличные от их надписи:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">select</span> <span class="ss">:city</span><span class="p">,</span> <span class="p">[[</span><span class="s2">"Berlin"</span><span class="p">,</span> <span class="s2">"BE"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"Chicago"</span><span class="p">,</span> <span class="s2">"CHI"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"Madrid"</span><span class="p">,</span> <span class="s2">"MD"</span><span class="p">]]</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Результат:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"city"</span> <span class="na">id=</span><span class="s">"city"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"BE"</span><span class="nt">&gt;</span>Berlin<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"CHI"</span><span class="nt">&gt;</span>Chicago<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"MD"</span><span class="nt">&gt;</span>Madrid<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre>
+</div>
+<p>Таким образом, пользователь увидит полные имена городов, но <code>params[:city]</code> будет одним из <code>&quot;BE&quot;</code>, <code>&quot;CHI&quot;</code> или <code>&quot;MD&quot;</code>.</p><p>Наконец, можно указать выбор по умолчанию для списка выбора с помощью аргумента <code>:selected</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">select</span> <span class="ss">:city</span><span class="p">,</span> <span class="p">[[</span><span class="s2">"Berlin"</span><span class="p">,</span> <span class="s2">"BE"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"Chicago"</span><span class="p">,</span> <span class="s2">"CHI"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"Madrid"</span><span class="p">,</span> <span class="s2">"MD"</span><span class="p">]],</span> <span class="ss">selected: </span><span class="s2">"CHI"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Результат:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"city"</span> <span class="na">id=</span><span class="s">"city"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"BE"</span><span class="nt">&gt;</span>Berlin<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"CHI"</span> <span class="na">selected=</span><span class="s">"selected"</span><span class="nt">&gt;</span>Chicago<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"MD"</span><span class="nt">&gt;</span>Madrid<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre>
+</div>
+<h4 id='gruppy-optsiy' class='inside_page_header'><a href="#gruppy-optsiy">3.1.</a> Группы опций</h4><p>Иногда нужно улучшить пользовательский опыт, сгруппировав вместе схожие опции. Это можно сделать, передав <code>Hash</code> (ли совместимый <code>Array</code>) в <code>select</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">select</span> <span class="ss">:city</span><span class="p">,</span>
+      <span class="p">{</span>
+        <span class="s2">"Europe"</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="p">[</span><span class="s2">"Berlin"</span><span class="p">,</span> <span class="s2">"BE"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"Madrid"</span><span class="p">,</span> <span class="s2">"MD"</span><span class="p">]</span> <span class="p">],</span>
+        <span class="s2">"North America"</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="p">[</span><span class="s2">"Chicago"</span><span class="p">,</span> <span class="s2">"CHI"</span><span class="p">]</span> <span class="p">],</span>
+      <span class="p">},</span>
+      <span class="ss">selected: </span><span class="s2">"CHI"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Результат:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"city"</span> <span class="na">id=</span><span class="s">"city"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;optgroup</span> <span class="na">label=</span><span class="s">"Europe"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"BE"</span><span class="nt">&gt;</span>Berlin<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"MD"</span><span class="nt">&gt;</span>Madrid<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/optgroup&gt;</span>
+  <span class="nt">&lt;optgroup</span> <span class="na">label=</span><span class="s">"North America"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"CHI"</span> <span class="na">selected=</span><span class="s">"selected"</span><span class="nt">&gt;</span>Chicago<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/optgroup&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre>
+</div>
+<h4 id='spiski-vybora-i-ob-ekty-modeli' class='inside_page_header'><a href="#spiski-vybora-i-ob-ekty-modeli">3.2.</a> Списки выбора и объекты модели</h4><p>Подобно другим элементам формы, список выбора может быть связан с атрибутом модели. Например, если имеется такой объект модели <code>@person</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="vi">@person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">city: </span><span class="s2">"MD"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Следующая форма:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@person</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">select</span> <span class="ss">:city</span><span class="p">,</span> <span class="p">[[</span><span class="s2">"Berlin"</span><span class="p">,</span> <span class="s2">"BE"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"Chicago"</span><span class="p">,</span> <span class="s2">"CHI"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"Madrid"</span><span class="p">,</span> <span class="s2">"MD"</span><span class="p">]]</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Выведет подобный список выбора:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"person[city]"</span> <span class="na">id=</span><span class="s">"person_city"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"BE"</span><span class="nt">&gt;</span>Berlin<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"CHI"</span><span class="nt">&gt;</span>Chicago<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"MD"</span> <span class="na">selected=</span><span class="s">"selected"</span><span class="nt">&gt;</span>Madrid<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;</span><span class="err">%</span> <span class="na">end</span> <span class="err">%</span><span class="nt">&gt;</span>
+</code></pre>
+</div>
+<p>Отметьте, что подходящая опция была автоматически отмечена <code>selected=&quot;selected&quot;</code>. Так как этот список выбора был привязан к модели, не нужно указывать аргумент <code>:selected</code>!</p><h4 id='vybor-chasovogo-poyasa-i-strany' class='inside_page_header'><a href="#vybor-chasovogo-poyasa-i-strany">3.3.</a> Выбор часового пояса и страны</h4><p>Для управления поддержкой часовых поясов в Rails, можно спрашивать своих пользователей, в какой зоне они находятся. Это потребует сгенерировать пункты списка из списка предопределенных объектов <a href="https://api.rubyonrails.org/classes/ActiveSupport/TimeZone.html"><code>ActiveSupport::TimeZone</code></a>, но можно просто использовать хелпер <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-time_zone_select"><code>time_zone_select</code></a>, который уже все это содержит:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">time_zone_select</span> <span class="ss">:time_zone</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>В Rails <em>раньше</em> был хелпер <code>country_select</code> для выбора стран, но сейчас он вынесен во внешний <a href="https://github.com/stefanpenner/country_select">плагин country_select</a>.</p><h3 id='ispolzovanie-helperov-daty-i-vremeni' class='inside_page_header'><a href="#ispolzovanie-helperov-daty-i-vremeni">4.</a> Использование хелперов даты и времени</h3><p>Если не хотите использовать поля ввода даты и времени HTML5, Rails предоставляет альтернативные хелперы формы для даты и времени, выводящие обычные списки выбора. Эти хелперы рендерят список выбора на каждый компонент (год, месяц, день и т.д.). Например, если у нас есть такой объект модели <code>@person</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="vi">@person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">birth_date: </span><span class="no">Date</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">1995</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
+</code></pre>
+</div>
+<p>Следующая форма:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@person</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">date_select</span> <span class="ss">:birth_date</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Выведет списки выбора наподобие:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"person[birth_date(1i)]"</span> <span class="na">id=</span><span class="s">"person_birth_date_1i"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1990"</span><span class="nt">&gt;</span>1990<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1991"</span><span class="nt">&gt;</span>1991<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1992"</span><span class="nt">&gt;</span>1992<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1993"</span><span class="nt">&gt;</span>1993<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1994"</span><span class="nt">&gt;</span>1994<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1995"</span> <span class="na">selected=</span><span class="s">"selected"</span><span class="nt">&gt;</span>1995<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1996"</span><span class="nt">&gt;</span>1996<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1997"</span><span class="nt">&gt;</span>1997<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1998"</span><span class="nt">&gt;</span>1998<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1999"</span><span class="nt">&gt;</span>1999<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2000"</span><span class="nt">&gt;</span>2000<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"person[birth_date(2i)]"</span> <span class="na">id=</span><span class="s">"person_birth_date_2i"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>January<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2"</span><span class="nt">&gt;</span>February<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"3"</span><span class="nt">&gt;</span>March<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"4"</span><span class="nt">&gt;</span>April<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"5"</span><span class="nt">&gt;</span>May<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"6"</span><span class="nt">&gt;</span>June<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"7"</span><span class="nt">&gt;</span>July<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"8"</span><span class="nt">&gt;</span>August<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"9"</span><span class="nt">&gt;</span>September<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"10"</span><span class="nt">&gt;</span>October<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"11"</span><span class="nt">&gt;</span>November<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"12"</span> <span class="na">selected=</span><span class="s">"selected"</span><span class="nt">&gt;</span>December<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"person[birth_date(3i)]"</span> <span class="na">id=</span><span class="s">"person_birth_date_3i"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/option&gt;</span>
+  ...
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"21"</span> <span class="na">selected=</span><span class="s">"selected"</span><span class="nt">&gt;</span>21<span class="nt">&lt;/option&gt;</span>
+  ...
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"31"</span><span class="nt">&gt;</span>31<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre>
+</div>
+<p>Отметьте, что при отправке формы не будет одиночного значения в хэше <code>params</code>. содержащего полную дату. Вместо этого будет несколько значений со специальными именами наподобие <code>&quot;birth_date(1i)&quot;</code>. Active Record знает, как собрать эти особенно названные значения в полную дату или время, основываясь на объявленном типе атрибута модели. Таким образом, можно просто передать <code>params[:person]</code> в <code>Person.new</code> или <code>Person#update</code>, как будто бы форма использовала единственное поле, представляющее полную дату.</p><p>В дополнение к хелперу <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-date_select"><code>date_select</code></a>, Rails предоставляет <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-time_select"><code>time_select</code></a> и <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-datetime_select"><code>datetime_select</code></a>.</p><h4 id='spiski-vybora-s-otdelnymi-elementami-vremeni' class='inside_page_header'><a href="#spiski-vybora-s-otdelnymi-elementami-vremeni">4.1.</a> Списки выбора с отдельными элементами времени</h4><p>Rails также предоставляет хелперы для рендера списков выбора для отдельных компонентов времени: <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-select_year"><code>select_year</code></a>, <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-select_month"><code>select_month</code></a>, <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-select_day"><code>select_day</code></a>, <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-select_hour"><code>select_hour</code></a>, <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-select_minute"><code>select_minute</code></a> и <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-select_second"><code>select_second</code></a>. Эти хелперы являются &quot;чистыми&quot; методами, что означает, что они не вызываются на экземпляре построителя формы. Например:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">select_year</span> <span class="mi">1999</span><span class="p">,</span> <span class="ss">prefix: </span><span class="s2">"party"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Выведет подобный список выбора</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"party[year]"</span> <span class="na">id=</span><span class="s">"party_year"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1994"</span><span class="nt">&gt;</span>1994<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1995"</span><span class="nt">&gt;</span>1995<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1996"</span><span class="nt">&gt;</span>1996<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1997"</span><span class="nt">&gt;</span>1997<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1998"</span><span class="nt">&gt;</span>1998<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1999"</span> <span class="na">selected=</span><span class="s">"selected"</span><span class="nt">&gt;</span>1999<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2000"</span><span class="nt">&gt;</span>2000<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2001"</span><span class="nt">&gt;</span>2001<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2002"</span><span class="nt">&gt;</span>2002<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2003"</span><span class="nt">&gt;</span>2003<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2004"</span><span class="nt">&gt;</span>2004<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre>
+</div>
+<p>Для каждого из этих хелперов можно указать объект даты или времени вместо числа в качестве значения по умолчанию, тогда будет извлечен и использован подходящий компонент времени.</p><h3 id='vybor-iz-kollektsii-proizvolnyh-ob-ektov' class='inside_page_header'><a href="#vybor-iz-kollektsii-proizvolnyh-ob-ektov">5.</a> Выбор из коллекции произвольных объектов</h3><p>Иногда нам нужно создать набор вариантов из коллекции произвольных объектов. Например, если у нас есть модель <code>City</code> и соответствующая связь <code>belongs_to :city</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">City</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">belongs_to</span> <span class="ss">:city</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">City</span><span class="p">.</span><span class="nf">order</span><span class="p">(</span><span class="ss">:name</span><span class="p">).</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">city</span><span class="o">|</span> <span class="p">[</span><span class="n">city</span><span class="p">.</span><span class="nf">name</span><span class="p">,</span> <span class="n">city</span><span class="p">.</span><span class="nf">id</span><span class="p">]</span> <span class="p">}</span>
+<span class="c1"># =&gt; [["Berlin", 3], ["Chicago", 1], ["Madrid", 2]]</span>
+</code></pre>
+</div>
+<p>Затем можно позволить пользователю выбирать город из базы данных с помощью следующей формы:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@person</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">select</span> <span class="ss">:city_id</span><span class="p">,</span> <span class="no">City</span><span class="p">.</span><span class="nf">order</span><span class="p">(</span><span class="ss">:name</span><span class="p">).</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">city</span><span class="o">|</span> <span class="p">[</span><span class="n">city</span><span class="p">.</span><span class="nf">name</span><span class="p">,</span> <span class="n">city</span><span class="p">.</span><span class="nf">id</span><span class="p">]</span> <span class="p">}</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<div class="note"><p>При рендере поля для связи <code>belongs_to</code>, необходимо указать имя внешнего ключа (<code>city_id</code> в вышеприведенном примере), а не имя самой связи.</p></div><p>Однако, Rails предоставляет хелперы для генерации выборов из коллекции без необходимости явного перебора по ней. Эти хелперы определяют метки значения и текста каждого выбора, вызывая указанные методы на каждом объекте в коллекции.</p><h4 id='helper-collection_select' class='inside_page_header'><a href="#helper-collection_select">5.1.</a> Хелпер <code>collection_select</code></h4><p>Чтобы создать список выбора, можно использовать <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_select"><code>collection_select</code></a>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">collection_select</span> <span class="ss">:city_id</span><span class="p">,</span> <span class="no">City</span><span class="p">.</span><span class="nf">order</span><span class="p">(</span><span class="ss">:name</span><span class="p">),</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Выведет:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"person[city_id]"</span> <span class="na">id=</span><span class="s">"person_city_id"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"3"</span><span class="nt">&gt;</span>Berlin<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>Chicago<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2"</span><span class="nt">&gt;</span>Madrid<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre>
+</div>
+<div class="note"><p>С помощью <code>collection_select</code> мы определяем сначала метод значения (<code>:id</code> в вышеуказанном примере), а затем метод текстовой надписи (<code>:name</code> в вышеуказанном примере). Это отличается от порядка, используемого при указании вариантов для хелпера <code>select</code>, когда сначала идет текстовая надпись, а потом значение.</p></div><h4 id='helper-collection_radio_buttons' class='inside_page_header'><a href="#helper-collection_radio_buttons">5.2.</a> Хелпер <code>collection_radio_buttons</code></h4><p>Чтобы создать набор радиокнопок, можно использовать <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_radio_buttons"><code>collection_radio_buttons</code></a>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">collection_radio_buttons</span> <span class="ss">:city_id</span><span class="p">,</span> <span class="no">City</span><span class="p">.</span><span class="nf">order</span><span class="p">(</span><span class="ss">:name</span><span class="p">),</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Выведет:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"person[city_id]"</span> <span class="na">value=</span><span class="s">"3"</span> <span class="na">id=</span><span class="s">"person_city_id_3"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"person_city_id_3"</span><span class="nt">&gt;</span>Berlin<span class="nt">&lt;/label&gt;</span>
+
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"person[city_id]"</span> <span class="na">value=</span><span class="s">"1"</span> <span class="na">id=</span><span class="s">"person_city_id_1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"person_city_id_1"</span><span class="nt">&gt;</span>Chicago<span class="nt">&lt;/label&gt;</span>
+
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"person[city_id]"</span> <span class="na">value=</span><span class="s">"2"</span> <span class="na">id=</span><span class="s">"person_city_id_2"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"person_city_id_2"</span><span class="nt">&gt;</span>Madrid<span class="nt">&lt;/label&gt;</span>
+</code></pre>
+</div>
+<h4 id='helper-collection_check_boxes' class='inside_page_header'><a href="#helper-collection_check_boxes">5.3.</a> Хелпер <code>collection_check_boxes</code></h4><p>Чтобы создать набор чекбоксов — к примеру, чтобы поддерживать связь <code>has_and_belongs_to_many</code> — можно использовать <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_check_boxes"><code>collection_check_boxes</code></a>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">collection_check_boxes</span> <span class="ss">:interest_ids</span><span class="p">,</span> <span class="no">Interest</span><span class="p">.</span><span class="nf">order</span><span class="p">(</span><span class="ss">:name</span><span class="p">),</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Выведет:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"person[interest_id][]"</span> <span class="na">value=</span><span class="s">"3"</span> <span class="na">id=</span><span class="s">"person_interest_id_3"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"person_interest_id_3"</span><span class="nt">&gt;</span>Engineering<span class="nt">&lt;/label&gt;</span>
+
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"person[interest_id][]"</span> <span class="na">value=</span><span class="s">"4"</span> <span class="na">id=</span><span class="s">"person_interest_id_4"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"person_interest_id_4"</span><span class="nt">&gt;</span>Math<span class="nt">&lt;/label&gt;</span>
+
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"person[interest_id][]"</span> <span class="na">value=</span><span class="s">"1"</span> <span class="na">id=</span><span class="s">"person_interest_id_1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"person_interest_id_1"</span><span class="nt">&gt;</span>Science<span class="nt">&lt;/label&gt;</span>
+
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"person[interest_id][]"</span> <span class="na">value=</span><span class="s">"2"</span> <span class="na">id=</span><span class="s">"person_interest_id_2"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"person_interest_id_2"</span><span class="nt">&gt;</span>Technology<span class="nt">&lt;/label&gt;</span>
+</code></pre>
+</div>
+<h3 id='uploading-files' class='inside_page_header'><a href="#uploading-files">6.</a>  Загрузка файлов</h3><p>Частой задачей является загрузка некоторого файла, аватарки или файла CSV, содержащего информацию для обработки. Поля загрузки файлов могут быть отрендерены с помощью хелпера <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-file_field"><code>file_field</code></a>.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@person</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">file_field</span> <span class="ss">:picture</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Самое важное, это помнить при загрузке файла, что атрибут <code>enctype</code> формы <em>должен</em> быть установлен как &quot;multipart/form-data&quot;. Это будет выполнено автоматически, если используете <code>file_field</code> внутри <code>form_with</code>. Также можно установить этот атрибут самому:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">url: </span><span class="s2">"/uploads"</span><span class="p">,</span> <span class="ss">multipart: </span><span class="kp">true</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">file_field_tag</span> <span class="ss">:picture</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Отметьте, что в соответствии с соглашениями <code>form_with</code>, имена поля в вышеуказанных формах также будут отличаться. То есть, именем поля в первой форме будет <code>person[picture]</code> (доступное как <code>params[:person][:picture]</code>), а именем поля во второй форме будет просто <code>picture</code> (доступное как <code>params[:picture]</code>).</p><h4 id='chto-imeem-zagruzhennym' class='inside_page_header'><a href="#chto-imeem-zagruzhennym">6.1.</a> Что имеем загруженным</h4><p>Объект в хэше <code>params</code> - это экземпляр <a href="https://api.rubyonrails.org/classes/ActionDispatch/Http/UploadedFile.html"><code>ActionDispatch::Http::UploadedFile</code></a>. Следующий образец кода сохраняет загруженное содержимое в <code>#{Rails.root}/public/uploads</code> под тем же именем, что и исходный файл.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">upload</span>
+  <span class="n">uploaded_file</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:picture</span><span class="p">]</span>
+  <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'public'</span><span class="p">,</span> <span class="s1">'uploads'</span><span class="p">,</span> <span class="n">uploaded_file</span><span class="p">.</span><span class="nf">original_filename</span><span class="p">),</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
+    <span class="n">file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">uploaded_file</span><span class="p">.</span><span class="nf">read</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Как только файл был загружен, появляется множество потенциальных задач, начиная от того, где хранить файлы (на диске, Amazon S3 и т.д.), как связать их с моделями, изменить размер файлов изображений и сгенерировать миниатюры. Для помощи с такими задачами разработан <a href="/active_storage_overview">Active Storage</a>.</p><h3 id='nastroyka-form-builder' class='inside_page_header'><a href="#nastroyka-form-builder">7.</a> Настройка Form Builder</h3><p>Объект, который передается от <code>form_with</code> и <code>fields_for</code>, - это экземпляр <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html"><code>ActionView::Helpers::FormBuilder</code></a>. Form builder инкапсулирует представление элементов формы для отдельного объекта. Хотя, конечно, можно писать хелперы для своих форм обычным способом, так же как можно объявить подкласс <code>ActionView::Helpers::FormBuilder</code> и добавить хелперы туда. Например:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@person</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">text_field_with_label</span> <span class="n">form</span><span class="p">,</span> <span class="ss">:first_name</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>может быть заменено этим</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@person</span><span class="p">,</span> <span class="ss">builder: </span><span class="no">LabellingFormBuilder</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:first_name</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>через определение класса <code>LabellingFormBuilder</code> подобным образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">LabellingFormBuilder</span> <span class="o">&lt;</span> <span class="no">ActionView</span><span class="o">::</span><span class="no">Helpers</span><span class="o">::</span><span class="no">FormBuilder</span>
+  <span class="k">def</span> <span class="nf">text_field</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{})</span>
+    <span class="n">label</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span> <span class="o">+</span> <span class="k">super</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если это используется часто, можно определить хелпер <code>labeled_form_with</code> который автоматически определяет опцию <code>builder: LabellingFormBuilder</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">labeled_form_with</span><span class="p">(</span><span class="ss">model: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">scope: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">url: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">format: </span><span class="kp">nil</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+  <span class="n">options</span><span class="p">.</span><span class="nf">merge!</span> <span class="ss">builder: </span><span class="no">LabellingFormBuilder</span>
+  <span class="n">form_with</span> <span class="ss">model: </span><span class="n">model</span><span class="p">,</span> <span class="ss">scope: </span><span class="n">scope</span><span class="p">,</span> <span class="ss">url: </span><span class="n">url</span><span class="p">,</span> <span class="ss">format: </span><span class="nb">format</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Form builder также определяет, что произойдет, если вы сделаете:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="n">f</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Если <code>f</code> - это экземпляр <code>ActionView::Helpers::FormBuilder</code>, тогда это отрендерит партиал <code>form</code>, установив объект партиала как form builder. Если у form builder есть класс <code>LabellingFormBuilder</code>, тогда вместо него будет отрендерен партиал <code>labelling_form</code>.</p><h3 id='understanding-parameter-naming-conventions' class='inside_page_header'><a href="#understanding-parameter-naming-conventions">8.</a>  Понимание соглашений по именованию параметров</h3><p>Значения из форм могут быть на верхнем уровне хэша <code>params</code> или вложены в другой хэш. Например, в стандартном экшне <code>create</code> для модели Person, <code>params[:person]</code> будет обычно хэшем всех атрибутов для создания персоны. Хэш <code>params</code> может также содержать массивы, массивы хэшей и тому подобное.</p><p>В основном формы HTML не знают о каких-либо структурировании данных, все, что они генерируют - это пары имя-значение, где пары являются обычными строками. Массивы и хэши, которые можно увидеть в своем приложении, - это результат некоторых соглашений по именованию параметров, которые использует Rails.</p><h4 id='bazovye-struktury' class='inside_page_header'><a href="#bazovye-struktury">8.1.</a> Базовые структуры</h4><p>Две базовые структуры - это массивы и хэши. Хэши отражают синтаксис, используемый для доступа к значению в <code>params</code>. Например, если форма содержит</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"person_name"</span> <span class="na">name=</span><span class="s">"person[name]"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">value=</span><span class="s">"Henry"</span><span class="nt">/&gt;</span>
+</code></pre>
+</div>
+<p>хэш <code>params</code> будет содержать</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span><span class="s1">'person'</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Henry'</span><span class="p">}}</span>
+</code></pre>
+</div>
+<p>и <code>params[:person][:name]</code> получит отправленное значение в контроллере.</p><p>Хэши могут быть вложены на столько уровней, сколько требуется, например:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"person_address_city"</span> <span class="na">name=</span><span class="s">"person[address][city]"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">value=</span><span class="s">"New York"</span><span class="nt">/&gt;</span>
+</code></pre>
+</div>
+<p>вернет такой хэш <code>params</code></p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span><span class="s1">'person'</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="s1">'address'</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="s1">'city'</span> <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">}}}</span>
+</code></pre>
+</div>
+<p>Обычно Rails игнорирует дублирующиеся имена параметра. Если имя параметра заканчивается пустым набором квадратных скобок <code>[]</code>, то они будут накоплены в массиве. Если нужно, чтобы пользователи могли оставить несколько телефонных номеров, можно поместить это в форму:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"person[phone_number][]"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"person[phone_number][]"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"person[phone_number][]"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">/&gt;</span>
+</code></pre>
+</div>
+<p>Что приведет к тому, что <code>params[:person][:phone_number]</code> будет массивом, содержащим введенные телефонные номера.</p><h4 id='kombiniruem-ih' class='inside_page_header'><a href="#kombiniruem-ih">8.2.</a> Комбинируем их</h4><p>Можно смешивать и сочетать эти две концепции. Один из элементов хэша может быть массивом, как в предыдущем примере, или вы можете иметь массив хэшей. Например, форма может позволить вам создать любое количество адресов, повторяя следующий фрагмент кода</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"person[addresses][][line1]"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"person[addresses][][line2]"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"person[addresses][][city]"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"person[addresses][][line1]"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"person[addresses][][line2]"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"person[addresses][][city]"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">/&gt;</span>
+</code></pre>
+</div>
+<p>Это приведет к тому, что <code>params[:person][:addresses]</code> будет массивом хэшей с ключами <code>line1</code>, <code>line2</code> и <code>city</code>.</p><p>Однако, имеется ограничение, в то время как хэши могут быть вложены произвольно, является допустимым только один уровень &quot;массивности&quot;. Массивы обычно могут быть заменены хэшами; например, вместо массива объектов модели можно иметь хэш объектов модели с ключами, равными их id, индексу массива или любому другому параметру.</p><div class="warning"><p>Параметры массива не очень хорошо работают с хелпером <code>check_box</code>. В соответствии со спецификацией HTML, невыбранные чекбоксы не возвращают значения. Хелпер <code>check_box</code> обходит это, создавая вспомогательное скрытое поле с тем же именем. Если чекбокс не нажат, подтверждается только скрытое поле, а если он нажат, то они оба подтверждаются, но значение от чекбокса получает приоритет.</p></div><h4 id='optsiya-index-helpera-fields_for' class='inside_page_header'><a href="#optsiya-index-helpera-fields_for">8.3.</a> Опция <code>:index</code> хелпера <code>fields_for</code></h4><p>Скажем, нам нужно рендерить форму с набором полей ввода для каждого адреса человека. Тут может помочь хелпер <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-fields_for"><code>fields_for</code></a> и его аргумент <code>:index</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@person</span> <span class="k">do</span> <span class="o">|</span><span class="n">person_form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">person_form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:name</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%</span> <span class="vi">@person</span><span class="p">.</span><span class="nf">addresses</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">address</span><span class="o">|</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">person_form</span><span class="p">.</span><span class="nf">fields_for</span> <span class="n">address</span><span class="p">,</span> <span class="ss">index: </span><span class="n">address</span><span class="p">.</span><span class="nf">id</span> <span class="k">do</span> <span class="o">|</span><span class="n">address_form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">address_form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:city</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Предположим, у кого-то есть два адреса с ID 23 и 45, вышеприведенная форма отрендерит что-то подобное:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;form</span> <span class="na">accept-charset=</span><span class="s">"UTF-8"</span> <span class="na">action=</span><span class="s">"/people/1"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"_method"</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">value=</span><span class="s">"patch"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"person_name"</span> <span class="na">name=</span><span class="s">"person[name]"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"person_address_23_city"</span> <span class="na">name=</span><span class="s">"person[address][23][city]"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"person_address_45_city"</span> <span class="na">name=</span><span class="s">"person[address][45][city]"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre>
+</div>
+<p>Что приведет к тому, что хэш <code>params</code> будет выглядеть так</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="s2">"person"</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"Bob"</span><span class="p">,</span>
+    <span class="s2">"address"</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="s2">"23"</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="s2">"city"</span> <span class="o">=&gt;</span> <span class="s2">"Paris"</span>
+      <span class="p">},</span>
+      <span class="s2">"45"</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="s2">"city"</span> <span class="o">=&gt;</span> <span class="s2">"London"</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>Все поля ввода формы связаны с хэшем <code>&quot;person&quot;</code>, так как мы вызывали <code>fields_for</code> на построителе формы <code>person_form</code>. Также, указывая <code>index: address.id</code>, мы рендерим атрибут <code>name</code> каждого поля ввода города как <code>person[address][#{address.id}][city]</code> вместо <code>person[address][city]</code>. Таким образом можно определить, какие записи Address должны быть изменены при обработке хэша <code>params</code>.</p><p>Можно передать другие числа или строки с помощью опции <code>:index</code>. Можно даже передать <code>nil</code>, что создаст параметр массив.</p><p>Чтобы создать более замысловатые вложения, можно явно указать первую часть имени поля ввода (<code>person[address]</code> в предыдущем примере):</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">fields_for</span> <span class="s1">'person[address][primary]'</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="ss">index: </span><span class="n">address</span><span class="p">.</span><span class="nf">id</span> <span class="k">do</span> <span class="o">|</span><span class="n">address_form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">address_form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:city</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>создаст такие поля ввода:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"person_address_primary_23_city"</span> <span class="na">name=</span><span class="s">"person[address][primary][23][city]"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">value=</span><span class="s">"Paris"</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+<p>Можно также передать опцию <code>:index</code> прямо в хелперы, такие как <code>text_field</code>, но обычно будет меньше повторов, если определить это на уровне form builder, а не для отдельных элементах управления input.</p><p>Говоря более широко, конечным именем поля ввода будет сцепление имени, переданного в <code>fields_for</code>/<code>form_with</code>, значения опции <code>:index</code> и имени атрибута.</p><p>Наконец, как ярлык, вместо указания ID для <code>:index</code> (например, <code>index: address.id</code>), можно добавить <code>&quot;[]&quot;</code> к заданному имени. Например:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">fields_for</span> <span class="s1">'person[address][primary][]'</span><span class="p">,</span> <span class="n">address</span> <span class="k">do</span> <span class="o">|</span><span class="n">address_form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">address_form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:city</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>создаст абсолютно тот же результат, что и наш оригинальный пример.</p><h3 id='formy-k-vneshnim-resursam' class='inside_page_header'><a href="#formy-k-vneshnim-resursam">9.</a> Формы к внешним ресурсам</h3><p>Хелперы форм Rails можно использовать и для создания форм для передачи данных внешнему ресурсу. Однако, иногда необходимо установить <code>authenticity_token</code> для ресурса; это можно осуществить, передав параметр <code>authenticity_token: &#39;your_external_token&#39;</code> в опциях <code>form_with</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">url: </span><span class="s1">'http://farfar.away/form'</span><span class="p">,</span> <span class="ss">authenticity_token: </span><span class="s1">'external_token'</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+  Form contents
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Иногда при отправке данных внешнему ресурсу, такому как платежный шлюз, поля, которые можно использовать в форме, ограничены внешним API, и генерация <code>authenticity_token</code> нежелательна. Чтобы не посылать токен, просто передайте <code>false</code> в опцию <code>:authenticity_token</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">url: </span><span class="s1">'http://farfar.away/form'</span><span class="p">,</span> <span class="ss">authenticity_token: </span><span class="kp">false</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+  Form contents
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<h3 id='sozdanie-slozhnyh-form' class='inside_page_header'><a href="#sozdanie-slozhnyh-form">10.</a> Создание сложных форм</h3><p>Многие приложения выходят за рамки простых форм, редактирующих одиночные объекты. Например, при создании <code>Person</code> можно позволить пользователю (в той же самой форме) создать несколько записей адресов (домашний, рабочий и т.д.). При последующем редактировании этого person, пользователю должно быть доступно добавление, удаление или правка адреса, если это необходимо.</p><h4 id='nastroyka-modeli' class='inside_page_header'><a href="#nastroyka-modeli">10.1.</a> Настройка модели</h4><p>Active Record предоставляет поддержку на уровне модели с помощью метода <a href="https://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html#method-i-accepts_nested_attributes_for"><code>accepts_nested_attributes_for</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:addresses</span><span class="p">,</span> <span class="ss">inverse_of: :person</span>
+  <span class="n">accepts_nested_attributes_for</span> <span class="ss">:addresses</span>
+
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Address</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">belongs_to</span> <span class="ss">:person</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это создаст метод <code>addresses_attributes=</code> в <code>Person</code>, позволяющий создавать, обновлять и (опционально) уничтожать адреса.</p><h4 id='vlozhennye-formy' class='inside_page_header'><a href="#vlozhennye-formy">10.2.</a> Вложенные формы</h4><p>Следующая форма позволяет пользователю создать <code>Person</code> и связанные с ним адреса.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@person</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  Addresses:
+  <span class="nt">&lt;ul&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">fields_for</span> <span class="ss">:addresses</span> <span class="k">do</span> <span class="o">|</span><span class="n">addresses_form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">addresses_form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:kind</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">addresses_form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:kind</span> <span class="cp">%&gt;</span>
+
+        <span class="cp">&lt;%=</span> <span class="n">addresses_form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:street</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">addresses_form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:street</span> <span class="cp">%&gt;</span>
+        ...
+      <span class="nt">&lt;/li&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Когда связь принимает вложенные атрибуты, <code>fields_for</code> рендерит свой блок для каждого элемента связи. В частности, если у person нет адресов, он ничего не рендерит. Обычным паттерном для контроллера является построение одного или более пустых дочерних элементов, чтобы как минимум один набор полей был показан пользователю. Следующий пример покажет 2 набора полей адресов в форме нового person.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">new</span>
+  <span class="vi">@person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+  <span class="mi">2</span><span class="p">.</span><span class="nf">times</span> <span class="p">{</span> <span class="vi">@person</span><span class="p">.</span><span class="nf">addresses</span><span class="p">.</span><span class="nf">build</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p><code>fields_for</code> вкладывает form builder. Имя параметра будет таким, какое ожидает <code>accepts_nested_attributes_for</code>. К примеру, при создании пользователя с 2 адресами, отправленные параметры будут выглядеть так</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="s1">'person'</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'John Doe'</span><span class="p">,</span>
+    <span class="s1">'addresses_attributes'</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="s1">'0'</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="s1">'kind'</span> <span class="o">=&gt;</span> <span class="s1">'Home'</span><span class="p">,</span>
+        <span class="s1">'street'</span> <span class="o">=&gt;</span> <span class="s1">'221b Baker Street'</span>
+      <span class="p">},</span>
+      <span class="s1">'1'</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="s1">'kind'</span> <span class="o">=&gt;</span> <span class="s1">'Office'</span><span class="p">,</span>
+        <span class="s1">'street'</span> <span class="o">=&gt;</span> <span class="s1">'31 Spooner Street'</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>Фактические значения ключей хэша <code>:addresses_attributes</code> не важны; однако, они должны быть числовыми строками и различаться для каждого адреса.</p><p>Если связанный объект уже сохранен, <code>fields_for</code> автоматически генерирует скрытое поле с <code>id</code> сохраненной записи. Это можно отключить, передав <code>include_id: false</code> в <code>fields_for</code>.</p><h4 id='kontroller' class='inside_page_header'><a href="#kontroller">10.3.</a> Контроллер</h4><p>Как обычно, в контроллере необходимо
+<a href="action_controller_overview.html#strong-parameters">объявить разрешенные параметры</a>, перед их передачей в модель:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">create</span>
+  <span class="vi">@person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">person_params</span><span class="p">)</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+
+<span class="kp">private</span>
+  <span class="k">def</span> <span class="nf">person_params</span>
+    <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:person</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">addresses_attributes: </span><span class="p">[</span><span class="ss">:id</span><span class="p">,</span> <span class="ss">:kind</span><span class="p">,</span> <span class="ss">:street</span><span class="p">])</span>
+  <span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='udalenie-ob-ektov' class='inside_page_header'><a href="#udalenie-ob-ektov">10.4.</a> Удаление объектов</h4><p>Можно позволить пользователям удалять связанные объекты, передав <code>allow_destroy: true</code> в <code>accepts_nested_attributes_for</code></p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:addresses</span>
+  <span class="n">accepts_nested_attributes_for</span> <span class="ss">:addresses</span><span class="p">,</span> <span class="ss">allow_destroy: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если хэш атрибутов для объекта содержит ключ <code>_destroy</code> со значением, вычисляющимся как &#39;true&#39; (например, 1, &#39;1&#39;, true или &#39;true&#39;), тогда объект будет уничтожен. Эта форма позволяет пользователям удалять адреса:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@person</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  Addresses:
+  <span class="nt">&lt;ul&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">fields_for</span> <span class="ss">:addresses</span> <span class="k">do</span> <span class="o">|</span><span class="n">addresses_form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">addresses_form</span><span class="p">.</span><span class="nf">check_box</span> <span class="ss">:_destroy</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">addresses_form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:kind</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">addresses_form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:kind</span> <span class="cp">%&gt;</span>
+        ...
+      <span class="nt">&lt;/li&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Не забудьте обновить список разрешенных параметров в вашем контроллере, а также включить туда поле <code>_destroy</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">person_params</span>
+  <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:person</span><span class="p">).</span>
+    <span class="nf">permit</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">addresses_attributes: </span><span class="p">[</span><span class="ss">:id</span><span class="p">,</span> <span class="ss">:kind</span><span class="p">,</span> <span class="ss">:street</span><span class="p">,</span> <span class="ss">:_destroy</span><span class="p">])</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='predotvraschenie-pustyh-zapisey' class='inside_page_header'><a href="#predotvraschenie-pustyh-zapisey">10.5.</a> Предотвращение пустых записей</h4><p>Часто полезно игнорировать наборы полей, которые пользователь не заполнял. Этим можно управлять, передав <code>:reject_if</code> proc в <code>accepts_nested_attributes_for</code>. Этот proc будет вызван для каждого хэша атрибутов, отправляемого формой. Если proc возвращает <code>true</code>, тогда Active Record не создаст связанный объект для этого хэша. Следующий пример пытается создать адрес, если установлен атрибут <code>kind</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:addresses</span>
+  <span class="n">accepts_nested_attributes_for</span> <span class="ss">:addresses</span><span class="p">,</span> <span class="ss">reject_if: </span><span class="nb">lambda</span> <span class="p">{</span><span class="o">|</span><span class="n">attributes</span><span class="o">|</span> <span class="n">attributes</span><span class="p">[</span><span class="s1">'kind'</span><span class="p">].</span><span class="nf">blank?</span><span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Вместо этого для удобства можно передать символ <code>:all_blank</code>, который создаст proc, который отвергнет записи, когда все атрибуты пустые, за исключением любого значения для <code>_destroy</code>.</p><h4 id='dobavlenie-poley-na-letu' class='inside_page_header'><a href="#dobavlenie-poley-na-letu">10.6.</a> Добавление полей на лету</h4><p>Вместо того, чтобы рендерить несколько наборов полей раньше времени, можно добавить их только тогда, когда пользователь нажимает на кнопку &#39;Добавить новый адрес&#39;. Rails не предоставляет какой-либо встроенной поддержки для этого. При генерации новых наборов полей следует убедиться, что ключ связанного массива уникальный - наиболее распространенным выбором является текущий JavaScript date (миллисекунды после <a href="https://ru.wikipedia.org/wiki/Unix-%D0%B2%D1%80%D0%B5%D0%BC%D1%8F">epoch</a>).</p><h3 id='ispolzovanie-helperov-tega-bez-postroitelya-form' class='inside_page_header'><a href="#ispolzovanie-helperov-tega-bez-postroitelya-form">11.</a> Использование хелперов тега без построителя форм</h3><p>Если нужно отрендерить поля формы вне контекста построителя формы, Rails предоставляет хелперы тега для обычных элементов формы. Например, <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html#method-i-check_box_tag"><code>check_box_tag</code></a>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">check_box_tag</span> <span class="s2">"accept"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Выведет:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"accept"</span> <span class="na">id=</span><span class="s">"accept"</span> <span class="na">value=</span><span class="s">"1"</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+<p>Обычно у этих хелперов те же имена, что и у их аналогов в построителе форм плюс суффикс <code>_tag</code>. Полный список смотрите в <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html">документации <code>FormTagHelper</code> API</a>.</p><h3 id='ispolzovanie-form_tag-i-form_for' class='inside_page_header'><a href="#ispolzovanie-form_tag-i-form_for">12.</a> Использование <code>form_tag</code> и <code>form_for</code></h3><p>До того, как <code>form_with</code> был представлен в Rails 5.1, его функционал был разделен между <a href="https://api.rubyonrails.org/v5.2/classes/ActionView/Helpers/FormTagHelper.html#method-i-form_tag"><code>form_tag</code></a> и <a href="https://api.rubyonrails.org/v5.2/classes/ActionView/Helpers/FormHelper.html#method-i-form_for"><code>form_for</code></a>. Последние сейчас мягко устаревшие. Документация по их использованию находится в <a href="https://github.com/rusrails/rusrails/blob/5.1/source/form_helpers.md">старых версиях этого руководства</a>.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

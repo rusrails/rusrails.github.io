@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Шаблоны приложения Rails" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Шаблоны приложения Rails" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/rails-application-templates" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Шаблоны приложения Rails
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="JxyUOIbIqvJzSZAs1syUJR24iI7FRRjRBTcN6dluS4dvKnDhmJzCk+DHTTseJyoR40aPJNhJCbkxpOrG71GHaw==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#ispolzovanie">1. Использование</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#api-dlya-shablonov">2. API для шаблонов</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#gem-args">2.1. <code>gem(*args)</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#gem_group-names-amp-block">2.2. <code>gem_group(*names, &amp;block)</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#add_source-source-options-amp-block">2.3. <code>add_source(source, options={}, &amp;block)</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#environment-application-data-nil-options-amp-block">2.4. <code>environment/application(data=nil, options={}, &amp;block)</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#vendor-lib-file-initializer-filename-data-nil-amp-block">2.5. <code>vendor/lib/file/initializer(filename, data = nil, &amp;block)</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#rakefile-filename-data-nil-amp-block">2.6. <code>rakefile(filename, data = nil, &amp;block)</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#generate-what-args">2.7. <code>generate(what, *args)</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#run-command">2.8. <code>run(command)</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#rails_command-command-options">2.9. <code>rails_command(command, options = {})</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#route-routing_code">2.10. <code>route(routing_code)</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#inside-dir">2.11. <code>inside(dir)</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ask-question">2.12. <code>ask(question)</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#yes-question-or-no-question">2.13. <code>yes?(question) or no?(question)</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#git-command">2.14. <code>git(:command)</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#after_bundle-amp-block">2.15. <code>after_bundle(&amp;block)</code></a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#prodvinutoe-ispolzovanie">3. Продвинутое использование</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='shablony-prilozheniya-rails' class='inside_page_header'> Шаблоны приложения Rails</h2><p>Шаблоны приложений - это простые Ruby файлы, содержащие DSL для добавления гемов, инициализаторов и т.п. в ваш только что созданный или существующий Rails проект.</p><p>После прочтения данного руководства, вы узнаете:</p><ul><li>Как использовать шаблоны для создания/настройки Rails приложений.
+</li><li>Как написать свои собственные шаблоны, которые можно будет использовать повторно, используя Rails API для шаблонов.
+</li></ul>
+<hr>
+<h3 id='ispolzovanie' class='inside_page_header'><a href="#ispolzovanie">1.</a> Использование</h3><p>Чтобы применить шаблон, вам необходимо запустить генератор Rails с расположением шаблона, который вы хотите применить, используя опцию <code>-m</code>. Это может быть путь к файлу или URL.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new blog <span class="nt">-m</span> ~/template.rb
+<span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new blog <span class="nt">-m</span> http://example.com/template.rb
+</code></pre>
+</div>
+<p>Вы можете использовать команду rails <code>app:template</code> чтобы применить шаблоны к существующему Rails приложению. Место расположения шаблона должно быть передано с помощью переменной среды LOCATION. Опять же, это может быть путь к файлу или URL.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>app:template <span class="nv">LOCATION</span><span class="o">=</span>~/template.rb
+<span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>app:template <span class="nv">LOCATION</span><span class="o">=</span>http://example.com/template.rb
+</code></pre>
+</div>
+<h3 id='api-dlya-shablonov' class='inside_page_header'><a href="#api-dlya-shablonov">2.</a> API для шаблонов</h3><p>Rails API для шаблонов легок для понимания. Ниже пример типичного шаблона Rails:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># template.rb</span>
+<span class="n">generate</span><span class="p">(</span><span class="ss">:scaffold</span><span class="p">,</span> <span class="s2">"person name:string"</span><span class="p">)</span>
+<span class="n">route</span> <span class="s2">"root to: 'people#index'"</span>
+<span class="n">rails_command</span><span class="p">(</span><span class="s2">"db:migrate"</span><span class="p">)</span>
+
+<span class="n">after_bundle</span> <span class="k">do</span>
+  <span class="n">git</span> <span class="ss">:init</span>
+  <span class="n">git</span> <span class="ss">add: </span><span class="s2">"."</span>
+  <span class="n">git</span> <span class="ss">commit: </span><span class="sx">%Q{ -m 'Initial commit' }</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>В следующих разделах рассматриваются основные методы, предоставленные API:</p><h4 id='gem-args' class='inside_page_header'><a href="#gem-args">2.1.</a> <code>gem(*args)</code></h4><p>Добавляет запись <code>gem</code> для предоставляемого гема в генерируемый для приложения <code>Gemfile</code>.</p><p>Например, если ваше приложение зависит от гемов <code>bj</code> и <code>nokogiri</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s2">"bj"</span>
+<span class="n">gem</span> <span class="s2">"nokogiri"</span>
+</code></pre>
+</div>
+<p>Пожалуйста, отметьте, что это не установит гемы и вы должны будете запустить <code>bundle install</code> для этого.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bundle install</span>
+</code></pre>
+</div>
+<h4 id='gem_group-names-amp-block' class='inside_page_header'><a href="#gem_group-names-amp-block">2.2.</a> <code>gem_group(*names, &amp;block)</code></h4><p>Оборачивает записи гемов внутрь группы.</p><p>Например, если вы хотите загружать <code>rspec-rails</code> только в группах <code>development</code> и <code>test</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">gem_group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s2">"rspec-rails"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='add_source-source-options-amp-block' class='inside_page_header'><a href="#add_source-source-options-amp-block">2.3.</a> <code>add_source(source, options={}, &amp;block)</code></h4><p>Добавляет переданный источник в генерируемый для приложения <code>Gemfile</code>.</p><p>Например, если вам необходим источник гема <code>&quot;http://gems.github.com&quot;</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">add_source</span> <span class="s2">"http://gems.github.com"</span>
+</code></pre>
+</div>
+<p>Если передан блок, то записи гемов в блоке будут обернуты в группу с источником.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">add_source</span> <span class="s2">"http://gems.github.com/"</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s2">"rspec-rails"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='environment-application-data-nil-options-amp-block' class='inside_page_header'><a href="#environment-application-data-nil-options-amp-block">2.4.</a> <code>environment/application(data=nil, options={}, &amp;block)</code></h4><p>Добавляет строчку внутрь класса <code>Application</code> в <code>config/application.rb</code>.</p><p>Если указана <code>options[:env]</code>, строчка добавляется в соответствующий файл в <code>config/environments</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">environment</span> <span class="s1">'config.action_mailer.default_url_options = {host: "http://yourwebsite.example.com"}'</span><span class="p">,</span> <span class="ss">env: </span><span class="s1">'production'</span>
+</code></pre>
+</div>
+<p>Блок может использоваться вместо аргумента <code>data</code>.</p><h4 id='vendor-lib-file-initializer-filename-data-nil-amp-block' class='inside_page_header'><a href="#vendor-lib-file-initializer-filename-data-nil-amp-block">2.5.</a> <code>vendor/lib/file/initializer(filename, data = nil, &amp;block)</code></h4><p>Добавляет инициализатор в папку <code>config/initializers</code> генерируемого приложения.</p><p>Допустим, вам нравится использовать <code>Object#not_nil?</code> и <code>Object#not_blank?</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">initializer</span> <span class="s1">'bloatlol.rb'</span><span class="p">,</span> <span class="o">&lt;&lt;-</span><span class="no">CODE</span><span class="sh">
+  class Object
+    def not_nil?
+      !nil?
+    end
+
+    def not_blank?
+      !blank?
+    end
+  end
+</span><span class="no">CODE</span>
+</code></pre>
+</div>
+<p>Аналогично, <code>lib()</code> создает файл в папке <code>lib/</code>, и <code>vendor()</code> создает файл в папке <code>vendor/</code>.</p><p>Есть даже <code>file()</code>, который принимает относительный путь от <code>Rails.root</code> и создает все необходимые папки/файлы:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">file</span> <span class="s1">'app/components/foo.rb'</span><span class="p">,</span> <span class="o">&lt;&lt;-</span><span class="no">CODE</span><span class="sh">
+  class Foo
+  end
+</span><span class="no">CODE</span>
+</code></pre>
+</div>
+<p>Это создаст папку <code>app/components</code> и поместит в нее <code>foo.rb</code>.</p><h4 id='rakefile-filename-data-nil-amp-block' class='inside_page_header'><a href="#rakefile-filename-data-nil-amp-block">2.6.</a> <code>rakefile(filename, data = nil, &amp;block)</code></h4><p>Создает новый rake файл в <code>lib/tasks</code> с предоставленной задачей:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">rakefile</span><span class="p">(</span><span class="s2">"bootstrap.rake"</span><span class="p">)</span> <span class="k">do</span>
+  <span class="o">&lt;&lt;-</span><span class="no">TASK</span><span class="sh">
+    namespace :boot do
+      task :strap do
+        puts "i like boots!"
+      end
+    end
+</span><span class="no">  TASK</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Код выше создаст <code>lib/tasks/bootstrap.rake</code> с rake задачей <code>boot:strap</code>.</p><h4 id='generate-what-args' class='inside_page_header'><a href="#generate-what-args">2.7.</a> <code>generate(what, *args)</code></h4><p>Запускает предоставленный генератор rails с переданными аргументами.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">generate</span><span class="p">(</span><span class="ss">:scaffold</span><span class="p">,</span> <span class="s2">"person"</span><span class="p">,</span> <span class="s2">"name:string"</span><span class="p">,</span> <span class="s2">"address:text"</span><span class="p">,</span> <span class="s2">"age:number"</span><span class="p">)</span>
+</code></pre>
+</div>
+<h4 id='run-command' class='inside_page_header'><a href="#run-command">2.8.</a> <code>run(command)</code></h4><p>Выполняет произвольную команду, как открывающая кавычка. Допустим, вы хотите удалить файл <code>README.rdoc</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">run</span> <span class="s2">"rm README.rdoc"</span>
+</code></pre>
+</div>
+<h4 id='rails_command-command-options' class='inside_page_header'><a href="#rails_command-command-options">2.9.</a> <code>rails_command(command, options = {})</code></h4><p>Запускает предоставленную команду в Rails приложении. Допустим, вы хотите запустить миграции базы данных:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">rails_command</span> <span class="s2">"db:migrate"</span>
+</code></pre>
+</div>
+<p>Вы также можете запустить команды с разными Rails окружениями:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">rails_command</span> <span class="s2">"db:migrate"</span><span class="p">,</span> <span class="ss">env: </span><span class="s1">'production'</span>
+</code></pre>
+</div>
+<p>Вы также можете запустить команды как супер-пользователь:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">rails_command</span> <span class="s2">"log:clear"</span><span class="p">,</span> <span class="ss">sudo: </span><span class="kp">true</span>
+</code></pre>
+</div>
+<p>Также можно запустить команды, которые должны прервать генерацию приложения в случае неудачи:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">rails_command</span> <span class="s2">"db:migrate"</span><span class="p">,</span> <span class="ss">abort_on_failure: </span><span class="kp">true</span>
+</code></pre>
+</div>
+<h4 id='route-routing_code' class='inside_page_header'><a href="#route-routing_code">2.10.</a> <code>route(routing_code)</code></h4><p>Добавляет запись маршрутизации в файл <code>config/routes.rb</code>. В шагах выше мы сгенерировали скаффолд для person и также удалили <code>README.rdoc</code>. Сейчас, сделаем для приложения <code>PeopleController#index</code> страницей по умолчанию:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">route</span> <span class="s2">"root to: 'person#index'"</span>
+</code></pre>
+</div>
+<h4 id='inside-dir' class='inside_page_header'><a href="#inside-dir">2.11.</a> <code>inside(dir)</code></h4><p>Позволяет вам запускать команды из данного каталога. Например, если у вас есть копия крайних rails, и вы хотите сделать ссылку из вашего нового приложения, вы можете сделать:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">inside</span><span class="p">(</span><span class="s1">'vendor'</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">run</span> <span class="s2">"ln -s ~/commit-rails/rails rails"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='ask-question' class='inside_page_header'><a href="#ask-question">2.12.</a> <code>ask(question)</code></h4><p><code>ask()</code> дает вам шанс получить некоторую обратную связь от пользователя и использовать ее в ваших шаблонах. Допустим, вы хотите, чтобы ваши пользователи дали название новой блестящей библиотеке, вы добавляете:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">lib_name</span> <span class="o">=</span> <span class="n">ask</span><span class="p">(</span><span class="s2">"What do you want to call the shiny library ?"</span><span class="p">)</span>
+<span class="n">lib_name</span> <span class="o">&lt;&lt;</span> <span class="s2">".rb"</span> <span class="k">unless</span> <span class="n">lib_name</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="s2">".rb"</span><span class="p">)</span>
+
+<span class="n">lib</span> <span class="n">lib_name</span><span class="p">,</span> <span class="o">&lt;&lt;-</span><span class="no">CODE</span><span class="sh">
+  class Shiny
+  end
+</span><span class="no">CODE</span>
+</code></pre>
+</div>
+<h4 id='yes-question-or-no-question' class='inside_page_header'><a href="#yes-question-or-no-question">2.13.</a> <code>yes?(question) or no?(question)</code></h4><p>Эти методы позволяют вам задать вопросы из ваших шаблонов и принять решение в процессе в зависимости от ответа пользователя. Допустим, вы хотите спросить пользователя, запускать ли миграции:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">rails_command</span><span class="p">(</span><span class="s2">"db:migrate"</span><span class="p">)</span> <span class="k">if</span> <span class="n">yes?</span><span class="p">(</span><span class="s2">"Run database migrations?"</span><span class="p">)</span>
+<span class="c1"># no?(question) работает наоборот.</span>
+</code></pre>
+</div>
+<h4 id='git-command' class='inside_page_header'><a href="#git-command">2.14.</a> <code>git(:command)</code></h4><p>Шаблоны Rails позволяют вам запускать любую команду git:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">git</span> <span class="ss">:init</span>
+<span class="n">git</span> <span class="ss">add: </span><span class="s2">"."</span>
+<span class="n">git</span> <span class="ss">commit: </span><span class="s2">"-a -m 'Initial commit'"</span>
+</code></pre>
+</div>
+<h4 id='after_bundle-amp-block' class='inside_page_header'><a href="#after_bundle-amp-block">2.15.</a> <code>after_bundle(&amp;block)</code></h4><p>Регистрирует колбэк, который будет выполняться после того, как гемы были упакованы и бинстабы сгенерированы. Полезно для добавления генерируемых файлов в систему контроля версий:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">after_bundle</span> <span class="k">do</span>
+  <span class="n">git</span> <span class="ss">:init</span>
+  <span class="n">git</span> <span class="ss">add: </span><span class="s1">'.'</span>
+  <span class="n">git</span> <span class="ss">commit: </span><span class="s2">"-a -m 'Initial commit'"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Колбэки выполняется, даже если был передан <code>--skip-bundle</code>.</p><h3 id='prodvinutoe-ispolzovanie' class='inside_page_header'><a href="#prodvinutoe-ispolzovanie">3.</a> Продвинутое использование</h3><p>Шаблон приложения вычисляется в контексте экземпляра <code>Rails::Generators::AppGenerator</code>. Используется экшн <a href="https://www.rubydoc.info/gems/thor/Thor/Actions#apply-instance_method"><code>apply</code></a>, предоставленный Thor.</p><p>Это означает, что вы можете расширить и изменить экземпляр в соответствии с вашими потребностями.</p><p>Например, переписать метод <code>source_paths</code>, чтобы он содержал место расположения шаблона. Сейчас методы, такие как <code>copy_file</code>, будут принимать относительные пути по отношению к месту расположения шаблону.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">source_paths</span>
+  <span class="p">[</span><span class="n">__dir__</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

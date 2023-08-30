@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Rails для начинающих" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Rails для начинающих" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/getting-started" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Rails для начинающих
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="xneJstdvAuEn/lxVPNDT/c9B8uiS54dCOUF/D3v5MUH85mLHHatkvTWxdLCstKgyG3suAQJSa+LzbLkGPI/d3g==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#dopuscheniya-v-etom-rukovodstve">1. Допущения в этом руководстве</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#chto-takoe-rails">2. Что такое Rails?</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#sozdanie-novogo-proekta-rails">3. Создание нового проекта Rails</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#ustanovka-rails">3.1. Установка Rails</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#ustanovka-ruby">3.1.1. Установка Ruby</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#ustanovka-sqlite3">3.1.2. Установка SQLite3</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#ustanovka-rails2">3.1.3. Установка Rails</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#sozdanie-prilozheniya-blog">3.2. Создание приложения Blog</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#hello-rails">4. Hello, Rails!</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#zapusk-veb-servera">4.1. Запуск веб-сервера</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#skazhite-privet-relsy">4.2. Скажите &quot;привет&quot;, Рельсы</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#nastroyka-domashney-stranitsy-prilozheniya">4.3. Настройка домашней страницы приложения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#avtomaticheskaya-zagruzka">5. Автоматическая загрузка</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#vy-i-mvc">6. Вы и MVC</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#generatsiya-modeli">6.1. Генерация модели</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#migratsii-bazy-dannyh">6.2. Миграции базы данных</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#using-a-model-to-interact-with-the-database">6.3.  Использование модели для взаимодействия с базой данных</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#otobrazhenie-spiska-statey">6.4. Отображение списка статей</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#ispolzuyte-crud-tam-gde-nuzhno-ispolzovat-crud">7. Используйте CRUD там, где нужно использовать CRUD</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#otobrazhenie-otdelnoy-stati">7.1. Отображение отдельной статьи</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#resursnyy-routing">7.2. Ресурсный роутинг</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#sozdanie-novoy-stati">7.3. Создание новой статьи</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#ispolzovanie-postroitelya-form">7.3.1. Использование построителя форм</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#ispolzovanie-strong-parameters">7.3.2. Использование Strong Parameters</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#validatsii-i-otobrazhenie-soobscheniy-ob-oshibke">7.3.3. Валидации и отображение сообщений об ошибке</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#zavershaem-nachatoe">7.3.4. Завершаем начатое</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#obnovlenie-stati">7.4. Обновление статьи</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-partialov-dlya-sovmestnogo-ispolzovaniya-koda-vyu">7.5. Использование партиалов для совместного использования кода вью</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#zavershaem-nachatoe2">7.5.1. Завершаем начатое</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#udalenie-stati">7.6. Удаление статьи</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#dobavlyaem-vtoruyu-model">8. Добавляем вторую модель</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#generiruem-model">8.1. Генерируем модель</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#svyazyvaem-modeli">8.2. Связываем модели</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#dobavlyaem-marshrut-dlya-kommentariev">8.3. Добавляем маршрут для комментариев</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#generiruem-kontroller">8.4. Генерируем контроллер</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#refaktoring">9. Рефакторинг</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#rendering-kollektsiy-partialov">9.1. Рендеринг коллекций партиалов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#rendering-formy-v-partiale">9.2. Рендеринг формы в партиале</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-concerns">9.3. Использование Concerns</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#udalenie-kommentariev">10. Удаление комментариев</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udalenie-svyazannyh-ob-ektov">10.1. Удаление связанных объектов</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#bezopasnost">11. Безопасность</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#basic-authentication">11.1.  Базовая аутентификация</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#prochie-mysli-o-bezopasnosti">11.2. Прочие мысли о безопасности</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#chto-dalshe">12. Что дальше?</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#oshibki-konfiguratsii">13. Ошибки конфигурации</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='rails-dlya-nachinayuschih' class='inside_page_header'> Rails для начинающих</h2><p>Это руководство раскрывает установку и запуск Ruby on Rails.</p><p>После его прочтения, вы узнаете:</p><ul><li>Как установить Rails, создать новое приложение на Rails и присоединить ваше приложение к базе данных.
+</li><li>Общую структуру приложения на Rails.
+</li><li>Основные принципы MVC (Model, View, Controller - «Модель-представление-контроллер») и дизайна, основанного на RESTful.
+</li><li>Как быстро генерировать изначальный код приложения на Rails.
+</li></ul><h3 id='dopuscheniya-v-etom-rukovodstve' class='inside_page_header'><a href="#dopuscheniya-v-etom-rukovodstve">1.</a> Допущения в этом руководстве</h3><p>Это руководство рассчитано на новичков, которые хотят создать приложение на Rails с нуля. Оно не предполагает, что вы раньше работали с Rails.</p><p>Rails – фреймворк для веб-разработки, написанный на языке программирования Ruby. Если у вас нет опыта в Ruby, возможно вам будет тяжело сразу приступить к изучению Rails. Есть несколько хороших англоязычных ресурсов, посвященных изучению Ruby, например:</p><ul><li><a href="https://www.ruby-lang.org/en/documentation/">Официальный сайт языка программирования Ruby</a>
+</li><li><a href="https://github.com/EbookFoundation/free-programming-books/blob/master/books/free-programming-books-ru.md#ruby">Список бесплатных книг по программированию</a>
+</li></ul><p>Обращайте внимание, что некоторые источники, хотя все еще великолепные, но все же покрывают старые версии Ruby, и могут не включать некоторые элементы синтаксиса, которые вы увидите в повседневной разработке на Rails.</p><h3 id='chto-takoe-rails' class='inside_page_header'><a href="#chto-takoe-rails">2.</a> Что такое Rails?</h3><p>Rails - фреймворк для веб-разработки, написанный на языке программирования Ruby. Он разработан, чтобы сделать программирование веб-приложений проще, так как использует ряд допущений о том, что нужно каждому разработчику для создания нового проекта. Он позволяет вам писать меньше кода в процессе программирования, в сравнении с другими языками и фреймворками. Профессиональные разработчики на Rails также отмечают, что с ним разработка веб-приложений более забавна =)</p><p>Rails - своевольный программный продукт. Он делает предположение, что имеется &quot;лучший&quot; способ что-то сделать, и он так разработан, что стимулирует этот способ - а в некоторых случаях даже препятствует альтернативам. Если изучите &quot;The Rails Way&quot;, то, возможно, откроете в себе значительное увеличение производительности. Если будете упорствовать и переносить старые привычки с других языков в разработку на Rails, и попытаетесь использовать шаблоны, изученные где-то еще, ваш опыт разработки будет менее счастливым.</p><p>Философия Rails включает два важных ведущих принципа:</p><ul><li><strong>Don&#39;t Repeat Yourself:</strong> DRY — это принцип разработки ПО, который гласит, что &quot;Каждый кусочек информации должен иметь единственное, неизбыточное, авторитетное представление в системе&quot;. Не пишите одну и ту же информацию снова и снова, код будет легче поддерживать, и он будет более расширяемым и менее ошибочным.
+</li><li><strong>Convention Over Configuration:</strong> у Rails есть мнения о наилучших способах делать множество вещей в веб-приложении, и по умолчанию выставлены эти соглашения, вместо того, чтобы заставлять вас по мелочам править многочисленные конфигурационные файлы.
+</li></ul><h3 id='sozdanie-novogo-proekta-rails' class='inside_page_header'><a href="#sozdanie-novogo-proekta-rails">3.</a> Создание нового проекта Rails</h3><p>Лучший способ использования этого руководства - проходить его шаг за шагом. Все шаги существенны для запуска служащего примером приложения, кроме них больше не требуется какого-либо дополнительного кода или шагов.</p><p>Следуя этому руководству, вы создадите проект Rails с названием <code>blog</code>, очень простой веб-блог. Прежде чем начнем создавать приложение, нужно убедиться, что сам Rails установлен.</p><div class="note"><p>Нижеследующие примеры используют <code>$</code> для обозначения строки ввода терминала в UNIX-подобных операционных системах, хотя он может быть настроен по-другому. Если используется Windows, строка будет выглядеть наподобие <code>C:\source_code&gt;</code></p></div><h4 id='ustanovka-rails' class='inside_page_header'><a href="#ustanovka-rails">3.1.</a> Установка Rails</h4><p>Перед установкой Rails необходимо проверить, чтобы в вашей системе были установлены необходимые предварительные зависимости. К ним относятся:</p><ul><li>Ruby
+</li><li>SQLite3
+</li></ul><h5 id='ustanovka-ruby' class='inside_page_header'><a href="#ustanovka-ruby">3.1.1.</a> Установка Ruby</h5><p>Откройте приложения для командной строки. На macOS откройте Terminal.app; на Windows выберите &quot;Run&quot; в меню Start и напишите <code>cmd.exe</code>. Любые команды, начинающиеся со знака доллара <code>$</code> должны быть запущены в командной строке. Убедитесь, что у вас установлена текущая версия Ruby:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">ruby</span> <span class="nt">--version</span>
+<span class="go">ruby 2.7.0
+</span></code></pre>
+</div>
+<p>Rails требует, чтобы был установлен Ruby версии 2.7.0 или новее. Предпочтительно использовать последнюю версию Ruby. Если номер версии меньше этой (такие как 2.3.7 или 1.8.7), нужно будет установить новую копию Ruby.</p><p>Чтобы установить Ruby на Windows, сначала нужно установить <a href="https://rubyinstaller.org">Ruby Installer</a>.</p><p>Дополнительные методы установки для большинства операционных систем можно увидеть на <a href="https://www.ruby-lang.org/en/documentation/installation/">ruby-lang.org</a>.</p><h5 id='ustanovka-sqlite3' class='inside_page_header'><a href="#ustanovka-sqlite3">3.1.2.</a> Установка SQLite3</h5><p>Вам также понадобится установка базы данных SQLite3.</p><p>Многие популярные UNIX-подобные ОС поставляются с приемлемой версией SQLite3. Прочие пользователи могут обратиться к инструкциям по установке на <a href="https://www.sqlite.org">сайте SQLite3</a>.</p><p>Проверьте, что он правильно установлен и содержится в вашем <code>PATH</code> загрузки:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">sqlite3</span> <span class="nt">--version</span>
+</code></pre>
+</div>
+<p>Программа должна сообщить свою версию.</p><h5 id='ustanovka-rails2' class='inside_page_header'><a href="#ustanovka-rails2">3.1.3.</a> Установка Rails</h5><p>Для установки Rails используйте команду <code>gem install</code>, представленную RubyGems:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">gem install rails</span>
+</code></pre>
+</div>
+<p>Чтобы проверить, что все установлено верно, нужно выполнить следующее в новом терминале:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails</span> <span class="nt">--version</span>
+</code></pre>
+</div>
+<p>Если выводится что-то вроде &quot;Rails 7.0.0&quot;, можно продолжать.</p><h4 id='sozdanie-prilozheniya-blog' class='inside_page_header'><a href="#sozdanie-prilozheniya-blog">3.2.</a> Создание приложения Blog</h4><p>Rails поставляется с рядом скриптов, названных генераторами, разработанных для облегчения жизни разработчика, создавая все, что необходимо для начала работы над определенной задачей. Одним из них является генератор нового приложения, предоставляющий вам основу приложения Rails, таким образом, вам не нужно писать его самим.</p><p>Для использования этого генератора, откройте терминал, войдите в папку, в которой у вас есть права на создание файлов и запустите:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new blog
+</code></pre>
+</div>
+<p>Это создаст приложение на Rails с именем Blog в директории <code>blog</code> и установит гемы, зависимости от которых упомянуты в <code>Gemfile</code> при использовании <code>bundle install</code>.</p><div class="info"><p>Можно посмотреть все возможные опции командной строки, которые принимает генератор приложения на Rails, запустив <code>rails new --help</code>.</p></div><p>После того, как вы создали приложение blog, перейдите в его папку:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>blog
+</code></pre>
+</div>
+<p>В директории <code>blog</code> будет несколько автоматически сгенерированных файлов и папок, задающих структуру приложения на Rails. Большая часть работы в этом самоучителе будет происходить в папке <code>app</code>, но сейчас пробежимся по функциям каждой папки, которые создает Rails в новом приложении по умолчанию:</p><table class='table table-striped'><tr>
+<th>Файл/Папка</th>
+<th>Назначение</th>
+</tr>
+<tr>
+<td>app/</td>
+<td>Содержит контроллеры, модели, вью, хелперы, рассыльщики, каналы, задания и ассеты вашего приложения. Мы рассмотрим эту папку подробнее далее.</td>
+</tr>
+<tr>
+<td>bin/</td>
+<td>Содержит скрипты <code>rails</code>, которые стартуют ваше приложение, также директория может содержать другие скрипты которые вы используете для настройки, обновления, деплоя или запуска.</td>
+</tr>
+<tr>
+<td>config/</td>
+<td>Содержит конфигурации маршрутов, базы данных вашего приложения, и т.д. Более подробно это раскрыто в <a href="/configuring">Конфигурирование приложений на Rails</a></td>
+</tr>
+<tr>
+<td>config.ru</td>
+<td>Конфигурация Rack для серверов, основанных на Rack, используемых для запуска приложения. Подробнее о Rack смотрите на <a href="https://rack.github.io/">сайте Rack</a>.</td>
+</tr>
+<tr>
+<td>db/</td>
+<td>Содержит текущую схему вашей базы данных, а также миграции базы данных.</td>
+</tr>
+<tr>
+<td>Gemfile<br>Gemfile.lock</td>
+<td>Эти файлы позволяют указать, какие зависимости от гемов нужны для вашего приложения на Rails. Эти файлы используются гемом Bundler. Подробнее о Bundler смотрите на <a href="https://bundler.io">сайте Bundler</a>.</td>
+</tr>
+<tr>
+<td>lib/</td>
+<td>Внешние модули для вашего приложения.</td>
+</tr>
+<tr>
+<td>log/</td>
+<td>Файлы логов приложения.</td>
+</tr>
+<tr>
+<td>public/</td>
+<td>Содержит статичные файлы и скомпилированные ассеты. Когда ваше приложение запущено, эта директория будет представлена как есть.</td>
+</tr>
+<tr>
+<td>Rakefile</td>
+<td>Этот файл находит и загружает задачи, которые могут быть запущены в командной строке. Определенная задача доступна во всех компонентах Rails. Вместо изменения <code>Rakefile</code>, можно добавить свои собственные задачи, добавив файлы в директорию <code>lib/tasks</code> приложения.</td>
+</tr>
+<tr>
+<td>README.md</td>
+<td>Это вводный мануал для вашего приложения. Его следует отредактировать, чтобы рассказать остальным, что ваше приложение делает, как его настроить, и т.п.</td>
+</tr>
+<tr>
+<td>storage/</td>
+<td>Файлы Active Storage для сервиса Disk. Это раскрывается в руководстве <a href="/active_storage_overview">Обзор Active Storage</a>.</td>
+</tr>
+<tr>
+<td>test/</td>
+<td>Юнит-тесты, фикстуры и прочий аппарат тестирования. Это раскрывается в руководстве <a href="/testing">Тестирование приложений на Rails</a></td>
+</tr>
+<tr>
+<td>tmp/</td>
+<td>Временные файлы (такие как файлы кэша и pid)</td>
+</tr>
+<tr>
+<td>vendor/</td>
+<td>Место для кода сторонних разработчиков. В типичном приложении на Rails включает внешние гемы.</td>
+</tr>
+<tr>
+<td>.gitattributes</td>
+<td>Этот файл определяет метаданные для определенных путей в репозитории git. Эти метаданные могут быть использованы git и другими инструментами для улучшения их поведения. Подробности смотрите в <a href="https://git-scm.com/docs/gitattributes">документации gitattributes</a>.</td>
+</tr>
+<tr>
+<td>.gitignore</td>
+<td>Этот файл сообщает git, какие файлы (явно или по шаблону) ему следует игнорировать. Подробнее об игнорировании файлов смотрите <a href="https://help.github.com/articles/ignoring-files">GitHub - Ignoring files</a>.</td>
+</tr>
+<tr>
+<td>.ruby-version</td>
+<td>Этот файл содержит дефолтную версию Ruby.</td>
+</tr>
+</table><h3 id='hello-rails' class='inside_page_header'><a href="#hello-rails">4.</a> Hello, Rails!</h3><p>Для начала, давайте выведем на экран какой-либо текст. Для этого нужен запущенный сервер вашего приложения на Rails.</p><h4 id='zapusk-veb-servera' class='inside_page_header'><a href="#zapusk-veb-servera">4.1.</a> Запуск веб-сервера</h4><p>Фактически у вас уже есть функциональное приложение на Rails. Чтобы убедиться, нужно запустить веб-сервер на вашей машине. Это можно осуществить, запустив следующую команду из директории <code>blog</code>:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>server
+</code></pre>
+</div>
+<div class="info"><p>Если вы используете Windows, вы должны передавать скрипты из папки <code>bin</code> непосредственно в интерпретатор Ruby, то есть <code>ruby bin\rails server</code>.</p></div><div class="info"><p>Сжатие ассетов JavaScript требует среды выполнения JavaScript в вашей системе, и его отсутствие приведет к ошибке <code>execjs</code> во время сжатия ассетов. Обычно macOS и Windows поставляются с установленной средой выполнения JavaScript. <code>therubyrhino</code> - рекомендованная среда выполнения для пользователей JRuby, она добавляется в <code>Gemfile</code>, если приложение генерируется под JRuby. Можно узнать все о поддерживаемых средах выполнения в <a href="https://github.com/rails/execjs#readme">ExecJS</a></p></div><p>Это запустит Puma, веб-сервер, распространяющийся с Rails по умолчанию. Чтобы увидеть приложение в действии, откройте окно браузера и пройдите по адресу <a href="http://localhost:3000">http://localhost:3000</a>. Вы должны увидеть дефолтную информационную страницу Rails:</p><p><img src='/assets/getting_started/rails_welcome-dd5ba773668cd935f855589abcbf44d793c24bcf3072e289ff3f6d4400fd3af9.png' title='' alt='скриншот стартовой страницы Rails' class='img-polaroid' /></p><p>Когда захотите остановить веб-сервер, нажмите Ctrl+C в терминале, где он запущен. В среде development, Rails в основном не требует остановки сервера; все изменения, которые Вы делаете в файлах, автоматически подхватываются сервером.</p><p>Стартовая страница Rails это <em>smoke test</em> для нового приложения на Rails: она показывает, что ваши программы настроены достаточно правильно для отображения страницы.</p><h4 id='skazhite-privet-relsy' class='inside_page_header'><a href="#skazhite-privet-relsy">4.2.</a> Скажите &quot;привет&quot;, Рельсы</h4><p>Чтобы Rails сказал &quot;Привет&quot;, нужно создать, как минимум, <em>маршрут</em>, <em>контроллер</em> с <em>экшном</em> и <em>вью</em> (представление). Маршрут связывает запрос с экшном контроллера. Экшн контроллера выполняет необходимую работу для обработки запроса и подготавливает необходимые данные для вью. Вью отображает данные в желаемом формате.</p><p>В терминах реализации: Маршруты это правила, написанные на Ruby <a href="https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%B5%D0%B4%D0%BC%D0%B5%D1%82%D0%BD%D0%BE-%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9_%D1%8F%D0%B7%D1%8B%D0%BA">DSL (предметно-ориентированном языке)</a>. Контроллеры — это классы Ruby, и их публичные методы — это экшны. И вью — это шаблоны, обычно написанные на смеси HTML и Ruby.</p><p>Давайте начнем с добавления маршрута к нашему файлу маршрутов, <code>config/routes.rb</code>, в самом верху блока <code>Rails.application.routes.draw</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">get</span> <span class="s2">"/articles"</span><span class="p">,</span> <span class="ss">to: </span><span class="s2">"articles#index"</span>
+
+  <span class="c1"># О подробностях DSL, доступного в этом файле, написано в http://rusrails.ru/routing</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Вышеприведенный маршрут объявляет, что запросы <code>GET /articles</code> связываются с экшном <code>index</code> в <code>ArticlesController</code>.</p><p>Для создания <code>ArticlesController</code> и его экшна <code>index</code>, мы запустим генератор контроллера (с опцией <code>--skip-routes</code>, так как у нас уже есть подходящий маршрут):</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate controller Articles index <span class="nt">--skip-routes</span>
+</code></pre>
+</div>
+<p>Rails создаст несколько файлов.</p><div class="code_container">
+  <pre><code class="highlight plaintext">create  app/controllers/articles_controller.rb
+invoke  erb
+create    app/views/articles
+create    app/views/articles/index.html.erb
+invoke  test_unit
+create    test/controllers/articles_controller_test.rb
+invoke  helper
+create    app/helpers/articles_helper.rb
+invoke    test_unit
+</code></pre>
+</div>
+<p>Наиболее важным из них является файл контроллера, <code>app/controllers/articles_controller.rb</code>. Давайте посмотрим на него:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ArticlesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Экшн <code>index</code> пустой. Когда экшн не рендерит явно вью (или иным способом создает отклик HTTP), Rails автоматически отрендерит вью, соответствующую имени контроллера и экшну. Convention Over Configuration! Вью располагаются в директории <code>app/views</code>. Таким образом, экшн <code>index</code> по умолчанию отрендерит <code>app/views/articles/index.html.erb</code>.</p><p>Давайте откроем файл <code>app/views/articles/index.html.erb</code> и заменим его содержимое на:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;h1&gt;</span>Hello, Rails!<span class="nt">&lt;/h1&gt;</span>
+</code></pre>
+</div>
+<p>Если до этого вы остановили веб сервер для запуска генератора контроллера, перезапустите его с помощью <code>bin/rails server</code>. Теперь посетите <a href="http://localhost:3000/articles">http://localhost:3000/articles</a>, чтобы увидеть наш текст отображенным!</p><h4 id='nastroyka-domashney-stranitsy-prilozheniya' class='inside_page_header'><a href="#nastroyka-domashney-stranitsy-prilozheniya">4.3.</a> Настройка домашней страницы приложения</h4><p>В настоящий момент <a href="http://localhost:3000">http://localhost:3000</a> все еще отображает страницу с логотипом Ruby on Rails. Давайте также отобразим наш текст &quot;Hello, Rails!&quot; на <a href="http://localhost:3000">http://localhost:3000</a>. Для этого мы добавим маршрут, соответствующий <em>корневому пути</em> нашего приложения к соответствующему контроллеру и экшну.</p><p>Откройте <code>config/routes.rb</code> и добавьте следующий маршрут <code>root</code> вверху блока <code>Rails.application.routes.draw</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">root</span> <span class="s2">"articles#index"</span>
+
+  <span class="n">get</span> <span class="s2">"/articles"</span><span class="p">,</span> <span class="ss">to: </span><span class="s2">"articles#index"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь можно видеть наш текст &quot;Hello, Rails!&quot; при посещении <a href="http://localhost:3000">http://localhost:3000</a>, что подтверждает то, что маршрут <code>root</code> также связан с экшном <code>index</code> в <code>ArticlesController</code>.</p><div class="info"><p>Чтобы узнать больше о роутинге, обратитесь к руководству <a href="/routing">Роутинг в Rails</a>.</p></div><h3 id='avtomaticheskaya-zagruzka' class='inside_page_header'><a href="#avtomaticheskaya-zagruzka">5.</a> Автоматическая загрузка</h3><p>Приложения Rails <strong>не используют</strong> <code>require</code> для загрузки кода приложения.</p><p>Вы, возможно, заметили, что <code>ArticlesController</code> наследуется от <code>ApplicationController</code>, но <code>app/controllers/articles_controller.rb</code> не содержит чего-то наподобие</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="nb">require</span> <span class="s2">"application_controller"</span> <span class="c1"># НЕ ДЕЛАЙТЕ ТАК.</span>
+</code></pre>
+</div>
+<p>Классы и модули приложения доступны отовсюду, вам не нужно и <strong>не следует</strong> загружать что-то из <code>app</code> с помощью <code>require</code>. Эта особенность называется <em>автоматическая загрузка</em>, и о ней можно узнать подробнее в <a href="/autoloading-and-reloading-constants"><em>Автозагрузка и перезагрузка констант</em></a>.</p><p>Вызовы <code>require</code> нужны только в двух случаях:</p><ul><li>Чтобы загружать файлы из директории <code>lib</code>.
+</li><li>Чтобы загружать зависимости гемов, у которых <code>require: false</code> в <code>Gemfile</code>.
+</li></ul><h3 id='vy-i-mvc' class='inside_page_header'><a href="#vy-i-mvc">6.</a> Вы и MVC</h3><p>Только что мы обсудили маршруты, контроллеры, экшны и вью. Это все типичные части веб приложения, соответствующего паттерну <a href="https://ru.wikipedia.org/wiki/Model-View-Controller">MVC (Model-View-Controller)</a>. MVC это шаблон проектирования, разделяющий ответственности приложения для его упрощения. Rails по соглашению следует этому шаблону проектирования.</p><p>Поскольку у нас уже есть контроллер и вью, давайте сгенерируем следующую часть: модель.</p><h4 id='generatsiya-modeli' class='inside_page_header'><a href="#generatsiya-modeli">6.1.</a> Генерация модели</h4><p><em>Модель</em> это класс Ruby, используемый для представления данных. Кроме этого, модели могут взаимодействовать с базой данных приложения с помощью особенности Rails, называемой <em>Active Record</em>.</p><p>Для определения модели используем генератор модели:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate model Article title:string body:text
+</code></pre>
+</div>
+<div class="note"><p>Имена моделей в <strong>единственном числе</strong>, так как инициализированная модель представляет единственную запись данных. Чтобы запомнить это соглашение, думайте о том, как вы хотели вызвать конструктор модели: мы хотим писать <code>Article.new(...)</code>, <strong>а не</strong> <code>Articles.new(...)</code>.</p></div><p>Это создаст несколько файлов:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">invoke</span>  <span class="n">active_record</span>
+<span class="n">create</span>    <span class="n">db</span><span class="o">/</span><span class="n">migrate</span><span class="o">/&lt;</span><span class="n">timestamp</span><span class="o">&gt;</span><span class="n">_create_articles</span><span class="p">.</span><span class="nf">rb</span>
+<span class="n">create</span>    <span class="n">app</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">article</span><span class="p">.</span><span class="nf">rb</span>
+<span class="n">invoke</span>    <span class="n">test_unit</span>
+<span class="n">create</span>      <span class="nb">test</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">article_test</span><span class="p">.</span><span class="nf">rb</span>
+<span class="n">create</span>      <span class="nb">test</span><span class="o">/</span><span class="n">fixtures</span><span class="o">/</span><span class="n">articles</span><span class="p">.</span><span class="nf">yml</span>
+</code></pre>
+</div>
+<p>Два файла, на которых мы сфокусируемся, это файл миграции (<code>db/migrate/&lt;timestamp&gt;_create_articles.rb</code>) и файл модели (<code>app/models/article.rb</code>).</p><h4 id='migratsii-bazy-dannyh' class='inside_page_header'><a href="#migratsii-bazy-dannyh">6.2.</a> Миграции базы данных</h4><p><em>Миграции</em> используются для изменения структуры базы данных приложения. В приложениях Rails миграции написаны на Ruby, поэтому они могут быть не зависящими от базы данных.</p><p>Давайте посмотрим на содержимое нового файла миграции:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateArticles</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.0</span><span class="p">]</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">create_table</span> <span class="ss">:articles</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:title</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">text</span> <span class="ss">:body</span>
+
+      <span class="n">t</span><span class="p">.</span><span class="nf">timestamps</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Вызов <code>create_table</code> указывает, как должна быть сконструирована таблица <code>articles</code>. По умолчанию метод <code>create_table</code> добавляет столбец <code>id</code> в качестве автоматически увеличивающегося первичного ключа. Таким образом, у первой записи в таблице будет <code>id</code> 1, у следующей записи <code>id</code> 2, и так далее.</p><p>В блоке для <code>create_table</code> определены два столбца: <code>title</code> и <code>body</code>. Они были добавлены генератором, так как мы включили их в команду генерации (<code>bin/rails generate model Article title:string body:text</code>).</p><p>В последней строчке блока вызывается <code>t.timestamps</code>. Этот метод определяет два дополнительных столбца с именами <code>created_at</code> и <code>updated_at</code>. Как мы увидим, Rails позаботится о них, устанавливая значения при создании или обновлении объекта модели.</p><p>Давайте запустим нашу миграцию с помощью следующей команды:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>db:migrate
+</code></pre>
+</div>
+<p>Эта команда выведет, что таблица была создана:</p><div class="code_container">
+  <pre><code class="highlight plaintext">==  CreateArticles: migrating ===================================
+-- create_table(:articles)
+   -&gt; 0.0018s
+==  CreateArticles: migrated (0.0018s) ==========================
+</code></pre>
+</div>
+<div class="info"><p>Чтобы узнать больше о миграциях, смотрите <a href="/active-record-migrations">Миграции Active Record</a>.</p></div><p>Теперь мы можем взаимодействовать с этой таблицей с помощью нашей модели.</p><h4 id='using-a-model-to-interact-with-the-database' class='inside_page_header'><a href="#using-a-model-to-interact-with-the-database">6.3.</a>  Использование модели для взаимодействия с базой данных</h4><p>Чтобы поиграть немного с нашей моделью, мы собираемся воспользоваться особенностью Rails, называемой <em>консоль</em>. Консоль это интерактивная среда программирования, похожая на <code>irb</code>, но автоматически загружающая Rails и код нашего приложения.</p><p>Давайте запустим консоль с помощью команды:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>console
+</code></pre>
+</div>
+<p>Вы должны увидеть интерфейс <code>irb</code> наподобие:</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="go">Loading development environment (Rails 7.0.0)
+</span><span class="gp">irb(main):001:0&gt;</span><span class="w">
+</span></code></pre>
+</div>
+<p>В этом интерфейсе можно инициализировать новый объект <code>Article</code>:</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">title: </span><span class="s2">"Hello Rails"</span><span class="p">,</span> <span class="ss">body: </span><span class="s2">"I am on Rails!"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Важно отметить, что мы только <em>инициализировали</em> этот объект. Этот объект вообще не сохранен в базе данных. В настоящий момент он доступен только в консоли. Чтобы сохранить его в базу данных, нужно вызвать <a href="https://api.rubyonrails.org/classes/ActiveRecord/Persistence.html#method-i-save"><code>save</code></a>:</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">article</span><span class="p">.</span><span class="nf">save</span>
+<span class="go">(0.1ms)  begin transaction
+Article Create (0.4ms)  INSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Hello Rails"], ["body", "I am on Rails!"], ["created_at", "2020-01-18 23:47:30.734416"], ["updated_at", "2020-01-18 23:47:30.734416"]]
+(0.9ms)  commit transaction
+</span><span class="p">=&gt;</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<p>Вышеуказанный вывод показывает запрос базы данных <code>INSERT INTO &quot;articles&quot; ...</code>. Это показывает, что статья была вставлена в нашу таблицу. И если мы снова взглянем на объект <code>article</code>, то увидим, что произошло нечто интересное:</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">article</span>
+<span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">Article</span> <span class="ss">id: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">title: </span><span class="s2">"Hello Rails"</span><span class="p">,</span> <span class="ss">body: </span><span class="s2">"I am on Rails!"</span><span class="p">,</span> <span class="ss">created_at: </span><span class="s2">"2020-01-18 23:47:30"</span><span class="p">,</span> <span class="ss">updated_at: </span><span class="s2">"2020-01-18 23:47:30"</span><span class="kt">&gt;</span>
+</code></pre>
+</div>
+<p>Теперь у объекта установлены атрибуты <code>id</code>, <code>created_at</code> и <code>updated_at</code>. Rails сделал это, когда мы сохранили объект.</p><p>Когда мы хотим извлечь эту статью из базы данных, можно вызвать <a href="https://api.rubyonrails.org/classes/ActiveRecord/FinderMethods.html#method-i-find"><code>find</code></a> на модели и передать <code>id</code> в качестве аргумента:</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">Article</span> <span class="ss">id: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">title: </span><span class="s2">"Hello Rails"</span><span class="p">,</span> <span class="ss">body: </span><span class="s2">"I am on Rails!"</span><span class="p">,</span> <span class="ss">created_at: </span><span class="s2">"2020-01-18 23:47:30"</span><span class="p">,</span> <span class="ss">updated_at: </span><span class="s2">"2020-01-18 23:47:30"</span><span class="kt">&gt;</span>
+</code></pre>
+</div>
+<p>И когда мы хотим извлечь все статьи из базы данных, можно вызвать <a href="https://api.rubyonrails.org/classes/ActiveRecord/Scoping/Named/ClassMethods.html#method-i-all"><code>all</code></a> на модели:</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Article</span><span class="p">.</span><span class="nf">all</span>
+<span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Relation</span> <span class="p">[</span><span class="kt">#&lt;</span><span class="no">Article</span> <span class="ss">id: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">title: </span><span class="s2">"Hello Rails"</span><span class="p">,</span> <span class="ss">body: </span><span class="s2">"I am on Rails!"</span><span class="p">,</span> <span class="ss">created_at: </span><span class="s2">"2020-01-18 23:47:30"</span><span class="p">,</span> <span class="ss">updated_at: </span><span class="s2">"2020-01-18 23:47:30"</span><span class="kt">&gt;</span><span class="p">]</span><span class="kt">&gt;</span>
+</code></pre>
+</div>
+<p>Этот метод возвращает объект <a href="https://api.rubyonrails.org/classes/ActiveRecord/Relation.html"><code>ActiveRecord::Relation</code></a>, о котором можно думать, как о массиве с особыми способностями.</p><div class="info"><p>Чтобы узнать больше о моделях, смотрите <a href="/active-record-basics">Основы Active Record</a> и <a href="/active-record-querying">Интерфейс запросов Active Record</a>.</p></div><p>Модели это последний кусочек пазла MVC. Далее мы соединим все кусочки вместе.</p><h4 id='otobrazhenie-spiska-statey' class='inside_page_header'><a href="#otobrazhenie-spiska-statey">6.4.</a> Отображение списка статей</h4><p>Давайте вернемся к нашему контроллеру в <code>app/controllers/articles_controller.rb</code> и изменим экшн <code>index</code>, чтобы он извлекал все статьи из базы данных:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ArticlesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@articles</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">all</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>К переменным экземпляра контроллера можно получить доступ из вью. Это означает, что мы можем ссылаться на <code>@articles</code> в <code>app/views/articles/index.html.erb</code>. Давайте откроем этот файл и заменим его содержимое на:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>Articles<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+  <span class="cp">&lt;%</span> <span class="vi">@articles</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">article</span><span class="o">|</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;li&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">article</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre>
+</div>
+<p>Вышеприведенный код это смесь HTML и <em>ERB</em>. ERB это система шаблонирования, которая вычисляет код Ruby, вложенный в документ. Тут мы видим два типа тегов ERB: <code>&lt;% %&gt;</code> и <code>&lt;%= %&gt;</code>. Тег <code>&lt;% %&gt;</code> означает &quot;вычислить заключенный код Ruby&quot;. Тег <code>&lt;%= %&gt;</code> означает &quot;вычислить заключенный код Ruby и вывести значение, которое он возвратит&quot;. Все, что можно написать в обычной программе на Ruby, можно вложить в эти теги ERB, хотя обычно лучше сохранять содержимое тегов ERB кратким, для читаемости.</p><p>Так как мы не хотим вывести значение, возвращаемое <code>@articles.each</code>, мы заключили этот код в <code>&lt;% %&gt;</code>. Но, поскольку мы <em>хотим</em> вывести значение, возвращаемое <code>article.title</code> (для каждой статьи), мы заключили этот код в <code>&lt;%= %&gt;</code>.</p><p>Окончательный результат можно увидеть, посетив <a href="http://localhost:3000">http://localhost:3000</a>. (Помните, что <code>bin/rails server</code> должен быть запущен!) Вот что произойдет при этом:</p><ul><li>Браузер сделает запрос: <code>GET http://localhost:3000</code>.
+</li><li>Наше приложение Rails получит этот запрос.
+</li><li>Роутер Rails свяжет корневой маршрут с экшном <code>index</code> в <code>ArticlesController</code>.
+</li><li>Экшн <code>index</code> использует модель <code>Article</code> для извлечения всех статей из базы данных.
+</li><li>Rails автоматически отрендерит вью <code>app/views/articles/index.html.erb</code>.
+</li><li>Вычисляется код ERB во вью для вывода HTML.
+</li><li>Сервер отправит отклик, содержащий HTML, обратно браузеру.
+</li></ul><p>Мы соединили все кусочки MVC вместе, и теперь у нас есть наш первый экшн контроллера! Далее мы двинемся ко второму экшну.</p><h3 id='ispolzuyte-crud-tam-gde-nuzhno-ispolzovat-crud' class='inside_page_header'><a href="#ispolzuyte-crud-tam-gde-nuzhno-ispolzovat-crud">7.</a> Используйте CRUD там, где нужно использовать CRUD</h3><p>Почти все веб приложения используют операции <a href="https://ru.wikipedia.org/wiki/CRUD">CRUD (Create, Read, Update, and Delete)</a>. Можно обнаружить, что большая часть работы вашего приложения это CRUD. Rails знает об этом и предоставляет много особенностей для упрощения кода, осуществляющего CRUD.</p><p>Давайте исследуем эти возможности, добавив больше функционала в наше приложение.</p><h4 id='otobrazhenie-otdelnoy-stati' class='inside_page_header'><a href="#otobrazhenie-otdelnoy-stati">7.1.</a> Отображение отдельной статьи</h4><p>Сейчас у нас есть вью, отображающая все статьи в нашей базе данных. Давайте добавим новую вью, показывающую заголовок и содержимое отдельной статьи.</p><p>Начнем с добавления нового маршрута, направляющего на новый экшн контроллера (который затем тоже добавим). Откройте <code>config/routes.rb</code> и вставьте последний маршрут, показанный тут:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">root</span> <span class="s2">"articles#index"</span>
+
+  <span class="n">get</span> <span class="s2">"/articles"</span><span class="p">,</span> <span class="ss">to: </span><span class="s2">"articles#index"</span>
+  <span class="n">get</span> <span class="s2">"/articles/:id"</span><span class="p">,</span> <span class="ss">to: </span><span class="s2">"articles#show"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Новый маршрут является еще одним маршрутом <code>get</code>, но есть кое-что дополнительное в его пути: <code>:id</code>. Это означает <em>параметр</em> маршрута. Параметр маршрута захватывает сегмент пути запроса, и кладет это значение в хэш <code>params</code>, доступный в экшне контроллера. Например, при обработке запроса <code>GET http://localhost:3000/articles/1</code>, <code>1</code> будет захвачено как значение для <code>:id</code>, и будет доступно как <code>params[:id]</code> в экшне <code>show</code> в <code>ArticlesController</code>.</p><p>Теперь давайте добавим этот экшн <code>show</code>, ниже экшна <code>index</code> в <code>app/controllers/articles_controller.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ArticlesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@articles</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">all</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Экшн <code>show</code> вызывает <code>Article.find</code> (<a href="#using-a-model-to-interact-with-the-database">упомянутый ранее</a>) с ID, захваченным параметром маршрута. Возвращаемая статья хранится в переменной экземпляра <code>@article</code>, поэтому она доступна во вью. По умолчанию экшн <code>show</code> отрендерит <code>app/views/articles/show.html.erb</code>.</p><p>Давайте создадим <code>app/views/articles/show.html.erb</code> со следующим содержимым:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span><span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span><span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;p&gt;</span><span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">body</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+<p>Теперь можно увидеть статью при посещении <a href="http://localhost:3000/articles/1">http://localhost:3000/articles/1</a>!</p><p>В завершении, давайте добавим удобный способ перейти на страницу статьи. Мы свяжем заголовок каждой статьи в <code>app/views/articles/index.html.erb</code> с ее страницей:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>Articles<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+  <span class="cp">&lt;%</span> <span class="vi">@articles</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">article</span><span class="o">|</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;li&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/articles/</span><span class="cp">&lt;%=</span> <span class="n">article</span><span class="p">.</span><span class="nf">id</span> <span class="cp">%&gt;</span><span class="s">"</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">article</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre>
+</div>
+<h4 id='resursnyy-routing' class='inside_page_header'><a href="#resursnyy-routing">7.2.</a> Ресурсный роутинг</h4><p>К этому моменту мы раскрыли &quot;R&quot; (Read) из CRUD. Со временем мы раскроем &quot;C&quot; (Create), &quot;U&quot; (Update) и &quot;D&quot; (Delete). Как вы, возможно, догадались, мы сделаем это, добавив новые маршруты, экшны контроллера и вью. Всякий раз, когда у нас есть такая комбинация маршрутов, экшнов контроллера и вью, работающих вместе для выполнения операций CRUD на сущности, мы называем эту сущность <em>ресурсом</em>. Например, в нашем приложении, мы бы назвали статью ресурсом.</p><p>Rails предоставляет маршрутный метод <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Resources.html#method-i-resources"><code>resources</code></a>, который связывает все общепринятые маршруты для коллекции ресурсов, таких как статьи. Поэтому, до того, как мы перейдем к разделам &quot;C&quot;, &quot;U&quot; и &quot;D&quot;, давайте заменим два маршрута <code>get</code> в <code>config/routes.rb</code> на <code>resources</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">root</span> <span class="s2">"articles#index"</span>
+
+  <span class="n">resources</span> <span class="ss">:articles</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Можно посмотреть, какие маршруты связаны, запустив команду <code>bin/rails routes</code>:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>routes
+<span class="gp">      Prefix Verb   URI Pattern                  Controller#</span>Action
+<span class="gp">        root GET    /                            articles#</span>index
+<span class="gp">    articles GET    /articles(.:format)          articles#</span>index
+<span class="gp"> new_article GET    /articles/new(.:format)      articles#</span>new
+<span class="gp">     article GET    /articles/:id(.:format)      articles#</span>show
+<span class="gp">             POST   /articles(.:format)          articles#</span>create
+<span class="gp">edit_article GET    /articles/:id/edit(.:format) articles#</span>edit
+<span class="gp">             PATCH  /articles/:id(.:format)      articles#</span>update
+<span class="gp">             DELETE /articles/:id(.:format)      articles#</span>destroy
+</code></pre>
+</div>
+<p>Метод <code>resources</code> также настраивает вспомогательные методы URL и путей, которые можно использовать для предотвращения зависимостей нашего кода от настроек определенного маршрута. Значения выше в столбце &quot;Prefix&quot; плюс суффикс <code>_url</code> или <code>_path</code> формируют имена этих хелперов. Например, хелпер <code>article_path</code> возвращает <code>&quot;/articles/#{article.id}&quot;</code> для заданной статьи. Его можно использовать для приведения в порядок наших ссылок в <code>app/views/articles/index.html.erb</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>Articles<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+  <span class="cp">&lt;%</span> <span class="vi">@articles</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">article</span><span class="o">|</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;li&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="cp">&lt;%=</span> <span class="n">article_path</span><span class="p">(</span><span class="n">article</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="s">"</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">article</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre>
+</div>
+<p>Однако, мы сделаем еще один шаг вперед и используем хелпер <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-link_to"><code>link_to</code></a>. Хелпер <code>link_to</code> создает ссылку с первым аргументом в качестве текста ссылки и вторым аргументом в качестве адреса ссылки. Если мы передадим объект модели как второй аргумент, <code>link_to</code> вызовет подходящий хелпер пути для преобразования объекта в путь. Например, если мы передадим статью, <code>link_to</code> вызовет <code>article_path</code>. Таким образом, <code>app/views/articles/index.html.erb</code> станет:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>Articles<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+  <span class="cp">&lt;%</span> <span class="vi">@articles</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">article</span><span class="o">|</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;li&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="n">article</span><span class="p">.</span><span class="nf">title</span><span class="p">,</span> <span class="n">article</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre>
+</div>
+<p>Отлично!</p><div class="info"><p>Подробнее о роутинге смотрите <a href="/routing">Роутинг в Rails</a>.</p></div><h4 id='sozdanie-novoy-stati' class='inside_page_header'><a href="#sozdanie-novoy-stati">7.3.</a> Создание новой статьи</h4><p>Теперь мы подходим к &quot;C&quot; (Create) из CRUD. Обычно, в веб приложениях, создание нового ресурса это многошаговый процесс. Сначала пользователь запрашивает форму для заполнения. Затем пользователь отправляет форму. Если нет ошибок, то ресурс создается, и отображается некоторое подтверждение. Иначе, форма снова отображается с сообщениями об ошибке, и процесс повторяется.</p><p>В приложении Rails эти шаги традиционно обрабатываются экшнами контроллера <code>new</code> и <code>create</code>. Давайте добавим типичную реализацию этих экшнов в <code>app/controllers/articles_controller.rb</code>, ниже экшна <code>show</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ArticlesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@articles</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">all</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">new</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">new</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">title: </span><span class="s2">"..."</span><span class="p">,</span> <span class="ss">body: </span><span class="s2">"..."</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">save</span>
+      <span class="n">redirect_to</span> <span class="vi">@article</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="ss">:new</span><span class="p">,</span> <span class="ss">status: :unprocessable_entity</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Экшн <code>new</code> инициализирует новую статью, но не сохраняет ее. Эта статья будет использована во вью при построении формы. По умолчанию экшн <code>new</code> будет рендерить <code>app/views/articles/new.html.erb</code>, которую мы создадим далее.</p><p>Экшн <code>create</code> инициализирует новую статью со значениями для заголовка и содержимого и пытается сохранить ее. Если статью успешно сохранена, экшн перенаправляет браузер на страницу статьи <code>&quot;http://localhost:3000/articles/#{@article.id}&quot;</code>. Иначе экшн отображает форму заново, отрендерив <code>app/views/articles/new.html.erb</code> с кодом статуса <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422">422 Unprocessable Entity</a>. Тут title и body фиктивные значения. После того, как мы создадим форму, мы вернемся и изменим их.</p><div class="note"><p><a href="https://api.rubyonrails.org/classes/ActionController/Redirecting.html#method-i-redirect_to"><code>redirect_to</code></a> приведет к тому, что браузер сделает новый запрос, в то время как <a href="https://api.rubyonrails.org/classes/AbstractController/Rendering.html#method-i-render"><code>render</code></a> отрендерит указанную вью для текущего запроса. Важно использовать <code>redirect_to</code> после изменения базы данных или состояния приложения. В противном случае, если пользователь обновит страницу, браузер осуществит тот же самый запрос, и изменение будет повторено.</p></div><h5 id='ispolzovanie-postroitelya-form' class='inside_page_header'><a href="#ispolzovanie-postroitelya-form">7.3.1.</a> Использование построителя форм</h5><p>Мы будем использовать особенность Rails, называемую <em>form builder</em>, для создания нашей формы. Используя построитель форм, можно, используя минимальное количество кода, вывести полностью настроенную форму, следующую соглашениям Rails.</p><p>Давайте создадим <code>app/views/articles/new.html.erb</code> со следующим содержимым:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>New Article<span class="nt">&lt;/h1&gt;</span>
+
+<span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@article</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:title</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:title</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:body</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_area</span> <span class="ss">:body</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">submit</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Вспомогательный метод <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_with"><code>form_with</code></a> инициализирует построитель форм. В блоке <code>form_with</code> мы вызываем на построителе форм методы, такие как <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-label"><code>label</code></a> и <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-text_field"><code>text_field</code></a> для вывода подходящих элементов формы.</p><p>Результирующий вывод от вызова <code>form_with</code> будет выглядеть так:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"/articles"</span> <span class="na">accept-charset=</span><span class="s">"UTF-8"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"authenticity_token"</span> <span class="na">value=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"article_title"</span><span class="nt">&gt;</span>Title<span class="nt">&lt;/label&gt;&lt;br&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"article[title]"</span> <span class="na">id=</span><span class="s">"article_title"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"article_body"</span><span class="nt">&gt;</span>Body<span class="nt">&lt;/label&gt;&lt;br&gt;</span>
+    <span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">"article[body]"</span> <span class="na">id=</span><span class="s">"article_body"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">name=</span><span class="s">"commit"</span> <span class="na">value=</span><span class="s">"Create Article"</span> <span class="na">data-disable-with=</span><span class="s">"Create Article"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre>
+</div>
+<div class="info"><p>Чтобы подробнее узнать о построителях форм, смотрите <a href="/form-helpers">Хелперы форм в Action View</a>.</p></div><h5 id='ispolzovanie-strong-parameters' class='inside_page_header'><a href="#ispolzovanie-strong-parameters">7.3.2.</a> Использование Strong Parameters</h5><p>Отправленные данные формы вкладываются в хэш <code>params</code>, вместе с захваченными параметрами маршрута. Таким образом, экшн <code>create</code> имеет доступ к отправленному заголовку как <code>params[:article][:title]</code> и к отправленному содержимому как <code>params[:article][:body]</code>. Эти значения можно передать в <code>Article.new</code> отдельно, но это может быть некрасиво и подвержено ошибкам. И это будет еще хуже, когда мы добавим больше полей.</p><p>Вместо этого, мы передадим единственный хэш, содержащий значения. Однако, мы все еще должны указать, какие значения допустимы в этом хэше. В противном случае, злоумышленник потенциально может отправить дополнительные поля формы и перезаписать конфиденциальные данные. Фактически, если мы передадим нефильтрованный хэш <code>params[:article]</code> непосредственно в <code>Article.new</code>, Rails вызовет <code>ForbiddenAttributesError</code>, чтобы предупредить нас о проблеме. Таким образом, мы будем использовать особенность Rails, названную <em>Strong Parameters</em>, для фильтрации <code>params</code>. Представьте это как <a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%B8_%D1%81%D0%BB%D0%B0%D0%B1%D0%B0%D1%8F_%D1%82%D0%B8%D0%BF%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">сильную типизацию</a> для <code>params</code>.</p><p>Давайте добавим приватный метод внизу <code>app/controllers/articles_controller.rb</code>, названный <code>article_params</code>, фильтрующий <code>params</code>. И давайте изменим <code>create</code>, чтобы использовать его:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ArticlesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@articles</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">all</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">new</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">new</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">article_params</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">save</span>
+      <span class="n">redirect_to</span> <span class="vi">@article</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="ss">:new</span><span class="p">,</span> <span class="ss">status: :unprocessable_entity</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">article_params</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:article</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:body</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="info"><p>Чтобы подробнее узнать о Strong Parameters, смотрите <a href="/action-controller-overview#strong-parameters">Обзор Action Controller § Strong Parameters</a>.</p></div><h5 id='validatsii-i-otobrazhenie-soobscheniy-ob-oshibke' class='inside_page_header'><a href="#validatsii-i-otobrazhenie-soobscheniy-ob-oshibke">7.3.3.</a> Валидации и отображение сообщений об ошибке</h5><p>Как мы видели, создание ресурса это многоступенчатый процесс. Обработка неправильного пользовательского ввода это еще один шаг этого процесса. Rails предоставляет особенность <em>валидации</em>, чтобы помочь нам разобраться с неправильным пользовательским вводом. Валидации это правила, проверяемые до сохранения объекта модели. Если любая из проверок провалится, сохранение будет прервано, и соответствующие сообщения об ошибке будут добавлены в атрибут <code>errors</code> у объекта модели.</p><p>Давайте добавим некоторые валидации в нашу модель в <code>app/models/article.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Article</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+  <span class="n">validates</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">10</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Первая валидация объявляет, что должно присутствовать значение <code>title</code>. Так как <code>title</code> строка, это означает, что значение <code>title</code> должно содержать как минимум один не пробельный символ.</p><p>Вторая валидация объявляет, что значение <code>body</code> также должно присутствовать. Кроме этого, она объявляет, что длина значения <code>body</code> должно быть как минимум 10 символов.</p><div class="note"><p>Возможно, вам интересно, где определены атрибуты <code>title</code> и <code>body</code>. Active Record автоматически определяет атрибуты модели для каждого столбца таблицы, таким образом, не нужно объявлять эти атрибуты в файле модели.</p></div><p>С имеющимися валидациями, давайте изменим <code>app/views/articles/new.html.erb</code> для отображения любых сообщений об ошибке для <code>title</code> и <code>body</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>New Article<span class="nt">&lt;/h1&gt;</span>
+
+<span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@article</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:title</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:title</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">full_messages_for</span><span class="p">(</span><span class="ss">:title</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">message</span><span class="o">|</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;div&gt;</span><span class="cp">&lt;%=</span> <span class="n">message</span> <span class="cp">%&gt;</span><span class="nt">&lt;/div&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:body</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_area</span> <span class="ss">:body</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">full_messages_for</span><span class="p">(</span><span class="ss">:body</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">message</span><span class="o">|</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;div&gt;</span><span class="cp">&lt;%=</span> <span class="n">message</span> <span class="cp">%&gt;</span><span class="nt">&lt;/div&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">submit</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Метод <a href="https://api.rubyonrails.org/classes/ActiveModel/Errors.html#method-i-full_messages_for"><code>full_messages_for</code></a> возвращает массив дружелюбных сообщений об ошибке для определенного атрибута. Если для атрибута нет ошибок, этот массив будет пустым.</p><p>Чтобы понять, как это все работает, давайте снова взглянем на экшны <code>new</code> и <code>create</code> контроллера:</p><div class="code_container">
+  <pre><code class="highlight ruby">  <span class="k">def</span> <span class="nf">new</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">new</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">article_params</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">save</span>
+      <span class="n">redirect_to</span> <span class="vi">@article</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="ss">:new</span><span class="p">,</span> <span class="ss">status: :unprocessable_entity</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+</code></pre>
+</div>
+<p>При посещении <a href="http://localhost:3000/articles/new">http://localhost:3000/articles/new</a>, запрос <code>GET /articles/new</code> направляется на экшн <code>new</code>. Экшн <code>new</code> не пытается сохранить <code>@article</code>. Следовательно, валидации не проверяются, и сообщений об ошибке не будет.</p><p>При отправке формы, запрос <code>POST /articles</code> направляется на экшн <code>create</code>. Экшн <code>create</code> <em>пытается</em> сохранить <code>@article</code>. Следовательно, валидации <em>проверяются</em>. Если любая из валидаций падает, <code>@article</code> не будет сохранена, и <code>app/views/articles/new.html.erb</code> будет отрендерена с сообщением об ошибке.</p><div class="info"><p>Чтобы больше узнать о валидациях, обратитесь к <a href="/active-record-validations">Валидации Active Record</a>. Чтобы больше узнать о сообщениях об ошибке валидации, обратитесь к <a href="/active-record-validations#working-with-validation-errors">Валидации Active Record § Работаем с ошибками валидации</a>.</p></div><h5 id='zavershaem-nachatoe' class='inside_page_header'><a href="#zavershaem-nachatoe">7.3.4.</a> Завершаем начатое</h5><p>Теперь мы можем создать статью, посетив <a href="http://localhost:3000/articles/new">http://localhost:3000/articles/new</a>. Для завершения давайте добавим ссылку на эту страницу внизу <code>app/views/articles/index.html.erb</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>Articles<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+  <span class="cp">&lt;%</span> <span class="vi">@articles</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">article</span><span class="o">|</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;li&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="n">article</span><span class="p">.</span><span class="nf">title</span><span class="p">,</span> <span class="n">article</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+
+<span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"New Article"</span><span class="p">,</span> <span class="n">new_article_path</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<h4 id='obnovlenie-stati' class='inside_page_header'><a href="#obnovlenie-stati">7.4.</a> Обновление статьи</h4><p>Мы покрыли &quot;CR&quot; от CRUD. Теперь перейдем к &quot;U&quot; (Update). Обновление ресурса очень похоже на создание ресурса. Они оба многоступенчатые процессы. Во-первых, пользователь запрашивает форму для редактирования данных. Затем пользователь отправляет форму. Затем, если не было ошибок, ресурс обновляется. В противном случае, форма снова отображается с сообщениями об ошибке, и процесс повторяется.</p><p>По соглашениям, эти шаги обрабатываются экшнами <code>edit</code> и <code>update</code> контроллера. Давайте добавим типичную реализацию этих экшнов в <code>app/controllers/articles_controller.rb</code>, ниже экшна<code>create</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ArticlesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@articles</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">all</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">new</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">new</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">article_params</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">save</span>
+      <span class="n">redirect_to</span> <span class="vi">@article</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="ss">:new</span><span class="p">,</span> <span class="ss">status: :unprocessable_entity</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">edit</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">update</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="n">article_params</span><span class="p">)</span>
+      <span class="n">redirect_to</span> <span class="vi">@article</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="ss">:edit</span><span class="p">,</span> <span class="ss">status: :unprocessable_entity</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">article_params</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:article</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:body</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Обратите внимание, как похожи экшны <code>edit</code> и <code>update</code> на экшны <code>new</code> и <code>create</code>.</p><p>Экшн <code>edit</code> извлекает статью из базы данных и сохраняет ее в <code>@article</code>, таким образом ее можно использовать при построении формы. По умолчанию экшн <code>edit</code> отрендерит <code>app/views/articles/edit.html.erb</code>.</p><p>Экшн <code>update</code> (пере)извлекает статью из базы данных и пытается обновить ее с помощью отправленных данных формы, фильтрованных в <code>article_params</code>. Если ни одна валидация не упадет, и обновление будет успешным, этот экшн перенаправит браузер на страницу статьи. В противном случае, экшн повторно отобразит форму - с сообщениями об ошибке - отрендерив <code>app/views/articles/edit.html.erb</code>.</p><h4 id='ispolzovanie-partialov-dlya-sovmestnogo-ispolzovaniya-koda-vyu' class='inside_page_header'><a href="#ispolzovanie-partialov-dlya-sovmestnogo-ispolzovaniya-koda-vyu">7.5.</a> Использование партиалов для совместного использования кода вью</h4><p>Форма <code>edit</code> будет выглядеть такой же, как форма <code>new</code>. Даже код будет тем же, благодаря построителю форм Rails и ресурсному роутингу. Построитель форм автоматически настроит форму для осуществления подходящего типа запроса, основываясь на том, был ли объект модели ранее сохранен.</p><p>Так как код будет тем же самым, мы собираемся рефакторить его в совместную вью, называемую <em>партиал</em>. Давайте создадим <code>app/views/articles/_form.html.erb</code> со следующим содержимым:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="n">article</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:title</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:title</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%</span> <span class="n">article</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">full_messages_for</span><span class="p">(</span><span class="ss">:title</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">message</span><span class="o">|</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;div&gt;</span><span class="cp">&lt;%=</span> <span class="n">message</span> <span class="cp">%&gt;</span><span class="nt">&lt;/div&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:body</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_area</span> <span class="ss">:body</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%</span> <span class="n">article</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">full_messages_for</span><span class="p">(</span><span class="ss">:body</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">message</span><span class="o">|</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;div&gt;</span><span class="cp">&lt;%=</span> <span class="n">message</span> <span class="cp">%&gt;</span><span class="nt">&lt;/div&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">submit</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Вышеприведенный код тот же самый, что и форма в <code>app/views/articles/new.html.erb</code>, за исключением того, что все случаи <code>@article</code> заменены на <code>article</code>. Так как партиалы являются совместным кодом, хорошим тоном является не делать их зависимыми от определенных переменных экземпляра, установленных экшном контроллера. Вместо этого, мы передадим статью в партиал как локальную переменную.</p><p>Давайте обновим <code>app/views/articles/new.html.erb</code>, чтобы использовать этот партиал с помощью <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/RenderingHelper.html#method-i-render"><code>render</code></a>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>New Article<span class="nt">&lt;/h1&gt;</span>
+
+<span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s2">"form"</span><span class="p">,</span> <span class="ss">article: </span><span class="vi">@article</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<div class="note"><p>Имя файла партиала должно начинаться <strong>на</strong> подчеркивание, т.е. <code>_form.html.erb</code>. Но при рендеринге ссылаемся на него <strong>без</strong> подчеркивания, т.е. <code>render &quot;form&quot;</code>.</p></div><p>И теперь давайте создадим очень похожий <code>app/views/articles/edit.html.erb</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>Edit Article<span class="nt">&lt;/h1&gt;</span>
+
+<span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s2">"form"</span><span class="p">,</span> <span class="ss">article: </span><span class="vi">@article</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<div class="info"><p>Чтобы подробнее узнать о партиалах, обратитесь к <a href="/layouts-and-rendering#using-partials">Макеты и рендеринг в Rails § Использование партиалов</a>.</p></div><h5 id='zavershaem-nachatoe2' class='inside_page_header'><a href="#zavershaem-nachatoe2">7.5.1.</a> Завершаем начатое</h5><p>Теперь мы можем обновлять статью, посетив страницу ее редактирования, т.е. <a href="http://localhost:3000/articles/1/edit">http://localhost:3000/articles/1/edit</a>. Для завершения, давайте добавим ссылку на страницу редактирования внизу <code>app/views/articles/show.html.erb</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span><span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span><span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;p&gt;</span><span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">body</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Edit"</span><span class="p">,</span> <span class="n">edit_article_path</span><span class="p">(</span><span class="vi">@article</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre>
+</div>
+<h4 id='udalenie-stati' class='inside_page_header'><a href="#udalenie-stati">7.6.</a> Удаление статьи</h4><p>Наконец, мы добрались до &quot;D&quot; (Delete) из CRUD. Удаление ресурса это более простой процесс, чем создание или обновление. Он требует только маршрут и экшн контроллера. И наш ресурсный роутинг (<code>resources :articles</code>) уже предоставляет этот маршрут, связывающий запросы <code>DELETE /articles/:id</code> с экшном <code>destroy</code> в <code>ArticlesController</code>.</p><p>Итак, давайте добавим типичный экшн <code>destroy</code> в <code>app/controllers/articles_controller.rb</code> ниже экшна <code>update</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ArticlesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@articles</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">all</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">new</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">new</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">article_params</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">save</span>
+      <span class="n">redirect_to</span> <span class="vi">@article</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="ss">:new</span><span class="p">,</span> <span class="ss">status: :unprocessable_entity</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">edit</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">update</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="n">article_params</span><span class="p">)</span>
+      <span class="n">redirect_to</span> <span class="vi">@article</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="ss">:edit</span><span class="p">,</span> <span class="ss">status: :unprocessable_entity</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">destroy</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+    <span class="vi">@article</span><span class="p">.</span><span class="nf">destroy</span>
+
+    <span class="n">redirect_to</span> <span class="n">root_path</span><span class="p">,</span> <span class="ss">status: :see_other</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">article_params</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:article</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:body</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Экшн <code>destroy</code> извлекает статью из базы данных, и вызывает <a href="https://api.rubyonrails.org/classes/ActiveRecord/Persistence.html#method-i-destroy"><code>destroy</code></a> на ней. Затем он перенаправляет браузер на корневой путь со статусом кода <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/303">303 See Other</a>.</p><p>Мы выбрали перенаправление на корневой путь, так как это наша основная точка доступа к статьям. В других обстоятельствах можно было бы выбрать перенаправление на <code>articles_path</code>.</p><p>Теперь давайте добавим ссылку внизу <code>app/views/articles/show.html.erb</code>, чтобы мы могли удалить статью с ее страницы:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span><span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span><span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;p&gt;</span><span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">body</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Edit"</span><span class="p">,</span> <span class="n">edit_article_path</span><span class="p">(</span><span class="vi">@article</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Destroy"</span><span class="p">,</span> <span class="n">article_path</span><span class="p">(</span><span class="vi">@article</span><span class="p">),</span> <span class="ss">data: </span><span class="p">{</span>
+                    <span class="ss">turbo_method: :delete</span><span class="p">,</span>
+                    <span class="ss">turbo_confirm: </span><span class="s2">"Are you sure?"</span>
+                  <span class="p">}</span> <span class="cp">%&gt;</span><span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre>
+</div>
+<p>В вышеприведенном коде мы используем опцию <code>data</code> для установки HTML-атрибутов <code>data-turbo-method</code> и <code>data-turbo-confirm</code> ссылки &quot;Destroy&quot;. Оба этих атрибута подключаются к <a href="https://turbo.hotwired.dev/">Turbo</a>, который по умолчанию включен в новые приложения Rails. <code>data-turbo-method=&quot;delete&quot;</code> заставит ссылку сделать запрос <code>DELETE</code> вместо запроса <code>GET</code>. <code>data-turbo-confirm=&quot;Are you sure?&quot;</code> приведет к появлению диалогового окна подтверждения при нажатии на ссылку. Если пользователь отменит диалог, запрос будет прерван.</p><p>Вот и все! Теперь можно просматривать, создавать, обновлять и удалять статьи!</p><h3 id='dobavlyaem-vtoruyu-model' class='inside_page_header'><a href="#dobavlyaem-vtoruyu-model">8.</a> Добавляем вторую модель</h3><p>Настало время добавить вторую модель в приложение. Вторая модель будет обрабатывать комментарии к статьям.</p><h4 id='generiruem-model' class='inside_page_header'><a href="#generiruem-model">8.1.</a> Генерируем модель</h4><p>Мы намереваемся использовать тот же генератор, что мы использовали ранее при создании модели <code>Article</code>. В этот раз мы создадим модель <code>Comment</code>, содержащую ссылку на статью. Запустите следующую команду в терминале:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate model Comment commenter:string body:text article:references
+</code></pre>
+</div>
+<p>Эта команда генерирует четыре файла:</p><table class='table table-striped'><tr>
+<th>Файл</th>
+<th>Назначение</th>
+</tr>
+<tr>
+<td>db/migrate/20140120201010_create_comments.rb</td>
+<td>Миграция для создания таблицы comments в вашей базе данных (ваше имя файла будет включать другую временную метку)</td>
+</tr>
+<tr>
+<td>app/models/comment.rb</td>
+<td>Модель Comment</td>
+</tr>
+<tr>
+<td>test/models/comment_test.rb</td>
+<td>Каркас для тестирования модели комментария</td>
+</tr>
+<tr>
+<td>test/fixtures/comments.yml</td>
+<td>Образцы комментариев для использования в тестировании</td>
+</tr>
+</table><p>Сначала взглянем на <code>app/models/comment.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Comment</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">belongs_to</span> <span class="ss">:article</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это очень похоже на модель <code>Article</code>, которую мы видели ранее. Разница в строчке <code>belongs_to :article</code>, которая устанавливает <em>связь</em> Active Record. Вы ознакомитесь со связями в следующем разделе руководства.</p><p>Ключевое слово (<code>:references</code>), использованное в команде консоли, это специальный тип данных для моделей. Он создает новый столбец в вашей базе данных с именем представленной модели с добавленным <code>_id</code>, который может содержать числовые значения. Чтобы лучше понять, проанализируйте файл <code>db/schema.rb</code> после выполнения миграции.</p><p>В дополнение к модели, Rails также сделал миграцию для создания соответствующей таблицы базы данных:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateComments</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.0</span><span class="p">]</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">create_table</span> <span class="ss">:comments</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:commenter</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">text</span> <span class="ss">:body</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">references</span> <span class="ss">:article</span><span class="p">,</span> <span class="ss">null: </span><span class="kp">false</span><span class="p">,</span> <span class="ss">foreign_key: </span><span class="kp">true</span>
+
+      <span class="n">t</span><span class="p">.</span><span class="nf">timestamps</span>
+    <span class="k">end</span>
+
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Строчка <code>t.references</code> создает числовой столбец с именем <code>article_id</code>, индекс для него, и ограничение внешнего ключа, указывающего на столбец <code>id</code> таблицы <code>articles</code>. Далее запускаем миграцию:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>db:migrate
+</code></pre>
+</div>
+<p>Rails достаточно сообразителен, чтобы выполнять только те миграции, которые еще не были запущены для текущей базы данных, в нашем случае Вы увидите:</p><div class="code_container">
+  <pre><code class="highlight plaintext">==  CreateComments: migrating =================================================
+-- create_table(:comments)
+   -&gt; 0.0115s
+==  CreateComments: migrated (0.0119s) ========================================
+</code></pre>
+</div>
+<h4 id='svyazyvaem-modeli' class='inside_page_header'><a href="#svyazyvaem-modeli">8.2.</a> Связываем модели</h4><p>Связи Active Record позволяют Вам легко объявлять отношения между двумя моделями. В случае с комментариями и статьями, вы можете описать отношения следующим образом:</p><ul><li>Каждый комментарий принадлежит одной статье.
+</li><li>Одна статья может иметь много комментариев.
+</li></ul><p>Фактически, это очень близко к синтаксису, который использует Rails для объявления этой связи. Вы уже видели строчку кода в модели <code>Comment</code> (app/models/comment.rb), которая делает каждый комментарий принадлежащим статье:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Comment</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">belongs_to</span> <span class="ss">:article</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Вам нужно отредактировать <code>app/models/article.rb</code>, добавив другую сторону связи:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Article</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:comments</span>
+
+  <span class="n">validates</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+  <span class="n">validates</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">10</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Эти два объявления автоматически делают доступным большое количество возможностей. Например, если у вас есть переменная экземпляра <code>@article</code>, содержащая статью, вы можете получить все комментарии, принадлежащие этой статье, в массиве, вызвав <code>@article.comments</code>.</p><div class="info"><p>Более подробно о связях Active Record смотрите руководство <a href="/active-record-associations">Связи (ассоциации) Active Record</a>.</p></div><h4 id='dobavlyaem-marshrut-dlya-kommentariev' class='inside_page_header'><a href="#dobavlyaem-marshrut-dlya-kommentariev">8.3.</a> Добавляем маршрут для комментариев</h4><p>Как в случае с контроллером <code>articles</code>, нам нужно добавить маршрут, чтобы Rails знал, по какому адресу мы хотим пройти, чтобы увидеть <code>комментарии</code>. Снова откройте файл <code>config/routes.rb</code> и отредактируйте его следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">root</span> <span class="s2">"articles#index"</span>
+
+  <span class="n">resources</span> <span class="ss">:articles</span> <span class="k">do</span>
+    <span class="n">resources</span> <span class="ss">:comments</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это создаст <code>comments</code> как <em>вложенный ресурс</em> в <code>articles</code>. Это другая сторона захвата иерархических отношений, существующих между статьями и комментариями.</p><div class="info"><p>Более подробно о роутинге написано в руководстве <a href="/routing">Роутинг в Rails</a>.</p></div><h4 id='generiruem-kontroller' class='inside_page_header'><a href="#generiruem-kontroller">8.4.</a> Генерируем контроллер</h4><p>Имея модель, обратим свое внимание на создание соответствующего контроллера. Снова будем использовать тот же генератор, что использовали прежде:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate controller Comments
+</code></pre>
+</div>
+<p>Создадутся три файла и пустая директория:</p><table class='table table-striped'><tr>
+<th>Файл/Директория</th>
+<th>Назначение</th>
+</tr>
+<tr>
+<td>app/controllers/comments_controller.rb</td>
+<td>Контроллер Comments</td>
+</tr>
+<tr>
+<td>app/views/comments/</td>
+<td>Вью контроллера хранятся здесь</td>
+</tr>
+<tr>
+<td>test/controllers/comments_controller_test.rb</td>
+<td>Тест для контроллера</td>
+</tr>
+<tr>
+<td>app/helpers/comments_helper.rb</td>
+<td>Хелпер для вью</td>
+</tr>
+</table><p>Как и в любом другом блоге, наши читатели будут создавать свои комментарии сразу после прочтения статьи, и после добавления комментария они будут направляться обратно на страницу отображения статьи и видеть, что их комментарий уже отражен. В связи с этим, наш <code>CommentsController</code> служит в качестве средства создания комментариев и удаления спама, если такой будет.</p><p>Сначала мы расширим шаблон Article show (<code>app/views/articles/show.html.erb</code>), чтобы он позволял добавить новый комментарий:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span><span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span><span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;p&gt;</span><span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">body</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Edit"</span><span class="p">,</span> <span class="n">edit_article_path</span><span class="p">(</span><span class="vi">@article</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Destroy"</span><span class="p">,</span> <span class="n">article_path</span><span class="p">(</span><span class="vi">@article</span><span class="p">),</span> <span class="ss">data: </span><span class="p">{</span>
+                    <span class="ss">turbo_method: :delete</span><span class="p">,</span>
+                    <span class="ss">turbo_confirm: </span><span class="s2">"Are you sure?"</span>
+                  <span class="p">}</span> <span class="cp">%&gt;</span><span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>Add a comment:<span class="nt">&lt;/h2&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="p">[</span> <span class="vi">@article</span><span class="p">,</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">comments</span><span class="p">.</span><span class="nf">build</span> <span class="p">]</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:commenter</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:commenter</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:body</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_area</span> <span class="ss">:body</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">submit</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Это добавит форму на страницу отображения статьи, создающую новый комментарий при вызове экшна <code>create</code> в <code>CommentsController</code>. Тут вызов <code>form_with</code> использует массив, что создаст вложенный маршрут, такой как <code>/articles/1/comments</code>.</p><p>Давайте напишем <code>create</code> в <code>app/controllers/comments_controller.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CommentsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:article_id</span><span class="p">])</span>
+    <span class="vi">@comment</span> <span class="o">=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">comments</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">comment_params</span><span class="p">)</span>
+    <span class="n">redirect_to</span> <span class="n">article_path</span><span class="p">(</span><span class="vi">@article</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">comment_params</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:comment</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:commenter</span><span class="p">,</span> <span class="ss">:body</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Тут все немного сложнее, чем вы видели в контроллере для статей. Это побочный эффект вложения, которое вы настроили. Каждый запрос к комментарию отслеживает статью, к которой комментарий присоединен, таким образом сначала решаем вопрос с получением статьи, вызвав <code>find</code> на модели <code>Article</code>.</p><p>Кроме того, код пользуется преимуществом некоторых методов, доступных для связей. Мы используем метод <code>create</code> на <code>@article.comments</code>, чтобы создать и сохранить комментарий. Это автоматически связывает комментарий так, что он принадлежит к определенной статье.</p><p>Как только мы создали новый комментарий, мы возвращаем пользователя обратно на оригинальную статью, используя хелпер <code>article_path(@article)</code>. Как мы уже видели, он вызывает экшн <code>show</code> в <code>ArticlesController</code>, который, в свою очередь, рендерит шаблон <code>show.html.erb</code>. В этом месте мы хотим отображать комментарии, поэтому давайте добавим следующее в <code>app/views/articles/show.html.erb</code>.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span><span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span><span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;p&gt;</span><span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">body</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Edit"</span><span class="p">,</span> <span class="n">edit_article_path</span><span class="p">(</span><span class="vi">@article</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Destroy"</span><span class="p">,</span> <span class="n">article_path</span><span class="p">(</span><span class="vi">@article</span><span class="p">),</span> <span class="ss">data: </span><span class="p">{</span>
+                    <span class="ss">turbo_method: :delete</span><span class="p">,</span>
+                    <span class="ss">turbo_confirm: </span><span class="s2">"Are you sure?"</span>
+                  <span class="p">}</span> <span class="cp">%&gt;</span><span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>Comments<span class="nt">&lt;/h2&gt;</span>
+<span class="cp">&lt;%</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">comments</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">comment</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="nt">&lt;strong&gt;</span>Commenter:<span class="nt">&lt;/strong&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">comment</span><span class="p">.</span><span class="nf">commenter</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+
+  <span class="nt">&lt;p&gt;</span>
+    <span class="nt">&lt;strong&gt;</span>Comment:<span class="nt">&lt;/strong&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">comment</span><span class="p">.</span><span class="nf">body</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>Add a comment:<span class="nt">&lt;/h2&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="p">[</span> <span class="vi">@article</span><span class="p">,</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">comments</span><span class="p">.</span><span class="nf">build</span> <span class="p">]</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:commenter</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:commenter</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:body</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_area</span> <span class="ss">:body</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">submit</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Теперь в вашем блоге можно добавлять статьи и комментарии и отображать их в нужных местах.</p><p><img src='/assets/getting_started/article_with_comments-28b034887881f950d2e3ad68d7164b8821060525110872056e8631a3a2402261.png' title='' alt='Статья с комментариями' class='img-polaroid' /></p><h3 id='refaktoring' class='inside_page_header'><a href="#refaktoring">9.</a> Рефакторинг</h3><p>Теперь, когда у нас есть работающие статьи и комментарии, взглянем на шаблон <code>app/views/articles/show.html.erb</code>. Он стал длинным и неудобным. Давайте воспользуемся партиалами, чтобы разгрузить его.</p><h4 id='rendering-kollektsiy-partialov' class='inside_page_header'><a href="#rendering-kollektsiy-partialov">9.1.</a> Рендеринг коллекций партиалов</h4><p>Сначала сделаем партиал для комментариев, показывающий все комментарии для статьи. Создайте файл <code>app/views/comments/_comment.html.erb</code> и поместите в него следующее:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;strong&gt;</span>Commenter:<span class="nt">&lt;/strong&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">comment</span><span class="p">.</span><span class="nf">commenter</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;strong&gt;</span>Comment:<span class="nt">&lt;/strong&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">comment</span><span class="p">.</span><span class="nf">body</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+<p>Затем можно изменить <code>app/views/articles/show.html.erb</code> вот так:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span><span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span><span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;p&gt;</span><span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">body</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Edit"</span><span class="p">,</span> <span class="n">edit_article_path</span><span class="p">(</span><span class="vi">@article</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Destroy"</span><span class="p">,</span> <span class="n">article_path</span><span class="p">(</span><span class="vi">@article</span><span class="p">),</span> <span class="ss">data: </span><span class="p">{</span>
+                    <span class="ss">turbo_method: :delete</span><span class="p">,</span>
+                    <span class="ss">turbo_confirm: </span><span class="s2">"Are you sure?"</span>
+                  <span class="p">}</span> <span class="cp">%&gt;</span><span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>Comments<span class="nt">&lt;/h2&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">render</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">comments</span> <span class="cp">%&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>Add a comment:<span class="nt">&lt;/h2&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="p">[</span> <span class="vi">@article</span><span class="p">,</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">comments</span><span class="p">.</span><span class="nf">build</span> <span class="p">]</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:commenter</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:commenter</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:body</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_area</span> <span class="ss">:body</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">submit</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Теперь это отрендерит партиал <code>app/views/comments/_comment.html.erb</code> по разу для каждого комментария в коллекции <code>@article.comments</code>. Так как метод <code>render</code> перебирает коллекцию <code>@article.comments</code>, он назначает каждый комментарий локальной переменной с именем, как у партиала, в нашем случае <code>comment</code>, которая нам доступна в партиале для отображения.</p><h4 id='rendering-formy-v-partiale' class='inside_page_header'><a href="#rendering-formy-v-partiale">9.2.</a> Рендеринг формы в партиале</h4><p>Давайте также переместим раздел нового комментария в свой партиал. Опять же, создайте файл <code>app/views/comments/_form.html.erb</code>, содержащий:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="p">[</span> <span class="vi">@article</span><span class="p">,</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">comments</span><span class="p">.</span><span class="nf">build</span> <span class="p">]</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:commenter</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:commenter</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:body</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_area</span> <span class="ss">:body</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">submit</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Затем измените <code>app/views/articles/show.html.erb</code> следующим образом:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span><span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span><span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;p&gt;</span><span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">body</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Edit"</span><span class="p">,</span> <span class="n">edit_article_path</span><span class="p">(</span><span class="vi">@article</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Destroy"</span><span class="p">,</span> <span class="n">article_path</span><span class="p">(</span><span class="vi">@article</span><span class="p">),</span> <span class="ss">data: </span><span class="p">{</span>
+                    <span class="ss">turbo_method: :delete</span><span class="p">,</span>
+                    <span class="ss">turbo_confirm: </span><span class="s2">"Are you sure?"</span>
+                  <span class="p">}</span> <span class="cp">%&gt;</span><span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>Comments<span class="nt">&lt;/h2&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">render</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">comments</span> <span class="cp">%&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>Add a comment:<span class="nt">&lt;/h2&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s1">'comments/form'</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Второй render всего лишь определяет шаблон партиала, который мы хотим рендерить, <code>comments/form</code>. Rails достаточно сообразительный, чтобы подставить подчеркивание в эту строку и понять, что Вы хотели рендерить файл <code>_form.html.erb</code> в директории <code>app/views/comments</code>.</p><p>Объект <code>@article</code> доступен в любых партиалах, рендерящихся во вью, так как мы определили его как переменную экземпляра.</p><h4 id='ispolzovanie-concerns' class='inside_page_header'><a href="#ispolzovanie-concerns">9.3.</a> Использование Concerns</h4><p>Concerns — это способ упростить большие контроллеры или модели для лучшего понимания и управления. У этого также есть преимущество повторного использования, когда несколько моделей (или контроллеров) разделяют те же самые concerns. Concerns реализуются с помощью модулей, содержащих методы, представляющие четко очерченный срез функциональности, за которую ответственны модель или контроллер. В других языках модули часто называются миксинами (mixin).</p><p>В контроллере или модели concerns можно использовать так же, как вы бы использовали другой модуль. Когда вы только создали свое приложение с помощью <code>rails new blog</code>, среди прочего в <code>app/</code> были созданы две папки:</p><div class="code_container">
+  <pre><code class="highlight plaintext">app/controllers/concerns
+app/models/concerns
+</code></pre>
+</div>
+<p>В вышеприведенном примере мы реализуем новую особенность для нашего блога, которая будет использовать преимущества concern. Затем мы создадим concern и отредактируем код, чтобы он его использовал, что сделает код менее повторяемым и более поддерживаемым.</p><p>У статьи в блоге могут быть различные статусы - к примеру, она может быть видимой для всех (т.е. <code>public</code>) или только видимой для автора (т.е. <code>private</code>). Она также может быть скрытой, но все еще доступной (т.е. <code>archived</code>). Комментарии схожим образом могут быть скрытыми или видимыми. Это может быть представлено с помощью столбца <code>status</code> в каждой модели.</p><p>Сначала давайте запустим следующие миграции для добавления <code>status</code> в <code>Articles</code> и <code>Comments</code>:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate migration AddStatusToArticles status:string
+<span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate migration AddStatusToComments status:string
+</code></pre>
+</div>
+<p>А затем давайте обновим базу данных с помощью сгенерированных миграций:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>db:migrate
+</code></pre>
+</div>
+<p>Чтобы выбрать статус для существующих статей и комментариев, можно добавить значение по умолчанию в сгенерированные файлы миграции, добавив опцию <code>default: &quot;public&quot;</code> и запустив миграции заново. Также можно вызвать в консоли rails <code>Article.update_all(status: &quot;public&quot;)</code> и <code>Comment.update_all(status: &quot;public&quot;)</code>.</p><div class="info"><p>Чтобы узнать больше о миграциях, смотрите <a href="/active-record-migrations">Миграции Active Record</a>.</p></div><p>Также нужно разрешить ключ <code>:status</code>, как часть strong parameter, в <code>app/controllers/articles_controller.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby">  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">article_params</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:article</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">:status</span><span class="p">)</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+<p>и в <code>app/controllers/comments_controller.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby">  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">comment_params</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:comment</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:commenter</span><span class="p">,</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">:status</span><span class="p">)</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+<p>В модель <code>article</code>, после запуска миграции для добавления столбца <code>status</code> с помощью <code>bin/rails db:migrate</code>, можно добавить:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Article</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:comments</span>
+
+  <span class="n">validates</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+  <span class="n">validates</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">10</span> <span class="p">}</span>
+
+  <span class="no">VALID_STATUSES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'public'</span><span class="p">,</span> <span class="s1">'private'</span><span class="p">,</span> <span class="s1">'archived'</span><span class="p">]</span>
+
+  <span class="n">validates</span> <span class="ss">:status</span><span class="p">,</span> <span class="ss">inclusion: </span><span class="p">{</span> <span class="ss">in: </span><span class="no">VALID_STATUSES</span> <span class="p">}</span>
+
+  <span class="k">def</span> <span class="nf">archived?</span>
+    <span class="n">status</span> <span class="o">==</span> <span class="s1">'archived'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>и в модель <code>Comment</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Comment</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">belongs_to</span> <span class="ss">:article</span>
+
+  <span class="no">VALID_STATUSES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'public'</span><span class="p">,</span> <span class="s1">'private'</span><span class="p">,</span> <span class="s1">'archived'</span><span class="p">]</span>
+
+  <span class="n">validates</span> <span class="ss">:status</span><span class="p">,</span> <span class="ss">inclusion: </span><span class="p">{</span> <span class="ss">in: </span><span class="no">VALID_STATUSES</span> <span class="p">}</span>
+
+  <span class="k">def</span> <span class="nf">archived?</span>
+    <span class="n">status</span> <span class="o">==</span> <span class="s1">'archived'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Затем, в шаблоне экшна <code>index</code> (<code>app/views/articles/index.html.erb</code>) мы могли бы использовать метод <code>archived?</code>, чтобы избежать отображения любой архивированной статьи:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>Articles<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+  <span class="cp">&lt;%</span> <span class="vi">@articles</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">article</span><span class="o">|</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">unless</span> <span class="n">article</span><span class="p">.</span><span class="nf">archived?</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="n">article</span><span class="p">.</span><span class="nf">title</span><span class="p">,</span> <span class="n">article</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+
+<span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"New Article"</span><span class="p">,</span> <span class="n">new_article_path</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Схожим образом в нашем партиале (<code>app/views/comments/_comment.html.erb</code>) мы могли бы использовать метод <code>archived?</code>, чтоб избежать отображения любого архивированного комментария:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%</span> <span class="k">unless</span> <span class="n">comment</span><span class="p">.</span><span class="nf">archived?</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="nt">&lt;strong&gt;</span>Commenter:<span class="nt">&lt;/strong&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">comment</span><span class="p">.</span><span class="nf">commenter</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+
+  <span class="nt">&lt;p&gt;</span>
+    <span class="nt">&lt;strong&gt;</span>Comment:<span class="nt">&lt;/strong&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">comment</span><span class="p">.</span><span class="nf">body</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Однако, если посмотреть на наши модели, можно заметить, что логика дублируется. Если в будущем мы улучшим функционал нашего блога - включим приватные сообщения, к примеру - мы можем снова начать дублировать логику. Вот тут-то и пригодятся concerns.</p><p>Concern ответственен только за конкретную часть ответственности модели; все методы нашего concern будут относиться к видимости модели. Давайте назовем новый concern (модуль) <code>Visible</code>. Можно создать новый файл в <code>app/models/concerns</code> с именем <code>visible.rb</code>, и хранить все методы статуса, которые продублированы в моделях.</p><p><code>app/models/concerns/visible.rb</code></p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">module</span> <span class="nn">Visible</span>
+  <span class="k">def</span> <span class="nf">archived?</span>
+    <span class="n">status</span> <span class="o">==</span> <span class="s1">'archived'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Также можно добавить наши валидации статуса в concern, но это немного сложнее, так как валидации — это методы, вызванные на уровне класса. <code>ActiveSupport::Concern</code> (<a href="https://api.rubyonrails.org/classes/ActiveSupport/Concern.html">руководство по API</a>) предоставляет нам более простой способ включить их:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">module</span> <span class="nn">Visible</span>
+  <span class="kp">extend</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Concern</span>
+
+  <span class="no">VALID_STATUSES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'public'</span><span class="p">,</span> <span class="s1">'private'</span><span class="p">,</span> <span class="s1">'archived'</span><span class="p">]</span>
+
+  <span class="n">included</span> <span class="k">do</span>
+    <span class="n">validates</span> <span class="ss">:status</span><span class="p">,</span> <span class="ss">inclusion: </span><span class="p">{</span> <span class="ss">in: </span><span class="no">VALID_STATUSES</span> <span class="p">}</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">archived?</span>
+    <span class="n">status</span> <span class="o">==</span> <span class="s1">'archived'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь можно убрать дублированную логику из каждой модели, а вместо нее включить наш новый модуль <code>Visible</code>:</p><p>В <code>app/models/article.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Article</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="kp">include</span> <span class="no">Visible</span>
+
+  <span class="n">has_many</span> <span class="ss">:comments</span>
+
+  <span class="n">validates</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+  <span class="n">validates</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">10</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>и в <code>app/models/comment.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Comment</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="kp">include</span> <span class="no">Visible</span>
+
+  <span class="n">belongs_to</span> <span class="ss">:article</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Методы класса также можно добавить в concern. Если нам нужно отображать количество публичных статей или комментариев на главной странице, можно добавить метод класса в Visible следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">module</span> <span class="nn">Visible</span>
+  <span class="kp">extend</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Concern</span>
+
+  <span class="no">VALID_STATUSES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'public'</span><span class="p">,</span> <span class="s1">'private'</span><span class="p">,</span> <span class="s1">'archived'</span><span class="p">]</span>
+
+  <span class="n">included</span> <span class="k">do</span>
+    <span class="n">validates</span> <span class="ss">:status</span><span class="p">,</span> <span class="ss">inclusion: </span><span class="p">{</span> <span class="ss">in: </span><span class="no">VALID_STATUSES</span> <span class="p">}</span>
+  <span class="k">end</span>
+
+  <span class="n">class_methods</span> <span class="k">do</span>
+    <span class="k">def</span> <span class="nf">public_count</span>
+      <span class="n">where</span><span class="p">(</span><span class="ss">status: </span><span class="s1">'public'</span><span class="p">).</span><span class="nf">count</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">archived?</span>
+    <span class="n">status</span> <span class="o">==</span> <span class="s1">'archived'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Затем во вью его можно вызвать как любой другой метод класса:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>Articles<span class="nt">&lt;/h1&gt;</span>
+
+Our blog has <span class="cp">&lt;%=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">public_count</span> <span class="cp">%&gt;</span> articles and counting!
+
+<span class="nt">&lt;ul&gt;</span>
+  <span class="cp">&lt;%</span> <span class="vi">@articles</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">article</span><span class="o">|</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">unless</span> <span class="n">article</span><span class="p">.</span><span class="nf">archived?</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="n">article</span><span class="p">.</span><span class="nf">title</span><span class="p">,</span> <span class="n">article</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+
+<span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"New Article"</span><span class="p">,</span> <span class="n">new_article_path</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Наконец, добавим список выбора в формы и разрешим пользователю выбирать статус при создании новой статьи или публикации нового комментария. Также можно указать статус по умолчанию как <code>public</code>. В <code>app/views/articles/_form.html.erb</code> можно добавить:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;div&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:status</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">select</span> <span class="ss">:status</span><span class="p">,</span> <span class="p">[</span><span class="s1">'public'</span><span class="p">,</span> <span class="s1">'private'</span><span class="p">,</span> <span class="s1">'archived'</span><span class="p">],</span> <span class="ss">selected: </span><span class="s1">'public'</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+<p>и в <code>app/views/comments/_form.html.erb</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;p&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:status</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">select</span> <span class="ss">:status</span><span class="p">,</span> <span class="p">[</span><span class="s1">'public'</span><span class="p">,</span> <span class="s1">'private'</span><span class="p">,</span> <span class="s1">'archived'</span><span class="p">],</span> <span class="ss">selected: </span><span class="s1">'public'</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+<h3 id='udalenie-kommentariev' class='inside_page_header'><a href="#udalenie-kommentariev">10.</a> Удаление комментариев</h3><p>Другой важной особенностью блога является возможность удаления спама. Чтобы сделать это, нужно вставить некоторую ссылку во вью и экшн <code>destroy</code> в <code>CommentsController</code>.</p><p>Поэтому сначала добавим ссылку для удаления в партиал <code>app/views/comments/_comment.html.erb</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%</span> <span class="k">unless</span> <span class="n">comment</span><span class="p">.</span><span class="nf">archived?</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="nt">&lt;strong&gt;</span>Commenter:<span class="nt">&lt;/strong&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">comment</span><span class="p">.</span><span class="nf">commenter</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+
+  <span class="nt">&lt;p&gt;</span>
+    <span class="nt">&lt;strong&gt;</span>Comment:<span class="nt">&lt;/strong&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">comment</span><span class="p">.</span><span class="nf">body</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+
+  <span class="nt">&lt;p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Destroy Comment"</span><span class="p">,</span> <span class="p">[</span><span class="n">comment</span><span class="p">.</span><span class="nf">article</span><span class="p">,</span> <span class="n">comment</span><span class="p">],</span> <span class="ss">data: </span><span class="p">{</span>
+                  <span class="ss">turbo_method: :delete</span><span class="p">,</span>
+                  <span class="ss">turbo_confirm: </span><span class="s2">"Are you sure?"</span>
+                <span class="p">}</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Нажатие этой новой ссылки &quot;Destroy Comment&quot; запустит <code>DELETE /articles/:article_id/comments/:id</code> в нашем <code>CommentsController</code>, который затем будет использоваться для нахождения комментария, который мы хотим удалить, поэтому давайте добавим экшн <code>destroy</code> в наш контроллер (<code>app/controllers/comments_controller.rb</code>):</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CommentsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:article_id</span><span class="p">])</span>
+    <span class="vi">@comment</span> <span class="o">=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">comments</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">comment_params</span><span class="p">)</span>
+    <span class="n">redirect_to</span> <span class="n">article_path</span><span class="p">(</span><span class="vi">@article</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">destroy</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:article_id</span><span class="p">])</span>
+    <span class="vi">@comment</span> <span class="o">=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">comments</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+    <span class="vi">@comment</span><span class="p">.</span><span class="nf">destroy</span>
+    <span class="n">redirect_to</span> <span class="n">article_path</span><span class="p">(</span><span class="vi">@article</span><span class="p">),</span> <span class="ss">status: :see_other</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">comment_params</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:comment</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:commenter</span><span class="p">,</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">:status</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Экшн <code>destroy</code> найдет статью, которую мы просматриваем, обнаружит комментарий в коллекции <code>@article.comments</code> и затем уберет его из базы данных и вернет нас обратно на просмотр статьи.</p><h4 id='udalenie-svyazannyh-ob-ektov' class='inside_page_header'><a href="#udalenie-svyazannyh-ob-ektov">10.1.</a> Удаление связанных объектов</h4><p>Если удаляете статью, связанные с ней комментарии также должны быть удалены, в противном случае они будут просто занимать место в базе данных. Rails позволяет использовать опцию <code>dependent</code> на связи для достижения этого. Модифицируйте модель Article, <code>app/models/article.rb</code>, следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Article</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="kp">include</span> <span class="no">Visible</span>
+
+  <span class="n">has_many</span> <span class="ss">:comments</span><span class="p">,</span> <span class="ss">dependent: :destroy</span>
+
+  <span class="n">validates</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+  <span class="n">validates</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">10</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h3 id='bezopasnost' class='inside_page_header'><a href="#bezopasnost">11.</a> Безопасность</h3><h4 id='basic-authentication' class='inside_page_header'><a href="#basic-authentication">11.1.</a>  Базовая аутентификация</h4><p>Если вы опубликуете свой блог онлайн, любой сможет добавлять, редактировать и удалять статьи или удалять комментарии.</p><p>Rails предоставляет аутентификационную систему HTTP, которая хорошо работает в этой ситуации.</p><p>В <code>ArticlesController</code> нам нужен способ блокировать доступ к различным экшнам, если пользователь не аутентифицирован. Тут мы можем использовать метод Rails <code>http_basic_authenticate_with</code>, разрешающий доступ к требуемым экшнам, если метод позволит это.</p><p>Чтобы использовать систему аутентификации, мы определим ее вверху нашего <code>ArticlesController</code> в <code>app/controllers/articles_controller.rb</code>. В нашем случае, мы хотим, чтобы пользователь был аутентифицирован для каждого экшна, кроме <code>index</code> и <code>show</code>, поэтому напишем так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ArticlesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+
+  <span class="n">http_basic_authenticate_with</span> <span class="ss">name: </span><span class="s2">"dhh"</span><span class="p">,</span> <span class="ss">password: </span><span class="s2">"secret"</span><span class="p">,</span> <span class="ss">except: </span><span class="p">[</span><span class="ss">:index</span><span class="p">,</span> <span class="ss">:show</span><span class="p">]</span>
+
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@articles</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">all</span>
+  <span class="k">end</span>
+
+  <span class="c1"># пропущено для краткости</span>
+</code></pre>
+</div>
+<p>Мы также хотим позволить только аутентифицированным пользователям удалять комментарии, поэтому в <code>CommentsController</code> (<code>app/controllers/comments_controller.rb</code>) мы напишем:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CommentsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+
+  <span class="n">http_basic_authenticate_with</span> <span class="ss">name: </span><span class="s2">"dhh"</span><span class="p">,</span> <span class="ss">password: </span><span class="s2">"secret"</span><span class="p">,</span> <span class="ss">only: :destroy</span>
+
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:article_id</span><span class="p">])</span>
+    <span class="c1"># ...</span>
+  <span class="k">end</span>
+
+  <span class="c1"># пропущено для краткости</span>
+</code></pre>
+</div>
+<p>Теперь, если попытаетесь создать новую статью, то встретитесь с вызовом базовой аутентификации HTTP:</p><p><img src='/assets/getting_started/challenge-f112fb88a11ab2263c2f7a017e2cbeba089f799477c33d5a09c968bcc90fd62b.png' title='' alt='Вызов базовой аутентификации HTTP' class='img-polaroid' /></p><p>После ввода правильного имени пользователя и пароля, вы останетесь аутентифицированным, пока не потребуется другое имя пользователя и пароль, или браузер будет закрыт.</p><p>Также для приложений на Rails доступны иные методы аутентификации. Двумя популярными дополнениями для Rails, среди прочих, являются <a href="https://github.com/plataformatec/devise">Devise</a> и <a href="https://github.com/binarylogic/authlogic">Authlogic</a>.</p><h4 id='prochie-mysli-o-bezopasnosti' class='inside_page_header'><a href="#prochie-mysli-o-bezopasnosti">11.2.</a> Прочие мысли о безопасности</h4><p>Безопасность, особенно в веб-приложениях, это обширная и детализированная область. Безопасность вашего приложения Rails раскрывается более детально в руководстве <a href="/security">Безопасность приложений на Rails</a>.</p><h3 id='chto-dalshe' class='inside_page_header'><a href="#chto-dalshe">12.</a> Что дальше?</h3><p>После того, как вы создали свое первое приложение на Rails, можете свободно его модифицировать и экспериментировать на свое усмотрение.</p><p>Помните, что вы не сможете сделать без посторонней помощи все, что угодно. Так же, как вы обращались к этому руководству &quot;Rails для начинающих&quot;, далее можете так же свободно пользоваться этими ресурсами:</p><ul><li><a href="http://guides.rubyonrails.org/">Ruby on Rails Guides</a>
+</li><li><a href="https://discuss.rubyonrails.org/c/rubyonrails-talk">Ruby on Rails mailing list</a>
+</li></ul><h3 id='oshibki-konfiguratsii' class='inside_page_header'><a href="#oshibki-konfiguratsii">13.</a> Ошибки конфигурации</h3><p>Простейший способ работы с Rails заключается в хранении всех внешних данных в UTF-8. Если не так, библиотеки Ruby и Rails часто будут способны конвертировать ваши родные данные в UTF-8, но это не всегда надежно работает, поэтому лучше быть уверенным, что все внешние данные являются UTF-8.</p><p>Если вы допускаете ошибку в этой области, наиболее обычным симптомом является черный ромбик со знаком вопроса внутри, появляющийся в браузере. Другим обычным симптомом являются символы, такие как &quot;Ã¼&quot; появляющиеся вместо &quot;ü&quot;. Rails предпринимает ряд внутренних шагов для смягчения общих случаев тех проблем, которые могут быть автоматически обнаружены и исправлены. Однако, если имеются внешние данные, не хранящиеся в UTF-8, это может привести к такого рода проблемам, которые не могут быть автоматически обнаружены Rails и исправлены.</p><p>Два наиболее обычных источника данных, которые не в UTF-8:</p><ul><li>Ваш текстовый редактор: Большинство текстовых редакторов (такие как TextMate), по умолчанию сохраняют файлы как UTF-8. Если ваш текстовый редактор так не делает, это может привести к тому, что специальные символы, введенные в ваши шаблоны (такие как é) появятся как ромбик с вопросительным знаком в браузере. Это также касается ваших файлов перевода i18N. Большинство редакторов, не устанавливающие по умолчанию UTF-8 (такие как некоторые версии Dreamweaver) предлагают способ изменить умолчания на UTF-8. Сделайте так.
+</li><li>Ваша база данных: Rails по умолчанию преобразует данные из вашей базы данных в UTF-8 на границе. Однако, если ваша база данных не использует внутри UTF-8, она может не быть способной хранить все символы, которые введет ваш пользователь. Например, если ваша база данных внутри использует Latin-1, и ваш пользователь вводит русские, ивритские или японские символы, данные будут потеряны как только попадут в базу данных. Если возможно, используйте UTF-8 как внутреннее хранилище в своей базе данных.
+</li></ul>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

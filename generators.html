@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Создание и настройка генераторов и шаблонов Rails" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Создание и настройка генераторов и шаблонов Rails" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/generators" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Создание и настройка генераторов и шаблонов Rails
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="jwUhg39jMPbo6nxNyhAXpWx7Fp3gRy7rQD9HjPPGDaAlTRFuxrDvMX2pHhPKCw2sQ5jn5HBrYPFSoQxgSKZ9qg==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#pervyy-kontakt">1. Первый контакт</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#sozdanie-svoego-generatora">2. Создание своего генератора</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#sozdanie-generatorov-s-pomoschyu-generatorov">3. Создание генераторов с помощью генераторов</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#optsii-komandnoy-stroki-generatorov">4. Опции командной строки генераторов</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#razreshenie-generatora">5. Разрешение генератора</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#pereopredelenie-shablonov-generatora-rails">6. Переопределение шаблонов генератора Rails</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#pereopredelenie-generatorov-rails">7. Переопределение генераторов Rails</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#folbeki-generatorov">7.1. Фолбэки генераторов</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#shablony-prilozheniya">8. Шаблоны приложения</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#vspomogatelnye-metody-generatora">9. Вспомогательные методы генератора</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='sozdanie-i-nastroyka-generatorov-i-shablonov-rails' class='inside_page_header'> Создание и настройка генераторов и шаблонов Rails</h2><p>Генераторы Rails - необходимый инструмент, для улучшения своего рабочего процесса. С помощью этого руководства вы изучите, как создавать генераторы и настраивать существующие.</p><p>После прочтения этого руководства, вы узнаете:</p><ul><li>Как посмотреть, какие генераторы доступны в вашем приложении.
+</li><li>Как создать генератор с использованием шаблонов.
+</li><li>Как Rails ищет генераторы, чтобы вызвать их.
+</li><li>Как настроить скаффолд, переопределяя шаблоны генератора.
+</li><li>Как настроить скаффолд, переопределяя генераторы.
+</li><li>Как использовать фолбэки, чтобы избежать переопределения большого набора генераторов.
+</li><li>Как создать шаблон приложения.
+</li></ul><h3 id='pervyy-kontakt' class='inside_page_header'><a href="#pervyy-kontakt">1.</a> Первый контакт</h3><p>При создании приложения с помощью команды <code>rails</code> фактически вы используете генератор Rails. После этого можно получить список всех доступных генераторов, вызвав <code>bin/rails generate</code>:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new myapp
+<span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>myapp
+<span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate
+</code></pre>
+</div>
+<div class="note"><p>Чтобы создать новое приложение rails, мы используем глобальную команду <code>rails</code>, использующую версию Rails, установленную с помощью <code>gem install rails</code>. Когда внутри директории вашего приложения, мы используем команду <code>bin/rails</code>, которая использует версию Rails этого приложения.</p></div><p>Вы получите список всех генераторов, поставляющихся с Rails. Чтобы увидеть подробное описание определенного генератора, вызовите генератор с опцией <code>--help</code>. Например:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate scaffold <span class="nt">--help</span>
+</code></pre>
+</div>
+<h3 id='sozdanie-svoego-generatora' class='inside_page_header'><a href="#sozdanie-svoego-generatora">2.</a> Создание своего генератора</h3><p>Генераторы создаются на основе <a href="https://github.com/erikhuda/thor">Thor</a>, представляющего мощные опции для парсинга и великолепный API для взаимодействия с файлами.</p><p>Давайте создадим генератор, создающий файл инициализатора с именем <code>initializer.rb</code> внутри <code>config/initializers</code>. Первым шагом является создание файла <code>lib/generators/initializer_generator.rb</code> со следующим содержимым:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">InitializerGenerator</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Generators</span><span class="o">::</span><span class="no">Base</span>
+  <span class="k">def</span> <span class="nf">create_initializer_file</span>
+    <span class="n">create_file</span> <span class="s2">"config/initializers/initializer.rb"</span><span class="p">,</span> <span class="o">&lt;&lt;~</span><span class="no">RUBY</span><span class="sh">
+      # Тут добавьте содержимое инициализации
+</span><span class="no">    RUBY</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Наш новый генератор очень прост: он наследуется от <a href="https://api.rubyonrails.org/classes/Rails/Generators/Base.html"><code>Rails::Generators::Base</code></a> и содержит одно определение метода. Когда генератор вызывается, каждый публичный метод в генераторе выполняется в порядке, в котором он определен. Наш метод вызывает <a href="https://www.rubydoc.info/gems/thor/Thor/Actions#create_file-instance_method"><code>create_file</code></a>, который создаст файл в указанном месте с заданным содержимым.</p><p>Чтобы вызвать наш новый генератор, запустим:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate initializer
+</code></pre>
+</div>
+<p>Перед тем, как продолжить, давайте посмотрим на описание нашего нового генератора:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate initializer <span class="nt">--help</span>
+</code></pre>
+</div>
+<p>Rails обычно способен производить хорошие описания, если генератор расположен в пространствах имен, таких как <code>ActiveRecord::Generators::ModelGenerator</code>, но не в этом случае. Эту проблему можно решить двумя способами. Первым является добавление описания, вызывая <a href="https://www.rubydoc.info/gems/thor/Thor#desc-class_method"><code>desc</code></a> внутри нашего генератора:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">InitializerGenerator</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Generators</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">desc</span> <span class="s2">"This generator creates an initializer file at config/initializers"</span>
+  <span class="n">create_file</span> <span class="s2">"config/initializers/initializer.rb"</span><span class="p">,</span> <span class="o">&lt;&lt;~</span><span class="no">RUBY</span><span class="sh">
+    # Тут добавьте содержимое инициализации
+</span><span class="no">  RUBY</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь можно просмотреть новое описание, вызвав <code>--help</code> на новом генераторе.</p><p>Вторым способом является добавление описания в файле <code>USAGE</code> в той же директории, что и наш генератор. Мы это сделаем на следующем этапе.</p><h3 id='sozdanie-generatorov-s-pomoschyu-generatorov' class='inside_page_header'><a href="#sozdanie-generatorov-s-pomoschyu-generatorov">3.</a> Создание генераторов с помощью генераторов</h3><p>У самих генераторов есть генератор. Давайте уберем наш <code>InitializerGenerator</code> и используем <code>bin/rails generate generator</code> чтобы сгенерировать его заново:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rm </span>lib/generators/initializer_generator.rb
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate generator initializer
+<span class="go">      create  lib/generators/initializer
+      create  lib/generators/initializer/initializer_generator.rb
+      create  lib/generators/initializer/USAGE
+      create  lib/generators/initializer/templates
+      invoke  test_unit
+      create    test/lib/generators/initializer_generator_test.rb
+</span></code></pre>
+</div>
+<p>Вот только что созданный генератор:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">InitializerGenerator</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Generators</span><span class="o">::</span><span class="no">NamedBase</span>
+  <span class="n">source_root</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s2">"templates"</span><span class="p">,</span> <span class="n">__dir__</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Сперва обратите внимание, что генератор унаследован от <a href="https://api.rubyonrails.org/classes/Rails/Generators/NamedBase.html"><code>Rails::Generators::NamedBase</code></a> вместо <code>Rails::Generators::Base</code>. Это означает, что наш генератор ожидает как минимум один аргумент, который будет именем инициализатора и будет доступным в нашем коде как <code>name</code>.</p><p>Это можно увидеть, если вызвать описание для генератора:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate initializer <span class="nt">--help</span>
+<span class="go">Usage:
+  bin/rails generate initializer NAME [options]
+</span></code></pre>
+</div>
+<p>Также отметьте, что в генераторе есть метод класса <a href="https://api.rubyonrails.org/classes/Rails/Generators/Base.html#method-c-source_root"><code>source_root</code></a>. Этот метод указывает на расположение наших шаблонов, если таковые имеются, и по умолчанию он указывает на директорию <code>lib/generators/initializer/templates</code>, которая только что была создана.</p><p>Чтобы понять, как работает шаблон генератора, давайте создадим файл <code>lib/generators/initializer/templates/initializer.rb</code> со следующим содержимым:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Тут добавьте содержимое инициализации</span>
+</code></pre>
+</div>
+<p>И изменим генератор, чтобы он копировал этот файл при вызове:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">InitializerGenerator</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Generators</span><span class="o">::</span><span class="no">NamedBase</span>
+  <span class="n">source_root</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s2">"templates"</span><span class="p">,</span> <span class="n">__dir__</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">copy_initializer_file</span>
+    <span class="n">copy_file</span> <span class="s2">"initializer.rb"</span><span class="p">,</span> <span class="s2">"config/initializers/</span><span class="si">#{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">.rb"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь запустим наш генератор:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate initializer core_extensions
+<span class="go">      create  config/initializers/core_extensions.rb
+
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">cat </span>config/initializers/core_extensions.rb
+<span class="gp">#</span><span class="w"> </span>Тут добавьте содержимое инициализации
+</code></pre>
+</div>
+<p>Мы видим, что <a href="https://www.rubydoc.info/gems/thor/Thor/Actions#copy_file-instance_method"><code>copy_file</code></a> создал <code>config/initializers/core_extensions.rb</code> с содержимым нашего шаблона. (Метод <code>file_name</code>, используемый в пути назначения, унаследован от <code>Rails::Generators::NamedBase</code>.)</p><h3 id='optsii-komandnoy-stroki-generatorov' class='inside_page_header'><a href="#optsii-komandnoy-stroki-generatorov">4.</a> Опции командной строки генераторов</h3><p>Генераторы могут поддерживать опции командной строки с помощью <a href="https://www.rubydoc.info/gems/thor/Thor/Base/ClassMethods#class_option-instance_method"><code>class_option</code></a>. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">InitializerGenerator</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Generators</span><span class="o">::</span><span class="no">NamedBase</span>
+  <span class="n">class_option</span> <span class="ss">:scope</span><span class="p">,</span> <span class="ss">type: :string</span><span class="p">,</span> <span class="ss">default: </span><span class="s2">"app"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь наш генератор может быть вызван с опцией <code>--scope</code>:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate initializer theme <span class="nt">--scope</span> dashboard
+</code></pre>
+</div>
+<p>Значения опций доступны в методах генератора как <a href="https://www.rubydoc.info/gems/thor/Thor/Base#options-instance_method"><code>options</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">copy_initializer_file</span>
+  <span class="vi">@scope</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s2">"scope"</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h3 id='razreshenie-generatora' class='inside_page_header'><a href="#razreshenie-generatora">5.</a> Разрешение генератора</h3><p>При разрешении имени генератора, Rails ищет генератор с помощью нескольких имен файлов. Например, при запуске <code>bin/rails generate initializer core_extensions</code>, Rails пытается загрузить каждый из следующих файлов по порядку, пока один из них не будет найден:</p><ul><li><code>rails/generators/initializer/initializer_generator.rb</code>
+</li><li><code>generators/initializer/initializer_generator.rb</code>
+</li><li><code>rails/generators/initializer_generator.rb</code>
+</li><li><code>generators/initializer_generator.rb</code>
+</li></ul><p>Если ни один из них не будет найден, будет вызвана ошибка.</p><p>Мы поместили наш генератор в директорию <code>lib/</code> приложения, потому что эта директория в <code>$LOAD_PATH</code>, что позволяет Rails найти и загрузить файл.</p><h3 id='pereopredelenie-shablonov-generatora-rails' class='inside_page_header'><a href="#pereopredelenie-shablonov-generatora-rails">6.</a> Переопределение шаблонов генератора Rails</h3><p>Rails также будет искать в нескольких местах при разрешении файлов шаблона генератора. Одним из этих мест является директория <code>lib/templates/</code> приложения. Это поведение позволяет нам переопределить шаблоны, используемые встроенными в Rails генераторами. Например, мы можем переопределить [шаблон скаффолда контроллера][] или [шаблоны скаффолда вью][].</p><p>Чтобы увидеть это в действии, давайте создадим файл <code>lib/templates/erb/scaffold/index.html.erb.tt</code> со следующим содержимым:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%%</span> <span class="err">@</span><span class="o">&lt;</span><span class="sx">%= plural_table_name </span><span class="cp">%&gt;</span>.count %&gt; <span class="cp">&lt;%=</span><span class="sx"> human_name.pluralize </span><span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Отметьте, что это шаблон ERB, который рендерит <em>другой</em> шаблон ERB. Поэтому любой <code>&lt;%</code>, который должен появиться в <em>получившемся</em> шаблоне, должен быть экранирован как <code>&lt;%%</code> в шаблоне <em>генератора</em>.</p><p>Теперь давайте запустим генератор скаффолда, встроенного в Rails:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate scaffold Post title:string
+<span class="c">      ...
+</span><span class="go">      create      app/views/posts/index.html.erb
+</span><span class="c">      ...
+</span></code></pre>
+</div>
+<p>Содержимое <code>app/views/posts/index.html.erb</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%</span> <span class="vi">@posts</span><span class="p">.</span><span class="nf">count</span> <span class="cp">%&gt;</span> Posts
+</code></pre>
+</div>
+<h3 id='pereopredelenie-generatorov-rails' class='inside_page_header'><a href="#pereopredelenie-generatorov-rails">7.</a> Переопределение генераторов Rails</h3><p>Встроенные генераторы Rails могут быть настроены с помощью <a href="configuring.html#configuring-generators"><code>config.generators</code></a>, включая полное переопределение некоторых генераторов.</p><p>Сначала давайте пристально взглянем на то, как работает генератор скаффолда.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate scaffold User name:string
+<span class="go">      invoke  active_record
+      create    db/migrate/20230518000000_create_users.rb
+      create    app/models/user.rb
+      invoke    test_unit
+      create      test/models/user_test.rb
+      create      test/fixtures/users.yml
+      invoke  resource_route
+       route    resources :users
+      invoke  scaffold_controller
+      create    app/controllers/users_controller.rb
+      invoke    erb
+      create      app/views/users
+      create      app/views/users/index.html.erb
+      create      app/views/users/edit.html.erb
+      create      app/views/users/show.html.erb
+      create      app/views/users/new.html.erb
+      create      app/views/users/_form.html.erb
+      create      app/views/users/_user.html.erb
+      invoke    resource_route
+      invoke    test_unit
+      create      test/controllers/users_controller_test.rb
+      create      test/system/users_test.rb
+      invoke    helper
+      create      app/helpers/users_helper.rb
+      invoke      test_unit
+      invoke    jbuilder
+      create      app/views/users/index.json.jbuilder
+      create      app/views/users/show.json.jbuilder
+</span></code></pre>
+</div>
+<p>Из вывода мы видим, что генератор скаффолда вызывает другие генераторы, такие как генератор <code>scaffold_controller</code>. И некоторые из этих генераторов также вызывают другие генераторы. В частности, генератор <code>scaffold_controller</code> вызывает несколько других генераторов, включая генератор <code>helper</code>.</p><p>Давайте переопределим встроенный генератор <code>helper</code> новым генератором. Мы назовем генератор <code>my_helper</code>:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate generator <span class="nb">rails</span>/my_helper
+<span class="go">      create  lib/generators/rails/my_helper
+      create  lib/generators/rails/my_helper/my_helper_generator.rb
+      create  lib/generators/rails/my_helper/USAGE
+      create  lib/generators/rails/my_helper/templates
+      invoke  test_unit
+      create    test/lib/generators/rails/my_helper_generator_test.rb
+</span></code></pre>
+</div>
+<p>И в <code>lib/generators/rails/my_helper/my_helper_generator.rb</code> мы определим генератор как:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Rails::MyHelperGenerator</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Generators</span><span class="o">::</span><span class="no">NamedBase</span>
+  <span class="k">def</span> <span class="nf">create_helper_file</span>
+    <span class="n">create_file</span> <span class="s2">"app/helpers/</span><span class="si">#{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">_helper.rb"</span><span class="p">,</span> <span class="o">&lt;&lt;~</span><span class="no">RUBY</span><span class="sh">
+      module </span><span class="si">#{</span><span class="n">class_name</span><span class="si">}</span><span class="sh">Helper
+        # I'm helping!
+      end
+</span><span class="no">    RUBY</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Наконец, необходимо сообщить Rails использовать генератор <code>my_helper</code> вместо встроенного генератора <code>helper</code>. Для этого мы используем <code>config.generators</code>. В <code>config/application.rb</code> добавим:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">generators</span> <span class="k">do</span> <span class="o">|</span><span class="n">g</span><span class="o">|</span>
+  <span class="n">g</span><span class="p">.</span><span class="nf">helper</span> <span class="ss">:my_helper</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь, если мы снова запустим генератор скаффолда, мы увидим генератор <code>my_helper</code> в действии:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate scaffold Article body:text
+<span class="c">      ...
+</span><span class="go">      invoke  scaffold_controller
+</span><span class="c">      ...
+</span><span class="go">      invoke    my_helper
+      create      app/helpers/articles_helper.rb
+</span><span class="c">      ...
+</span></code></pre>
+</div>
+<div class="note"><p>Можно отметить, что вывод для встроенного генератора <code>helper</code> включает &quot;invoke test_unit&quot;, а вывод для <code>my_helper</code> нет. Хотя генератор <code>helper</code> не генерирует тесты по умолчанию, он предоставляет хук для этого с помощью <a href="https://api.rubyonrails.org/classes/Rails/Generators/Base.html#method-c-hook_for"><code>hook_for</code></a>. Мы можем сделать то же самое, включив <code>hook_for :test_framework, as: :helper</code> в класс <code>MyHelperGenerator</code>. Подробнее смотрите в документации по <code>hook_for</code>.</p></div><h4 id='folbeki-generatorov' class='inside_page_header'><a href="#folbeki-generatorov">7.1.</a> Фолбэки генераторов</h4><p>Другим способом переопределить определенные генераторы является использование <em>фолбэков</em>. Фолбэк позволяет пространству имен генератора делегировать пространству имен другого генератора.</p><p>Скажем, к примеру, что мы хотим переопределить генератор <code>test_unit:model</code> нашим собственным генератором <code>my_test_unit:model</code>, но мы не хотим заменять все другие генераторы <code>test_unit:*</code>, такие как <code>test_unit:controller</code>.</p><p>Сначала мы создадим генератор <code>my_test_unit:model</code> в <code>lib/generators/my_test_unit/model/model_generator.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">module</span> <span class="nn">MyTestUnit</span>
+  <span class="k">class</span> <span class="nc">ModelGenerator</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Generators</span><span class="o">::</span><span class="no">NamedBase</span>
+    <span class="n">source_root</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s2">"templates"</span><span class="p">,</span> <span class="n">__dir__</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">do_different_stuff</span>
+      <span class="n">say</span> <span class="s2">"Doing different stuff..."</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Затем используем <code>config.generators</code> для конфигурации генератора <code>test_framework</code> как <code>my_test_unit</code>, но мы также сконфигурируем фолбэк, что любые отсутствующие генераторы <code>my_test_unit:*</code> будут разрешаться как <code>test_unit:*</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">generators</span> <span class="k">do</span> <span class="o">|</span><span class="n">g</span><span class="o">|</span>
+  <span class="n">g</span><span class="p">.</span><span class="nf">test_framework</span> <span class="ss">:my_test_unit</span><span class="p">,</span> <span class="ss">fixture: </span><span class="kp">false</span>
+  <span class="n">g</span><span class="p">.</span><span class="nf">fallbacks</span><span class="p">[</span><span class="ss">:my_test_unit</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:test_unit</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь, когда мы запустим генератор скаффолда, мы увидим, что <code>my_test_unit</code> заменил <code>test_unit</code>, но были затронуты только тесты модели:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate scaffold Comment body:text
+<span class="go">      invoke  active_record
+      create    db/migrate/20230518000000_create_comments.rb
+      create    app/models/comment.rb
+      invoke    my_test_unit
+    Doing different stuff...
+      invoke  resource_route
+       route    resources :comments
+      invoke  scaffold_controller
+      create    app/controllers/comments_controller.rb
+      invoke    erb
+      create      app/views/comments
+      create      app/views/comments/index.html.erb
+      create      app/views/comments/edit.html.erb
+      create      app/views/comments/show.html.erb
+      create      app/views/comments/new.html.erb
+      create      app/views/comments/_comment.html.erb
+      invoke    resource_route
+      invoke    my_test_unit
+      create      test/controllers/comments_controller_test.rb
+      create      test/system/comments_test.rb
+      invoke    helper
+      create      app/helpers/comments_helper.rb
+      invoke      my_test_unit
+      invoke    jbuilder
+      create      app/views/comments/index.json.jbuilder
+      create      app/views/comments/show.json.jbuilder
+</span></code></pre>
+</div>
+<h3 id='shablony-prilozheniya' class='inside_page_header'><a href="#shablony-prilozheniya">8.</a> Шаблоны приложения</h3><p>Шаблоны приложения это специальный тип генератора. Они могут использовать все <a href="#generator-helper-methods">вспомогательные методы генератора</a>, но написаны как скрипт Ruby вместо класса Ruby. Вот пример:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># template.rb</span>
+
+<span class="k">if</span> <span class="n">yes?</span><span class="p">(</span><span class="s2">"Would you like to install Devise?"</span><span class="p">)</span>
+  <span class="n">gem</span> <span class="s2">"devise"</span>
+  <span class="n">devise_model</span> <span class="o">=</span> <span class="n">ask</span><span class="p">(</span><span class="s2">"What would you like the user model to be called?"</span><span class="p">,</span> <span class="ss">default: </span><span class="s2">"User"</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">after_bundle</span> <span class="k">do</span>
+  <span class="k">if</span> <span class="n">devise_model</span>
+    <span class="n">generate</span> <span class="s2">"devise:install"</span>
+    <span class="n">generate</span> <span class="s2">"devise"</span><span class="p">,</span> <span class="n">devise_model</span>
+    <span class="n">rails_command</span> <span class="s2">"db:migrate"</span>
+  <span class="k">end</span>
+  <span class="n">git</span> <span class="ss">add: </span><span class="s2">"."</span><span class="p">,</span> <span class="ss">commit: </span><span class="sx">%(-m 'Initial commit')</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Сначала шаблон спрашивает пользователя, желает ли он установить Devise. Если пользователь отвечает &quot;yes&quot; (или &quot;y&quot;), шаблон добавит Devise в <code>Gemfile</code>, спрашивая пользователя об имени модели пользователя Devise (по умолчанию <code>User</code>). Затем, после запуска <code>bundle install</code>, шаблон запустит генераторы Devise и <code>rails db:migrate</code>, если была указана модель Devise. Наконец, шаблон выполнит <code>git add</code> и <code>git commit</code> для всей директории приложения.</p><p>Наш шаблон можно запустить при генерации нового приложения Rails, передав опцию <code>-m</code> к команде <code>rails new</code>:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new my_cool_app <span class="nt">-m</span> path/to/template.rb
+</code></pre>
+</div>
+<p>Альтернативно можно запустить наш шаблон внутри существующего приложения с помощью <code>bin/rails app:template</code>:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>app:template <span class="nv">LOCATION</span><span class="o">=</span>path/to/template.rb
+</code></pre>
+</div>
+<p>Также шаблоны не обязательно хранить локально — можно указать URL вместо пути:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new my_cool_app <span class="nt">-m</span> http://example.com/template.rb
+<span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>app:template <span class="nv">LOCATION</span><span class="o">=</span>http://example.com/template.rb
+</code></pre>
+</div>
+<h3 id='vspomogatelnye-metody-generatora' class='inside_page_header'><a href="#vspomogatelnye-metody-generatora">9.</a> Вспомогательные методы генератора</h3><p>Thor предоставляет множество вспомогательным методам генератора посредством <a href="https://www.rubydoc.info/gems/thor/Thor/Actions"><code>Thor::Actions</code></a>, таких как:</p><ul><li><a href="https://www.rubydoc.info/gems/thor/Thor/Actions#copy_file-instance_method"><code>copy_file</code></a>
+</li><li><a href="https://www.rubydoc.info/gems/thor/Thor/Actions#create_file-instance_method"><code>create_file</code></a>
+</li><li><a href="https://www.rubydoc.info/gems/thor/Thor/Actions#gsub_file-instance_method"><code>gsub_file</code></a>
+</li><li><a href="https://www.rubydoc.info/gems/thor/Thor/Actions#insert_into_file-instance_method"><code>insert_into_file</code></a>
+</li><li><a href="https://www.rubydoc.info/gems/thor/Thor/Actions#inside-instance_method"><code>inside</code></a>
+</li></ul><p>В дополнение к этому, Rails также предоставляет множество вспомогательных методов посредством <a href="https://api.rubyonrails.org/classes/Rails/Generators/Actions.html"><code>Rails::Generators::Actions</code></a>, таких как:</p><ul><li><a href="https://api.rubyonrails.org/classes/Rails/Generators/Actions.html#method-i-environment"><code>environment</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/Rails/Generators/Actions.html#method-i-gem"><code>gem</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/Rails/Generators/Actions.html#method-i-generate"><code>generate</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/Rails/Generators/Actions.html#method-i-git"><code>git</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/Rails/Generators/Actions.html#method-i-initializer"><code>initializer</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/Rails/Generators/Actions.html#method-i-lib"><code>lib</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/Rails/Generators/Actions.html#method-i-rails_command"><code>rails_command</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/Rails/Generators/Actions.html#method-i-rake"><code>rake</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/Rails/Generators/Actions.html#method-i-route"><code>route</code></a>
+</li></ul>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Основы Active Record" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Основы Active Record" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/active-record-basics" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Основы Active Record
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="VSjgJxMl+NQUP0yhjWQamco68G4Ooov0mqEmArWpZpNXZGN5+3cB9GoHZMUZ5nnnHGxv8Cq+9YSvgpYSTVl+kA==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#chto-takoe-active-record">1. Что такое Active Record?</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#pattern-active-record">1.1. Паттерн Active Record</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#object-relational-mapping-orm">1.2. Object Relational Mapping (ORM)</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#active-record-eto-freymvork-orm">1.3. Active Record это фреймворк ORM</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#soglasheniya-nad-konfiguratsiey-v-active-record">2. Соглашения над конфигурацией в Active Record</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#soglasheniya-po-imenovaniyu">2.1. Соглашения по именованию</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#soglasheniya-shemy">2.2. Соглашения схемы</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#sozdanie-modeley-active-record">3. Создание моделей Active Record</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#pereopredelenie-soglasheniy-ob-imenovanii">4. Переопределение соглашений об именовании</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#crud-chtenie-i-zapis-dannyh">5. CRUD: Чтение и запись данных</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#sozdanie">5.1. Создание</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#chtenie">5.2. Чтение</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#obnovlenie">5.3. Обновление</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#udalenie">5.4. Удаление</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#validatsii">6. Валидации</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#kolbeki">7. Колбэки</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#migratsii">8. Миграции</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='osnovy-active-record' class='inside_page_header'> Основы Active Record</h2><p>Это руководство является введением в Active Record.</p><p>После прочтения этого руководства, вы узнаете:</p><ul><li>Что такое ORM (Object Relational Mapping) и Active Record, и как они используются в Rails.
+</li><li>Как Active Record вписывается в парадигму Model-View-Controller.
+</li><li>Как использовать модели Active Record для управления информацией, хранящейся в реляционной базе данных.
+</li><li>О соглашении по именованиям схемы Active Record.
+</li><li>О концепциях миграций базы данных, валидаций и колбэков.
+</li></ul><h3 id='chto-takoe-active-record' class='inside_page_header'><a href="#chto-takoe-active-record">1.</a> Что такое Active Record?</h3><p>Active Record это M в <a href="https://ru.wikipedia.org/wiki/Model-View-Controller">MVC</a> - модель - которая является слоем в системе, ответственным за представление бизнес-логики и данных. Active Record упрощает создание и использование бизнес-объектов, данные которых требуют персистентного хранения в базе данных. Сама по себе эта реализация паттерна Active Record является описанием системы ORM (Object Relational Mapping).</p><h4 id='pattern-active-record' class='inside_page_header'><a href="#pattern-active-record">1.1.</a> Паттерн Active Record</h4><p><a href="https://www.martinfowler.com/eaaCatalog/activeRecord.html">Active Record был описан Martin Fowler</a> в его книге <em>Patterns of Enterprise Application Architecture</em>. В Active Record объекты содержат и персистентные данные, и поведение, которое работает с этими данными. Active Record исходит из мнения, что обеспечение логики доступа к данным как части объекта покажет пользователям этого объекта то, как читать и писать в базу данных.</p><h4 id='object-relational-mapping-orm' class='inside_page_header'><a href="#object-relational-mapping-orm">1.2.</a> Object Relational Mapping (ORM)</h4><p><a href="https://ru.wikipedia.org/wiki/ORM">Object Relational Mapping</a> (объектно-реляционное отображение), обычно упоминающееся как аббревиатура ORM, это техника, соединяющая сложные объекты приложения с таблицами в системе управления реляционными базами данных. С помощью ORM, свойства и взаимоотношения этих объектов приложения могут быть с легкостью сохранены и получены из базы данных без непосредственного написания выражений SQL, и, в итоге, с меньшим суммарным кодом для доступа в базу данных.</p><div class="note"><p>Чтобы полностью понять Active Record, будут полезны базовые знания реляционных систем управления базой данных (RDBMS) или языка структурированных запросов (SQL). Если хотите узнать больше, обратитесь <a href="https://www.w3schools.com/sql/default.asp">к этому учебному пособию</a> (или <a href="http://www.sqlcourse.com/">к этому</a>) или изучите их другими способами.</p></div><h4 id='active-record-eto-freymvork-orm' class='inside_page_header'><a href="#active-record-eto-freymvork-orm">1.3.</a> Active Record это фреймворк ORM</h4><p>Active Record предоставляет нам несколько механизмов, наиболее важными из которых являются способности для:</p><ul><li>Представления моделей и их данных.
+</li><li>Представления связей между этими моделями.
+</li><li>Представления иерархий наследования с помощью связанных моделей.
+</li><li>Валидации моделей до того, как они станут персистентными в базе данных.
+</li><li>Выполнения операций с базой данных в объектно-ориентированном стиле.
+</li></ul><h3 id='soglasheniya-nad-konfiguratsiey-v-active-record' class='inside_page_header'><a href="#soglasheniya-nad-konfiguratsiey-v-active-record">2.</a> Соглашения над конфигурацией в Active Record</h3><p>При написании приложения с использованием других языков программирования или фреймворков часто требуется писать много конфигурационного кода. В частности, это справедливо для фреймворков ORM. Однако, если следовать соглашениям, принятым Rails, вам придется написать совсем немного конфигураций (а иногда совсем не придется) при создании моделей Active Record. Идея в том, что в большинстве случаев вы настраиваете свои приложения одинаковым образом, и этот способ должен быть способом по умолчанию. Таким образом, явная конфигурация потребуется только тогда, когда вы не следуете соглашениям по какой-то причине.</p><h4 id='soglasheniya-po-imenovaniyu' class='inside_page_header'><a href="#soglasheniya-po-imenovaniyu">2.1.</a> Соглашения по именованию</h4><p>По умолчанию Active Record использует некоторые соглашения по именованию чтобы узнать, как должна быть создана связь между моделями и таблицами базы данных. Rails образует множественное число для имен класса, чтобы найти соответствующую таблицу базы данных. Так, для класса <code>Book</code> следует создать таблицу базы данных с именем <strong>books</strong>. Механизмы образования множественного числа Rails очень мощные, они способны образовывать множественное (и единственное) число как для правильных, так и для неправильных форм слов. При использовании имен класса, созданных из двух и более слов, имя класса модели должно следовать соглашениям Ruby, используя форму CamelCase, тогда как имя таблицы должно использовать форму snake_case. Примеры:</p><ul><li>Класс модели - Единственное число с первой прописной буквой в каждом слове (т.е., <code>BookClub</code>).
+</li><li>Таблица базы данных - Множественная форма со словами, разделенными знаком подчеркивания (т.е., <code>book_clubs</code>).
+</li></ul><table class='table table-striped'><tr>
+<th>Модель / Класс</th>
+<th>Таблица / Схема</th>
+</tr>
+<tr>
+<td><code>Article</code></td>
+<td><code>articles</code></td>
+</tr>
+<tr>
+<td><code>LineItem</code></td>
+<td><code>line_items</code></td>
+</tr>
+<tr>
+<td><code>Deer</code></td>
+<td><code>deers</code></td>
+</tr>
+<tr>
+<td><code>Mouse</code></td>
+<td><code>mice</code></td>
+</tr>
+<tr>
+<td><code>Person</code></td>
+<td><code>people</code></td>
+</tr>
+</table><h4 id='soglasheniya-shemy' class='inside_page_header'><a href="#soglasheniya-shemy">2.2.</a> Соглашения схемы</h4><p>Active Record использует соглашения о именовании для столбцов в таблицах базы данных, зависящих от назначения этих столбцов.</p><ul><li><strong>Внешние ключи</strong> - Эти поля должны именоваться по образцу <code>singularized_table_name_id</code> (т.е., <code>item_id</code>, <code>order_id</code>). Это поля, которые ищет Active Record при создании связей между вашими моделями.
+</li><li><strong>Первичные ключи</strong> - По умолчанию Active Record использует числовой столбец с именем <code>id</code> как первичный ключ таблицы (<code>bigint</code> для PostgreSQL и MySQL, <code>integer</code> для SQLite). Этот столбец будет автоматически создан при использовании <a href="/active-record-migrations">миграций Active Record</a> для создания таблиц.
+</li></ul><p>Также имеются некоторые опциональные имена столбцов, добавляющие дополнительные особенности для экземпляров Active Record:</p><ul><li><code>created_at</code> - Автоматически будут установлены текущие дата и время при изначальном создании записи.
+</li><li><code>updated_at</code> - Автоматически будут установлены текущие дата и время всякий раз, когда создается или обновляется запись.
+</li><li><code>lock_version</code> - Добавляет <a href="https://api.rubyonrails.org/classes/ActiveRecord/Locking.html">оптимистическую блокировку</a> к модели.
+</li><li><code>type</code> - Указывает, что модель использует <a href="https://api.rubyonrails.org/classes/ActiveRecord/Base.html#class-ActiveRecord::Base-label-Single+table+inheritance">Single Table Inheritance</a>.
+</li><li><code>(association_name)_type</code> - Хранит тип для <a href="/active-record-associations#polymorphic-associations">полиморфных связей</a>.
+</li><li><code>(table_name)_count</code> - Используется для кэширования количества принадлежащих по связи объектов. Например, столбец <code>comments_count</code> в классе <code>Article</code>, у которого может быть несколько связанных экземпляров <code>Comment</code>, закэширует количество существующих комментариев для каждой статьи.
+</li></ul><div class="note"><p>Хотя эти имена столбцов опциональны, фактически они зарезервированы Active Record. Избегайте зарезервированных ключевых слов, если вы не желаете дополнительной функциональности. Например, <code>type</code> - это зарезервированное слово для определения таблицы, использующей наследование с единой таблицей (STI). Если вы не используете STI, попытайтесь использовать аналогичное слово, такое как &quot;context&quot;, которое также может аккуратно описать данные, которые вы моделируете.</p></div><h3 id='sozdanie-modeley-active-record' class='inside_page_header'><a href="#sozdanie-modeley-active-record">3.</a> Создание моделей Active Record</h3><p>Чтобы создать модели Active Record, создайте подкласс <code>ApplicationRecord</code>, и готово:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Product</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это создаст модель <code>Product</code>, связав ее с таблицей <code>products</code> в базе данных. Сделав так, также появится способность связать столбцы каждой строки этой таблицы с атрибутами экземпляров вашей модели. Допустим, что таблица <code>products</code> была создана с использованием такого выражения SQL (или одно из его расширений):</p><div class="code_container">
+  <pre><code class="highlight sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">products</span> <span class="p">(</span>
+  <span class="n">id</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">auto_increment</span><span class="p">,</span>
+  <span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span>  <span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre>
+</div>
+<p>Вышеуказанная схема объявляет таблицу с двумя столбцами: <code>id</code> и <code>name</code>. Каждая строка этой таблицы представляет собой определенный продукт с этими двумя параметрами. Таким образом, можно написать подобный код:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="nb">p</span> <span class="o">=</span> <span class="no">Product</span><span class="p">.</span><span class="nf">new</span>
+<span class="nb">p</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"Some Book"</span>
+<span class="nb">puts</span> <span class="nb">p</span><span class="p">.</span><span class="nf">name</span> <span class="c1"># "Some Book"</span>
+</code></pre>
+</div>
+<h3 id='pereopredelenie-soglasheniy-ob-imenovanii' class='inside_page_header'><a href="#pereopredelenie-soglasheniy-ob-imenovanii">4.</a> Переопределение соглашений об именовании</h3><p>Но что, если вы следуете другому соглашению по именованию или используете новое приложение Rails со старой базой данных? Не проблема, можно просто переопределить соглашения по умолчанию.</p><p><code>ApplicationRecord</code> наследуется от <code>ActiveRecord::Base</code>, который определяет ряд полезных методов. Можно использовать метод <code>ActiveRecord::Base.table_name=</code> для указания имени таблицы, которая должна быть использована:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Product</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">table_name</span> <span class="o">=</span> <span class="s2">"my_products"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если так сделать, нужно вручную определить имя класса, содержащего фикстуры (my_products.yml), используя метод <code>set_fixture_class</code> в определении теста:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ProductTest</span> <span class="o">&lt;</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">TestCase</span>
+  <span class="n">set_fixture_class</span> <span class="ss">my_products: </span><span class="no">Product</span>
+  <span class="n">fixtures</span> <span class="ss">:my_products</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Также возможно переопределить столбец, который должен быть использован как первичный ключ таблицы, с помощью метода <code>ActiveRecord::Base.primary_key=</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Product</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">primary_key</span> <span class="o">=</span> <span class="s2">"product_id"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="note"><p>Active Record не поддерживает использование столбцов c именем <code>id</code>, не являющихся первичными ключами.</p></div><h3 id='crud-chtenie-i-zapis-dannyh' class='inside_page_header'><a href="#crud-chtenie-i-zapis-dannyh">5.</a> CRUD: Чтение и запись данных</h3><p>CRUD это сокращение для четырех глаголов, используемых для описания операций с данными: <strong>C</strong>reate (создать), <strong>R</strong>ead (прочесть), <strong>U</strong>pdate (обновить) и <strong>D</strong>elete (удалить). Active Record автоматически создает методы, позволяющие приложению читать и воздействовать на данные, хранимые в своих таблицах.</p><h4 id='sozdanie' class='inside_page_header'><a href="#sozdanie">5.1.</a> Создание</h4><p>Объекты Active Record могут быть созданы из хэша, блока или из вручную указанных после создания атрибутов. Метод <code>new</code> возвратит новый объект, в то время как <code>create</code> возвратит объект и сохранит его в базу данных.</p><p>Например, для модели <code>User</code> с атрибутами <code>name</code> и <code>occupation</code>, вызов метода <code>create</code> создаст и сохранит новую запись в базу данных:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"David"</span><span class="p">,</span> <span class="ss">occupation: </span><span class="s2">"Code Artist"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Используя метод <code>new</code>, объект может быть инициализирован без сохранения:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">user</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"David"</span>
+<span class="n">user</span><span class="p">.</span><span class="nf">occupation</span> <span class="o">=</span> <span class="s2">"Code Artist"</span>
+</code></pre>
+</div>
+<p>Вызов <code>user.save</code> передаст запись в базу данных.</p><p>Наконец, если предоставлен блок и <code>create</code>, и <code>new</code> передадут новый объект в этот блок для инициализации:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">u</span><span class="o">|</span>
+  <span class="n">u</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"David"</span>
+  <span class="n">u</span><span class="p">.</span><span class="nf">occupation</span> <span class="o">=</span> <span class="s2">"Code Artist"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='chtenie' class='inside_page_header'><a href="#chtenie">5.2.</a> Чтение</h4><p>Active Record предоставляет богатый API для доступа к данным в базе данных. Ниже несколько примеров различных методов доступа к данным, предоставленных Active Record.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># возвратит коллекцию со всеми пользователями</span>
+<span class="n">users</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">all</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># возвратит первого пользователя</span>
+<span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">first</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># возвратит первого пользователя с именем David</span>
+<span class="n">david</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">)</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># найдет всех пользователей с именем David, занятостью Code Artists, и сортирует их по created_at в обратном хронологическом порядке</span>
+<span class="n">users</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">,</span> <span class="ss">occupation: </span><span class="s1">'Code Artist'</span><span class="p">).</span><span class="nf">order</span><span class="p">(</span><span class="ss">created_at: :desc</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Подробно о запросах в моделях Active Record можно узнать в руководстве <a href="/active-record-querying">Интерфейс запросов Active Record</a>.</p><h4 id='obnovlenie' class='inside_page_header'><a href="#obnovlenie">5.3.</a> Обновление</h4><p>Как только объект Active Record будет получен, его атрибуты могут быть модифицированы, и он может быть сохранен в базу данных.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">)</span>
+<span class="n">user</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s1">'Dave'</span>
+<span class="n">user</span><span class="p">.</span><span class="nf">save</span>
+</code></pre>
+</div>
+<p>Сокращенным вариантом для этого является использование хэша с атрибутами, связанными с желаемыми значениями, таким образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">)</span>
+<span class="n">user</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'Dave'</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Это наиболее полезно, когда необходимо обновить несколько атрибутов за раз.</p><p>Если необходимо обновить несколько записей за раз без колбэков и валидаций, можно обновить базу данных напрямую с помощью <code>update_all</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">User</span><span class="p">.</span><span class="nf">update_all</span> <span class="ss">max_login_attempts: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">must_change_password: </span><span class="kp">true</span>
+</code></pre>
+</div>
+<h4 id='udalenie' class='inside_page_header'><a href="#udalenie">5.4.</a> Удаление</h4><p>Более того, после получения, объект Active Record может быть уничтожен, что уберет его из базы данных.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">)</span>
+<span class="n">user</span><span class="p">.</span><span class="nf">destroy</span>
+</code></pre>
+</div>
+<p>Если необходимо удалить сразу несколько записей, можно использовать методы <code>destroy_by</code> или <code>destroy_all</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># найти и удалить всех пользователей с именем David</span>
+<span class="no">User</span><span class="p">.</span><span class="nf">destroy_by</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">)</span>
+
+<span class="c1"># удалить всех пользователей</span>
+<span class="no">User</span><span class="p">.</span><span class="nf">destroy_all</span>
+</code></pre>
+</div>
+<h3 id='validatsii' class='inside_page_header'><a href="#validatsii">6.</a> Валидации</h3><p>Active Record позволяет проверять состояние модели до того, как она будет записана в базу данных. Имеется несколько методов, которые могут быть использованы для проверки ваших моделей и валидации, что значение атрибута не пустое, уникальное (не существующее в базе данных), отвечает определенному формату, и многие другие.</p><p>Валидация - это очень важный вопрос, который нужно рассмотреть при сохранении в базу данных, поэтому методы <code>save</code> и <code>update</code> учитывают ее при запуске: они возвращают <code>false</code>, когда валидация проваливается, и фактически они не выполняют каких-либо операций с базой данных. Каждый из этих методов имеет пару с восклицательным знаком (<code>save!</code> и <code>update!</code>), которые строже в том, что они вызывают исключение <code>ActiveRecord::RecordInvalid</code> если валидация провалится. Краткий пример:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="nf">save</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="nf">save!</span>
+<span class="go">ActiveRecord::RecordInvalid: Validation failed: Name can't be blank
+</span></code></pre>
+</div>
+<p>Подробнее о валидациях можно прочитать в руководстве <a href="/active-record-validations">Валидации Active Record</a>.</p><h3 id='kolbeki' class='inside_page_header'><a href="#kolbeki">7.</a> Колбэки</h3><p>Колбэки Active Record разрешают присоединить код к определенным событиям в жизненном цикле ваших моделей. Это позволяет добавить поведение модели, прозрачно выполнив код, когда эти события произойдут, например, когда вы создадите новую запись, обновите её, удалите её и так далее. Подробнее о колбэках можно прочитать в руководстве <a href="/active-record-callbacks">Колбэки Active Record</a>.</p><h3 id='migratsii' class='inside_page_header'><a href="#migratsii">8.</a> Миграции</h3><p>Rails предоставляет DSL для управления схемой базы данных, называемый миграциями. Миграции хранятся в файлах, выполняемых для любой базы данных, которую поддерживает Active Record, с использованием <code>rake</code>. Вот миграция, создающая таблицу:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreatePublications</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">create_table</span> <span class="ss">:publications</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:title</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">text</span> <span class="ss">:description</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">references</span> <span class="ss">:publication_type</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">references</span> <span class="ss">:publisher</span><span class="p">,</span> <span class="ss">polymorphic: </span><span class="kp">true</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">boolean</span> <span class="ss">:single_issue</span>
+
+      <span class="n">t</span><span class="p">.</span><span class="nf">timestamps</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Rails отслеживает, какие файлы переданы в базу данных, и представляет возможность отката. Чтобы фактически создать таблицу, нужно запустить <code>bin/rails db:migrate</code>, а чтобы ее откатить <code>bin/rails db:rollback</code>.</p><p>Отметьте, что вышеприведенный код не зависит от базы данных: он выполнится в MySQL, PostgreSQL, Oracle и иных. Подробнее о миграциях можно прочитать в руководстве <a href="/active-record-migrations">Миграции Active Record</a></p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

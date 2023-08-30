@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Установка зависимостей для разработки" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Установка зависимостей для разработки" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/development_dependencies_install" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Установка зависимостей для разработки
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="rkJc+5bBYF8I1CRnYQkE2KNXe9GBrrdm8L88YVIjV1+N+fqj78VxVGCJwl1lf7YlApJO1RqCSVClMDuCha6lCQ==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#drugie-sposoby-nastroit-vashu-sredu">1. Другие способы настроить вашу среду</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#lokalnaya-razrabotka">2. Локальная разработка</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#ustanovite-git">2.1. Установите Git</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#kloniruyte-repozitoriy-ruby-on-rails">2.2. Клонируйте репозиторий Ruby on Rails</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustanovka-dopolnitelnyh-instrumentov-i-servisov">2.3. Установка дополнительных инструментов и сервисов</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#macos">2.3.1. macOS</a>
+</h6>      </li>
+      <li>
+        <h7>
+          <a href="#potentsialnye-problemy">2.3.1.1. Потенциальные проблемы</a>
+</h7>      </li>
+      <li>
+        <h6>
+          <a href="#ubuntu">2.3.2. Ubuntu</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#fedora-ili-centos">2.3.3. Fedora или CentOS</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#arch-linux">2.3.4. Arch Linux</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#mysql-i-postgresql">2.3.5. MySQL и PostgreSQL</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#freebsd">2.3.6. FreeBSD</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#konfiguratsiya-bazy-dannyh">2.4. Конфигурация базы данных</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustanovka-zavisimostey-javascript">2.5. Установка зависимостей JavaScript</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#ustanovka-redis-iz-paketnogo-menedzhera">2.5.1. Установка Redis из пакетного менеджера</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#ustanovka-zavisimostey-gemov">2.6. Установка зависимостей гемов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#vnosite-vklad-v-rails">2.7. Вносите вклад в Rails</a>
+</h5>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='ustanovka-zavisimostey-dlya-razrabotki' class='inside_page_header'> Установка зависимостей для разработки</h2><p>Это руководство раскрывает, как настроить среду для разработки ядра Ruby on Rails.</p><p>После прочтения этого руководства, вы узнаете:</p><ul><li>Как настроить свою машину для разработки Rails
+</li></ul>
+<hr>
+<h3 id='drugie-sposoby-nastroit-vashu-sredu' class='inside_page_header'><a href="#drugie-sposoby-nastroit-vashu-sredu">1.</a> Другие способы настроить вашу среду</h3><p>Если вы не хотите настраивать Rails для разработки на локальной машине, можно использовать Codespaces, плагин VS Code Remote или rails-dev-box. Больше об этих опциях можно прочитать <a href="/contributing_to_ruby_on_rails#setting-up-a-development-environment">здесь</a>.</p><h3 id='lokalnaya-razrabotka' class='inside_page_header'><a href="#lokalnaya-razrabotka">2.</a> Локальная разработка</h3><p>Если хотите разрабатывать Ruby on Rails локально на своей машине, выполните следующие шаги.</p><h4 id='ustanovite-git' class='inside_page_header'><a href="#ustanovite-git">2.1.</a> Установите Git</h4><p>Ruby on Rails использует Git для контроля кода. На <a href="https://git-scm.com/">домашней странице Git</a> есть инструкции по установке. Также есть ряд онлайн ресурсов, которые помогут познакомиться с Git.</p><h4 id='kloniruyte-repozitoriy-ruby-on-rails' class='inside_page_header'><a href="#kloniruyte-repozitoriy-ruby-on-rails">2.2.</a> Клонируйте репозиторий Ruby on Rails</h4><p>Перейдите в папку, в которую вы хотите скачать исходный код Ruby on Rails (он создаст свою собственную поддиректорию <code>rails</code>), и запустите:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>clone https://github.com/rails/rails.git
+<span class="gp">$</span><span class="w"> </span><span class="nb">cd rails</span>
+</code></pre>
+</div>
+<h4 id='ustanovka-dopolnitelnyh-instrumentov-i-servisov' class='inside_page_header'><a href="#ustanovka-dopolnitelnyh-instrumentov-i-servisov">2.3.</a> Установка дополнительных инструментов и сервисов</h4><p>Некоторые тесты Rails зависят от дополнительных инструментов, которые необходимо установить перед запуском этих определенных тестов.</p><p>Вот список дополнительных зависимостей каждого гема:</p><ul><li>Action Cable зависит от Redis
+</li><li>Active Record зависит от SQLite3, MySQL и PostgreSQL
+</li><li>Active Storage зависит от Yarn (дополнительно, Yarn зависит от <a href="https://nodejs.org/">Node.js</a>), ImageMagick, libvips, FFmpeg, muPDF, Poppler, а на macOS также XQuartz.
+</li><li>Active Support зависит от memcached и Redis
+</li><li>Railties зависит от runtime окружения JavaScript, например от наличия установленного <a href="https://nodejs.org/">Node.js</a>.
+</li></ul><p>Установите все зависимости, которые необходимы для надлежащего тестирования гема, в который вы будете вносить изменения. Как установить эти сервисы для macOS, Ubuntu, Fedora/CentOS, Arch Linux и FreeBSD, рассказано ниже.</p><div class="note"><p>Документация Redis отговаривает от установки с помощью пакетных менеджеров, так как они обычно устаревшие. Установка из источника и настройка сервера прямолинейны и хорошо документированы в <a href="https://redis.io/download#installation">документации Redis</a>.</p></div><div class="note"><p>Тесты Active Record <em>обязаны</em> проходить как минимум для MySQL, PostgreSQL и SQLite3. Ваш патч будет отвергнут, если он был протестирован только для единственного адаптера, если только изменение и тесты не специфичные для адаптера.</p></div><p>Ниже приведены инструкции, как установить все дополнительные инструменты для различных операционных систем.</p><h5 id='macos' class='inside_page_header'><a href="#macos">2.3.1.</a> macOS</h5><p>На macOS можно использовать <a href="https://brew.sh/">Homebrew</a> для установки всех дополнительных инструментов.</p><p>Чтобы все установить, запустите</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">brew bundle</span>
+</code></pre>
+</div>
+<p>Также нужно запустить каждый из установленных сервисов. Чтобы отобразить все доступные сервисы, запустите:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">brew </span>services list
+</code></pre>
+</div>
+<p>Затем можно запустить каждый из этих сервисов один за другим подобным образом:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">brew </span>services start mysql
+</code></pre>
+</div>
+<p>Замените <code>mysql</code> именем того сервиса, который вы хотите запустить.</p><h6 id='potentsialnye-problemy' class='inside_page_header'><a href="#potentsialnye-problemy">2.3.1.1.</a> Потенциальные проблемы</h6><p>Этот раздел описывает некоторые потенциальные проблемы, с которыми вы можете столкнуться при использовании нативных расширений macOS, в частности при установке гема mysql2 при локальной разработке. Эта документация является предметом для изменения, и может быть некорректной, если Apple внесет изменения в среду разработки для Rails.</p><p>Чтобы скомпилировать гем <code>mysql2</code> на macOS, нужно сделать следующее:</p><p>1) Установить <code>openssl@1.1</code> (не <code>openssl@3</code>)
+2) Скомпилировать Ruby с <code>openssl@1.1</code>
+3) Установить флаги компилятора в конфигурации bundle для <code>mysql2</code>.</p><p>Если установлены оба <code>openssl@1.1</code> и <code>openssl@3</code>, нужно сообщить Ruby использовать <code>openssl@1.1</code>, для того, чтобы Rails установил <code>mysql2</code>.</p><p>В вашем <code>.bash_profile</code> установите <code>PATH</code> и <code>RUBY_CONFIGURE_OPTS</code> указывающим на <code>openssl@1.1</code>:</p><div class="code_container">
+  <pre><code class="highlight plaintext">export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+</code></pre>
+</div>
+<p>В <code>~/.bundle/config</code> установите следующее для <code>mysql2</code>. Убедитесь, что удалили все другие вхождения для <code>BUNDLE_BUILD__MYSQL2</code>:</p><div class="code_container">
+  <pre><code class="highlight plaintext">BUNDLE_BUILD__MYSQL2: "--with-ldflags=-L/usr/local/opt/openssl@1.1/lib --with-cppflags=-L/usr/local/opt/openssl@1.1/include"
+</code></pre>
+</div>
+<p>Установив эти флажки до установки Ruby и установки Rails, вы сможете получить работающую локальную среду разработки на macOS.</p><h5 id='ubuntu' class='inside_page_header'><a href="#ubuntu">2.3.2.</a> Ubuntu</h5><p>Чтобы все установить, запустите:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt-get update
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt-get <span class="nb">install sqlite3 </span>libsqlite3-dev mysql-server libmysqlclient-dev postgresql postgresql-client postgresql-contrib libpq-dev redis-server memcached imagemagick ffmpeg mupdf mupdf-tools libxml2-dev libvips42 poppler-utils
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>Install Yarn
+<span class="gp">$</span><span class="w"> </span>curl <span class="nt">-sS</span> https://dl.yarnpkg.com/debian/pubkey.gpg | <span class="nb">sudo </span>apt-key add -
+<span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"deb https://dl.yarnpkg.com/debian/ stable main"</span> | <span class="nb">sudo tee</span> /etc/apt/sources.list.d/yarn.list
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt-get <span class="nb">install yarn</span>
+</code></pre>
+</div>
+<h5 id='fedora-ili-centos' class='inside_page_header'><a href="#fedora-ili-centos">2.3.3.</a> Fedora или CentOS</h5><p>Чтобы все установить, запустите:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>sqlite-devel sqlite-libs mysql-server mysql-devel postgresql-server postgresql-devel redis memcached imagemagick ffmpeg mupdf libxml2-devel vips poppler-utils
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>Install Yarn
+<span class="gp">#</span><span class="w"> </span>Используйте эту команду, если у вас нет установленной Node.js
+<span class="gp">$</span><span class="w"> </span>curl <span class="nt">--silent</span> <span class="nt">--location</span> https://rpm.nodesource.com/setup_8.x | <span class="nb">sudo </span>bash -
+<span class="gp">#</span><span class="w"> </span>Если у вас есть установленная Node.js, используйте эту команду
+<span class="gp">$</span><span class="w"> </span>curl <span class="nt">--silent</span> <span class="nt">--location</span> https://dl.yarnpkg.com/rpm/yarn.repo | <span class="nb">sudo tee</span> /etc/yum.repos.d/yarn.repo
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install yarn</span>
+</code></pre>
+</div>
+<h5 id='arch-linux' class='inside_page_header'><a href="#arch-linux">2.3.4.</a> Arch Linux</h5><h5 id='mysql-i-postgresql' class='inside_page_header'><a href="#mysql-i-postgresql">2.3.5.</a> MySQL и PostgreSQL</h5><p>Чтобы все установить, запустите:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>pacman <span class="nt">-S</span> sqlite mariadb libmariadbclient mariadb-clients postgresql postgresql-libs redis memcached imagemagick ffmpeg mupdf mupdf-tools poppler <span class="nb">yarn </span>libxml2 libvips poppler
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>mariadb-install-db <span class="nt">--user</span><span class="o">=</span>mysql <span class="nt">--basedir</span><span class="o">=</span>/usr <span class="nt">--datadir</span><span class="o">=</span>/var/lib/mysql
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>systemctl start redis mariadb memcached
+</code></pre>
+</div>
+<div class="note"><p>Если вы запускаете на Arch Linux, MySQL больше не поддерживается, поэтому вам нужно вместо него использовать MariaDB (смотрите <a href="https://www.archlinux.org/news/mariadb-replaces-mysql-in-repositories/">этот анонс</a>).</p></div><h5 id='freebsd' class='inside_page_header'><a href="#freebsd">2.3.6.</a> FreeBSD</h5><p>Чтобы все установить, запустите:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>pkg <span class="nb">install sqlite3 </span>mysql80-client mysql80-server postgresql11-client postgresql11-server memcached imagemagick6 ffmpeg mupdf <span class="nb">yarn </span>libxml2 vips poppler-utils
+<span class="gp">#</span><span class="w"> </span>portmaster databases/redis
+</code></pre>
+</div>
+<p>Или установить все с помощью портов (эти пакеты расположены в папке <code>databases</code>).</p><div class="note"><p>Если у вас проблемы при установке MySQL, обратитесь к <a href="https://dev.mysql.com/doc/refman/en/freebsd-installation.html">документации MySQL</a>.</p></div><h4 id='konfiguratsiya-bazy-dannyh' class='inside_page_header'><a href="#konfiguratsiya-bazy-dannyh">2.4.</a> Конфигурация базы данных</h4><p>Имеется ряд дополнительных шагов, необходимых для конфигурации движка баз данных, требуемых для запуска тестов Active Record.</p><p>Аутентификация PostgreSQL работает по-другому. Чтобы настроить среду разработки для своего аккаунта на Linux или BSD, просто запустите:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo</span> <span class="nt">-u</span> postgres createuser <span class="nt">--superuser</span> <span class="nv">$USER</span>
+</code></pre>
+</div>
+<p>и для macOS:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span>createuser <span class="nt">--superuser</span> <span class="nv">$USER</span>
+</code></pre>
+</div>
+<p>MySQL создаст пользователей при создании баз данных. Задача предполагает, что ваш пользователь <code>root</code> без пароля.</p><p>Затем нужно создать тестовые базы данных для MySQL и PostgreSQL с помощью:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake </span>db:create
+</code></pre>
+</div>
+<p>Можно создать тестовые базы данных для каждого движка базы данных отдельно:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>activerecord
+<span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake </span>db:mysql:build
+<span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake </span>db:postgresql:build
+</code></pre>
+</div>
+<p>Можно удалить базы данных с помощью:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>activerecord
+<span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake </span>db:drop
+</code></pre>
+</div>
+<div class="note"><p>Использование задачи Rake для создания тестовых баз данных позволяет убедиться, что они имеют правильные кодировки и сортировки.</p></div><p>Если вы используете другую базу данных, ищите в файле <code>activerecord/test/config.yml</code> или <code>activerecord/test/config.example.yml</code> информацию по соединению по умолчанию. Можно отредактировать <code>activerecord/test/config.yml</code>, чтобы представить другие учетные данные для вашей машины, но, очевидно, вы не должны отправлять такие изменения обратно в Rails.</p><h4 id='ustanovka-zavisimostey-javascript' class='inside_page_header'><a href="#ustanovka-zavisimostey-javascript">2.5.</a> Установка зависимостей JavaScript</h4><p>Документация Redis отговаривает от установки с помощью пакетных менеджеров, так как они обычно устаревшие. Установка из исходников и запуск сервера просто и хорошо документированы в <a href="https://redis.io/download#installation">документации Redis</a>.</p><h5 id='ustanovka-redis-iz-paketnogo-menedzhera' class='inside_page_header'><a href="#ustanovka-redis-iz-paketnogo-menedzhera">2.5.1.</a> Установка Redis из пакетного менеджера</h5><p>Если вы установили Yarn, необходимо установить зависимости JavaScript:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>activestorage
+<span class="gp">$</span><span class="w"> </span><span class="nb">yarn install</span>
+</code></pre>
+</div>
+<h4 id='ustanovka-zavisimostey-gemov' class='inside_page_header'><a href="#ustanovka-zavisimostey-gemov">2.6.</a> Установка зависимостей гемов</h4><p>Гемы устанавливаются с помощью <a href="https://bundler.io/">Bundler</a>, который поставляется вместе с Ruby.</p><p>Чтобы установить Gemfile для Rails, запустите:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bundle install</span>
+</code></pre>
+</div>
+<p>Если вы не хотите запускать тесты Active Record, можно запустить:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bundle install</span> <span class="nt">--without</span> db
+</code></pre>
+</div>
+<h4 id='vnosite-vklad-v-rails' class='inside_page_header'><a href="#vnosite-vklad-v-rails">2.7.</a> Вносите вклад в Rails</h4><p>После того, как вы все настроили, прочитайте, как можно начать <a href="/contributing_to_ruby_on_rails#running-an-application-against-your-local-branch">вносить свой вклад</a>.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

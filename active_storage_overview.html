@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Обзор Active Storage" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Обзор Active Storage" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/active_storage_overview" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Обзор Active Storage
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="xzZnex05HG+RJ5DF62oqdWe0hrPt3dK2UmbxtzLbaqTiX+30ImYTLRhmGE+Ob26Zqf9MgjIKaJzoQ/ndTGe5DA==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#chto-takoe-active-storage">1. Что такое Active Storage?</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#trebovaniya">1.1. Требования</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#ustanovka">2. Установка</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#servis-disk">2.1. Сервис Disk</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#servis-s3-amazon-s3-i-sovmestimye-s-s3-api">2.2. Сервис S3 (Amazon S3 и совместимые с S3 API)</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#servis-microsoft-azure-storage">2.3. Сервис Microsoft Azure Storage</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#servis-google-cloud-storage">2.4. Сервис Google Cloud Storage</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#servis-mirror">2.5. Сервис Mirror</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#public-access">2.6.  Публичный доступ</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#prikreplenie-faylov-k-zapisyam">3. Прикрепление файлов к записям</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#has_one_attached">3.1. <code>has_one_attached</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#has_many_attached">3.2. <code>has_many_attached</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#prikreplenie-ob-ektov-file-io">3.3. Прикрепление объектов File/IO</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#udalenie-prikreplennyh-faylov">4. Удаление прикрепленных файлов</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#serving-files">5.  Раздача файлов</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#rezhim-perenapravleniya">5.1. Режим перенаправления</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#proxy-mode">5.2.  Режим прокси</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#pomeschenie-cdn-pered-active-storage">5.2.1. Помещение CDN перед Active Storage</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#authenticated-controllers">5.3.  Аутентифицированные контроллеры</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#skachivanie-faylov">6. Скачивание файлов</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#analiz-faylov">7. Анализ файлов</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#otobrazhenie-izobrazheniy-video-i-pdf">8. Отображение изображений, видео и PDF</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#lenivaya-vs-nemedlennaya-zagruzka">8.1. Ленивая vs немедленная загрузка</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#preobrazovanie-izobrazheniy">8.2. Преобразование изображений</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#predvaritelnyy-prosmotr-faylov">8.3. Предварительный просмотр файлов</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#direct-uploads">9.  Прямые загрузки</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie">9.1. Использование</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#nastroyka-sovmestnogo-ispolzovanie-resursov-cors">9.2. Настройка совместного использование ресурсов (CORS)</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#primer-nastroyka-s3-cors">9.2.1. Пример: настройка S3 CORS</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#primer-nastroyka-google-cloud-storage-cors">9.2.2. Пример: настройка Google Cloud Storage CORS</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#primer-nastroyka-azure-storage-cors">9.2.3. Пример: настройка Azure Storage CORS</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#sobytiya-javascript-pryamoy-zagruzki">9.3. События JavaScript прямой загрузки</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#primer">9.4. Пример</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#integratsiya-s-bibliotekami-ili-freymvorkami">9.5. Интеграция с библиотеками или фреймворками</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#testirovanie">10. Тестирование</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#discarding-files-created-during-tests">10.1.  Очистка файлов созданных во время тестов</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#sistemnye-testy">10.1.1. Системные тесты</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#integratsionnye-testy">10.1.2. Интеграционные тесты</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#dobavlenie-vlozheniy-v-fikstury">10.2. Добавление вложений в фикстуры</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#ochistka-fikstur">10.2.1. Очистка фикстур</a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#realizatsiya-podderzhki-drugih-oblachnyh-servisov">11. Реализация поддержки других облачных сервисов</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#purging-unattached-uploads">12.  Очистка неприкрепленных загрузок</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='obzor-active-storage' class='inside_page_header'> Обзор Active Storage</h2><p>В этом руководстве описывается, как прикреплять файлы к моделям Active Record.</p><p>После прочтения этого руководства вы узнаете:</p><ul><li>Как прикрепить один или несколько файлов к записи.
+</li><li>Как удалить прикрепленный файл.
+</li><li>Как создать ссылку на прикрепленный файл.
+</li><li>Как использовать варианты (variants) для преобразования изображений.
+</li><li>Как генерировать изображение файла, который не является изображением, например, PDF или видео.
+</li><li>Как загружать файлы из браузеров прямо в сервисы хранения (storage service), минуя application серверы.
+</li><li>Как очистить файлы, сохраненные во время тестирования.
+</li><li>Как реализовать поддержку дополнительных сервисов хранения.
+</li></ul>
+<hr>
+<h3 id='chto-takoe-active-storage' class='inside_page_header'><a href="#chto-takoe-active-storage">1.</a> Что такое Active Storage?</h3><p>Active Storage облегчает загрузку файлов в облачные хранилища данных, такие как Amazon S3, Google Cloud Storage или Microsoft Azure Storage, и прикрепляет эти файлы к объектам Active Record. Он поставляется с локальным на основе диска сервисом для разработки и тестирования, и поддерживает отзеркаливание (mirroring) файлов в подчиненных сервисах для резервного копирования и миграций.</p><p>Используя Active Storage приложение может преобразовывать изображения или генерировать изображение файла, который не является изображением, такого, например, как PDF или видео, и извлекать метаданные из произвольных файлов.</p><h4 id='trebovaniya' class='inside_page_header'><a href="#trebovaniya">1.1.</a> Требования</h4><p>Разные особенности Active Storage зависят от стороннего программного обеспечения, которое Rails не устанавливает, и которое должно быть установлено отдельно:</p><ul><li><a href="https://github.com/libvips/libvips">libvips</a> v8.6+ или <a href="https://imagemagick.org/index.php">ImageMagick</a> для анализа и трансформаций изображений
+</li><li><a href="http://ffmpeg.org/">ffmpeg</a> v3.4+ для предпросмотра видео и ffprobe для анализа видео/аудио
+</li><li><a href="https://poppler.freedesktop.org/">poppler</a> или <a href="https://mupdf.com/">muPDF</a> для предпросмотра PDF
+</li></ul><p>Анализ и преобразования изображений также требуют гем <code>image_processing</code>. Раскомментируйте его в своем <code>Gemfile</code>, или добавьте:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s2">"image_processing"</span><span class="p">,</span> <span class="s2">"&gt;= 1.2"</span>
+</code></pre>
+</div>
+<div class="info"><p>По сравнению с libvips, ImageMagick более известный и распространенный. Однако, libvips может быть <a href="https://github.com/libvips/libvips/wiki/Speed-and-memory-use">до 10 раз быстрее и потреблять 1/10 памяти</a>. Для файлов JPEG это может быть еще более улучшено, с помощью замены <code>libjpeg-dev</code> на <code>libjpeg-turbo-dev</code>, который <a href="https://libjpeg-turbo.org/About/Performance">в 2-7 раз быстрее</a>.</p></div><div class="warning"><p>Перед установкой и использованием сторонних программ, убедитесь, что вы понимаете лицензионные последствия этого. В частности, MuPDF лицензирован по AGPL и требует коммерческую лицензию в определенных случаях.</p></div><h3 id='ustanovka' class='inside_page_header'><a href="#ustanovka">2.</a> Установка</h3><p>Active Storage использует три таблицы в базе данных приложения названные <code>active_storage_blobs</code>, <code>active_storage_variant_records</code> и <code>active_storage_attachments</code>. После создания нового приложения (или апгрейда приложения до Rails 5.2), нужно запустить <code>bin/rails active_storage:install</code>, чтобы сгенерировать миграцию, которая создает эти таблицы. Используйте <code>bin/rails db:migrate</code> для запуска миграций.</p><div class="warning"><p><code>active_storage_attachments</code> это полиморфная соединительная таблица, хранящая имена ваших классов моделей. Если имена ваших классов моделей меняются, необходимо запустить миграцию на эту таблицу, чтобы обновить соответствующие <code>record_type</code> новым именем вашего класса модели.</p></div><div class="warning"><p>Если используются UUID вместо чисел в качестве первичного ключа моделей, необходимо изменить тип столбцов <code>active_storage_attachments.record_id</code> и <code>active_storage_variant_records.id</code> в соответствующей сгенерированной миграции. Это можно опустить, если установить <code>Rails.application.config.generators { |g| g.orm :active_record, primary_key_type: :uuid }</code> в файле конфигурации.</p></div><p>Сервисы Active Storage объявляются в <code>config/storage.yml</code>. Для каждого сервиса, используемого в приложении, стоит указать имя и необходимую конфигурацию. В нижеприведенном примере объявляются три сервиса с именами <code>local</code>, <code>test</code> и <code>amazon</code>:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">local</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">Disk</span>
+  <span class="na">root</span><span class="pi">:</span> <span class="s">&lt;%= Rails.root.join("storage") %&gt;</span>
+
+<span class="na">test</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">Disk</span>
+  <span class="na">root</span><span class="pi">:</span> <span class="s">&lt;%= Rails.root.join("tmp/storage") %&gt;</span>
+
+<span class="na">amazon</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">S3</span>
+  <span class="na">access_key_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">secret_access_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">bucket</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">region</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <span class="c1"># e.g. 'us-east-1'</span>
+</code></pre>
+</div>
+<p>Скажите Active Storage, какой сервис использовать, установив <code>Rails.application.config.active_storage.service</code>. Поскольку каждая среда, скорее всего, использует различные сервисы, рекомендуется делать это отдельно для каждого окружения. Чтобы использовать сервис диска из предыдущего примера в среде разработки, нужно добавить следующее в <code>config/environments/development.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Хранение файлов локально.</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">active_storage</span><span class="p">.</span><span class="nf">service</span> <span class="o">=</span> <span class="ss">:local</span>
+</code></pre>
+</div>
+<p>Чтобы использовать сервис S3 в production, необходимо добавить следующее в
+<code>config/environments/production.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Хранить файлы в Amazon S3.</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">active_storage</span><span class="p">.</span><span class="nf">service</span> <span class="o">=</span> <span class="ss">:amazon</span>
+</code></pre>
+</div>
+<p>Чтобы использовать тестовый сервис при тестировании, добавьте следующее в <code>config/environments/test.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Хранить загруженные файлы в локальной файловой системе во временной директории.</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">active_storage</span><span class="p">.</span><span class="nf">service</span> <span class="o">=</span> <span class="ss">:test</span>
+</code></pre>
+</div>
+<p>Подробнее о встроенных адаптерах сервиса (например, <code>Disk</code> и <code>S3</code>) и требуемой конфигурации написано ниже.</p><div class="note"><p>Конфигурационные файлы, специфичные для среды, имеют приоритет: в production, к примеру, файл <code>config/storage/production.yml</code> (если существует) будет иметь приоритет перед файлом <code>config/storage.yml</code>.</p></div><p>Рекомендовано использовать <code>Rails.env</code> в имени bucket, чтобы в будущем снизить риск случайного уничтожения данных production.</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">amazon</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">S3</span>
+  <span class="c1"># ...</span>
+  <span class="na">bucket</span><span class="pi">:</span> <span class="s">your_own_bucket-&lt;%= Rails.env %&gt;</span>
+
+<span class="na">google</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">GCS</span>
+  <span class="c1"># ...</span>
+  <span class="na">bucket</span><span class="pi">:</span> <span class="s">your_own_bucket-&lt;%= Rails.env %&gt;</span>
+
+<span class="na">azure</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">AzureStorage</span>
+  <span class="c1"># ...</span>
+  <span class="na">container</span><span class="pi">:</span> <span class="s">your_container_name-&lt;%= Rails.env %&gt;</span>
+</code></pre>
+</div>
+<h4 id='servis-disk' class='inside_page_header'><a href="#servis-disk">2.1.</a> Сервис Disk</h4><p>Объявление сервиса Disk в <code>config/storage.yml</code>:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">local</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">Disk</span>
+  <span class="na">root</span><span class="pi">:</span> <span class="s">&lt;%= Rails.root.join("storage") %&gt;</span>
+</code></pre>
+</div>
+<h4 id='servis-s3-amazon-s3-i-sovmestimye-s-s3-api' class='inside_page_header'><a href="#servis-s3-amazon-s3-i-sovmestimye-s-s3-api">2.2.</a> Сервис S3 (Amazon S3 и совместимые с S3 API)</h4><p>Чтобы подключиться к Amazon S3, объявите сервис S3 в <code>config/storage.yml</code>:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">amazon</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">S3</span>
+  <span class="na">access_key_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">secret_access_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">region</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">bucket</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+</code></pre>
+</div>
+<p>Опционально предоставьте опции клиента и загрузки:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">amazon</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">S3</span>
+  <span class="na">access_key_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">secret_access_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">region</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">bucket</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">http_open_timeout</span><span class="pi">:</span> <span class="m">0</span>
+  <span class="na">http_read_timeout</span><span class="pi">:</span> <span class="m">0</span>
+  <span class="na">retry_limit</span><span class="pi">:</span> <span class="m">0</span>
+  <span class="na">upload</span><span class="pi">:</span>
+    <span class="na">server_side_encryption</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <span class="c1"># 'aws:kms' или 'AES256'</span>
+</code></pre>
+</div>
+<div class="info"><p>Установите разумные лимиты HTTP timeout и retry в своем приложении. В некоторых сценариях неудачи конфигурация клиента AWS по умолчанию может держать соединение несколько минут, что приведет к очереди из запросов.</p></div><p>Добавьте гем <a href="https://github.com/aws/aws-sdk-ruby"><code>aws-sdk-s3</code></a> в <code>Gemfile</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s2">"aws-sdk-s3"</span><span class="p">,</span> <span class="ss">require: </span><span class="kp">false</span>
+</code></pre>
+</div>
+<div class="note"><p>Основные особенности Active Storage требуют следующих прав доступа: <code>s3:ListBucket</code>, <code>s3:PutObject</code>, <code>s3:GetObject</code> и <code>s3:DeleteObject</code>. <a href="#public-access">Публичный доступ</a> дополнительно требует <code>s3:PutObjectAcl</code>. Если есть дополнительные опции загрузки, сконфигурированные также как и настройка ACL, тогда могут потребоваться дополнительные права доступа.</p></div><div class="note"><p>Если необходимо использовать переменные среды, стандартные файлы конфигурации SDK, профили, профили экземпляров IAM или роли задач, можно опустить ключи <code>access_key_id</code>, <code>secret_access_key</code> и <code>region</code> в приведенном выше примере. Сервис S3 поддерживает все опции аутентификации, описанные в <a href="https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/setup-config.html">документации AWS SDK</a>.</p></div><p>Чтобы подключиться к совместимому с S3 API хранения объектов, такого как DigitalOcean Spaces, предоставьте <code>endpoint</code>:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">digitalocean</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">S3</span>
+  <span class="na">endpoint</span><span class="pi">:</span> <span class="s">https://nyc3.digitaloceanspaces.com</span>
+  <span class="na">access_key_id</span><span class="pi">:</span> <span class="s">...</span>
+  <span class="na">secret_access_key</span><span class="pi">:</span> <span class="s">...</span>
+  <span class="c1"># ...и другие опции</span>
+</code></pre>
+</div>
+<p>Есть множество других доступных опций. Их можно посмотреть в документации <a href="https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/S3/Client.html#initialize-instance_method">клиента AWS S3</a>.</p><h4 id='servis-microsoft-azure-storage' class='inside_page_header'><a href="#servis-microsoft-azure-storage">2.3.</a> Сервис Microsoft Azure Storage</h4><p>Объявление сервиса Azure Storage в <code>config/storage.yml</code>:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">azure</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">AzureStorage</span>
+  <span class="na">storage_account_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">storage_access_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">container</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+</code></pre>
+</div>
+<p>Кроме того, необходимо добавить гем <a href="https://github.com/Azure/azure-storage-ruby"><code>azure-storage-blob</code></a> в <code>Gemfile</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s2">"azure-storage-blob"</span><span class="p">,</span> <span class="s2">"~&gt; 2.0"</span><span class="p">,</span> <span class="ss">require: </span><span class="kp">false</span>
+</code></pre>
+</div>
+<h4 id='servis-google-cloud-storage' class='inside_page_header'><a href="#servis-google-cloud-storage">2.4.</a> Сервис Google Cloud Storage</h4><p>Объявление сервиса Google Cloud Storage в <code>config/storage.yml</code>:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">google</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">GCS</span>
+  <span class="na">credentials</span><span class="pi">:</span> <span class="s">&lt;%= Rails.root.join("path/to/keyfile.json") %&gt;</span>
+  <span class="na">project</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">bucket</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+</code></pre>
+</div>
+<p>Опционально можно предоставить хэш credentials вместо пути к keyfile:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">google</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">GCS</span>
+  <span class="na">credentials</span><span class="pi">:</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">service_account"</span>
+    <span class="na">project_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">private_key_id</span><span class="pi">:</span> <span class="s">&lt;%= Rails.application.credentials.dig(:gcs, :private_key_id) %&gt;</span>
+    <span class="na">private_key</span><span class="pi">:</span> <span class="s">&lt;%= Rails.application.credentials.dig(:gcs, :private_key).dump %&gt;</span>
+    <span class="na">client_email</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">client_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">auth_uri</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://accounts.google.com/o/oauth2/auth"</span>
+    <span class="na">token_uri</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://accounts.google.com/o/oauth2/token"</span>
+    <span class="na">auth_provider_x509_cert_url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://www.googleapis.com/oauth2/v1/certs"</span>
+    <span class="na">client_x509_cert_url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">project</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">bucket</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+</code></pre>
+</div>
+<p>Опционально предоставьте метаданные Cache-Control для установки на загруженных файлах:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">google</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">GCS</span>
+  <span class="s">...</span>
+  <span class="na">cache_control</span><span class="pi">:</span> <span class="s2">"</span><span class="s">public,</span><span class="nv"> </span><span class="s">max-age=3600"</span>
+</code></pre>
+</div>
+<p>Опционально используйте <a href="https://cloud.google.com/storage/docs/access-control/signed-urls#signing-iam">IAM</a> вместо <code>credentials</code> при подписании URL. Это полезно, если вы аутентифицируете ваше приложение GKE с помощью Workload Identity, подробности смотрите в <a href="https://cloud.google.com/blog/products/containers-kubernetes/introducing-workload-identity-better-authentication-for-your-gke-applications">этом блоге Google Cloud</a>.</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">google</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">GCS</span>
+  <span class="s">...</span>
+  <span class="na">iam</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre>
+</div>
+<p>Опционально используйте определенный GSA при подписании URL. При использовании IAM, <a href="https://cloud.google.com/compute/docs/storing-retrieving-metadata">сервер метаданных</a> свяжется для получения GSA email, но этот сервер метаданных не всегда присутствует (например, локальные тесты), и вы не хотите использовать GSA по умолчанию.</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">google</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">GCS</span>
+  <span class="s">...</span>
+  <span class="na">iam</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">gsa_email</span><span class="pi">:</span> <span class="s2">"</span><span class="s">foobar@baz.iam.gserviceaccount.com"</span>
+</code></pre>
+</div>
+<p>Добавьте гем <a href="https://github.com/GoogleCloudPlatform/google-cloud-ruby/tree/master/google-cloud-storage"><code>google-cloud-storage</code></a> в <code>Gemfile</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s2">"google-cloud-storage"</span><span class="p">,</span> <span class="s2">"~&gt; 1.11"</span><span class="p">,</span> <span class="ss">require: </span><span class="kp">false</span>
+</code></pre>
+</div>
+<h4 id='servis-mirror' class='inside_page_header'><a href="#servis-mirror">2.5.</a> Сервис Mirror</h4><p>Существует возможность синхронизировать несколько сервисов, определив сервис отзеркаливания. Сервис отзеркаливания копирует загрузки и удаляет из двух или более подчиненных сервисов.</p><p>Сервисы отзеркаливания предназначены для временного использования в течение миграции между сервисами в production. Можно начать отзеркаливание в новый сервис, скопировав существующие файлы со старого сервиса на новый, а затем полностью перейти на новый сервис.</p><div class="note"><p>Отзеркаливание не атомарно. Возможно, что загрузка будет успешной на основном сервисе и неуспешной на любом из подчиненных сервисов. Перед окончательным переходом на новый сервис, убедитесь, что все файлы были скопированы.</p></div><p>Определим каждый из требуемых сервисов, как описано выше. Будем ссылаться на них с помощью сервиса отзеркаливания.</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">s3_west_coast</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">S3</span>
+  <span class="na">access_key_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">secret_access_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">region</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">bucket</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+
+<span class="na">s3_east_coast</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">S3</span>
+  <span class="na">access_key_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">secret_access_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">region</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">bucket</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+
+<span class="na">production</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">Mirror</span>
+  <span class="na">primary</span><span class="pi">:</span> <span class="s">s3_east_coast</span>
+  <span class="na">mirrors</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">s3_west_coast</span>
+</code></pre>
+</div>
+<p>Хотя все вторичные сервисы получают загрузки, скачивания всегда обрабатываются основным сервисом.</p><p>Сервисы отзеркаливания совместимы с прямой загрузкой. Новые файлы загружаются непосредственно в основной сервис. Когда напрямую загруженный файл прикрепляется к записи, в очередь помещается фоновое задание для копирования его во вторичные сервисы.</p><h4 id='public-access' class='inside_page_header'><a href="#public-access">2.6.</a>  Публичный доступ</h4><p>По умолчанию Active Storage предполагает приватный доступ к сервисам. Это означает генерацию подписанных одноразовых URL для бинарных объектов. Если вы предпочитаете сделать бинарные объекты публично доступными, укажите <code>public: true</code> в <code>config/storage.yml</code> вашего приложения:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">gcs</span><span class="pi">:</span> <span class="nl">&amp;gcs</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">GCS</span>
+  <span class="na">project</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+
+<span class="na">private_gcs</span><span class="pi">:</span>
+  <span class="s">&lt;&lt;</span><span class="pi">:</span> <span class="nv">*gcs</span>
+  <span class="na">credentials</span><span class="pi">:</span> <span class="s">&lt;%= Rails.root.join("path/to/private_keyfile.json") %&gt;</span>
+  <span class="na">bucket</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+
+<span class="na">public_gcs</span><span class="pi">:</span>
+  <span class="s">&lt;&lt;</span><span class="pi">:</span> <span class="nv">*gcs</span>
+  <span class="na">credentials</span><span class="pi">:</span> <span class="s">&lt;%= Rails.root.join("path/to/public_keyfile.json") %&gt;</span>
+  <span class="na">bucket</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">public</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre>
+</div>
+<p>Убедитесь, что ваши bucket правильно настроены для публичного доступа. Обратитесь к документации, как разрешить публичное чтение для сервисов хранения <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access-bucket.html">Amazon S3</a>, <a href="https://cloud.google.com/storage/docs/access-control/making-data-public#buckets">Google Cloud Storage</a> и <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-manage-access-to-resources#set-container-public-access-level-in-the-azure-portal">Microsoft Azure</a>. Amazon S3 дополнительно требует имеющегося разрешения <code>s3:PutObjectAcl</code>.</p><p>При конвертации существующего приложения на использование <code>public: true</code>, убедитесь в обновлении каждого отдельного файла в bucket, чтобы он был публично читаемый до переключения.</p><h3 id='prikreplenie-faylov-k-zapisyam' class='inside_page_header'><a href="#prikreplenie-faylov-k-zapisyam">3.</a> Прикрепление файлов к записям</h3><h4 id='has_one_attached' class='inside_page_header'><a href="#has_one_attached">3.1.</a> <code>has_one_attached</code></h4><p>Макрос <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/Model.html#method-i-has_one_attached"><code>has_one_attached</code></a> устанавливает сопоставление (mapping) один-к-одному между записями и файлами. Каждая запись может содержать один прикрепленный файл.</p><p>Например, предположим, что в приложении имеется модель <code>User</code>. Если необходимо, чтобы у каждого пользователя был аватар, определите модель <code>User</code> так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_one_attached</span> <span class="ss">:avatar</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>или, если используете Rails 6.0+, можно запустить команду генератора модели наподобие:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">bin</span><span class="o">/</span><span class="n">rails</span> <span class="n">generate</span> <span class="n">model</span> <span class="no">User</span> <span class="n">avatar</span><span class="ss">:attachment</span>
+</code></pre>
+</div>
+<p>Далее можно создать пользователя с аватаром:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">file_field</span> <span class="ss">:avatar</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">SignupController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">create!</span><span class="p">(</span><span class="n">user_params</span><span class="p">)</span>
+    <span class="n">session</span><span class="p">[</span><span class="ss">:user_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="p">.</span><span class="nf">id</span>
+    <span class="n">redirect_to</span> <span class="n">root_path</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">user_params</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:user</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:email_address</span><span class="p">,</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">:avatar</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Вызов <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/One.html#method-i-attach"><code>avatar.attach</code></a> прикрепляет аватар к существующему пользователю:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:avatar</span><span class="p">])</span>
+</code></pre>
+</div>
+<p>Вызов <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/One.html#method-i-attached-3F"><code>avatar.attached?</code></a> определяет, есть ли у конкретного пользователя аватар:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">attached?</span>
+</code></pre>
+</div>
+<p>Иногда необходимо переопределить сервис по умолчанию для определенного вложения. Указать сервис для вложения можно с помощью опции <code>service</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_one_attached</span> <span class="ss">:avatar</span><span class="p">,</span> <span class="ss">service: :s3</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Можно настроить определенные варианты для вложения, вызвав метод <code>variant</code> на вложенном прикрепляемом объекте:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_one_attached</span> <span class="ss">:avatar</span> <span class="k">do</span> <span class="o">|</span><span class="n">attachable</span><span class="o">|</span>
+    <span class="n">attachable</span><span class="p">.</span><span class="nf">variant</span> <span class="ss">:thumb</span><span class="p">,</span> <span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Вызовите <code>avatar.variant(:thumb)</code> для получения варианта thumb аватарки:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">variant</span><span class="p">(</span><span class="ss">:thumb</span><span class="p">)</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Также можно указать определенные варианты для предварительного просмотра:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_one_attached</span> <span class="ss">:video</span> <span class="k">do</span> <span class="o">|</span><span class="n">attachable</span><span class="o">|</span>
+    <span class="n">attachable</span><span class="p">.</span><span class="nf">variant</span> <span class="ss">:thumb</span><span class="p">,</span> <span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">user</span><span class="p">.</span><span class="nf">video</span><span class="p">.</span><span class="nf">preview</span><span class="p">(</span><span class="ss">:thumb</span><span class="p">)</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<h4 id='has_many_attached' class='inside_page_header'><a href="#has_many_attached">3.2.</a> <code>has_many_attached</code></h4><p>Макрос <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/Model.html#method-i-has_many_attached"><code>has_many_attached</code></a> устанавливает отношение один-ко-многим между записями и файлами. У каждой записи может быть много прикрепленных файлов.</p><p>Например, предположим, что в приложении имеется модель <code>Message</code>. Если необходимо, чтобы у каждого сообщения было много изображений, определите модель <code>Message</code> так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Message</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many_attached</span> <span class="ss">:images</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>или, если используете Rails 6.0+, можно запустить команду генератора модели наподобие:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">bin</span><span class="o">/</span><span class="n">rails</span> <span class="n">generate</span> <span class="n">model</span> <span class="no">Message</span> <span class="n">images</span><span class="ss">:attachments</span>
+</code></pre>
+</div>
+<p>Далее можно создать сообщение с изображениями:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">MessagesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="no">Message</span><span class="p">.</span><span class="nf">create!</span><span class="p">(</span><span class="n">message_params</span><span class="p">)</span>
+    <span class="n">redirect_to</span> <span class="n">message</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">message_params</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:message</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:content</span><span class="p">,</span> <span class="ss">images: </span><span class="p">[])</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Вызов <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/Many.html#method-i-attach"><code>images.attach</code></a> добавляет новые изображения к существующему сообщению:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="vi">@message</span><span class="p">.</span><span class="nf">images</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:images</span><span class="p">])</span>
+</code></pre>
+</div>
+<p>Вызов <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/Many.html#method-i-attached-3F"><code>images.attached?</code></a> определяет, есть ли у конкретного сообщения какие-либо изображения:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="vi">@message</span><span class="p">.</span><span class="nf">images</span><span class="p">.</span><span class="nf">attached?</span>
+</code></pre>
+</div>
+<p>Переопределить сервис по умолчанию можно так же, как и для <code>has_one_attached</code>, с помощью опции <code>service</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Message</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many_attached</span> <span class="ss">:images</span><span class="p">,</span> <span class="ss">service: :s3</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Настроить определенные варианты можно так же, как и для <code>has_one_attached</code>, вызвав метод <code>variant</code> на вложенном прикрепляемом объекте:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Message</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many_attached</span> <span class="ss">:images</span> <span class="k">do</span> <span class="o">|</span><span class="n">attachable</span><span class="o">|</span>
+    <span class="n">attachable</span><span class="p">.</span><span class="nf">variant</span> <span class="ss">:thumb</span><span class="p">,</span> <span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='prikreplenie-ob-ektov-file-io' class='inside_page_header'><a href="#prikreplenie-ob-ektov-file-io">3.3.</a> Прикрепление объектов File/IO</h4><p>Иногда необходимо прикрепить файл, который не поступает через HTTP-запрос. Например, может понадобиться прикрепить файл, сгенерированный на диске, или загрузить файл из введенного пользователем URL. Также можно захотеть прикрепить файл фикстур в тесте модели. Чтобы сделать это, предоставьте хэш, содержащий как минимум открытый объект IO и имя файла:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="vi">@message</span><span class="p">.</span><span class="nf">images</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="ss">io: </span><span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s1">'/path/to/file'</span><span class="p">),</span> <span class="ss">filename: </span><span class="s1">'file.pdf'</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Когда это возможно, предоставьте тип содержимого. Active Storage пытается определить тип содержимого файла по его данным. Если он не может этого сделать, он возвращает тип содержимого, которое предоставляется.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="vi">@message</span><span class="p">.</span><span class="nf">images</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="ss">io: </span><span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s1">'/path/to/file'</span><span class="p">),</span> <span class="ss">filename: </span><span class="s1">'file.pdf'</span><span class="p">,</span> <span class="ss">content_type: </span><span class="s1">'application/pdf'</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Можно пропустить определение типа содержимого из данных, передав <code>identify: false</code> вместе с <code>content_type</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="vi">@message</span><span class="p">.</span><span class="nf">images</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span>
+  <span class="ss">io: </span><span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s1">'/path/to/file'</span><span class="p">),</span>
+  <span class="ss">filename: </span><span class="s1">'file.pdf'</span><span class="p">,</span>
+  <span class="ss">content_type: </span><span class="s1">'application/pdf'</span><span class="p">,</span>
+  <span class="ss">identify: </span><span class="kp">false</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+<p>Если не предоставляется тип содержимого и Active Storage не может автоматически определить тип содержимого файла, по умолчанию используется application/octet-stream.</p><h3 id='udalenie-prikreplennyh-faylov' class='inside_page_header'><a href="#udalenie-prikreplennyh-faylov">4.</a> Удаление прикрепленных файлов</h3><p>Чтобы удалить прикрепленный файл из модели, необходимо вызвать <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/One.html#method-i-purge"><code>purge</code></a> на нем. Если приложение использует Active Job, удаление может быть выполнено в фоновом режиме, с помощью вызова <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/One.html#method-i-purge_later"><code>purge_later</code></a>. <code>purge</code> удаляет blob и файл из сервиса хранения.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Синхронно уничтожить аватар и фактические файлы ресурса.</span>
+<span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">purge</span>
+
+<span class="c1"># Асинхронно уничтожить связанные модели и фактические файлы ресурса с помощью Active Job.</span>
+<span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">purge_later</span>
+</code></pre>
+</div>
+<h3 id='serving-files' class='inside_page_header'><a href="#serving-files">5.</a>  Раздача файлов</h3><p>Active Storage поддерживает два способа раздачи файлов: перенаправление и прокси.</p><div class="warning"><p>Все контроллеры Active Storage по умолчанию доступны публично. Сгенерированные URL трудно угадать, но они постоянные по определению. Если ваши файлы требуют более высокий уровень защиты, рассмотрите реализацию <a href="#authenticated-controllers">аутентифицированных контроллеров</a>.</p></div><h4 id='rezhim-perenapravleniya' class='inside_page_header'><a href="#rezhim-perenapravleniya">5.1.</a> Режим перенаправления</h4><p>Чтобы сгенерировать постоянный URL для бинарного объекта, можно передать этот объект в хелпер вью <a href="https://api.rubyonrails.org/classes/ActionView/RoutingUrlFor.html#method-i-url_for"><code>url_for</code></a>. Это создаст URL с <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blob.html#method-i-signed_id"><code>signed_id</code></a> бинарного объекта, который направляет в <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blobs/RedirectController.html"><code>RedirectController</code></a> для бинарного объекта.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">url_for</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">)</span>
+<span class="c1"># =&gt; /rails/active_storage/blobs/:signed_id/my-avatar.png</span>
+</code></pre>
+</div>
+<p><code>RedirectController</code> перенаправляет на фактическую конечную точку сервиса.  Эта косвенная адресация (indirection) отделяет URL сервиса от фактического, и позволяет, например, отзеркаливание прикрепленных файлов в разных сервисах для высокой доступности. Перенаправление имеет HTTP-прекращение 5 минут.</p><p>Чтобы создать ссылку для скачивания, необходимо использовать хелпер <code>rails_blob_{path|url}</code>. С помощью этого хелпера можно установить disposition.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">rails_blob_path</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">,</span> <span class="ss">disposition: </span><span class="s2">"attachment"</span><span class="p">)</span>
+</code></pre>
+</div>
+<div class="warning"><p>Для предотвращения атак XSS, Active Storage принудительно устанавливает заголовок Content-Disposition как &quot;attachment&quot; для некоторых типов файлов. Чтобы изменить это поведение, смотрите доступные конфигурационные опции в <a href="/configuring#configuring-active-storage">Конфигурирование приложений на Rails</a>.</p></div><p>Если необходимо создать ссылку из-за пределов содержимого контроллера/вью (фоновые задания, задания Cron и т.д.), можно получить доступ к <code>rails_blob_path</code> следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">url_helpers</span><span class="p">.</span><span class="nf">rails_blob_path</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">,</span> <span class="ss">only_path: </span><span class="kp">true</span><span class="p">)</span>
+</code></pre>
+</div>
+<h4 id='proxy-mode' class='inside_page_header'><a href="#proxy-mode">5.2.</a>  Режим прокси</h4><p>Опционально файлы могут проксированы вместо этого. Это означает, что серверы вашего приложения будут скачивать данные файла из сервиса хранения в отклик на запросы. Это может быть полезным для раздачи файлов из CDN.</p><p>Можно настроить Active Storage для использования проксирования по умолчанию:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/initializers/active_storage.rb</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">active_storage</span><span class="p">.</span><span class="nf">resolve_model_to_route</span> <span class="o">=</span> <span class="ss">:rails_storage_proxy</span>
+</code></pre>
+</div>
+<p>Или, если хотите явно проксировать определенные вложения, есть хелперы URL, которые можно использовать в форме <code>rails_storage_proxy_path</code> и <code>rails_storage_proxy_url</code>.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">rails_storage_proxy_path</span><span class="p">(</span><span class="vi">@user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">)</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<h5 id='pomeschenie-cdn-pered-active-storage' class='inside_page_header'><a href="#pomeschenie-cdn-pered-active-storage">5.2.1.</a> Помещение CDN перед Active Storage</h5><p>Кроме этого чтобы использовать CDN для вложений Active Storage, необходимо сгенерировать URL с режимом прокси, чтобы они раздавались вашим приложением, и CDN закэширует вложение без каких-либо дополнительных настроек. Это работает из коробки, так как контроллер прокси Active Storage по умолчанию устанавливает заголовок HTTP, указывающий CDN закэшировать отклик.</p><p>Также следует убедиться, что сгенерированные URL используют хост CDN, а не хост приложения. Есть несколько способов достичь этого, но в основном это затрагивает изменение вашего файла <code>config/routes.rb</code>, чтобы вы могли сгенерировать правильные URL для вложений и их вариаций. Для примера, можно добавить это:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/routes.rb</span>
+<span class="n">direct</span> <span class="ss">:cdn_image</span> <span class="k">do</span> <span class="o">|</span><span class="n">model</span><span class="p">,</span> <span class="n">options</span><span class="o">|</span>
+  <span class="n">expires_in</span> <span class="o">=</span> <span class="n">options</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="ss">:expires_in</span><span class="p">)</span> <span class="p">{</span> <span class="no">ActiveStorage</span><span class="p">.</span><span class="nf">urls_expire_in</span> <span class="p">}</span>
+
+  <span class="k">if</span> <span class="n">model</span><span class="p">.</span><span class="nf">respond_to?</span><span class="p">(</span><span class="ss">:signed_id</span><span class="p">)</span>
+    <span class="n">route_for</span><span class="p">(</span>
+      <span class="ss">:rails_service_blob_proxy</span><span class="p">,</span>
+      <span class="n">model</span><span class="p">.</span><span class="nf">signed_id</span><span class="p">(</span><span class="ss">expires_in: </span><span class="n">expires_in</span><span class="p">),</span>
+      <span class="n">model</span><span class="p">.</span><span class="nf">filename</span><span class="p">,</span>
+      <span class="n">options</span><span class="p">.</span><span class="nf">merge</span><span class="p">(</span><span class="ss">host: </span><span class="no">ENV</span><span class="p">[</span><span class="s1">'CDN_HOST'</span><span class="p">])</span>
+    <span class="p">)</span>
+  <span class="k">else</span>
+    <span class="n">signed_blob_id</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">blob</span><span class="p">.</span><span class="nf">signed_id</span><span class="p">(</span><span class="ss">expires_in: </span><span class="n">expires_in</span><span class="p">)</span>
+    <span class="n">variation_key</span>  <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">variation</span><span class="p">.</span><span class="nf">key</span>
+    <span class="n">filename</span>       <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">blob</span><span class="p">.</span><span class="nf">filename</span>
+
+    <span class="n">route_for</span><span class="p">(</span>
+      <span class="ss">:rails_blob_representation_proxy</span><span class="p">,</span>
+      <span class="n">signed_blob_id</span><span class="p">,</span>
+      <span class="n">variation_key</span><span class="p">,</span>
+      <span class="n">filename</span><span class="p">,</span>
+      <span class="n">options</span><span class="p">.</span><span class="nf">merge</span><span class="p">(</span><span class="ss">host: </span><span class="no">ENV</span><span class="p">[</span><span class="s1">'CDN_HOST'</span><span class="p">])</span>
+    <span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>и затем генерировать маршруты следующим образом:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">cdn_image_url</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">variant</span><span class="p">(</span><span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">]))</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<h4 id='authenticated-controllers' class='inside_page_header'><a href="#authenticated-controllers">5.3.</a>  Аутентифицированные контроллеры</h4><p>Все контроллеры Active Storage по умолчанию публично доступны. Сгенерированные URL используют <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blob.html#method-i-signed_id"><code>signed_id</code></a>, который трудно угадываемый, но всегда одинаковый. Любой, кто узнает URL бинарного объекта, сможет получить к нему доступ, даже если <code>before_action</code> в вашем <code>ApplicationController</code> в ином случае требовал бы входа. Если ваши файлы требуют более высокий уровень защиты, можно реализовать собственные аутентифицированные контроллеры, основанные на <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blobs/RedirectController.html"><code>ActiveStorage::Blobs::RedirectController</code></a>, <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blobs/ProxyController.html"><code>ActiveStorage::Blobs::ProxyController</code></a>, <a href="https://api.rubyonrails.org/classes/ActiveStorage/Representations/RedirectController.html"><code>ActiveStorage::Representations::RedirectController</code></a> и
+<a href="https://api.rubyonrails.org/classes/ActiveStorage/Representations/ProxyController.html"><code>ActiveStorage::Representations::ProxyController</code></a></p><p>Чтобы разрешить аккаунту доступ только к своему логотипу, можно сделать следующее:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/routes.rb</span>
+<span class="n">resource</span> <span class="ss">:account</span> <span class="k">do</span>
+  <span class="n">resource</span> <span class="ss">:logo</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/controllers/logos_controller.rb</span>
+<span class="k">class</span> <span class="nc">LogosController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="c1"># Through ApplicationController:</span>
+  <span class="c1"># include Authenticate, SetCurrentAccount</span>
+
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="n">redirect_to</span> <span class="no">Current</span><span class="p">.</span><span class="nf">account</span><span class="p">.</span><span class="nf">logo</span><span class="p">.</span><span class="nf">url</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">account_logo_path</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>И затем можно отключить маршруты Active Storage по умолчанию с помощью:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">active_storage</span><span class="p">.</span><span class="nf">draw_routes</span> <span class="o">=</span> <span class="kp">false</span>
+</code></pre>
+</div>
+<p>чтобы предотвратить доступ к файлам с помощью публично доступных URL.</p><h3 id='skachivanie-faylov' class='inside_page_header'><a href="#skachivanie-faylov">6.</a> Скачивание файлов</h3><p>Иногда необходимо обработать blob после его загрузки - например, чтобы преобразовать его в другой формат. Используйте метод <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blob.html#method-i-download"><code>download</code></a> на вложении для чтения двоичных данных blob в памяти:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">binary</span> <span class="o">=</span> <span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">download</span>
+</code></pre>
+</div>
+<p>Возможно, может понадобиться загрузить blob в файл на диске, чтобы внешняя программа могла работать с ним (например, антивирусный сканер или транскодер медиа). Используйте метод <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blob.html#method-i-open"><code>open</code></a> на вложении, чтобы загрузить blob в tempfile на диске:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">message</span><span class="p">.</span><span class="nf">video</span><span class="p">.</span><span class="nf">open</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
+  <span class="nb">system</span> <span class="s1">'/path/to/virus/scanner'</span><span class="p">,</span> <span class="n">file</span><span class="p">.</span><span class="nf">path</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Важно знать, что этот файл не доступен в колбэке <code>after_create</code>, а только в <code>after_create_commit</code>.</p><h3 id='analiz-faylov' class='inside_page_header'><a href="#analiz-faylov">7.</a> Анализ файлов</h3><p>Active Storage анализирует файлы как только они были загружены, запустив задание в Active Job. Проанализированные файлы будут хранить дополнительную информацию в хэше метаданных, включая <code>analyzed: true</code>. Можно проверить, был ли бинарный объект проанализирован, вызвав <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blob/Analyzable.html#method-i-analyzed-3F"><code>analyzed?</code></a> на нем.</p><p>Анализ изображений предоставляет атрибуты <code>width</code> и <code>height</code>. Анализ видео предоставляет их же, а также <code>duration</code>, <code>angle</code>, <code>display_aspect_ratio</code> и булевы значения <code>video</code> и <code>audio</code> для обозначения наличия этих каналов. Анализ аудио предоставляет атрибуты <code>duration</code> и <code>bit_rate</code>.</p><h3 id='otobrazhenie-izobrazheniy-video-i-pdf' class='inside_page_header'><a href="#otobrazhenie-izobrazheniy-video-i-pdf">8.</a> Отображение изображений, видео и PDF</h3><p>Active Storage поддерживает представление разных файлов. Можно вызвать <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blob/Representable.html#method-i-representation"><code>representation</code></a> на вложении, чтобы отобразить вариант изображения или предварительный просмотр видео или PDF. До вызова <code>representation</code>, проверьте, что вложение может быть представлено, вызвав <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blob/Representable.html#method-i-representable-3F"><code>representable?</code></a>. Некоторые форматы файла не могут быть предварительно показаны Active Storage из коробки (например, документы Word); если <code>representable?</code> возвращает false, можно <a href="#serving-files">оставить ссылку</a> на файл.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;ul&gt;</span>
+  <span class="cp">&lt;%</span> <span class="vi">@message</span><span class="p">.</span><span class="nf">files</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;li&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">file</span><span class="p">.</span><span class="nf">representable?</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">file</span><span class="p">.</span><span class="nf">representation</span><span class="p">(</span><span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="n">rails_blob_path</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="ss">disposition: </span><span class="s2">"attachment"</span><span class="p">)</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+          <span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="s2">"placeholder.png"</span><span class="p">,</span> <span class="ss">alt: </span><span class="s2">"Download file"</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre>
+</div>
+<p>Внутри <code>representation</code> вызывает <code>variant</code> для изображений и <code>preview</code> для файлов, которые можно просмотреть предварительно. Можно использовать непосредственно эти методы.</p><h4 id='lenivaya-vs-nemedlennaya-zagruzka' class='inside_page_header'><a href="#lenivaya-vs-nemedlennaya-zagruzka">8.1.</a> Ленивая vs немедленная загрузка</h4><p>По умолчанию Active Storage will обрабатывает представления лениво. Этот код:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">image_tag</span> <span class="n">file</span><span class="p">.</span><span class="nf">representation</span><span class="p">(</span><span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+</code></pre>
+</div>
+<p>Создаст тег <code>&lt;img&gt;</code> с <code>src</code>, указывающим на <a href="https://api.rubyonrails.org/classes/ActiveStorage/Representations/RedirectController.html"><code>ActiveStorage::Representations::RedirectController</code></a>. Браузер сделает запрос к этому контроллеру, который вернет перенаправление <code>302</code> на файл на удаленном сервисе (или в <a href="#proxy-mode">режиме прокси</a> возвратит содержимое файла). Ленивая загрузка файла позволяет работать особенностям, таким как <a href="#public-access">одноразовые URL</a>, без замедления загрузки изначальной страницы.</p><p>Это прекрасно работает в большинстве случаев.</p><p>Если хотите немедленно сгенерировать URL для изображений, можно вызвать <code>.processed.url</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">image_tag</span> <span class="n">file</span><span class="p">.</span><span class="nf">representation</span><span class="p">(</span><span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">]).</span><span class="nf">processed</span><span class="p">.</span><span class="nf">url</span>
+</code></pre>
+</div>
+<p>Отслеживание вариантов Active Storage улучшает производительность этого, сохраняя запись в базе данных, если запрашиваемое представление уже было обработано ранее. Таким образом, вышеприведенных код сделает вызов API к удаленному сервису (например, S3) только единожды, и как только вариант сохранится, будет использовать его. Отслеживание вариантов запускается автоматически, но может быть отключено с помощью <a href="/configuring#config-active-storage-track-variants"><code>config.active_storage.track_variants</code></a>.</p><p>Если вы рендерите множество изображений на странице, вышеприведенный пример может привести к N+1 запросам, загружающим все записи вариантов. Чтобы избежать этих  N+1 запросов, используйте именованные скоупы на <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attachment.html"><code>ActiveStorage::Attachment</code></a>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">message</span><span class="p">.</span><span class="nf">images</span><span class="p">.</span><span class="nf">with_all_variant_records</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
+  <span class="n">image_tag</span> <span class="n">file</span><span class="p">.</span><span class="nf">representation</span><span class="p">(</span><span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">]).</span><span class="nf">processed</span><span class="p">.</span><span class="nf">url</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='preobrazovanie-izobrazheniy' class='inside_page_header'><a href="#preobrazovanie-izobrazheniy">8.2.</a> Преобразование изображений</h4><p>Преобразование изображений позволяет отобразить изображение с выбранным вами разрешением.</p><p>Чтобы создать вариацию изображения, вызовите <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blob/Representable.html#method-i-variant"><code>variant</code></a> на вложении. В метод можно передать любое преобразование, поддерживаемое процессором варианта. Когда браузер обращается к URL варианта, Active Storage будет лениво преобразовывать исходный blob в указанный формат и перенаправлять его к новому месту расположения сервиса.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">variant</span><span class="p">(</span><span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Если запрошен вариант, Active Storage автоматически применит трансформации, в зависимости от формата изображения:</p><ul><li><p>Переменные типы изображения (указанны в <a href="/configuring#config-active-storage-variable-content-types"><code>config.active_storage.variable_content_types</code></a>) и не рассматриваемые веб-изображениями (указаны в  <a href="/configuring#config-active-storage-web-image-content-types"><code>config.active_storage.web_image_content_types</code></a>), будут преобразованы в PNG.</p></li><li><p>Если не указано <code>quality</code>, для форматирования будет использовано качество по умолчанию обработчика варианта.</p></li></ul><p>Active Storage может использовать либо <a href="https://www.rubydoc.info/gems/ruby-vips/Vips/Image">Vips</a>, либо MiniMagick в качестве обработчика варианта. Умолчания зависит от целевой версии вашей <code>config.load_defaults</code>, и обработчик может быть изменен, устанавливая <a href="/configuring#config-active-storage-variant-processor"><code>config.active_storage.variant_processor</code></a>.</p><p>Эти два процессора не полностью совместимы, поэтому при миграции существующего приложения между MiniMagick и Vips, нужно сделать несколько изменений при использовании специфичных опций форматирования:</p><div class="code_container">
+  <pre><code class="highlight rhtml"><span class="c">&lt;!-- MiniMagick --&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">variant</span><span class="p">(</span><span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="ss">format: :jpeg</span><span class="p">,</span> <span class="ss">sampling_factor: </span><span class="s2">"4:2:0"</span><span class="p">,</span> <span class="ss">strip: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">interlace: </span><span class="s2">"JPEG"</span><span class="p">,</span> <span class="ss">colorspace: </span><span class="s2">"sRGB"</span><span class="p">,</span> <span class="ss">quality: </span><span class="mi">0</span><span class="p">)</span> <span class="cp">%&gt;</span>
+
+<span class="c">&lt;!-- Vips --&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">variant</span><span class="p">(</span><span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="ss">format: :jpeg</span><span class="p">,</span> <span class="ss">saver: </span><span class="p">{</span> <span class="ss">subsample_mode: </span><span class="s2">"on"</span><span class="p">,</span> <span class="ss">strip: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">interlace: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">quality: </span><span class="mi">80</span> <span class="p">})</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Доступные параметры определяются гемом <a href="https://github.com/janko/image_processing"><code>image_processing</code></a> и зависят от используемого процессора варианта, но оба поддерживают следующие параметры:</p><table class='table table-striped'><tr>
+<th>Параметр</th>
+<th>Пример</th>
+<th>Описание</th>
+</tr>
+<tr>
+<td><code>resize_to_limit</code></td>
+<td><code>resize_to_limit: [100, 100]</code></td>
+<td>Уменьшает изображение в соответствие указанным габаритам, сохраняя оригинальные пропорции. Изменит размер, только если изображение больше, чем указанные габариты.</td>
+</tr>
+<tr>
+<td><code>resize_to_fit</code></td>
+<td><code>resize_to_fit: [100, 100]</code></td>
+<td>Уменьшает изображение в соответствие указанным габаритам, сохраняя оригинальные пропорции. Уменьшит, если изображение больше, чем указанные габариты, или увеличит, если меньше.</td>
+</tr>
+<tr>
+<td><code>resize_to_fill</code></td>
+<td><code>resize_to_fill: [100, 100]</code></td>
+<td>Изменит изображение, чтобы заполнить указанные габариты, сохраняя оригинальные пропорции. При необходимости обрежет изображение по большему габариту.</td>
+</tr>
+<tr>
+<td><code>resize_and_pad</code></td>
+<td><code>resize_and_pad: [100, 100]</code></td>
+<td>Уменьшает изображение в соответствие указанным габаритам, сохраняя оригинальные пропорции. При необходимости заполнит оставшуюся площадь прозрачным цветом, если исходное изображение имеет альфа-канал, в противном случае черным.</td>
+</tr>
+<tr>
+<td><code>crop</code></td>
+<td><code>crop: [20, 50, 300, 300]</code></td>
+<td>Извлекает область из изображения. Первые два аргумента это левый и верхний края извлекаемой области, а последние два аргумента это ширина и высота извлекаемой области.</td>
+</tr>
+<tr>
+<td><code>rotate</code></td>
+<td><code>rotate: 90</code></td>
+<td>Поворачивает изображение на указанный угол.</td>
+</tr>
+</table><p>У <a href="https://github.com/janko/image_processing"><code>image_processing</code></a> больше доступных опций (таких как <code>saver</code>, позволяющей настроить компрессию изображения) в собственных документациях к процессорам <a href="https://github.com/janko/image_processing/blob/master/doc/vips.md">Vips</a> и <a href="https://github.com/janko/image_processing/blob/master/doc/minimagick.md">MiniMagick</a>.</p><h4 id='predvaritelnyy-prosmotr-faylov' class='inside_page_header'><a href="#predvaritelnyy-prosmotr-faylov">8.3.</a> Предварительный просмотр файлов</h4><p>Некоторые файлы, который не являются изображениями, могут быть предварительно просмотрены: то есть они могут быть представлены как изображения. Например, видеофайл можно предварительно просмотреть, извлекая его первый кадр. Из коробки Active Storage поддерживает предварительный просмотр видео и документов PDF. Чтобы создать ссылку на лениво генерируемый предварительный просмотр, используйте метод <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blob/Representable.html#method-i-preview"><code>preview</code></a> вложения:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">message</span><span class="p">.</span><span class="nf">video</span><span class="p">.</span><span class="nf">preview</span><span class="p">(</span><span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Чтобы добавить поддержку другого формата, добавьте собственный previewer. Обратитесь к документации <a href="https://api.rubyonrails.org/classes/ActiveStorage/Preview.html"><code>ActiveStorage::Preview</code></a> за подробностями.</p><h3 id='direct-uploads' class='inside_page_header'><a href="#direct-uploads">9.</a>  Прямые загрузки</h3><p>Active Storage со встроенной библиотекой JavaScript поддерживает загрузку прямо от клиента в облако.</p><h4 id='ispolzovanie' class='inside_page_header'><a href="#ispolzovanie">9.1.</a> Использование</h4><ul><li><p>Включите <code>activestorage.js</code> в комплект JavaScript приложения.</p><p>Используя файлопровод:</p><div class="code_container">
+  <pre><code class="highlight js"><span class="c1">//= require activestorage</span>
+</code></pre>
+</div>
+<p>Используя пакет npm:</p><div class="code_container">
+  <pre><code class="highlight js"><span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">ActiveStorage</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@rails/activestorage</span><span class="dl">"</span>
+<span class="nx">ActiveStorage</span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>
+</code></pre>
+</div>
+</li><li><p>Добавьте <code>direct_upload: true</code> в ваше <a href="/form-helpers#uploading-files">поле файла</a>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">file_field</span> <span class="ss">:attachments</span><span class="p">,</span> <span class="ss">multiple: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">direct_upload: </span><span class="kp">true</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Или, если не используете <code>FormBuilder</code>, добавьте непосредственно атрибут данных:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">file</span> <span class="na">data-direct-upload-url=</span><span class="s">"</span><span class="cp">&lt;%=</span> <span class="n">rails_direct_uploads_url</span> <span class="cp">%&gt;</span><span class="s">"</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+</li><li><p>Настройте CORS на сторонних сервисах хранения, чтобы разрешить запросы прямой загрузки.</p></li><li><p>Вот и все! Загрузки начинаются с момента отправки формы.</p></li></ul><h4 id='nastroyka-sovmestnogo-ispolzovanie-resursov-cors' class='inside_page_header'><a href="#nastroyka-sovmestnogo-ispolzovanie-resursov-cors">9.2.</a> Настройка совместного использование ресурсов (CORS)</h4><p>Чтобы заработала прямая загрузка на сторонний сервис, необходимо настроить сервис, чтобы разрешить запросы с вашего приложения. Примите во внимание документацию по CORS для вашего сервиса:</p><ul><li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html#how-do-i-enable-cors">S3</a>
+</li><li><a href="https://cloud.google.com/storage/docs/configuring-cors">Google Cloud Storage</a>
+</li><li><a href="https://docs.microsoft.com/en-us/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services">Azure Storage</a>
+</li></ul><p>Позаботьтесь о разрешении:</p><ul><li>Всех источников, через которые можно получить доступ к вашему приложению
+</li><li>Метода запроса <code>PUT</code>
+</li><li>Следующих заголовков:
+<ul><li><code>Origin</code>
+</li><li><code>Content-Type</code>
+</li><li><code>Content-MD5</code>
+</li><li><code>Content-Disposition</code> (кроме Azure Storage)
+</li><li><code>x-ms-blob-content-disposition</code> (только для Azure Storage)
+</li><li><code>x-ms-blob-type</code> (только для Azure Storage)
+</li><li><code>Cache-Control</code> (для GCS, только если установлена <code>cache_control</code>)
+</li></ul></li></ul><p>Настройка CORS не нужна для сервиса Disk, так как он использует тот же источник.</p><h5 id='primer-nastroyka-s3-cors' class='inside_page_header'><a href="#primer-nastroyka-s3-cors">9.2.1.</a> Пример: настройка S3 CORS</h5><div class="code_container">
+  <pre><code class="highlight json"><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"AllowedHeaders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"*"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"AllowedMethods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"PUT"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"AllowedOrigins"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"https://www.example.com"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"ExposeHeaders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"Origin"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Content-Type"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Content-MD5"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Content-Disposition"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"MaxAgeSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+<h5 id='primer-nastroyka-google-cloud-storage-cors' class='inside_page_header'><a href="#primer-nastroyka-google-cloud-storage-cors">9.2.2.</a> Пример: настройка Google Cloud Storage CORS</h5><div class="code_container">
+  <pre><code class="highlight json"><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"origin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"https://www.example.com"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PUT"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"responseHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Origin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Content-Type"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Content-MD5"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Content-Disposition"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"maxAgeSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+<h5 id='primer-nastroyka-azure-storage-cors' class='inside_page_header'><a href="#primer-nastroyka-azure-storage-cors">9.2.3.</a> Пример: настройка Azure Storage CORS</h5><div class="code_container">
+  <pre><code class="highlight xml"><span class="nt">&lt;Cors&gt;</span>
+  <span class="nt">&lt;CorsRule&gt;</span>
+    <span class="nt">&lt;AllowedOrigins&gt;</span>https://www.example.com<span class="nt">&lt;/AllowedOrigins&gt;</span>
+    <span class="nt">&lt;AllowedMethods&gt;</span>PUT<span class="nt">&lt;/AllowedMethods&gt;</span>
+    <span class="nt">&lt;AllowedHeaders&gt;</span>Origin, Content-Type, Content-MD5, x-ms-blob-content-disposition, x-ms-blob-type<span class="nt">&lt;/AllowedHeaders&gt;</span>
+    <span class="nt">&lt;MaxAgeInSeconds&gt;</span>3600<span class="nt">&lt;/MaxAgeInSeconds&gt;</span>
+  <span class="nt">&lt;/CorsRule&gt;</span>
+<span class="nt">&lt;/Cors&gt;</span>
+</code></pre>
+</div>
+<h4 id='sobytiya-javascript-pryamoy-zagruzki' class='inside_page_header'><a href="#sobytiya-javascript-pryamoy-zagruzki">9.3.</a> События JavaScript прямой загрузки</h4><table class='table table-striped'><tr>
+<th>Имя события</th>
+<th>Цель события</th>
+<th>Данные события (<code>event.detail</code>)</th>
+<th>Описание</th>
+</tr>
+<tr>
+<td><code>direct-uploads:start</code></td>
+<td><code>&lt;form&gt;</code></td>
+<td>None</td>
+<td>Форма, содержащая файлы для прямой загрузки полей была отправлена.</td>
+</tr>
+<tr>
+<td><code>direct-upload:initialize</code></td>
+<td><code>&lt;input&gt;</code></td>
+<td><code>{id, file}</code></td>
+<td>Вызывается для каждого файла после отправки формы.</td>
+</tr>
+<tr>
+<td><code>direct-upload:start</code></td>
+<td><code>&lt;input&gt;</code></td>
+<td><code>{id, file}</code></td>
+<td>Прямая загрузка начинается.</td>
+</tr>
+<tr>
+<td><code>direct-upload:before-blob-request</code></td>
+<td><code>&lt;input&gt;</code></td>
+<td><code>{id, file, xhr}</code></td>
+<td>Перед тем, как сделать запрос к приложению для прямой загрузки метаданных.</td>
+</tr>
+<tr>
+<td><code>direct-upload:before-storage-request</code></td>
+<td><code>&lt;input&gt;</code></td>
+<td><code>{id, file, xhr}</code></td>
+<td>Перед тем, как сделать запрос на сохранение файла.</td>
+</tr>
+<tr>
+<td><code>direct-upload:progress</code></td>
+<td><code>&lt;input&gt;</code></td>
+<td><code>{id, file, progress}</code></td>
+<td>По мере прогресса сохранения файлов.</td>
+</tr>
+<tr>
+<td><code>direct-upload:error</code></td>
+<td><code>&lt;input&gt;</code></td>
+<td><code>{id, file, error}</code></td>
+<td>Произошла ошибка. Отображается <code>alert</code>, если это событие не отменено.</td>
+</tr>
+<tr>
+<td><code>direct-upload:end</code></td>
+<td><code>&lt;input&gt;</code></td>
+<td><code>{id, file}</code></td>
+<td>Прямая загрузка закончилась.</td>
+</tr>
+<tr>
+<td><code>direct-uploads:end</code></td>
+<td><code>&lt;form&gt;</code></td>
+<td>None</td>
+<td>Все прямые загрузки закончились.</td>
+</tr>
+</table><h4 id='primer' class='inside_page_header'><a href="#primer">9.4.</a> Пример</h4><p>Также можно использовать эти события, чтобы показывать ход загрузки.</p><p><img src='https://user-images.githubusercontent.com/5355/28694528-16e69d0c-72f8-11e7-91a7-c0b8cfc90391.gif' title='' alt='direct-uploads' class='img-polaroid' /></p><p>Чтобы показать загруженные файлы в форме:</p><div class="code_container">
+  <pre><code class="highlight js"><span class="c1">// direct_uploads.js</span>
+
+<span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">direct-upload:initialize</span><span class="dl">"</span><span class="p">,</span> <span class="nx">event</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">target</span><span class="p">,</span> <span class="nx">detail</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">event</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">file</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">detail</span>
+  <span class="nx">target</span><span class="p">.</span><span class="nx">insertAdjacentHTML</span><span class="p">(</span><span class="dl">"</span><span class="s2">beforebegin</span><span class="dl">"</span><span class="p">,</span> <span class="s2">`
+    &lt;div id="direct-upload-</span><span class="p">${</span><span class="nx">id</span><span class="p">}</span><span class="s2">" class="direct-upload direct-upload--pending"&gt;
+      &lt;div id="direct-upload-progress-</span><span class="p">${</span><span class="nx">id</span><span class="p">}</span><span class="s2">" class="direct-upload__progress" style="width: 0%"&gt;&lt;/div&gt;
+      &lt;span class="direct-upload__filename"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  `</span><span class="p">)</span>
+  <span class="nx">target</span><span class="p">.</span><span class="nx">previousElementSibling</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">`.direct-upload__filename`</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">file</span><span class="p">.</span><span class="nx">name</span>
+<span class="p">})</span>
+
+<span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">direct-upload:start</span><span class="dl">"</span><span class="p">,</span> <span class="nx">event</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">id</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">detail</span>
+  <span class="kd">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">`direct-upload-</span><span class="p">${</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+  <span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="dl">"</span><span class="s2">direct-upload--pending</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">direct-upload:progress</span><span class="dl">"</span><span class="p">,</span> <span class="nx">event</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">progress</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">detail</span>
+  <span class="kd">const</span> <span class="nx">progressElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">`direct-upload-progress-</span><span class="p">${</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+  <span class="nx">progressElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">progress</span><span class="p">}</span><span class="s2">%`</span>
+<span class="p">})</span>
+
+<span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">direct-upload:error</span><span class="dl">"</span><span class="p">,</span> <span class="nx">event</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">error</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">detail</span>
+  <span class="kd">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">`direct-upload-</span><span class="p">${</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+  <span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">"</span><span class="s2">direct-upload--error</span><span class="dl">"</span><span class="p">)</span>
+  <span class="nx">element</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">direct-upload:end</span><span class="dl">"</span><span class="p">,</span> <span class="nx">event</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">id</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">detail</span>
+  <span class="kd">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">`direct-upload-</span><span class="p">${</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+  <span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">"</span><span class="s2">direct-upload--complete</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+<p>Добавление стилей:</p><div class="code_container">
+  <pre><code class="highlight css"><span class="c">/* direct_uploads.css */</span>
+
+<span class="nc">.direct-upload</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">2px</span> <span class="m">4px</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="m">3px</span> <span class="m">3px</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.3</span><span class="p">);</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">11px</span><span class="p">;</span>
+  <span class="nl">line-height</span><span class="p">:</span> <span class="m">13px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.direct-upload--pending</span> <span class="p">{</span>
+  <span class="nl">opacity</span><span class="p">:</span> <span class="m">0.6</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.direct-upload__progress</span> <span class="p">{</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+  <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">bottom</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">opacity</span><span class="p">:</span> <span class="m">0.2</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="m">#0076ff</span><span class="p">;</span>
+  <span class="nl">transition</span><span class="p">:</span> <span class="n">width</span> <span class="m">120ms</span> <span class="n">ease-out</span><span class="p">,</span> <span class="n">opacity</span> <span class="m">60ms</span> <span class="m">60ms</span> <span class="n">ease-in</span><span class="p">;</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">translate3d</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.direct-upload--complete</span> <span class="nc">.direct-upload__progress</span> <span class="p">{</span>
+  <span class="nl">opacity</span><span class="p">:</span> <span class="m">0.4</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.direct-upload--error</span> <span class="p">{</span>
+  <span class="nl">border-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">file</span><span class="o">][</span><span class="nt">data-direct-upload-url</span><span class="o">][</span><span class="nt">disabled</span><span class="o">]</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h4 id='integratsiya-s-bibliotekami-ili-freymvorkami' class='inside_page_header'><a href="#integratsiya-s-bibliotekami-ili-freymvorkami">9.5.</a> Интеграция с библиотеками или фреймворками</h4><p>Если необходимо использовать особенность прямой загрузки из фреймворка JavaScript или необходима интеграция собственных решений перетаскивания (drag-and-drop), для этой цели можно использовать класс <code>DirectUpload</code>. Получив файл из выбранной библиотеки, создайте экземпляр DirectUpload и вызовите его метод create. Этот метод принимает колбэк для вызова, когда загрузка завершена.</p><div class="code_container">
+  <pre><code class="highlight js"><span class="k">import</span> <span class="p">{</span> <span class="nx">DirectUpload</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@rails/activestorage</span><span class="dl">"</span>
+
+<span class="kd">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">input[type=file]</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="c1">// Привязка к сбрасыванию (drop) файла - используйте ondrop на родительском элементе или используйте библиотеку, такую как Dropzone</span>
+<span class="kd">const</span> <span class="nx">onDrop</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span>
+  <span class="kd">const</span> <span class="nx">files</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">files</span><span class="p">;</span>
+  <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">files</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">file</span> <span class="o">=&gt;</span> <span class="nx">uploadFile</span><span class="p">(</span><span class="nx">file</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="c1">// Привязка к обычному выбору файла</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">change</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">files</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">file</span> <span class="o">=&gt;</span> <span class="nx">uploadFile</span><span class="p">(</span><span class="nx">file</span><span class="p">))</span>
+  <span class="c1">// можно очистить выбранные файлы из поля ввода</span>
+  <span class="nx">input</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="kc">null</span>
+<span class="p">})</span>
+
+<span class="kd">const</span> <span class="nx">uploadFile</span> <span class="o">=</span> <span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// форма требует file_field direct_upload: true, который предоставляет data-direct-upload-url</span>
+  <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">directUploadUrl</span>
+  <span class="kd">const</span> <span class="nx">upload</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DirectUpload</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span>
+
+  <span class="nx">upload</span><span class="p">.</span><span class="nx">create</span><span class="p">((</span><span class="nx">error</span><span class="p">,</span> <span class="nx">blob</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Обрабатываем ошибку</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Добавьте соответствующим образом названное скрытое поле в форму со значением blob.signed_id, чтобы идентификаторы blob были переданы в обычном потоке загрузки</span>
+      <span class="kd">const</span> <span class="nx">hiddenField</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">input</span><span class="dl">'</span><span class="p">)</span>
+      <span class="nx">hiddenField</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">hidden</span><span class="dl">"</span><span class="p">);</span>
+      <span class="nx">hiddenField</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">,</span> <span class="nx">blob</span><span class="p">.</span><span class="nx">signed_id</span><span class="p">);</span>
+      <span class="nx">hiddenField</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">name</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">form</span><span class="dl">'</span><span class="p">).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">hiddenField</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>Если необходимо отслеживать ход загрузки файла, можно передать третий параметр в конструктор <code>DirectUpload</code>. Во время загрузки DirectUpload вызовет метод <code>directUploadWillStoreFileWithXHR</code> объекта. Затем можно привязать свой собственный обработчик прогресса на XHR.</p><div class="code_container">
+  <pre><code class="highlight js"><span class="k">import</span> <span class="p">{</span> <span class="nx">DirectUpload</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@rails/activestorage</span><span class="dl">"</span>
+
+<span class="kd">class</span> <span class="nx">Uploader</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">upload</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DirectUpload</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">file</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">url</span><span class="p">,</span> <span class="k">this</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="nx">upload</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">upload</span><span class="p">.</span><span class="nx">create</span><span class="p">((</span><span class="nx">error</span><span class="p">,</span> <span class="nx">blob</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Обрабатываем ошибку</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Добавьте соответствующим образом названное скрытое поле в форму со значением of blob.signed_id</span>
+      <span class="p">}</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+
+  <span class="nx">directUploadWillStoreFileWithXHR</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">request</span><span class="p">.</span><span class="nx">upload</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">progress</span><span class="dl">"</span><span class="p">,</span>
+      <span class="nx">event</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">directUploadDidProgress</span><span class="p">(</span><span class="nx">event</span><span class="p">))</span>
+  <span class="p">}</span>
+
+  <span class="nx">directUploadDidProgress</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Используйте event.loaded и event.total, чтобы обновить индикатор процесса</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<div class="note"><p>Использование <a href="#direct-uploads">прямых загрузок</a> иногда может привести к тому, что загруженный файл никогда не будет прикреплен к записи. Рассмотрите <a href="#purging-unattached-uploads">очистку неприкрепленных загрузок</a>.</p></div><h3 id='testirovanie' class='inside_page_header'><a href="#testirovanie">10.</a> Тестирование</h3><p>Используйте <a href="https://api.rubyonrails.org/classes/ActionDispatch/TestProcess/FixtureFile.html"><code>fixture_file_upload</code></a> для тестирования загрузки файла в интеграционном тесте или тесте контроллера. Rails обрабатывает файлы так же, как и любые другие параметры.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">SignupController</span> <span class="o">&lt;</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">IntegrationTest</span>
+  <span class="nb">test</span> <span class="s2">"can sign up"</span> <span class="k">do</span>
+    <span class="n">post</span> <span class="n">signup_path</span><span class="p">,</span> <span class="ss">params: </span><span class="p">{</span>
+      <span class="ss">name: </span><span class="s2">"David"</span><span class="p">,</span>
+      <span class="ss">avatar: </span><span class="n">fixture_file_upload</span><span class="p">(</span><span class="s2">"david.png"</span><span class="p">,</span> <span class="s2">"image/png"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">order</span><span class="p">(</span><span class="ss">:created_at</span><span class="p">).</span><span class="nf">last</span>
+    <span class="n">assert</span> <span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">attached?</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='discarding-files-created-during-tests' class='inside_page_header'><a href="#discarding-files-created-during-tests">10.1.</a>  Очистка файлов созданных во время тестов</h4><h5 id='sistemnye-testy' class='inside_page_header'><a href="#sistemnye-testy">10.1.1.</a> Системные тесты</h5><p>Системные тесты очищают тестовые данные, откатывая транзакцию. Поскольку <code>destroy</code> никогда не вызывается на объекте, прикрепленные файлы никогда не очищаются. Если необходимо очистить файлы, можно сделать это в колбэке <code>after_teardown</code>. Выполнение этого здесь гарантирует, что все соединения, созданные во время теста, будут завершены и не будет получено сообщение об ошибке из Active Storage, в котором говорится, что он не может найти файл.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationSystemTestCase</span> <span class="o">&lt;</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">SystemTestCase</span>
+  <span class="c1"># ...</span>
+  <span class="k">def</span> <span class="nf">after_teardown</span>
+    <span class="k">super</span>
+    <span class="no">FileUtils</span><span class="p">.</span><span class="nf">rm_rf</span><span class="p">(</span><span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="p">.</span><span class="nf">service</span><span class="p">.</span><span class="nf">root</span><span class="p">)</span>
+  <span class="k">end</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если используете [параллельные тесты][/testing#parallel-testing] и <code>DiskService</code>, следует настроить каждый процесс для использования своей папки для Active Storage. Таким образом, колбэк <code>teardown</code> удалит только файлы из тестов, релевантных процессу.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationSystemTestCase</span> <span class="o">&lt;</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">SystemTestCase</span>
+  <span class="c1"># ...</span>
+  <span class="n">parallelize_setup</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+    <span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="p">.</span><span class="nf">service</span><span class="p">.</span><span class="nf">root</span> <span class="o">=</span> <span class="s2">"</span><span class="si">#{</span><span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="p">.</span><span class="nf">service</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">-</span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если системные тесты проверяют удаление модели с прикрепленными файлами, и используется Active Job, необходимо установить тестовую среду для использования встроенного адаптера очереди, поэтому задание на <code>purge</code> выполняется немедленно, а не когда-нибудь потом.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Использование встроенной обработки задания, чтобы все произошло немедленно</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">active_job</span><span class="p">.</span><span class="nf">queue_adapter</span> <span class="o">=</span> <span class="ss">:inline</span>
+</code></pre>
+</div>
+<h5 id='integratsionnye-testy' class='inside_page_header'><a href="#integratsionnye-testy">10.1.2.</a> Интеграционные тесты</h5><p>Подобно системным тестам, файлы, загруженные во время интеграционных тестов, не будут автоматически очищены. Если необходимо очистить файлы, можно сделать это в колбэке <code>teardown</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ActionDispatch::IntegrationTest</span>
+  <span class="k">def</span> <span class="nf">after_teardown</span>
+    <span class="k">super</span>
+    <span class="no">FileUtils</span><span class="p">.</span><span class="nf">rm_rf</span><span class="p">(</span><span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="p">.</span><span class="nf">service</span><span class="p">.</span><span class="nf">root</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если используете [параллельные тесты][/testing#parallel-testing] и <code>DiskService</code>, следует настроить каждый процесс для использования своей папки для Active Storage. Таким образом, колбэк <code>teardown</code> удалит только файлы из тестов, релевантных процессу.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ActionDispatch::IntegrationTest</span>
+  <span class="n">parallelize_setup</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+    <span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="p">.</span><span class="nf">service</span><span class="p">.</span><span class="nf">root</span> <span class="o">=</span> <span class="s2">"</span><span class="si">#{</span><span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="p">.</span><span class="nf">service</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">-</span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='dobavlenie-vlozheniy-v-fikstury' class='inside_page_header'><a href="#dobavlenie-vlozheniy-v-fikstury">10.2.</a> Добавление вложений в фикстуры</h4><p>Можно добавлять вложения в существующие [фикстуры][/testing#the-low-down-on-fixtures]. Сначала нужно создать отдельный сервис хранения:</p><div class="code_container">
+  <pre><code class="highlight yml"><span class="c1"># config/storage.yml</span>
+<span class="na">test_fixtures</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">Disk</span>
+  <span class="na">root</span><span class="pi">:</span> <span class="s">&lt;%= Rails.root.join("tmp/storage_fixtures") %&gt;</span>
+</code></pre>
+</div>
+<p>Это сообщит Active Storage, куда &quot;загружать&quot; файлы фикстур, поэтому это должна быть временная директория. Сделав ее директорией, отличной от обычного сервиса <code>test</code>, можно отделить файлы фикстур от файлов, загруженных в течение теста.</p><p>Затем создайте файлы фикстур для классов Active Storage:</p><div class="code_container">
+  <pre><code class="highlight yml"><span class="c1"># active_storage/attachments.yml</span>
+<span class="na">david_avatar</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">avatar</span>
+  <span class="na">record</span><span class="pi">:</span> <span class="s">david (User)</span>
+  <span class="na">blob</span><span class="pi">:</span> <span class="s">david_avatar_blob</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight yml"><span class="c1"># active_storage/blobs.yml</span>
+<span class="na">david_avatar_blob</span><span class="pi">:</span> <span class="s">&lt;%= ActiveStorage::FixtureSet.blob filename</span><span class="pi">:</span> <span class="s2">"</span><span class="s">david.png"</span><span class="err">,</span> <span class="na">service_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">test_fixtures"</span> <span class="err">%</span><span class="pi">&gt;</span>
+</code></pre>
+</div>
+<p>Затем поместите файл в директорию фикстур (путь по умолчанию <code>test/fixtures/files</code>) со соответствующим именем. Подробности смотрите в документации по <a href="https://api.rubyonrails.org/classes/ActiveStorage/FixtureSet.html"><code>ActiveStorage::FixtureSet</code></a>.</p><p>Как только все настроено, можно получить доступ к вложениям в ваших тестах:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">UserTest</span> <span class="o">&lt;</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">TestCase</span>
+  <span class="k">def</span> <span class="nf">test_avatar</span>
+    <span class="n">avatar</span> <span class="o">=</span> <span class="n">users</span><span class="p">(</span><span class="ss">:david</span><span class="p">).</span><span class="nf">avatar</span>
+
+    <span class="n">assert</span> <span class="n">avatar</span><span class="p">.</span><span class="nf">attached?</span>
+    <span class="n">assert_not_nil</span> <span class="n">avatar</span><span class="p">.</span><span class="nf">download</span>
+    <span class="n">assert_equal</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">avatar</span><span class="p">.</span><span class="nf">byte_size</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='ochistka-fikstur' class='inside_page_header'><a href="#ochistka-fikstur">10.2.1.</a> Очистка фикстур</h5><p>Хотя файлы, загруженные в тестах, очищаются <a href="#discarding-files-created-during-tests">в конце каждого теста</a>, файлы фикстур нужно очищать всего лишь раз: когда завершатся все ваши тесты.</p><p>Если используете параллельные тесты, вызывайте <code>parallelize_teardown</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ActiveSupport::TestCase</span>
+  <span class="c1"># ...</span>
+  <span class="n">parallelize_teardown</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+    <span class="no">FileUtils</span><span class="p">.</span><span class="nf">rm_rf</span><span class="p">(</span><span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="p">.</span><span class="nf">services</span><span class="p">.</span><span class="nf">fetch</span><span class="p">(</span><span class="ss">:test_fixtures</span><span class="p">).</span><span class="nf">root</span><span class="p">)</span>
+   <span class="k">end</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если не запускаете параллельные тесты, используйте <code>Minitest.after_run</code> или эквивалент для вашего тестового фреймворка (например, <code>after(:suite)</code> для RSpec):</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># test_helper.rb</span>
+
+<span class="no">Minitest</span><span class="p">.</span><span class="nf">after_run</span> <span class="k">do</span>
+  <span class="no">FileUtils</span><span class="p">.</span><span class="nf">rm_rf</span><span class="p">(</span><span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="p">.</span><span class="nf">services</span><span class="p">.</span><span class="nf">fetch</span><span class="p">(</span><span class="ss">:test_fixtures</span><span class="p">).</span><span class="nf">root</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h3 id='realizatsiya-podderzhki-drugih-oblachnyh-servisov' class='inside_page_header'><a href="#realizatsiya-podderzhki-drugih-oblachnyh-servisov">11.</a> Реализация поддержки других облачных сервисов</h3><p>Если необходимо поддерживать облачный сервис, отличный от имеющихся, необходимо реализовать Service. Каждый сервис расширяет <a href="https://api.rubyonrails.org/classes/ActiveStorage/Service.html"><code>ActiveStorage::Service</code></a>, реализуя методы, требуемые для загрузки и скачивания файлов в облако.</p><h3 id='purging-unattached-uploads' class='inside_page_header'><a href="#purging-unattached-uploads">12.</a>  Очистка неприкрепленных загрузок</h3><p>Бывают случаи, когда файл загружен, но никогда не прикреплен к записи. Это может произойти при использовании <a href="#direct-uploads">прямых загрузок</a>. Можно запросить неприкрепленные записи с помощью <a href="https://github.com/rails/rails/blob/8ef5bd9ced351162b673904a0b77c7034ca2bc20/activestorage/app/models/active_storage/lob.rb#L49">скоупа unattached</a>. Ниже пример с помощью <a href="/command-line#custom-rake-tasks">пользовательской задачи rake</a>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">namespace</span> <span class="ss">:active_storage</span> <span class="k">do</span>
+  <span class="n">desc</span> <span class="s2">"Purges unattached Active Storage blobs. Run regularly."</span>
+  <span class="n">task</span> <span class="ss">purge_unattached: :environment</span> <span class="k">do</span>
+    <span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="p">.</span><span class="nf">unattached</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="s2">"active_storage_blobs.created_at &lt;= ?"</span><span class="p">,</span> <span class="mi">2</span><span class="p">.</span><span class="nf">days</span><span class="p">.</span><span class="nf">ago</span><span class="p">).</span><span class="nf">find_each</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:purge_later</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="warning"><p>Запрос, сгенерированный <code>ActiveStorage::Blob.unattached</code>, может быть медленным и потенциально разрушительным для приложений с большими базами данных.</p></div>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: API интернационализации Rails (I18n)" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: API интернационализации Rails (I18n)" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/i18n" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: API интернационализации Rails (I18n)
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="G96U5eBcJA4bixc1CGCFhvQmK1tJpPSisr9+gHw8FKJBJglZZFHgVAfz0X9nzAgth6egiETH1CW78MulZ83eDg==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#kak-rabotaet-i18n-v-ruby-on-rails">1. Как работает I18n в Ruby on Rails</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#obschaya-arhitektura-biblioteki">1.1. Общая архитектура библиотеки</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#publichnyy-i18n-api">1.2. Публичный I18n API</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#customize-your-i18n-setup">2.  Настройка приложения на Rails для интернационализации</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#konfigurirovanie-modulya-i18n">2.1. Конфигурирование модуля I18n</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#upravlenie-lokalyu-cherez-zaprosy">2.2. Управление локалью через запросы</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#naznachenie-lokali-iz-imeni-domena">2.2.1. Назначение локали из имени домена</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#naznachenie-lokali-iz-parametrov-url">2.2.2. Назначение локали из параметров URL</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#ukazanie-lokali-iz-polzovatelskih-nastroek">2.2.3. Указание локали из пользовательских настроек</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#vybor-predpolagaemoy-lokali">2.2.4. Выбор предполагаемой локали</a>
+</h6>      </li>
+      <li>
+        <h7>
+          <a href="#opredelenie-lokali-iz-yazyka-zagolovka">2.2.4.1. Определение локали из языка заголовка</a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#opredelenie-lokali-po-ip-geolokatsii">2.2.4.2. Определение локали по IP геолокации</a>
+</h7>      </li>
+      <li>
+        <h6>
+          <a href="#hranenie-lokali-v-sessii-ili-kuki">2.2.5. Хранение локали в сессии или куки</a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#internatsionalizatsiya-i-lokalizatsiya">3. Интернационализация и Локализация</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#abstraktsiya-lokalizovannogo-koda">3.1. Абстракция локализованного кода</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#predostavlenie-perevodov-dlya-internatsionalizirovannyh-strok">3.2. Предоставление переводов для интернационализированных строк</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#peredacha-peremennyh-v-perevody">3.3. Передача переменных в переводы</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#dobavlenie-formatov-daty-vremeni">3.4. Добавление форматов даты/времени</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#pravila-slovoobrazovaniya-dlya-drugih-lokaley">3.5. Правила словообразования для других локалей</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#lokalizovannye-vyu">3.6. Локализованные вью</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#organizatsiya-faylov-lokali">3.7. Организация файлов локали</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#obzor-osobennostey-i18n-api">4. Обзор особенностей I18n API</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#poisk-perevodov">4.1. Поиск переводов</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#osnovy-poiska-oblasti-imen-i-vlozhennyh-klyuchey">4.1.1. Основы поиска, области имен и вложенных ключей</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#znacheniya-po-umolchaniyu">4.1.2. Значения по умолчанию</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#massovyy-poisk-i-poisk-v-prostranstve-imen">4.1.3. Массовый поиск и поиск в пространстве имен</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#lenivyy-poisk">4.1.4. &quot;Ленивый&quot; поиск</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#mnozhestvennoe-chislo">4.2. Множественное число</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#lokalizovannye-pravila">4.2.1. Локализованные правила</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#nastroyka-i-peredacha-lokali">4.3. Настройка и передача локали</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-html-bezopasnyh-perevodov">4.4. Использование HTML-безопасных переводов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#perevody-dlya-modeley-active-record">4.5. Переводы для моделей Active Record</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#prostranstva-imen-soobscheniy-ob-oshibke">4.5.1. Пространства имен сообщений об ошибке</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#interpolyatsiya-soobscheniya-ob-oshibke">4.5.2. Интерполяция сообщения об ошибке</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#perevod-dlya-tem-pisem-action-mailer">4.6. Перевод для тем писем Action Mailer</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#obzor-drugih-vstroennyh-metodov-predostavlyayuschih-podderzhku-i18n">4.7. Обзор других встроенных методов, предоставляющих поддержку I18n</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#metody-helpera-action-view">4.7.1. Методы хелпера Action View</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#active-model-methods">4.7.2.  Методы Active Model</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#metody-active-support">4.7.3. Методы Active Support</a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#kak-hranit-svoi-perevody">5. Как хранить свои переводы</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#nastroyka-i18n">6. Настройка I18n</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-razlichnyh-bekendov">6.1. Использование различных бэкендов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-razlichnyh-obrabotchikov-isklyucheniy">6.2. Использование различных обработчиков исключений</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#translating-model-content">7.  Перевод контента модели</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#zaklyuchenie">8. Заключение</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#vklad-v-rails-i18n">9. Вклад в Rails I18n</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#resursy">10. Ресурсы</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#avtory">11. Авторы</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='api-internatsionalizatsii-rails-i18n' class='inside_page_header'> API интернационализации Rails (I18n)</h2><p>В Ruby гем I18n (краткое наименование для <em>internationalization</em>),  поставляемый с Ruby on Rails (начиная с Rails 2.2), представляет простой и расширяемый фреймворк для <strong>перевода вашего приложения на отдельный другой язык</strong>, иной чем английский, или для <strong>предоставления поддержки многоязычности</strong> в вашем приложении.</p><p>Процесс &quot;интернационализация&quot; обычно означает извлечение всех строк и других специфичных для локали частей (таких как форматы даты и валюты) за рамки вашего приложения. Процесс &quot;локализация&quot; означает предоставление переводов и локализованных форматов для этих частей.</p><p>Таким образом, в процессе <em>интернационализации</em> своего приложения на Rails вы должны:</p><ul><li>Убедиться, что есть поддержка I18n.
+</li><li>Сказать Rails где найти словари локали.
+</li><li>Сказать Rails как устанавливать, сохранять и переключать локали.
+</li></ul><p>В процессе <em>локализации</em> своего приложения вы, скорее всего, захотите сделать три вещи:</p><ul><li>Заменить или дополнить локаль Rails по умолчанию - т.е. форматы даты и времени, названия месяцев, имена модели Active Record и т.д.
+</li><li>Извлечь строки в вашем приложении в словари ключей - т.е. сообщения flash, статичные тексты в ваших вью и т.д.
+</li><li>Где-нибудь хранить получившиеся словари.
+</li></ul><p>Это руководство проведет вас через I18n API, оно содержит консультации как интернационализировать приложения на Rails с самого начала.</p><p>После прочтения этого руководства вы узнаете:</p><ul><li>Как I18n работает в Ruby on Rails
+</li><li>Как правильно использовать I18n в RESTful приложении различными способами
+</li><li>Как использовать I18n для перевода ошибок Active Record или тем писем Action Mailer
+</li><li>О некоторых инструментах для расширения процесса перевода вашего приложения
+</li></ul><div class="note"><p>Фреймворк Ruby I18n предоставляет все необходимые средства для интернационализации/локализации приложения на Rails. Можно также использовать другие различные гемы, добавляющие дополнительные функциональность или особенности. Для получения более подробной информации смотрите <a href="https://github.com/svenfuchs/rails-i18n">гем rails-i18n</a>.</p></div><h3 id='kak-rabotaet-i18n-v-ruby-on-rails' class='inside_page_header'><a href="#kak-rabotaet-i18n-v-ruby-on-rails">1.</a> Как работает I18n в Ruby on Rails</h3><p>Интернационализация - это сложная проблема. Естественные языки отличаются во многих отношениях (например, в правилах образования множественного числа), поэтому трудно представить инструменты, решающие сразу все проблемы. По этой причине Rails I18n API сфокусировано на:</p><ul><li>предоставлении полной поддержки для английского и подобных ему языков
+</li><li>легкой настраиваемости и полном расширении для других языков
+</li></ul><p>Как часть этого решения, <strong>каждая статичная строка в фреймворке Rails</strong> - например, валидационные сообщения Active Record, форматы времени и даты - <strong>стали интернационализированными</strong>. <em>Локализация</em> приложения на Rails означает определение переведенных значений этих строк на желаемые языки.</p><p>Для локализации хранилища и обновления <em>content</em> в приложении (например, перевода сообщений в блоге), смотрите раздел <a href="#translating-model-content">Перевод контента модели</a>.</p><h4 id='obschaya-arhitektura-biblioteki' class='inside_page_header'><a href="#obschaya-arhitektura-biblioteki">1.1.</a> Общая архитектура библиотеки</h4><p>Таким образом, Ruby гем I18n разделен на две части:</p><ul><li>Публичный API фреймворка I18n - модуль Ruby с публичными методами, определяющими как работает библиотека
+</li><li>Бэкенд по умолчанию (который специально называется <em>простым</em> бэкендом), реализующий эти методы
+</li></ul><p>Как у пользователя, у вас всегда будет доступ только к публичным методам модуля I18n, но полезно знать о возможностях бэкенда.</p><div class="note"><p>Возможно поменять встроенный простой бэкенд на более мощный, который будет хранить данные перевода в реляционной базе данных, словаре GetText или в чем-то похожем. Смотрите раздел <a href="#customize-your-i18n-setup">Использование различных бэкендов</a>.</p></div><h4 id='publichnyy-i18n-api' class='inside_page_header'><a href="#publichnyy-i18n-api">1.2.</a> Публичный I18n API</h4><p>Наиболее важными методами I18n API являются:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">translate</span> <span class="c1"># Ищет перевод текстов</span>
+<span class="n">localize</span>  <span class="c1"># Локализует объекты даты и времени в форматы локали</span>
+</code></pre>
+</div>
+<p>Имеются псевдонимы #t и #l, их можно использовать следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="s1">'store.title'</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">l</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span>
+</code></pre>
+</div>
+<p>Также имеются методы чтения и записи для следующих атрибутов:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">load_path</span>                 <span class="c1"># Анонсировать ваши пользовательские файлы с переводом</span>
+<span class="n">locale</span>                    <span class="c1"># Получить и установить текущую локаль</span>
+<span class="n">default_locale</span>            <span class="c1"># Получить и установить локаль по умолчанию</span>
+<span class="n">available_locales</span>         <span class="c1"># Разрешенные локали, доступные приложению</span>
+<span class="n">enforce_available_locales</span> <span class="c1"># Принуждение к разрешенным локалям (true или false)</span>
+<span class="n">exception_handler</span>         <span class="c1"># Использовать иной exception_handler</span>
+<span class="n">backend</span>                   <span class="c1"># Использовать иной бэкенд</span>
+</code></pre>
+</div>
+<p>Итак, давайте интернационализируем простое приложение на Rails с самого начала, в следующих главах!</p><h3 id='customize-your-i18n-setup' class='inside_page_header'><a href="#customize-your-i18n-setup">2.</a>  Настройка приложения на Rails для интернационализации</h3><p>Несколько шагов отделяют вас от получения и запуска поддержки I18n в вашем приложении.</p><h4 id='konfigurirovanie-modulya-i18n' class='inside_page_header'><a href="#konfigurirovanie-modulya-i18n">2.1.</a> Конфигурирование модуля I18n</h4><p>Следуя философии <em>соглашений над конфигурацией</em>, Rails предоставляет приемлемые строки переводов по умолчанию. При необходимости иных строк переводов, они могут быть переопределены.</p><p>Rails автоматически добавляет все файлы <code>.rb</code> и <code>.yml</code> из директории <code>config/locales</code> к <strong>пути загрузки переводов.</strong></p><p>Локаль по умолчанию <code>en.yml</code> в этой директории содержит образец строки перевода:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">en</span><span class="pi">:</span>
+  <span class="na">hello</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Hello</span><span class="nv"> </span><span class="s">world"</span>
+</code></pre>
+</div>
+<p>Это означает, что в локали <code>:en</code>, ключ <em>hello</em> связан со строкой <em>&quot;Hello world&quot;</em>. Каждая строка в Rails интернационализируется подобным образом, смотрите, к примеру, валидационные сообщения Active Model в файле <a href="https://github.com/rails/rails/blob/main/activemodel/lib/active_model/locale/en.yml"><code>activemodel/lib/active_model/locale/en.yml</code></a> или форматы времени и даты в файле <a href="http://github.com/rails/rails/blob/main/activesupport/lib/active_support/locale/en.yml"><code>activesupport/lib/active_support/locale/en.yml</code></a>. Для хранения переводов в бэкенде по умолчанию (простом) можете использовать YAML или стандартные хэши Ruby.</p><p>Библиотека I18n будет использовать <strong>английский</strong> как <strong>локаль по умолчанию</strong>, т.е., если другая локаль не установлена, при поиске переводов будет использоваться <code>:en</code>.</p><div class="note"><p>В библиотеке i18n принят <strong>прагматичный подход</strong> к ключам локали (после <a href="https://groups.google.com/g/rails-i18n/c/FN7eLH2-lHA">некоторых обсуждений</a>), включающий только часть <em>локаль</em> (&quot;язык&quot;), наподобие <code>:en</code>, <code>:pl</code>, но не часть <em>регион</em>, подобно <code>:&quot;en-US&quot;</code> или <code>:&quot;en-GB&quot;</code>, что традиционно используется для разделения &quot;языков&quot; и &quot;региональных настроек&quot;, или &quot;диалектов&quot;. Многие международные приложения используют только элемент &quot;язык&quot; локали, такой как <code>:cs</code>, <code>:th</code> или <code>:es</code> (для Чехии, Таиланда и Испании). Однако, также имеются региональные различия внутри языковой группы, которые могут быть важными. Например, в локали <code>:&quot;en-US&quot;</code> как символ валюты будет $, а в <code>:&quot;en-GB&quot;</code> будет £. Ничто не остановит вас от разделения региональных и других настроек следующим образом: предоставляете полную локаль &quot;English - United Kingdom&quot; в словаре <code>:&quot;en-GB&quot;</code>.</p></div><p><strong>Путь загрузки переводов</strong> (<code>I18n.load_path</code>) - это массив путей к файлам, которые будут загружены автоматически. Настройка этого пути позволяет настроить структуру директорий переводов и схему именования файлов.</p><div class="note"><p>Бэкенд лениво загружает эти переводы, когда ищет перевод в первый раз. Этот бэкенд может быть переключен на что-то иное даже после того, как переводы были объявлены.</p></div><p>Можно изменить локаль по умолчанию, так же как и настроить пути загрузки переводов, в <code>config/application.rb</code> следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">i18n</span><span class="p">.</span><span class="nf">load_path</span> <span class="o">+=</span> <span class="no">Dir</span><span class="p">[</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'my'</span><span class="p">,</span> <span class="s1">'locales'</span><span class="p">,</span> <span class="s1">'*.{rb,yml}'</span><span class="p">)]</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">i18n</span><span class="p">.</span><span class="nf">default_locale</span> <span class="o">=</span> <span class="ss">:de</span>
+</code></pre>
+</div>
+<p>Путь загрузки должен быть указан до того, как будет произведен поиск любых переводов. Чтобы изменить локаль по умолчанию в инициализаторе вместо <code>config/application.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/initializers/locale.rb</span>
+
+<span class="c1"># где библиотека I18n должна искать наши переводы</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">load_path</span> <span class="o">+=</span> <span class="no">Dir</span><span class="p">[</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'lib'</span><span class="p">,</span> <span class="s1">'locale'</span><span class="p">,</span> <span class="s1">'*.{rb,yml}'</span><span class="p">)]</span>
+
+<span class="c1"># Разрешенные локали, доступные приложению</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">available_locales</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:en</span><span class="p">,</span> <span class="ss">:pt</span><span class="p">]</span>
+
+<span class="c1"># устанавливаем локаль по умолчанию на что-либо другое, чем :en</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">default_locale</span> <span class="o">=</span> <span class="ss">:pt</span>
+</code></pre>
+</div>
+<p>Отметьте, что добавление напрямую в <code>I18n.load_path</code>, вместо конфигурации I18n приложения, <em>не</em> перезапишет переводы из внешних гемов.</p><h4 id='upravlenie-lokalyu-cherez-zaprosy' class='inside_page_header'><a href="#upravlenie-lokalyu-cherez-zaprosy">2.2.</a> Управление локалью через запросы</h4><p>Локализованному приложению, вероятно, понадобится поддерживать несколько локалей. Для этого локаль должна быть установлена в начале каждого запроса, чтобы все строки были переведены, используя нужную локаль.</p><p>Локаль по умолчанию используется для всех переводов за исключением случаев, когда установлены <code>I18n.locale=</code> или <code>I18n.with_locale</code>.</p><p><code>I18n.locale</code> может вытечь в последующие запросы, обслуживаемые тем же тредом/процессом, если она не устанавливается последовательно в каждом контроллере. Например, выполнение <code>I18n.locale = :es</code> в одном из запросов POST будет влиять на все последующие запросы в контроллерах, не устанавливающих локаль, но только в этом конкретном треде/процессе. Поэтому вместо <code>I18n.locale =</code> можно использовать <code>I18n.with_locale</code>, не имеющий этой проблемы утечки.</p><p>Локаль может быть установлена в <code>around_action</code> в <code>ApplicationController</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">around_action</span> <span class="ss">:switch_locale</span>
+
+<span class="k">def</span> <span class="nf">switch_locale</span><span class="p">(</span><span class="o">&amp;</span><span class="n">action</span><span class="p">)</span>
+  <span class="n">locale</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:locale</span><span class="p">]</span> <span class="o">||</span> <span class="no">I18n</span><span class="p">.</span><span class="nf">default_locale</span>
+  <span class="no">I18n</span><span class="p">.</span><span class="nf">with_locale</span><span class="p">(</span><span class="n">locale</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">action</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Этот пример показывает использование параметра запроса URL для установки локали (т.е. <code>http://example.com/books?locale=pt</code>). Таким образом, <code>http://localhost:3000?locale=pt</code> загрузит португальскую локализацию, в то время как <code>http://localhost:3000?locale=de</code> загрузит немецкую локализацию.</p><p>Локаль может быть установлена, используя один из множества других способов.</p><h5 id='naznachenie-lokali-iz-imeni-domena' class='inside_page_header'><a href="#naznachenie-lokali-iz-imeni-domena">2.2.1.</a> Назначение локали из имени домена</h5><p>Одним из вариантов, которым можно установить локаль, является доменное имя, на котором запущено ваше приложение. Например, мы хотим, чтобы <code>www.example.com</code> загружал английскую локаль (по умолчанию), а <code>www.example.es</code> загружал испанскую локаль. Таким образом, <em>доменное имя верхнего уровня</em> используется для установки локали. В этом есть несколько преимуществ:</p><ul><li>Локаль является <em>явной</em> частью URL.
+</li><li>Люди интуитивно понимают, на каком языке будет отражено содержимое.
+</li><li>Это очень просто реализовать в Rails.
+</li><li>Поисковые движки любят, когда содержимое на различных языках живет на отдельных, взаимосвязанных доменах.
+</li></ul><p>Это осуществляется так в <code>ApplicationController</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">around_action</span> <span class="ss">:switch_locale</span>
+
+<span class="k">def</span> <span class="nf">switch_locale</span><span class="p">(</span><span class="o">&amp;</span><span class="n">action</span><span class="p">)</span>
+  <span class="n">locale</span> <span class="o">=</span> <span class="n">extract_locale_from_tld</span> <span class="o">||</span> <span class="no">I18n</span><span class="p">.</span><span class="nf">default_locale</span>
+  <span class="no">I18n</span><span class="p">.</span><span class="nf">with_locale</span><span class="p">(</span><span class="n">locale</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">action</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c1"># Получаем локаль из домена верхнего уровня или возвращаем +nil+, если такая локаль недоступна</span>
+<span class="c1"># Вам следует поместить что-то наподобие этого:</span>
+<span class="c1">#   127.0.0.1 application.com</span>
+<span class="c1">#   127.0.0.1 application.it</span>
+<span class="c1">#   127.0.0.1 application.pl</span>
+<span class="c1"># в ваш файл /etc/hosts, чтобы попробовать это локально</span>
+<span class="k">def</span> <span class="nf">extract_locale_from_tld</span>
+  <span class="n">parsed_locale</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">host</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">).</span><span class="nf">last</span>
+  <span class="no">I18n</span><span class="p">.</span><span class="nf">available_locales</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:to_s</span><span class="p">).</span><span class="nf">include?</span><span class="p">(</span><span class="n">parsed_locale</span><span class="p">)</span> <span class="p">?</span> <span class="n">parsed_locale</span> <span class="p">:</span> <span class="kp">nil</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Также можно назначить локаль из <em>поддомена</em> похожим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Получаем код локали из поддомена запроса (подобно http://it.application.local:3000)</span>
+<span class="c1"># Следует поместить что-то вроде:</span>
+<span class="c1">#   127.0.0.1 gr.application.local</span>
+<span class="c1"># в ваш файл /etc/hosts, чтобы попробовать это локально</span>
+<span class="k">def</span> <span class="nf">extract_locale_from_subdomain</span>
+  <span class="n">parsed_locale</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">subdomains</span><span class="p">.</span><span class="nf">first</span>
+  <span class="no">I18n</span><span class="p">.</span><span class="nf">available_locales</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:to_s</span><span class="p">).</span><span class="nf">include?</span><span class="p">(</span><span class="n">parsed_locale</span><span class="p">)</span> <span class="p">?</span> <span class="n">parsed_locale</span> <span class="p">:</span> <span class="kp">nil</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если ваше приложение включает меню переключения локали, вам следует иметь что-то вроде этого в нем:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">link_to</span><span class="p">(</span><span class="s2">"Deutsch"</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="no">APP_CONFIG</span><span class="p">[</span><span class="ss">:deutsch_website_url</span><span class="p">]</span><span class="si">}#{</span><span class="n">request</span><span class="p">.</span><span class="nf">env</span><span class="p">[</span><span class="s1">'PATH_INFO'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>предполагая, что вы установили <code>APP_CONFIG[:deutsch_website_url]</code> в некоторое значение, наподобие <code>http://www.application.de</code>.</p><p>У этого решения есть вышеупомянутые преимущества, однако возможно, что вам нельзя или вы не хотите предоставлять разные локализации (&quot;языковые версии&quot;) на разных доменах. Наиболее очевидным решением является включить код локали в параметры URL (или пути запроса).</p><h5 id='naznachenie-lokali-iz-parametrov-url' class='inside_page_header'><a href="#naznachenie-lokali-iz-parametrov-url">2.2.2.</a> Назначение локали из параметров URL</h5><p>Наиболее обычным способом назначения (и передачи) локали будет включение ее в параметры URL, как мы делали в <code>I18n.with_locale(params[:locale], &amp;action)</code> в <em>around_action</em> в первом примере. В этом случае нам нужны URL, такие как <code>www.example.com/books?locale=ja</code> или <code>www.example.com/ja/books</code>.</p><p>В этом подходе есть почти тот же набор преимуществ, как и в назначении локали из имени домена, а именно то, что это RESTful и соответствует остальной части Всемирной паутины. Хотя внедрение этого потребует немного больше работы.</p><p>Получение локали из <code>params</code> и соответствующее назначение ее не сложно: включаете ее в каждый URL, и таким образом <strong>передаете ее через запросы</strong>. Конечно, включение явной опции в каждый URL (т.е. <code>link_to(books_url(locale: I18n.locale))</code>) было бы утомительно и, вероятно, невозможно.</p><p>Rails содержит инфраструктуру для &quot;централизации динамических решений об URL&quot; в его <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Base.html#method-i-default_url_options"><code>ApplicationController#default_url_options</code></a>, что полезно в этом сценарии: он позволяет нам назначить &quot;defaults&quot; для <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/UrlFor.html#method-i-url_for"><code>url_for</code></a> и методов хелпера, основанных на нем (с помощью применения/переопределения метода <code>default_url_options</code>).</p><p>Затем мы можем включить что-то наподобие этого в наш <code>ApplicationController</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/controllers/application_controller.rb</span>
+<span class="k">def</span> <span class="nf">default_url_options</span>
+  <span class="p">{</span> <span class="ss">locale: </span><span class="no">I18n</span><span class="p">.</span><span class="nf">locale</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Каждый метод хелпера, зависимый от <code>url_for</code> (т.е. хелперы для именованных маршрутов, такие как <code>root_path</code> или <code>root_url</code>, ресурсные маршруты, такие как <code>books_path</code> или <code>books_url</code> и т.д.) теперь будут <strong>автоматически включать локаль в строку запроса</strong>, как тут: <code>http://localhost:3001/?locale=ja</code>.</p><p>Это может быть достаточным. Хотя и влияет на читаемость URL, когда локаль &quot;висит&quot; в конце каждого URL вашего приложения. Более того, с точки зрения архитектуры, локаль иерархически выше остальных частей домена приложения, и URL должен отражать это.</p><p>Вы, возможно, захотите, чтобы URL выглядел так: <code>http://www.example.com/en/books</code> (который загружает английскую локаль) и <code>http://www.example.com/nl/books</code> (который загружает голландскую локаль). Это достижимо с помощью такой же стратегии, как и с <code>default_url_options</code> выше: нужно настроить свои маршруты с помощью <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Scoping.html"><code>scope</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/routes.rb</span>
+<span class="n">scope</span> <span class="s2">"/:locale"</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:books</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь, когда вы вызовете метод <code>books_path</code>, то получите <code>&quot;/en/books&quot;</code> (для локали по умолчанию). URL подобный <code>http://localhost:3001/nl/books</code> загрузит голландскую локаль, и затем, последующий вызов <code>books_path</code> возвратит <code>&quot;/nl/books&quot;</code> (поскольку локаль изменилась).</p><div class="warning"><p>Поскольку возвращаемое значение <code>default_url_options</code> кэшируется для каждого запроса, URL адреса в переключателе локали не могут быть сгенерированы при вызове хелперов в цикле, которые устанавливают соответствующие <code>I18n.locale</code> в каждой итерации.
+Вместо этого, не трогайте <code>I18n.locale</code> и передайте явно опцию <code>:locale</code> в хелпер или измените <code>request.original_fullpath</code>.</p></div><p>Если не хотите принудительно использовать локаль в своих маршрутах, можете использовать опциональную область пути (заключенную в скобки), как здесь:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/routes.rb</span>
+<span class="n">scope</span> <span class="s2">"(:locale)"</span><span class="p">,</span> <span class="ss">locale: </span><span class="sr">/en|nl/</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:books</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>С таким подходом вы не получите <code>Routing Error</code> при доступе к своим ресурсам как <code>http://localhost:3001/books</code> без локали. Это полезно, когда хочется использовать локаль по умолчанию, если она не определена.</p><p>Конечно, нужно специально позаботиться о корневом URL (это обычно &quot;домашняя страница&quot; или &quot;лицевая панель&quot;) вашего приложения. URL, такой как <code>http://localhost:3001/nl</code> не заработает автоматически, так как объявление <code>root to: &quot;dashboard#index&quot;</code> в вашем <code>routes.rb</code> не принимает локаль во внимание. (И правильно делает: может быть только один &quot;корневой&quot; URL.)</p><p>Вам, вероятно, потребуется связать URL так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/routes.rb</span>
+<span class="n">get</span> <span class="s1">'/:locale'</span> <span class="o">=&gt;</span> <span class="s1">'dashboard#index'</span>
+</code></pre>
+</div>
+<p>Особенно побеспокойтесь относительно <strong>порядка ваших маршрутов</strong>, чтобы одно объявление маршрутов не &quot;съело&quot; другое. (Вы, возможно, захотите добавить его непосредственно перед объявлением <code>root :to</code>.)</p><div class="note"><p>Обратите внимание на различные гемы, которые упрощают работу с роутами: <a href="https://github.com/svenfuchs/routing-filter/tree/master">routing_filter</a>, <a href="https://github.com/enriclluelles/route_translator">route_translator</a>.</p></div><h5 id='ukazanie-lokali-iz-polzovatelskih-nastroek' class='inside_page_header'><a href="#ukazanie-lokali-iz-polzovatelskih-nastroek">2.2.3.</a> Указание локали из пользовательских настроек</h5><p>В приложении с аутентифицированными пользователями можно позволять пользователям устанавливать предпочитаемую локаль через интерфейс приложения. В таком случае, выбранная пользователем установка локали является персистентной в базе данных и используется для установки локали в запросах этого пользователя.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">around_action</span> <span class="ss">:switch_locale</span>
+
+<span class="k">def</span> <span class="nf">switch_locale</span><span class="p">(</span><span class="o">&amp;</span><span class="n">action</span><span class="p">)</span>
+  <span class="n">locale</span> <span class="o">=</span> <span class="n">current_user</span><span class="p">.</span><span class="nf">try</span><span class="p">(</span><span class="ss">:locale</span><span class="p">)</span> <span class="o">||</span> <span class="no">I18n</span><span class="p">.</span><span class="nf">default_locale</span>
+  <span class="no">I18n</span><span class="p">.</span><span class="nf">with_locale</span><span class="p">(</span><span class="n">locale</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">action</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='vybor-predpolagaemoy-lokali' class='inside_page_header'><a href="#vybor-predpolagaemoy-lokali">2.2.4.</a> Выбор предполагаемой локали</h5><p>Когда локаль не была установлена явно для запроса (например, с помощью одного из представленных выше методов), приложение должно попытаться определить требуемую локаль.</p><h6 id='opredelenie-lokali-iz-yazyka-zagolovka' class='inside_page_header'><a href="#opredelenie-lokali-iz-yazyka-zagolovka">2.2.4.1.</a> Определение локали из языка заголовка</h6><p>HTTP-заголовок <code>Accept-Language</code> указывает предпочтительный язык для отклика запроса. Браузеры <a href="https://www.w3.org/International/questions/qa-lang-priorities">устанавливают это значение заголовка на основании языковых настроек пользователя</a>, что делает его хорошим выбором при определении локали.</p><p>Обычной реализацией использования заголовка <code>Accept-Language</code> будет следующее:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">switch_locale</span><span class="p">(</span><span class="o">&amp;</span><span class="n">action</span><span class="p">)</span>
+  <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span> <span class="s2">"* Accept-Language: </span><span class="si">#{</span><span class="n">request</span><span class="p">.</span><span class="nf">env</span><span class="p">[</span><span class="s1">'HTTP_ACCEPT_LANGUAGE'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+  <span class="n">locale</span> <span class="o">=</span> <span class="n">extract_locale_from_accept_language_header</span>
+  <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span> <span class="s2">"* Locale set to '</span><span class="si">#{</span><span class="n">locale</span><span class="si">}</span><span class="s2">'"</span>
+  <span class="no">I18n</span><span class="p">.</span><span class="nf">with_locale</span><span class="p">(</span><span class="n">locale</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">action</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="kp">private</span>
+  <span class="k">def</span> <span class="nf">extract_locale_from_accept_language_header</span>
+    <span class="n">request</span><span class="p">.</span><span class="nf">env</span><span class="p">[</span><span class="s1">'HTTP_ACCEPT_LANGUAGE'</span><span class="p">].</span><span class="nf">scan</span><span class="p">(</span><span class="sr">/^[a-z]{2}/</span><span class="p">).</span><span class="nf">first</span>
+  <span class="k">end</span>
+</code></pre>
+</div>
+<p>На практике, чтобы сделать это нужен более надежный код. Библиотека Iain Hecker&#39;s <a href="https://github.com/iain/http_accept_language/tree/master">http_accept_language</a> или промежуточное приложение Rack от Ryan Tomayko&#39;s <a href="https://github.com/rack/rack-contrib/blob/master/lib/rack/contrib/locale.rb">locale</a> предоставляют решения этой проблемы.</p><h6 id='opredelenie-lokali-po-ip-geolokatsii' class='inside_page_header'><a href="#opredelenie-lokali-po-ip-geolokatsii">2.2.4.2.</a> Определение локали по IP геолокации</h6><p>IP-адрес клиента, выполняющего запрос, может использоваться для определения региона и его локали. Сервисы, такие как <a href="https://dev.maxmind.com/geoip/geolite2-free-geolocation-data">GeoLite2 Country</a>, или гемы, такие как <a href="https://github.com/alexreisner/geocoder">geocoder</a> могут быть использованы для реализации этого подхода.</p><p>В целом, этот подход является менее надежным, чем при использовании языка заголовка и не рекомендуется для большинства веб-приложений.</p><h5 id='hranenie-lokali-v-sessii-ili-kuki' class='inside_page_header'><a href="#hranenie-lokali-v-sessii-ili-kuki">2.2.5.</a> Хранение локали в сессии или куки</h5><div class="warning"><p>Вы можете поддаться искушению хранить выбранную локаль в <em>сессии</em> или <em>куки</em>. Однако, <strong>не делайте этого</strong>. Локаль должна быть понятной и быть частью URL. В таком случае, вы не сломаете базовые представления людей о вебе: если вы отправляете URL друзьям, то они должны увидеть ту же самую страницу и то же содержимое. Причудливое слово для этого будет то, что вы будете <em>спокойны</em> - <a href="https://ru.wikipedia.org/wiki/REST"><em>RESTful</em></a>. Читайте более подробно о RESTful подходе в <a href="https://www.infoq.com/articles/rest-introduction">статье Stefan Tilkov</a>. Иногда бывают исключения из этого правила, они описаны ниже.</p></div><h3 id='internatsionalizatsiya-i-lokalizatsiya' class='inside_page_header'><a href="#internatsionalizatsiya-i-lokalizatsiya">3.</a> Интернационализация и Локализация</h3><p>Хорошо! Вы уже инициализировали поддержку I18n в своем приложении на Ruby on Rails, и сообщили ему, какую локаль использовать, и как ее сохранять между запросами.</p><p>Дальше нам нужно <em>интернационализировать</em> наше приложение, абстрагируя каждую специфичную к локали часть. Напоследок, нам нужно <em>локализовать</em> приложение, предоставляя необходимые переводы для этих абстракций.</p><p>У нас есть следующий пример:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/routes.rb</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">root</span> <span class="ss">to: </span><span class="s2">"home#index"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/controllers/application_controller.rb</span>
+<span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">around_action</span> <span class="ss">:switch_locale</span>
+
+  <span class="k">def</span> <span class="nf">switch_locale</span><span class="p">(</span><span class="o">&amp;</span><span class="n">action</span><span class="p">)</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:locale</span><span class="p">]</span> <span class="o">||</span> <span class="no">I18n</span><span class="p">.</span><span class="nf">default_locale</span>
+    <span class="no">I18n</span><span class="p">.</span><span class="nf">with_locale</span><span class="p">(</span><span class="n">locale</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">action</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/controllers/home_controller.rb</span>
+<span class="k">class</span> <span class="nc">HomeController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="n">flash</span><span class="p">[</span><span class="ss">:notice</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Hello Flash"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;!-- app/views/home/index.html.erb --&gt;</span>
+<span class="nt">&lt;h1&gt;</span>Hello World<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span><span class="cp">&lt;%=</span> <span class="n">flash</span><span class="p">[</span><span class="ss">:notice</span><span class="p">]</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+<p><img src='/assets/i18n/demo_untranslated-6c47b4850770520293deaf7fcc55005ec56bf6c5e0664490cddd33c654944739.png' title='' alt='непереведенная демонстрация rails i18n' class='img-polaroid' /></p><h4 id='abstraktsiya-lokalizovannogo-koda' class='inside_page_header'><a href="#abstraktsiya-lokalizovannogo-koda">3.1.</a> Абстракция локализованного кода</h4><p>В нашем коде есть две строки на английском, которые будут рендериться пользователям в нашем отклике (&quot;Hello Flash&quot; и &quot;Hello World&quot;). Для интернационализации этого кода, эти строки нужно заменить вызовами хелпера Rails <code>#t</code> с соответствующими ключами для каждой строки:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/controllers/home_controller.rb</span>
+<span class="k">class</span> <span class="nc">HomeController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="n">flash</span><span class="p">[</span><span class="ss">:notice</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">(</span><span class="ss">:hello_flash</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;!-- app/views/home/index.html.erb --&gt;</span>
+<span class="nt">&lt;h1&gt;</span><span class="cp">&lt;%=</span> <span class="n">t</span> <span class="ss">:hello_world</span> <span class="cp">%&gt;</span><span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span><span class="cp">&lt;%=</span> <span class="n">flash</span><span class="p">[</span><span class="ss">:notice</span><span class="p">]</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+<p>Теперь при рендеринге вью будет показано сообщение об ошибке, сообщающее, что отсутствуют переводы для ключей <code>:hello_world</code> и <code>:hello_flash</code>.</p><p><img src='/assets/i18n/demo_translation_missing-49aed4aac1ba76039482397578da7c985479fa1ace51061113a8f244cb193020.png' title='' alt='демонстрация отсутствия перевода в rails i18n' class='img-polaroid' /></p><div class="note"><p>Rails добавляет метод хелпера <code>t</code> (<code>translate</code>) во вью, так что вам не нужно набирать <code>I18n.t</code> каждый раз. Дополнительно этот хелпер ловит отсутствующие переводы и оборачивает результирующее сообщение об ошибке в <code>&lt;span class=&quot;translation_missing&quot;&gt;</code>.</p></div><h4 id='predostavlenie-perevodov-dlya-internatsionalizirovannyh-strok' class='inside_page_header'><a href="#predostavlenie-perevodov-dlya-internatsionalizirovannyh-strok">3.2.</a> Предоставление переводов для интернационализированных строк</h4><p>Добавим отсутствующие переводы в файлы словарей:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="c1"># config/locales/en.yml</span>
+<span class="na">en</span><span class="pi">:</span>
+  <span class="na">hello_world</span><span class="pi">:</span> <span class="s">Hello world!</span>
+  <span class="na">hello_flash</span><span class="pi">:</span> <span class="s">Hello flash!</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight yaml"><span class="c1"># config/locales/pirate.yml</span>
+<span class="na">pirate</span><span class="pi">:</span>
+  <span class="na">hello_world</span><span class="pi">:</span> <span class="s">Ahoy World</span>
+  <span class="na">hello_flash</span><span class="pi">:</span> <span class="s">Ahoy Flash</span>
+</code></pre>
+</div>
+<p>Так как <code>default_locale</code> не изменялась, переводы будут использовать <code>:en</code> локаль, и в отклике будут рендериться английские строки.</p><p><img src='/assets/i18n/demo_translated_en-83de4d3d7ffa1d79d26279adede1173ffcf24ea8341645ff30467ea500ee3364.png' title='' alt='пример rails i18n, переведенный на английский' class='img-polaroid' /></p><p>Если локаль будет установлена через URL на пиратскую локаль (<code>http://localhost:3000?locale=pirate</code>), то в отклике будут рендериться пиратские строки:</p><p><img src='/assets/i18n/demo_translated_pirate-0f6e2f38fcaf255732c1c3a66277a0c5f74a8e3698082d8ea7ed0d5b4036b08b.png' title='' alt='пример rails i18n, переведенный на пиратский' class='img-polaroid' /></p><div class="note"><p>Нужно перезагрузить сервер после того, как вы добавили новые файлы локали.</p></div><p>Для хранения переводов в SimpleStore можно использовать файлы YAML (<code>.yml</code>) или чистого Ruby (<code>.rb</code>). YAML является наиболее предпочитаемым вариантом среди разработчиков Rails. Однако у него есть один большой недостаток. YAML очень чувствителен к пробелам и спецсимволам, поэтому приложение может неправильно загрузить ваш словарь. Файлы Ruby уронят ваше приложение при первом же обращении, поэтому вам будет просто найти, что в них неправильно. (Если возникают &quot;странности&quot; со словарями YAML, попробуйте поместить соответствующие части словаря в файл Ruby.)</p><p>Если переводы хранятся в файлах YAML, определенные ключи должны быть экранированы. Вот они:</p><ul><li>true, on, yes
+</li><li>false, off, no
+</li></ul><p>Примеры:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="c1"># config/locales/en.yml</span>
+<span class="na">en</span><span class="pi">:</span>
+  <span class="na">success</span><span class="pi">:</span>
+    <span class="s1">'</span><span class="s">true'</span><span class="pi">:</span>  <span class="s1">'</span><span class="s">True!'</span>
+    <span class="s1">'</span><span class="s">on'</span><span class="pi">:</span>    <span class="s1">'</span><span class="s">On!'</span>
+    <span class="s1">'</span><span class="s">false'</span><span class="pi">:</span> <span class="s1">'</span><span class="s">False!'</span>
+  <span class="na">failure</span><span class="pi">:</span>
+    <span class="na">true</span><span class="pi">:</span>    <span class="s1">'</span><span class="s">True!'</span>
+    <span class="na">off</span><span class="pi">:</span>     <span class="s1">'</span><span class="s">Off!'</span>
+    <span class="na">false</span><span class="pi">:</span>   <span class="s1">'</span><span class="s">False!'</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="s1">'success.true'</span>  <span class="c1"># =&gt; 'True!'</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="s1">'success.on'</span>    <span class="c1"># =&gt; 'On!'</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="s1">'success.false'</span> <span class="c1"># =&gt; 'False!'</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="s1">'failure.false'</span> <span class="c1"># =&gt; Translation Missing</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="s1">'failure.off'</span>   <span class="c1"># =&gt; Translation Missing</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="s1">'failure.true'</span>  <span class="c1"># =&gt; Translation Missing</span>
+</code></pre>
+</div>
+<h4 id='peredacha-peremennyh-v-perevody' class='inside_page_header'><a href="#peredacha-peremennyh-v-perevody">3.3.</a> Передача переменных в переводы</h4><p>Один из ключевых факторов успешной интернационализации приложения -
+избегать неправильные предположения о грамматических правилах при абстракции локализованного кода. Грамматические правила, кажущиеся принципиальными в одной локали, могут быть неверными в другой.</p><p>Неправильная абстракция показана в следующем примере, где делается предположение о порядке в разных частях перевода. Обратите внимание, что Rails предоставляет хелпер <code>number_to_currency</code> для обработки следующего случая.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;!-- app/views/products/show.html.erb --&gt;</span>
+<span class="cp">&lt;%=</span> <span class="s2">"</span><span class="si">#{</span><span class="n">t</span><span class="p">(</span><span class="s1">'currency'</span><span class="p">)</span><span class="si">}#{</span><span class="vi">@product</span><span class="p">.</span><span class="nf">price</span><span class="si">}</span><span class="s2">"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight yaml"><span class="c1"># config/locales/en.yml</span>
+<span class="na">en</span><span class="pi">:</span>
+  <span class="na">currency</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$"</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight yaml"><span class="c1"># config/locales/es.yml</span>
+<span class="na">es</span><span class="pi">:</span>
+  <span class="na">currency</span><span class="pi">:</span> <span class="s2">"</span><span class="s">€"</span>
+</code></pre>
+</div>
+<p>Если цена продукта 10, тогда соответствующий перевод для испанского - &quot;10 €&quot;, вместо &quot;€10&quot;, но абстракция не может дать этого.</p><p>Для создания правильной абстракции, в геме i18n есть возможность, называемая интерполяцией переменных, которая позволяет вам использовать переменные в переводе определений и передавать значения этих переменных в метод перевода.</p><p>Правильная абстракция показана в следующем примере:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;!-- app/views/products/show.html.erb --&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">t</span><span class="p">(</span><span class="s1">'product_price'</span><span class="p">,</span> <span class="ss">price: </span><span class="vi">@product</span><span class="p">.</span><span class="nf">price</span><span class="p">)</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight yaml"><span class="c1"># config/locales/en.yml</span>
+<span class="na">en</span><span class="pi">:</span>
+  <span class="na">product_price</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$%{price}"</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight yaml"><span class="c1"># config/locales/es.yml</span>
+<span class="na">es</span><span class="pi">:</span>
+  <span class="na">product_price</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%{price}</span><span class="nv"> </span><span class="s">€"</span>
+</code></pre>
+</div>
+<p>Все грамматические и пунктуационные решения принимаются в самом определении, таким образом абстракция может дать верный перевод.</p><div class="note"><p>Опции <code>default</code> и <code>scope</code> зарезервированы и не могут быть использованы как переменные. Если перевод использует <code>:default</code> или <code>:scope</code> как интерполяционную переменную, будет вызвано исключение <code>I18n::ReservedInterpolationKey</code>.
+Если перевод ожидает интерполяционную переменную, но она не была передана в <code>#translate</code>, вызовется исключение <code>I18n::MissingInterpolationArgument</code>.</p></div><h4 id='dobavlenie-formatov-daty-vremeni' class='inside_page_header'><a href="#dobavlenie-formatov-daty-vremeni">3.4.</a> Добавление форматов даты/времени</h4><p>Хорошо! Теперь давайте добавим временную метку во вью, чтобы продемонстрировать особенности <strong>локализации даты/времени</strong>. Чтобы локализовать формат даты, нужно передать объект Time в <code>I18n.l</code>, или (лучше) использовать хелпер Rails <code>#l</code>. Формат можно выбрать передав опцию <code>:format</code> - по умолчанию используется формат <code>:default</code>.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;!-- app/views/home/index.html.erb --&gt;</span>
+<span class="nt">&lt;h1&gt;</span><span class="cp">&lt;%=</span> <span class="n">t</span> <span class="ss">:hello_world</span> <span class="cp">%&gt;</span><span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span><span class="cp">&lt;%=</span> <span class="n">flash</span><span class="p">[</span><span class="ss">:notice</span><span class="p">]</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span><span class="cp">&lt;%=</span> <span class="n">l</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">,</span> <span class="ss">format: :short</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+<p>И в нашем файле переводов на пиратский давайте добавим формат времени (в Rails уже есть формат по умолчанию для английского):</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="c1"># config/locales/pirate.yml</span>
+<span class="na">pirate</span><span class="pi">:</span>
+  <span class="na">time</span><span class="pi">:</span>
+    <span class="na">formats</span><span class="pi">:</span>
+      <span class="na">short</span><span class="pi">:</span> <span class="s2">"</span><span class="s">arrrround</span><span class="nv"> </span><span class="s">%H'ish"</span>
+</code></pre>
+</div>
+<p>Что даст вам:</p><p><img src='/assets/i18n/demo_localized_pirate-225ed1f7671118d9d29e97f28ba9f34195ad53606b24cbfae406ec5eacb93dd2.png' title='' alt='демонстрация локализации времени rails i18n на пиратский' class='img-polaroid' /></p><div class="info"><p>Сейчас вам, возможно, захочется добавить больше форматов для того, чтобы бэкенд I18n работал как нужно (как минимум для локали &quot;pirate&quot;). Конечно, есть большая вероятность, что кто-то еще выполнил всю работу по <strong>переводу значений по умолчанию Rails для вашей локали</strong>. Смотрите в <a href="http://github.com/svenfuchs/rails-i18n/tree/master/rails/locale">репозитории rails-i18n на Github</a> архив с различными файлами локали. Когда вы поместите такой файл(ы) в директорию <code>config/locales/</code>, они автоматически станут готовыми для использования.</p></div><h4 id='pravila-slovoobrazovaniya-dlya-drugih-lokaley' class='inside_page_header'><a href="#pravila-slovoobrazovaniya-dlya-drugih-lokaley">3.5.</a> Правила словообразования для других локалей</h4><p>Rails позволяет определить правила словообразования (такие как единственное и множественное число) для локалей, отличных от английской. В <code>config/initializers/inflections.rb</code> можно определить эти правила для нескольких локалей. Инициализатор содержит пример по умолчанию для определения дополнительных правил для английского, следуйте этому формату для других локалей.</p><h4 id='lokalizovannye-vyu' class='inside_page_header'><a href="#lokalizovannye-vyu">3.6.</a> Локализованные вью</h4><p>Скажем, у вас в приложении есть <em>BooksController</em>. Экшн <em>index</em> рендерит содержимое в шаблоне <code>app/views/books/index.html.erb</code>. Когда вы помещаете <em>локализованный вариант</em> этого шаблона: <strong><code>index.es.html.erb</code></strong> в ту же директорию, Rails будет рендерить содержимое в этот шаблон, когда локаль будет установлена как <code>:es</code>. Когда будет установлена локаль по умолчанию, будет использована обычная вью <code>index.html.erb</code>. (Будущие версии Rails, возможно, перенесут эту возможность <em>автоматической</em> локализации ассетов в <code>public</code>, и т.д.)</p><p>Можете использовать эту особенность, например, при работе с большим количеством статичного содержимого, который было бы неудобно вложить в словари YAML или Ruby. Хотя имейте в виду, что любое изменение, которое вы в дальнейшем сделаете в шаблоне, должно быть распространено на все локали.</p><h4 id='organizatsiya-faylov-lokali' class='inside_page_header'><a href="#organizatsiya-faylov-lokali">3.7.</a> Организация файлов локали</h4><p>При использовании дефолтного SimpleStore вместе с библиотекой i18n, словари хранятся в текстовых файлах на диске. Помещение переводов ко всем частям приложения в один файл на локаль будет трудным для управления. Можно хранить эти файлы в иерархии, которая будет для вас понятной.</p><p>К примеру, ваша директория <code>config/locales</code> может выглядеть так:</p><div class="code_container">
+  <pre><code class="highlight plaintext">|-defaults
+|---es.yml
+|---en.yml
+|-models
+|---book
+|-----es.yml
+|-----en.yml
+|-views
+|---defaults
+|-----es.yml
+|-----en.yml
+|---books
+|-----es.yml
+|-----en.yml
+|---users
+|-----es.yml
+|-----en.yml
+|---navigation
+|-----es.yml
+|-----en.yml
+</code></pre>
+</div>
+<p>Таким образом можно разделить модель и имена атрибутов модели от текста внутри вью, и все это от &quot;defaults&quot; (т.е. форматов даты и времени). Другие хранилища для библиотеки i18n могут предоставить другие средства подобного разделения.</p><div class="note"><p>Механизм загрузки локали по умолчанию в Rails не загружает файлы локали во вложенных словарях, как тут. Поэтому, чтобы это заработало, нужно явно указать Rails смотреть глубже:</p></div><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">i18n</span><span class="p">.</span><span class="nf">load_path</span> <span class="o">+=</span> <span class="no">Dir</span><span class="p">[</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'config'</span><span class="p">,</span> <span class="s1">'locales'</span><span class="p">,</span> <span class="s1">'**'</span><span class="p">,</span> <span class="s1">'*.{rb,yml}'</span><span class="p">)]</span>
+</code></pre>
+</div>
+<h3 id='obzor-osobennostey-i18n-api' class='inside_page_header'><a href="#obzor-osobennostey-i18n-api">4.</a> Обзор особенностей I18n API</h3><p>Теперь у вас есть хорошее понимание об использовании библиотеки i18n и знание, как интернационализировать простое приложения на Rails. В следующих частях мы раскроем особенности более детально.</p><p>Эти главы покажут примеры использования как метода <code>I18n.translate</code>, так и <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/TranslationHelper.html#method-i-translate">метода хелпера вью <code>translate</code></a> (отметив дополнительные функции, предоставленными методом хелпера вью).</p><p>Раскроем особенности такие, как:</p><ul><li>поиск переводов
+</li><li>интерполяция данных в переводы
+</li><li>множественное число у переводов
+</li><li>использование HTML-безопасных переводов (только метод хелпера вью)
+</li><li>локализация дат, номеров, валют и т.п.
+</li></ul><h4 id='poisk-perevodov' class='inside_page_header'><a href="#poisk-perevodov">4.1.</a> Поиск переводов</h4><h5 id='osnovy-poiska-oblasti-imen-i-vlozhennyh-klyuchey' class='inside_page_header'><a href="#osnovy-poiska-oblasti-imen-i-vlozhennyh-klyuchey">4.1.1.</a> Основы поиска, области имен и вложенных ключей</h5><p>Переводы ищутся по ключам, которые могут быть как символами, так и строками, поэтому следующие вызовы эквивалентны:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="ss">:message</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="s1">'message'</span>
+</code></pre>
+</div>
+<p>Метод <code>translate</code> также принимает опцию <code>:scope</code>, которая содержит один или более дополнительных ключей, которые будут использованы для определения &quot;пространства&quot; или области имен для ключа перевода:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="ss">:record_invalid</span><span class="p">,</span> <span class="ss">scope: </span><span class="p">[</span><span class="ss">:activerecord</span><span class="p">,</span> <span class="ss">:errors</span><span class="p">,</span> <span class="ss">:messages</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Тут будет искаться сообщение <code>:record_invalid</code> в сообщениях об ошибке Active Record.</p><p>Кроме того, и ключ, и область имен могут быть определены как ключи с точкой в качестве разделителя, как в:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">translate</span> <span class="s2">"activerecord.errors.messages.record_invalid"</span>
+</code></pre>
+</div>
+<p>Таким образом, следующие вызовы эквивалентны:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="s1">'activerecord.errors.messages.record_invalid'</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="s1">'errors.messages.record_invalid'</span><span class="p">,</span> <span class="ss">scope: :activerecord</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="ss">:record_invalid</span><span class="p">,</span> <span class="ss">scope: </span><span class="s1">'activerecord.errors.messages'</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="ss">:record_invalid</span><span class="p">,</span> <span class="ss">scope: </span><span class="p">[</span><span class="ss">:activerecord</span><span class="p">,</span> <span class="ss">:errors</span><span class="p">,</span> <span class="ss">:messages</span><span class="p">]</span>
+</code></pre>
+</div>
+<h5 id='znacheniya-po-umolchaniyu' class='inside_page_header'><a href="#znacheniya-po-umolchaniyu">4.1.2.</a> Значения по умолчанию</h5><p>Когда задана опция <code>:default</code>, будет возвращено ее значение в случае, если отсутствует перевод:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="ss">:missing</span><span class="p">,</span> <span class="ss">default: </span><span class="s1">'Not here'</span>
+<span class="c1"># =&gt; 'Not here'</span>
+</code></pre>
+</div>
+<p>Если значение <code>:default</code> является символом, оно будет использовано как ключ и будет переведено. Может быть представлено несколько значений по умолчанию. Будет возвращено первое, которое даст результат.</p><p>Т.е., следующее попытается перевести ключ <code>:missing</code>, затем ключ <code>:also_missing</code>. Если они оба не дадут результат, будет возвращена строка &quot;Not here&quot;:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="ss">:missing</span><span class="p">,</span> <span class="ss">default: </span><span class="p">[</span><span class="ss">:also_missing</span><span class="p">,</span> <span class="s1">'Not here'</span><span class="p">]</span>
+<span class="c1"># =&gt; 'Not here'</span>
+</code></pre>
+</div>
+<h5 id='massovyy-poisk-i-poisk-v-prostranstve-imen' class='inside_page_header'><a href="#massovyy-poisk-i-poisk-v-prostranstve-imen">4.1.3.</a> Массовый поиск и поиск в пространстве имен</h5><p>Чтобы найти несколько переводов за раз, может быть передан массив ключей:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="p">[</span><span class="ss">:odd</span><span class="p">,</span> <span class="ss">:even</span><span class="p">],</span> <span class="ss">scope: </span><span class="s1">'errors.messages'</span>
+<span class="c1"># =&gt; ["must be odd", "must be even"]</span>
+</code></pre>
+</div>
+<p>Также ключ может перевести хэш (потенциально вложенный) сгруппированных переводов. Т.е. следующее получит <em>все</em> сообщения об ошибке Active Record как хэш:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="s1">'errors.messages'</span>
+<span class="c1"># =&gt; {:inclusion=&gt;"is not included in the list", :exclusion=&gt; ... }</span>
+</code></pre>
+</div>
+<p>Если хотите выполнить интерполяцию на вложенном хэше переводов, необходимо передать параметром <code>deep_interpolation: true</code>. Когда у вас есть следующий словарь:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">en</span><span class="pi">:</span>
+  <span class="na">welcome</span><span class="pi">:</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Welcome!"</span>
+    <span class="na">content</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Welcome</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">%{app_name}"</span>
+</code></pre>
+</div>
+<p>тогда вложенные интерполяции будут проигнорированы без этой настройки:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="s1">'welcome'</span><span class="p">,</span> <span class="ss">app_name: </span><span class="s1">'book store'</span>
+<span class="c1"># =&gt; {:title=&gt;"Welcome!", :content=&gt;"Welcome to the %{app_name}"}</span>
+
+<span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="s1">'welcome'</span><span class="p">,</span> <span class="ss">deep_interpolation: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">app_name: </span><span class="s1">'book store'</span>
+<span class="c1"># =&gt; {:title=&gt;"Welcome!", :content=&gt;"Welcome to the book store"}</span>
+</code></pre>
+</div>
+<h5 id='lenivyy-poisk' class='inside_page_header'><a href="#lenivyy-poisk">4.1.4.</a> &quot;Ленивый&quot; поиск</h5><p>Rails реализует удобный способ поиска локали внутри <em>вью</em>. Когда имеется следующий словарь:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">es</span><span class="pi">:</span>
+  <span class="na">books</span><span class="pi">:</span>
+    <span class="na">index</span><span class="pi">:</span>
+      <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Título"</span>
+</code></pre>
+</div>
+<p>можно найти значение <code>books.index.title</code> <strong>в</strong> шаблоне <code>app/views/books/index.html.erb</code> таким образом (обратите внимание на точку):</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">t</span> <span class="s1">'.title'</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<div class="note"><p>Автоматическое ограничение перевода доступно только из вспомогательного метода вью <code>translate</code>.</p></div><p>&quot;Ленивый&quot; поиск также может быть использован в контроллерах:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">en</span><span class="pi">:</span>
+  <span class="na">books</span><span class="pi">:</span>
+    <span class="na">create</span><span class="pi">:</span>
+      <span class="na">success</span><span class="pi">:</span> <span class="s">Book created!</span>
+</code></pre>
+</div>
+<p>Это может быть полезным для установки сообщений флеш:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">BooksController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="c1"># ...</span>
+    <span class="n">redirect_to</span> <span class="n">books_url</span><span class="p">,</span> <span class="ss">notice: </span><span class="n">t</span><span class="p">(</span><span class="s1">'.success'</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='mnozhestvennoe-chislo' class='inside_page_header'><a href="#mnozhestvennoe-chislo">4.2.</a> Множественное число</h4><p>Во многих языках — включая английский — есть только две формы, единственного числа и множественного числа, для заданной строки, т.е. &quot;1 message&quot; и &quot;2 messages&quot;. В других языках: (<a href="http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html#ru">русском</a>, <a href="http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html#ar">арабском</a>, <a href="http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html#ja">японском</a> и многих других) имеются различные правила грамматики, имеющие дополнительные или отсутствующие <a href="http://cldr.unicode.org/index/cldr-spec/plural-rules">формы множественного числа</a>. Таким образом, API I18n предоставляет гибкую возможность для форм множественного числа.</p><p>У переменной интерполяции <code>:count</code> есть специальная роль в том, что она интерполируется для перевода, и используется для подбора множественного числа для перевода в соответствии с правилами множественного числа, определенными в бэкенде множественного числа. По умолчанию применяются правила множественного числа только для английского языка.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">backend</span><span class="p">.</span><span class="nf">store_translations</span> <span class="ss">:en</span><span class="p">,</span> <span class="ss">inbox: </span><span class="p">{</span>
+  <span class="ss">zero: </span><span class="s1">'no messages'</span><span class="p">,</span> <span class="c1"># опционально</span>
+  <span class="ss">one: </span><span class="s1">'one message'</span><span class="p">,</span>
+  <span class="ss">other: </span><span class="s1">'%{count} messages'</span>
+<span class="p">}</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">translate</span> <span class="ss">:inbox</span><span class="p">,</span> <span class="ss">count: </span><span class="mi">2</span>
+<span class="c1"># =&gt; '2 messages'</span>
+
+<span class="no">I18n</span><span class="p">.</span><span class="nf">translate</span> <span class="ss">:inbox</span><span class="p">,</span> <span class="ss">count: </span><span class="mi">1</span>
+<span class="c1"># =&gt; 'one message'</span>
+
+<span class="no">I18n</span><span class="p">.</span><span class="nf">translate</span> <span class="ss">:inbox</span><span class="p">,</span> <span class="ss">count: </span><span class="mi">0</span>
+<span class="c1"># =&gt; 'no messages'</span>
+</code></pre>
+</div>
+<p>Алгоритм для образования множественного числа в <code>:en</code> прост:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">lookup_key</span> <span class="o">=</span> <span class="ss">:zero</span> <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">entry</span><span class="p">.</span><span class="nf">has_key?</span><span class="p">(</span><span class="ss">:zero</span><span class="p">)</span>
+<span class="n">lookup_key</span> <span class="o">||=</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">?</span> <span class="ss">:one</span> <span class="p">:</span> <span class="ss">:other</span>
+<span class="n">entry</span><span class="p">[</span><span class="n">lookup_key</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Перевод помеченный как <code>:one</code>, рассматривается как единственное число, все другое как множественное. Если количество нулевое, и существует запись <code>:zero</code>, тогда будет использоваться она вместо <code>:other</code>.</p><p>Если поиск по ключу не возвратит хэш, подходящий для образования множественного числа, вызовется исключение <code>I18n::InvalidPluralizationData</code>.</p><h5 id='lokalizovannye-pravila' class='inside_page_header'><a href="#lokalizovannye-pravila">4.2.1.</a> Локализованные правила</h5><p>Гем I18n предоставляет бэкенд множественного числа, который может использоваться для включения правил локализации. Добавьте это в простой бэкенд, затем добавьте алгоритмы для локализации множественного числа в хранилище переводов, как <code>i18n.plural.rule</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="o">::</span><span class="no">Backend</span><span class="o">::</span><span class="no">Simple</span><span class="p">.</span><span class="nf">include</span><span class="p">(</span><span class="no">I18n</span><span class="o">::</span><span class="no">Backend</span><span class="o">::</span><span class="no">Pluralization</span><span class="p">)</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">backend</span><span class="p">.</span><span class="nf">store_translations</span> <span class="ss">:pt</span><span class="p">,</span> <span class="ss">i18n: </span><span class="p">{</span> <span class="ss">plural: </span><span class="p">{</span> <span class="ss">rule: </span><span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">].</span><span class="nf">include?</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">?</span> <span class="ss">:one</span> <span class="p">:</span> <span class="ss">:other</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">backend</span><span class="p">.</span><span class="nf">store_translations</span> <span class="ss">:pt</span><span class="p">,</span> <span class="ss">apples: </span><span class="p">{</span> <span class="ss">one: </span><span class="s1">'one or none'</span><span class="p">,</span> <span class="ss">other: </span><span class="s1">'more than one'</span> <span class="p">}</span>
+
+<span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="ss">:apples</span><span class="p">,</span> <span class="ss">count: </span><span class="mi">0</span><span class="p">,</span> <span class="ss">locale: :pt</span>
+<span class="c1"># =&gt; 'one or none'</span>
+</code></pre>
+</div>
+<p>В качестве альтернативы, отдельный гем <a href="https://github.com/svenfuchs/rails-i18n">rails-i18n</a> может быть использован для обеспечения более полного набора локализованных правил множественного числа.</p><h4 id='nastroyka-i-peredacha-lokali' class='inside_page_header'><a href="#nastroyka-i-peredacha-lokali">4.3.</a> Настройка и передача локали</h4><p>Локаль может быть либо установленной псевдо-глобально в <code>I18n.locale</code> (использующей <code>Thread.current</code> наподобие, к примеру, <code>Time.zone</code>), либо быть переданной опцией в <code>#translate</code> и <code>#localize</code>.</p><p>Если локаль не была передана, используется <code>I18n.locale</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">locale</span> <span class="o">=</span> <span class="ss">:de</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="ss">:foo</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">l</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span>
+</code></pre>
+</div>
+<p>Явно переданная локаль:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="ss">:foo</span><span class="p">,</span> <span class="ss">locale: :de</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">l</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">,</span> <span class="ss">locale: :de</span>
+</code></pre>
+</div>
+<p>Умолчанием для <code>I18n.locale</code> является <code>I18n.default_locale</code>, для которой по умолчанию установлено <code>:en</code>. Локаль по умолчанию может быть установлена так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">default_locale</span> <span class="o">=</span> <span class="ss">:de</span>
+</code></pre>
+</div>
+<h4 id='ispolzovanie-html-bezopasnyh-perevodov' class='inside_page_header'><a href="#ispolzovanie-html-bezopasnyh-perevodov">4.4.</a> Использование HTML-безопасных переводов</h4><p>Ключи с суффиксом <code>_html</code> и ключами с именем <code>html</code> помечаются как HTML-безопасные. При их использовании во вью, HTML не будет экранирован.</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="c1"># config/locales/en.yml</span>
+<span class="na">en</span><span class="pi">:</span>
+  <span class="na">welcome</span><span class="pi">:</span> <span class="s">&lt;b&gt;welcome!&lt;/b&gt;</span>
+  <span class="na">hello_html</span><span class="pi">:</span> <span class="s">&lt;b&gt;hello!&lt;/b&gt;</span>
+  <span class="na">title</span><span class="pi">:</span>
+    <span class="na">html</span><span class="pi">:</span> <span class="s">&lt;b&gt;title!&lt;/b&gt;</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;!-- app/views/home/index.html.erb --&gt;</span>
+<span class="nt">&lt;div&gt;</span><span class="cp">&lt;%=</span> <span class="n">t</span><span class="p">(</span><span class="s1">'welcome'</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div&gt;</span><span class="cp">&lt;%=</span> <span class="n">raw</span> <span class="n">t</span><span class="p">(</span><span class="s1">'welcome'</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div&gt;</span><span class="cp">&lt;%=</span> <span class="n">t</span><span class="p">(</span><span class="s1">'hello_html'</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div&gt;</span><span class="cp">&lt;%=</span> <span class="n">t</span><span class="p">(</span><span class="s1">'title.html'</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+<p>Интерполяция экранируется по мере необходимости. Например, учитывая:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">en</span><span class="pi">:</span>
+  <span class="na">welcome_html</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;b&gt;Welcome</span><span class="nv"> </span><span class="s">%{username}!&lt;/b&gt;"</span>
+</code></pre>
+</div>
+<p>вы можете спокойно передать имя пользователя, установленное пользователем:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;%# This is safe, it is going to be escaped if needed. %&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">t</span><span class="p">(</span><span class="s1">'welcome_html'</span><span class="p">,</span> <span class="ss">username: </span><span class="vi">@current_user</span><span class="p">.</span><span class="nf">username</span><span class="p">)</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>С другой стороны, безопасные строки интерполируются дословно.</p><div class="note"><p>Автоматическое преобразование в HTML-безопасный текст перевода доступен только для метода хелпера <code>translate</code> (или <code>t</code>). Это работает во вью и в контроллерах.</p></div><p><img src='/assets/i18n/demo_html_safe-47afb910043f21996f5abc5f5f3814f26935d560ff365f79311fffba55b2b2fb.png' title='' alt='демонстрация HTML-безопасности в i18n' class='img-polaroid' /></p><h4 id='perevody-dlya-modeley-active-record' class='inside_page_header'><a href="#perevody-dlya-modeley-active-record">4.5.</a> Переводы для моделей Active Record</h4><p>Можете использовать методы <code>Model.model_name.human</code> и <code>Model.human_attribute_name(attribute)</code> для прозрачного поиска переводов для ваших моделей и имен атрибутов.</p><p>Например, когда добавляем следующие переводы:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">en</span><span class="pi">:</span>
+  <span class="na">activerecord</span><span class="pi">:</span>
+    <span class="na">models</span><span class="pi">:</span>
+      <span class="na">user</span><span class="pi">:</span> <span class="s">Customer</span>
+    <span class="na">attributes</span><span class="pi">:</span>
+      <span class="na">user</span><span class="pi">:</span>
+        <span class="na">login</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Handle"</span>
+      <span class="c1"># переводит атрибут "login" у User как "Handle"</span>
+</code></pre>
+</div>
+<p>Тогда <code>User.model_name.human</code> возвратит &quot;Customer&quot;, а <code>User.human_attribute_name(&quot;login&quot;)</code> возвратит &quot;Handle&quot;.</p><p>Для имен модели также можно установить множественное число, добавив следующее:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">en</span><span class="pi">:</span>
+  <span class="na">activerecord</span><span class="pi">:</span>
+    <span class="na">models</span><span class="pi">:</span>
+      <span class="na">user</span><span class="pi">:</span>
+        <span class="na">one</span><span class="pi">:</span> <span class="s">Customer</span>
+        <span class="na">other</span><span class="pi">:</span> <span class="s">Customers</span>
+</code></pre>
+</div>
+<p>Тогда <code>User.model_name.human(count: 2)</code> возвратит &quot;Customers&quot;. С <code>count: 1</code> или без параметров возвратит &quot;Customer&quot;.</p><p>В случае необходимости получить доступ к вложенным атрибутам модели, следует показать эту вложенность в виде <code>model/attribute</code> на уровне модели в файле переводов:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">en</span><span class="pi">:</span>
+  <span class="na">activerecord</span><span class="pi">:</span>
+    <span class="na">attributes</span><span class="pi">:</span>
+      <span class="s">user/role</span><span class="pi">:</span>
+        <span class="na">admin</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Admin"</span>
+        <span class="na">contributor</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Contributor"</span>
+</code></pre>
+</div>
+<p>Тогда <code>User.human_attribute_name(&quot;role.admin&quot;)</code> возвратит &quot;Admin&quot;.</p><div class="note"><p>Если используется класс, включающий <code>ActiveModel</code>, но не наследованный от <code>ActiveRecord::Base</code>, замените <code>activerecord</code> на <code>activemodel</code> в вышеприведенных путях ключей.</p></div><h5 id='prostranstva-imen-soobscheniy-ob-oshibke' class='inside_page_header'><a href="#prostranstva-imen-soobscheniy-ob-oshibke">4.5.1.</a> Пространства имен сообщений об ошибке</h5><p>Сообщение об ошибке валидации Active Record также может быть легко переведено. Active Record предоставляет ряд пространств имен, куда можно поместить ваши переводы для передачи различных сообщений и переводы для определенных моделей, атрибутов и/или валидаций. Также учитывается одиночное наследование таблицы (single table inheritance).</p><p>Это дает довольно мощное средство для гибкой настройки ваших сообщений в соответствии с потребностями приложения.</p><p>Рассмотрим модель User с валидацией <code>validates_presence_of</code> для атрибута name, подобную следующей:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Ключом для сообщения об ошибке в этом случае будет <code>:blank</code>. Active Record будет искать этот ключ в пространствах имен:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">activerecord</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">models</span><span class="p">.</span><span class="nf">[</span><span class="n">model_name</span><span class="p">].</span><span class="nf">attributes</span><span class="p">.</span><span class="nf">[</span><span class="n">attribute_name</span><span class="p">]</span>
+<span class="n">activerecord</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">models</span><span class="p">.</span><span class="nf">[</span><span class="n">model_name</span><span class="p">]</span>
+<span class="n">activerecord</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">messages</span>
+<span class="n">errors</span><span class="p">.</span><span class="nf">attributes</span><span class="p">.</span><span class="nf">[</span><span class="n">attribute_name</span><span class="p">]</span>
+<span class="n">errors</span><span class="p">.</span><span class="nf">messages</span>
+</code></pre>
+</div>
+<p>Таким образом, в нашем примере он будет перебирать следующие ключи в указанном порядке и возвратит первый полученный результат:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">activerecord</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">models</span><span class="p">.</span><span class="nf">user</span><span class="p">.</span><span class="nf">attributes</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">blank</span>
+<span class="n">activerecord</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">models</span><span class="p">.</span><span class="nf">user</span><span class="p">.</span><span class="nf">blank</span>
+<span class="n">activerecord</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">messages</span><span class="p">.</span><span class="nf">blank</span>
+<span class="n">errors</span><span class="p">.</span><span class="nf">attributes</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">blank</span>
+<span class="n">errors</span><span class="p">.</span><span class="nf">messages</span><span class="p">.</span><span class="nf">blank</span>
+</code></pre>
+</div>
+<p>Когда ваши модели дополнительно используют наследование, тогда сообщения ищутся в цепочке наследования.</p><p>Например, у вас может быть модель Admin, унаследованная от User:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Admin</span> <span class="o">&lt;</span> <span class="no">User</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Тогда Active Record будет искать сообщения в этом порядке:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">activerecord</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">models</span><span class="p">.</span><span class="nf">admin</span><span class="p">.</span><span class="nf">attributes</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">blank</span>
+<span class="n">activerecord</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">models</span><span class="p">.</span><span class="nf">admin</span><span class="p">.</span><span class="nf">blank</span>
+<span class="n">activerecord</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">models</span><span class="p">.</span><span class="nf">user</span><span class="p">.</span><span class="nf">attributes</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">blank</span>
+<span class="n">activerecord</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">models</span><span class="p">.</span><span class="nf">user</span><span class="p">.</span><span class="nf">blank</span>
+<span class="n">activerecord</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">messages</span><span class="p">.</span><span class="nf">blank</span>
+<span class="n">errors</span><span class="p">.</span><span class="nf">attributes</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">blank</span>
+<span class="n">errors</span><span class="p">.</span><span class="nf">messages</span><span class="p">.</span><span class="nf">blank</span>
+</code></pre>
+</div>
+<p>Таким образом можно предоставить специальные переводы для различных сообщений об ошибке в различных местах цепочки наследования моделей и в атрибутах, моделях и пространствах имен по умолчанию.</p><h5 id='interpolyatsiya-soobscheniya-ob-oshibke' class='inside_page_header'><a href="#interpolyatsiya-soobscheniya-ob-oshibke">4.5.2.</a> Интерполяция сообщения об ошибке</h5><p>Переведенное имя модели, переведенное имя атрибута и значение всегда доступны для интерполяции как <code>model</code>, <code>attribute</code> и <code>value</code> соответственно.</p><p>Так, к примеру, вместо сообщения об ошибке по умолчанию <code>&quot;cannot be blank&quot;</code> можете использовать имя атрибута как тут: <code>&quot;Please fill in your %{attribute}&quot;</code>.</p><ul><li>Где это возможно, <code>count</code> может быть использован для множественного числа, если оно существует:
+</li></ul><table class='table table-striped'><tr>
+<th>валидация</th>
+<th>с опцией</th>
+<th>сообщение</th>
+<th>интерполяция</th>
+</tr>
+<tr>
+<td>confirmation</td>
+<td>-</td>
+<td>:confirmation</td>
+<td>attribute</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>-</td>
+<td>:accepted</td>
+<td>-</td>
+</tr>
+<tr>
+<td>presence</td>
+<td>-</td>
+<td>:blank</td>
+<td>-</td>
+</tr>
+<tr>
+<td>absence</td>
+<td>-</td>
+<td>:present</td>
+<td>-</td>
+</tr>
+<tr>
+<td>length</td>
+<td>:within, :in</td>
+<td>:too_short</td>
+<td>count</td>
+</tr>
+<tr>
+<td>length</td>
+<td>:within, :in</td>
+<td>:too_long</td>
+<td>count</td>
+</tr>
+<tr>
+<td>length</td>
+<td>:is</td>
+<td>:wrong_length</td>
+<td>count</td>
+</tr>
+<tr>
+<td>length</td>
+<td>:minimum</td>
+<td>:too_short</td>
+<td>count</td>
+</tr>
+<tr>
+<td>length</td>
+<td>:maximum</td>
+<td>:too_long</td>
+<td>count</td>
+</tr>
+<tr>
+<td>uniqueness</td>
+<td>-</td>
+<td>:taken</td>
+<td>-</td>
+</tr>
+<tr>
+<td>format</td>
+<td>-</td>
+<td>:invalid</td>
+<td>-</td>
+</tr>
+<tr>
+<td>inclusion</td>
+<td>-</td>
+<td>:inclusion</td>
+<td>-</td>
+</tr>
+<tr>
+<td>exclusion</td>
+<td>-</td>
+<td>:exclusion</td>
+<td>-</td>
+</tr>
+<tr>
+<td>associated</td>
+<td>-</td>
+<td>:invalid</td>
+<td>-</td>
+</tr>
+<tr>
+<td>non-optional association</td>
+<td>-</td>
+<td>:required</td>
+<td>-</td>
+</tr>
+<tr>
+<td>numericality</td>
+<td>-</td>
+<td>:not_a_number</td>
+<td>-</td>
+</tr>
+<tr>
+<td>numericality</td>
+<td>:greater_than</td>
+<td>:greater_than</td>
+<td>count</td>
+</tr>
+<tr>
+<td>numericality</td>
+<td>:greater_than_or_equal_to</td>
+<td>:greater_than_or_equal_to</td>
+<td>count</td>
+</tr>
+<tr>
+<td>numericality</td>
+<td>:equal_to</td>
+<td>:equal_to</td>
+<td>count</td>
+</tr>
+<tr>
+<td>numericality</td>
+<td>:less_than</td>
+<td>:less_than</td>
+<td>count</td>
+</tr>
+<tr>
+<td>numericality</td>
+<td>:less_than_or_equal_to</td>
+<td>:less_than_or_equal_to</td>
+<td>count</td>
+</tr>
+<tr>
+<td>numericality</td>
+<td>:other_than</td>
+<td>:other_than</td>
+<td>count</td>
+</tr>
+<tr>
+<td>numericality</td>
+<td>:only_integer</td>
+<td>:not_an_integer</td>
+<td>-</td>
+</tr>
+<tr>
+<td>numericality</td>
+<td>:in</td>
+<td>:in</td>
+<td>count</td>
+</tr>
+<tr>
+<td>numericality</td>
+<td>:odd</td>
+<td>:odd</td>
+<td>-</td>
+</tr>
+<tr>
+<td>numericality</td>
+<td>:even</td>
+<td>:even</td>
+<td>-</td>
+</tr>
+</table><h4 id='perevod-dlya-tem-pisem-action-mailer' class='inside_page_header'><a href="#perevod-dlya-tem-pisem-action-mailer">4.6.</a> Перевод для тем писем Action Mailer</h4><p>Если не передать subject в метод <code>mail</code>, Action Mailer попытается найти ее в ваших переводах. Выполняемый поиск будет использовать паттерн <code>&lt;mailer_scope&gt;.&lt;action_name&gt;.subject</code> для создания ключа.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># user_mailer.rb</span>
+<span class="k">class</span> <span class="nc">UserMailer</span> <span class="o">&lt;</span> <span class="no">ActionMailer</span><span class="o">::</span><span class="no">Base</span>
+  <span class="k">def</span> <span class="nf">welcome</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="c1">#...</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">en</span><span class="pi">:</span>
+  <span class="na">user_mailer</span><span class="pi">:</span>
+    <span class="na">welcome</span><span class="pi">:</span>
+      <span class="na">subject</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Welcome</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Rails</span><span class="nv"> </span><span class="s">Guides!"</span>
+</code></pre>
+</div>
+<p>Чтобы отослать параметры в интерполяцию, используйте в рассыльщике метод <code>default_i18n_subject</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># user_mailer.rb</span>
+<span class="k">class</span> <span class="nc">UserMailer</span> <span class="o">&lt;</span> <span class="no">ActionMailer</span><span class="o">::</span><span class="no">Base</span>
+  <span class="k">def</span> <span class="nf">welcome</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">mail</span><span class="p">(</span><span class="ss">to: </span><span class="n">user</span><span class="p">.</span><span class="nf">email</span><span class="p">,</span> <span class="ss">subject: </span><span class="n">default_i18n_subject</span><span class="p">(</span><span class="ss">user: </span><span class="n">user</span><span class="p">.</span><span class="nf">name</span><span class="p">))</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">en</span><span class="pi">:</span>
+  <span class="na">user_mailer</span><span class="pi">:</span>
+    <span class="na">welcome</span><span class="pi">:</span>
+      <span class="na">subject</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%{user},</span><span class="nv"> </span><span class="s">welcome</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Rails</span><span class="nv"> </span><span class="s">Guides!"</span>
+</code></pre>
+</div>
+<h4 id='obzor-drugih-vstroennyh-metodov-predostavlyayuschih-podderzhku-i18n' class='inside_page_header'><a href="#obzor-drugih-vstroennyh-metodov-predostavlyayuschih-podderzhku-i18n">4.7.</a> Обзор других встроенных методов, предоставляющих поддержку I18n</h4><p>Rails использует фиксированные строки и другие локализации, такие как формат строки и другая информация о формате, в ряде хелперов. Вот краткий обзор.</p><h5 id='metody-helpera-action-view' class='inside_page_header'><a href="#metody-helpera-action-view">4.7.1.</a> Методы хелпера Action View</h5><ul><li><code>distance_of_time_in_words</code> переводит и образует множественное число своего результата и интерполирует число секунд, минут, часов и т.д. Смотрите переводы <a href="https://github.com/rails/rails/blob/main/actionview/lib/action_view/locale/en.yml#L4">datetime.distance_in_words</a>.
+</li><li><code>datetime_select</code> и <code>select_month</code> используют переведенные имена месяцев для заполнения результирующего тега select. Смотрите переводы в <a href="http://github.com/rails/rails/blob/main/activesupport/lib/active_support/locale/en.yml#L15">date.month_names</a>. <code>datetime_select</code> также ищет опцию order из <a href="http://github.com/rails/rails/blob/main/activesupport/lib/active_support/locale/en.yml#L18">date.order</a> (если вы передали эту опцию явно). Все хелперы выбора даты переводят prompt, используя переводы в пространстве имен <a href="http://github.com/rails/rails/blob/main/actionview/lib/action_view/locale/en.yml#L39">datetime.prompts</a>, если применимы.
+</li><li>Хелперы <code>number_to_currency</code>, <code>number_with_precision</code>, <code>number_to_percentage</code>, <code>number_with_delimiter</code> и <code>number_to_human_size</code> используют настройки формата чисел в пространстве имен <a href="https://github.com/rails/rails/blob/main/activesupport/lib/active_support/locale/en.yml#L37">number</a>.
+</li></ul><h5 id='active-model-methods' class='inside_page_header'><a href="#active-model-methods">4.7.2.</a>  Методы Active Model</h5><ul><li><p><code>human_name</code> и <code>human_attribute_name</code> используют переводы для имен модели и имен атрибутов, если они доступны в пространстве имен <a href="http://github.com/rails/rails/blob/main/activerecord/lib/active_record/locale/en.yml#L36">activerecord.models</a>. Они также предоставляют переводы для имен унаследованного класса (т.е. для использования вместе с STI), как уже объяснялось выше в &quot;Области сообщения об ошибке&quot;.</p></li><li><p><code>ActiveModel::Errors#generate_message</code> (который используется валидациями Active Model, но также может быть использован вручную) использует <code>human_name</code> и <code>human_attribute_name</code> (смотрите выше). Он также переводит сообщение об ошибке и поддерживает переводы для имен унаследованного класса, как уже объяснялось выше в &quot;Пространства имен сообщений об ошибке&quot;.</p></li><li><p><code>ActiveModel::Error#full_message</code> и <code>ActiveModel::Errors#full_messages</code> добавляют имя атрибута к сообщению об ошибке, используя формат, ищущийся в <code>errors.format</code> (по умолчанию: <a href="https://github.com/rails/rails/blob/main/activemodel/lib/active_model/locale/en.yml#L4"><code>&quot;%{attribute} %{message}&quot;</code></a>). Чтобы настроить формат по умолчанию, переопределите его в файлах локали приложения. Чтобы настроить формат для модели или атрибута, смотрите <a href="/configuring#config-active-model-i18n-customize-full-message"><code>config.active_model.i18n_customize_full_message</code></a>.</p></li></ul><h5 id='metody-active-support' class='inside_page_header'><a href="#metody-active-support">4.7.3.</a> Методы Active Support</h5><ul><li><code>Array#to_sentence</code> использует настройки формата, которые заданы в пространстве имен <a href="http://github.com/rails/rails/blob/main/activesupport/lib/active_support/locale/en.yml#L33">support.array</a>.
+</li></ul><h3 id='kak-hranit-svoi-perevody' class='inside_page_header'><a href="#kak-hranit-svoi-perevody">5.</a> Как хранить свои переводы</h3><p>Простой бэкенд, поставляющийся вместе с Active Support, позволяет хранить переводы как в формате чистого Ruby, так и в YAML.</p><p>Например, представляющий перевод хэш Ruby выглядит так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">pt: </span><span class="p">{</span>
+    <span class="ss">foo: </span><span class="p">{</span>
+      <span class="ss">bar: </span><span class="s2">"baz"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>Эквивалентный файл YAML выглядит так:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">pt</span><span class="pi">:</span>
+  <span class="na">foo</span><span class="pi">:</span>
+    <span class="na">bar</span><span class="pi">:</span> <span class="s">baz</span>
+</code></pre>
+</div>
+<p>Как видите, в обоих случаях ключ верхнего уровня является локалью. <code>:foo</code> - это ключ пространства имен, а <code>:bar</code> - это ключ для перевода &quot;baz&quot;.</p><p>Вот &quot;реальный&quot; пример из YAML файла перевода Active Support <code>en.yml</code>:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">en</span><span class="pi">:</span>
+  <span class="na">date</span><span class="pi">:</span>
+    <span class="na">formats</span><span class="pi">:</span>
+      <span class="na">default</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%Y-%m-%d"</span>
+      <span class="na">short</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%b</span><span class="nv"> </span><span class="s">%d"</span>
+      <span class="na">long</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%B</span><span class="nv"> </span><span class="s">%d,</span><span class="nv"> </span><span class="s">%Y"</span>
+</code></pre>
+</div>
+<p>Таким образом, все из нижеследующих эквивалентов возвратит краткий (<code>:short</code>) формат даты <code>&quot;%b %d&quot;</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="s1">'date.formats.short'</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="s1">'formats.short'</span><span class="p">,</span> <span class="ss">scope: :date</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="ss">:short</span><span class="p">,</span> <span class="ss">scope: </span><span class="s1">'date.formats'</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="ss">:short</span><span class="p">,</span> <span class="ss">scope: </span><span class="p">[</span><span class="ss">:date</span><span class="p">,</span> <span class="ss">:formats</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Как правило, мы рекомендуем использовать YAML как формат хранения переводов. Хотя имеются случаи, когда хочется хранить лямбда-функции Ruby как часть данных локали, например, для специальных форматов дат.</p><h3 id='nastroyka-i18n' class='inside_page_header'><a href="#nastroyka-i18n">6.</a> Настройка I18n</h3><h4 id='ispolzovanie-razlichnyh-bekendov' class='inside_page_header'><a href="#ispolzovanie-razlichnyh-bekendov">6.1.</a> Использование различных бэкендов</h4><p>По некоторым причинам простой бэкенд, поставляющийся с Active Support, осуществляет только &quot;простейшие вещи, в которых возможна работа&quot; <em>Ruby on Rails</em> (или, цитируя Википедию, Интернационализация это процесс разработки программного обеспечения таким образом, что оно может быть адаптировано к различным языкам и регионам без существенных инженерных изменений. Локализация это процесс адаптации программы для отдельного региона или языка с помощью добавления специфичных для локали компонентов и перевод текстов), что означает то, что гарантируется работа для английского и, как побочный эффект, для схожих с английским языков. Также простой бэкенд способен только читать переводы, а не динамически хранить их в каком-либо формате.</p><p>Впрочем, это не означает, что вы связаны этими ограничениями. Гем Ruby I18n позволяет с легкостью заменить простой бэкенд на что-то иное, более предпочтительное для ваших нужд, передавая экземпляр бэкенда в сеттер <code>I18n.backend=</code>:</p><p>Например, можно заменить простой бэкенд на бэкенд Chain для связывания нескольких бэкендов вместе. Это полезно, когда используются стандартные переводы с помощью простого бэкенда, а хранятся собственные переводы приложения в базе данных или других бэкендах.</p><p>С помощью бэкенда Chain можно использовать бэкенд Active Record и вернуться к простому бэкенду (по умолчанию):</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">backend</span> <span class="o">=</span> <span class="no">I18n</span><span class="o">::</span><span class="no">Backend</span><span class="o">::</span><span class="no">Chain</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">I18n</span><span class="o">::</span><span class="no">Backend</span><span class="o">::</span><span class="no">ActiveRecord</span><span class="p">.</span><span class="nf">new</span><span class="p">,</span> <span class="no">I18n</span><span class="p">.</span><span class="nf">backend</span><span class="p">)</span>
+</code></pre>
+</div>
+<h4 id='ispolzovanie-razlichnyh-obrabotchikov-isklyucheniy' class='inside_page_header'><a href="#ispolzovanie-razlichnyh-obrabotchikov-isklyucheniy">6.2.</a> Использование различных обработчиков исключений</h4><p>API I18n определяет следующие исключения, вызываемые бэкендами, когда происходят соответствующие неожидаемые условия:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">MissingTranslationData</span>       <span class="c1"># не обнаружен перевод для запрашиваемого ключа</span>
+<span class="no">InvalidLocale</span>                <span class="c1"># локаль, установленная I18n.locale, невалидна (например, nil)</span>
+<span class="no">InvalidPluralizationData</span>     <span class="c1"># была передана опция count, но данные для перевода не могут быть возведены во множественное число</span>
+<span class="no">MissingInterpolationArgument</span> <span class="c1"># перевод ожидает интерполяционный аргумент, который не был передан</span>
+<span class="no">ReservedInterpolationKey</span>     <span class="c1"># перевод содержит зарезервированное имя интерполяционной переменной (т.е. scope, default)</span>
+<span class="no">UnknownFileType</span>              <span class="c1"># бэкенд не знает, как обработать тип файла, добавленного в I18n.load_path</span>
+</code></pre>
+</div>
+<p>API I18n поймает все эти исключения, когда они были вызваны в бэкенде, и передаст их в метод default_exception_handler. Этот метод вызовет заново все исключения, кроме исключений <code>MissingTranslationData</code>. Когда было вызвано исключение <code>MissingTranslationData</code>, он возвратит строку сообщения об ошибке исключения, содержащую отсутствующие ключ/пространство имен.</p><p>Причиной для этого является то, что при разработке вам обычно хочется, чтобы вью рендерились несмотря на отсутствующие переводы.</p><p>Впрочем, в иных ситуациях, возможно, захочется изменить это поведение. Например, обработка исключений по умолчанию не позволяет просто ловить отсутствующие переводы во время автоматических тестов. Для этой цели может быть определен иной обработчик исключений. Определенный обработчик исключений должен быть методом в модуле I18n или классом с методом <code>call</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">module</span> <span class="nn">I18n</span>
+  <span class="k">class</span> <span class="nc">JustRaiseExceptionHandler</span> <span class="o">&lt;</span> <span class="no">ExceptionHandler</span>
+    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">exception</span><span class="p">,</span> <span class="n">locale</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">exception</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">MissingTranslation</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">exception</span><span class="p">.</span><span class="nf">to_exception</span>
+      <span class="k">else</span>
+        <span class="k">super</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">I18n</span><span class="p">.</span><span class="nf">exception_handler</span> <span class="o">=</span> <span class="no">I18n</span><span class="o">::</span><span class="no">JustRaiseExceptionHandler</span><span class="p">.</span><span class="nf">new</span>
+</code></pre>
+</div>
+<p>Это вызовет только исключение <code>MissingTranslationData</code>, передав все другие значения в обработчик исключений по умолчанию.</p><p>Однако, если вы используете <code>I18n::Backend::Pluralization</code>, этот обработчик также вызывает исключение <code>I18n::MissingTranslationData: translation missing: en.i18n.plural.rule</code>, которое обычно должно быть проигнорировано для отката к правилу плюрализации по умолчанию в английской локали. Чтобы этого избежать, можно добавить дополнительную проверку ключа перевода:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">if</span> <span class="n">exception</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">MissingTranslation</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">key</span><span class="p">.</span><span class="nf">to_s</span> <span class="o">!=</span> <span class="s1">'i18n.plural.rule'</span>
+  <span class="k">raise</span> <span class="n">exception</span><span class="p">.</span><span class="nf">to_exception</span>
+<span class="k">else</span>
+  <span class="k">super</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Другим примером, когда поведение по умолчанию является менее желательным, является Rails TranslationHelper, который предоставляет метод <code>#t</code> (то же самое, что <code>#translate</code>). Когда в этом контексте происходит исключение <code>MissingTranslationData</code> хелпер оборачивает сообщение в span с классом CSS <code>translation_missing</code>.</p><p>Чтобы это осуществить, хелпер заставляет <code>I18n#translate</code> вызвать исключения, независимо от того, какой обработчик исключений установлен, определяя опцию <code>:raise</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">t</span> <span class="ss">:foo</span><span class="p">,</span> <span class="ss">raise: </span><span class="kp">true</span> <span class="c1"># всегда перевызывает исключения из бэкенда</span>
+</code></pre>
+</div>
+<h3 id='translating-model-content' class='inside_page_header'><a href="#translating-model-content">7.</a>  Перевод контента модели</h3><p>API I18n, описанный в этом руководстве, в первую очередь предназначен для перевода строк интерфейса. Если необходимо перевести контент модели (например, сообщений в блоге), может понадобится другое решение, помогающее в этом.</p><p>Несколько гемов, которые могут помочь:</p><ul><li><a href="https://github.com/shioyama/mobility">Mobility</a>: Предоставляет поддержку для хранения переводов во многих форматах, включая таблицы перевода, столбцы JSON (PostgreSQL) и т.д.
+</li><li><a href="https://github.com/barsoom/traco">Traco</a>: Переводимые столбцы, хранимые в самой таблице моделей
+</li></ul><h3 id='zaklyuchenie' class='inside_page_header'><a href="#zaklyuchenie">8.</a> Заключение</h3><p>С этого момента у вас должно быть хорошее понимание, как работает поддержка I18n в Ruby on Rails, и вы должны быть готовы начать переводить свой проект.</p><h3 id='vklad-v-rails-i18n' class='inside_page_header'><a href="#vklad-v-rails-i18n">9.</a> Вклад в Rails I18n</h3><p>Поддержка I18n в Ruby on Rails была представлена в релизе 2.2 и до сих пор развивается. Проект следует хорошим традициям разработки Ruby on Rails в виде первоначального развития в виде отдельных гемов и реальных приложений, и только затем извлечения наилучших широко используемых особенностей для включения в ядро.</p><p>Поэтому каждый поощряется экспериментировать с новыми идеями и особенностями в гемах или других библиотеках и делать их доступными сообществу. (Не забудьте анонсировать свою работу в <a href="https://groups.google.com/forum/#!forum/rails-i18n">рассылке</a>!)</p><p>Если вы обнаружите, что ваша локаль (язык) отсутствует в <a href="https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale">данных примеров переводов</a> репозитория Ruby on Rails, <a href="https://github.com/guides/fork-a-project-and-submit-your-modifications">сделайте <em>fork</em></a> репозитория, добавьте ваши данные и пошлите <a href="https://help.github.com/articles/about-pull-requests/">pull request</a>.</p><h3 id='resursy' class='inside_page_header'><a href="#resursy">10.</a> Ресурсы</h3><ul><li><a href="https://groups.google.com/g/rails-i18n">Группа Google: rails-i18n</a> - Рассылка проекта.
+</li><li><a href="https://github.com/svenfuchs/rails-i18n">GitHub: rails-i18n</a> - Репозиторий кода и трекер проблем для проекта rails-i18n. Много важного можно найти в <a href="https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale">примере переводов</a> для Rails, в большинстве случаев это будет работать и в вашем приложении.
+</li><li><a href="https://github.com/svenfuchs/i18n">GitHub: i18n</a> - Репозиторий кода и трекер проблем для гема i18n.
+</li></ul><h3 id='avtory' class='inside_page_header'><a href="#avtory">11.</a> Авторы</h3><ul><li><a href="http://svenfuchs.com">Sven Fuchs</a> (первоначальный автор)
+</li><li><a href="http://www.karmi.cz">Karel Minařík</a>
+</li></ul>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

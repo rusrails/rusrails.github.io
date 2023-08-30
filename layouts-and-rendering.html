@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Макеты и рендеринг в Rails" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Макеты и рендеринг в Rails" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/layouts-and-rendering" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Макеты и рендеринг в Rails
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="x4ImsFYSQ7JOh6tZbCfPOP/Htz/iRg50UsEr2xrub7z5dn1Tfs+2PpIy7zccFkrUAro9EUxJSWDfG/6jcuzLFw==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#obzor-kak-kusochki-skladyvayutsya-vmeste">1. Обзор: как кусочки складываются вместе</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#sozdanie-otklikov">2. Создание откликов</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#rendering-po-umolchaniyu-soglasheniya-po-konfiguratsii-v-deystvii">2.1. Рендеринг по умолчанию: соглашения по конфигурации в действии</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-render">2.2. Использование <code>render</code></a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#rendering-vyu-ekshna">2.2.1. Рендеринг вью экшна</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#rendering-shablona-ekshna-iz-drugogo-kontrollera">2.2.2. Рендеринг шаблона экшна из другого контроллера</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#oborachivanie">2.2.3. Оборачивание</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#ispolzovanie-render-s-inline">2.2.4. Использование <code>render</code> с <code>:inline</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#rendering-teksta">2.2.5. Рендеринг текста</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#rendering-html">2.2.6. Рендеринг HTML</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#rendering-json">2.2.7. Рендеринг JSON</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#rendering-xml">2.2.8. Рендеринг XML</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#rendering-vneshnego-javascript">2.2.9. Рендеринг внешнего JavaScript</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#rendering-neobrabotannogo-soderzhimogo">2.2.10. Рендеринг необработанного содержимого</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#rendering-neobrabotannogo-fayla">2.2.11. Рендеринг необработанного файла</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#rendering-ob-ektov">2.2.12. Рендеринг объектов</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#optsii-dlya-render">2.2.13. Опции для <code>render</code></a>
+</h6>      </li>
+      <li>
+        <h7>
+          <a href="#optsiya-content_type">2.2.13.1. Опция <code>:content_type</code></a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#optsiya-layout">2.2.13.2. Опция <code>:layout</code></a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#optsiya-location">2.2.13.3. Опция <code>:location</code></a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#the-status-option">2.2.13.4.  Опция <code>:status</code></a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#optsiya-formats">2.2.13.5. Опция <code>:formats</code></a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#optsiya-variants">2.2.13.6. Опция <code>:variants</code></a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#poisk-maketov">2.2.13.7. Поиск макетов</a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#opredelenie-maketov-dlya-kontrollerov">2.2.13.8. Определение макетов для контроллеров</a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#vybor-maketov-vo-vremya-vypolneniya">2.2.13.9. Выбор макетов во время выполнения</a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#uslovnye-makety">2.2.13.10. Условные макеты</a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#nasledovanie-maketa">2.2.13.11. Наследование макета</a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#nasledovanie-shablona">2.2.13.12. Наследование шаблона</a>
+</h7>      </li>
+      <li>
+        <h6>
+          <a href="#izbeganie-oshibok-dvoynogo-renderinga">2.2.14. Избегание ошибок двойного рендеринга</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-redirect_to">2.3. Использование <code>redirect_to</code></a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#poluchenie-razlichnogo-koda-statusa-perenapravleniya">2.3.1. Получение различного кода статуса перенаправления</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#razlichie-mezhdu-render-i-redirect_to">2.3.2. Различие между <code>render</code> и <code>redirect_to</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-head-dlya-sozdaniya-otklika-soderzhaschego-tolko-zagolovok">2.4. Использование <code>head</code> для создания отклика, содержащего только заголовок</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#strukturirovanie-maketov">3. Структурирование макетов</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#helpery-assetnyh-tegov">3.1. Хелперы ассетных тегов</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#prisoedinenie-kanalov-s-pomoschyu-auto_discovery_link_tag">3.1.1. Присоединение каналов с помощью <code>auto_discovery_link_tag</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#prisoedinenie-faylov-javascript-s-pomoschyu-javascript_include_tag">3.1.2. Присоединение файлов JavaScript с помощью <code>javascript_include_tag</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#prisoedinenie-faylov-css-s-pomoschyu-stylesheet_link_tag">3.1.3. Присоединение файлов CSS с помощью <code>stylesheet_link_tag</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#prisoedinenie-izobrazheniy-s-pomoschyu-image_tag">3.1.4. Присоединение изображений с помощью <code>image_tag</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#prisoedinenie-video-s-pomoschyu-video_tag">3.1.5. Присоединение видео с помощью <code>video_tag</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#prisoedinenie-audiofaylov-s-pomoschyu-audio_tag">3.1.6. Присоединение аудиофайлов с помощью <code>audio_tag</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#ponimanie-yield">3.2. Понимание <code>yield</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-metoda-content_for">3.3. Использование метода <code>content_for</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#using-partials">3.4.  Использование партиалов</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#imenovanie-partialov">3.4.1. Именование партиалов</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#ispolzovanie-partialov-dlya-uproscheniya-vyu">3.4.2. Использование партиалов для упрощения вью</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#makety-partiala">3.4.3. Макеты партиала</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#peredacha-lokalnyh-peremennyh">3.4.4. Передача локальных переменных</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#rendering-kollektsiy">3.4.5. Рендеринг коллекций</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#lokalnye-peremennye">3.4.6. Локальные переменные</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#peremennye-schetchika">3.4.7. Переменные счетчика</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#razdelyayuschie-shablony">3.4.8. Разделяющие шаблоны</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#makety-kollektsii-partiala">3.4.9. Макеты коллекции партиала</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-vlozhennyh-maketov">3.5. Использование вложенных макетов</a>
+</h5>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='makety-i-rendering-v-rails' class='inside_page_header'> Макеты и рендеринг в Rails</h2><p>Это руководство раскрывает основные возможности макетов Action Controller и Action View.</p><p>После прочтения этого руководства, вы узнаете:</p><ul><li>Как использовать различные методы рендеринга, встроенные в Rails.
+</li><li>Как создавать макеты с несколькими разделами содержимого.
+</li><li>Как использовать частичные шаблоны для соблюдения принципа DRY в ваших вью.
+</li><li>Как использовать вложенные макеты (подшаблоны).
+</li></ul><h3 id='obzor-kak-kusochki-skladyvayutsya-vmeste' class='inside_page_header'><a href="#obzor-kak-kusochki-skladyvayutsya-vmeste">1.</a> Обзор: как кусочки складываются вместе</h3><p>Это руководство сосредотачивается на взаимодействии между контроллером и вью (представлением) в треугольнике модель-представление-контроллер (MVC). Как вы знаете, контроллер ответственен за управление целым процессом обслуживания запросов в Rails, хотя обычно любой серьезный код переносится в модель. Но когда приходит время послать отклик обратно пользователю, контроллер передает все вью. Именно этой передаче посвящено данное руководство.</p><p>В общих чертах все связано с решением, что же должно быть послано как отклик, и вызовом подходящего метода для создания этого отклика. Если откликом является полноценная вью, Rails также проводит дополнительную работу по упаковыванию вью в макет и, возможно, по вставке частичных вью. В общем, все эти этапы вы увидите сами в следующих разделах.</p><h3 id='sozdanie-otklikov' class='inside_page_header'><a href="#sozdanie-otklikov">2.</a> Создание откликов</h3><p>С точки зрения контроллера есть три способа создать отклик HTTP:</p><ul><li>Вызвать <a href="https://api.rubyonrails.org/classes/ActionController/Renderer.html#method-i-render"><code>render</code></a> для создания полного отклика, возвращаемого браузеру
+</li><li>Вызвать <a href="https://api.rubyonrails.org/classes/ActionController/Redirecting.html#method-i-redirect_to"><code>redirect_to</code></a> для передачи браузеру кода переадресации HTTP
+</li><li>Вызвать <a href="https://api.rubyonrails.org/classes/ActionController/Head.html#method-i-head"><code>head</code></a> для создания отклика, включающего только заголовки HTTP, возвращаемого браузеру
+</li></ul><h4 id='rendering-po-umolchaniyu-soglasheniya-po-konfiguratsii-v-deystvii' class='inside_page_header'><a href="#rendering-po-umolchaniyu-soglasheniya-po-konfiguratsii-v-deystvii">2.1.</a> Рендеринг по умолчанию: соглашения по конфигурации в действии</h4><p>Вы уже слышали, что Rails содействует принципу &quot;соглашения по конфигурации&quot;. Рендеринг по умолчанию - прекрасный пример этого. По умолчанию контроллеры в Rails автоматически рендерят вью с именами, соответствующими валидным маршрутам. Например, если есть такой код в вашем классе <code>BooksController</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">BooksController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>И следующее в файле маршрутов:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:books</span>
+</code></pre>
+</div>
+<p>И у вас имеется файл вью <code>app/views/books/index.html.erb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Books</span> <span class="n">are</span> <span class="n">coming</span> <span class="n">soon!</span><span class="o">&lt;</span><span class="sr">/h1&gt;
+</span></code></pre>
+</div>
+<p>Rails автоматически отрендерит <code>app/views/books/index.html.erb</code> при переходе на адрес <code>/books</code>, и вы увидите на экране надпись &quot;Books are coming soon!&quot;</p><p>Однако это сообщение минимально полезно, поэтому вскоре вы создадите модель <code>Book</code> и добавите экшн index в <code>BooksController</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">BooksController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@books</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">all</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Снова отметьте, что у нас соглашения превыше конфигурации в том, что отсутствует избыточный рендер в конце этого экшна index. Правило в том, что не нужно что-то избыточно рендерить в конце экшна контроллера, rails будет искать шаблон <code>action_name.html.erb</code> по пути вью контроллера и отрендерит его, поэтому в нашем случае Rails отрендерит файл <code>app/views/books/index.html.erb</code>.</p><p>Итак, в нашей вью мы хотим отобразить свойства всех книг, это делается с помощью шаблона ERB, подобного следующему:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>Listing Books<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;table&gt;</span>
+  <span class="nt">&lt;thead&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th&gt;</span>Title<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>Content<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">colspan=</span><span class="s">"3"</span><span class="nt">&gt;&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/thead&gt;</span>
+
+  <span class="nt">&lt;tbody&gt;</span>
+    <span class="cp">&lt;%</span> <span class="vi">@books</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">book</span><span class="o">|</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span><span class="cp">&lt;%=</span> <span class="n">book</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span><span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span><span class="cp">&lt;%=</span> <span class="n">book</span><span class="p">.</span><span class="nf">content</span> <span class="cp">%&gt;</span><span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Show"</span><span class="p">,</span> <span class="n">book</span> <span class="cp">%&gt;</span><span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Edit"</span><span class="p">,</span> <span class="n">edit_book_path</span><span class="p">(</span><span class="n">book</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Destroy"</span><span class="p">,</span> <span class="n">book</span><span class="p">,</span> <span class="ss">data: </span><span class="p">{</span> <span class="ss">turbo_method: :delete</span><span class="p">,</span> <span class="ss">turbo_confirm: </span><span class="s2">"Are you sure?"</span> <span class="p">}</span> <span class="cp">%&gt;</span><span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+
+<span class="nt">&lt;br&gt;</span>
+
+<span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"New book"</span><span class="p">,</span> <span class="n">new_book_path</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<div class="note"><p>Фактически рендеринг осуществляется вложенными классами модуля <a href="https://api.rubyonrails.org/classes/ActionView/Template/Handlers.html"><code>ActionView::Template::Handlers</code></a>. Мы не будем углубляться в этот процесс, но важно знать, что расширение файла вью контролирует выбор обработчика шаблона.</p></div><h4 id='ispolzovanie-render' class='inside_page_header'><a href="#ispolzovanie-render">2.2.</a> Использование <code>render</code></h4><p>Во многих случаях метод <a href="https://api.rubyonrails.org/classes/ActionController/Renderer.html#method-i-render"><code>ActionController::Renderer#render</code></a> выполняет большую работу по рендерингу содержимого Вашего приложения для использования в браузере. Имеются различные способы настройки возможностей <code>render</code>. Вы можете рендерить вью по умолчанию для шаблона Rails, или определенный шаблон, или файл, или встроенный код, или совсем ничего. Можно рендерить текст, JSON или XML. Также можно определить тип содержимого или статус HTTP отрендеренного отклика.</p><div class="info"><p>Если хотите увидеть точные результаты вызова <code>render</code> без необходимости проверять это в браузере, можете вызвать <code>render_to_string</code>. Этот метод принимает те же самые опции, что и <code>render</code>, но возвращает строку вместо отправки отклика обратно браузеру.</p></div><h5 id='rendering-vyu-ekshna' class='inside_page_header'><a href="#rendering-vyu-ekshna">2.2.1.</a> Рендеринг вью экшна</h5><p>Если хотите отрендерить вью, соответствующую другому шаблону этого же контроллера, можно использовать <code>render</code> с именем вью:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">update</span>
+  <span class="vi">@book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">if</span> <span class="vi">@book</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="n">book_params</span><span class="p">)</span>
+    <span class="n">redirect_to</span><span class="p">(</span><span class="vi">@book</span><span class="p">)</span>
+  <span class="k">else</span>
+    <span class="n">render</span> <span class="s2">"edit"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если вызов <code>update</code> проваливается, вызов экшна <code>update</code> в этом контроллере отрендерит шаблон <code>edit.html.erb</code>, принадлежащий тому же контроллеру.</p><p>Если хотите, можете использовать символ вместо строки для определения экшна для рендеринга:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">update</span>
+  <span class="vi">@book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">if</span> <span class="vi">@book</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="n">book_params</span><span class="p">)</span>
+    <span class="n">redirect_to</span><span class="p">(</span><span class="vi">@book</span><span class="p">)</span>
+  <span class="k">else</span>
+    <span class="n">render</span> <span class="ss">:edit</span><span class="p">,</span> <span class="ss">status: :unprocessable_entity</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='rendering-shablona-ekshna-iz-drugogo-kontrollera' class='inside_page_header'><a href="#rendering-shablona-ekshna-iz-drugogo-kontrollera">2.2.2.</a> Рендеринг шаблона экшна из другого контроллера</h5><p>Что, если вы хотите отрендерить шаблон из абсолютно другого контроллера? Это можно также сделать с <code>render</code>, который принимает полный путь шаблона для рендеринга (относительно <code>app/views</code>). Например, если запускаем код в <code>AdminProductsController</code> который находится в <code>app/controllers/admin</code>, можете отрендерить результат экшна в шаблон в <code>app/views/products</code> следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="s2">"products/show"</span>
+</code></pre>
+</div>
+<p>Rails знает, что эта вью принадлежит другому контроллеру, поскольку содержит символ слэша в строке. Если хотите быть точными, можете использовать опцию <code>:template</code> (которая требовалась в Rails 2.2 и более ранних):</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">template: </span><span class="s2">"products/show"</span>
+</code></pre>
+</div>
+<h5 id='oborachivanie' class='inside_page_header'><a href="#oborachivanie">2.2.3.</a> Оборачивание</h5><p>Вышеописанные два метода рендеринга (рендеринг шаблона другого экшна в контроллере и рендеринг шаблона другого экшна в другом контроллере) на самом деле являются вариантами одной и той же операции.</p><p>Фактически в классе <code>BooksController</code>, в экшне update, в котором мы хотим отрендерить шаблон edit, если книга не была успешно обновлена, все нижеследующие вызовы отрендерят шаблон <code>edit.html.erb</code> в директории <code>views/books</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">:edit</span>
+<span class="n">render</span> <span class="ss">action: :edit</span>
+<span class="n">render</span> <span class="s2">"edit"</span>
+<span class="n">render</span> <span class="ss">action: </span><span class="s2">"edit"</span>
+<span class="n">render</span> <span class="s2">"books/edit"</span>
+<span class="n">render</span> <span class="ss">template: </span><span class="s2">"books/edit"</span>
+</code></pre>
+</div>
+<p>Какой из них вы будете использовать - это вопрос стиля и соглашений, но практическое правило заключается в использовании простейшего, который больше подходит по стилю написания вашего кода.</p><h5 id='ispolzovanie-render-s-inline' class='inside_page_header'><a href="#ispolzovanie-render-s-inline">2.2.4.</a> Использование <code>render</code> с <code>:inline</code></h5><p>Метод <code>render</code> вполне может обойтись без вью, если вы используете опцию <code>:inline</code> для поддержки ERB, как части вызова метода. Это вполне валидно:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">inline: </span><span class="s2">"&lt;% products.each do |p| %&gt;&lt;p&gt;&lt;%= p.name %&gt;&lt;/p&gt;&lt;% end %&gt;"</span>
+</code></pre>
+</div>
+<div class="warning"><p>Должно быть серьезное основание для использования этой опции. Вкрапление ERB в контроллер нарушает MVC ориентированность Rails и создает трудности для других разработчиков в следовании логике вашего проекта. Вместо этого используйте отдельную erb-вью.</p></div><p>По умолчанию встроенный рендеринг использует ERB. Можете принудить использовать вместо этого Builder с помощью опции <code>:type</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">inline: </span><span class="s2">"xml.p {'Horrid coding practice!'}"</span><span class="p">,</span> <span class="ss">type: :builder</span>
+</code></pre>
+</div>
+<h5 id='rendering-teksta' class='inside_page_header'><a href="#rendering-teksta">2.2.5.</a> Рендеринг текста</h5><p>Вы можете послать простой текст - совсем без разметки - обратно браузеру с использованием опции <code>:plain</code> в <code>render</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">plain: </span><span class="s2">"OK"</span>
+</code></pre>
+</div>
+<div class="info"><p>Рендеринг чистого текста наиболее полезен, когда вы делаете Ajax-отклик или отвечаете на запросы веб-сервиса, ожидающего что-то иное, чем HTML.</p></div><div class="note"><p>По умолчанию при использовании опции <code>:plain</code> текст рендерится без использования текущего макета. Если хотите, чтобы Rails вложил текст в текущий макет, необходимо добавить опцию <code>layout: true</code> и использовать расширение <code>.text.erb</code> для файла макета.</p></div><h5 id='rendering-html' class='inside_page_header'><a href="#rendering-html">2.2.6.</a> Рендеринг HTML</h5><p>Вы можете вернуть HTML, используя опцию <code>:html</code> метода <code>render</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">html: </span><span class="n">helpers</span><span class="p">.</span><span class="nf">tag</span><span class="p">.</span><span class="nf">strong</span><span class="p">(</span><span class="s1">'Not Found'</span><span class="p">)</span>
+</code></pre>
+</div>
+<div class="info"><p>Это полезно когда вы хотите отрендерить небольшой кусочек HTML-кода. Однако, если у вас достаточно сложная разметка, стоит рассмотреть выделение её в файл шаблона.</p></div><div class="note"><p>Когда используется опция <code>html:</code>, HTML объекты будут экранироваться, если строка не состоит из API, поддерживающих <code>html_safe</code>.</p></div><h5 id='rendering-json' class='inside_page_header'><a href="#rendering-json">2.2.7.</a> Рендеринг JSON</h5><p>JSON - это формат данных JavaScript, используемый многими библиотеками Ajax. Rails имеет встроенную поддержку для преобразования объектов в JSON и рендеринга этого JSON обратно браузеру:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">json: </span><span class="vi">@product</span>
+</code></pre>
+</div>
+<div class="info"><p>Не нужно вызывать <code>to_json</code> в объекте, который хотите рендерить. Если используется опция <code>:json</code>, <code>render</code> автоматически вызовет <code>to_json</code> за вас.</p></div><h5 id='rendering-xml' class='inside_page_header'><a href="#rendering-xml">2.2.8.</a> Рендеринг XML</h5><p>Rails также имеет встроенную поддержку для преобразования объектов в XML и рендеринга этого XML обратно вызывающему:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">xml: </span><span class="vi">@product</span>
+</code></pre>
+</div>
+<div class="info"><p>Не нужно вызывать <code>to_xml</code> в объекте, который хотите рендерить. Если используется опция <code>:xml</code>, <code>render</code> автоматически вызовет <code>to_xml</code> за вас.</p></div><h5 id='rendering-vneshnego-javascript' class='inside_page_header'><a href="#rendering-vneshnego-javascript">2.2.9.</a> Рендеринг внешнего JavaScript</h5><p>Rails может рендерить чистый JavaScript:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">js: </span><span class="s2">"alert('Hello Rails');"</span>
+</code></pre>
+</div>
+<p>Это пошлет указанную строку в браузер с типом MIME <code>text/javascript</code>.</p><h5 id='rendering-neobrabotannogo-soderzhimogo' class='inside_page_header'><a href="#rendering-neobrabotannogo-soderzhimogo">2.2.10.</a> Рендеринг необработанного содержимого</h5><p>Вы можете вернуть необработанный текст, без установки типа содержимого,
+используя опцию <code>:body</code>, метода <code>render</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">body: </span><span class="s2">"raw"</span>
+</code></pre>
+</div>
+<div class="info"><p>Эта опция должна использоваться, только если не важен тип содержимого отклика.
+Использование <code>:plain</code> или <code>:html</code> уместнее в большинстве случаев.</p></div><div class="note"><p>Возвращенным откликом от этой опции будет <code>text/plain</code> (если не будет переопределен),
+так как это тип содержимого по умолчанию у отклика Action Dispatch.</p></div><h5 id='rendering-neobrabotannogo-fayla' class='inside_page_header'><a href="#rendering-neobrabotannogo-fayla">2.2.11.</a> Рендеринг необработанного файла</h5><p>Rails может рендерить необработанный файл по абсолютному пути. Это полезно для условного рендеринга статичных файлов, таких как страницы ошибок.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">file: </span><span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/public/404.html"</span><span class="p">,</span> <span class="ss">layout: </span><span class="kp">false</span>
+</code></pre>
+</div>
+<p>Это отрендерит необработанный файл (ERB или другие обработчики не поддерживаются). По умолчанию файл рендерится с использованием текущего макета.</p><div class="note"><p>Использование опции <code>:file</code> в комбинации с данными, введенными пользователем, может привести к проблемам безопасности, так как злоумышленник может использовать этот экшн для доступа к чувствительным, с точки зрения безопасности, файлам вашей файловой системы.</p></div><div class="info"><p><code>send_file</code> часто является более быстрым и лучшим вариантом, если макет не требуется.</p></div><h5 id='rendering-ob-ektov' class='inside_page_header'><a href="#rendering-ob-ektov">2.2.12.</a> Рендеринг объектов</h5><p>Rails может рендерить объекты, отвечающие на <code>:render_in</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="no">MyRenderable</span><span class="p">.</span><span class="nf">new</span>
+</code></pre>
+</div>
+<p>Это вызывает <code>render_in</code> на представленном объекте в контексте текущей вью.</p><h5 id='optsii-dlya-render' class='inside_page_header'><a href="#optsii-dlya-render">2.2.13.</a> Опции для <code>render</code></h5><p>Вызов метода <a href="https://api.rubyonrails.org/classes/ActionController/Renderer.html#method-i-render"><code>render</code></a> как правило принимает шесть опций:</p><ul><li><code>:content_type</code>
+</li><li><code>:layout</code>
+</li><li><code>:location</code>
+</li><li><code>:status</code>
+</li><li><code>:formats</code>
+</li><li><code>:variants</code>
+</li></ul><h6 id='optsiya-content_type' class='inside_page_header'><a href="#optsiya-content_type">2.2.13.1.</a> Опция <code>:content_type</code></h6><p>По умолчанию Rails будет обрабатывать результаты операции рендеринга с типом содержимого MIME <code>text/html</code> (или <code>application/json</code>, если используется опция <code>:json</code>, или <code>application/xml</code> для опции <code>:xml</code>). Иногда бывает так, что нужно изменить это, и тогда необходимо настроить опцию <code>:content_type</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">template: </span><span class="s2">"feed"</span><span class="p">,</span> <span class="ss">content_type: </span><span class="s2">"application/rss"</span>
+</code></pre>
+</div>
+<h6 id='optsiya-layout' class='inside_page_header'><a href="#optsiya-layout">2.2.13.2.</a> Опция <code>:layout</code></h6><p>С большинством опций для <code>render</code>, отрендеренное содержимое отображается как часть текущего макета. Вы узнаете более подробно о макетах, и как их использовать, позже в этом руководстве.</p><p>Опция <code>:layout</code> нужна, чтобы сообщить Rails о необходимости использовать определенный файл как макет для текущего экшна:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">layout: </span><span class="s2">"special_layout"</span>
+</code></pre>
+</div>
+<p>Также можно сообщить Rails, что требуется рендерить вообще без макета:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">layout: </span><span class="kp">false</span>
+</code></pre>
+</div>
+<h6 id='optsiya-location' class='inside_page_header'><a href="#optsiya-location">2.2.13.3.</a> Опция <code>:location</code></h6><p>Опцию <code>:location</code> можно использовать, чтобы установить заголовок HTTP <code>Location</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">xml: </span><span class="n">photo</span><span class="p">,</span> <span class="ss">location: </span><span class="n">photo_url</span><span class="p">(</span><span class="n">photo</span><span class="p">)</span>
+</code></pre>
+</div>
+<h6 id='the-status-option' class='inside_page_header'><a href="#the-status-option">2.2.13.4.</a>  Опция <code>:status</code></h6><p>Rails автоматически сгенерирует отклик с правильным кодом статуса HTML (в большинстве случаев равный <code>200 OK</code>). Опцию <code>:status</code> можно использовать, чтобы изменить это:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">status: </span><span class="mi">500</span>
+<span class="n">render</span> <span class="ss">status: :forbidden</span>
+</code></pre>
+</div>
+<p>Rails понимает как числовые коды статуса, так и соответствующие символы, показанные ниже.</p><table class='table table-striped'><tr>
+<th>Класс отклика</th>
+<th>Код статуса HTTP</th>
+<th>Символ</th>
+</tr>
+<tr>
+<td><strong>Informational</strong></td>
+<td>100</td>
+<td>:continue</td>
+</tr>
+<tr>
+<td></td>
+<td>101</td>
+<td>:switching_protocols</td>
+</tr>
+<tr>
+<td></td>
+<td>102</td>
+<td>:processing</td>
+</tr>
+<tr>
+<td><strong>Success</strong></td>
+<td>200</td>
+<td>:ok</td>
+</tr>
+<tr>
+<td></td>
+<td>201</td>
+<td>:created</td>
+</tr>
+<tr>
+<td></td>
+<td>202</td>
+<td>:accepted</td>
+</tr>
+<tr>
+<td></td>
+<td>203</td>
+<td>:non_authoritative_information</td>
+</tr>
+<tr>
+<td></td>
+<td>204</td>
+<td>:no_content</td>
+</tr>
+<tr>
+<td></td>
+<td>205</td>
+<td>:reset_content</td>
+</tr>
+<tr>
+<td></td>
+<td>206</td>
+<td>:partial_content</td>
+</tr>
+<tr>
+<td></td>
+<td>207</td>
+<td>:multi_status</td>
+</tr>
+<tr>
+<td></td>
+<td>208</td>
+<td>:already_reported</td>
+</tr>
+<tr>
+<td></td>
+<td>226</td>
+<td>:im_used</td>
+</tr>
+<tr>
+<td><strong>Redirection</strong></td>
+<td>300</td>
+<td>:multiple_choices</td>
+</tr>
+<tr>
+<td></td>
+<td>301</td>
+<td>:moved_permanently</td>
+</tr>
+<tr>
+<td></td>
+<td>302</td>
+<td>:found</td>
+</tr>
+<tr>
+<td></td>
+<td>303</td>
+<td>:see_other</td>
+</tr>
+<tr>
+<td></td>
+<td>304</td>
+<td>:not_modified</td>
+</tr>
+<tr>
+<td></td>
+<td>305</td>
+<td>:use_proxy</td>
+</tr>
+<tr>
+<td></td>
+<td>307</td>
+<td>:temporary_redirect</td>
+</tr>
+<tr>
+<td></td>
+<td>308</td>
+<td>:permanent_redirect</td>
+</tr>
+<tr>
+<td><strong>Client Error</strong></td>
+<td>400</td>
+<td>:bad_request</td>
+</tr>
+<tr>
+<td></td>
+<td>401</td>
+<td>:unauthorized</td>
+</tr>
+<tr>
+<td></td>
+<td>402</td>
+<td>:payment_required</td>
+</tr>
+<tr>
+<td></td>
+<td>403</td>
+<td>:forbidden</td>
+</tr>
+<tr>
+<td></td>
+<td>404</td>
+<td>:not_found</td>
+</tr>
+<tr>
+<td></td>
+<td>405</td>
+<td>:method_not_allowed</td>
+</tr>
+<tr>
+<td></td>
+<td>406</td>
+<td>:not_acceptable</td>
+</tr>
+<tr>
+<td></td>
+<td>407</td>
+<td>:proxy_authentication_required</td>
+</tr>
+<tr>
+<td></td>
+<td>408</td>
+<td>:request_timeout</td>
+</tr>
+<tr>
+<td></td>
+<td>409</td>
+<td>:conflict</td>
+</tr>
+<tr>
+<td></td>
+<td>410</td>
+<td>:gone</td>
+</tr>
+<tr>
+<td></td>
+<td>411</td>
+<td>:length_required</td>
+</tr>
+<tr>
+<td></td>
+<td>412</td>
+<td>:precondition_failed</td>
+</tr>
+<tr>
+<td></td>
+<td>413</td>
+<td>:payload_too_large</td>
+</tr>
+<tr>
+<td></td>
+<td>414</td>
+<td>:uri_too_long</td>
+</tr>
+<tr>
+<td></td>
+<td>415</td>
+<td>:unsupported_media_type</td>
+</tr>
+<tr>
+<td></td>
+<td>416</td>
+<td>:range_not_satisfiable</td>
+</tr>
+<tr>
+<td></td>
+<td>417</td>
+<td>:expectation_failed</td>
+</tr>
+<tr>
+<td></td>
+<td>421</td>
+<td>:misdirected_request</td>
+</tr>
+<tr>
+<td></td>
+<td>422</td>
+<td>:unprocessable_entity</td>
+</tr>
+<tr>
+<td></td>
+<td>423</td>
+<td>:locked</td>
+</tr>
+<tr>
+<td></td>
+<td>424</td>
+<td>:failed_dependency</td>
+</tr>
+<tr>
+<td></td>
+<td>426</td>
+<td>:upgrade_required</td>
+</tr>
+<tr>
+<td></td>
+<td>428</td>
+<td>:precondition_required</td>
+</tr>
+<tr>
+<td></td>
+<td>429</td>
+<td>:too_many_requests</td>
+</tr>
+<tr>
+<td></td>
+<td>431</td>
+<td>:request_header_fields_too_large</td>
+</tr>
+<tr>
+<td></td>
+<td>451</td>
+<td>:unavailable_for_legal_reasons</td>
+</tr>
+<tr>
+<td><strong>Server Error</strong></td>
+<td>500</td>
+<td>:internal_server_error</td>
+</tr>
+<tr>
+<td></td>
+<td>501</td>
+<td>:not_implemented</td>
+</tr>
+<tr>
+<td></td>
+<td>502</td>
+<td>:bad_gateway</td>
+</tr>
+<tr>
+<td></td>
+<td>503</td>
+<td>:service_unavailable</td>
+</tr>
+<tr>
+<td></td>
+<td>504</td>
+<td>:gateway_timeout</td>
+</tr>
+<tr>
+<td></td>
+<td>505</td>
+<td>:http_version_not_supported</td>
+</tr>
+<tr>
+<td></td>
+<td>506</td>
+<td>:variant_also_negotiates</td>
+</tr>
+<tr>
+<td></td>
+<td>507</td>
+<td>:insufficient_storage</td>
+</tr>
+<tr>
+<td></td>
+<td>508</td>
+<td>:loop_detected</td>
+</tr>
+<tr>
+<td></td>
+<td>510</td>
+<td>:not_extended</td>
+</tr>
+<tr>
+<td></td>
+<td>511</td>
+<td>:network_authentication_required</td>
+</tr>
+</table><div class="note"><p>Если попытаться отрендерить содержимое наряду с кодом статуса без содержимого (100-199, 204, 205 или 304), он будет исключён из отклика.</p></div><h6 id='optsiya-formats' class='inside_page_header'><a href="#optsiya-formats">2.2.13.5.</a> Опция <code>:formats</code></h6><p>Rails использует формат, определённый в запросе (или <code>:html</code> по умолчанию). Вы можете изменить его, передав в опцию <code>:formats</code> символ или массив:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">formats: :xml</span>
+<span class="n">render</span> <span class="ss">formats: </span><span class="p">[</span><span class="ss">:json</span><span class="p">,</span> <span class="ss">:xml</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Если шаблон с указанным форматом не существует, вызывается ошибка <code>ActionView::MissingTemplate</code>.</p><h6 id='optsiya-variants' class='inside_page_header'><a href="#optsiya-variants">2.2.13.6.</a> Опция <code>:variants</code></h6><p>Она сообщает Rails искать варианты шаблона того же формата. Можно указать список вариантов, передав опции <code>:variants</code> символ или массив.</p><p>Пример использования.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># called in HomeController#index</span>
+<span class="n">render</span> <span class="ss">variants: </span><span class="p">[</span><span class="ss">:mobile</span><span class="p">,</span> <span class="ss">:desktop</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>С таком набором вариантов, Rails будет искать следующий набор шаблонов и использовать первый из существующих.</p><ul><li><code>app/views/home/index.html+mobile.erb</code>
+</li><li><code>app/views/home/index.html+desktop.erb</code>
+</li><li><code>app/views/home/index.html.erb</code>
+</li></ul><p>Если шаблон с указанным форматом не существует, будет вызвана ошибка <code>ActionView::MissingTemplate</code>.</p><p>Вместо указания варианта на вызове render, его также можно установить на объекте request в экшне контроллера.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">index</span>
+  <span class="n">request</span><span class="p">.</span><span class="nf">variant</span> <span class="o">=</span> <span class="n">determine_variant</span>
+<span class="k">end</span>
+
+<span class="kp">private</span>
+
+<span class="k">def</span> <span class="nf">determine_variant</span>
+  <span class="n">variant</span> <span class="o">=</span> <span class="kp">nil</span>
+  <span class="c1"># некоторый код для определения варианта(ов) для использования</span>
+  <span class="n">variant</span> <span class="o">=</span> <span class="ss">:mobile</span> <span class="k">if</span> <span class="n">session</span><span class="p">[</span><span class="ss">:use_mobile</span><span class="p">]</span>
+
+  <span class="n">variant</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h6 id='poisk-maketov' class='inside_page_header'><a href="#poisk-maketov">2.2.13.7.</a> Поиск макетов</h6><p>Чтобы найти текущий макет, Rails сначала смотрит файл в <code>app/views/layouts</code> с именем, таким же, как имя контроллера. Например, рендеринг экшнов из класса <code>PhotosController</code> будет использовать <code>/app/views/layouts/photos.html.erb</code> (или <code>app/views/layouts/photos.builder</code>). Если такого макета нет, Rails будет использовать <code>/app/views/layouts/application.html.erb</code> или <code>/app/views/layouts/application.builder</code>. Если макет <code>.erb</code> отсутствует, Rails будет использовать макет <code>.builder</code>, если таковой имеется. Rails также предоставляет несколько способов для более точного назначения определенных макетов отдельным контроллерам и экшнам.</p><h6 id='opredelenie-maketov-dlya-kontrollerov' class='inside_page_header'><a href="#opredelenie-maketov-dlya-kontrollerov">2.2.13.8.</a> Определение макетов для контроллеров</h6><p>Вы можете переопределить дефолтные соглашения по макетам в контроллере, используя объявление <a href="https://api.rubyonrails.org/classes/ActionView/Layouts/ClassMethods.html#method-i-layout"><code>layout</code></a>. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ProductsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">layout</span> <span class="s2">"inventory"</span>
+  <span class="c1">#...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>С этим объявлением все вью, отрендеренные <code>ProductsController</code>, будут использовать <code>app/views/layouts/inventory.html.erb</code> как макет.</p><p>Чтобы привязать определенный макет к приложению в целом, используйте объявление <code>layout</code> в классе <code>ApplicationController</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">layout</span> <span class="s2">"main"</span>
+  <span class="c1">#...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>С этим объявлением каждая из вью во всем приложении будет использовать <code>app/views/layouts/main.html.erb</code> как макет.</p><h6 id='vybor-maketov-vo-vremya-vypolneniya' class='inside_page_header'><a href="#vybor-maketov-vo-vremya-vypolneniya">2.2.13.9.</a> Выбор макетов во время выполнения</h6><p>Можно использовать символ для отсрочки выбора макета до тех пор, пока не будет обработан запрос:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ProductsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">layout</span> <span class="ss">:products_layout</span>
+
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="vi">@product</span> <span class="o">=</span> <span class="no">Product</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">products_layout</span>
+      <span class="vi">@current_user</span><span class="p">.</span><span class="nf">special?</span> <span class="p">?</span> <span class="s2">"special"</span> <span class="p">:</span> <span class="s2">"products"</span>
+    <span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь, если текущий пользователь является специальным, он получит специальный макет при просмотре продукта.</p><p>Можно даже использовать встроенный метод, такой как Proc, для определения макета. Например, если передать объект Proc, то блоку, которому вы передаете Proc, будет предоставлен экземпляр <code>controller</code>, поэтому макет может быть определен, основываясь на текущем запросе:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ProductsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">layout</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">controller</span><span class="o">|</span> <span class="n">controller</span><span class="p">.</span><span class="nf">request</span><span class="p">.</span><span class="nf">xhr?</span> <span class="p">?</span> <span class="s2">"popup"</span> <span class="p">:</span> <span class="s2">"application"</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h6 id='uslovnye-makety' class='inside_page_header'><a href="#uslovnye-makety">2.2.13.10.</a> Условные макеты</h6><p>Макеты, определенные на уровне контроллера, поддерживают опции <code>:only</code> и <code>:except</code>. Эти опции принимают либо имя метода, либо массив имен методов, соответствующих именам методов в контроллере:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ProductsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">layout</span> <span class="s2">"product"</span><span class="p">,</span> <span class="ss">except: </span><span class="p">[</span><span class="ss">:index</span><span class="p">,</span> <span class="ss">:rss</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>С таким объявлением макет <code>product</code> будет использован везде, кроме методов <code>rss</code> и <code>index</code>.</p><h6 id='nasledovanie-maketa' class='inside_page_header'><a href="#nasledovanie-maketa">2.2.13.11.</a> Наследование макета</h6><p>Объявление макета ниже по иерархии и более специфическое объявление макета всегда переопределяет более общие. Например:</p><ul><li><p><code>application_controller.rb</code></p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">layout</span> <span class="s2">"main"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+</li><li><p><code>articles_controller.rb</code></p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ArticlesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+</li><li><p><code>special_articles_controller.rb</code></p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">SpecialArticlesController</span> <span class="o">&lt;</span> <span class="no">PostsController</span>
+  <span class="n">layout</span> <span class="s2">"special"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+</li><li><p><code>old_articles_controller.rb</code></p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">OldArticlesController</span> <span class="o">&lt;</span> <span class="no">SpecialPostsController</span>
+  <span class="n">layout</span> <span class="kp">false</span>
+
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@old_articles</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">older</span>
+    <span class="n">render</span> <span class="ss">layout: </span><span class="s2">"old"</span>
+  <span class="k">end</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+</li></ul><p>В этом приложении:</p><ul><li>В целом, вью будут рендериться в макет <code>main</code>
+</li><li><code>ArticlesController#index</code> будет использовать макет <code>main</code>
+</li><li><code>SpecialArticlesController#index</code> будет использовать макет <code>special</code>
+</li><li><code>OldArticlesController#show</code> не будет использовать макет совсем
+</li><li><code>OldArticlesController#index</code> будет использовать макет <code>old</code>
+</li></ul><h6 id='nasledovanie-shablona' class='inside_page_header'><a href="#nasledovanie-shablona">2.2.13.12.</a> Наследование шаблона</h6><p>Следуя логике наследования макета, если шаблон или партиал не найдены по обычному пути, контроллер будет искать шаблон или партиал для рендеринга по цепочке наследования. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/controllers/application_controller</span>
+<span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/controllers/admin_controller</span>
+<span class="k">class</span> <span class="nc">AdminController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/controllers/admin/products_controller</span>
+<span class="k">class</span> <span class="nc">Admin::ProductsController</span> <span class="o">&lt;</span> <span class="no">AdminController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Порядок поиска экшна <code>admin/products#index</code> будет такой:</p><ul><li><code>app/views/admin/products/</code>
+</li><li><code>app/views/admin/</code>
+</li><li><code>app/views/application/</code>
+</li></ul><p>Это делает <code>app/views/application/</code> хорошим местом для общих партиалов, которые затем могут быть отрендерены в ERB следующим образом:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;%# app/views/admin/products/index.html.erb %&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">render</span> <span class="vi">@products</span> <span class="o">||</span> <span class="s2">"empty_list"</span> <span class="cp">%&gt;</span>
+
+<span class="c">&lt;%# app/views/application/_empty_list.html.erb %&gt;</span>
+There are no items in this list <span class="nt">&lt;em&gt;</span>yet<span class="nt">&lt;/em&gt;</span>.
+</code></pre>
+</div>
+<h5 id='izbeganie-oshibok-dvoynogo-renderinga' class='inside_page_header'><a href="#izbeganie-oshibok-dvoynogo-renderinga">2.2.14.</a> Избегание ошибок двойного рендеринга</h5><p>Рано или поздно, большинство разработчиков на Rails увидят сообщение об ошибке &quot;Can only render or redirect once per action&quot;. Хоть такое и раздражает, это относительно просто правится. Обычно такое происходит в связи с фундаментальным непониманием метода работы <code>render</code>.</p><p>Например, вот некоторый код, который вызовет эту ошибку:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">show</span>
+  <span class="vi">@book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">if</span> <span class="vi">@book</span><span class="p">.</span><span class="nf">special?</span>
+    <span class="n">render</span> <span class="ss">action: </span><span class="s2">"special_show"</span>
+  <span class="k">end</span>
+  <span class="n">render</span> <span class="ss">action: </span><span class="s2">"regular_show"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если <code>@book.special?</code> вычисляется как <code>true</code>, Rails начинает процесс рендеринга, выгружая переменную <code>@book</code> во вью <code>special_show</code>. Но это <em>не</em> остановит от выполнения остальной код в экшне <code>show</code>, и когда Rails достигнет конца экшна, он начнет рендерить вью <code>show</code> - и выдаст ошибку. Решение простое: убедитесь, что у вас есть только один вызов <code>render</code> или <code>redirect</code> за один проход. Еще может помочь такая вещь, как <code>return</code>. Вот исправленная версия метода:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">show</span>
+  <span class="vi">@book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">if</span> <span class="vi">@book</span><span class="p">.</span><span class="nf">special?</span>
+    <span class="n">render</span> <span class="ss">action: </span><span class="s2">"special_show"</span>
+    <span class="k">return</span>
+  <span class="k">end</span>
+  <span class="n">render</span> <span class="ss">action: </span><span class="s2">"regular_show"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Отметьте, что неявный рендер, выполняемый ActionController, определяет, был ли вызван <code>render</code> поэтому следующий код будет работать без проблем:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">show</span>
+  <span class="vi">@book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">if</span> <span class="vi">@book</span><span class="p">.</span><span class="nf">special?</span>
+    <span class="n">render</span> <span class="ss">action: </span><span class="s2">"special_show"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это отрендерит книгу (book) с <code>special?</code>, заданным с помощью шаблона <code>special_show</code>, в то время как остальные книги будут рендериться с дефолтным шаблоном <code>show</code>.</p><h4 id='ispolzovanie-redirect_to' class='inside_page_header'><a href="#ispolzovanie-redirect_to">2.3.</a> Использование <code>redirect_to</code></h4><p>Другой способ управлять возвратом отклика на HTTP-запрос - с помощью <a href="https://api.rubyonrails.org/classes/ActionController/Redirecting.html#method-i-redirect_to"><code>redirect_to</code></a>. Как вы видели, <code>render</code> сообщает Rails, какую вью (или иной ассет) использовать при построении отклика. Метод <code>redirect_to</code> делает нечто совершенно отличное: он говорит браузеру послать новый запрос по другому URL. Например, можно перенаправить из любого места, где сейчас выполняется код, к экшну index фотографий вашего приложения с помощью этого вызова:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">redirect_to</span> <span class="n">photos_url</span>
+</code></pre>
+</div>
+<p>Можно использовать <a href="https://api.rubyonrails.org/classes/ActionController/Redirecting.html#method-i-redirect_back"><code>redirect_back</code></a>, чтобы вернуть пользователя на страницу с которой он только что пришел. Это место расположения вытаскивается из заголовка <code>HTTP_REFERER</code>, который не обязательно будет установлен браузером, поэтому нужно предоставить <code>fallback_location</code> для использования в таком случае.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">redirect_back</span><span class="p">(</span><span class="ss">fallback_location: </span><span class="n">root_path</span><span class="p">)</span>
+</code></pre>
+</div>
+<div class="note"><p><code>redirect_to</code> и <code>redirect_back</code> не прерывают и не возвращают из выполняемого метода немедленно, а просто устанавливают отклики HTTP. Выражения, следующие после них в методе, будут выполнены. При необходимости можно прервать явным <code>return</code> или любым другим механизмом прерывания.</p></div><h5 id='poluchenie-razlichnogo-koda-statusa-perenapravleniya' class='inside_page_header'><a href="#poluchenie-razlichnogo-koda-statusa-perenapravleniya">2.3.1.</a> Получение различного кода статуса перенаправления</h5><p>Rails использует код статуса HTTP 302, временное перенаправление, при вызове <code>redirect_to</code>. Если хотите использовать иной код статуса, возможно 301, постоянное перенаправление, можете использовать опцию <code>:status</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">redirect_to</span> <span class="n">photos_path</span><span class="p">,</span> <span class="ss">status: </span><span class="mi">301</span>
+</code></pre>
+</div>
+<p>Подобно опции <code>:status</code> для <code>render</code>, <code>:status</code> для <code>redirect_to</code> принимает и числовые, и символьные обозначения заголовка.</p><h5 id='razlichie-mezhdu-render-i-redirect_to' class='inside_page_header'><a href="#razlichie-mezhdu-render-i-redirect_to">2.3.2.</a> Различие между <code>render</code> и <code>redirect_to</code></h5><p>Иногда неопытные разработчики думают о <code>redirect_to</code> как о разновидности команды <code>goto</code>, перемещающую выполнение из одного места в другое в вашем коде Rails. Это <em>не</em> верно. Ваш код останавливается и ждет нового запроса от браузера. Просто получается так, что вы говорите браузеру, какой запрос он должен сделать следующим, возвращая код статуса HTTP 302.</p><p>Рассмотрим эти экшны, чтобы увидеть разницу:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">index</span>
+  <span class="vi">@books</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">all</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">show</span>
+  <span class="vi">@book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">id: </span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">if</span> <span class="vi">@book</span><span class="p">.</span><span class="nf">nil?</span>
+    <span class="n">render</span> <span class="ss">action: </span><span class="s2">"index"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>С кодом в такой форме, вероятно, будет проблема, если переменная <code>@book</code> равна <code>nil</code>. Помните, <code>render :action</code> не запускает какой-либо код в указанном экшне, и таким образом ничего не будет присвоено переменной <code>@books</code>, которую, возможно, потребует вью <code>index</code>. Один из способов исправить это - использовать перенаправление вместо рендеринга:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">index</span>
+  <span class="vi">@books</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">all</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">show</span>
+  <span class="vi">@book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">id: </span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">if</span> <span class="vi">@book</span><span class="p">.</span><span class="nf">nil?</span>
+    <span class="n">redirect_to</span> <span class="ss">action: :index</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>С помощью этого кода браузер сделает новый запрос для индексной страницы, код в методе <code>index</code> запустится, и все будет хорошо.</p><p>Единственный недостаток этого кода в том, что он требует круговорот через браузер: браузер запрашивает экшн show с помощью <code>/books/1</code>, и контроллер обнаруживает, что книг нет, поэтому отсылает отклик-перенаправление 301 браузеру, сообщающий перейти на <code>/books/</code>, браузер выполняет и посылает новый запрос контроллеру, теперь запрашивая экшн <code>index</code>, затем контроллер получает все книги в базе данных и рендерит шаблон index, отсылает его обратно браузеру, который затем показывает его на экране.</p><p>Пока это небольшое приложение, такая добавленная задержка не может быть проблемой, но иногда стоит подумать о том, является ли время отклика проблемой. Можем продемонстрировать один из способов управления этим с помощью хитрого примера:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">index</span>
+  <span class="vi">@books</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">all</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">show</span>
+  <span class="vi">@book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">id: </span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">if</span> <span class="vi">@book</span><span class="p">.</span><span class="nf">nil?</span>
+    <span class="vi">@books</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">all</span>
+    <span class="n">flash</span><span class="p">.</span><span class="nf">now</span><span class="p">[</span><span class="ss">:alert</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Your book was not found"</span>
+    <span class="n">render</span> <span class="s2">"index"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это обнаружит, что нет книг с определенным ID, заполнит переменную экземпляра <code>@books</code> всеми книгами в модели, и затем напрямую отрендерит шаблон <code>index.html.erb</code>, возвратив его браузеру с предупреждающим сообщением в flash, сообщающим пользователю, что произошло.</p><h4 id='ispolzovanie-head-dlya-sozdaniya-otklika-soderzhaschego-tolko-zagolovok' class='inside_page_header'><a href="#ispolzovanie-head-dlya-sozdaniya-otklika-soderzhaschego-tolko-zagolovok">2.4.</a> Использование <code>head</code> для создания отклика, содержащего только заголовок</h4><p>Метод <a href="https://api.rubyonrails.org/classes/ActionController/Head.html#method-i-head"><code>head</code></a> может использоваться для отправки браузеру откликов, содержащих только заголовки. Метод <code>head</code> принимает число или символ (смотрите <a href="#the-status-option">таблицу соответствия</a>), представляющие код статуса HTTP. Аргумент опций интерпретируется как хэш заголовков имен и значений. Например, можно возвратить только заголовок ошибки:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">head</span> <span class="ss">:bad_request</span>
+</code></pre>
+</div>
+<p>Это создаст следующий заголовок:</p><div class="code_container">
+  <pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
+<span class="na">Date</span><span class="p">:</span> <span class="s">Sun, 24 Jan 2010 12:15:53 GMT</span>
+<span class="na">Transfer-Encoding</span><span class="p">:</span> <span class="s">chunked</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">text/html; charset=utf-8</span>
+<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">0.013483</span>
+<span class="na">Set-Cookie</span><span class="p">:</span> <span class="s">_blog_session=...snip...; path=/; HttpOnly</span>
+<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">no-cache</span>
+</code></pre>
+</div>
+<p>Или можете использовать другие заголовки HTTP для передачи другой информации:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">head</span> <span class="ss">:created</span><span class="p">,</span> <span class="ss">location: </span><span class="n">photo_path</span><span class="p">(</span><span class="vi">@photo</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Что создаст:</p><div class="code_container">
+  <pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
+<span class="na">Date</span><span class="p">:</span> <span class="s">Sun, 24 Jan 2010 12:16:44 GMT</span>
+<span class="na">Transfer-Encoding</span><span class="p">:</span> <span class="s">chunked</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">/photos/1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">text/html; charset=utf-8</span>
+<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">0.083496</span>
+<span class="na">Set-Cookie</span><span class="p">:</span> <span class="s">_blog_session=...snip...; path=/; HttpOnly</span>
+<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">no-cache</span>
+</code></pre>
+</div>
+<h3 id='strukturirovanie-maketov' class='inside_page_header'><a href="#strukturirovanie-maketov">3.</a> Структурирование макетов</h3><p>Когда Rails рендерит вью как отклик, он делает это путем объединения вью с текущим макетом, используя правила для нахождения текущего макета, которые были рассмотрены ранее. В макетах у вас есть доступ к трем инструментам для объединения различных кусочков результата для формирования общего отклика:</p><ul><li>Теги ассетов
+</li><li><code>yield</code> и <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/CaptureHelper.html#method-i-content_for"><code>content_for</code></a>
+</li><li>Партиалы
+</li></ul><h4 id='helpery-assetnyh-tegov' class='inside_page_header'><a href="#helpery-assetnyh-tegov">3.1.</a> Хелперы ассетных тегов</h4><p>Хелперы ассетных тегов предоставляют методы для генерации HTML, связывающие вью с лентами новостей, JavaScript, таблицами стилей, изображениями, видео и аудио. В Rails доступно шесть хелперов ассетных тегов:</p><ul><li><a href="https://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-auto_discovery_link_tag"><code>auto_discovery_link_tag</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-javascript_include_tag"><code>javascript_include_tag</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-stylesheet_link_tag"><code>stylesheet_link_tag</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-image_tag"><code>image_tag</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-video_tag"><code>video_tag</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-audio_tag"><code>audio_tag</code></a>
+</li></ul><p>Эти теги можно использовать в макетах или других вью, хотя <code>auto_discovery_link_tag</code>, <code>javascript_include_tag</code> и <code>stylesheet_link_tag</code> как правило используются в разделе <code>&lt;head&gt;</code> макета.</p><div class="warning"><p>Хелперы ассетных тегов <em>не</em> проверяют существование ассетов по заданному месту расположения; они просто предполагают, что вы знаете, что делаете, и генерируют ссылку.</p></div><h5 id='prisoedinenie-kanalov-s-pomoschyu-auto_discovery_link_tag' class='inside_page_header'><a href="#prisoedinenie-kanalov-s-pomoschyu-auto_discovery_link_tag">3.1.1.</a> Присоединение каналов с помощью <code>auto_discovery_link_tag</code></h5><p>Хелпер <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-auto_discovery_link_tag"><code>auto_discovery_link_tag</code></a> создает HTML-код, который большинство браузеров и агрегаторов новостей могут использовать для определения наличия каналов RSS, Atom или JSON лент. Он принимает тип ссылки (<code>:rss</code>, <code>:atom</code> или <code>:json</code>), хэш опций, которые передаются через url_for, и хэш опций для тега:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">auto_discovery_link_tag</span><span class="p">(</span><span class="ss">:rss</span><span class="p">,</span> <span class="p">{</span><span class="ss">action: </span><span class="s2">"feed"</span><span class="p">},</span>
+  <span class="p">{</span><span class="ss">title: </span><span class="s2">"RSS Feed"</span><span class="p">})</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Вот три опции тега, доступные для <code>auto_discovery_link_tag</code>:</p><ul><li><code>:rel</code> определяет значение <code>rel</code> в ссылке. Значение по умолчанию &quot;alternate&quot;
+</li><li><code>:type</code> определяет явный тип MIME. Rails генерирует подходящий тип MIME автоматически
+</li><li><code>:title</code> определяет заголовок ссылки. Значение по умолчанию это значение <code>:type</code> в верхнем регистре, например, &quot;ATOM&quot; или &quot;RSS&quot;.
+</li></ul><h5 id='prisoedinenie-faylov-javascript-s-pomoschyu-javascript_include_tag' class='inside_page_header'><a href="#prisoedinenie-faylov-javascript-s-pomoschyu-javascript_include_tag">3.1.2.</a> Присоединение файлов JavaScript с помощью <code>javascript_include_tag</code></h5><p>Хелпер <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-javascript_include_tag"><code>javascript_include_tag</code></a> возвращает HTML-тег <code>script</code> для каждого предоставленного источника.</p><p>При использовании Rails с включенным <a href="/asset-pipeline">Asset Pipeline</a>, этот хелпер сгенерирует ссылку на <code>/assets/javascripts/</code>, а не на <code>public/javascripts</code>, которая использовалась в более ранних версиях Rails. Затем эта ссылка обслуживается файлопроводом (asset pipeline).</p><p>Файл JavaScript в приложении Rails или Rails Engine размещается в одном из трех мест расположения: <code>app/assets</code>, <code>lib/assets</code> или <code>vendor/assets</code>. Эти места расположения детально описаны в разделе про <a href="/asset-pipeline#how-to-use-the-asset-pipeline">организацию ресурсов</a> в руководстве по Asset Pipeline.</p><p>Можно определить полный путь относительно корня документа или URL, по желанию. Например, сослаться на файл JavaScript, находящийся в директории с именем <code>javascripts</code> в одной из <code>app/assets</code>, <code>lib/assets</code> или <code>vendor/assets</code>, можно так:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">javascript_include_tag</span> <span class="s2">"main"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Rails тогда выдаст такой тег <code>script</code>:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">'/assets/main.js'</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
+</div>
+<p>Затем запрос к этому ассету будет обслужен гемом Sprockets.</p><p>Чтобы включить несколько файлов, таких как <code>app/assets/javascripts/main.js</code> и <code>app/assets/javascripts/columns.js</code> за один раз:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">javascript_include_tag</span> <span class="s2">"main"</span><span class="p">,</span> <span class="s2">"columns"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Чтобы включить <code>app/assets/javascripts/main.js</code> и <code>app/assets/javascripts/photos/columns.js</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">javascript_include_tag</span> <span class="s2">"main"</span><span class="p">,</span> <span class="s2">"/photos/columns"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Чтобы включить <code>http://example.com/main.js</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">javascript_include_tag</span> <span class="s2">"http://example.com/main.js"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<h5 id='prisoedinenie-faylov-css-s-pomoschyu-stylesheet_link_tag' class='inside_page_header'><a href="#prisoedinenie-faylov-css-s-pomoschyu-stylesheet_link_tag">3.1.3.</a> Присоединение файлов CSS с помощью <code>stylesheet_link_tag</code></h5><p>Хелпер <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-stylesheet_link_tag"><code>stylesheet_link_tag</code></a> возвращает HTML-тег <code>&lt;link&gt;</code> для каждого предоставленного источника.</p><p>При использовании Rails с включенным &quot;Asset Pipeline&quot;, этот хелпер сгенерирует ссылку на <code>/assets/stylesheets/</code>. Эта ссылка будет затем обработана гемом Sprockets. Файл таблицы стилей может быть размещен в одном из трех мест расположения: <code>app/assets</code>, <code>lib/assets</code> или <code>vendor/assets</code>.</p><p>Можно определить полный путь относительно корня документа или URL. Например, на файл таблицы стилей в директории <code>stylesheets</code>, размещенной в одной из <code>app/assets</code>, <code>lib/assets</code> или <code>vendor/assets</code>, можно сослаться так:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span> <span class="s2">"main"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Чтобы включить <code>app/assets/stylesheets/main.css</code> и <code>app/assets/stylesheets/columns.css</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span> <span class="s2">"main"</span><span class="p">,</span> <span class="s2">"columns"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Чтобы включить <code>app/assets/stylesheets/main.css</code> и <code>app/assets/stylesheets/photos/columns.css</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span> <span class="s2">"main"</span><span class="p">,</span> <span class="s2">"/photos/columns"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Чтобы включить <code>http://example.com/main.css</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span> <span class="s2">"http://example.com/main.css"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>По умолчанию <code>stylesheet_link_tag</code> создает ссылки с <code>rel=&quot;stylesheet&quot;</code>. Можно переопределить любое из этих дефолтных значений, указав соответствующую опцию (<code>:rel</code>):</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span> <span class="s2">"main_print"</span><span class="p">,</span> <span class="ss">media: </span><span class="s2">"print"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<h5 id='prisoedinenie-izobrazheniy-s-pomoschyu-image_tag' class='inside_page_header'><a href="#prisoedinenie-izobrazheniy-s-pomoschyu-image_tag">3.1.4.</a> Присоединение изображений с помощью <code>image_tag</code></h5><p>Хелпер <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-image_tag"><code>image_tag</code></a> создает HTML-тег <code>&lt;img /&gt;</code> для определенного файла. По умолчанию файлы загружаются из <code>public/images</code>.</p><div class="warning"><p>Обратите внимание, что нужно указывать расширение изображения.</p></div><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="s2">"header.png"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Вы можете предоставить путь к изображению, если желаете:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="s2">"icons/delete.gif"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Вы можете предоставить хэш дополнительных опций HTML:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="s2">"icons/delete.gif"</span><span class="p">,</span> <span class="p">{</span><span class="ss">height: </span><span class="mi">45</span><span class="p">}</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Или альтернативный текст, если пользователь отключил показ изображений в браузере. Если вы не определили явно тег alt, по умолчанию будет указано имя файла с большой буквы и без расширения. Например, эти два тега изображения возвратят одинаковый код:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="s2">"home.gif"</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="s2">"home.gif"</span><span class="p">,</span> <span class="ss">alt: </span><span class="s2">"Home"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Можете указать специальный тег size в формате &quot;{width}x{height}&quot;:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="s2">"home.gif"</span><span class="p">,</span> <span class="ss">size: </span><span class="s2">"50x20"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>В дополнение к вышеописанным специальным тегам, можно предоставить итоговый хэш стандартных опций HTML, таких как <code>:class</code> или <code>:id</code>, или <code>:name</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="s2">"home.gif"</span><span class="p">,</span> <span class="ss">alt: </span><span class="s2">"Go Home"</span><span class="p">,</span>
+                          <span class="ss">id: </span><span class="s2">"HomeImage"</span><span class="p">,</span>
+                          <span class="ss">class: </span><span class="s2">"nav_bar"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<h5 id='prisoedinenie-video-s-pomoschyu-video_tag' class='inside_page_header'><a href="#prisoedinenie-video-s-pomoschyu-video_tag">3.1.5.</a> Присоединение видео с помощью <code>video_tag</code></h5><p>Хелпер <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-video_tag"><code>video_tag</code></a> создает тег HTML5 <code>&lt;video&gt;</code> для определенного файла. По умолчанию файлы загружаются из <code>public/videos</code>.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">video_tag</span> <span class="s2">"movie.ogg"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Создаст</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;video</span> <span class="na">src=</span><span class="s">"/videos/movie.ogg"</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+<p>Подобно <code>image_tag</code>, можно предоставить путь или абсолютный, или относительный к директории <code>public/videos</code>. Дополнительно можно определить опцию <code>size: &quot;#{width}x#{height}&quot;</code>, как и в <code>image_tag</code>. Теги видео также могут иметь любые опции HTML, определенные в конце (<code>id</code>, <code>class</code> и др.).</p><p>Тег видео также поддерживает все HTML-опции <code>&lt;video&gt;</code> через хэш HTML-опций, включая:</p><ul><li><code>poster: &quot;image_name.png&quot;</code>, предоставляет изображение, которое будет отображаться вместо видео прежде, чем оно начнет проигрываться.
+</li><li><code>autoplay: true</code>, запускает проигрывание видео при загрузке страницы.
+</li><li><code>loop: true</code>, запускает видео сначала, как только оно достигает конца.
+</li><li><code>controls: true</code>, предоставляет пользователю поддерживаемую браузером панель управления для взаимодействия с видео.
+</li><li><code>autobuffer: true</code>, файл видео предварительно загружается для пользователя при загрузке страницы.
+</li></ul><p>Также можно определить несколько видео для проигрывания, передав массив видео в <code>video_tag</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">video_tag</span> <span class="p">[</span><span class="s2">"trailer.ogg"</span><span class="p">,</span> <span class="s2">"movie.ogg"</span><span class="p">]</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Это создаст:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;video&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"/videos/trailer.ogg"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"/videos/movie.ogg"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/video&gt;</span>
+</code></pre>
+</div>
+<h5 id='prisoedinenie-audiofaylov-s-pomoschyu-audio_tag' class='inside_page_header'><a href="#prisoedinenie-audiofaylov-s-pomoschyu-audio_tag">3.1.6.</a> Присоединение аудиофайлов с помощью <code>audio_tag</code></h5><p>Хелпер <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-audio_tag"><code>audio_tag</code></a> создает тег HTML5 <code>&lt;audio&gt;</code> для определенного файла. По умолчанию файлы загружаются из <code>public/audios</code>.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">audio_tag</span> <span class="s2">"music.mp3"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Если хотите, можете предоставить путь к аудио файлу:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">audio_tag</span> <span class="s2">"music/first_song.mp3"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Также можно предоставить хэш дополнительных опций, таких как <code>:id</code>, <code>:class</code> и т.д.</p><p>Подобно <code>video_tag</code>, <code>audio_tag</code> имеет специальные опции:</p><ul><li><code>autoplay: true</code>, начинает воспроизведение аудио при загрузке страницы
+</li><li><code>controls: true</code>, предоставляет пользователю поддерживаемую браузером панель управления для взаимодействия с аудио.
+</li><li><code>autobuffer: true</code>, файл аудио предварительно загружается для пользователя при загрузке страницы.
+</li></ul><h4 id='ponimanie-yield' class='inside_page_header'><a href="#ponimanie-yield">3.2.</a> Понимание <code>yield</code></h4><p>В контексте макета, <code>yield</code> определяет раздел, где должно быть вставлено содержимое из вью. Самый простой способ его использования - это иметь один <code>yield</code> там, куда вставится все содержимое вью, которая в настоящий момент рендерится:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+<p>Также можете создать макет с несколькими разделами yield:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="ss">:head</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+<p>Основное тело вью всегда рендериться в неименованный <code>yield</code>. Чтобы рендерить содержимое в именованный <code>yield</code>, используйте метод <code>content_for</code>.</p><h4 id='ispolzovanie-metoda-content_for' class='inside_page_header'><a href="#ispolzovanie-metoda-content_for">3.3.</a> Использование метода <code>content_for</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/CaptureHelper.html#method-i-content_for"><code>content_for</code></a> позволяет вставлять содержимое в именованный блок <code>yield</code> в макете. Например, эта вью будет работать с макетом, который вы только что видели:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%</span> <span class="n">content_for</span> <span class="ss">:head</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;title&gt;</span>A simple page<span class="nt">&lt;/title&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>Hello, Rails!<span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+<p>Результат рендеринга этой страницы в макет будет таким HTML:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>A simple page<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Hello, Rails!<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+<p>Метод <code>content_for</code> может помочь, когда макет содержит отдельные разделы, такие как боковые панели или футеры, в которые нужно вставить свои блоки содержимого. Это также полезно при вставке тегов, загружающих специфичные для страницы файлы JavaScript или CSS в хедер макета в целом.</p><h4 id='using-partials' class='inside_page_header'><a href="#using-partials">3.4.</a>  Использование партиалов</h4><p>Частичные шаблоны - также называемые &quot;партиалы&quot; - являются еще одним подходом к разделению процесса рендеринга на более управляемые кусочки. С партиалами можно перемещать код для рендеринга определенных частей отклика в свои отдельные файлы.</p><h5 id='imenovanie-partialov' class='inside_page_header'><a href="#imenovanie-partialov">3.4.1.</a> Именование партиалов</h5><p>Чтобы отрендерить партиал как часть вью, используем метод <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/RenderingHelper.html#method-i-render"><code>render</code></a> внутри вью:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s2">"menu"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Это отрендерит файл, названный <code>_menu.html.erb</code> в этом месте в пределах рендерящейся вью. Обратите внимание на начальный символ подчеркивания: файлы партиалов начинаются со знака подчеркивания, чтобы отличать их от обычных вью, несмотря на то, что в вызове они указаны без подчеркивания. Это справедливо даже тогда, когда партиалы вызываются из другой папки:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s2">"shared/menu"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Этот код вытянет партиал из <code>app/views/shared/_menu.html.erb</code>.</p><h5 id='ispolzovanie-partialov-dlya-uproscheniya-vyu' class='inside_page_header'><a href="#ispolzovanie-partialov-dlya-uproscheniya-vyu">3.4.2.</a> Использование партиалов для упрощения вью</h5><p>Один из способов применения партиалов это использоваться их как эквивалент подпрограмм: способ переместить часть разметки из вью так, чтобы можно было легче понять, что там происходит. Например, у вас может быть такая вью:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s2">"shared/ad_banner"</span> <span class="cp">%&gt;</span>
+
+<span class="nt">&lt;h1&gt;</span>Products<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>Here are a few of our fine products:<span class="nt">&lt;/p&gt;</span>
+...
+
+<span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s2">"shared/footer"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Здесь партиалы <code>_ad_banner.html.erb</code> и <code>_footer.html.erb</code> могут содержать контент, общий для многих страниц приложения. Нет необходимости видеть код этих разделов, чтобы сконцентрироваться на определенной странице.</p><p>Как видно из предыдущих разделов данного руководства, <code>yield</code> является очень мощным инструментом для очистки ваших макетов. Имейте в виду, что это чистый Ruby, так что можно использовать его практически везде. Например, его можно использовать для соблюдения принципа DRY при определении макета формы для нескольких похожих ресурсов:</p><ul><li><p><code>users/index.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s2">"shared/search_filters"</span><span class="p">,</span> <span class="ss">search: </span><span class="vi">@q</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    Name contains: <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:name_contains</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+</li><li><p><code>roles/index.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s2">"shared/search_filters"</span><span class="p">,</span> <span class="ss">search: </span><span class="vi">@q</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    Title contains: <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:title_contains</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+</li><li><p><code>shared/_search_filters.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_for</span><span class="p">(</span><span class="n">search</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>Search form:<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;fieldset&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="n">form</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/fieldset&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">submit</span> <span class="s2">"Search"</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+</li></ul><div class="info"><p>Для содержимого, общего для всех страниц приложения, можно использовать партиалы прямо в макетах.</p></div><h5 id='makety-partiala' class='inside_page_header'><a href="#makety-partiala">3.4.3.</a> Макеты партиала</h5><p>Партиал может использовать свой собственный файл макета, подобно тому, как вью может использовать макет. Например, можете вызвать подобный партиал:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"link_area"</span><span class="p">,</span> <span class="ss">layout: </span><span class="s2">"graybar"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Это найдет партиал с именем <code>_link_area.html.erb</code> и отрендерит его, используя макет <code>_graybar.html.erb</code>. Отметьте, что макеты для партиалов также начинаются с подчеркивания, как и обычные партиалы, и размещаются в той же папке с партиалами, которым они принадлежат (не в основной папке <code>layouts</code>).</p><p>Также отметьте, что явное указание <code>partial</code> необходимо, когда передаются дополнительные опции, такие как <code>layout</code></p><h5 id='peredacha-lokalnyh-peremennyh' class='inside_page_header'><a href="#peredacha-lokalnyh-peremennyh">3.4.4.</a> Передача локальных переменных</h5><p>В партиалы также можно передавать локальные переменные, что делает их более мощными и гибкими. Например, можете использовать такую технику для уменьшения дублирования между страницами new и edit, сохранив немного различающееся содержимое:</p><ul><li><p><code>new.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>New zone<span class="nt">&lt;/h1&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"form"</span><span class="p">,</span> <span class="ss">locals: </span><span class="p">{</span><span class="ss">zone: </span><span class="vi">@zone</span><span class="p">}</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+</li><li><p><code>edit.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>Editing zone<span class="nt">&lt;/h1&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"form"</span><span class="p">,</span> <span class="ss">locals: </span><span class="p">{</span><span class="ss">zone: </span><span class="vi">@zone</span><span class="p">}</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+</li><li><p><code>_form.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_for</span><span class="p">(</span><span class="n">zone</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="nt">&lt;b&gt;</span>Zone name<span class="nt">&lt;/b&gt;&lt;br&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:name</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">submit</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+</li></ul><p>Хотя тот же самый партиал будет отрендерен в обоих вью, Action View отправит хелпер, который возвратит &quot;Create Zone&quot; для экшна new и &quot;Update Zone&quot; для экшна edit.</p><p>Для передачи локальной переменной в партиал только в особых случаях, используйте <code>local_assigns</code>.</p><ul><li><p><code>index.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="n">user</span><span class="p">.</span><span class="nf">articles</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+</li><li><p><code>show.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="n">article</span><span class="p">,</span> <span class="ss">full: </span><span class="kp">true</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+</li><li><p><code>_article.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h2&gt;</span><span class="cp">&lt;%=</span> <span class="n">article</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span><span class="nt">&lt;/h2&gt;</span>
+
+<span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">local_assigns</span><span class="p">[</span><span class="ss">:full</span><span class="p">]</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">simple_format</span> <span class="n">article</span><span class="p">.</span><span class="nf">body</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">truncate</span> <span class="n">article</span><span class="p">.</span><span class="nf">body</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+</li></ul><p>Таким образом, можно использовать партиал без необходимости объявления всех локальных переменных.</p><p>Каждый партиал также имеет локальную переменную с именем, как у партиала (без начального символа подчеркивания). Можете передать объект в эту локальную переменную через опцию <code>:object</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"customer"</span><span class="p">,</span> <span class="ss">object: </span><span class="vi">@new_customer</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>В партиале <code>customer</code> переменная <code>customer</code> будет указывать на <code>@new_customer</code> из родительской вью.</p><p>Если есть экземпляр модели для рендеринга в партиале, можно использовать сокращенный синтаксис:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="vi">@customer</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Предположим, что переменная экземпляра <code>@customer</code> содержит экземпляр модели <code>Customer</code>. Эта переменная будет использовать <code>_customer.html.erb</code> для рендеринга модели и передаст локальную переменную <code>customer</code> в партиал, на который будет ссылаться на переменная экземпляра <code>@customer</code> в родительской вью.</p><h5 id='rendering-kollektsiy' class='inside_page_header'><a href="#rendering-kollektsiy">3.4.5.</a> Рендеринг коллекций</h5><p>Партиалы часто используют для рендеринга коллекций. Когда коллекция передается в партиал с помощью опции <code>:collection</code>, партиал будет вставлен один раз для каждого члена коллекции:</p><ul><li><p><code>index.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>Products<span class="nt">&lt;/h1&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"product"</span><span class="p">,</span> <span class="ss">collection: </span><span class="vi">@products</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+</li><li><p><code>_product.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;p&gt;</span>Product Name: <span class="cp">&lt;%=</span> <span class="n">product</span><span class="p">.</span><span class="nf">name</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+</li></ul><p>Когда партиал вызывается с коллекцией во множественном числе, то каждый отдельный экземпляр партиала имеет доступ к члену коллекции, подлежащей рендерингу, через переменную с именем партиала. В нашем случает партиал <code>_product</code>, и в партиале <code>_product</code> можете обращаться к <code>product</code> для получения экземпляра, который рендерится.</p><p>Имеется также сокращенная запись для этого. Предположив, что <code>@products</code> является коллекцией экземпляров <code>Product</code>, можно просто написать так в <code>index.html.erb</code> и получить аналогичный результат:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>Products<span class="nt">&lt;/h1&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">render</span> <span class="vi">@products</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Rails определяет имя партиала, изучая имя модели в коллекции. Фактически, можно даже создать гетерогенную коллекцию и рендерить ее таким образом, и Rails подберет подходящий партиал для каждого члена коллекции:</p><ul><li><p><code>index.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>Contacts<span class="nt">&lt;/h1&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">render</span> <span class="p">[</span><span class="n">customer1</span><span class="p">,</span> <span class="n">employee1</span><span class="p">,</span> <span class="n">customer2</span><span class="p">,</span> <span class="n">employee2</span><span class="p">]</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+</li><li><p><code>customers/_customer.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;p&gt;</span>Customer: <span class="cp">&lt;%=</span> <span class="n">customer</span><span class="p">.</span><span class="nf">name</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+</li><li><p><code>employees/_employee.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;p&gt;</span>Employee: <span class="cp">&lt;%=</span> <span class="n">employee</span><span class="p">.</span><span class="nf">name</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+</li></ul><p>В этом случае Rails использует партиалы customer или employee по мере необходимости для каждого члена коллекции.</p><p>В случае, если коллекция пустая, <code>render</code> возвратит nil, поэтому очень просто предоставить альтернативное содержимое.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>Products<span class="nt">&lt;/h1&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">render</span><span class="p">(</span><span class="vi">@products</span><span class="p">)</span> <span class="o">||</span> <span class="s2">"There are no products available."</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<h5 id='lokalnye-peremennye' class='inside_page_header'><a href="#lokalnye-peremennye">3.4.6.</a> Локальные переменные</h5><p>Чтобы использовать пользовательские имена локальных переменных в партиале, определите опцию <code>:as</code> в вызове партиала:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"product"</span><span class="p">,</span> <span class="ss">collection: </span><span class="vi">@products</span><span class="p">,</span> <span class="ss">as: :item</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>С этим изменением можете получить доступ к экземпляру коллекции <code>@products</code> через локальную переменную <code>item</code> в партиале.</p><p>Также можно передавать произвольные локальные переменные в любой партиал, который рендерится с помощью опции <code>locals: {}</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"product"</span><span class="p">,</span> <span class="ss">collection: </span><span class="vi">@products</span><span class="p">,</span>
+           <span class="ss">as: :item</span><span class="p">,</span> <span class="ss">locals: </span><span class="p">{</span><span class="ss">title: </span><span class="s2">"Products Page"</span><span class="p">}</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>В этом случае, партиал имеет доступ к локальной переменной <code>title</code> со значением &quot;Products Page&quot;.</p><h5 id='peremennye-schetchika' class='inside_page_header'><a href="#peremennye-schetchika">3.4.7.</a> Переменные счетчика</h5><p>Rails также создает переменную счетчика, доступную в партиале, вызываемом коллекцией. Переменная именуется заголовком партиала с добавленным <code>_counter</code>. Например, при рендеринге коллекции <code>@products</code> партиал <code>_product.html.erb</code> может получить доступ к переменной <code>product_counter</code>. Переменная индексирует количество раз, которое партиал был отрендерен во внешнюю вью, начиная со значения <code>0</code> при первом рендере.</p><div class="code_container">
+  <pre><code class="highlight erb"># index.html.erb
+<span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"product"</span><span class="p">,</span> <span class="ss">collection: </span><span class="vi">@products</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight erb"># _product.html.erb
+<span class="cp">&lt;%=</span> <span class="n">product_counter</span> <span class="cp">%&gt;</span> # 0 для первого product, 1 для второго product...
+</code></pre>
+</div>
+<p>Это также работает, когда имя партиала было изменено с помощью опции <code>as:</code>. Таким образом, если есть <code>as: :item</code>, переменная счетчика будет <code>item_counter</code>.</p><h5 id='razdelyayuschie-shablony' class='inside_page_header'><a href="#razdelyayuschie-shablony">3.4.8.</a> Разделяющие шаблоны</h5><p>Также можно определить второй партиал, который будет отрендерен между экземплярами главного партиала, используя опцию <code>:spacer_template</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="vi">@products</span><span class="p">,</span> <span class="ss">spacer_template: </span><span class="s2">"product_ruler"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Rails отрендерит партиал <code>_product_ruler</code> (без переданных в него данных) между каждой парой партиалов <code>_product</code>.</p><h5 id='makety-kollektsii-partiala' class='inside_page_header'><a href="#makety-kollektsii-partiala">3.4.9.</a> Макеты коллекции партиала</h5><p>При рендеринге коллекций также возможно использовать опцию <code>:layout</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"product"</span><span class="p">,</span> <span class="ss">collection: </span><span class="vi">@products</span><span class="p">,</span> <span class="ss">layout: </span><span class="s2">"special_layout"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Макет будет отрендерен вместе с партиалом для каждого элемента коллекции. Переменные текущего объекта и object_counter также будут доступны в макете, как это происходит в партиале.</p><h4 id='ispolzovanie-vlozhennyh-maketov' class='inside_page_header'><a href="#ispolzovanie-vlozhennyh-maketov">3.5.</a> Использование вложенных макетов</h4><p>Возможно, ваше приложение потребует макет, немного отличающийся от обычного макета приложения, для поддержки одного определенного контроллера. Вместо повторения главного макета и редактирования его, можете выполнить это с помощью вложенных макетов (иногда называемых подшаблонами). Вот пример:</p><p>Предположим, имеется макет <code>ApplicationController</code>:</p><ul><li><p><code>app/views/layouts/application.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span><span class="cp">&lt;%=</span> <span class="vi">@page_title</span> <span class="n">or</span> <span class="s2">"Page Title"</span> <span class="cp">%&gt;</span><span class="nt">&lt;/title&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span> <span class="s2">"layout"</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;style&gt;</span><span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="ss">:stylesheets</span> <span class="cp">%&gt;</span><span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"top_menu"</span><span class="nt">&gt;</span>Top menu items here<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"menu"</span><span class="nt">&gt;</span>Menu items here<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"content"</span><span class="nt">&gt;</span><span class="cp">&lt;%=</span> <span class="n">content_for?</span><span class="p">(</span><span class="ss">:content</span><span class="p">)</span> <span class="p">?</span> <span class="k">yield</span><span class="p">(</span><span class="ss">:content</span><span class="p">)</span> <span class="p">:</span> <span class="k">yield</span> <span class="cp">%&gt;</span><span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+</li></ul><p>На страницах, сгенерированных <code>NewsController</code>, допустим, нужно спрятать верхнее меню и добавить правое меню:</p><ul><li><p><code>app/views/layouts/news.html.erb</code></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%</span> <span class="n">content_for</span> <span class="ss">:stylesheets</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+  #top_menu {display: none}
+  #right_menu {float: right; background-color: yellow; color: black}
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="n">content_for</span> <span class="ss">:content</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"right_menu"</span><span class="nt">&gt;</span>Right menu items here<span class="nt">&lt;/div&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">content_for?</span><span class="p">(</span><span class="ss">:news_content</span><span class="p">)</span> <span class="p">?</span> <span class="k">yield</span><span class="p">(</span><span class="ss">:news_content</span><span class="p">)</span> <span class="p">:</span> <span class="k">yield</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">template: </span><span class="s2">"layouts/application"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+</li></ul><p>Вот и все. Вью News будут использовать новый макет, прячущий верхнее меню и добавляющий новое правое меню в &quot;content&quot; div.</p><p>Существует несколько способов получения похожих результатов с различными подшаблонными схемами, используя эту технику. Отметьте, что нет ограничений на уровень вложенности. Можно использовать метод <code>ActionView::render</code> через <code>render template: &#39;layouts/news&#39;</code>, чтобы создать новый макет на основе макета News. Если есть уверенность, что не понадобятся подшаблоны для макета <code>News</code>, можно заменить строку <code>content_for?(:news_content) ? yield(:news_content) : yield</code> простым <code>yield</code>.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Как перейти с Classic на Zeitwerk" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Как перейти с Classic на Zeitwerk" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/classic-to-zeitwerk-howto" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Как перейти с Classic на Zeitwerk
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="2gBSptexvEHkHrBjd82UoX1cYsXYgZZ2ydH4xQPd5QwvKFIn2R+dVXbQziohvLF4vorS3whAFmhMCmoLMFBqXA==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#chto-takoe-rezhimy-classic-i-zeitwerk">1. * Что такое режимы <code>classic</code> и <code>zeitwerk</code>?</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#zachem-pereklyuchatsya-iz-classic-v-zeitwerk">2. Зачем переключаться из <code>classic</code> в <code>zeitwerk</code>?</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#mne-strashno">3. Мне страшно</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#kak-aktivirovat-rezhim-zeitwerk">4. Как активировать режим <code>zeitwerk</code></a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#prilozheniya-na-rails-5-x-i-nizhe">4.1. Приложения на Rails 5.x и ниже</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#prilozheniya-na-rails-6-x">4.2. Приложения на Rails 6.x</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#prilozheniya-na-rails-7">4.3. Приложения на Rails 7</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#kak-proverit-chto-vashe-prilozhenie-zapuscheno-v-rezhime-zeitwerk">5. Как проверить, что ваше приложение запущено в режиме <code>zeitwerk</code>?</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#sootvetstvuet-li-moe-prilozhenie-soglasheniyam-zeitwerk">6. Соответствует ли мое приложение соглашениям Zeitwerk?</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#config-eager_load_paths">6.1. config.eager_load_paths</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#zeitwerk-check">6.2. zeitwerk:check</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#abbreviatury">6.3. Аббревиатуры</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#kontserny">6.4. Концерны</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#dobavlenie-app-v-puti-avtozagruzki">6.5. Добавление <code>app</code> в пути автозагрузки</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#avtomaticheski-zagruzhennye-konstanty-i-yavnye-prostranstva-imen">6.6. Автоматически загруженные константы и явные пространства имен</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#odin-fayl-odna-konstanta-na-tom-zhe-urovne">6.7. Один файл - одна константа (на том же уровне)</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#shablony-poiska-v-config-autoload_paths">6.8. Шаблоны поиска в <code>config.autoload_paths</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#dekorirovanie-klassov-i-moduley-iz-engine">6.9. Декорирование классов и модулей из engine</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#before_remove_const">6.10. <code>before_remove_const</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#spring-i-okruzhenie-test">6.11. Spring и окружение <code>test</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#bootsnap">6.12. Bootsnap</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#check-zeitwerk-compliance-in-the-test-suite">7.  Проверка правильности Zeitwerk в тестах</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#nepreryvnaya-integratsiya">7.1. Непрерывная интеграция</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#chistye-testy">7.2. Чистые тесты</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#minitest">7.2.1. Minitest</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#rspec">7.2.2. RSpec</a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#udalenie-lyubyh-vyzovov-require">8. Удаление любых вызовов <code>require</code></a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#novye-osobennosti-kotorye-mozhno-ispolzovat">9. Новые особенности, которые можно использовать</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udalenie-vyzovov-require_dependency">9.1. Удаление вызовов <code>require_dependency</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#teper-vozmozhny-polnye-imena-v-opredeleniyah-klassa-i-modulya">9.2. Теперь возможны полные имена в определениях класса и модуля</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#povsemestnaya-tredobezopasnost">9.3. Повсеместная тредобезопасность</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#neterpelivaya-zagruzka-i-avtozagruzka-soglasovannye">9.4. Нетерпеливая загрузка и автозагрузка согласованные</a>
+</h5>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='kak-pereyti-s-classic-na-zeitwerk' class='inside_page_header'> Как перейти с Classic на Zeitwerk</h2><p>Это руководство документирует, как мигрировать приложение Rails с режима <code>classic</code> на <code>zeitwerk</code>.</p><p>После прочтения этого руководства вы узнаете:</p><ul><li>Что такое режимы <code>classic</code> и <code>zeitwerk</code>
+</li><li>Зачем переключаться из <code>classic</code> в <code>zeitwerk</code>
+</li><li>Как активировать режим <code>zeitwerk</code>
+</li><li>Как проверить, что ваше приложение запущено в режиме <code>zeitwerk</code>
+</li><li>Как проверить, что ваше проект правильно загружается в командной строке
+</li><li>Как проверить, что ваше проект правильно загружается в тестах
+</li><li>Как разрешить возможные крайние случаи
+</li><li>Новые особенности в Zeitwerk, которые можно использовать
+</li></ul>
+<hr>
+<h3 id='chto-takoe-rezhimy-classic-i-zeitwerk' class='inside_page_header'><a href="#chto-takoe-rezhimy-classic-i-zeitwerk">1.</a> * Что такое режимы <code>classic</code> и <code>zeitwerk</code>?</h3><p>С самого начала и до Rails 5, Rails использовал автоматический загрузчик, реализованный в Active Support. Этот автозагрузчик, известный как <code>classic</code>, все еще доступен в Rails 6.x. Rails 7 больше не включает этот автозагрузчик.</p><p>Начиная с Rails 6, Rails поставляется с новым и лучшим способом автозагрузки, делегирующим гему <a href="https://github.com/fxn/zeitwerk">Zeitwerk</a>. Это режим <code>zeitwerk</code>. По умолчанию, приложения, загружающие умолчания для фреймворка 6.0 and 6.1, запускаются в режиме <code>zeitwerk</code>, и в Rails 7 это единственный доступный режим.</p><h3 id='zachem-pereklyuchatsya-iz-classic-v-zeitwerk' class='inside_page_header'><a href="#zachem-pereklyuchatsya-iz-classic-v-zeitwerk">2.</a> Зачем переключаться из <code>classic</code> в <code>zeitwerk</code>?</h3><p>Автозагрузчик <code>classic</code> был чрезвычайно полезным, но имел ряд <a href="https://github.com/rusrails/rusrails/blob/6.1/source/autoloading_and_reloading_constants_classic_mode.md#common-gotchas-%D1%80%D0%B0%D1%81%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D1%81%D0%BB%D1%83%D1%87%D0%B0%D0%B8">проблем</a>, которые иногда делали автоматическую загрузку немного запутанной и непонятной. Zeitwerk был разработан, чтобы их решить, среди прочих <a href="https://github.com/fxn/zeitwerk#motivation">мотивов</a>.</p><p>При обновлении на Rails 6.x крайне рекомендуется переключиться на режим <code>zeitwerk</code>, так как этот автозагрузчик лучше, а режим <code>classic</code> устарел.</p><p>Rails 7 заканчивает переходный период и больше не включает режим <code>classic</code>.</p><h3 id='mne-strashno' class='inside_page_header'><a href="#mne-strashno">3.</a> Мне страшно</h3><p>Не бойтесь :).</p><p>Zeitwerk был разработан, чтобы быть как можно более совместимым с классическим автозагрузчиком. Если у вас сейчас есть корректно работающая автозагрузка приложения, переключение, скорее всего, будет простым. Многие проекты, большие и малые, отчитались о реально гладком переходе.</p><p>Это руководство поможет вам уверенно изменить автоматический загрузчик.</p><p>Если, по какой-то причине, вы попали в ситуацию, которую не знаете как разрешить, не стесняйтесь <a href="https://github.com/rails/rails/issues/new">открыть проблему в <code>rails/rails</code></a> и поставить тег <a href="https://github.com/fxn"><code>@fxn</code></a>.</p><h3 id='kak-aktivirovat-rezhim-zeitwerk' class='inside_page_header'><a href="#kak-aktivirovat-rezhim-zeitwerk">4.</a> Как активировать режим <code>zeitwerk</code></h3><h4 id='prilozheniya-na-rails-5-x-i-nizhe' class='inside_page_header'><a href="#prilozheniya-na-rails-5-x-i-nizhe">4.1.</a> Приложения на Rails 5.x и ниже</h4><p>В приложениях на версиях Rails до 6.0, режим <code>zeitwerk</code> недоступен. Нужен как минимум Rails 6.0.</p><h4 id='prilozheniya-na-rails-6-x' class='inside_page_header'><a href="#prilozheniya-na-rails-6-x">4.2.</a> Приложения на Rails 6.x</h4><p>В приложениях на Rails 6.x есть два сценария.</p><p>Если приложение загружает умолчания фреймворка Rails 6.0 или 6.1, и оно запускается в режиме <code>classic</code>, это должно быть установлено вручную. Вам нужно что-то наподобие этого:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">load_defaults</span> <span class="mf">6.0</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">autoloader</span> <span class="o">=</span> <span class="ss">:classic</span> <span class="c1"># УДАЛИТЕ ЭТУ СТРОЧКУ</span>
+</code></pre>
+</div>
+<p>Как отмечено, просто удалите переопределение, режим <code>zeitwerk</code> установлен по умолчанию.</p><p>С другой стороны, если приложение загружает умолчания старого фреймворка, вам нужно включить режим <code>zeitwerk</code> явно:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">load_defaults</span> <span class="mf">5.2</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">autoloader</span> <span class="o">=</span> <span class="ss">:zeitwerk</span>
+</code></pre>
+</div>
+<h4 id='prilozheniya-na-rails-7' class='inside_page_header'><a href="#prilozheniya-na-rails-7">4.3.</a> Приложения на Rails 7</h4><p>В Rails 7 имеется только режим <code>zeitwerk</code>, вам не нужно ничего делать, чтобы его включить.</p><p>На самом деле, в Rails 7 метод <code>config.autoloader=</code> даже не существует. Если <code>config/application.rb</code> его использует, пожалуйста удалите эту строчку.</p><h3 id='kak-proverit-chto-vashe-prilozhenie-zapuscheno-v-rezhime-zeitwerk' class='inside_page_header'><a href="#kak-proverit-chto-vashe-prilozhenie-zapuscheno-v-rezhime-zeitwerk">5.</a> Как проверить, что ваше приложение запущено в режиме <code>zeitwerk</code>?</h3><p>Чтобы проверить, что приложение запускается в режиме <code>zeitwerk</code>, выполните</p><div class="code_container">
+  <pre><code class="highlight plaintext">bin/rails runner 'p Rails.autoloaders.zeitwerk_enabled?'
+</code></pre>
+</div>
+<p>Если это выведет <code>true</code>, режим <code>zeitwerk</code> включен.</p><h3 id='sootvetstvuet-li-moe-prilozhenie-soglasheniyam-zeitwerk' class='inside_page_header'><a href="#sootvetstvuet-li-moe-prilozhenie-soglasheniyam-zeitwerk">6.</a> Соответствует ли мое приложение соглашениям Zeitwerk?</h3><h4 id='config-eager_load_paths' class='inside_page_header'><a href="#config-eager_load_paths">6.1.</a> config.eager_load_paths</h4><p>Тест на соответствие запускается для нетерпеливо загружаемых файлов. Следовательно, чтобы проверить на соответствие Zeitwerk, рекомендовано иметь все пути автозагрузки в пути нетерпеливой загрузки.</p><p>Это уже так по умолчанию, но если в проекте есть пользовательские пути автозагрузки, сконфигурированные наподобие:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">autoload_paths</span> <span class="o">&lt;&lt;</span> <span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/extras"</span>
+</code></pre>
+</div>
+<p>то они не будут нетерпеливо загружены и не будут проверены. Добавить их в пути нетерпеливой загрузки просто:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">autoload_paths</span> <span class="o">&lt;&lt;</span> <span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/extras"</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">eager_load_paths</span> <span class="o">&lt;&lt;</span> <span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/extras"</span>
+</code></pre>
+</div>
+<h4 id='zeitwerk-check' class='inside_page_header'><a href="#zeitwerk-check">6.2.</a> zeitwerk:check</h4><p>Как только режим <code>zeitwerk</code> включен и конфигурация путей нетерпеливой загрузки дважды проверена, запустите:</p><div class="code_container">
+  <pre><code class="highlight plaintext">bin/rails zeitwerk:check
+</code></pre>
+</div>
+<p>Успешная проверка выглядит так:</p><div class="code_container">
+  <pre><code class="highlight plaintext">% bin/rails zeitwerk:check
+Hold on, I am eager loading the application.
+All is good!
+</code></pre>
+</div>
+<p>Может быть дополнительный вывод в зависимости от конфигурации приложения, но итоговый &quot;All is good!&quot; это то, что вы должны увидеть.</p><p>Если двойная проверка, описанная в предыдущем разделе, определила, что фактически есть некоторые пользовательские пути автозагрузки вне путей нетерпеливой загрузки, задача их обнаружит и предупредит. Однако, если тестовый набор загружает эти файлы успешно, у вас все хорошо.</p><p>Теперь, если есть какой-то файл, который не определяет ожидаемую константу, задача вам подскажет. Она выводит один файл за раз, так как, если бы она продолжила, ошибка загрузки одного файла могла бы вызвать другие ошибки, не относящиеся к проверке, которую мы запустили, и отчет об ошибки мог бы быть запутанным.</p><p>Если выведена одна константа, почините ее и запустите задачу заново. Повторяйте, пока не получите &quot;All is good!&quot;.</p><p>Возьмем, к примеру:</p><div class="code_container">
+  <pre><code class="highlight plaintext">% bin/rails zeitwerk:check
+Hold on, I am eager loading the application.
+expected file app/models/vat.rb to define constant Vat
+</code></pre>
+</div>
+<p>VAT это Европейский налог. Файл <code>app/models/vat.rb</code> определяет <code>VAT</code>, но автоматический загрузчик ожидает <code>Vat</code>, почему?</p><h4 id='abbreviatury' class='inside_page_header'><a href="#abbreviatury">6.3.</a> Аббревиатуры</h4><p>Это наиболее распространенный тип несоответствия, нужно разобраться с аббревиатурами. Давайте поймем, почему мы получаем это сообщение об ошибке.</p><p>Классический автозагрузчик способен автоматически загрузить <code>VAT</code>, так как у него на входе имя отсутствующей константы, <code>VAT</code>, он вызывает <code>underscore</code> на нем, что приводит к <code>vat</code>, и ищет файл с именем <code>vat.rb</code>. Это работает.</p><p>На входе у нового автозагрузчика файловая система. Взяв файл <code>vat.rb</code>, Zeitwerk вызывает <code>camelize</code> на <code>vat</code>, что приводит к <code>Vat</code>, и ожидает, что этот файл определяет константу <code>Vat</code>. Вот о чем говорит сообщение об ошибке.</p><p>Это просто починить, нужно всего лишь сообщить преобразователю слов об этой аббревиатуре:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/initializers/inflections.rb</span>
+<span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Inflector</span><span class="p">.</span><span class="nf">inflections</span><span class="p">(</span><span class="ss">:en</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">inflect</span><span class="o">|</span>
+  <span class="n">inflect</span><span class="p">.</span><span class="nf">acronym</span> <span class="s2">"VAT"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это повлияет на то, как Active Support образует слова глобально. Это может быть нормальным, но если хотите, можно также переопределить преобразователи слов, используемые автозагрузчиком:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/initializers/zeitwerk.rb</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">autoloaders</span><span class="p">.</span><span class="nf">main</span><span class="p">.</span><span class="nf">inflector</span><span class="p">.</span><span class="nf">inflect</span><span class="p">(</span><span class="s2">"vat"</span> <span class="o">=&gt;</span> <span class="s2">"VAT"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>С этой опцией у вас есть больше контроля, поскольку только файлы, названные непосредственно <code>vat.rb</code>, или директории, непосредственно названные <code>vat</code>, будут приведены к <code>VAT</code>. Файл, названный <code>vat_rules.rb</code>, не будет затронут этим, и может определять <code>VatRules</code>. Это может быть удобным, если в проекте есть такой тип несоответствий именования.</p><p>После добавления проверка проходит!</p><div class="code_container">
+  <pre><code class="highlight plaintext">% bin/rails zeitwerk:check
+Hold on, I am eager loading the application.
+All is good!
+</code></pre>
+</div>
+<p>Как только All is good, рекомендуется оставить валидацию проекта в тестовом наборе. Раздел <a href="#check-zeitwerk-compliance-in-the-test-suite"><em>Проверка правильности Zeitwerk в тестах</em></a> объясняет, как это сделать.</p><h4 id='kontserny' class='inside_page_header'><a href="#kontserny">6.4.</a> Концерны</h4><p>Можно автоматически и нетерпеливо загружать из стандартной структуры с поддиректориями <code>concerns</code> наподобие</p><div class="code_container">
+  <pre><code class="highlight plaintext">app/models
+app/models/concerns
+</code></pre>
+</div>
+<p>По умолчанию, <code>app/models/concerns</code> принадлежит к путям автозагрузки, следовательно, подразумевается корневой директорией. Таким образом, по умолчанию <code>app/models/concerns/foo.rb</code> должен определять <code>Foo</code>, а не <code>Concerns::Foo</code>.</p><p>Если ваше приложение использует <code>Concerns</code> в качестве пространства имен, есть два варианта:</p><ul><li>Убрать пространство имен <code>Concerns</code> из этих классов и модулей, и обновить клиентский код.
+</li><li>Оставить все как есть, убрав <code>app/models/concerns</code> из путей автозагрузки:
+</li></ul><div class="code_container">
+  <pre><code class="highlight ruby">  <span class="c1"># config/initializers/zeitwerk.rb</span>
+  <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Dependencies</span><span class="p">.</span>
+    <span class="nf">autoload_paths</span><span class="p">.</span>
+    <span class="nf">delete</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/app/models/concerns"</span><span class="p">)</span>
+</code></pre>
+</div>
+<h4 id='dobavlenie-app-v-puti-avtozagruzki' class='inside_page_header'><a href="#dobavlenie-app-v-puti-avtozagruzki">6.5.</a> Добавление <code>app</code> в пути автозагрузки</h4><p>Некоторым проектам нужно, что что-то наподобие <code>app/api/base.rb</code> определяло <code>API::Base</code>, и для этого добавляют <code>app</code> в пути автозагрузки.</p><p>Так как Rails автоматически добавляет все поддиректории <code>app</code> в пути автозагрузки (с небольшим исключением), тут у нас другая ситуация со вложенными корневыми директориями, подобная той, что случилась с <code>app/models/concerns</code>. Эта настройка больше не будет работать как есть.</p><p>Однако, можно сохранить эту структуру, просто удалите <code>app/api</code> из путей автозагрузки в инициализаторе:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/initializers/zeitwerk.rb</span>
+<span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Dependencies</span><span class="p">.</span>
+  <span class="nf">autoload_paths</span><span class="p">.</span>
+  <span class="nf">delete</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/app/api"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Остерегайтесь поддиректорий, в которых нет файлов, которые будут автоматически / нетерпеливо загружены. Например, если в приложении есть <code>app/admin</code> с ресурсами для <a href="https://activeadmin.info/">ActiveAdmin</a>, их нужно игнорировать. То же самое для <code>assets</code> сотоварищи:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/initializers/zeitwerk.rb</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">autoloaders</span><span class="p">.</span><span class="nf">main</span><span class="p">.</span><span class="nf">ignore</span><span class="p">(</span>
+  <span class="s2">"app/admin"</span><span class="p">,</span>
+  <span class="s2">"app/assets"</span><span class="p">,</span>
+  <span class="s2">"app/javascripts"</span><span class="p">,</span>
+  <span class="s2">"app/views"</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+<p>Без такой настройки, приложение будет нетерпеливо загружать эти деревья. Не вызовет ошибку на <code>app/admin</code> из-за того, что ее файлы не определяют константы, и не определит модуль <code>Views</code>, к примеру, в качестве нежелательного стороннего эффекта.</p><p>Как видите, иметь <code>app</code> в путях автозагрузки технически возможно, но но немного запутано.</p><h4 id='avtomaticheski-zagruzhennye-konstanty-i-yavnye-prostranstva-imen' class='inside_page_header'><a href="#avtomaticheski-zagruzhennye-konstanty-i-yavnye-prostranstva-imen">6.6.</a> Автоматически загруженные константы и явные пространства имен</h4><p>Если в файле определено пространство имен, как <code>Hotel</code> тут:</p><div class="code_container">
+  <pre><code class="highlight plaintext">app/models/hotel.rb         # Определяет Hotel.
+app/models/hotel/pricing.rb # Определяет Hotel::Pricing.
+</code></pre>
+</div>
+<p>константа <code>Hotel</code> должна быть установлена с помощью ключевых слов <code>class</code> или <code>module</code>. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Hotel</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>это правильно.</p><p>Альтернативы, такие как</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Hotel</span> <span class="o">=</span> <span class="no">Class</span><span class="p">.</span><span class="nf">new</span>
+</code></pre>
+</div>
+<p>или</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Hotel</span> <span class="o">=</span> <span class="no">Struct</span><span class="p">.</span><span class="nf">new</span>
+</code></pre>
+</div>
+<p>не будут работать, дочерние объекты, такие как <code>Hotel::Pricing</code> не будут найдены.</p><p>Это ограничение применяется только для явных пространств имен. Классы и модули, не определяющие пространство имен, могут быть определены с помощью этих идиом.</p><h4 id='odin-fayl-odna-konstanta-na-tom-zhe-urovne' class='inside_page_header'><a href="#odin-fayl-odna-konstanta-na-tom-zhe-urovne">6.7.</a> Один файл - одна константа (на том же уровне)</h4><p>В режиме <code>classic</code> технически вы могли определить несколько констант на том же уровне, и получить их перезагружаемыми. Например, в</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/models/foo.rb</span>
+
+<span class="k">class</span> <span class="nc">Foo</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Bar</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>хотя <code>Bar</code> не мог быть автоматически загружаемым, автозагрузка <code>Foo</code> также пометила бы <code>Bar</code> как автоматически загруженным.</p><p>Это не так в режиме <code>zeitwerk</code>, вам нужно переместить <code>Bar</code> в собственный файл <code>bar.rb</code>. Один файл, одна константа верхнего уровня.</p><p>Это влияет только на константы того же уровня, как в вышеприведенном примере. Вложенные классы и модули это нормально. Например, рассмотрим</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/models/foo.rb</span>
+
+<span class="k">class</span> <span class="nc">Foo</span>
+  <span class="k">class</span> <span class="nc">InnerClass</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если приложение перезагружает <code>Foo</code>, оно также перезагрузит <code>Foo::InnerClass</code>.</p><h4 id='shablony-poiska-v-config-autoload_paths' class='inside_page_header'><a href="#shablony-poiska-v-config-autoload_paths">6.8.</a> Шаблоны поиска в <code>config.autoload_paths</code></h4><p>Остерегайтесь конфигураций, в которых используются подстановочные знаки, например</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">autoload_paths</span> <span class="o">+=</span> <span class="no">Dir</span><span class="p">[</span><span class="s2">"</span><span class="si">#{</span><span class="n">config</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/extras/**/"</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Каждый элемент в <code>config.autoload_paths</code> должен представлять пространство имен верхнего уровня (<code>Object</code>). Это не будет работать.</p><p>Чтобы починить, просто уберите подстановочные знаки:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">autoload_paths</span> <span class="o">&lt;&lt;</span> <span class="s2">"</span><span class="si">#{</span><span class="n">config</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/extras"</span>
+</code></pre>
+</div>
+<h4 id='dekorirovanie-klassov-i-moduley-iz-engine' class='inside_page_header'><a href="#dekorirovanie-klassov-i-moduley-iz-engine">6.9.</a> Декорирование классов и модулей из engine</h4><p>Если ваше приложение декорирует классы или модули из engine, вероятно вы делаете где-то что-то вроде этого:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">to_prepare</span> <span class="k">do</span>
+  <span class="no">Dir</span><span class="p">.</span><span class="nf">glob</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/app/overrides/**/*_override.rb"</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">override</span><span class="o">|</span>
+    <span class="n">require_dependency</span> <span class="n">override</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это нужно обновить: нужно сообщить автозагрузчику <code>main</code> игнорировать директорию с переопределениями, и вам нужно загрузить их с помощью <code>load</code>. Что-то вроде:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">overrides</span> <span class="o">=</span> <span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/app/overrides"</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">autoloaders</span><span class="p">.</span><span class="nf">main</span><span class="p">.</span><span class="nf">ignore</span><span class="p">(</span><span class="n">overrides</span><span class="p">)</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">to_prepare</span> <span class="k">do</span>
+  <span class="no">Dir</span><span class="p">.</span><span class="nf">glob</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="n">overrides</span><span class="si">}</span><span class="s2">/**/*_override.rb"</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">override</span><span class="o">|</span>
+    <span class="nb">load</span> <span class="n">override</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='before_remove_const' class='inside_page_header'><a href="#before_remove_const">6.10.</a> <code>before_remove_const</code></h4><p>Rails 3.1 добавил поддержку для колбэка с именем <code>before_remove_const</code>, который вызывался, если класс или модуль отвечают на этот метод, и сейчас будет перезагружен. Этот колбэк остается недокументированным, и ваш код вряд ли его использует.</p><p>Однако, если он использует, следует переписать что-то вроде</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Country</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">before_remove_const</span>
+    <span class="n">expire_redis_cache</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>как</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/initializers/country.rb</span>
+<span class="k">if</span> <span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">reloading_enabled?</span>
+  <span class="no">Rails</span><span class="p">.</span><span class="nf">autoloaders</span><span class="p">.</span><span class="nf">main</span><span class="p">.</span><span class="nf">on_unload</span><span class="p">(</span><span class="s2">"Country"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">klass</span><span class="p">,</span> <span class="n">_abspath</span><span class="o">|</span>
+    <span class="n">klass</span><span class="p">.</span><span class="nf">expire_redis_cache</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='spring-i-okruzhenie-test' class='inside_page_header'><a href="#spring-i-okruzhenie-test">6.11.</a> Spring и окружение <code>test</code></h4><p>Spring перезагружает код приложения, если что-то изменилось. В среде <code>test</code> нужно включить перезагрузку, чтобы это работало:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/environments/test.rb</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">cache_classes</span> <span class="o">=</span> <span class="kp">false</span>
+</code></pre>
+</div>
+<p>или, начиная с Rails 7.1:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/environments/test.rb</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">enable_reloading</span> <span class="o">=</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<p>В противном случае вы получите</p><div class="code_container">
+  <pre><code class="highlight plaintext">reloading is disabled because config.cache_classes is true
+</code></pre>
+</div>
+<p>или</p><div class="code_container">
+  <pre><code class="highlight plaintext">reloading is disabled because config.enable_reloading is false
+</code></pre>
+</div>
+<p>В этом нет никакого ухудшения производительности.</p><h4 id='bootsnap' class='inside_page_header'><a href="#bootsnap">6.12.</a> Bootsnap</h4><p>Убедитесь, что зависите от как минимум Bootsnap 1.4.4.</p><h3 id='check-zeitwerk-compliance-in-the-test-suite' class='inside_page_header'><a href="#check-zeitwerk-compliance-in-the-test-suite">7.</a>  Проверка правильности Zeitwerk в тестах</h3><p>Задача <code>zeitwerk:check</code> удобна при миграции. Как только проект соответствует, рекомендуется автоматизировать эту проверку. Для этого достаточно нетерпеливо загрузить приложение, и, на самом деле, это единственное, что делает <code>zeitwerk:check</code>.</p><h4 id='nepreryvnaya-integratsiya' class='inside_page_header'><a href="#nepreryvnaya-integratsiya">7.1.</a> Непрерывная интеграция</h4><p>Если ваш проект имеет непрерывную интеграцию, неплохо было бы нетерпеливо загрузить приложение при запуске тестов там. Если приложение не сможет быть нетерпеливо загружено по какой-то причине, лучше узнать это в CI, чем в production, не правда ли?</p><p>В CI обычно имеется некая установленная переменная среды для обозначения, что тесты выполняются там. К примеру, это может быть <code>CI</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/environments/test.rb</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">eager_load</span> <span class="o">=</span> <span class="no">ENV</span><span class="p">[</span><span class="s2">"CI"</span><span class="p">].</span><span class="nf">present?</span>
+</code></pre>
+</div>
+<p>Начиная с Rails 7, новые приложения конфигурируются таким способом по умолчанию.</p><h4 id='chistye-testy' class='inside_page_header'><a href="#chistye-testy">7.2.</a> Чистые тесты</h4><p>Если в вашем проекте нет непрерывной интеграции, вы все еще можете нетерпеливо загружать в тестах, вызывая <code>Rails.application.eager_load!</code>:</p><h5 id='minitest' class='inside_page_header'><a href="#minitest">7.2.1.</a> Minitest</h5><div class="code_container">
+  <pre><code class="highlight ruby"><span class="nb">require</span> <span class="s2">"test_helper"</span>
+
+<span class="k">class</span> <span class="nc">ZeitwerkComplianceTest</span> <span class="o">&lt;</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">TestCase</span>
+  <span class="nb">test</span> <span class="s2">"eager loads all files without errors"</span> <span class="k">do</span>
+    <span class="n">assert_nothing_raised</span> <span class="p">{</span> <span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">eager_load!</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='rspec' class='inside_page_header'><a href="#rspec">7.2.2.</a> RSpec</h5><div class="code_container">
+  <pre><code class="highlight ruby"><span class="nb">require</span> <span class="s2">"rails_helper"</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"Zeitwerk compliance"</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s2">"eager loads all files without errors"</span> <span class="k">do</span>
+    <span class="n">expect</span> <span class="p">{</span> <span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">eager_load!</span> <span class="p">}.</span><span class="nf">not_to</span> <span class="n">raise_error</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h3 id='udalenie-lyubyh-vyzovov-require' class='inside_page_header'><a href="#udalenie-lyubyh-vyzovov-require">8.</a> Удаление любых вызовов <code>require</code></h3><p>Проекты обычно так не делают. Но иногда так бывает.</p><p>В приложениях Rails <code>require</code> используется эксклюзивно для загрузки кода из <code>lib</code> или кода третьих сторон, например гемов или стандартной библиотеки. <strong>Никогда не загружайте автоматически загружаемый код приложения с помощью <code>require</code></strong>. Посмотрите, почему это уже было плохой идеей в <code>classic</code>, <a href="https://github.com/rusrails/rusrails/blob/6.1/source/autoloading_and_reloading_constants_classic_mode.md#%D0%B0%D0%B2%D1%82%D0%BE%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B0-%D0%B8-require">тут</a>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="nb">require</span> <span class="s2">"nokogiri"</span> <span class="c1"># ХОРОШО</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span> <span class="c1"># ХОРОШО</span>
+<span class="nb">require</span> <span class="s2">"user"</span>     <span class="c1"># ПЛОХО, УДАЛИТЕ ЭТО (подразумеваем app/models/user.rb)</span>
+</code></pre>
+</div>
+<p>Пожалуйста, удалите любые вызовы <code>require</code> этого типа.</p><h3 id='novye-osobennosti-kotorye-mozhno-ispolzovat' class='inside_page_header'><a href="#novye-osobennosti-kotorye-mozhno-ispolzovat">9.</a> Новые особенности, которые можно использовать</h3><h4 id='udalenie-vyzovov-require_dependency' class='inside_page_header'><a href="#udalenie-vyzovov-require_dependency">9.1.</a> Удаление вызовов <code>require_dependency</code></h4><p>Все известные случаи использования <code>require_dependency</code> были устранены в Zeitwerk. Можно найти и удалить их в проекте.</p><p>Если ваше приложение использует наследование с единой таблицей, обратитесь к <a href="/autoloading-and-reloading-constants/#single-table-inheritance">разделу по Single Table Inheritance</a> руководства по автозагрузке и перезагрузке констант (режим Zeitwerk).</p><h4 id='teper-vozmozhny-polnye-imena-v-opredeleniyah-klassa-i-modulya' class='inside_page_header'><a href="#teper-vozmozhny-polnye-imena-v-opredeleniyah-klassa-i-modulya">9.2.</a> Теперь возможны полные имена в определениях класса и модуля</h4><p>Теперь можно с уверенностью использовать пути констант в определениях модуля и класса:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Автозагрузка в теле этого класса теперь соответствует семантике Ruby.</span>
+<span class="k">class</span> <span class="nc">Admin::UsersController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Хитрость, о которой нужно было знать, в том, что, в зависимости от порядка выполнения, классический автозагрузчик иногда мог автоматически загрузить <code>Foo::Wadus</code> в</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Foo::Bar</span>
+  <span class="nc">Wadus</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это не соответствует семантике Ruby, так как <code>Foo</code> не во вложенности, и не будет работать в режиме <code>zeitwerk</code>. Если вы обнаружите такой случай, можно использовать полное имя <code>Foo::Wadus</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Foo::Bar</span>
+  <span class="nc">Foo::Wadus</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>или добавить <code>Foo</code> во вложенность:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">module</span> <span class="nn">Foo</span>
+  <span class="k">class</span> <span class="nc">Bar</span>
+    <span class="no">Wadus</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='povsemestnaya-tredobezopasnost' class='inside_page_header'><a href="#povsemestnaya-tredobezopasnost">9.3.</a> Повсеместная тредобезопасность</h4><p>В режиме <code>classic</code> автозагрузка констант не является тредобезопасной, хотя в самом Rails есть блокировки, например, чтобы сделать веб-запросы тредобезопасными.</p><p>Автозагрузка констант в режиме <code>zeitwerk</code> является тредобезопасной. Например, теперь можно автоматически загрузить в многотредовых скриптах, выполняемых с помощью команды <code>runner</code>.</p><h4 id='neterpelivaya-zagruzka-i-avtozagruzka-soglasovannye' class='inside_page_header'><a href="#neterpelivaya-zagruzka-i-avtozagruzka-soglasovannye">9.4.</a> Нетерпеливая загрузка и автозагрузка согласованные</h4><p>В режиме <code>classic</code> если <code>app/models/foo.rb</code> определяет <code>Bar</code>, вы не сможете автоматически загрузить этот файл, но нетерпеливая загрузка будет работать, так как она загружает файлы рекурсивно вслепую. Это может быть источником ошибок, если вы сначала тестируете что-то нетерпеливо загрузив, а потом выполнение выдаст ошибку при автозагрузке.</p><p>В режиме <code>zeitwerk</code> оба режима загрузки согласованы, они выдают ошибку в тех же самых файлах.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

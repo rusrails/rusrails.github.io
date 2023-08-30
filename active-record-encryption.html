@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Шифрование Active Record" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Шифрование Active Record" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/active-record-encryption" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Шифрование Active Record
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="ZwmGwO02hSHgL9Acj9HO5rwtUpiVrHKhRsv4ZEYdRCbtT3mHvHKSdjX+VgGEwCVmNB7tCGzD8xkYIeuL/E3JRg==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#zachem-shifrovat-dannye-na-urovne-prilozheniya">1. Зачем шифровать данные на уровне приложения?</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#bazovoe-ispolzovanie">2. Базовое использование</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#nastroyka">2.1. Настройка</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ob-yavlenie-shifruemyh-atributov">2.2. Объявление шифруемых атрибутов</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#vazhno-ob-ob-eme-i-razmere-stolbtsa">2.2.1. Важно: об объеме и размере столбца</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#determinirovannoe-i-nedeterminirovannoe-shifrovanie">2.3. Детерминированное и недетерминированное шифрование</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#osobennosti">3. Особенности</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#action-text">3.1. Action Text</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#fikstury">3.2. Фикстуры</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#fikstury-action-text">3.2.1. Фикстуры Action text</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#podderzhivaemye-tipy">3.3. Поддерживаемые типы</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ignorirovanie-registra">3.4. Игнорирование регистра</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#podderzhka-neshifrovannyh-dannyh">3.5. Поддержка нешифрованных данных</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#podderzhka-predyduschih-shem-shifrovaniya">3.6. Поддержка предыдущих схем шифрования</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#globalnye-predyduschie-shemy-shifrovaniya">3.6.1. Глобальные предыдущие схемы шифрования</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#shemy-shifrovaniya-dlya-atributa">3.6.2. Схемы шифрования для атрибута</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#shemy-shifrovaniya-i-determinirovannye-atributy">3.6.3. Схемы шифрования и детерминированные атрибуты</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#ogranicheniya-unikalnosti">3.7. Ограничения уникальности</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#validatsii-unikalnosti">3.7.1. Валидации уникальности</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#indeksy-unikalnosti">3.7.2. Индексы уникальности</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#filtering-params-named-as-encrypted-columns">3.8.  Фильтрация параметров, названных как шифруемые столбцы</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#kodirovka">3.9. Кодировка</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#upravlenie-klyuchami">4. Управление ключами</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#vstroennye-provaydery-klyucha">4.1. Встроенные провайдеры ключа</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#derivedsecretkeyprovider">4.1.1. DerivedSecretKeyProvider</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#envelopeencryptionkeyprovider">4.1.2. EnvelopeEncryptionKeyProvider</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#polzovatelskie-provaydery-klyucha-key-providers">4.2. Пользовательские провайдеры ключа key providers</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#provaydery-klyucha-spetsifichnye-dlya-modeli">4.3. Провайдеры ключа, специфичные для модели</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#klyuchi-spetsifichnye-dlya-modeli">4.4. Ключи, специфичные для модели</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#rotatsiya-klyuchey">4.5. Ротация ключей</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#hranenie-ssylok-na-klyuch">4.6. Хранение ссылок на ключ</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#api">5. API</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#bazovyy-api">5.1. Базовый API</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#shifrovanie-i-deshifrovanie">5.1.1. Шифрование и дешифрование</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#chtenie-shifrovki">5.1.2. Чтение шифровки</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#proverka-shifruetsya-li-atribut">5.1.3. Проверка, шифруется ли атрибут</a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#nastroyka2">6. Настройка</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#optsii-nastroyki">6.1. Опции настройки</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#config-active_record-encryption-support_unencrypted_data">6.1.1. <code>config.active_record.encryption.support_unencrypted_data</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#config-active_record-encryption-extend_queries">6.1.2. <code>config.active_record.encryption.extend_queries</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#config-active_record-encryption-encrypt_fixtures">6.1.3. <code>config.active_record.encryption.encrypt_fixtures</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#config-active_record-encryption-store_key_references">6.1.4. <code>config.active_record.encryption.store_key_references</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#config-active_record-encryption-add_to_filter_parameters">6.1.5. <code>config.active_record.encryption.add_to_filter_parameters</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#config-active_record-encryption-excluded_from_filter_parameters">6.1.6. <code>config.active_record.encryption.excluded_from_filter_parameters</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#config-active_record-encryption-validate_column_size">6.1.7. <code>config.active_record.encryption.validate_column_size</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#config-active_record-encryption-primary_key">6.1.8. <code>config.active_record.encryption.primary_key</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#config-active_record-encryption-deterministic_key">6.1.9. <code>config.active_record.encryption.deterministic_key</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#config-active_record-encryption-key_derivation_salt">6.1.10. <code>config.active_record.encryption.key_derivation_salt</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#config-active_record-encryption-forced_encoding_for_deterministic_encryption">6.1.11. <code>config.active_record.encryption.forced_encoding_for_deterministic_encryption</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#konteksty-shifrovaniya">6.2. Контексты шифрования</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#globalnyy-kontekst-shifrovaniya">6.2.1. Глобальный контекст шифрования</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#konteksty-shifrovaniya-dlya-atributa">6.2.2. Контексты шифрования для атрибута</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#kontekst-shifrovaniya-pri-zapuske-bloka-koda">6.2.3. Контекст шифрования при запуске блока кода</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#vstroennye-konteksty-shifrovaniya">6.2.4. Встроенные контексты шифрования</a>
+</h6>      </li>
+      <li>
+        <h7>
+          <a href="#otklyuchenie-shifrovaniya">6.2.4.1. Отключение шифрования</a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#zaschita-zashifrovannyh-dannyh">6.2.4.2. Защита зашифрованных данных</a>
+</h7>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='shifrovanie-active-record' class='inside_page_header'> Шифрование Active Record</h2><p>Это руководство раскрывает шифрование информации вашей базы данных с помощью Active Record.</p><p>После его прочтения, вы узнаете:</p><ul><li>Как настроить шифрование базы данных с помощью Active Record.
+</li><li>Как мигрировать незашифрованные данные
+</li><li>Как обеспечить сосуществование различных схем шифрования
+</li><li>Как использовать API
+</li><li>Как настроить библиотеку, и как расширить ее
+</li></ul>
+<hr>
+<p>Active Record предоставляет шифрование на уровне приложения. Он работает, объявляя какие атрибуты должны быть зашифрованы, и бесшовно шифрует и дешифрует их по необходимости. Уровень шифрования находится между базой данных и приложением. У приложения будет доступ к незашифрованным данным, но база данных будет хранить их зашифрованными.</p><h3 id='zachem-shifrovat-dannye-na-urovne-prilozheniya' class='inside_page_header'><a href="#zachem-shifrovat-dannye-na-urovne-prilozheniya">1.</a> Зачем шифровать данные на уровне приложения?</h3><p>Шифрование Active Record существует для защиты чувствительной информации в вашем приложении. Типичным примером является личная информация от пользователей. Но зачем нам шифрование не уровне приложения, если уже есть шифрование самой базы данных?</p><p>В качестве немедленного практического бонуса, шифрование чувствительных атрибутов добавляет дополнительный слой безопасности. Например, если злоумышленник получил доступ к вашей базе данных, ее резервной копии или логам приложения, он не сможет понять зашифрованную информацию. Дополнительно шифрование может предотвратить от непредумышленного раскрытия чувствительных данных разработчиками в логах приложения.</p><p>Но что более важно, используя шифрование Active Record, вы определяете, что составляет чувствительную информацию в вашем приложение на уровне кода. Шифрование Active Record включает детальный контроль доступа к данным в вашем приложении и сервисах, использующих данные из вашего приложения. Например, рассмотрите аудируемые консоли Rails, защищающие зашифрованные данные, или проверки встроенной системы <a href="#filtering-params-named-as-encrypted-columns">автоматической фильтрации параметров контроллера</a>.</p><h3 id='bazovoe-ispolzovanie' class='inside_page_header'><a href="#bazovoe-ispolzovanie">2.</a> Базовое использование</h3><h4 id='nastroyka' class='inside_page_header'><a href="#nastroyka">2.1.</a> Настройка</h4><p>Сначала необходимо добавить несколько ключей в ваши <a href="/security#custom-credentials">учетные данные Rails</a>. Запустите <code>bin/rails db:encryption:init</code> для генерации набора случайных ключей:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>db:encryption:init
+<span class="go">Add this entry to the credentials of the target environment:
+
+active_record_encryption:
+  primary_key: EGY8WhulUOXixybod7ZWwMIL68R9o5kC
+  deterministic_key: aPA5XyALhf75NNnMzaspW7akTfZp0lPY
+  key_derivation_salt: xEY0dt6TZcAMg52K7O84wYzkjvbA62Hz
+</span></code></pre>
+</div>
+<div class="note"><p>Эти сгенерированные значения длиной 32 байта. Если вы генерируете их самостоятельно, минимальная длина, которую следует использовать, это 12 байт для первичного ключа (он будет использоваться для получения 32-байтного ключа AES) и 20 байт для соли.</p></div><h4 id='ob-yavlenie-shifruemyh-atributov' class='inside_page_header'><a href="#ob-yavlenie-shifruemyh-atributov">2.2.</a> Объявление шифруемых атрибутов</h4><p>Шифруемые атрибуты определяются на уровне модели. Это обычные атрибуты Active Record на основе столбца с тем же именем.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Article</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">encrypts</span> <span class="ss">:title</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Библиотека прозрачно зашифрует эти атрибуты перед сохранением в базу данных и дешифрует при извлечении:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">create</span> <span class="ss">title: </span><span class="s2">"Encrypt it all!"</span>
+<span class="n">article</span><span class="p">.</span><span class="nf">title</span> <span class="c1"># =&gt; "Encrypt it all!"</span>
+</code></pre>
+</div>
+<p>Но под капотом выполняемый SQL будет выглядеть так:</p><div class="code_container">
+  <pre><code class="highlight sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="nv">`articles`</span> <span class="p">(</span><span class="nv">`title`</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">'{</span><span class="se">\"</span><span class="s1">p</span><span class="se">\"</span><span class="s1">:</span><span class="se">\"</span><span class="s1">n7J0/ol+a7DRMeaE</span><span class="se">\"</span><span class="s1">,</span><span class="se">\"</span><span class="s1">h</span><span class="se">\"</span><span class="s1">:{</span><span class="se">\"</span><span class="s1">iv</span><span class="se">\"</span><span class="s1">:</span><span class="se">\"</span><span class="s1">DXZMDWUKfp3bg/Yu</span><span class="se">\"</span><span class="s1">,</span><span class="se">\"</span><span class="s1">at</span><span class="se">\"</span><span class="s1">:</span><span class="se">\"</span><span class="s1">X1/YjMHbHD4talgF9dt61A==</span><span class="se">\"</span><span class="s1">}}'</span><span class="p">)</span>
+</code></pre>
+</div>
+<h5 id='vazhno-ob-ob-eme-i-razmere-stolbtsa' class='inside_page_header'><a href="#vazhno-ob-ob-eme-i-razmere-stolbtsa">2.2.1.</a> Важно: об объеме и размере столбца</h5><p>Шифрование требует дополнительное пространство из-за кодировки Base64 и хранимых метаданных вместе с зашифрованной нагрузкой. При использовании встроенного конвертного провайдера ключа шифрования можно оценить перерасход в примерно 255 байтов. Этот перерасход несущественен при большом размере. Не только потому, что он растворяется в объеме, а потому, что библиотека по умолчанию использует сжатие, что может предложить до 30% экономии объема над нешифрованной версией большой нагрузки.</p><p>Важно знать о размерах строкового столбца: в современных базах данных размер столбца определяет <em>количество символов</em>, которые можно разместить, а не количество байтов. Например, в UTF-8 каждый символ может занимать до четырех байтов, поэтому, потенциально, столбец базы данных, использующей UTF-8, может хранить до четырех своих размеров в <em>байтах</em>. Теперь шифрованная нагрузка это бинарные строки, сериализованные как Base64, поэтому они могут храниться в обычных столбцах <code>string</code>. Так как они являются последовательностью байтов ASCII, шифрованный столбец может занимать до четырех размеров его чистой версии. Таким образом, даже если байты, хранимые в базе данных, такие же, столбец должен быть в четыре раза больше.</p><p>На практике это означает:</p><ul><li>Когда шифруются короткие тексты, записанные на западных алфавитах (в основном, символов ASCII), следует учитывать этот дополнительный перерасход 255 байтов при определении размера столбца.
+</li><li>Когда шифруются короткие тексты, записанные на не западных алфавитах, таких как кириллический, следует умножить размер столбца на 4. Отметьте, что перерасход максимум 255 байтов.
+</li><li>Когда шифруются длинные тексты, можно игнорировать вопрос размера столбца.
+</li></ul><p>Несколько примеров:</p><table class='table table-striped'><tr>
+<th>Содержимое для шифрования</th>
+<th>Изначальный размер столбца</th>
+<th>Рекомендованный размер шифрованного столбца</th>
+<th>Перерасход (в худшем случае)</th>
+</tr>
+<tr>
+<td>Адреса email</td>
+<td>string(255)</td>
+<td>string(510)</td>
+<td>255 bytes</td>
+</tr>
+<tr>
+<td>Короткая последовательность emoji</td>
+<td>string(255)</td>
+<td>string(1020)</td>
+<td>255 bytes</td>
+</tr>
+<tr>
+<td>Краткий текст, написанный на не западных алфавитах</td>
+<td>string(500)</td>
+<td>string(2000)</td>
+<td>255 bytes</td>
+</tr>
+<tr>
+<td>Произвольный длинный текст</td>
+<td>text</td>
+<td>text</td>
+<td>незначительный</td>
+</tr>
+</table><h4 id='determinirovannoe-i-nedeterminirovannoe-shifrovanie' class='inside_page_header'><a href="#determinirovannoe-i-nedeterminirovannoe-shifrovanie">2.3.</a> Детерминированное и недетерминированное шифрование</h4><p>По умолчанию Active Record Encryption использует недетерминированный подход к шифрованию. Недетерминированный в данном контексте означает, что шифрование одного и того же содержимого с тем же самым паролем дважды приведет к различным зашифрованным текстам. Данный подход улучшает безопасность, делая криптоанализ зашифрованного содержимого сложнее, но невозможным запросы к базе данных.</p><p>Можно использовать опцию <code>deterministic:</code> для генерации векторов инициализации детерминированным образом, эффективно включая запросы по зашифрованным данным.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Author</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">encrypts</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">deterministic: </span><span class="kp">true</span>
+<span class="k">end</span>
+
+<span class="no">Author</span><span class="p">.</span><span class="nf">find_by_email</span><span class="p">(</span><span class="s2">"some@email.com"</span><span class="p">)</span> <span class="c1"># Можно делать запросы, как обычно</span>
+</code></pre>
+</div>
+<p>Недетерминированный подход рекомендован, если вам не нужно делать запросы по данным.</p><div class="note"><p>В недетерминированном режиме Active Record использует AES-GCM с 256-битным ключом и случайным вектором инициализации. В детерминированном режиме также используется AES-GCM, но вектор инициализации генерируется как дайджест HMAC-SHA-256 ключа и шифруемого содержимого.</p></div><div class="note"><p>Можно отключить детерминированное шифрования опуская <code>deterministic_key</code>.</p></div><h3 id='osobennosti' class='inside_page_header'><a href="#osobennosti">3.</a> Особенности</h3><h4 id='action-text' class='inside_page_header'><a href="#action-text">3.1.</a> Action Text</h4><p>Можно шифровать атрибуты action text, передав <code>encrypted: true</code> в их объявлении.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Message</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_rich_text</span> <span class="ss">:content</span><span class="p">,</span> <span class="ss">encrypted: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="note"><p>Передача отдельных опций шифрования в атрибуты action text пока еще не поддерживается. Он будет использовать недетерминированное шифрование с помощью глобально настроенных опций шифрования.</p></div><h4 id='fikstury' class='inside_page_header'><a href="#fikstury">3.2.</a> Фикстуры</h4><p>Можно сделать фикстуры Rails шифруемыми автоматически, добавив эту опцию в ваш <code>test.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">encryption</span><span class="p">.</span><span class="nf">encrypt_fixtures</span> <span class="o">=</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<p>Когда включена, все шифруемые атрибуты будут зашифрованы в соответствии с настройками шифрования, определенными в модели.</p><h5 id='fikstury-action-text' class='inside_page_header'><a href="#fikstury-action-text">3.2.1.</a> Фикстуры Action text</h5><p>Чтобы зашифровать фикстуры action text, следует поместить их в <code>fixtures/action_text/encrypted_rich_texts.yml</code>.</p><h4 id='podderzhivaemye-tipy' class='inside_page_header'><a href="#podderzhivaemye-tipy">3.3.</a> Поддерживаемые типы</h4><p><code>active_record.encryption</code> будет сериализовывать значения с помощью лежащего в основе типа до их шифрования, но <em>они должны быть сериализуемыми как строки</em>. Структурируемые типы, наподобие <code>serialized</code>, поддерживаются из коробки.</p><p>Если нужна поддержка пользовательского типа, рекомендованным способом является использование <a href="https://api.rubyonrails.org/classes/ActiveRecord/AttributeMethods/Serialization/ClassMethods.html">сериализуемого атрибута</a>. Объявление сериализуемого атрибута должно идти <strong>перед</strong> объявлением шифрования:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># ПРАВИЛЬНО</span>
+<span class="k">class</span> <span class="nc">Article</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">serialize</span> <span class="ss">:title</span><span class="p">,</span> <span class="no">Title</span>
+  <span class="n">encrypts</span> <span class="ss">:title</span>
+<span class="k">end</span>
+
+<span class="c1"># НЕПРАВИЛЬНО</span>
+<span class="k">class</span> <span class="nc">Article</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">encrypts</span> <span class="ss">:title</span>
+  <span class="n">serialize</span> <span class="ss">:title</span><span class="p">,</span> <span class="no">Title</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='ignorirovanie-registra' class='inside_page_header'><a href="#ignorirovanie-registra">3.4.</a> Игнорирование регистра</h4><p>Возможно, вам необходимо игнорировать регистр при запросе детерминировано зашифрованных данных. Два подхода делают это проще:</p><p>Можно использовать опцию <code>:downcase</code> при объявлении шифруемого атрибута, чтобы сделать его содержимое в нижнем регистре до шифрования.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="n">encrypts</span> <span class="ss">:email_address</span><span class="p">,</span> <span class="ss">deterministic: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">downcase: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>При использовании <code>:downcase</code> оригинальный регистр теряется. В некоторых ситуациях хочется игнорировать регистр только при запросе, но также хранить оригинальный регистр. Для таких ситуаций можно использовать опцию <code>:ignore_case</code>. Это требует добавления нового столбца с именем <code>original_&lt;column_name&gt;</code>, для хранения содержимого с неизмененным регистром:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Label</span>
+  <span class="n">encrypts</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">deterministic: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">ignore_case: </span><span class="kp">true</span> <span class="c1"># содержимое с оригинальным регистром будет храниться в столбце `original_name`</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='podderzhka-neshifrovannyh-dannyh' class='inside_page_header'><a href="#podderzhka-neshifrovannyh-dannyh">3.5.</a> Поддержка нешифрованных данных</h4><p>Чтобы облегчить миграции нешифрованных данных, библиотека включает опцию <code>config.active_record.encryption.support_unencrypted_data</code>. Когда установлена <code>true</code>:</p><ul><li>Пытается прочитать шифруемые атрибуты, которые не были зашифрованы, будет работать нормально, без вызова какой-либо ошибки
+</li><li>Запросы с детерминировано шифруемыми атрибутами будут включать версию с исходным тестом, чтобы поддержать и зашифрованное, и незашифрованное содержимое. Необходимо установить <code>config.active_record.encryption.extend_queries = true</code> чтобы включить это.
+</li></ul><p><strong>Эти опции предназначены для переходного периода</strong>, пока исходные и шифрованные данные вынуждены сосуществовать. Обе установлены как <code>false</code> по умолчанию, что является рекомендованной целью для любого приложения: будут вызваны ошибки при работе с незашифрованными данными.</p><h4 id='podderzhka-predyduschih-shem-shifrovaniya' class='inside_page_header'><a href="#podderzhka-predyduschih-shem-shifrovaniya">3.6.</a> Поддержка предыдущих схем шифрования</h4><p>Изменение свойств шифрования может поломать существующие данные. Например, представьте, что вы хотите сделать детерминированный атрибут недетерминированным. Если вы просто измените объявление в модели, чтение существующего шифра провалится, так как метод шифрования теперь другой.</p><p>Чтобы поддержать такие ситуации, можно объявить предыдущие схемы шифрования, которые будут использованы в двух сценариях:</p><ul><li>При чтении шифрованных данных Active Record Encryption попробует предыдущие схемы шифрования, если текущая схема не сработает.
+</li><li>При запросе детерминированных данных, он добавит шифры с использованием предыдущих схем, таким образом, эти запросы будут работать бесшовно с разными схемами. Чтобы включить это, нужно установить <code>config.active_record.encryption.extend_queries = true</code>.
+</li></ul><p>Можно настроить предыдущие схемы шифрования:</p><ul><li>Глобально
+</li><li>На основе атрибута
+</li></ul><h5 id='globalnye-predyduschie-shemy-shifrovaniya' class='inside_page_header'><a href="#globalnye-predyduschie-shemy-shifrovaniya">3.6.1.</a> Глобальные предыдущие схемы шифрования</h5><p>Можно добавить предыдущие схемы шифрования, добавив их как список свойств с помощью конфигурационной настройки <code>previous</code> в <code>application.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">encryption</span><span class="p">.</span><span class="nf">previous</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span> <span class="ss">key_provider: </span><span class="no">MyOldKeyProvider</span><span class="p">.</span><span class="nf">new</span> <span class="p">}</span> <span class="p">]</span>
+</code></pre>
+</div>
+<h5 id='shemy-shifrovaniya-dlya-atributa' class='inside_page_header'><a href="#shemy-shifrovaniya-dlya-atributa">3.6.2.</a> Схемы шифрования для атрибута</h5><p>Используйте <code>:previous</code> при объявлении атрибута:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Article</span>
+  <span class="n">encrypts</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">deterministic: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">previous: </span><span class="p">{</span> <span class="ss">deterministic: </span><span class="kp">false</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='shemy-shifrovaniya-i-determinirovannye-atributy' class='inside_page_header'><a href="#shemy-shifrovaniya-i-determinirovannye-atributy">3.6.3.</a> Схемы шифрования и детерминированные атрибуты</h5><p>При добавлении предыдущих схем шифрования:</p><ul><li>При <strong>недетерминированном шифровании</strong>, новая информация всегда будет шифроваться с помощью <em>новейшей</em> (текущей) схемы шифрования.
+</li><li>При <strong>детерминированном шифровании</strong>, новая информация по умолчанию всегда будет шифроваться с помощью <em>старейшей</em> схемы шифрования.
+</li></ul><p>Обычным при недетерминированном шифровании является то, что мы хотим, чтобы шифры оставались постоянными. Это поведение можно изменить, установив <code>deterministic: { fixed: false }</code>. В этом случае она будет использовать <em>новейшую</em> схему шифрования для шифрования новых данных.</p><h4 id='ogranicheniya-unikalnosti' class='inside_page_header'><a href="#ogranicheniya-unikalnosti">3.7.</a> Ограничения уникальности</h4><div class="note"><p>Ограничения уникальности могут быть использованы только с детерминировано зашифрованными данными.</p></div><h5 id='validatsii-unikalnosti' class='inside_page_header'><a href="#validatsii-unikalnosti">3.7.1.</a> Валидации уникальности</h5><p>Валидации уникальности работают нормально, когда включены расширенные запросы (<code>config.active_record.encryption.extend_queries = true</code>).</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="n">validates</span> <span class="ss">:email_address</span><span class="p">,</span> <span class="ss">uniqueness: </span><span class="kp">true</span>
+  <span class="n">encrypts</span> <span class="ss">:email_address</span><span class="p">,</span> <span class="ss">deterministic: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">downcase: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Они также будут работать при комбинации шифрованных и нешифрованных данных и когда настроены предыдущие схемы шифрования.</p><div class="note"><p>Если хотите игнорировать регистр, убедитесь что используются <code>downcase:</code> или <code>ignore_case:</code> в объявлении <code>encrypts</code>. Использование опции <code>case_sensitive:</code> в валидации не будет работать.</p></div><h5 id='indeksy-unikalnosti' class='inside_page_header'><a href="#indeksy-unikalnosti">3.7.2.</a> Индексы уникальности</h5><p>Чтобы поддерживать индексы уникальности на детерминировано шифруемом столбце, нужно обеспечить, чтобы их шифр никогда не менялся.</p><p>Для этого детерминированные атрибуты будут всегда использовать старейшую схему шифрования по умолчанию, когда настроено несколько схем шифрования. В противном случае вам следует обеспечить, чтобы эти свойства шифрования для этих атрибутов не менялись, иначе индексы уникальности не будут работать.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="n">encrypts</span> <span class="ss">:email_address</span><span class="p">,</span> <span class="ss">deterministic: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='filtering-params-named-as-encrypted-columns' class='inside_page_header'><a href="#filtering-params-named-as-encrypted-columns">3.8.</a>  Фильтрация параметров, названных как шифруемые столбцы</h4><p>По умолчанию шифруемые столбцы настраиваются как <a href="/action-controller-overview#parameters-filtering">автоматически фильтруемые в логах Rails</a>. Это поведение можно отключить, добавив следующее в <code>application.rb</code>:</p><p>При генерации фильтруемого параметра, это будет использовать имя модели как префикс. Например, для <code>Person#name</code> фильтруемым параметром будет <code>person.name</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">encryption</span><span class="p">.</span><span class="nf">add_to_filter_parameters</span> <span class="o">=</span> <span class="kp">false</span>
+</code></pre>
+</div>
+<p>В случае, если хотите исключить отдельные столбцы из этой автоматической фильтрации, добавьте их в <code>config.active_record.encryption.excluded_from_filter_parameters</code>.</p><h4 id='kodirovka' class='inside_page_header'><a href="#kodirovka">3.9.</a> Кодировка</h4><p>Библиотека сохраняет кодировку для строковых значений, шифруемых недетерминировано.</p><p>Так как кодировка хранится вместе с зашифрованным содержимым, детерминировано зашифрованные значения по умолчанию будут приведены к кодировке UTF-8. Следовательно, то же самое значение в разных кодировках приведет к разным шифровкам при шифровании. Обычно этого хочется избежать, чтобы работал поиск и ограничения уникальности, поэтому библиотека выполнит преобразование сама автоматически.</p><p>Можно сконфигурировать желаемую кодировку по умолчанию для детерминированного шифрования с помощью:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">encryption</span><span class="p">.</span><span class="nf">forced_encoding_for_deterministic_encryption</span> <span class="o">=</span> <span class="no">Encoding</span><span class="o">::</span><span class="no">US_ASCII</span>
+</code></pre>
+</div>
+<p>А также можно отключить это поведение и сохранить кодировку во всех случаях с помощью:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">encryption</span><span class="p">.</span><span class="nf">forced_encoding_for_deterministic_encryption</span> <span class="o">=</span> <span class="kp">nil</span>
+</code></pre>
+</div>
+<h3 id='upravlenie-klyuchami' class='inside_page_header'><a href="#upravlenie-klyuchami">4.</a> Управление ключами</h3><p>Провайдеры ключа реализуют стратегии управления ключами. Можно настроить провайдеры ключа глобально или на основе атрибута.</p><h4 id='vstroennye-provaydery-klyucha' class='inside_page_header'><a href="#vstroennye-provaydery-klyucha">4.1.</a> Встроенные провайдеры ключа</h4><h5 id='derivedsecretkeyprovider' class='inside_page_header'><a href="#derivedsecretkeyprovider">4.1.1.</a> DerivedSecretKeyProvider</h5><p>Провайдер ключа, который отдает ключи, производные от предоставленных паролей, с помощью PBKDF2.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">encryption</span><span class="p">.</span><span class="nf">key_provider</span> <span class="o">=</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Encryption</span><span class="o">::</span><span class="no">DerivedSecretKeyProvider</span><span class="p">.</span><span class="nf">new</span><span class="p">([</span><span class="s2">"some passwords"</span><span class="p">,</span> <span class="s2">"to derive keys from. "</span><span class="p">,</span> <span class="s2">"These should be in"</span><span class="p">,</span> <span class="s2">"credentials"</span><span class="p">])</span>
+</code></pre>
+</div>
+<div class="note"><p>По умолчанию <code>active_record.encryption</code> настраивает <code>DerivedSecretKeyProvider</code> с помощью ключей, определенных в <code>active_record.encryption.primary_key</code>.</p></div><h5 id='envelopeencryptionkeyprovider' class='inside_page_header'><a href="#envelopeencryptionkeyprovider">4.1.2.</a> EnvelopeEncryptionKeyProvider</h5><p>Реализует простую стратегию <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping">конвертного шифрования</a>:</p><ul><li>Он генерирует случайный ключ для каждой операции шифрования данных
+</li><li>Он хранит ключ вместе с самими данными, зашифрованными с помощью первичного ключа в учетных данных <code>active_record.encryption.primary_key</code>.
+</li></ul><p>Можно настроить Active Record использовать этот провайдер ключа, добавив следующее в ваш <code>application.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">encryption</span><span class="p">.</span><span class="nf">key_provider</span> <span class="o">=</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Encryption</span><span class="o">::</span><span class="no">EnvelopeEncryptionKeyProvider</span><span class="p">.</span><span class="nf">new</span>
+</code></pre>
+</div>
+<p>Как и для других встроенных провайдеров ключей, можно предоставить список первичных ключей в <code>active_record.encryption.primary_key</code> для реализации схем ротации ключа.</p><h4 id='polzovatelskie-provaydery-klyucha-key-providers' class='inside_page_header'><a href="#polzovatelskie-provaydery-klyucha-key-providers">4.2.</a> Пользовательские провайдеры ключа key providers</h4><p>Для расширенных схем управления ключами можно настроить пользовательский провайдер ключа в инициализаторе:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Encryption</span><span class="p">.</span><span class="nf">key_provider</span> <span class="o">=</span> <span class="no">MyKeyProvider</span><span class="p">.</span><span class="nf">new</span>
+</code></pre>
+</div>
+<p>Провайдер ключа должен реализовывать этот интерфейс:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">MyKeyProvider</span>
+  <span class="k">def</span> <span class="nf">encryption_key</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">decryption_keys</span><span class="p">(</span><span class="n">encrypted_message</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Оба метода должны возвращать объекты <code>ActiveRecord::Encryption::Key</code>:</p><ul><li><code>encryption_key</code> возвращает ключ для шифрования некоторого содержимого
+</li><li><code>decryption keys</code> возвращает список потенциальных ключей для дешифрования заданного сообщения
+</li></ul><p>Ключ может включать произвольные теги, которые будет храниться нешифрованными с сообщением. Для просмотра этих значений можно использовать <code>ActiveRecord::Encryption::Message#headers</code> при дешифровке.</p><h4 id='provaydery-klyucha-spetsifichnye-dlya-modeli' class='inside_page_header'><a href="#provaydery-klyucha-spetsifichnye-dlya-modeli">4.3.</a> Провайдеры ключа, специфичные для модели</h4><p>Можно настроить провайдер ключа на основе класса с помощью опции <code>:key_provider</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Article</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">encrypts</span> <span class="ss">:summary</span><span class="p">,</span> <span class="ss">key_provider: </span><span class="no">ArticleKeyProvider</span><span class="p">.</span><span class="nf">new</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='klyuchi-spetsifichnye-dlya-modeli' class='inside_page_header'><a href="#klyuchi-spetsifichnye-dlya-modeli">4.4.</a> Ключи, специфичные для модели</h4><p>Можно настроить заданный ключ на основе класса с помощью опции <code>:key</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Article</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">encrypts</span> <span class="ss">:summary</span><span class="p">,</span> <span class="ss">key: </span><span class="s2">"some secret key for article summaries"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Active Record использует этот ключ для создания ключа, используемого для шифрования и дешифрования данных.</p><h4 id='rotatsiya-klyuchey' class='inside_page_header'><a href="#rotatsiya-klyuchey">4.5.</a> Ротация ключей</h4><p><code>active_record.encryption</code> может работать со списками ключей для реализации схем ротации ключей:</p><ul><li><strong>Последний ключ</strong> будет использоваться для шифрования нового содержимого.
+</li><li>При дешифровании будут пробоваться все ключи, пока один не сработает.
+</li></ul><div class="code_container">
+  <pre><code class="highlight yml"><span class="na">active_record_encryption</span><span class="pi">:</span>
+  <span class="na">primary_key</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">a1cc4d7b9f420e40a337b9e68c5ecec6</span> <span class="c1"># Предыдущие ключи все еще могут дешифровывать содержимое</span>
+    <span class="pi">-</span> <span class="s">bc17e7b413fd4720716a7633027f8cc4</span> <span class="c1"># Активный, шифрует новое содержимое</span>
+  <span class="na">key_derivation_salt</span><span class="pi">:</span> <span class="s">a3226b97b3b2f8372d1fc6d497a0c0d3</span>
+</code></pre>
+</div>
+<p>Это позволяет такой цикл, в котором хранится короткий список ключей, и при добавлении нового ключа содержимое перешифровывается, и старые ключи удаляются.</p><div class="note"><p>Сейчас ротация ключей не поддерживается для детерминированного шифрования.</p></div><div class="note"><p>Active Record Encryption пока что не предоставляет автоматического управления над ротацией ключей. Все для этого уже есть, но пока не реализовано.</p></div><h4 id='hranenie-ssylok-na-klyuch' class='inside_page_header'><a href="#hranenie-ssylok-na-klyuch">4.6.</a> Хранение ссылок на ключ</h4><p>Можно сконфигурировать <code>active_record.encryption.store_key_references</code>, чтобы <code>active_record.encryption</code> хранила ссылку на ключ шифрования в самом зашифрованном сообщении.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">encryption</span><span class="p">.</span><span class="nf">store_key_references</span> <span class="o">=</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<p>Это обеспечивает более производительное дешифрование, так как система может найти нужные ключи вместо перебора списка ключей. Цена, которую нужно заплатить, это место: шифрованные данные будут немного больше в размере.</p><h3 id='api' class='inside_page_header'><a href="#api">5.</a> API</h3><h4 id='bazovyy-api' class='inside_page_header'><a href="#bazovyy-api">5.1.</a> Базовый API</h4><p>Шифрование ActiveRecord подразумевает декларативное использование, но оно также предлагает API для сценариев продвинутого использования.</p><h5 id='shifrovanie-i-deshifrovanie' class='inside_page_header'><a href="#shifrovanie-i-deshifrovanie">5.1.1.</a> Шифрование и дешифрование</h5><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">article</span><span class="p">.</span><span class="nf">encrypt</span> <span class="c1"># шифрует или перешифрует все шифруемые атрибуты</span>
+<span class="n">article</span><span class="p">.</span><span class="nf">decrypt</span> <span class="c1"># дешифрует все шифруемые атрибуты</span>
+</code></pre>
+</div>
+<h5 id='chtenie-shifrovki' class='inside_page_header'><a href="#chtenie-shifrovki">5.1.2.</a> Чтение шифровки</h5><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">article</span><span class="p">.</span><span class="nf">ciphertext_for</span><span class="p">(</span><span class="ss">:title</span><span class="p">)</span>
+</code></pre>
+</div>
+<h5 id='proverka-shifruetsya-li-atribut' class='inside_page_header'><a href="#proverka-shifruetsya-li-atribut">5.1.3.</a> Проверка, шифруется ли атрибут</h5><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">article</span><span class="p">.</span><span class="nf">encrypted_attribute?</span><span class="p">(</span><span class="ss">:title</span><span class="p">)</span>
+</code></pre>
+</div>
+<h3 id='nastroyka2' class='inside_page_header'><a href="#nastroyka2">6.</a> Настройка</h3><h4 id='optsii-nastroyki' class='inside_page_header'><a href="#optsii-nastroyki">6.1.</a> Опции настройки</h4><p>Можно настроить опции Active Record Encryption в вашем <code>application.rb</code> (самый распространенный сценарий) или в файле определенной среды <code>config/environments/&lt;env name&gt;.rb</code>, если хотите установить их на основе среды.</p><div class="warning"><p>Для хранения ключей рекомендуется использовать встроенную в Rails поддержку учетных данных. Если предпочитаете установить их вручную с помощью конфигурационных свойств, убедитесь, что не храните их вместе с кодом (например, используете переменные среды).</p></div><h5 id='config-active_record-encryption-support_unencrypted_data' class='inside_page_header'><a href="#config-active_record-encryption-support_unencrypted_data">6.1.1.</a> <code>config.active_record.encryption.support_unencrypted_data</code></h5><p>Когда true, нешифрованные данные читаются, как обычно. Когда false, будут вызываться ошибки. По умолчанию: <code>false</code>.</p><h5 id='config-active_record-encryption-extend_queries' class='inside_page_header'><a href="#config-active_record-encryption-extend_queries">6.1.2.</a> <code>config.active_record.encryption.extend_queries</code></h5><p>Когда true, запросы, ссылающиеся на детерминировано шифруемые атрибуты, будут модифицированы, чтобы по необходимости включать дополнительные значения. Эти дополнительные значения будут включать чистую версию значения (когда <code>config.active_record.encryption.support_unencrypted_data</code> true) и значения, зашифрованные с помощью предыдущих схем шифрования, если они имеются (предоставлены с помощью опции <code>previous:</code>). По умолчанию: <code>false</code> (экспериментально).</p><h5 id='config-active_record-encryption-encrypt_fixtures' class='inside_page_header'><a href="#config-active_record-encryption-encrypt_fixtures">6.1.3.</a> <code>config.active_record.encryption.encrypt_fixtures</code></h5><p>Когда true, шифруемые атрибуты в фикстурах будут автоматически зашифрованы при загрузке. По умолчанию: <code>false</code>.</p><h5 id='config-active_record-encryption-store_key_references' class='inside_page_header'><a href="#config-active_record-encryption-store_key_references">6.1.4.</a> <code>config.active_record.encryption.store_key_references</code></h5><p>Когда true, ссылка на ключ шифрования сохраняется в заголовках зашифрованного сообщения. Это сделано для более быстрого дешифрования при использовании нескольких ключей. По умолчанию: <code>false</code>.</p><h5 id='config-active_record-encryption-add_to_filter_parameters' class='inside_page_header'><a href="#config-active_record-encryption-add_to_filter_parameters">6.1.5.</a> <code>config.active_record.encryption.add_to_filter_parameters</code></h5><p>Когда true, имена шифруемых атрибутов автоматически добавляются в <a href="/configuring#config-filter-parameters"><code>config.filter_parameters</code></a>, которые не показываются в логах. По умолчанию: <code>true</code>.</p><h5 id='config-active_record-encryption-excluded_from_filter_parameters' class='inside_page_header'><a href="#config-active_record-encryption-excluded_from_filter_parameters">6.1.6.</a> <code>config.active_record.encryption.excluded_from_filter_parameters</code></h5><p>Можно настроить список параметров, которые не будут отфильтрованы, когда <code>config.active_record.encryption.add_to_filter_parameters</code> true. По умолчанию: <code>[]</code>.</p><h5 id='config-active_record-encryption-validate_column_size' class='inside_page_header'><a href="#config-active_record-encryption-validate_column_size">6.1.7.</a> <code>config.active_record.encryption.validate_column_size</code></h5><p>Добавляет валидацию, основанную на размере столбца. Это рекомендовано, чтобы избежать хранения огромных значений с использованием очень сжатой полезной нагрузки. По умолчанию: <code>true</code>.</p><h5 id='config-active_record-encryption-primary_key' class='inside_page_header'><a href="#config-active_record-encryption-primary_key">6.1.8.</a> <code>config.active_record.encryption.primary_key</code></h5><p>Ключ или список ключей, используемых для воспроизведения корневых ключей шифрования данных. Способ, которым они используются, зависит от настроенного провайдера ключа. Предпочтительнее настроить их с помощью учетных данных <code>active_record_encryption.primary_key</code>.</p><h5 id='config-active_record-encryption-deterministic_key' class='inside_page_header'><a href="#config-active_record-encryption-deterministic_key">6.1.9.</a> <code>config.active_record.encryption.deterministic_key</code></h5><p>Ключ или список ключей, используемых для детерминированного шифрования. Предпочтительнее настроить их с помощью учетных данных <code>active_record_encryption.deterministic_key</code>.</p><h5 id='config-active_record-encryption-key_derivation_salt' class='inside_page_header'><a href="#config-active_record-encryption-key_derivation_salt">6.1.10.</a> <code>config.active_record.encryption.key_derivation_salt</code></h5><p>Соль, используемая при воспроизведении ключей. Предпочтительнее настроить ее с помощью учетных данных <code>active_record_encryption.key_derivation_salt</code>.</p><h5 id='config-active_record-encryption-forced_encoding_for_deterministic_encryption' class='inside_page_header'><a href="#config-active_record-encryption-forced_encoding_for_deterministic_encryption">6.1.11.</a> <code>config.active_record.encryption.forced_encoding_for_deterministic_encryption</code></h5><p>Кодировка по умолчанию для детерминированно шифруемых атрибутов. Можно отключить принудительную кодировку, установив этой опции <code>nil</code>. По умолчанию <code>Encoding::UTF_8</code>.</p><h4 id='konteksty-shifrovaniya' class='inside_page_header'><a href="#konteksty-shifrovaniya">6.2.</a> Контексты шифрования</h4><p>Контекст шифрования определяет компоненты шифрования, используемые в данный момент. Есть контекст шифрования по умолчанию, основанный на глобальной конфигурации, но можно настроить произвольный контекст для заданного атрибута или при запуске определенного блока кода.</p><div class="note"><p>Контексты шифрования это гибкий, но сложный конфигурационных механизм. Большинству пользователей можно не беспокоиться о них.</p></div><p>Основные компоненты контекстов шифрования следующие:</p><ul><li><code>encryptor</code>: представляет внутренний API для шифрования и дешифрования данных. Он взаимодействует с <code>key_provider</code> для создания зашифрованных сообщений и имеет дело с их сериализацией. Само шифрование/дешифрование выполняется <code>cipher</code>, а сериализация <code>message_serializer</code>.
+</li><li><code>cipher</code>: сам алгоритм шифрования (Aes 256 GCM)
+</li><li><code>key_provider</code>: отдает ключи шифрования и дешифрования.
+</li><li><code>message_serializer</code>: сериализует и десериализует зашифрованную нагрузку (<code>Message</code>).
+</li></ul><div class="note"><p>Если решили создать свой <code>message_serializer</code>, важно использовать безопасные механизмы, которые не могут десериализовывать произвольные объекты. Обычный поддерживаемый сценарий, когда шифруются существующие незашифрованные данные. Злоумышленник может использовать это, вводя подделанную нагрузку до шифрования, и выполняя атаки RCE. Это означает, что пользовательские сериализаторы должны избегать <code>Marshal</code>, <code>YAML.load</code> (вместо него используйте <code>YAML.safe_load</code>) или <code>JSON.load</code> (вместо него используйте <code>JSON.parse</code>).</p></div><h5 id='globalnyy-kontekst-shifrovaniya' class='inside_page_header'><a href="#globalnyy-kontekst-shifrovaniya">6.2.1.</a> Глобальный контекст шифрования</h5><p>Глобальный контекст шифрования это тот, который используется по умолчанию, и настраивается с помощью конфигурационных настроек в <code>application.rb</code> или конфигурационных файлах среды.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">encryption</span><span class="p">.</span><span class="nf">key_provider</span> <span class="o">=</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Encryption</span><span class="o">::</span><span class="no">EnvelopeEncryptionKeyProvider</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">encryption</span><span class="p">.</span><span class="nf">encryptor</span> <span class="o">=</span> <span class="no">MyEncryptor</span><span class="p">.</span><span class="nf">new</span>
+</code></pre>
+</div>
+<h5 id='konteksty-shifrovaniya-dlya-atributa' class='inside_page_header'><a href="#konteksty-shifrovaniya-dlya-atributa">6.2.2.</a> Контексты шифрования для атрибута</h5><p>Можно переопределить параметр контекста шифрования, передав их в объявлении атрибута:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Attribute</span>
+  <span class="n">encrypts</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">encryptor: </span><span class="no">MyAttributeEncryptor</span><span class="p">.</span><span class="nf">new</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='kontekst-shifrovaniya-pri-zapuske-bloka-koda' class='inside_page_header'><a href="#kontekst-shifrovaniya-pri-zapuske-bloka-koda">6.2.3.</a> Контекст шифрования при запуске блока кода</h5><p>Можно использовать <code>ActiveRecord::Encryption.with_encryption_context</code> для настройки контекста шифрования для заданного блока кода:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Encryption</span><span class="p">.</span><span class="nf">with_encryption_context</span><span class="p">(</span><span class="ss">encryptor: </span><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Encryption</span><span class="o">::</span><span class="no">NullEncryptor</span><span class="p">.</span><span class="nf">new</span><span class="p">)</span> <span class="k">do</span>
+  <span class="o">...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='vstroennye-konteksty-shifrovaniya' class='inside_page_header'><a href="#vstroennye-konteksty-shifrovaniya">6.2.4.</a> Встроенные контексты шифрования</h5><h6 id='otklyuchenie-shifrovaniya' class='inside_page_header'><a href="#otklyuchenie-shifrovaniya">6.2.4.1.</a> Отключение шифрования</h6><p>Можно запустить код без шифрования:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Encryption</span><span class="p">.</span><span class="nf">without_encryption</span> <span class="k">do</span>
+   <span class="o">...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это означает, что чтение зашифрованного текста вернет шифровку, а сохраняемое содержимое будет храниться незашифрованным.</p><h6 id='zaschita-zashifrovannyh-dannyh' class='inside_page_header'><a href="#zaschita-zashifrovannyh-dannyh">6.2.4.2.</a> Защита зашифрованных данных</h6><p>Можно запустить код без шифрования, но предотвращая перезапись зашифрованного содержимого:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Encryption</span><span class="p">.</span><span class="nf">protecting_encrypted_data</span> <span class="k">do</span>
+   <span class="o">...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это удобно, если вы хотите защитить зашифрованные данные, в то же время запуская произвольный код для них (например, в консоли Rails).</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Asset Pipeline" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Asset Pipeline" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/asset-pipeline" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Asset Pipeline
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="Dy1+/tufluOcFIAKMeb565Qop5Xs70ssurgRY55YsklLqsUB6834qP0Wvjrl05VnG+7Ef22U0eEN6O5Ktx4Ocg==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#what-is-the-asset-pipeline">1.  Что такое файлопровод (Asset Pipeline)?</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#osnovnye-osobennosti">2. Основные особенности</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#chto-za-metki-i-zachem-oni-nuzhny">2.1. Что за метки и зачем они нужны?</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#chto-takoe-karty-importa-import-maps-i-zachem-oni-mne">2.2. Что такое карты импорта (Import Maps), и зачем они мне?</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#how-to-use-the-asset-pipeline">3.  Как использовать карты импорта в качестве файлопровода Javascript</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#kak-oni-rabotayut">3.1. Как они работают</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie">3.2. Использование</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-paketov-npm-iz-javascript-cdn">3.3. Использование пакетов npm из JavaScript CDN</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#predvaritelnaya-zagruzka-privyazannyh-moduley">3.4. Предварительная загрузка привязанных модулей</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#kak-ispolzovat-sprockets">4. Как использовать Sprockets</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#manifest-files-and-directives">4.1.  Файлы манифеста и директивы</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#assety-konkretnogo-kontrollera">4.2. Ассеты конкретного контроллера</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#asset-organization">4.3. Asset Organization</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#organizatsiya-assetov">4.4. Организация ассетов</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#puti-poiska">4.4.1. Пути поиска</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#ispolzovanie-indeksnyh-faylov-kak-proksi-dlya-papok">4.4.2. Использование индексных файлов как прокси для папок</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#kodirovanie-ssylok-na-assety">4.5. Кодирование ссылок на ассеты</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#css-i-erb">4.5.1. CSS и ERB</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#vyzov-oshibki-esli-asset-ne-nayden">4.6. Вызов ошибки, если ассет не найден</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#vklyuchenie-daydzhestov">4.7. Включение  дайджестов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#vklyuchenie-kart-ishodnikov">4.8. Включение карт исходников</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#in-production">5.  В production</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#precompiling-assets">5.1.  Прекомпиляция ассетов</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#vechnyy-zagolovok-expires">5.1.1. Вечный заголовок Expires</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#lokalnaya-prekompilyatsiya">5.2. Локальная прекомпиляция</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#kompilyatsiya-v-realnom-vremeni">5.3. Компиляция в реальном времени</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#cdns">5.4.  CDN</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#nastroyka-cdn-na-razdachu-staticheskih-assetov">5.4.1. Настройка CDN на раздачу статических ассетов</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#nastroyka-povedeniya-keshirovaniya-cdn">5.4.2. Настройка поведения кэширования CDN</a>
+</h6>      </li>
+      <li>
+        <h7>
+          <a href="#keshirovanie-zaprosov-cdn">5.4.2.1. Кэширование запросов CDN</a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#otladka-zagolovkov-cdn">5.4.2.2. Отладка заголовков CDN</a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#cdn-i-zagolovok-cache-control">5.4.2.3. CDN и заголовок Cache-Control</a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#cdn-i-nedeystvitelnost-kesha-osnovannogo-na-url">5.4.2.4. CDN и недействительность кэша, основанного на URL</a>
+</h7>      </li>
+      <li>
+        <h4>
+          <a href="#nastroyka-fayloprovoda">6. Настройка файлопровода</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#szhatie-css">6.1. Сжатие CSS</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#szhatie-javascript">6.2. Сжатие JavaScript</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#szhatie-assetov">6.3. Сжатие ассетов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-sobstvennogo-kompressora">6.4. Использование собственного компрессора</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#izmenenie-puti-assets">6.5. Изменение пути <em>assets</em></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#zagolovki-x-sendfile">6.6. Заголовки X-Sendfile</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#assets-cache-store">7.  Хранилище кэша ассетов</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#dobavlenie-assetov-v-vashi-gemy">8. Добавление ассетов в ваши гемы</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#sozdanie-preprotsessora-v-vashey-biblioteke-ili-geme">9. Создание препроцессора в вашей библиотеке или геме</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#alternativnye-biblioteki">10. Альтернативные библиотеки</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#jsbundling-rails">10.1. jsbundling-rails</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#webpacker-shakapacker">10.2. Webpacker/Shakapacker</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#cssbundling-rails">10.3. cssbundling-rails</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#dartsass-rails">10.4. dartsass-rails</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#tailwindcss-rails">10.5. tailwindcss-rails</a>
+</h5>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='asset-pipeline' class='inside_page_header'> Asset Pipeline</h2><p>Это руководство раскрывает файлопровод (asset pipeline).</p><p>Обратившись к этому руководству, вы узнаете:</p><ul><li>Что такое файлопровод, и зачем он нужен.
+</li><li>Как должным образом организовывать ассеты своего приложения.
+</li><li>Преимущества файлопровода.
+</li><li>Как добавить препроцессор к файлопроводу.
+</li><li>Как упаковывать ассеты в гем.
+</li></ul><h3 id='what-is-the-asset-pipeline' class='inside_page_header'><a href="#what-is-the-asset-pipeline">1.</a>  Что такое файлопровод (Asset Pipeline)?</h3><p>Файлопровод представляет фреймворк для обработки доставки ассетов JavaScript и CSS. Это выполняется с использованием технологий, таких как HTTP/2, и техник, таких как конкатенация и минификация. Наконец, это позволяет приложению автоматически соединяться с ассетами других гемов.</p><p>Файлопровод реализован в гемах <a href="https://github.com/rails/importmap-rails">importmap-rails</a>, <a href="https://github.com/rails/sprockets">sprockets</a> и <a href="https://github.com/rails/sprockets-rails">sprockets-rails</a> и включен по умолчанию. Можно отключить файлопровод при создании нового приложения, передав опцию <code>--skip-asset-pipeline</code>.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new appname <span class="nt">--skip-asset-pipeline</span>
+</code></pre>
+</div>
+<div class="note"><p>Это руководство фокусируется на файлопроводе по умолчанию с использованием только <code>sprockets</code> для обработки CSS и <code>importmap-rails</code> для JavaScript. Главное ограничение у них в том, что нет поддержки для транспиляции, поэтому нельзя использовать такие вещи как <code>Babel</code>, <code>Typescript</code>, <code>Sass</code>, <code>React JSX format</code> или <code>TailwindCSS</code>. Мы рекомендуем прочитать <a href="#alternative-libraries">раздел про альтернативные библиотеки</a>, если вам необходима транспиляция для JavaScript/CSS.</p></div><h3 id='osnovnye-osobennosti' class='inside_page_header'><a href="#osnovnye-osobennosti">2.</a> Основные особенности</h3><p>Первой особенностью файлопровода является вставка метки SHA256 в каждое имя файла, чтобы этот файл кэшировался браузером и CDN. Эта метка автоматически обновляется при изменении содержимого файла, что инвалидирует кэш.</p><p>Второй особенностью файлопровода является использование <a href="https://github.com/WICG/import-maps">карт импорта</a> при раздаче файлов JavaScript. Это позволяет создавать современное приложение с помощью библиотек Javascript, сделанных для модулей ES (ESM), без необходимости транспиляции и сборки. В свою очередь, <strong>это устраняет необходимость Webpack, yarn, node или любой другой части инструментария JavaScript</strong>.</p><p>Третьей особенностью файлопровода является соединение всех CSS файлов в один главный файл <code>.css</code>, который затем минифицируется или сжимается. Как будет сказано далее в этом руководстве, можно настроить эту стратегию, сгруппировав файлы любым способом. В production, Rails вставляет метку SHA256 в каждое имя файла, таким образом файл кэшируется браузером. Кэш можно сделать недействительным, изменив эту метку, что происходит автоматически каждый раз, когда изменяется содержимое файла.</p><p>Четвертой особенностью файлопровода является то, что он позволяет писать эти ассеты на языке более высокого уровня для CSS.</p><h4 id='chto-za-metki-i-zachem-oni-nuzhny' class='inside_page_header'><a href="#chto-za-metki-i-zachem-oni-nuzhny">2.1.</a> Что за метки и зачем они нужны?</h4><p>Метки (fingerprinting) - это техника, реализующая зависимость имени файла от его содержимого. При изменении содержимого файла, имя файла также изменяется. Для статичного или нечасто обновляемого содержимого это предоставляет легкий способ сказать, идентичны ли две версии файла, даже если они на разных серверах, или имеют различную дату размещения.</p><p>Когда имя файла уникально и основано на его содержимом, заголовками HTTP можно установить повсеместное кэширование (в CDN, у провайдера, в сетевом оборудовании или браузере), чтобы у них была собственная копия содержимого. Когда содержимое изменяется, метка тоже изменится. Это приведет к тому, что удаленные клиенты запросят новую копию содержимого. Эта техника известна как <em>cache busting</em>.</p><p>Техникой, используемой Sprockets для меток, является вставка хэша содержимого в имя, обычно в конце. Например, файл CSS <code>global.css</code>:</p><div class="code_container">
+  <pre><code class="highlight plaintext">global-908e25f4bf641868d8683022a5b62f54.css
+</code></pre>
+</div>
+<p>Это стратегия, принятая файлопроводом Rails.</p><p>Метки включены по умолчанию для сред development и production. Их также можно включить или отключить в конфигурации с помощью опции <a href="/configuring#config-assets-digest"><code>config.assets.digest</code></a>.</p><h4 id='chto-takoe-karty-importa-import-maps-i-zachem-oni-mne' class='inside_page_header'><a href="#chto-takoe-karty-importa-import-maps-i-zachem-oni-mne">2.2.</a> Что такое карты импорта (Import Maps), и зачем они мне?</h4><p>Карты импорта позволяют импортировать модули JavaScript с помощью логичных имен, связанных с версионированными/мечеными файлами, – прямо из браузера. Таким образом, можно создавать современное приложение с помощью библиотек Javascript, сделанных для модулей ES (ESM), без необходимости транспиляции и сборки.</p><p>С таким подходом можно поставлять множество маленьких файлов JavaScript вместо одного большого файла JavaScript. Это благодаря HTTP/2, который больше не несет ухудшения материального быстродействия во время первоначальной доставки, а фактически даже предлагает значительные преимущества в долгосрочной перспективе за счет лучшей динамики кэширования.</p><h3 id='how-to-use-the-asset-pipeline' class='inside_page_header'><a href="#how-to-use-the-asset-pipeline">3.</a>  Как использовать карты импорта в качестве файлопровода Javascript</h3><p>Карты импорта являются обработчиком Javascript по умолчанию, логика генерации карт импорта обрабатывается гемом <a href="https://github.com/rails/importmap-rails"><code>importmap-rails</code></a>.</p><div class="warning"><p>Карты импорта используются только для файлов Javascript, и не могут быть использованы для доставки CSS. Чтобы узнать о CSS, обратитесь к <a href="#how-to-use-sprockets">разделу по Sprockets</a>.</p></div><p>Детальные инструкции по использованию находятся на домашней странице гема, но важно понимать основы <code>importmap-rails</code>.</p><h4 id='kak-oni-rabotayut' class='inside_page_header'><a href="#kak-oni-rabotayut">3.1.</a> Как они работают</h4><p>Карты импорта по сути это строковая замена для того, что называется &quot;bare module specifiers&quot;. Они позволяют стандартизировать имена модулей импорта JavaScript.</p><p>Возьмем, к примеру, такое определение импорта, оно не будет работать без карты импорта:</p><div class="code_container">
+  <pre><code class="highlight javascript"><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span>
+</code></pre>
+</div>
+<p>Вы бы могли определить его так, чтобы оно заработало:</p><div class="code_container">
+  <pre><code class="highlight javascript"><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">https://ga.jspm.io/npm:react@17.0.2/index.js</span><span class="dl">"</span>
+</code></pre>
+</div>
+<p>Тут вступает карта импорта, мы определяем, что имя <code>react</code> прикреплено к адресу <code>https://ga.jspm.io/npm:react@17.0.2/index.js</code>. С такой информацией браузер принимает упрощенное определение <code>import React from &quot;react&quot;</code>. Можно думать о карте импорта как о псевдониме для адреса исходника библиотеки.</p><h4 id='ispolzovanie' class='inside_page_header'><a href="#ispolzovanie">3.2.</a> Использование</h4><p>С помощью <code>importmap-rails</code> создается файл конфигурации importmap, привязывая путь библиотеки к имени:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/importmap.rb</span>
+<span class="n">pin</span> <span class="s2">"application"</span>
+<span class="n">pin</span> <span class="s2">"react"</span><span class="p">,</span> <span class="ss">to: </span><span class="s2">"https://ga.jspm.io/npm:react@17.0.2/index.js"</span>
+</code></pre>
+</div>
+<p>Все сконфигурированные карты импорта должны быть прикреплены к элементу <code>&lt;head&gt;</code> приложения, добавив <code>&lt;%= javascript_importmap_tags %&gt;</code>. <code>javascript_importmap_tags</code> рендерит ряд скриптов в элемент <code>head</code>:</p><ul><li>JSON со всеми сконфигурированными картами импорта:
+</li></ul><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"importmap"</span><span class="nt">&gt;</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">imports</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">application</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">/assets/application-39f16dc3f3....js</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://ga.jspm.io/npm:react@17.0.2/index.js</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre>
+</div>
+<ul><li><a href="https://github.com/guybedford/es-module-shims"><code>Es-module-shims</code></a>, действующий как полифил, обеспечивающий поддержку для <code>import maps</code> в старых браузерах:
+</li></ul><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/es-module-shims.min"</span> <span class="na">async=</span><span class="s">"async"</span> <span class="na">data-turbo-track=</span><span class="s">"reload"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
+</div>
+<ul><li>Точку входа для загрузки JavaScript из <code>app/javascript/application.js</code>:
+</li></ul><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;</span><span class="k">import</span> <span class="dl">"</span><span class="s2">application</span><span class="dl">"</span><span class="nt">&lt;/script&gt;</span>
+</code></pre>
+</div>
+<h4 id='ispolzovanie-paketov-npm-iz-javascript-cdn' class='inside_page_header'><a href="#ispolzovanie-paketov-npm-iz-javascript-cdn">3.3.</a> Использование пакетов npm из JavaScript CDN</h4><p>Можно использовать команду <code>./bin/importmap</code>, добавленную как часть <code>importmap-rails</code>, чтобы привязать, отвязать или обновить пакеты npm в карте импорта. Этот исполняемый файл использует <a href="https://jspm.org/"><code>JSPM.org</code></a>.</p><p>Он работает так:</p><div class="code_container">
+  <pre><code class="highlight sh">./bin/importmap pin react react-dom
+Pinning <span class="s2">"react"</span> to https://ga.jspm.io/npm:react@17.0.2/index.js
+Pinning <span class="s2">"react-dom"</span> to https://ga.jspm.io/npm:react-dom@17.0.2/index.js
+Pinning <span class="s2">"object-assign"</span> to https://ga.jspm.io/npm:object-assign@4.1.1/index.js
+Pinning <span class="s2">"scheduler"</span> to https://ga.jspm.io/npm:scheduler@0.20.2/index.js
+
+./bin/importmap json
+
+<span class="o">{</span>
+  <span class="s2">"imports"</span>: <span class="o">{</span>
+    <span class="s2">"application"</span>: <span class="s2">"/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js"</span>,
+    <span class="s2">"react"</span>: <span class="s2">"https://ga.jspm.io/npm:react@17.0.2/index.js"</span>,
+    <span class="s2">"react-dom"</span>: <span class="s2">"https://ga.jspm.io/npm:react-dom@17.0.2/index.js"</span>,
+    <span class="s2">"object-assign"</span>: <span class="s2">"https://ga.jspm.io/npm:object-assign@4.1.1/index.js"</span>,
+    <span class="s2">"scheduler"</span>: <span class="s2">"https://ga.jspm.io/npm:scheduler@0.20.2/index.js"</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+<p>Как видите, два пакета react и react-dom разрешаются в четыре зависимости, при jspm по умолчанию.</p><p>Теперь их можно использовать в вашей точке входа <code>application.js</code>, как и любой другой модуль:</p><div class="code_container">
+  <pre><code class="highlight javascript"><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span>
+<span class="k">import</span> <span class="nx">ReactDOM</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-dom</span><span class="dl">"</span>
+</code></pre>
+</div>
+<p>Также можно назначить указанную версию для привязки:</p><div class="code_container">
+  <pre><code class="highlight sh">./bin/importmap pin react@17.0.1
+Pinning <span class="s2">"react"</span> to https://ga.jspm.io/npm:react@17.0.1/index.js
+Pinning <span class="s2">"object-assign"</span> to https://ga.jspm.io/npm:object-assign@4.1.1/index.js
+</code></pre>
+</div>
+<p>Или даже убирать привязки:</p><div class="code_container">
+  <pre><code class="highlight sh">./bin/importmap unpin react
+Unpinning <span class="s2">"react"</span>
+Unpinning <span class="s2">"object-assign"</span>
+</code></pre>
+</div>
+<p>Можно контролировать среду пакета для пакетов с раздельными сборками для &quot;production&quot; (по умолчанию) и &quot;development&quot;:</p><div class="code_container">
+  <pre><code class="highlight sh">./bin/importmap pin react <span class="nt">--env</span> development
+Pinning <span class="s2">"react"</span> to https://ga.jspm.io/npm:react@17.0.2/dev.index.js
+Pinning <span class="s2">"object-assign"</span> to https://ga.jspm.io/npm:object-assign@4.1.1/index.js
+</code></pre>
+</div>
+<p>Также можно подобрать альтернативу, поддерживаемую провайдером CDN, при привязке, например <a href="https://unpkg.com/"><code>unpkg</code></a> или <a href="https://www.jsdelivr.com/"><code>jsdelivr</code></a> (по умолчанию <a href="https://jspm.org/"><code>jspm</code></a>):</p><div class="code_container">
+  <pre><code class="highlight sh">./bin/importmap pin react <span class="nt">--from</span> jsdelivr
+Pinning <span class="s2">"react"</span> to https://cdn.jsdelivr.net/npm/react@17.0.2/index.js
+</code></pre>
+</div>
+<p>Однако помните, что если вы переключили привязку от одного провайдера на другой, возможно будет необходимость очистить зависимости, добавленные первым провайдером, но не используемые вторым провайдером.</p><p>Запустите <code>./bin/importmap</code>, чтобы увидеть все параметры.</p><p>Отметьте, что эта команда - просто удобная обертка для разрешения логических имен пакетов к CDN URL. Можно просто найти CDN URL самостоятельно и привязать их. Например, если нужен Skypack для React, можно просто добавить следующее в <code>config/importmap.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">pin</span> <span class="s2">"react"</span><span class="p">,</span> <span class="ss">to: </span><span class="s2">"https://cdn.skypack.dev/react"</span>
+</code></pre>
+</div>
+<h4 id='predvaritelnaya-zagruzka-privyazannyh-moduley' class='inside_page_header'><a href="#predvaritelnaya-zagruzka-privyazannyh-moduley">3.4.</a> Предварительная загрузка привязанных модулей</h4><p>Чтобы избежать эффекта водопада, когда браузеру нужно загружать файлы один за другим, до того, как он доберется до самого глубоко вложенного импорта, importmap-rails поддерживает <a href="https://developers.google.com/web/updates/2017/12/modulepreload">ссылки modulepreload</a>. Привязанные модули могут быть предварительно загружены, если добавить <code>preload: true</code> к привязке.</p><p>Хорошей идей является предварительная загрузка библиотек или фреймворков, используемых во всем приложении, так как это сообщит браузеру скачать их поскорее.</p><p>Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/importmap.rb</span>
+<span class="n">pin</span> <span class="s2">"@github/hotkey"</span><span class="p">,</span> <span class="ss">to: </span><span class="s2">"https://ga.jspm.io/npm:@github/hotkey@1.4.4/dist/index.js"</span><span class="p">,</span> <span class="ss">preload: </span><span class="kp">true</span>
+<span class="n">pin</span> <span class="s2">"md5"</span><span class="p">,</span> <span class="ss">to: </span><span class="s2">"https://cdn.jsdelivr.net/npm/md5@2.3.0/md5.js"</span>
+
+<span class="c1"># app/views/layouts/application.html.erb</span>
+<span class="o">&lt;</span><span class="sx">%= javascript_importmap_tags %&gt;
+
+# включит следующую ссылку перед настройкой importmap:
+&lt;link rel=</span><span class="s2">"modulepreload"</span> <span class="n">href</span><span class="o">=</span><span class="s2">"https://ga.jspm.io/npm:@github/hotkey@1.4.4/dist/index.js"</span><span class="o">&gt;</span>
+<span class="o">...</span>
+</code></pre>
+</div>
+<div class="note"><p>Обратитесь к репозиторию <a href="https://github.com/rails/importmap-rails"><code>importmap-rails</code></a> за актуальной документацией.</p></div><h3 id='kak-ispolzovat-sprockets' class='inside_page_header'><a href="#kak-ispolzovat-sprockets">4.</a> Как использовать Sprockets</h3><p>Наивным подходом выложить ассеты вашего приложение в веб будет хранить их в поддиректориях папки <code>public</code>, таких как <code>images</code> и <code>stylesheets</code>. Делать это вручную может быть сложно, так как большинство современных приложений требует обработки ассетов определенным образом, например, сжатие и добавление меток к ассетам.</p><p>Sprockets разработан, чтобы автоматически предварительно обрабатывать ваши ассеты, хранимые в сконфигурированных директориях, и после обработки выкладывает их в папку <code>public/assets</code> с метками, сжатием, генерации карт исходников и другими конфигурированными особенностями.</p><p>Ассеты все еще можно размещать в иерархии <code>public</code>. Любой ассет в <code>public</code> будет роздан как статичный файл приложением или веб-сервером, когда <a href="configuring.html#config-public-file-server-enabled"><code>config.public_file_server.enabled</code></a> установлена true. Можно определить директивы <code>manifest.js</code> для файлов, которые должны подвергаться некоторой предварительной обработке перед тем, как раздаваться.</p><p>В production Rails по умолчанию прекомпилирует эти файлы в <code>public/assets</code>. Прекомпилированные копии затем раздаются как статичные ассеты веб сервером. Файлы в <code>app/assets</code> никогда не раздаются напрямую в production.</p><h4 id='manifest-files-and-directives' class='inside_page_header'><a href="#manifest-files-and-directives">4.1.</a>  Файлы манифеста и директивы</h4><p>При компиляции ассетов с помощью Sprockets, ему нужно решить, какие цели верхнего уровня компилировать, обычно <code>application.css</code> и изображения. Цели верхнего уровня определяются в файле Sprockets <code>manifest.js</code>, по умолчанию он выглядит так:</p><div class="code_container">
+  <pre><code class="highlight js"><span class="c1">//= link_tree ../images</span>
+<span class="c1">//= link_directory ../stylesheets .css</span>
+<span class="c1">//= link_tree ../../javascript .js</span>
+<span class="c1">//= link_tree ../../../vendor/javascript .js</span>
+</code></pre>
+</div>
+<p>Он содержит <em>директивы</em> - инструкции, сообщающие Sprockets, какие файлы требуются, чтобы создать отдельный файл CSS или JavaScript.</p><p>Он означает, что надо включить содержимое всех файлов, найденных в директории <code>./app/assets/images</code>, а также любых поддиректориях, а также любой файл, распознанный как JS, непосредственно в<code>./app/javascript</code> или <code>./vendor/javascript</code>.</p><p>Он загрузит любой CSS из директории <code>./app/assets/stylesheets</code> (не включая поддиректории). Допустим, что у нас есть файлы <code>application.css</code> и <code>marketing.css</code> в папке <code>./app/assets/stylesheets</code>, он позволит загрузить эти таблицы стилей с помощью <code>&lt;%= stylesheet_link_tag &quot;application&quot; %&gt;</code> или <code>&lt;%= stylesheet_link_tag &quot;marketing&quot; %&gt;</code> из вью.</p><p>Возможно, вы заметили, что наши файлы JavaScript не загружаются из директории <code>assets</code> по умолчанию, то потому, что <code>./app/javascript</code> по умолчанию точка входа для гема <code>importmap-rails</code>, и папка <code>vendor</code> это место, где будут храниться скачанные пакеты JS.</p><p>В <code>manifest.js</code> можно также указать директиву <code>link</code>, чтобы загрузить определенный файл вместо целой директории. Директива <code>link</code> требует предоставления явного расширения файла.</p><p>Sprockets загружает указанные файлы, при необходимости обрабатывает их, соединяет в единый файл, а затем сжимает (на основании значения <code>config.assets.css_compressor</code> или <code>config.assets.js_compressor</code>). Сжатие уменьшает размер файла, позволяя браузеру скачивать файлы быстрее.</p><p>You can also opt to include controller-specific stylesheets files
+only in their respective controllers using the following:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span> <span class="n">params</span><span class="p">[</span><span class="ss">:controller</span><span class="p">]</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<h4 id='assety-konkretnogo-kontrollera' class='inside_page_header'><a href="#assety-konkretnogo-kontrollera">4.2.</a> Ассеты конкретного контроллера</h4><p>При генерации скаффолда или контроллера, Rails также генерирует файл CSS для этого контроллера. Дополнительно при генерации скаффолда, Rails генерирует файл <code>scaffolds.css</code>.</p><p>Например, если генерируете <code>ProjectsController</code>, Rails также добавит новый файл <code>app/assets/stylesheets/projects.css</code>. По умолчанию эти файлы будут готовы к немедленному использованию вашим приложением, с помощью директивы <code>link_directory</code> в файле <code>manifest.js</code>.</p><p>Опционально можно включить таблицы стилей конкретного контроллера только для их соответствующих контроллеров, используя следующее:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span> <span class="n">params</span><span class="p">[</span><span class="ss">:controller</span><span class="p">]</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>When doing this, ensure you are not using the <code>require_tree</code> directive in your <code>application.css</code>, as that could result in your controller-specific assets being included more than once.</p><h4 id='asset-organization' class='inside_page_header'><a href="#asset-organization">4.3.</a> Asset Organization</h4><p>Pipeline assets can be placed inside an application in one of three locations:
+<code>app/assets</code>, <code>lib/assets</code> or <code>vendor/assets</code>.</p><ul><li><code>app/assets</code> is for assets that are owned by the application, such as custom images or stylesheets.
+</li></ul><p>При этом убедитесь, что не используете директиву <code>require_tree</code> в <code>application.css</code>, так как она приведет к тому, что ассеты контроллера будут включены более одного раза.</p><h4 id='organizatsiya-assetov' class='inside_page_header'><a href="#organizatsiya-assetov">4.4.</a> Организация ассетов</h4><p>Ассеты файлопровода могут быть размещены в приложении в одном из этих трех мест расположений: <code>app/assets</code>, <code>lib/assets</code> или <code>vendor/assets</code>.</p><ul><li><p><code>app/assets</code> предназначено для ассетов, принадлежащих приложению, таких как изображения или таблицы стилей, изготовленные специально для приложения.</p></li><li><p><code>app/javascript</code> для кода JavaScript</p></li><li><p><code>vendor/[assets|javascript]</code> предназначено для ассетов, принадлежащих сторонним субъектам, таких как фреймворки CSS или библиотеки JavaScript. Имейте в виду, что код третьей стороны со ссылками на другие файлы, также обрабатывающиеся файлопроводом (изображения, таблицы стилей и так далее), должен быть переписан с помощью хелперов, таких как <code>asset_path</code>.</p></li></ul><p>В файле <code>manifest.js</code> можно настроить другие расположения, обратитесь к <a href="#manifest-files-and-directives">Файлы манифеста и директивы</a>.</p><h5 id='puti-poiska' class='inside_page_header'><a href="#puti-poiska">4.4.1.</a> Пути поиска</h5><p>Когда к файлу обращаются из манифеста или хелпера, Sprockets ищет во всех местах, указанных в <code>manifest.js</code> для него. Путь поиска можно увидеть, просмотрев <a href="/configuring#config-assets-paths"><code>Rails.application.config.assets.paths</code></a> в консоли Rails.</p><h5 id='ispolzovanie-indeksnyh-faylov-kak-proksi-dlya-papok' class='inside_page_header'><a href="#ispolzovanie-indeksnyh-faylov-kak-proksi-dlya-papok">4.4.2.</a> Использование индексных файлов как прокси для папок</h5><p>Sprockets использует файлы с именем <code>index</code> (с соответствующим расширением) для специальных целей.</p><p>Например, если имеется библиотека CSS с множеством модулей, хранящаяся в <code>lib/assets/stylesheets/library_namee</code>, файл <code>lib/assets/stylesheets/library_name/index.css</code> служит манифестом для всех файлов в этой библиотеке. Этот файл может включать список всех требуемых файлов в нужном порядке, или просто директиву <code>require_tree</code>.</p><p>Это чем-то похоже на способ, которым файл <code>public/library_name/index.html</code> можно достичь запросом к<code>/library_name</code>. Это означает, что нельзя напрямую использовать индексный файл.</p><p>Библиотека в целом может быть доступна из файлов <code>.css</code> следующим образом:</p><div class="code_container">
+  <pre><code class="highlight css"><span class="c">/* ...
+*= require library_name
+*/</span>
+</code></pre>
+</div>
+<p>Это упрощает поддержку и сохраняет чистоту, позволяя коду быть сгруппированным перед включением где-нибудь еще.</p><h4 id='kodirovanie-ssylok-na-assety' class='inside_page_header'><a href="#kodirovanie-ssylok-na-assety">4.5.</a> Кодирование ссылок на ассеты</h4><p>Sprockets не добавляет какие-либо новые методы для доступа к вашим ассетам - используйте знакомый метод <code>stylesheet_link_tag</code>.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span> <span class="s2">"application"</span><span class="p">,</span> <span class="ss">media: </span><span class="s2">"all"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>При использовании гема <a href="https://github.com/hotwired/turbo-rails"><code>turbo-rails</code></a>, который включен по умолчанию в Rails, включите опцию &#39;data-turbo-track&#39;, которая вызывает проверку Turbo, что ассет был обновлен, таким образом загружая его на страницу:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span> <span class="s2">"application"</span><span class="p">,</span> <span class="s2">"data-turbo-track"</span><span class="p">:</span> <span class="s2">"reload"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>В обычных вью можно получить доступ к изображениям в директории <code>app/assets/images</code> следующим образом:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="s2">"rails.png"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>При условии, что файлопровод включен в вашем приложении (и не отключен в контексте текущей среды), этот файл будет отдан с помощью Sprockets. Если файл существует в <code>public/assets/rails.png</code>, он будет отдан веб-сервером.</p><p>Кроме того, запрос файла с хэшем SHA256, такого как <code>public/assets/rails-f90d8a84c707a8dc923fca1ca1895ae8ed0a09237f6992015fef1e11be77c023.png</code> будет обработан тем же образом. Как генерируются эти хэши будет раскрыто позже в этом руководстве в разделе <a href="#in-production">В production</a>.</p><p>Изображения также могут быть организованы в поддиректории и могут быть доступны с помощью указания имени директории в теге:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="s2">"icons/rails.png"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<div class="warning"><p>Если вы прекомпилируете ассеты (смотрите раздел <a href="#in-production">В production</a> далее), связывание с несуществующим ассетом вызовет исключение на вызывающей странице. Это также справедливо и для связывания с пустой строкой. Поэтому будьте осторожны при использовании <code>image_tag</code> и других хелперов с данными, предоставленными пользователями.</p></div><h5 id='css-i-erb' class='inside_page_header'><a href="#css-i-erb">4.5.1.</a> CSS и ERB</h5><p>Файлопровод автоматически вычисляет ERB. Это означает, что, если добавить расширение <code>erb</code> к ассету CSS (например, <code>application.css.erb</code>), будут доступны хелперы, такие как <code>asset_path</code>, в правилах вашего CSS:</p><div class="code_container">
+  <pre><code class="highlight css"><span class="nc">.class</span> <span class="p">{</span> <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url(&lt;%= asset_path 'image.png' %&gt;)</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>Этот фрагмент кода записывает путь к определенному указанному ассету. Этот пример имеет смысл, если имеется изображение в одном из путей загрузки ассетов, такое как <code>app/assets/images/image.png</code>, на которое тут будет ссылка. Если это изображение уже имеется в <code>public/assets</code> как файл с меткой, то будет ссылка на него.</p><p>Если хотите использовать <a href="https://ru.wikipedia.org/wiki/Data:_URL">data URI</a> - метод встраивания данных изображения непосредственно в файл CSS - используйте хелпер <code>asset_data_uri</code>.</p><div class="code_container">
+  <pre><code class="highlight css"><span class="nf">#logo</span> <span class="p">{</span> <span class="nl">background</span><span class="p">:</span> <span class="sx">url(&lt;%= asset_data_uri 'logo.png' %&gt;)</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>Этот фрагмент кода вставит правильно отформатированный URI в код CSS.</p><p>Отметьте, что закрывающий тег не может быть в стиле <code>-%&gt;</code>.</p><h4 id='vyzov-oshibki-esli-asset-ne-nayden' class='inside_page_header'><a href="#vyzov-oshibki-esli-asset-ne-nayden">4.6.</a> Вызов ошибки, если ассет не найден</h4><p>Если используется sprockets-rails &gt;= 3.2.0, можно настроить, что произойдет, когда выполнен поиск ассета, и ничего не было найдено. Если выключить &quot;asset fallback&quot;, тогда будет вызвана ошибка, когда ассет не может быть найден.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">assets</span><span class="p">.</span><span class="nf">unknown_asset_fallback</span> <span class="o">=</span> <span class="kp">false</span>
+</code></pre>
+</div>
+<p>Если &quot;asset fallback&quot; включен, тогда, когда ассет не может быть найден, вместо этого будет выведен путь, а не вызвана ошибка. Поведение &quot;asset fallback&quot; выключено по умолчанию.</p><h4 id='vklyuchenie-daydzhestov' class='inside_page_header'><a href="#vklyuchenie-daydzhestov">4.7.</a> Включение  дайджестов</h4><p>Можно отключить дайджесты, добавив в <code>config/environments/development.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">assets</span><span class="p">.</span><span class="nf">digest</span> <span class="o">=</span> <span class="kp">false</span>
+</code></pre>
+</div>
+<p>Когда эта опция true, для URL ассета будет генерироваться дайджест.</p><h4 id='vklyuchenie-kart-ishodnikov' class='inside_page_header'><a href="#vklyuchenie-kart-ishodnikov">4.8.</a> Включение карт исходников</h4><p>Можно включить карты исходников, добавив в <code>config/environments/development.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">assets</span><span class="p">.</span><span class="nf">debug</span> <span class="o">=</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<p>Когда включена отладка, Sprockets сгенерирует карту исходников для каждого ассета. Это позволит вам отлаживать каждый файл по отдельности в средствах разработчика вашего браузера.</p><p>Ассеты компилируются и кэшируются при первом запросе после запуска сервера. Sprockets устанавливает HTTP-заголовок контроля кэша <code>must-revalidate</code> для уменьшения нагрузки на последующие запросы - на них браузер получает отклик 304 (Not Modified).</p><p>Если какой-либо из файлов в манифесте меняется между запросами, сервер возвращает новый скомпилированный файл.</p><h3 id='in-production' class='inside_page_header'><a href="#in-production">5.</a>  В production</h3><p>В среде production Sprockets использует схему меток, <a href="#what-is-the-asset-pipeline">описанную ранее</a>. По умолчанию Rails полагает, что ассеты прекомпилированы и будут отданы как статичные ассеты вашим веб-сервером.</p><p>В течение фазы прекомпиляции из содержимого компилированных файлов генерируется SHA256 и вставляется в имена файлов, когда они записываются на диск. Эти имена меток используются хелперами Rails вместо имени манифеста.</p><p>Например, это:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span> <span class="s2">"application"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>сгенерирует что-то наподобие этого:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/assets/application-4dd5b109ee3439da54f5bdfd78a80473.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+<p>Режим меток контролируется с помощью инициализационной опции  <a href="/configuring#config-assets-digest"><code>config.assets.digest</code></a> (которая по умолчанию <code>true</code>).</p><div class="note"><p>В нормальных обстоятельствах опция <code>config.assets.digest</code> по умолчанию не должна изменяться. Если нет дайджеста в именах файлов и установлены заголовки с вечным кэшированием, удаленные клиенты никогда не узнают, когда перезапросить файлы при изменении их содержимого.</p></div><h4 id='precompiling-assets' class='inside_page_header'><a href="#precompiling-assets">5.1.</a>  Прекомпиляция ассетов</h4><p>В Rails имеется встроенная команда для компиляции на диск манифестов ассетов и других файлов в файлопроводе.</p><p>Скомпилированные ассеты записываются в место расположения, указанное в <a href="/configuring#config-assets-prefix"><code>config.assets.prefix</code></a>. По умолчанию это директория <code>/assets</code>.</p><p>Эту команду можно вызвать на сервере во время деплоя, чтобы создать скомпилированные версии ассетов непосредственно на сервере. Смотрите следующий раздел, чтобы узнать о том, как скомпилировать локально.</p><p>Команда следующая:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nv">RAILS_ENV</span><span class="o">=</span>production <span class="nb">rails </span>assets:precompile
+</code></pre>
+</div>
+<p>Это свяжет папку, указанную в <code>config.assets.prefix</code> с <code>shared/assets</code>. Если вы уже используете эту общую папку, вам следует написать собственную команду для деплоя.</p><p>Важно то, что эта папка является общей между деплоями, так что удаленно кэшированные страницы, ссылающиеся на старые скомпилированные ассеты, все еще будут работать, пока не истечет срок кэширования.</p><div class="note"><p>Всегда определяйте ожидаемое имя скомпилированного файла, оканчивающееся на <code>.js</code> или <code>.css</code>.</p></div><p>Команда также генерирует <code>.sprockets-manifest-randomhex.json</code> (где <code>randomhex</code> - это 16-байтовая случайная шестнадцатеричная строка), который содержит список всех ваших ассетов и соответствующие им метки. Это используется методами хелпера Rails, чтобы избежать направления запроса в Sprockets. Обычный файл манифеста выглядит так:</p><div class="code_container">
+  <pre><code class="highlight json"><span class="p">{</span><span class="nl">"files"</span><span class="p">:{</span><span class="nl">"application-&lt;fingerprint&gt;.js"</span><span class="p">:{</span><span class="nl">"logical_path"</span><span class="p">:</span><span class="s2">"application.js"</span><span class="p">,</span><span class="nl">"mtime"</span><span class="p">:</span><span class="s2">"2016-12-23T20:12:03-05:00"</span><span class="p">,</span><span class="nl">"size"</span><span class="p">:</span><span class="mi">412383</span><span class="p">,</span><span class="w">
+</span><span class="nl">"digest"</span><span class="p">:</span><span class="s2">"&lt;fingerprint&gt;"</span><span class="p">,</span><span class="nl">"integrity"</span><span class="p">:</span><span class="s2">"sha256-&lt;random-string&gt;"</span><span class="p">}},</span><span class="w">
+</span><span class="nl">"assets"</span><span class="p">:{</span><span class="nl">"application.js"</span><span class="p">:</span><span class="s2">"application-&lt;fingerprint&gt;.js"</span><span class="p">}}</span><span class="w">
+</span></code></pre>
+</div>
+<p>В реальном приложении будет больше файлов и ассетов, перечисленных в манифесте, также будут сгенерированы <code>&lt;fingerprint&gt;</code> и <code>&lt;random-string&gt;</code>.</p><p>Место расположения манифеста по умолчанию - корень папки, определенной в <code>config.assets.prefix</code> (по умолчанию &#39;/assets&#39;).</p><div class="note"><p>Если в production отсутствуют прекомпилированные файлы, вы получите исключение <code>Sprockets::Helpers::RailsHelper::AssetPaths::AssetNotPrecompiledError</code>, указывающее имя отсутствующего файла(-ов).</p></div><h5 id='vechnyy-zagolovok-expires' class='inside_page_header'><a href="#vechnyy-zagolovok-expires">5.1.1.</a> Вечный заголовок Expires</h5><p>Прекомпилированные ассеты существуют в файловой системе и отдаются непосредственно веб-сервером. По умолчанию у них нет заголовков вечного кэширования, таким образом, чтобы получить преимущество от меток, необходимо обновить конфигурацию вашего сервера, чтобы добавить эти заголовки.</p><p>Для Apache:</p><div class="code_container">
+  <pre><code class="highlight apache"><span class="c"># Директивы Expires* требуют, чтобы модуль Apache `mod_expires` был включен.</span>
+<span class="p">&lt;</span><span class="nl">Location</span><span class="sr"> /assets/</span><span class="p">&gt;
+</span>  <span class="c"># Не рекомендуется использование ETag, когда присутствует Last-Modified</span>
+  <span class="nc">Header</span> <span class="ss">unset</span> ETag
+  <span class="nc">FileETag</span> <span class="ss">None</span>
+  <span class="c"># RFC предписывает кэшировать только на 1 год</span>
+  <span class="nc">ExpiresActive</span> <span class="ss">On</span>
+  <span class="nc">ExpiresDefault</span> "access plus 1 year"
+<span class="p">&lt;/</span><span class="nl">Location</span><span class="p">&gt;
+</span></code></pre>
+</div>
+<p>Для NGINX:</p><div class="code_container">
+  <pre><code class="highlight nginx"><span class="k">location</span> <span class="p">~</span> <span class="sr">^/assets/</span> <span class="p">{</span>
+  <span class="kn">expires</span> <span class="s">1y</span><span class="p">;</span>
+  <span class="kn">add_header</span> <span class="s">Cache-Control</span> <span class="s">public</span><span class="p">;</span>
+
+  <span class="kn">add_header</span> <span class="s">ETag</span> <span class="s">""</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h4 id='lokalnaya-prekompilyatsiya' class='inside_page_header'><a href="#lokalnaya-prekompilyatsiya">5.2.</a> Локальная прекомпиляция</h4><p>Иногда вы не хотите или не можете компилировать ассеты на сервере production. Например, у вас ограниченное право записи в файловую систему production, или вы планируете часто деплоить без внесения каких-либо изменений в ваши ассеты.</p><p>В таких случаях можно прекомпилировать ассеты <em>локально</em> — то есть добавить окончательный набор скомпилированных, готовых к production ассетов в репозиторий исходного кода перед отправлением на production. Таким образом, их не нужно прекомпилировать отдельно на сервере production при каждом деплое.</p><p>Как указано выше, это можно сделать с помощью</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nv">RAILS_ENV</span><span class="o">=</span>production <span class="nb">rails </span>assets:precompile
+</code></pre>
+</div>
+<p>Есть следующие оговорки:</p><ul><li><p>Если доступны прекомпилированные ассеты, они будут отданы, даже если они больше не соответствуют оригинальным (не компилированным) ассетам, <em>даже на сервере development.</em></p><p>Чтобы убедиться, что сервер development всегда компилирует ассеты на лету (и, таким образом, всегда отражает последнее состояние кода), среда development <em>должна быть настроена содержать прекомпилированные ассеты в другом месте, чем содержит production.</em> В противном случае, любые ассеты, прекомпилированные для использования в  production, будут ломать запросы к ним в development (<em>например,</em> последующие сделанные изменения в ассетах не будут отражены в браузере).</p><p>Это можно сделать, добавив следующую строчку в <code>config/environments/development.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">assets</span><span class="p">.</span><span class="nf">prefix</span> <span class="o">=</span> <span class="s2">"/dev-assets"</span>
+</code></pre>
+</div>
+</li><li><p>Задача прекомпиляции ассетов в вашей системе развертывания (<em>например,</em> Capistrano) должна быть отключена.</p></li><li><p>Все необходимые компрессоры или минификаторы должны быть доступны что в вашей системе development.</p></li></ul><p>Также можно установить <code>ENV[&quot;SECRET_KEY_BASE_DUMMY&quot;]</code>, чтобы запустить использование случайно сгенерированного <code>secret_key_base</code>, хранящегося во временном файле. Это полезно при прекомпиляции ассетов для production как части шага сборки, которому тогда не нужен доступ к секретам production.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nv">SECRET_KEY_BASE_DUMMY</span><span class="o">=</span>1 <span class="nb">bundle exec rails </span>assets:precompile
+</code></pre>
+</div>
+<h4 id='kompilyatsiya-v-realnom-vremeni' class='inside_page_header'><a href="#kompilyatsiya-v-realnom-vremeni">5.3.</a> Компиляция в реальном времени</h4><p>В некоторых обстоятельствах, возможно, необходимо использовать компиляцию в реальном времени. В этом режиме все запросы для ассетов в файлопроводе обрабатываются непосредственно Sprockets.</p><p>Чтобы включить эту опцию, установите:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">assets</span><span class="p">.</span><span class="nf">compile</span> <span class="o">=</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<p>При первом запросе ассеты компилируются и кэшируются так, как описывается в разделе про <a href="#assets-cache-store">Хранилище кэша ассетов</a>, и имена манифеста, использованного в хелперах, изменяется путем включения хэша SHA256.</p><p>Sprockets также устанавливает HTTP-заголовок <code>Cache-Control</code> как <code>max-age=31536000</code>. Это сигнализирует всем кэшам между вашим сервером и браузером клиента, что это содержимое (отданный файл) может быть закэшировано на 1 год. В результате уменьшается количество запросов для этого ассета на ваш сервер; есть хороший шанс, что ассет будет в локальном кэше браузера или в каком-либо промежуточном кэше.</p><p>Этот режим использует больше памяти, имеет худшее быстродействие, чем по умолчанию, и не рекомендуется.</p><h4 id='cdns' class='inside_page_header'><a href="#cdns">5.4.</a>  CDN</h4><p>CDN расшифровывается как <a href="https://ru.wikipedia.org/wiki/Content_Delivery_Network">Content Delivery Network</a>, она в основном предназначена для кэширования ассетов по всему миру, поэтому когда браузер запрашивает ассет, кэшированная копия будет географически ближайшая к этому браузеру. Если отдавать ассеты непосредственно от сервера Rails в production, лучшей практикой будет использовать CDN перед приложением.</p><p>Обычным образцом использования CDN является установка вашего приложения в production как &quot;origin&quot; сервер. Это означает, что когда браузер запрашивает ассет из CDN, и кэш отсутствует, он возьмет файл с вашего сервера на лету и кэширует его. Например, если вы запустили приложение Rails на <code>example.com</code>, и у вас настроен CDN на <code>mycdnsubdomain.fictional-cdn.com</code>, то, когда делается запрос к <code>mycdnsubdomain.fictional-cdn.com/assets/smile.png</code>, CDN единожды запросит ваш сервер на <code>example.com/assets/smile.png</code> и кэширует запрос. Следующий запрос к CDN, пришедший по тому же самому URL, получит кэшированную копию. Когда CDN может отдать ассет напрямую, запрос никогда не затронет сервер Rails. Так как ассеты из CDN географически ближе к браузеру, запрос быстрее, и, так как серверу не нужно тратить время на раздачу ассетов, он может сфокусироваться на как можно быстром обслуживании кода приложения.</p><h5 id='nastroyka-cdn-na-razdachu-staticheskih-assetov' class='inside_page_header'><a href="#nastroyka-cdn-na-razdachu-staticheskih-assetov">5.4.1.</a> Настройка CDN на раздачу статических ассетов</h5><p>Для настройки CDN вам нужно, чтобы ваше приложение было запущено в production в интернете на публично доступном URL, например <code>example.com</code>. Далее необходимо зарегистрироваться на сервисе CDN облачного провайдера. После этого необходимо настроить &quot;origin&quot; для CDN, указав ваш сайт <code>example.com</code>. Обратитесь к документации провайдера по настройке origin-сервера.</p><p>Подготовленный CDN даст определенный поддомен для вашего приложения, такой как <code>mycdnsubdomain.fictional-cdn.com</code> (отметьте, что fictional-cdn.com это не существующий провайдер CDN в настоящее время). Теперь, когда есть настроенный сервер CDN, необходимо сообщить браузерам использовать ваш CDN для того, чтобы брать ассеты оттуда, а не от сервера Rails. Это можно осуществить, настроив Rails, установив ваш CDN в качестве хоста ассетов, вместо использования относительного пути. Для настройки хоста ассетов в Rails, необходимо установить <a href="/configuring#config-asset-host"><code>config.asset_host</code></a> в <code>config/environments/production.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">asset_host</span> <span class="o">=</span> <span class="s1">'mycdnsubdomain.fictional-cdn.com'</span>
+</code></pre>
+</div>
+<div class="note"><p>Необходимо предоставить только &quot;host&quot;, это поддомен и корневой домен, не нужно указывать протокол или &quot;scheme&quot;, такие как <code>http://</code> или <code>https://</code>. Когда запрашивается страница, протокол в сгенерированной ссылке на ассет будет соответствовать тому, какой доступ к странице.</p></div><p>Это значение также можно настроить с помощью <a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F_%D1%81%D1%80%D0%B5%D0%B4%D1%8B">переменной среды</a>, чтобы упростить запуск staging-копий вашего сайта:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">asset_host</span> <span class="o">=</span> <span class="no">ENV</span><span class="p">[</span><span class="s1">'CDN_HOST'</span><span class="p">]</span>
+</code></pre>
+</div>
+<div class="note"><p>Чтобы это работало, вам необходимо установить на сервере <code>CDN_HOST</code> значение <code>mycdnsubdomain.fictional-cdn.com</code>.</p></div><p>После того, как вы настроили свой сервер и ваш CDN, пути ассета из хелперов такие как:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">asset_path</span><span class="p">(</span><span class="s1">'smile.png'</span><span class="p">)</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Будут отрендерены полные пути к CDN, наподобие <code>http://mycdnsubdomain.fictional-cdn.com/assets/smile.png</code> (дайджест опущен для читаемости).</p><p>Если на CDN имеется копия <code>smile.png</code>, она будет отдана браузеру, и ваш сервер даже не узнает, что она была запрошена. Если на CDN нет копии, он попытается найти ее на &quot;origin&quot; <code>example.com/assets/smile.png</code>, а затем сохранить ее для дальнейшего использования.</p><p>Если хотите отдавать только некоторые ассеты из CDN, можно использовать опцию <code>:host</code> в хелпере ассета, переопределяющую значение, установленное в <a href="/configuring#config-action-controller-asset-host"><code>config.action_controller.asset_host</code></a>.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">asset_path</span> <span class="s1">'image.png'</span><span class="p">,</span> <span class="ss">host: </span><span class="s1">'mycdnsubdomain.fictional-cdn.com'</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<h5 id='nastroyka-povedeniya-keshirovaniya-cdn' class='inside_page_header'><a href="#nastroyka-povedeniya-keshirovaniya-cdn">5.4.2.</a> Настройка поведения кэширования CDN</h5><p>CDN работает, кэшируя содержимое. Если в CDN имеется устаревшее или плохое содержимое, то это скорее навредит, чем поможет вашему приложению. Целью этого раздела является описание основных особенностей кэширования многих CDN. Поведение вашего определенного провайдера может немного отличаться.</p><h6 id='keshirovanie-zaprosov-cdn' class='inside_page_header'><a href="#keshirovanie-zaprosov-cdn">5.4.2.1.</a> Кэширование запросов CDN</h6><p>Хотя CDN описывается как кэширующий файлы ассетов, фактически он кэширует целые запросы. Они включают тело ассета, а также его заголовки. Наиболее важным является <code>Cache-Control</code>, который сообщает CDN (и браузерам), как кэшировать содержимое. Это означает, что если кто-то запрашивает несуществующий ассет, наподобие <code>/assets/i-dont-exist.png</code>, и ваше приложение Rails возвращает 404, тогда ваш CDN скорее всего закэширует страницу 404, если присутствует валидный заголовок <code>Cache-Control</code>.</p><h6 id='otladka-zagolovkov-cdn' class='inside_page_header'><a href="#otladka-zagolovkov-cdn">5.4.2.2.</a> Отладка заголовков CDN</h6><p>Одним из способов проверить, что заголовки кэшируются правильно на CDN, является использование <a href="https://explainshell.com/explain?cmd=curl+-I+http%3A%2F%2Fwww.example.com">curl</a>. Вы можете запросить заголовки от сервера и от CDN, чтобы сверить, что они одинаковые:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-I</span> http://www.example/assets/application-
+<span class="go">d0e099e021c95eb0de3615fd1d8c4d83.css
+HTTP/1.1 200 OK
+Server: Cowboy
+Date: Sun, 24 Aug 2014 20:27:50 GMT
+Connection: keep-alive
+Last-Modified: Thu, 08 May 2014 01:24:14 GMT
+Content-Type: text/css
+Cache-Control: public, max-age=2592000
+Content-Length: 126560
+Via: 1.1 vegur
+</span></code></pre>
+</div>
+<p>Против копии на CDN:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-I</span> http://mycdnsubdomain.fictional-cdn.com/application-
+<span class="go">d0e099e021c95eb0de3615fd1d8c4d83.css
+HTTP/1.1 200 OK Server: Cowboy Last-
+Modified: Thu, 08 May 2014 01:24:14 GMT Content-Type: text/css
+Cache-Control:
+public, max-age=2592000
+Via: 1.1 vegur
+Content-Length: 126560
+Accept-Ranges:
+bytes
+Date: Sun, 24 Aug 2014 20:28:45 GMT
+Via: 1.1 varnish
+Age: 885814
+Connection: keep-alive
+X-Served-By: cache-dfw1828-DFW
+X-Cache: HIT
+X-Cache-Hits:
+68
+X-Timer: S1408912125.211638212,VS0,VE0
+</span></code></pre>
+</div>
+<p>Проверьте документацию вашего CDN, чтобы найти подробности о том, что такое <code>X-Cache</code> или любые другие добавленные ими заголовки.</p><h6 id='cdn-i-zagolovok-cache-control' class='inside_page_header'><a href="#cdn-i-zagolovok-cache-control">5.4.2.3.</a> CDN и заголовок Cache-Control</h6><p>Заголовок <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control"><code>Cache-Control</code></a> описывает, как может быть закэширован запрос. Когда не используется CDN, браузер использует эту информацию для кэширования содержимого. Это очень полезно для ассетов, которые не модифицированы, так как браузеру не нужно повторно скачивать CSS или JavaScript сайта при каждом запросе. Как правило, мы хотим, чтобы наш сервер Rails сообщил нашему CDN (и браузеру), что ассет &quot;public&quot;. Это означает, что любой кэш может сохранять запрос. Также мы в основном хотим установить <code>max-age</code>, который означает, как долго кэш будет хранить объект до недействительности кэша. Значение <code>max-age</code> устанавливается в секундах с максимально возможным значением <code>31536000</code>, равным одному году. Это можно сделать в вашем приложении Rails, установив</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">public_file_server</span><span class="p">.</span><span class="nf">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Cache-Control'</span> <span class="o">=&gt;</span> <span class="s1">'public, max-age=31536000'</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>Теперь, когда ваше приложение отдает ассет в production, CDN сохранит ассет на один год. Так как большинство CDN также кэшируют заголовки запроса, этот <code>Cache-Control</code> будет передан всем браузерам, обращающимся к этому ассету. Браузер тогда будет знать, что он может хранить этот ассет очень долго без необходимости повторного запроса.</p><h6 id='cdn-i-nedeystvitelnost-kesha-osnovannogo-na-url' class='inside_page_header'><a href="#cdn-i-nedeystvitelnost-kesha-osnovannogo-na-url">5.4.2.4.</a> CDN и недействительность кэша, основанного на URL</h6><p>Большинство CDN кэшируют содержимое ассета, основываясь на полном URL. Это означает, что запрос к</p><div class="code_container">
+  <pre><code class="highlight plaintext">http://mycdnsubdomain.fictional-cdn.com/assets/smile-123.png
+</code></pre>
+</div>
+<p>Будет полностью по-другому закэширован, чем</p><div class="code_container">
+  <pre><code class="highlight plaintext">http://mycdnsubdomain.fictional-cdn.com/assets/smile.png
+</code></pre>
+</div>
+<p>Если хотите установить длительный <code>max-age</code> в вашем <code>Cache-Control</code> (и делаете так), то убедитесь, что, когда вы изменяете ассеты, ваш кэш прекращается. Например, при изменении рожицы смайлика в изображении с желтого на синий, вы хотите, чтобы все посетители вашего сайта получили новую синюю рожицу. При использовании CDN с настройкой файлопровода Rails <code>config.assets.digest</code>, установленной true по умолчанию, каждый ассет будет иметь другое имя, если он изменится. Таким образом, вам даже не нужно вручную прекращать любые элементы в вашем кэше. Используя иную технику для уникального имени ассета, ваши пользователи также получат самый свежий ассет.</p><h3 id='nastroyka-fayloprovoda' class='inside_page_header'><a href="#nastroyka-fayloprovoda">6.</a> Настройка файлопровода</h3><h4 id='szhatie-css' class='inside_page_header'><a href="#szhatie-css">6.1.</a> Сжатие CSS</h4><p>Одним из вариантов для сжатия CSS является YUI. <a href="https://yui.github.io/yuicompressor/css.html">YUI CSS compressor</a> предоставляет минификацию.</p><p>Следующая строчка включает сжатие YUI и требует гем <code>yui-compressor</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">assets</span><span class="p">.</span><span class="nf">css_compressor</span> <span class="o">=</span> <span class="ss">:yui</span>
+</code></pre>
+</div>
+<h4 id='szhatie-javascript' class='inside_page_header'><a href="#szhatie-javascript">6.2.</a> Сжатие JavaScript</h4><p>Возможные варианты для сжатия JavaScript это <code>:terser</code>, <code>:closure</code> и <code>:yui</code>. Они требуют использование гемов <code>terser</code>, <code>closure-compiler</code> или <code>yui-compressor</code> соответственно.</p><p>Возьмем, к примеру, гем <code>terser</code>. Этот гем оборачивает <a href="https://github.com/terser/terser">Terser</a> (написанный для Node.js) в Ruby. Он сжимает ваш код, убирая пробелы и комментарии, сокращая имена локальных переменных и выполняя иные микро-оптимизации, наподобие замены ваших выражений <code>if</code> и <code>else</code> на тернарные операторы там, где возможно.</p><p>Следующая строчка вызывает <code>terser</code> для сжатия JavaScript.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">assets</span><span class="p">.</span><span class="nf">js_compressor</span> <span class="o">=</span> <span class="ss">:terser</span>
+</code></pre>
+</div>
+<div class="note"><p>Необходим runtime, поддерживаемый <a href="https://github.com/rails/execjs#readme">ExecJS</a>, чтобы использовать <code>terser</code>. Если используете macOS или Windows, у вас уже имеется JavaScript runtime, установленный в операционной системе.</p></div><div class="note"><p>Компрессия JavaScript также будет работать для ваших файлов JavaScript, когда вы загружаете свои ассеты через гемы <code>importmap-rails</code> или <code>jsbundling-rails</code>.</p></div><h4 id='szhatie-assetov' class='inside_page_header'><a href="#szhatie-assetov">6.3.</a> Сжатие ассетов</h4><p>По умолчанию будет сгенерирована сжатая версия скомпилированных ассетов, вместе с несжатой версией ассетов. Сжатые ассеты помогают уменьшить передачу данных через канал связи. Это можно настроить, установив флажок <code>gzip</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">assets</span><span class="p">.</span><span class="nf">gzip</span> <span class="o">=</span> <span class="kp">false</span> <span class="c1"># отключает генерацию сжатых ассетов</span>
+</code></pre>
+</div>
+<p>Обратитесь к документации своего веб-сервера за инструкцией, как раздавать сжатые ассеты.</p><h4 id='ispolzovanie-sobstvennogo-kompressora' class='inside_page_header'><a href="#ispolzovanie-sobstvennogo-kompressora">6.4.</a> Использование собственного компрессора</h4><p>Настройки конфигурации компрессора для CSS и JavaScript также могут принимать любой объект. Этот объект должен иметь метод <code>compress</code>, принимающий строку как единственный аргумент, и он должен возвращать строку.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Transformer</span>
+  <span class="k">def</span> <span class="nf">compress</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="n">do_something_returning_a_string</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Чтобы включить это, передайте новый объект в конфигурационную опцию в <code>application.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">assets</span><span class="p">.</span><span class="nf">css_compressor</span> <span class="o">=</span> <span class="no">Transformer</span><span class="p">.</span><span class="nf">new</span>
+</code></pre>
+</div>
+<h4 id='izmenenie-puti-assets' class='inside_page_header'><a href="#izmenenie-puti-assets">6.5.</a> Изменение пути <em>assets</em></h4><p>Публичный путь, используемый Sprockets по умолчанию, это <code>/assets</code>.</p><p>Он может быть заменен на что-то другое:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">assets</span><span class="p">.</span><span class="nf">prefix</span> <span class="o">=</span> <span class="s2">"/some_other_path"</span>
+</code></pre>
+</div>
+<p>Это удобная опция, если вы обновляете старый проект, не использующий файлопровод и уже использующий этот путь, или вы хотите использовать этот путь для нового ресурса.</p><h4 id='zagolovki-x-sendfile' class='inside_page_header'><a href="#zagolovki-x-sendfile">6.6.</a> Заголовки X-Sendfile</h4><p>Заголовок X-Sendfile — это указание веб-серверу игнорировать отклик от приложения, и вместо этого отдать определенный файл с диска. Эта опция отключена по умолчанию, но может быть включена, если ее поддерживает сервер. Когда опция включена, обязанность по отдаче файла передается веб-серверу, который справляется с ней быстрее. Обратитесь к <a href="https://api.rubyonrails.org/classes/ActionController/DataStreaming.html#method-i-send_file">send_file</a>, чтобы узнать, как использовать эту особенность.</p><p>Apache и NGINX поддерживают эту опцию. Она включается в <code>config/environments/production.rb</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config.action_dispatch.x_sendfile_header = "X-Sendfile" # для Apache</span>
+<span class="c1"># config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # для NGINX</span>
+</code></pre>
+</div>
+<div class="warning"><p>Если вы производите апгрейд существующего приложения и намереваетесь использовать эту опцию, убедитесь, что скопировали ее только в <code>production.rb</code> и в любую другую среду, которую вы определили, как имеющую поведение production (не в <code>application.rb</code>).</p></div><div class="info"><p>За дальнейшими подробностями обращайтесь к документации своих веб-серверов:</p></div><ul><li><a href="https://tn123.org/mod_xsendfile/">Apache</a>
+</li><li><a href="https://wiki.nginx.org/XSendfile">NGINX</a>
+</li></ul><h3 id='assets-cache-store' class='inside_page_header'><a href="#assets-cache-store">7.</a>  Хранилище кэша ассетов</h3><p>По умолчанию Sprockets кэширует ассеты в <code>tmp/cache/assets</code> в development и production. Это может быть изменено следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">assets</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">env</span><span class="o">|</span>
+  <span class="n">env</span><span class="p">.</span><span class="nf">cache</span> <span class="o">=</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Cache</span><span class="p">.</span><span class="nf">lookup_store</span><span class="p">(</span><span class="ss">:memory_store</span><span class="p">,</span>
+                                                <span class="p">{</span> <span class="ss">size: </span><span class="mi">32</span><span class="p">.</span><span class="nf">megabytes</span> <span class="p">})</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Чтобы отключить хранилище кэша ассетов:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">assets</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">env</span><span class="o">|</span>
+  <span class="n">env</span><span class="p">.</span><span class="nf">cache</span> <span class="o">=</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Cache</span><span class="p">.</span><span class="nf">lookup_store</span><span class="p">(</span><span class="ss">:null_store</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h3 id='dobavlenie-assetov-v-vashi-gemy' class='inside_page_header'><a href="#dobavlenie-assetov-v-vashi-gemy">8.</a> Добавление ассетов в ваши гемы</h3><p>Ассеты также могут идти от внешних источников в виде гемов.</p><p>Хорошим примером этого является гем <code>jquery-rails</code>. Этот гем содержит класс engine, унаследованный от <code>Rails::Engine</code>. Сделав так, Rails становится проинформированным, что директории для этого гема могут содержать ассеты, и директории <code>app/assets</code>, <code>lib/assets</code> и <code>vendor/assets</code> этого engine добавляются в путь поиска Sprockets.</p><h3 id='sozdanie-preprotsessora-v-vashey-biblioteke-ili-geme' class='inside_page_header'><a href="#sozdanie-preprotsessora-v-vashey-biblioteke-ili-geme">9.</a> Создание препроцессора в вашей библиотеке или геме</h3><p>Sprockets использует Процессоры, Трансформеры, Компрессоры и Экспортеры для расширения функциональности Sprockets. Обратитесь к <a href="https://github.com/rails/sprockets/blob/master/guides/extending_sprockets.md">Расширение Sprockets</a>, чтобы узнать больше об этом. Здесь мы зарегистрировали препроцессор, чтобы добавить комментарий в конец text/css (<code>.css</code>) файлов.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">module</span> <span class="nn">AddComment</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+    <span class="p">{</span> <span class="ss">data: </span><span class="n">input</span><span class="p">[</span><span class="ss">:data</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"/* Hello From my sprockets extension */"</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь, когда у вас есть модуль, который модифицирует входные данные, самое время зарегистрировать его как препроцессор для вашего типа MIME.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Sprockets</span><span class="p">.</span><span class="nf">register_preprocessor</span> <span class="s1">'text/css'</span><span class="p">,</span> <span class="no">AddComment</span>
+</code></pre>
+</div>
+<h3 id='alternativnye-biblioteki' class='inside_page_header'><a href="#alternativnye-biblioteki">10.</a> Альтернативные библиотеки</h3><p>С годами существовало несколько подходов по умолчанию для обработки ассетов. Веб развивался и мы видели все больше и больше тяжеловесных Javascript приложений. В доктрине Rails мы полагаем, что <a href="https://rubyonrails.org/doctrine#omakase">надо выбирать</a> <a href="https://ru.wikipedia.org/wiki/%D0%9E%D0%BC%D0%B0%D0%BA%D0%B0%D1%81%D1%8D">Омакасэ</a>, поэтому мы сфокусировались на настройке по умолчанию: <strong>Sprockets с картами импорта</strong>.</p><p>Мы в курсе, что нет универсального решения, подходящего каждому доступному фреймворку/расширению JavaScript и CSS. В экосистеме Rails есть другие библиотеки сборки, которые должны помочь вам в ситуациях, когда настройки по умолчанию не достаточно.</p><h4 id='jsbundling-rails' class='inside_page_header'><a href="#jsbundling-rails">10.1.</a> jsbundling-rails</h4><p><a href="https://github.com/rails/jsbundling-rails"><code>jsbundling-rails</code></a> это зависимая от Node.js альтернатива способу <code>importmap-rails</code> сборки JavaScript с помощью <a href="https://esbuild.github.io/">esbuild</a>, <a href="https://rollupjs.org/">rollup.js</a> или <a href="https://webpack.js.org/">Webpack</a>.</p><p>Гем предоставляет процесс <code>yarn build --watch</code> для автоматической генерации вывода в development. Для production, он автоматически прицепляет задачу <code>javascript:build</code> к задаче <code>assets:precompile</code>, чтобы обеспечить, что все ваши зависимости от пакетов были установлены, и JavaScript был создан для всех точек входа.</p><p><strong>Когда использовать вместо <code>importmap-rails</code>?</strong> Если ваш код JavaScript зависит от транспиляции, то есть если вы используете <a href="https://babeljs.io/">Babel</a>, <a href="https://www.typescriptlang.org/">TypeScript</a> или формат React <code>JSX</code>, то <code>jsbundling-rails</code> правильный способ.</p><h4 id='webpacker-shakapacker' class='inside_page_header'><a href="#webpacker-shakapacker">10.2.</a> Webpacker/Shakapacker</h4><p><a href="webpacker.html"><code>Webpacker</code></a> был препроцессором JavaScript по умолчанию и сборщиком для Rails 5 и 6. Теперь он не разрабатывается. Существует преемник, называющийся <a href="https://github.com/shakacode/shakapacker"><code>shakapacker</code></a>, но он не поддерживается командой или проектом Rails.</p><p>В отличие от других библиотек в этом списке, <code>webpacker</code>/<code>shakapacker</code> полностью не зависят от Sprockets и могут обрабатывать файлы как JavaScript, так и CSS.</p><div class="note"><p>Прочитайте документ по <a href="https://github.com/rails/jsbundling-rails/blob/main/docs/comparison_with_webpacker.md">сравнению с Webpacker</a>, чтобы понять разницу между <code>jsbundling-rails</code> и <code>webpacker</code>/<code>shakapacker</code>.</p></div><h4 id='cssbundling-rails' class='inside_page_header'><a href="#cssbundling-rails">10.3.</a> cssbundling-rails</h4><p><a href="https://github.com/rails/cssbundling-rails"><code>cssbundling-rails</code></a> позволяет сборку и обработку ваших CSS с помощью <a href="https://tailwindcss.com/">Tailwind CSS</a>, <a href="https://getbootstrap.com/">Bootstrap</a>, <a href="https://bulma.io/">Bulma</a>, <a href="https://postcss.org/">PostCSS</a> или <a href="https://sass-lang.com/">Dart Sass</a>, а затем доставляет CSS посредством файлопровода.</p><p>Он работает схожим образом с <code>jsbundling-rails</code>, поэтому добавьте зависимость от Node.js в ваше приложение с помощью процесса <code>yarn build:css --watch</code>, чтобы заново сгенерировать ваши таблицы стилей в development и прицепляется к задаче <code>assets:precompile</code> в production.</p><p><strong>Какое отличие от Sprockets?</strong> Sprockets сам по себе не способен транспилировать Sass в CSS, требуется Node.js, чтобы сгенерировать файлы <code>.css</code> из файлов <code>.sass</code>. Как только сгенерированы файлы <code>.css</code>, тогда <code>Sprockets</code> сможет доставить их вашим клиентам.</p><div class="note"><p><code>cssbundling-rails</code> полагается на Node для обработки CSS. Гемы <code>dartsass-rails</code> и <code>tailwindcss-rails</code> это самостоятельные версии Tailwind CSS и Dart Sass, что означает отсутствие зависимости от Node. Если вы используете <code>importmap-rails</code> для обработки Javascript и <code>dartsass-rails</code> или <code>tailwindcss-rails</code> для CSS, можно полностью избежать зависимости от Node, что приведет к менее сложному решению.</p></div><h4 id='dartsass-rails' class='inside_page_header'><a href="#dartsass-rails">10.4.</a> dartsass-rails</h4><p>Если хотите использовать <a href="https://sass-lang.com/"><code>Sass</code></a> в приложении, <a href="https://github.com/rails/dartsass-rails"><code>dartsass-rails</code></a> пришел на замену для устаревшего гема <code>sassc-rails</code>. <code>dartsass-rails</code> использует реализацию <code>Dart Sass</code> вместо устаревшего в 2020 году <a href="https://sass-lang.com/blog/libsass-is-deprecated"><code>LibSass</code></a>, используемого в <code>sassc-rails</code>.</p><p>В отличие от <code>sassc-rails</code>, новый гем напрямую не интегрируется со <code>Sprockets</code>. Обратитесь к <a href="https://github.com/rails/dartsass-rails">домашней странице гема</a> за инструкциями по установке/миграции.</p><div class="warning"><p>Популярный гем <code>sassc-rails</code> не поддерживается с 2019 года.</p></div><h4 id='tailwindcss-rails' class='inside_page_header'><a href="#tailwindcss-rails">10.5.</a> tailwindcss-rails</h4><p><a href="https://github.com/rails/tailwindcss-rails"><code>tailwindcss-rails</code></a> это гем-обертка для <a href="https://tailwindcss.com/blog/standalone-cli">самостоятельной выполняемой версии</a> фреймворка Tailwind CSS v3. Используется для новых приложений, когда предоставлена <code>--css tailwind</code> для команды <code>rails new</code>. Предоставляет процесс <code>watch</code>, чтобы автоматически сгенерировать вывод Tailwind в development. Для production он прицепляется к задаче <code>assets:precompile</code>.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

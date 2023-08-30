@@ -1,0 +1,55 @@
+/* line 2, app/assets/stylesheets/pages.css.sass */
+.content .img-polaroid {
+  display: block;
+  margin: 0 auto;
+}
+
+/* line 6, app/assets/stylesheets/pages.css.sass */
+div.warning {
+  background: #f9d9d8 url(/assets/tab_red-ec2e40047d5e8798e91ee6d28cd58eec85aa94297976fabadf48e3377281b75c.gif) no-repeat left top;
+  padding: 1em 1em 0.25em 48px;
+  margin: 0.25em 0 1.5em 0;
+}
+
+/* line 11, app/assets/stylesheets/pages.css.sass */
+div.code_container {
+  background: #EEE url(/assets/tab_grey-718dc05cb75fad4a00d17800ab81a53a6ea13c13e5af30bbfadd74c904351e0c.gif) no-repeat left top;
+  padding: 0.25em 1em 0.5em 48px;
+  margin: 0.25em 0 1.5em 0;
+}
+
+/* line 15, app/assets/stylesheets/pages.css.sass */
+div.code_container pre {
+  border: 0;
+  background-color: inherit;
+  margin: 1em 0;
+}
+
+/* line 20, app/assets/stylesheets/pages.css.sass */
+.note {
+  background: #fff9d8 url(/assets/tab_note-ac4f8650369366d8208180dd77d818c7d747a8c780320c3c568d95789a243e2b.gif) no-repeat left top;
+  border: none;
+  padding: 1em 1em 0.25em 48px;
+  margin: 0.25em 0 1.5em 0;
+}
+
+/* line 26, app/assets/stylesheets/pages.css.sass */
+.info {
+  background: #d5e9f6 url(/assets/tab_info-30838425e4f419c0f6ca37dd3d9ee734d1490bea82f872c5815b46d0f602c973.gif) no-repeat left top;
+  border: none;
+  padding: 1em 1em 0.25em 48px;
+  margin: 0.25em 0 1.5em 0;
+}
+
+/* line 32, app/assets/stylesheets/pages.css.sass */
+span.rails_mark {
+  padding: 0 20px;
+  font-style: italic;
+  color: red;
+  font-weight: bold;
+}
+
+/* line 39, app/assets/stylesheets/pages.css.sass */
+code.highlight.console span.w {
+  display: table-cell;
+}

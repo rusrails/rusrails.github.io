@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Обзор Action Text" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Обзор Action Text" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/action-text-overview" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Обзор Action Text
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="wn+9LmpHVTNHk7wSm/QIkdsXI8VEnQlPf6Vp414gU1mSo7RnZhj4Gitx7CNhnjizOqf9vqhdAyLbM0Qy5M52mA==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#chto-takoe-action-text">1. Что такое Action Text?</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#trix-v-sravnenii-s-drugimi-redaktorami-obogaschennogo-teksta">2. Trix в сравнении с другими редакторами обогащенного текста</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#ustanovka">3. Установка</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#sozdanie-soderzhimogo-obogaschennogo-teksta">4. Создание содержимого обогащенного текста</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#otobrazhenie-soderzhimogo-obogaschennogo-teksta">5. Отображение содержимого обогащенного текста</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#otrisovka-vlozheniy">5.1. Отрисовка вложений</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#izbeganie-n-1-zaprosa">6. Избегание N+1 запроса</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#razrabotka-api-bekend">7. Разработка API / Бэкенд</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='obzor-action-text' class='inside_page_header'> Обзор Action Text</h2><p>Это руководство предоставляет вам все, что нужно, чтобы начать обрабатывать содержимое обогащенного текста.</p><p>После прочтения этого руководства, вы узнаете:</p><ul><li>Как настроить Action Text.
+</li><li>Как обрабатывать содержимое обогащенного текста.
+</li><li>Как стилизовать содержимое и вложения обогащенного текста.
+</li></ul>
+<hr>
+<h3 id='chto-takoe-action-text' class='inside_page_header'><a href="#chto-takoe-action-text">1.</a> Что такое Action Text?</h3><p>Action Text вносит возможность хранения и редактирования обогащенного текста в Rails. Он включает <a href="https://trix-editor.org">редактор Trix</a>, обрабатывающий все, от форматирования до ссылок, до цитат, до списков, до встроенных изображений и галерей. Обогащенный текст, созданный редактором Trix, сохраняется в собственной модели RichText, связанной с любой существующей моделью Active Record приложения. Любые встроенные изображения (или другие вложения) автоматически сохраняются с помощью Active Storage и связываются с включающей моделью RichText.</p><h3 id='trix-v-sravnenii-s-drugimi-redaktorami-obogaschennogo-teksta' class='inside_page_header'><a href="#trix-v-sravnenii-s-drugimi-redaktorami-obogaschennogo-teksta">2.</a> Trix в сравнении с другими редакторами обогащенного текста</h3><p>Большинство редакторов WYSIWYG являются обертками для <code>contenteditable</code> и <code>execCommand</code> HTML API, разработанным Microsoft для поддержки живого редактирования веб страниц в Internet Explorer 5.5, и <a href="https://blog.whatwg.org/the-road-to-html-5-contenteditable#history">случайно обратно разработанного</a> и скопированного другими браузерами.</p><p>Так как эти API никогда не были полностью определены или документированы, и так как редакторы WYSIWYG HTML охватывают слишком многое, в реализации для каждого браузера есть свой набор ошибок и странностей, и разработчики JavaScript оставлены наедине разбираться с этими неудобствами.</p><p>Trix уклоняется от этих неудобств, рассматривая contenteditable как устройство ввода/вывода: когда происходит ввод в редактор, Trix конвертирует этот ввод в операцию редактирования в своей внутренней модели документа, и затем перерисовывает этот документ в редакторе. Это предоставляет Trix полный контроль над тем, что происходит после каждого нажатия клавиш, и помогает избегать необходимости использовать execCommand вообще.</p><h3 id='ustanovka' class='inside_page_header'><a href="#ustanovka">3.</a> Установка</h3><p>Запустите <code>bin/rails action_text:install</code> для добавления пакета Yarn и копирования необходимой миграции. Также нужно настроить Active Storage для встроенных изображений и других вложений. Обратитесь к руководству <a href="/active_storage_overview">Обзор Active Storage</a> guide.</p><div class="note"><p>Action Text использует полиморфные связи с таблицей <code>action_text_rich_texts</code>, поэтому он может быть совместно использован со всеми моделями, у которых есть атрибуты обогащенного текста. Если ваши модели с содержимым Action Text используют значения UUID для идентификаторов, всем моделям, использующим атрибуты Action Text, необходимо использовать значения UUID для их уникальных идентификаторов. Генерируемая миграция для Action Text также должна быть обновлена, с указанием <code>type: :uuid</code> для строчки <code>:record</code> <code>references</code>.</p></div><p>После завершения установки, для приложения Rails следует выполнить следующие изменения:</p><ul><li><p><code>trix</code> и <code>@rails/actiontext</code> должны быть затребованы в точке входа JavaScript.</p><div class="code_container">
+  <pre><code class="highlight js"><span class="c1">// application.js</span>
+<span class="k">import</span> <span class="dl">"</span><span class="s2">trix</span><span class="dl">"</span>
+<span class="k">import</span> <span class="dl">"</span><span class="s2">@rails/actiontext</span><span class="dl">"</span>
+</code></pre>
+</div>
+</li><li><p>Таблица стилей <code>trix</code> будет включена вместе со стилями Action Text в ваш файл <code>application.css</code>.</p></li></ul><h3 id='sozdanie-soderzhimogo-obogaschennogo-teksta' class='inside_page_header'><a href="#sozdanie-soderzhimogo-obogaschennogo-teksta">4.</a> Создание содержимого обогащенного текста</h3><p>Добавьте поле обогащенного текста в существующую модель:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/models/message.rb</span>
+<span class="k">class</span> <span class="nc">Message</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_rich_text</span> <span class="ss">:content</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>или добавьте поле обогащенного текста при создании новой модели с помощью:</p><div class="code_container">
+  <pre><code class="highlight plaintext">bin/rails generate model Message content:rich_text
+</code></pre>
+</div>
+<p><strong>Note:</strong> не нужно добавлять поле <code>content</code> в таблице <code>messages</code>.</p><p>Затем обратитесь к этому полю в форме для модели:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;%# app/views/messages/_form.html.erb %&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="n">message</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"field"</span><span class="nt">&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:content</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">rich_text_area</span> <span class="ss">:content</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>И, наконец, используйте <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-rich_text_area"><code>rich_text_area</code></a>, чтобы отобразить очищенный обогащенный текст на странице:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="vi">@message</span><span class="p">.</span><span class="nf">content</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Чтобы принимать содержимое обогащенного текста, все, что нужно, это разрешить указанный атрибут:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">MessagesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="no">Message</span><span class="p">.</span><span class="nf">create!</span> <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:message</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:content</span><span class="p">)</span>
+    <span class="n">redirect_to</span> <span class="n">message</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h3 id='otobrazhenie-soderzhimogo-obogaschennogo-teksta' class='inside_page_header'><a href="#otobrazhenie-soderzhimogo-obogaschennogo-teksta">5.</a> Отображение содержимого обогащенного текста</h3><p>По умолчанию Action Text отобразит содержимое обогащенного текста внутри элемента с классом <code>.trix-content</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;%# app/views/layouts/action_text/contents/_content.html.erb %&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"trix-content"</span><span class="nt">&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+<p>Элементы с этим классом, а также редактор Action Text, стилизуются <a href="https://raw.githubusercontent.com/basecamp/trix/master/dist/trix.css">таблицей стилей <code>trix</code></a>. Чтобы вместо этого предоставить свои стили, уберите строчку <code>= require trix</code> из таблицы стилей <code>app/assets/stylesheets/actiontext.css</code>, созданной установщиком.</p><p>Чтобы изменить HTML, отображаемый вокруг содержимого обогащенного текста, отредактируйте шаблон <code>app/views/layouts/action_text/contents/_content.html.erb</code>, созданный установщиком.</p><p>Чтобы изменить HTML, отображаемый для встроенных изображений и других вложений (известных как бинарные объекты), отредактируйте шаблон <code>app/views/active_storage/blobs/_blob.html.erb</code>, созданный установщиком.</p><h4 id='otrisovka-vlozheniy' class='inside_page_header'><a href="#otrisovka-vlozheniy">5.1.</a> Отрисовка вложений</h4><p>В дополнение к вложениям, загруженным с помощью Active Storage, Action Text может встроить все, что может быть найдено по <a href="https://github.com/rails/globalid#signed-global-ids">Signed GlobalID</a>.</p><p>Action Text отрисовывает вложенные элементы <code>&lt;action-text-attachment&gt;</code>, преобразуя их атрибут <code>sgid</code> в экземпляр. Будучи найденным, этот экземпляр передается в <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/RenderingHelper.html#method-i-render"><code>render</code></a>. Результирующий HTML вкладывается как потомок в элемент <code>&lt;action-text-attachment&gt;</code>.</p><p>Например, рассмотрим модель <code>User</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/models/user.rb</span>
+<span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_one_attached</span> <span class="ss">:avatar</span>
+<span class="k">end</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">user</span><span class="p">.</span><span class="nf">to_global_id</span><span class="p">.</span><span class="nf">to_s</span> <span class="c1">#=&gt; gid://MyRailsApp/User/1</span>
+<span class="n">user</span><span class="p">.</span><span class="nf">to_signed_global_id</span><span class="p">.</span><span class="nf">to_s</span> <span class="c1">#=&gt; BAh7CEkiCG…</span>
+</code></pre>
+</div>
+<p>Затем, рассмотрим некоторое содержимое обогащенного текста, в которое вложен элемент <code>&lt;action-text-attachment&gt;</code>, ссылающийся на подписанный GlobalID экземпляра <code>User</code>:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;p&gt;</span>Hello, <span class="nt">&lt;action-text-attachment</span> <span class="na">sgid=</span><span class="s">"BAh7CEkiCG…"</span><span class="nt">&gt;&lt;/action-text-attachment&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+<p>Action Text преобразует, используя строку &quot;BAh7CEkiCG…&quot;, чтобы найти экземпляр <code>User</code>. Далее, рассмотрим партиал приложения <code>users/user</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;%# app/views/users/_user.html.erb %&gt;</span>
+<span class="nt">&lt;span&gt;</span><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">user</span><span class="p">.</span><span class="nf">avatar</span> <span class="cp">%&gt;</span> <span class="cp">&lt;%=</span> <span class="n">user</span><span class="p">.</span><span class="nf">name</span> <span class="cp">%&gt;</span><span class="nt">&lt;/span&gt;</span>
+</code></pre>
+</div>
+<p>Результирующий HTML, отрисованный Action Text, будет выглядеть наподобие:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;p&gt;</span>Hello, <span class="nt">&lt;action-text-attachment</span> <span class="na">sgid=</span><span class="s">"BAh7CEkiCG…"</span><span class="nt">&gt;&lt;span&gt;&lt;img</span> <span class="na">src=</span><span class="s">"..."</span><span class="nt">&gt;</span> Jane Doe<span class="nt">&lt;/span&gt;&lt;/action-text-attachment&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+<p>Чтобы отобразить другой партиал, определите <code>User#to_attachable_partial_path</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="k">def</span> <span class="nf">to_attachable_partial_path</span>
+    <span class="s2">"users/attachable"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Затем объявите этот партиал. Экземпляр <code>User</code> будет доступен как локальная для партиала переменная:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;%# app/views/users/_attachable.html.erb %&gt;</span>
+<span class="nt">&lt;span&gt;</span><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">user</span><span class="p">.</span><span class="nf">avatar</span> <span class="cp">%&gt;</span> <span class="cp">&lt;%=</span> <span class="n">user</span><span class="p">.</span><span class="nf">name</span> <span class="cp">%&gt;</span><span class="nt">&lt;/span&gt;</span>
+</code></pre>
+</div>
+<p>Для интеграции с отображением Action Text <code>&lt;action-text-attachment&gt;</code> класс должен:</p><ul><li>включать модуль <code>ActionText::Attachable</code>
+</li><li>реализовывать <code>#to_sgid(**options)</code> (доступно в <a href="https://github.com/rails/globalid#usage"><code>GlobalID::Identification</code></a>)
+</li><li>(опционально) объявить <code>#to_attachable_partial_path</code>
+</li></ul><p>По умолчанию, все потомки <code>ActiveRecord::Base</code> включают <a href="https://github.com/rails/globalid#usage"><code>GlobalID::Identification</code></a>, и, следовательно, совместимы с <code>ActionText::Attachable</code>.</p><h3 id='izbeganie-n-1-zaprosa' class='inside_page_header'><a href="#izbeganie-n-1-zaprosa">6.</a> Избегание N+1 запроса</h3><p>Если хотите предварительно загрузить зависимую модель <code>ActionText::RichText</code>, если допустить, что поле обогащенного текста названо <code>content</code>, можно использовать именованный скоуп:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Message</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">with_rich_text_content</span> <span class="c1"># Загружает тело без вложений.</span>
+<span class="no">Message</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">with_rich_text_content_and_embeds</span> <span class="c1"># Загружает тело и вложения.</span>
+</code></pre>
+</div>
+<h3 id='razrabotka-api-bekend' class='inside_page_header'><a href="#razrabotka-api-bekend">7.</a> Разработка API / Бэкенд</h3><ul><li><p>В API бэкенда (например, использующий JSON) необходим отдельный адрес для загрузки файлов, создающий <code>ActiveStorage::Blob</code> и возвращающий его <code>attachable_sgid</code>:</p><div class="code_container">
+  <pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="nl">"attachable_sgid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BAh7CEkiCG…"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+</li><li><p>Возьмите этот <code>attachable_sgid</code> и сообщите своему фронтенду вставить его в содержимое обогащенного текста с помощью тега <code>&lt;action-text-attachment&gt;</code>:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;action-text-attachment</span> <span class="na">sgid=</span><span class="s">"BAh7CEkiCG…"</span><span class="nt">&gt;&lt;/action-text-attachment&gt;</span>
+</code></pre>
+</div>
+</li></ul><p>Это основано на подходе Basecamp, поэтому, если не понимаете, что вам нужно, проверьте <a href="https://github.com/basecamp/bc3-api/blob/master/sections/rich_text.md">документацию Basecamp</a>.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

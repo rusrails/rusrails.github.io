@@ -1,0 +1,46 @@
+/* line 1, app/assets/stylesheets/app.css.sass */
+.well.menu {
+  padding: 5px;
+}
+
+/* line 4, app/assets/stylesheets/app.css.sass */
+.well.banner300 {
+  padding: 8px;
+}
+
+/* line 7, app/assets/stylesheets/app.css.sass */
+.banner {
+  text-align: center;
+  margin: 10px auto 10px auto;
+}
+
+/* line 11, app/assets/stylesheets/app.css.sass */
+#main_page_banner {
+  float: right;
+  width: 240px;
+  margin: 0 0 10px 10px;
+}
+
+/* line 16, app/assets/stylesheets/app.css.sass */
+#footer {
+  margin-top: 30px;
+  padding: 10px;
+  background: #F7F7F7;
+  border-radius: 119px 119px 0 0;
+  text-align: center;
+}
+
+/* line 22, app/assets/stylesheets/app.css.sass */
+#footer a {
+  padding: 10px;
+}
+
+/* line 24, app/assets/stylesheets/app.css.sass */
+#footer img {
+  height: 40px;
+}
+
+/* line 26, app/assets/stylesheets/app.css.sass */
+#footer p {
+  margin: 0px;
+}

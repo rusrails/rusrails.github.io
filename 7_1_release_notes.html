@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Заметки о релизе Ruby on Rails 7.1" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Заметки о релизе Ruby on Rails 7.1" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/7_1_release_notes" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Заметки о релизе Ruby on Rails 7.1
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="LGuXa853YRRSIUK6s6lyvm+j6doJXLFOnql0d8uNMUKI0kDOOy48m15soJ+R4JgtZilmj0QN0Dc4Ouz5pEvLug==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#apgreyd-do-rails-7-1">1. Апгрейд до Rails 7.1</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#osnovnye-osobennosti">2. Основные особенности</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#railties">3. Railties</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno">3.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo">3.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya">3.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-cable">4. Action Cable</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno2">4.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo2">4.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya2">4.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-pack">5. Action Pack</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno3">5.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo3">5.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya3">5.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-view">6. Action View</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno4">6.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo4">6.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya4">6.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-mailer">7. Action Mailer</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno5">7.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo5">7.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya5">7.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-record">8. Active Record</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno6">8.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo6">8.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya6">8.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-storage">9. Active Storage</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno7">9.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo7">9.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya7">9.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-model">10. Active Model</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno8">10.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo8">10.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya8">10.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-support">11. Active Support</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno9">11.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo9">11.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya9">11.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-job">12. Active Job</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno10">12.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo10">12.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya10">12.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-text">13. Action Text</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno11">13.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo11">13.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya11">13.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-mailbox">14. Action Mailbox</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno12">14.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo12">14.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya12">14.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#ruby-on-rails-guides">15. Ruby on Rails Guides</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya13">15.1. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#blagodarnosti">16. Благодарности</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='zametki-o-relize-ruby-on-rails-7-1' class='inside_page_header'> Заметки о релизе Ruby on Rails 7.1</h2><p>Ключевые новинки в Rails 7.1:</p>
+<hr>
+<h3 id='apgreyd-do-rails-7-1' class='inside_page_header'><a href="#apgreyd-do-rails-7-1">1.</a> Апгрейд до Rails 7.1</h3><p>Прежде чем апгрейднуть существующее приложение, было бы хорошо иметь перед этим покрытие тестами. Также, до попытки обновиться до Rails 7.1, необходимо сначала произвести апгрейд до Rails 7.0 и убедиться, что приложение все еще выполняется так, как нужно. Список вещей, которые нужно выполнить для апгрейда доступен в руководстве <a href="/upgrading-ruby-on-rails#upgrading-from-rails-7-0-to-rails-7-1">Апгрейд Ruby on Rails</a>.</p><h3 id='osnovnye-osobennosti' class='inside_page_header'><a href="#osnovnye-osobennosti">2.</a> Основные особенности</h3><h3 id='railties' class='inside_page_header'><a href="#railties">3.</a> Railties</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/main/railties/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno' class='inside_page_header'><a href="#udaleno">3.1.</a> Удалено</h4><h4 id='ustarelo' class='inside_page_header'><a href="#ustarelo">3.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya' class='inside_page_header'><a href="#znachimye-izmeneniya">3.3.</a> Значимые изменения</h4><h3 id='action-cable' class='inside_page_header'><a href="#action-cable">4.</a> Action Cable</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/main/actioncable/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno2' class='inside_page_header'><a href="#udaleno2">4.1.</a> Удалено</h4><h4 id='ustarelo2' class='inside_page_header'><a href="#ustarelo2">4.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya2' class='inside_page_header'><a href="#znachimye-izmeneniya2">4.3.</a> Значимые изменения</h4><h3 id='action-pack' class='inside_page_header'><a href="#action-pack">5.</a> Action Pack</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/main/actionpack/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno3' class='inside_page_header'><a href="#udaleno3">5.1.</a> Удалено</h4><ul><li><p>  Удалено устаревшее поведение у <code>Request#content_type</code></p></li><li><p>  Удалена устаревшая возможность присвоения одиночного значения <code>config.action_dispatch.trusted_proxies</code>.</p></li><li><p>  Удалена регистрация устаревших драйверов <code>poltergeist</code> и <code>webkit</code> (capybara-webkit) для системного тестирования.</p></li></ul><h4 id='ustarelo3' class='inside_page_header'><a href="#ustarelo3">5.2.</a> Устарело</h4><ul><li><p>  Устарел <code>config.action_dispatch.return_only_request_media_type_on_content_type</code>.</p></li><li><p>  Устарел <code>AbstractController::Helpers::MissingHelperError</code></p></li><li><p>  Устарел <code>ActionDispatch::IllegalStateError</code>.</p></li></ul><h4 id='znachimye-izmeneniya3' class='inside_page_header'><a href="#znachimye-izmeneniya3">5.3.</a> Значимые изменения</h4><h3 id='action-view' class='inside_page_header'><a href="#action-view">6.</a> Action View</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/main/actionview/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno4' class='inside_page_header'><a href="#udaleno4">6.1.</a> Удалено</h4><ul><li><p>  Удалена устаревшая константа <code>ActionView::Path</code>.</p></li><li><p>  Удалена устаревшая поддержка передачи переменных экземпляра как локальных в партиалы.</p></li></ul><h4 id='ustarelo4' class='inside_page_header'><a href="#ustarelo4">6.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya4' class='inside_page_header'><a href="#znachimye-izmeneniya4">6.3.</a> Значимые изменения</h4><h3 id='action-mailer' class='inside_page_header'><a href="#action-mailer">7.</a> Action Mailer</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/main/actionmailer/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno5' class='inside_page_header'><a href="#udaleno5">7.1.</a> Удалено</h4><h4 id='ustarelo5' class='inside_page_header'><a href="#ustarelo5">7.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya5' class='inside_page_header'><a href="#znachimye-izmeneniya5">7.3.</a> Значимые изменения</h4><h3 id='active-record' class='inside_page_header'><a href="#active-record">8.</a> Active Record</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/main/activerecord/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno6' class='inside_page_header'><a href="#udaleno6">8.1.</a> Удалено</h4><ul><li><p>  Удалена поддержка <code>ActiveRecord.legacy_connection_handling</code>.</p></li><li><p>  Удалены устаревшие методы доступа конфигурации <code>ActiveRecord::Base</code></p></li><li><p>  Удалена поддержка <code>:include_replicas</code> у <code>configs_for</code>. Вместо него используйте <code>:include_hidden</code>.</p></li><li><p>  Удален устаревший <code>config.active_record.partial_writes</code>.</p></li><li><p>  Удален устаревший <code>Tasks::DatabaseTasks.schema_file_type</code>.</p></li></ul><h4 id='ustarelo6' class='inside_page_header'><a href="#ustarelo6">8.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya6' class='inside_page_header'><a href="#znachimye-izmeneniya6">8.3.</a> Значимые изменения</h4><h3 id='active-storage' class='inside_page_header'><a href="#active-storage">9.</a> Active Storage</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/main/activestorage/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno7' class='inside_page_header'><a href="#udaleno7">9.1.</a> Удалено</h4><ul><li><p>  Удалены устаревшие неправильные типы содержимого в конфигурациях Active Storage.</p></li><li><p>  Удалены устаревшие методы <code>ActiveStorage::Current#host</code> и <code>ActiveStorage::Current#host=</code>.</p></li><li><p>  Удалено устаревшие поведение при присвоении коллекции вложений. Вместо добавления к коллекции, сейчас коллекция заменяется.</p></li><li><p>  Удалены устаревшие методы <code>purge</code> и <code>purge_later</code> из связи с вложениями.</p></li></ul><h4 id='ustarelo7' class='inside_page_header'><a href="#ustarelo7">9.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya7' class='inside_page_header'><a href="#znachimye-izmeneniya7">9.3.</a> Значимые изменения</h4><h3 id='active-model' class='inside_page_header'><a href="#active-model">10.</a> Active Model</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/main/activemodel/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno8' class='inside_page_header'><a href="#udaleno8">10.1.</a> Удалено</h4><h4 id='ustarelo8' class='inside_page_header'><a href="#ustarelo8">10.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya8' class='inside_page_header'><a href="#znachimye-izmeneniya8">10.3.</a> Значимые изменения</h4><h3 id='active-support' class='inside_page_header'><a href="#active-support">11.</a> Active Support</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/main/activesupport/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno9' class='inside_page_header'><a href="#udaleno9">11.1.</a> Удалено</h4><ul><li><p>  Удалено устаревшее переопределение <code>Enumerable#sum</code>.</p></li><li><p>  Удален устаревший <code>ActiveSupport::PerThreadRegistry</code>.</p></li><li><p>  Удалены устаревшие опции для передачи формата в <code>#to_s</code> в <code>Array</code>, <code>Range</code>, <code>Date</code>, <code>DateTime</code>, <code>Time</code>, <code>BigDecimal</code>, <code>Float</code> и <code>Integer</code>.</p></li><li><p>  Удалено устаревшее переопределение <code>ActiveSupport::TimeWithZone.name</code>.</p></li><li><p>  Удален устаревший файл <code>active_support/core_ext/uri</code>.</p></li><li><p>  Удален устаревший файл <code>active_support/core_ext/range/include_time_with_zone</code>.</p></li><li><p>  Удалено неявное преобразование объектов в <code>String</code> в <code>ActiveSupport::SafeBuffer</code>.</p></li><li><p>  Удалена устаревшая поддержка генерации несоответствующих RFC 4122 UUID при предоставлении ID пространства имен, не являющегося одной из констант, определенных в <code>Digest::UUID</code>.</p></li></ul><h4 id='ustarelo9' class='inside_page_header'><a href="#ustarelo9">11.2.</a> Устарело</h4><ul><li><p>  Устарел <code>config.active_support.disable_to_s_conversion</code>.</p></li><li><p>  Устарел <code>config.active_support.remove_deprecated_time_with_zone_name</code>.</p></li><li><p>  Устарел <code>config.active_support.use_rfc4122_namespaced_uuids</code>.</p></li></ul><h4 id='znachimye-izmeneniya9' class='inside_page_header'><a href="#znachimye-izmeneniya9">11.3.</a> Значимые изменения</h4><h3 id='active-job' class='inside_page_header'><a href="#active-job">12.</a> Active Job</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/main/activejob/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno10' class='inside_page_header'><a href="#udaleno10">12.1.</a> Удалено</h4><h4 id='ustarelo10' class='inside_page_header'><a href="#ustarelo10">12.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya10' class='inside_page_header'><a href="#znachimye-izmeneniya10">12.3.</a> Значимые изменения</h4><h3 id='action-text' class='inside_page_header'><a href="#action-text">13.</a> Action Text</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/main/actiontext/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno11' class='inside_page_header'><a href="#udaleno11">13.1.</a> Удалено</h4><h4 id='ustarelo11' class='inside_page_header'><a href="#ustarelo11">13.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya11' class='inside_page_header'><a href="#znachimye-izmeneniya11">13.3.</a> Значимые изменения</h4><h3 id='action-mailbox' class='inside_page_header'><a href="#action-mailbox">14.</a> Action Mailbox</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/main/actionmailbox/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno12' class='inside_page_header'><a href="#udaleno12">14.1.</a> Удалено</h4><h4 id='ustarelo12' class='inside_page_header'><a href="#ustarelo12">14.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya12' class='inside_page_header'><a href="#znachimye-izmeneniya12">14.3.</a> Значимые изменения</h4><h3 id='ruby-on-rails-guides' class='inside_page_header'><a href="#ruby-on-rails-guides">15.</a> Ruby on Rails Guides</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/main/guides/CHANGELOG.md">Changelog</a>.</p><h4 id='znachimye-izmeneniya13' class='inside_page_header'><a href="#znachimye-izmeneniya13">15.1.</a> Значимые изменения</h4><h3 id='blagodarnosti' class='inside_page_header'><a href="#blagodarnosti">16.</a> Благодарности</h3><p>Взгляните <a href="http://contributors.rubyonrails.org/">на полный список контрибьюторов Rails</a>, на людей, которые потратили много часов, сделав Rails стабильнее и надёжнее. Спасибо им всем.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Rails on Rack" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Rails on Rack" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/rails-on-rack" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Rails on Rack
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="g8zD8Qpnyt5O/myDsXEvLZXL3VefG3o+jB3375h3gy+PgFa6S9zuSbTjb+euhH+ZNn3ANo4SbBk703hpEXMNcw==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#vvedenie-v-rack">1. Введение в Rack</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#rails-on-rack2">2. Rails on Rack</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#ob-ekt-rack-prilozheniya-rails">2.1. Объект Rack приложения Rails</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#bin-rails-server">2.2. <code>bin/rails server</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#rackup">2.3. <code>rackup</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#razrabotka-i-avtomaticheskaya-perezagruzka">2.4. Разработка и автоматическая перезагрузка</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#stek-promezhutochnyh-programm-action-dispatcher">3. Стек промежуточных программ Action Dispatcher</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#prosmotr-steka-promezhutochnyh-programm">3.1. Просмотр стека промежуточных программ</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#nastroyka-steka-promezhutochnyh-programm">3.2. Настройка стека промежуточных программ</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#dobavlenie-promezhutochnoy-programmy">3.2.1. Добавление промежуточной программы</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#peremena-mestami-promezhutochnyh-programm">3.2.2. Перемена местами промежуточных программ</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#peremeschenie-promezhutochnyh-programm">3.2.3. Перемещение промежуточных программ</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#udalenie-promezhutochnyh-programm">3.2.4. Удаление промежуточных программ</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#internal-middleware-stack">3.3.  Стек внутренних промежуточных программ</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#resources">4.  Источники</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#obuchenie-rack">4.1. Обучение Rack</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ponimanie-promezhutochnyh-programm">4.2. Понимание промежуточных программ</a>
+</h5>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='rails-on-rack' class='inside_page_header'> Rails on Rack</h2><p>Это руководство раскрывает интеграцию Rails и Rack и взаимодействие с другими компонентами Rack.</p><p>После прочтения этого руководства, вы узнаете:</p><ul><li>Как использовать промежуточные программы Rack в своих приложениях Rails
+</li><li>О стеке внутренних промежуточных программ Action Pack
+</li><li>Как определять собственный стек промежуточных программ
+</li></ul><div class="warning"><p>Это руководство предполагает практические знания протокола Rack и такие концепции Rack, как промежуточные программы (middlewares), карты (maps) URL и <code>Rack::Builder</code>.</p></div><h3 id='vvedenie-v-rack' class='inside_page_header'><a href="#vvedenie-v-rack">1.</a> Введение в Rack</h3><p>Rack представляет собой минимальный, модульный и адаптивный интерфейс для разработки веб-приложений на Ruby. Оборачивая запросы и отклики HTTP как можно более простым образом, он объединил и очистил API для веб-серверов, веб-фреймворков и промежуточных программ (так называемых middleware) до единственного метода call.</p><p>Объяснение того, как работает Rack, на самом деле не является темой этого руководства. Если вы не знакомы с основами Rack, обратитесь к разделу <a href="#resources">Источники</a>.</p><h3 id='rails-on-rack2' class='inside_page_header'><a href="#rails-on-rack2">2.</a> Rails on Rack</h3><h4 id='ob-ekt-rack-prilozheniya-rails' class='inside_page_header'><a href="#ob-ekt-rack-prilozheniya-rails">2.1.</a> Объект Rack приложения Rails</h4><p><code>Rails.application</code> это основной объект приложения Rack в приложении Rails. Любой совместимый с Rack веб-сервер должен использовать объект <code>Rails.application</code> для обслуживания приложения Rails. <code>Rails.application</code> ссылается на тот же объект приложения.</p><h4 id='bin-rails-server' class='inside_page_header'><a href="#bin-rails-server">2.2.</a> <code>bin/rails server</code></h4><p><code>bin/rails server</code> выполняет основную задачу по созданию объекта <code>Rack::Server</code> и запуску веб-сервера.</p><p>Вот как <code>bin/rails server</code> создает экземпляр <code>Rack::Server</code></p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="o">::</span><span class="no">Server</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">tap</span> <span class="k">do</span> <span class="o">|</span><span class="n">server</span><span class="o">|</span>
+  <span class="nb">require</span> <span class="no">APP_PATH</span>
+  <span class="no">Dir</span><span class="p">.</span><span class="nf">chdir</span><span class="p">(</span><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">root</span><span class="p">)</span>
+  <span class="n">server</span><span class="p">.</span><span class="nf">start</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p><code>Rails::Server</code> унаследован от <code>Rack::Server</code> и вызывает метод <code>Rack::Server#start</code> следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Server</span> <span class="o">&lt;</span> <span class="o">::</span><span class="no">Rack</span><span class="o">::</span><span class="no">Server</span>
+  <span class="k">def</span> <span class="nf">start</span>
+    <span class="c1"># ...</span>
+    <span class="k">super</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='rackup' class='inside_page_header'><a href="#rackup">2.3.</a> <code>rackup</code></h4><p>Для использования <code>rackup</code> вместо рельсового <code>bin/rails server</code>, следует поместить следующее в <code>config.ru</code> в корневой директории приложения Rails:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Rails.root/config.ru</span>
+<span class="nb">require_relative</span> <span class="s2">"config/environment"</span>
+
+<span class="n">run</span> <span class="no">Rails</span><span class="p">.</span><span class="nf">application</span>
+</code></pre>
+</div>
+<p>И запустить сервер:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span>rackup config.ru
+</code></pre>
+</div>
+<p>Чтобы узнать больше о различных опциях <code>rackup</code>, вы можете выполнить:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span>rackup <span class="nt">--help</span>
+</code></pre>
+</div>
+<h4 id='razrabotka-i-avtomaticheskaya-perezagruzka' class='inside_page_header'><a href="#razrabotka-i-avtomaticheskaya-perezagruzka">2.4.</a> Разработка и автоматическая перезагрузка</h4><p>Промежуточные программы загружаются один раз и не отслеживаются на предмет изменений. Необходимо перезагрузить сервер, чтобы отразить изменения в запущенном приложении.</p><h3 id='stek-promezhutochnyh-programm-action-dispatcher' class='inside_page_header'><a href="#stek-promezhutochnyh-programm-action-dispatcher">3.</a> Стек промежуточных программ Action Dispatcher</h3><p>Многие внутренние компоненты Action Dispatcher реализованы как промежуточные программы Rack. <code>Rails::Application</code> использует <code>ActionDispatch::MiddlewareStack</code> для объединения различных внутренних и внешних промежуточных программ для формирования полноценного приложения Rails Rack.</p><div class="note"><p><code>ActionDispatch::MiddlewareStack</code> это эквивалент <code>Rack::Builder</code> в Rails, сделанный с большей гибкостью и приспособленностью к требованиям Rails.</p></div><h4 id='prosmotr-steka-promezhutochnyh-programm' class='inside_page_header'><a href="#prosmotr-steka-promezhutochnyh-programm">3.1.</a> Просмотр стека промежуточных программ</h4><p>В Rails имеется удобная команда для просмотра используемого стека промежуточных программ:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>middleware
+</code></pre>
+</div>
+<p>Для свежесгенерированного приложения Rails он может выдать что-то наподобие:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">HostAuthorization</span>
+<span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Sendfile</span>
+<span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Static</span>
+<span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Executor</span>
+<span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">ServerTiming</span>
+<span class="n">use</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Cache</span><span class="o">::</span><span class="no">Strategy</span><span class="o">::</span><span class="no">LocalCache</span><span class="o">::</span><span class="no">Middleware</span>
+<span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Runtime</span>
+<span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">MethodOverride</span>
+<span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">RequestId</span>
+<span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">RemoteIp</span>
+<span class="n">use</span> <span class="no">Sprockets</span><span class="o">::</span><span class="no">Rails</span><span class="o">::</span><span class="no">QuietAssets</span>
+<span class="n">use</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Rack</span><span class="o">::</span><span class="no">Logger</span>
+<span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">ShowExceptions</span>
+<span class="n">use</span> <span class="no">WebConsole</span><span class="o">::</span><span class="no">Middleware</span>
+<span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">DebugExceptions</span>
+<span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">ActionableExceptions</span>
+<span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Reloader</span>
+<span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Callbacks</span>
+<span class="n">use</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="o">::</span><span class="no">CheckPending</span>
+<span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Cookies</span>
+<span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Session</span><span class="o">::</span><span class="no">CookieStore</span>
+<span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Flash</span>
+<span class="n">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">ContentSecurityPolicy</span><span class="o">::</span><span class="no">Middleware</span>
+<span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Head</span>
+<span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">ConditionalGet</span>
+<span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">ETag</span>
+<span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">TempfileReaper</span>
+<span class="n">run</span> <span class="no">MyApp</span><span class="o">::</span><span class="no">Application</span><span class="p">.</span><span class="nf">routes</span>
+</code></pre>
+</div>
+<p>Промежуточные программы по умолчанию, показанные здесь (и некоторые другие) описываются в разделе <a href="#internal-middleware-stack">Внутренние промежуточные программы</a> ниже.</p><h4 id='nastroyka-steka-promezhutochnyh-programm' class='inside_page_header'><a href="#nastroyka-steka-promezhutochnyh-programm">3.2.</a> Настройка стека промежуточных программ</h4><p>Rails предоставляет простой конфигурационный интерфейс <a href="/configuring#config-middleware"><code>config.middleware</code></a> для добавления, удаления и модифицирования промежуточных программ в стеке промежуточных программ, из <code>application.rb</code> или конфигурационного файла определенной среды <code>environments/&lt;environment&gt;.rb</code>.</p><h5 id='dobavlenie-promezhutochnoy-programmy' class='inside_page_header'><a href="#dobavlenie-promezhutochnoy-programmy">3.2.1.</a> Добавление промежуточной программы</h5><p>Добавить новую промежуточную программу в стек промежуточных программ можно с помощью следующих методов:</p><ul><li><p><code>config.middleware.use(new_middleware, args)</code> - Добавляет новую промежуточную программу в конец стека.</p></li><li><p><code>config.middleware.insert_before(existing_middleware, new_middleware, args)</code> - Добавляет промежуточную программу до определенной существующей промежуточной программы в стеке.</p></li><li><p><code>config.middleware.insert_after(existing_middleware, new_middleware, args)</code> - Добавляет промежуточную программу после определенной существующей промежуточной программы в стеке.</p></li></ul><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+
+<span class="c1"># Добавить Rack::BounceFavicon в конец</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">BounceFavicon</span>
+
+<span class="c1"># Добавить Lifo::Cache после ActionDispatch::Executor.</span>
+<span class="c1"># Передать аргумент { page_cache: false } в Lifo::Cache.</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">insert_after</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Executor</span><span class="p">,</span> <span class="no">Lifo</span><span class="o">::</span><span class="no">Cache</span><span class="p">,</span> <span class="ss">page_cache: </span><span class="kp">false</span>
+</code></pre>
+</div>
+<h5 id='peremena-mestami-promezhutochnyh-programm' class='inside_page_header'><a href="#peremena-mestami-promezhutochnyh-programm">3.2.2.</a> Перемена местами промежуточных программ</h5><p>Поменять местами существующие промежуточные программы в стеке можно с помощью <code>config.middleware.swap</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+
+<span class="c1"># Поменять местами ActionDispatch::ShowExceptions с Lifo::ShowExceptions</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">swap</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">ShowExceptions</span><span class="p">,</span> <span class="no">Lifo</span><span class="o">::</span><span class="no">ShowExceptions</span>
+</code></pre>
+</div>
+<h5 id='peremeschenie-promezhutochnyh-programm' class='inside_page_header'><a href="#peremeschenie-promezhutochnyh-programm">3.2.3.</a> Перемещение промежуточных программ</h5><p>Можно переместить существующую промежуточную программу в стеке промежуточных программ с помощью <code>config.middleware.move_before</code> и <code>config.middleware.move_after</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+
+<span class="c1"># Перемещаем ActionDispatch::ShowExceptions перед Lifo::ShowExceptions</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">move_before</span> <span class="no">Lifo</span><span class="o">::</span><span class="no">ShowExceptions</span><span class="p">,</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">ShowExceptions</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+
+<span class="c1"># Перемещаем ActionDispatch::ShowExceptions после Lifo::ShowExceptions</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">move_after</span> <span class="no">Lifo</span><span class="o">::</span><span class="no">ShowExceptions</span><span class="p">,</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">ShowExceptions</span>
+</code></pre>
+</div>
+<h5 id='udalenie-promezhutochnyh-programm' class='inside_page_header'><a href="#udalenie-promezhutochnyh-programm">3.2.4.</a> Удаление промежуточных программ</h5><p>Добавьте следующие строчки в конфигурацию вашего приложения:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">delete</span> <span class="s2">"Rack::Runtime"</span>
+</code></pre>
+</div>
+<p>Теперь, при просмотре стека промежуточных программ, вы увидите, что <code>Rack::Runtime</code> больше не является его частью.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>middleware
+<span class="go">(in /Users/lifo/Rails/blog)
+use ActionDispatch::Static
+</span><span class="gp">use #</span>&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x00000001c304c8&gt;
+<span class="c">...
+</span><span class="go">run Rails.application.routes
+</span></code></pre>
+</div>
+<p>Если хотите убрать промежуточные программы, относящиеся к сессии, сделайте следующее:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">delete</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Cookies</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">delete</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Session</span><span class="o">::</span><span class="no">CookieStore</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">delete</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Flash</span>
+</code></pre>
+</div>
+<p>Чтобы убрать промежуточные программы, относящиеся к браузеру,</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">delete</span> <span class="no">Rack</span><span class="o">::</span><span class="no">MethodOverride</span>
+</code></pre>
+</div>
+<p>Если хотите, чтобы была вызвана ошибка, когда пытаетесь удалить несуществующий элемент, используйте <code>delete!</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">delete!</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Executor</span>
+</code></pre>
+</div>
+<h4 id='internal-middleware-stack' class='inside_page_header'><a href="#internal-middleware-stack">3.3.</a>  Стек внутренних промежуточных программ</h4><p>Значительная часть функциональности Action Controller реализована как промежуточные программы. Следующий перечень объясняет назначение каждой из них:</p><p><strong><code>ActionDispatch::HostAuthorization</code></strong></p><ul><li>Защищает от атак переназначения DNS, явно разрешая хосты, с которых может быть послан запрос. Смотрите инструкции в <a href="/configuring#actiondispatch-hostauthorization">руководстве по конфигурированию</a>.
+</li></ul><p><strong><code>Rack::Sendfile</code></strong></p><ul><li>Устанавливает заголовки X-Sendfile, специфичные для сервера. Настраивается с помощью опции <a href="/configuring#config-action-dispatch-x-sendfile-header"><code>config.action_dispatch.x_sendfile_header</code></a>.
+</li></ul><p><strong><code>ActionDispatch::Static</code></strong></p><ul><li>Используется для раздачи статичных файлов из директории public. Отключена, если <a href="/configuring#config-public-file-server-enabled"><code>config.public_file_server.enabled</code></a> является false.
+</li></ul><p><strong><code>Rack::Lock</code></strong></p><ul><li>Устанавливает флажок <code>env[&quot;rack.multithread&quot;]</code> в <code>false</code> и оборачивает приложение в мьютекс.
+</li></ul><p><strong><code>ActionDispatch::Executor</code></strong></p><ul><li>Используется для перезагрузки тредобезопасного кода при разработке.
+</li></ul><p><strong><code>ActionDispatch::ServerTiming</code></strong></p><ul><li>Устанавливает заголовок <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing"><code>Server-Timing</code></a>, содержащий метрики быстродействия для запроса.
+</li></ul><p><strong><code>ActiveSupport::Cache::Strategy::LocalCache::Middleware</code></strong></p><ul><li>Используется для кэширования в памяти. Этот кэш не является тредобезопасным(thread safe).
+</li></ul><p><strong><code>Rack::Runtime</code></strong></p><ul><li>Устанавливает заголовок X-Runtime, содержащий время (в секундах), затраченное на выполнение запроса.
+</li></ul><p><strong><code>Rack::MethodOverride</code></strong></p><ul><li>Переопределяет метод, если установлен <code>params[:_method]</code>. Эта промежуточная программа поддерживает типы HTTP методов PUT и DELETE.
+</li></ul><p><strong><code>ActionDispatch::RequestId</code></strong></p><ul><li>Создает для отклика уникальный заголовок <code>X-Request-Id</code> и включает метод <code>ActionDispatch::Request#request_id</code>.
+</li></ul><p><strong><code>ActionDispatch::RemoteIp</code></strong></p><ul><li>Проверяет на IP-спуфинг атаки.
+</li></ul><p><strong><code>Sprockets::Rails::QuietAssets</code></strong></p><ul><li>Подавляет вывод логгера для запросов ассета.
+</li></ul><p><strong><code>Rails::Rack::Logger</code></strong></p><ul><li>Уведомляет логи, что начался запрос. После выполнения запроса, глушит все логи.
+</li></ul><p><strong><code>ActionDispatch::ShowExceptions</code></strong></p><ul><li>Ловит все исключения, возвращаемые приложением и вызывает приложение для показа исключений, которое форматирует его для конечного пользователя.
+</li></ul><p><strong><code>ActionDispatch::DebugExceptions</code></strong></p><ul><li>Ответственна за логирование исключений и показа отладочной страницы, если запрос локальный.
+</li></ul><p><strong><code>ActionDispatch::ActionableExceptions</code></strong></p><ul><li>Предоставляет способ направления экшнов от страниц об ошибке Rails.
+</li></ul><p><strong><code>ActionDispatch::Reloader</code></strong></p><ul><li>Предоставляет колбэки prepare и cleanup, предназначенные для перезагрузки кода во время разработки.
+</li></ul><p><strong><code>ActionDispatch::Callbacks</code></strong></p><ul><li>Предоставляет колбэки для выполнения до и после направления запроса.
+</li></ul><p><strong><code>ActiveRecord::Migration::CheckPending</code></strong></p><ul><li>Проверяет отложенные миграции и вызывает <code>ActiveRecord::PendingMigrationError</code>, если какие-то миграции отложены.
+</li></ul><p><strong><code>ActionDispatch::Cookies</code></strong></p><ul><li>Устанавливает для запроса куки.
+</li></ul><p><strong><code>ActionDispatch::Session::CookieStore</code></strong></p><ul><li>Ответственна за хранение сессии в куки.
+</li></ul><p><strong><code>ActionDispatch::Flash</code></strong></p><ul><li>Настраивает ключи flash. Доступно, только если <a href="/configuring#config-session-store"><code>config.session_store</code></a> присвоено значение.
+</li></ul><p><strong><code>ActionDispatch::ContentSecurityPolicy::Middleware</code></strong></p><ul><li>Предоставляет DSL для настройки заголовка Content-Security-Policy.
+</li></ul><p><strong><code>Rack::Head</code></strong></p><ul><li>Преобразует запросы HEAD в запросы <code>GET</code> и обслуживает их соответствующим образом.
+</li></ul><p><strong><code>Rack::ConditionalGet</code></strong></p><ul><li>Добавляет поддержку для &quot;Conditional <code>GET</code>&quot;, чтобы сервер ничего не отвечал, если страница не изменилась.
+</li></ul><p><strong><code>Rack::ETag</code></strong></p><ul><li>Добавляет заголовок ETag во все строковые тела. ETags используются для проверки кэша.
+</li></ul><p><strong><code>Rack::TempfileReaper</code></strong></p><ul><li>Очищает временные файлы, используемые для буферизации multipart запросов.
+</li></ul><div class="info"><p>Можете использовать любые из этих промежуточных программ в своем стеке Rack.</p></div><h3 id='resources' class='inside_page_header'><a href="#resources">4.</a>  Источники</h3><h4 id='obuchenie-rack' class='inside_page_header'><a href="#obuchenie-rack">4.1.</a> Обучение Rack</h4><ul><li><a href="https://rack.github.io">Official Rack Website</a>
+</li><li><a href="http://chneukirchen.org/blog/archive/2007/02/introducing-rack.html">Introducing Rack</a>
+</li></ul><h4 id='ponimanie-promezhutochnyh-programm' class='inside_page_header'><a href="#ponimanie-promezhutochnyh-programm">4.2.</a> Понимание промежуточных программ</h4><ul><li><a href="http://railscasts.com/episodes/151-rack-middleware">Railscast on Rack Middlewares</a>
+</li></ul>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

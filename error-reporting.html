@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Отчет об ошибках в приложениях Rails" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Отчет об ошибках в приложениях Rails" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/error-reporting" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Отчет об ошибках в приложениях Rails
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="qERwcx/JCRDCPu1I76awZvQ4B+D8K+jfDv/jXhshps6XqDdhX+RsKmplqEHdjgBJ0Nk4gQzgIMbEtliZL9pxuA==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#otchet-ob-oshibke">1. Отчет об ошибке</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#podpiska-na-reporter">1.1. Подписка на репортер</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-reportera-ob-oshibkah">1.2. Использование репортера об ошибках</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#otchet-i-proglatyvanie-oshibok">1.2.1. Отчет и проглатывание ошибок</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#otchet-i-povtornyy-vyzov-oshibok">1.2.2. Отчет и повторный вызов ошибок</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#otchet-ob-oshibkah-vruchnuyu">1.2.3. Отчет об ошибках вручную</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#optsii-otcheta-ob-oshibki">1.3. Опции отчета об ошибки</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#filtratsiya-po-klassam-oshibok">1.4. Фильтрация по классам ошибок</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustanovka-globalnogo-konteksta">1.5. Установка глобального контекста</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#dlya-bibliotek">1.6. Для библиотек</a>
+</h5>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='otchet-ob-oshibkah-v-prilozheniyah-rails' class='inside_page_header'> Отчет об ошибках в приложениях Rails</h2><p>Это руководство представляет способы управления исключениями, которые случаются в приложениях Ruby on Rails.</p><p>После прочтения этого руководства, вы узнаете:</p><ul><li>Как использовать репортер об ошибках Rails, чтобы отлавливать и отчитываться об ошибках.
+</li><li>Как создавать пользовательских получателей для вашего отчитывающегося об ошибке сервиса.
+</li></ul>
+<hr>
+<h3 id='otchet-ob-oshibke' class='inside_page_header'><a href="#otchet-ob-oshibke">1.</a> Отчет об ошибке</h3><p><a href="https://api.rubyonrails.org/classes/ActiveSupport/ErrorReporter.html">Репортер об ошибках</a> Rails предоставляет стандартных способ собирать исключения, случающиеся в вашем приложении, и сообщать о них предпочитаемому вами сервису или месту.</p><p>Репортер об ошибках нацелен заменить шаблонный код обработки ошибки, наподобие:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">begin</span>
+  <span class="n">do_something</span>
+<span class="k">rescue</span> <span class="no">SomethingIsBroken</span> <span class="o">=&gt;</span> <span class="n">error</span>
+  <span class="no">MyErrorReportingService</span><span class="p">.</span><span class="nf">notify</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>с помощью последовательного интерфейса:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">error</span><span class="p">.</span><span class="nf">handle</span><span class="p">(</span><span class="no">SomethingIsBroken</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">do_something</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Rails оборачивает все выполнения (такие как запросы HTTP, задачи и вызовы <code>rails runner</code>) в репортер об ошибках, поэтому любые необработанные ошибки, вызванные в вашем приложении, автоматически будут сообщены вашему сервису, отчитывающемуся об ошибке, через их получателей.</p><p>Это означает, что сторонним библиотекам, отчитывающимся об ошибке, больше не нужно вставлять промежуточную программу Rack или делать какие-либо Monkey patch, чтобы захватить необработанные исключения. Библиотеки, использующие ActiveSupport, также могут это использовать, чтобы ненавязчиво отчитываться о предупреждениях, которые раньше терялись в логах.</p><p>Использование репортера об ошибках Rails не обязательное. Все иные средства отлова ошибок все еще работают.</p><h4 id='podpiska-na-reporter' class='inside_page_header'><a href="#podpiska-na-reporter">1.1.</a> Подписка на репортер</h4><p>Чтобы использовать репортер об ошибках, необходим <em>получатель</em>. Получателем может быть любым объектом с методом <code>report</code>. Когда в вашем приложении происходит ошибка, или вызывается вручную, репортер об ошибках Rails вызовет этот метод с объектом ошибки и некоторыми опциями.</p><p>Некоторые библиотеки для отчета об ошибках, такие как <a href="https://github.com/getsentry/sentry-ruby/blob/e18ce4b6dcce2ebd37778c1e96164684a1e9ebfc/sentry-rails/lib/sentry/rails/error_subscriber.rb">Sentry</a> и <a href="https://docs.honeybadger.io/lib/ruby/integration-guides/rails-exception-tracking/">Honeybadger</a>, автоматически регистрируют для вас получателя. За подробностями обратитесь к документации вашего поставщика.</p><p>Также можно создать пользовательского получателя. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/initializers/error_subscriber.rb</span>
+<span class="k">class</span> <span class="nc">ErrorSubscriber</span>
+  <span class="k">def</span> <span class="nf">report</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">handled</span><span class="p">:,</span> <span class="n">severity</span><span class="p">:,</span> <span class="n">context</span><span class="p">:,</span> <span class="ss">source: </span><span class="kp">nil</span><span class="p">)</span>
+    <span class="no">MyErrorReportingService</span><span class="p">.</span><span class="nf">report_error</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="ss">context: </span><span class="n">context</span><span class="p">,</span> <span class="ss">handled: </span><span class="n">handled</span><span class="p">,</span> <span class="ss">level: </span><span class="n">severity</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>После определения класса получателя, зарегистрируйте его, вызвав метод <a href="https://api.rubyonrails.org/classes/ActiveSupport/ErrorReporter.html#method-i-subscribe"><code>Rails.error.subscribe</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">error</span><span class="p">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="no">ErrorSubscriber</span><span class="p">.</span><span class="nf">new</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Можно зарегистрировать столько получателей, сколько желаете. Rails вызовет их по очереди, в порядке, в котором они зарегистрированы.</p><p>Note: Репортер об ошибках Rails всегда будет запускать зарегистрированные получатели, независимо от среды. Однако, многие сервисы отчета об ошибках сообщают об ошибках по умолчанию только в production. Вам следует настроить и протестировать ваши настройки в разных средах по необходимости.</p><h4 id='ispolzovanie-reportera-ob-oshibkah' class='inside_page_header'><a href="#ispolzovanie-reportera-ob-oshibkah">1.2.</a> Использование репортера об ошибках</h4><p>Есть три способа использования репортера об ошибках:</p><h5 id='otchet-i-proglatyvanie-oshibok' class='inside_page_header'><a href="#otchet-i-proglatyvanie-oshibok">1.2.1.</a> Отчет и проглатывание ошибок</h5><p><a href="https://api.rubyonrails.org/classes/ActiveSupport/ErrorReporter.html#method-i-handle"><code>Rails.error.handle</code></a> отчитается о любой ошибке, вызванной в блоке. Затем он <strong>проглотит</strong> ошибку, и остальной ваш код вне блока будет продолжаться, как обычно.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">result</span> <span class="o">=</span> <span class="no">Rails</span><span class="p">.</span><span class="nf">error</span><span class="p">.</span><span class="nf">handle</span> <span class="k">do</span>
+  <span class="mi">1</span> <span class="o">+</span> <span class="s1">'1'</span> <span class="c1"># вызовет TypeError</span>
+<span class="k">end</span>
+<span class="n">result</span> <span class="c1"># =&gt; nil</span>
+<span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># Это будет выполнено</span>
+</code></pre>
+</div>
+<p>Если в блоке не вызвана ошибка, <code>Rails.error.handle</code> возвратит результат блока, в противном случае вернет <code>nil</code>. Это можно переопределить, предоставив <code>fallback</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">Rails</span><span class="p">.</span><span class="nf">error</span><span class="p">.</span><span class="nf">handle</span><span class="p">(</span><span class="ss">fallback: </span><span class="o">-&gt;</span> <span class="p">{</span> <span class="no">User</span><span class="p">.</span><span class="nf">anonymous</span> <span class="p">})</span> <span class="k">do</span>
+  <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='otchet-i-povtornyy-vyzov-oshibok' class='inside_page_header'><a href="#otchet-i-povtornyy-vyzov-oshibok">1.2.2.</a> Отчет и повторный вызов ошибок</h5><p><a href="https://api.rubyonrails.org/classes/ActiveSupport/ErrorReporter.html#method-i-record"><code>Rails.error.record</code></a> отчитается об ошибках всем зарегистрированным получателям, а затем повторно вызовет ошибку, что означает, что остальной ваш код не будет выполнен.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">error</span><span class="p">.</span><span class="nf">record</span> <span class="k">do</span>
+  <span class="mi">1</span> <span class="o">+</span> <span class="s1">'1'</span> <span class="c1"># вызовет TypeError</span>
+<span class="k">end</span>
+<span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># Это не будет выполнено</span>
+</code></pre>
+</div>
+<p>Если в блоке не вызвана ошибка, <code>Rails.error.record</code> возвратит результат блока.</p><h5 id='otchet-ob-oshibkah-vruchnuyu' class='inside_page_header'><a href="#otchet-ob-oshibkah-vruchnuyu">1.2.3.</a> Отчет об ошибках вручную</h5><p>Также можно вручную отчитаться об ошибках, вызвав <a href="https://api.rubyonrails.org/classes/ActiveSupport/ErrorReporter.html#method-i-report"><code>Rails.error.report</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">begin</span>
+  <span class="c1"># код</span>
+<span class="k">rescue</span> <span class="no">StandardError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="no">Rails</span><span class="p">.</span><span class="nf">error</span><span class="p">.</span><span class="nf">report</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Любые переданные опции будут переданы получателям ошибки.</p><h4 id='optsii-otcheta-ob-oshibki' class='inside_page_header'><a href="#optsii-otcheta-ob-oshibki">1.3.</a> Опции отчета об ошибки</h4><p>Все 3 отчитывающихся API (<code>#handle</code>, <code>#record</code> и <code>#report</code>) поддерживают следующие опции, которые затем передаются во все зарегистрированные получатели:</p><ul><li><code>handled</code>: <code>Boolean</code> для обозначения, была ли обработана ошибка. По умолчанию <code>true</code>. <code>#record</code> устанавливает ей <code>false</code>.
+</li><li><code>severity</code>: <code>Symbol</code>, описывающий суровость ошибки. Ожидаемые значения: <code>:error</code>, <code>:warning</code> и <code>:info</code>. <code>#handle</code> устанавливает ей <code>:warning</code>, в то время как <code>#record</code> устанавливает ей <code>:error</code>.
+</li><li><code>context</code>: <code>Hash</code> для предоставления больше контекста об ошибке, наподобие подробностей о запросе или пользователе
+</li><li><code>source</code>: <code>String</code> об источнике ошибки. Источник по умолчанию <code>&quot;application&quot;</code>. Ошибки, вызываемые внутренними библиотеками, могут устанавливать другие источники; библиотека кэша Redis может использовать <code>&quot;redis_cache_store.active_support&quot;</code>, например. Ваш получатель может использовать источник, чтобы игнорировать ошибки, в которой он не заинтересован.
+</li></ul><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">error</span><span class="p">.</span><span class="nf">handle</span><span class="p">(</span><span class="ss">context: </span><span class="p">{</span><span class="ss">user_id: </span><span class="n">user</span><span class="p">.</span><span class="nf">id</span><span class="p">},</span> <span class="ss">severity: :info</span><span class="p">)</span> <span class="k">do</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='filtratsiya-po-klassam-oshibok' class='inside_page_header'><a href="#filtratsiya-po-klassam-oshibok">1.4.</a> Фильтрация по классам ошибок</h4><p>С помощью <code>Rails.error.handle</code> и <code>Rails.error.record</code> также можно выбрать, чтобы отчитываться только об ошибках определенных классов. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">error</span><span class="p">.</span><span class="nf">handle</span><span class="p">(</span><span class="no">IOError</span><span class="p">)</span> <span class="k">do</span>
+  <span class="mi">1</span> <span class="o">+</span> <span class="s1">'1'</span> <span class="c1"># вызовет TypeError</span>
+<span class="k">end</span>
+<span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># TypeErrors это не IOError, поэтому это *не* будет выполнено</span>
+</code></pre>
+</div>
+<p>Тут <code>TypeError</code> не будет отловлено репортером об ошибках Rails. Будет только отчет об экземплярах <code>IOError</code> и ее потомков. Любые другие ошибки будут вызваны, как обычно.</p><h4 id='ustanovka-globalnogo-konteksta' class='inside_page_header'><a href="#ustanovka-globalnogo-konteksta">1.5.</a> Установка глобального контекста</h4><p>В дополнение к установке контекста с помощью опции <code>context</code>, можно использовать <a href="https://api.rubyonrails.org/classes/ActiveSupport/ErrorReporter.html#method-i-set_context"><code>#set_context</code></a> API. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">error</span><span class="p">.</span><span class="nf">set_context</span><span class="p">(</span><span class="ss">section: </span><span class="s2">"checkout"</span><span class="p">,</span> <span class="ss">user_id: </span><span class="vi">@user</span><span class="p">.</span><span class="nf">id</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Любой контекст, установленный таким образом, будет объединена с опцией <code>context</code></p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">error</span><span class="p">.</span><span class="nf">set_context</span><span class="p">(</span><span class="ss">a: </span><span class="mi">1</span><span class="p">)</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">error</span><span class="p">.</span><span class="nf">handle</span><span class="p">(</span><span class="ss">context: </span><span class="p">{</span> <span class="ss">b: </span><span class="mi">2</span> <span class="p">})</span> <span class="p">{</span> <span class="k">raise</span> <span class="p">}</span>
+<span class="c1"># Контекст отчета будет: {:a=&gt;1, :b=&gt;2}</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">error</span><span class="p">.</span><span class="nf">handle</span><span class="p">(</span><span class="ss">context: </span><span class="p">{</span> <span class="ss">b: </span><span class="mi">3</span> <span class="p">})</span> <span class="p">{</span> <span class="k">raise</span> <span class="p">}</span>
+<span class="c1"># Контекст отчета будет: {:a=&gt;1, :b=&gt;3}</span>
+</code></pre>
+</div>
+<h4 id='dlya-bibliotek' class='inside_page_header'><a href="#dlya-bibliotek">1.6.</a> Для библиотек</h4><p>Библиотеки для отчета об ошибках могут регистрировать своих получателей в <code>Railtie</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">module</span> <span class="nn">MySdk</span>
+  <span class="k">class</span> <span class="nc">Railtie</span> <span class="o">&lt;</span> <span class="o">::</span><span class="no">Rails</span><span class="o">::</span><span class="no">Railtie</span>
+    <span class="n">initializer</span> <span class="s2">"error_subscribe.my_sdk"</span> <span class="k">do</span>
+      <span class="no">Rails</span><span class="p">.</span><span class="nf">error</span><span class="p">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="no">MyErrorSubscriber</span><span class="p">.</span><span class="nf">new</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если вы зарегистрировали получателя ошибки, но все еще имеете другие механизмы для ошибок, наподобие промежуточной программы Rack, может получиться, что ошибки сообщаются несколько раз. Следует либо убрать ваши другие механизмы, либо исправить функционал вашего отчета, чтобы он пропускал сообщения об исключении, которое он уже видел.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Инструметарий Active Support" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Инструметарий Active Support" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/active-support-instrumentation" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Инструметарий Active Support
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="CRsz6q5MJMOHCtcTQG6NLmX6qraQYIZ46Pl7Hy9VAe3fhqXfyf7f4TZ4L/gUwtJSYfQWrbY7RGtMH6uADZj7Yw==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#vvedenie-v-instrumentariy">1. Введение в инструментарий</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#podpiska-na-sobytiya">2. Подписка на события</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#prosmotr-taymingov-ot-instrumentariya-v-brauzere">3. Просмотр таймингов от инструментария в браузере</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#huki-freymvorka-rails">4. Хуки фреймворка Rails</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#action-controller">4.1. Action Controller</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#start_processing-action_controller">4.1.1. <code>start_processing.action_controller</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#process_action-action_controller">4.1.2. <code>process_action.action_controller</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#send_file-action_controller">4.1.3. <code>send_file.action_controller</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#send_data-action_controller">4.1.4. <code>send_data.action_controller</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#redirect_to-action_controller">4.1.5. <code>redirect_to.action_controller</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#halted_callback-action_controller">4.1.6. <code>halted_callback.action_controller</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#unpermitted_parameters-action_controller">4.1.7. <code>unpermitted_parameters.action_controller</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#action-controller-keshirovanie">4.2. Action Controller — кэширование</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#write_fragment-action_controller">4.2.1. <code>write_fragment.action_controller</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#read_fragment-action_controller">4.2.2. <code>read_fragment.action_controller</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#expire_fragment-action_controller">4.2.3. <code>expire_fragment.action_controller</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#exist_fragment-action_controller">4.2.4. <code>exist_fragment?.action_controller</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#action-dispatch">4.3. Action Dispatch</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#process_middleware-action_dispatch">4.3.1. <code>process_middleware.action_dispatch</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#redirect-action_dispatch">4.3.2. <code>redirect.action_dispatch</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#request-action_dispatch">4.3.3. <code>request.action_dispatch</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#action-view">4.4. Action View</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#render_template-action_view">4.4.1. <code>render_template.action_view</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#render_partial-action_view">4.4.2. <code>render_partial.action_view</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#render_collection-action_view">4.4.3. <code>render_collection.action_view</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#render_layout-action_view">4.4.4. <code>render_layout.action_view</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#active-record">4.5. Active Record</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#sql-active_record">4.5.1. <code>sql.active_record</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#strict_loading_violation-active_record">4.5.2. <code>strict_loading_violation.active_record</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#instantiation-active_record">4.5.3. <code>instantiation.active_record</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#action-mailer">4.6. Action Mailer</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#deliver-action_mailer">4.6.1. <code>deliver.action_mailer</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#process-action_mailer">4.6.2. <code>process.action_mailer</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#active-support-keshirovanie">4.7. Active Support - кэширование</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#cache_read-active_support">4.7.1. <code>cache_read.active_support</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#cache_read_multi-active_support">4.7.2. <code>cache_read_multi.active_support</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#cache_generate-active_support">4.7.3. <code>cache_generate.active_support</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#cache_fetch_hit-active_support">4.7.4. <code>cache_fetch_hit.active_support</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#cache_write-active_support">4.7.5. <code>cache_write.active_support</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#cache_write_multi-active_support">4.7.6. <code>cache_write_multi.active_support</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#cache_increment-active_support">4.7.7. <code>cache_increment.active_support</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#cache_decrement-active_support">4.7.8. <code>cache_decrement.active_support</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#cache_delete-active_support">4.7.9. <code>cache_delete.active_support</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#cache_delete_multi-active_support">4.7.10. <code>cache_delete_multi.active_support</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#cache_delete_matched-active_support">4.7.11. <code>cache_delete_matched.active_support</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#cache_cleanup-active_support">4.7.12. <code>cache_cleanup.active_support</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#cache_prune-active_support">4.7.13. <code>cache_prune.active_support</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#cache_exist-active_support">4.7.14. <code>cache_exist?.active_support</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#active-support-soobscheniya">4.8. Active Support — сообщения</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#message_serializer_fallback-active_support">4.8.1. <code>message_serializer_fallback.active_support</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#active-job">4.9. Active Job</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#enqueue_at-active_job">4.9.1. <code>enqueue_at.active_job</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#enqueue-active_job">4.9.2. <code>enqueue.active_job</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#enqueue_retry-active_job">4.9.3. <code>enqueue_retry.active_job</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#enqueue_all-active_job">4.9.4. <code>enqueue_all.active_job</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#perform_start-active_job">4.9.5. <code>perform_start.active_job</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#perform-active_job">4.9.6. <code>perform.active_job</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#retry_stopped-active_job">4.9.7. <code>retry_stopped.active_job</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#discard-active_job">4.9.8. <code>discard.active_job</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#action-cable">4.10. Action Cable</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#perform_action-action_cable">4.10.1. <code>perform_action.action_cable</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#transmit-action_cable">4.10.2. <code>transmit.action_cable</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#transmit_subscription_confirmation-action_cable">4.10.3. <code>transmit_subscription_confirmation.action_cable</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#transmit_subscription_rejection-action_cable">4.10.4. <code>transmit_subscription_rejection.action_cable</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#broadcast-action_cable">4.10.5. <code>broadcast.action_cable</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#active-storage">4.11. Active Storage</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#preview-active_storage">4.11.1. <code>preview.active_storage</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#transform-active_storage">4.11.2. <code>transform.active_storage</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#analyze-active_storage">4.11.3. <code>analyze.active_storage</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#active-storage-servis-hraneniya">4.12. Active Storage — сервис хранения</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#service_upload-active_storage">4.12.1. <code>service_upload.active_storage</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#service_streaming_download-active_storage">4.12.2. <code>service_streaming_download.active_storage</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#service_download-active_storage">4.12.3. <code>service_download.active_storage</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#service_download_chunk-active_storage">4.12.4. <code>service_download_chunk.active_storage</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#service_delete-active_storage">4.12.5. <code>service_delete.active_storage</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#service_delete_prefixed-active_storage">4.12.6. <code>service_delete_prefixed.active_storage</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#service_exist-active_storage">4.12.7. <code>service_exist.active_storage</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#service_url-active_storage">4.12.8. <code>service_url.active_storage</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#service_update_metadata-active_storage">4.12.9. <code>service_update_metadata.active_storage</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#action-mailbox">4.13. Action Mailbox</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#process-action_mailbox">4.13.1. <code>process.action_mailbox</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#railties">4.14. Railties</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#load_config_initializer-railties">4.14.1. <code>load_config_initializer.railties</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#rails">4.15. Rails</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#deprecation-rails">4.15.1. <code>deprecation.rails</code></a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#isklyucheniya">5. Исключения</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#creating-custom-events">6.  Создание пользовательского события</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='instrumentariy-active-support' class='inside_page_header'> Инструментарий Active Support</h2><p>Active Support — часть ядра Rails, которая предоставляет расширение языка Ruby, утилиты и другие возможности. Она включает инструментарий API, который может использоваться внутри приложения, для отслеживания определенных действий, которые возникают как в коде Ruby, так и внутри приложения Rails и самого фреймворка. Однако, она не ограничена Rails. При необходимости ее можно независимо использовать в других скриптах Ruby если вы желаете.</p><p>В этом руководстве вы научитесь использовать API инструментария Active Support для отслеживания событий внутри Rails или другого Ruby-кода.</p><p>После прочтения данного руководства вы будете знать:</p><ul><li>Какой инструментарий предоставляется.
+</li><li>Как добавить подписчика к хуку.
+</li><li>Как увидеть тайминги от инструментария в браузере.
+</li><li>Какие есть хуки внутри фреймворка Rails для инструментария.
+</li><li>Как создать произвольную реализацию инструментария.
+</li></ul>
+<hr>
+<h3 id='vvedenie-v-instrumentariy' class='inside_page_header'><a href="#vvedenie-v-instrumentariy">1.</a> Введение в инструментарий</h3><p>Инструментарий API, предоставленный Active Support, позволяет разработчикам создавать хуки, которыми могут пользоваться другие разработчики. <a href="#huki-freymvorka-rails">Некоторые из них</a> присутствуют в фреймворке Rails. С этим API, разработчики могут быть оповещены при возникновении определенного события в их приложении или другом коде Ruby.</p><p>Например, есть <a href="#sql-active-record">хук</a> внутри Active Record который вызывается каждый раз когда Active Record использует запрос SQL к базе данных. На этот хук можно <strong>подписаться</strong> и использовать его для отслеживания количества запросов в течении определенного экшна. Есть <a href="#process-action-action-controller">другой хук</a>, оборачивающий экшны контроллеров. Он может быть использован, например, для отслеживания, как долго выполнялся определенный экшн.</p><p>Вы даже можете <a href="#creating-custom-events">создать свои собственные события</a> внутри приложения, на которые вы потом сможете подписаться.</p><h3 id='podpiska-na-sobytiya' class='inside_page_header'><a href="#podpiska-na-sobytiya">2.</a> Подписка на события</h3><p>Подписаться на событие просто. Используйте <a href="https://api.rubyonrails.org/classes/ActiveSupport/Notifications.html#method-c-subscribe"><code>ActiveSupport::Notifications.subscribe</code></a> с блоком, чтобы слушать любое уведомление.</p><p>Блок получает следующие аргументы:</p><ul><li>Имя события
+</li><li>Время начала
+</li><li>Время окончания
+</li><li>Уникальный ID для инструментария, запустившего это событие
+</li><li>Полезная нагрузка для события
+</li></ul><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Notifications</span><span class="p">.</span><span class="nf">subscribe</span> <span class="s2">"process_action.action_controller"</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="p">,</span> <span class="n">started</span><span class="p">,</span> <span class="n">finished</span><span class="p">,</span> <span class="n">unique_id</span><span class="p">,</span> <span class="n">data</span><span class="o">|</span>
+  <span class="c1"># ваш собственный код</span>
+  <span class="no">Rails</span><span class="p">.</span><span class="nf">logger</span><span class="p">.</span><span class="nf">info</span> <span class="s2">"</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2"> Received! (started: </span><span class="si">#{</span><span class="n">started</span><span class="si">}</span><span class="s2">, finished: </span><span class="si">#{</span><span class="n">finished</span><span class="si">}</span><span class="s2">)"</span> <span class="c1"># process_action.action_controller Received (started: 2019-05-05 13:43:57 -0800, finished: 2019-05-05 13:43:58 -0800)</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если вы беспокоитесь об аккуратности <code>started</code> и <code>finished</code> для вычисления точного прошедшего времени, используйте <a href="https://api.rubyonrails.org/classes/ActiveSupport/Notifications.html#method-c-monotonic_subscribe"><code>ActiveSupport::Notifications.monotonic_subscribe</code></a>. Преданный блок получает те же аргументы, что и предыдущий, но <code>started</code> и <code>finished</code> получит значения более аккуратного монотонного времени вместо секундного дискретного времени.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Notifications</span><span class="p">.</span><span class="nf">monotonic_subscribe</span> <span class="s2">"process_action.action_controller"</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="p">,</span> <span class="n">started</span><span class="p">,</span> <span class="n">finished</span><span class="p">,</span> <span class="n">unique_id</span><span class="p">,</span> <span class="n">data</span><span class="o">|</span>
+  <span class="c1"># ваш собственный код</span>
+  <span class="no">Rails</span><span class="p">.</span><span class="nf">logger</span><span class="p">.</span><span class="nf">info</span> <span class="s2">"</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2"> Received! (started: </span><span class="si">#{</span><span class="n">started</span><span class="si">}</span><span class="s2">, finished: </span><span class="si">#{</span><span class="n">finished</span><span class="si">}</span><span class="s2">)"</span> <span class="c1"># process_action.action_controller Received (started: 1560978.425334, finished: 1560979.429234)</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Определение всех этих аргументов блока каждый раз может быть утомительно. Можно легко создать <a href="https://api.rubyonrails.org/classes/ActiveSupport/Notifications/Event.html"><code>ActiveSupport::Notifications::Event</code></a> из блока аргументов, например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Notifications</span><span class="p">.</span><span class="nf">subscribe</span> <span class="s2">"process_action.action_controller"</span> <span class="k">do</span> <span class="o">|*</span><span class="n">args</span><span class="o">|</span>
+  <span class="n">event</span> <span class="o">=</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Notifications</span><span class="o">::</span><span class="no">Event</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+  <span class="n">event</span><span class="p">.</span><span class="nf">name</span>      <span class="c1"># =&gt; "process_action.action_controller"</span>
+  <span class="n">event</span><span class="p">.</span><span class="nf">duration</span>  <span class="c1"># =&gt; 10 (in milliseconds)</span>
+  <span class="n">event</span><span class="p">.</span><span class="nf">payload</span>   <span class="c1"># =&gt; {:extra=&gt;information}</span>
+
+  <span class="no">Rails</span><span class="p">.</span><span class="nf">logger</span><span class="p">.</span><span class="nf">info</span> <span class="s2">"</span><span class="si">#{</span><span class="n">event</span><span class="si">}</span><span class="s2"> Received!"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Вы можете также подписаться на события, соответствующие регулярному выражению. Это позволит вам подписаться на несколько событий за раз. Вот как можно подписаться на все события <code>ActionController</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Notifications</span><span class="p">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="sr">/action_controller/</span><span class="p">)</span> <span class="k">do</span> <span class="o">|*</span><span class="n">args</span><span class="o">|</span>
+  <span class="c1"># Проверка всех событий ActionController</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h3 id='prosmotr-taymingov-ot-instrumentariya-v-brauzere' class='inside_page_header'><a href="#prosmotr-taymingov-ot-instrumentariya-v-brauzere">3.</a> Просмотр таймингов от инструментария в браузере</h3><p>Rails реализует стандарт <a href="https://www.w3.org/TR/server-timing/">Server Timing</a>, чтобы сделать информацию о тайминге доступной в веб-браузере. Чтобы включить, отредактируйте конфигурацию среды (обычно <code>development.rb</code>, так как это используется в основном в development), чтобы включить следующее:</p><div class="code_container">
+  <pre><code class="highlight ruby">  <span class="n">config</span><span class="p">.</span><span class="nf">server_timing</span> <span class="o">=</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<p>Как только настроено (включая перезагрузку вашего сервера), можно пойти в панель Developer Tools вашего браузера, затем выбрать Network и перезагрузить вашу страницу. Затем можно выбрать любой запрос к серверу Rails, и увидеть тайминги сервера во вкладке таймингов. Пример этого можно увидеть в <a href="https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/request_details/index.html#server-timing">документации Firefox</a>.</p><h3 id='huki-freymvorka-rails' class='inside_page_header'><a href="#huki-freymvorka-rails">4.</a> Хуки фреймворка Rails</h3><p>Внутри фреймворка Ruby on Rails присутствует множество хуков для обычных событий. Эти события и их нагрузка описываются ниже.</p><h4 id='action-controller' class='inside_page_header'><a href="#action-controller">4.1.</a> Action Controller</h4><h5 id='start_processing-action_controller' class='inside_page_header'><a href="#start_processing-action_controller">4.1.1.</a> <code>start_processing.action_controller</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:controller</code></td>
+<td>Имя контроллера</td>
+</tr>
+<tr>
+<td><code>:action</code></td>
+<td>Экшн</td>
+</tr>
+<tr>
+<td><code>:params</code></td>
+<td>Хэш параметров запроса без фильтрации параметров</td>
+</tr>
+<tr>
+<td><code>:headers</code></td>
+<td>Заголовки запроса</td>
+</tr>
+<tr>
+<td><code>:format</code></td>
+<td>html/js/json/xml и.т.д.</td>
+</tr>
+<tr>
+<td><code>:method</code></td>
+<td>Метод HTTP-запроса</td>
+</tr>
+<tr>
+<td><code>:path</code></td>
+<td>Путь запроса</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">controller: </span><span class="s2">"PostsController"</span><span class="p">,</span>
+  <span class="ss">action: </span><span class="s2">"new"</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span> <span class="s2">"action"</span> <span class="o">=&gt;</span> <span class="s2">"new"</span><span class="p">,</span> <span class="s2">"controller"</span> <span class="o">=&gt;</span> <span class="s2">"posts"</span> <span class="p">},</span>
+  <span class="ss">headers: </span><span class="c1">#&lt;ActionDispatch::Http::Headers:0x0055a67a519b88&gt;,</span>
+  <span class="ss">format: :html</span><span class="p">,</span>
+  <span class="ss">method: </span><span class="s2">"GET"</span><span class="p">,</span>
+  <span class="ss">path: </span><span class="s2">"/posts/new"</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='process_action-action_controller' class='inside_page_header'><a href="#process_action-action_controller">4.1.2.</a> <code>process_action.action_controller</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:controller</code></td>
+<td>Имя контроллера</td>
+</tr>
+<tr>
+<td><code>:action</code></td>
+<td>Экшн</td>
+</tr>
+<tr>
+<td><code>:params</code></td>
+<td>Хэш параметров запроса без фильтрации параметров</td>
+</tr>
+<tr>
+<td><code>:headers</code></td>
+<td>Заголовки запроса</td>
+</tr>
+<tr>
+<td><code>:format</code></td>
+<td>html/js/json/xml и.т.д.</td>
+</tr>
+<tr>
+<td><code>:method</code></td>
+<td>Метод HTTP-запроса</td>
+</tr>
+<tr>
+<td><code>:path</code></td>
+<td>Путь запроса</td>
+</tr>
+<tr>
+<td><code>:request</code></td>
+<td>Объект <a href="https://api.rubyonrails.org/classes/ActionDispatch/Request.html"><code>ActionDispatch::Request</code></a></td>
+</tr>
+<tr>
+<td><code>:response</code></td>
+<td>Объект <a href="https://api.rubyonrails.org/classes/ActionDispatch/Response.html"><code>ActionDispatch::Response</code></a></td>
+</tr>
+<tr>
+<td><code>:status</code></td>
+<td>Код статуса HTTP</td>
+</tr>
+<tr>
+<td><code>:view_runtime</code></td>
+<td>Количество времени, потраченного во вью</td>
+</tr>
+<tr>
+<td><code>:db_runtime</code></td>
+<td>Время, потраченное на выполнение запросов к БД в мс</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">controller: </span><span class="s2">"PostsController"</span><span class="p">,</span>
+  <span class="ss">action: </span><span class="s2">"index"</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span><span class="s2">"action"</span> <span class="o">=&gt;</span> <span class="s2">"index"</span><span class="p">,</span> <span class="s2">"controller"</span> <span class="o">=&gt;</span> <span class="s2">"posts"</span><span class="p">},</span>
+  <span class="ss">headers: </span><span class="c1">#&lt;ActionDispatch::Http::Headers:0x0055a67a519b88&gt;,</span>
+  <span class="ss">format: :html</span><span class="p">,</span>
+  <span class="ss">method: </span><span class="s2">"GET"</span><span class="p">,</span>
+  <span class="ss">path: </span><span class="s2">"/posts"</span><span class="p">,</span>
+  <span class="ss">request: </span><span class="c1">#&lt;ActionDispatch::Request:0x00007ff1cb9bd7b8&gt;,</span>
+  <span class="ss">response: </span><span class="c1">#&lt;ActionDispatch::Response:0x00007f8521841ec8&gt;,</span>
+  <span class="ss">status: </span><span class="mi">200</span><span class="p">,</span>
+  <span class="ss">view_runtime: </span><span class="mf">46.848</span><span class="p">,</span>
+  <span class="ss">db_runtime: </span><span class="mf">0.157</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='send_file-action_controller' class='inside_page_header'><a href="#send_file-action_controller">4.1.3.</a> <code>send_file.action_controller</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:path</code></td>
+<td>Полный путь к файлу</td>
+</tr>
+</table><p>Дополнительные ключи могут быть добавлены при вызове.</p><h5 id='send_data-action_controller' class='inside_page_header'><a href="#send_data-action_controller">4.1.4.</a> <code>send_data.action_controller</code></h5><p><code>ActionController</code> не добавляет какой-либо конкретной информации при загрузке. Все опции передаются через полезную нагрузку (payload).</p><h5 id='redirect_to-action_controller' class='inside_page_header'><a href="#redirect_to-action_controller">4.1.5.</a> <code>redirect_to.action_controller</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:status</code></td>
+<td>Код HTTP ответа</td>
+</tr>
+<tr>
+<td><code>:location</code></td>
+<td>URL для переадресации</td>
+</tr>
+<tr>
+<td><code>:request</code></td>
+<td>Объект <a href="https://api.rubyonrails.org/classes/ActionDispatch/Request.html"><code>ActionDispatch::Request</code></a></td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">status: </span><span class="mi">302</span><span class="p">,</span>
+  <span class="ss">location: </span><span class="s2">"http://localhost:3000/posts/new"</span><span class="p">,</span>
+  <span class="ss">request: </span><span class="o">&lt;</span><span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Request</span><span class="p">:</span><span class="mh">0x00007ff1cb9bd7b8</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='halted_callback-action_controller' class='inside_page_header'><a href="#halted_callback-action_controller">4.1.6.</a> <code>halted_callback.action_controller</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:filter</code></td>
+<td>Фильтр, прервавший экшн</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">filter: </span><span class="s2">":halting_filter"</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='unpermitted_parameters-action_controller' class='inside_page_header'><a href="#unpermitted_parameters-action_controller">4.1.7.</a> <code>unpermitted_parameters.action_controller</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:keys</code></td>
+<td>Неразрешенные ключи</td>
+</tr>
+<tr>
+<td><code>:context</code></td>
+<td>Хэш со следующими ключами: <code>:controller</code>, <code>:action</code>, <code>:params</code>, <code>:request</code></td>
+</tr>
+</table><h4 id='action-controller-keshirovanie' class='inside_page_header'><a href="#action-controller-keshirovanie">4.2.</a> Action Controller — кэширование</h4><h5 id='write_fragment-action_controller' class='inside_page_header'><a href="#write_fragment-action_controller">4.2.1.</a> <code>write_fragment.action_controller</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Полный ключ</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">key: </span><span class="s1">'posts/1-dashboard-view'</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='read_fragment-action_controller' class='inside_page_header'><a href="#read_fragment-action_controller">4.2.2.</a> <code>read_fragment.action_controller</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Полный ключ</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">key: </span><span class="s1">'posts/1-dashboard-view'</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='expire_fragment-action_controller' class='inside_page_header'><a href="#expire_fragment-action_controller">4.2.3.</a> <code>expire_fragment.action_controller</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Полный ключ</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">key: </span><span class="s1">'posts/1-dashboard-view'</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='exist_fragment-action_controller' class='inside_page_header'><a href="#exist_fragment-action_controller">4.2.4.</a> <code>exist_fragment?.action_controller</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Полный ключ</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">key: </span><span class="s1">'posts/1-dashboard-view'</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h4 id='action-dispatch' class='inside_page_header'><a href="#action-dispatch">4.3.</a> Action Dispatch</h4><h5 id='process_middleware-action_dispatch' class='inside_page_header'><a href="#process_middleware-action_dispatch">4.3.1.</a> <code>process_middleware.action_dispatch</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:middleware</code></td>
+<td>Имя промежуточной программы</td>
+</tr>
+</table><h5 id='redirect-action_dispatch' class='inside_page_header'><a href="#redirect-action_dispatch">4.3.2.</a> <code>redirect.action_dispatch</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:status</code></td>
+<td>Код отклика HTTP</td>
+</tr>
+<tr>
+<td><code>:location</code></td>
+<td>URL, куда перенаправить</td>
+</tr>
+<tr>
+<td><code>:request</code></td>
+<td>Объект <a href="https://api.rubyonrails.org/classes/ActionDispatch/Request.html"><code>ActionDispatch::Request</code></a></td>
+</tr>
+</table><h5 id='request-action_dispatch' class='inside_page_header'><a href="#request-action_dispatch">4.3.3.</a> <code>request.action_dispatch</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:request</code></td>
+<td>Объект <a href="https://api.rubyonrails.org/classes/ActionDispatch/Request.html"><code>ActionDispatch::Request</code></a></td>
+</tr>
+</table><h4 id='action-view' class='inside_page_header'><a href="#action-view">4.4.</a> Action View</h4><h5 id='render_template-action_view' class='inside_page_header'><a href="#render_template-action_view">4.4.1.</a> <code>render_template.action_view</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:identifier</code></td>
+<td>Полный путь до шаблона</td>
+</tr>
+<tr>
+<td><code>:layout</code></td>
+<td>Применяемый макет</td>
+</tr>
+<tr>
+<td><code>:locals</code></td>
+<td>Локальные переменные, переданные в шаблон</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">identifier: </span><span class="s2">"/Users/adam/projects/notifications/app/views/posts/index.html.erb"</span><span class="p">,</span>
+  <span class="ss">layout: </span><span class="s2">"layouts/application"</span><span class="p">,</span>
+  <span class="ss">locals: </span><span class="p">{</span> <span class="ss">foo: </span><span class="s2">"bar"</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='render_partial-action_view' class='inside_page_header'><a href="#render_partial-action_view">4.4.2.</a> <code>render_partial.action_view</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:identifier</code></td>
+<td>Полный путь до шаблона</td>
+</tr>
+<tr>
+<td><code>:locals</code></td>
+<td>Локальные переменные, переданные в шаблон</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">identifier: </span><span class="s2">"/Users/adam/projects/notifications/app/views/posts/_form.html.erb"</span><span class="p">,</span>
+  <span class="ss">locals: </span><span class="p">{</span> <span class="ss">foo: </span><span class="s2">"bar"</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='render_collection-action_view' class='inside_page_header'><a href="#render_collection-action_view">4.4.3.</a> <code>render_collection.action_view</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:identifier</code></td>
+<td>Полный путь к шаблону</td>
+</tr>
+<tr>
+<td><code>:count</code></td>
+<td>Размер коллекции</td>
+</tr>
+<tr>
+<td><code>:cache_hits</code></td>
+<td>Количество партиалов, извлеченных из кэша</td>
+</tr>
+</table><p>Ключ <code>:cache_hits</code> включен, только если коллекция рендерится с <code>cached: true</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">identifier: </span><span class="s2">"/Users/adam/projects/notifications/app/views/posts/_post.html.erb"</span><span class="p">,</span>
+  <span class="ss">count: </span><span class="mi">3</span><span class="p">,</span>
+  <span class="ss">cache_hits: </span><span class="mi">0</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='render_layout-action_view' class='inside_page_header'><a href="#render_layout-action_view">4.4.4.</a> <code>render_layout.action_view</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:identifier</code></td>
+<td>Полный путь к шаблону</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">identifier: </span><span class="s2">"/Users/adam/projects/notifications/app/views/layouts/application.html.erb"</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h4 id='active-record' class='inside_page_header'><a href="#active-record">4.5.</a> Active Record</h4><h5 id='sql-active_record' class='inside_page_header'><a href="#sql-active_record">4.5.1.</a> <code>sql.active_record</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:sql</code></td>
+<td>Выражение SQL</td>
+</tr>
+<tr>
+<td><code>:name</code></td>
+<td>Имя операции</td>
+</tr>
+<tr>
+<td><code>:connection</code></td>
+<td>Объект соединения</td>
+</tr>
+<tr>
+<td><code>:binds</code></td>
+<td>Связанные параметры</td>
+</tr>
+<tr>
+<td><code>:type_casted_binds</code></td>
+<td>Приведенные связанные параметры</td>
+</tr>
+<tr>
+<td><code>:statement_name</code></td>
+<td>Имя выражения SQL</td>
+</tr>
+<tr>
+<td><code>:cached</code></td>
+<td><code>true</code> если использованы кэшированные запросы</td>
+</tr>
+</table><p>Адаптеры могут добавлять свои собственные данные.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">sql: </span><span class="s2">"SELECT </span><span class="se">\"</span><span class="s2">posts</span><span class="se">\"</span><span class="s2">.* FROM </span><span class="se">\"</span><span class="s2">posts</span><span class="se">\"</span><span class="s2"> "</span><span class="p">,</span>
+  <span class="ss">name: </span><span class="s2">"Post Load"</span><span class="p">,</span>
+  <span class="ss">connection: </span><span class="o">&lt;</span><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">ConnectionAdapters</span><span class="o">::</span><span class="no">SQLite3Adapter</span><span class="p">:</span><span class="mh">0x00007f9f7a838850</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="ss">binds: </span><span class="p">[</span><span class="o">&lt;</span><span class="no">ActiveModel</span><span class="o">::</span><span class="no">Attribute</span><span class="o">::</span><span class="no">WithCastValue</span><span class="p">:</span><span class="mh">0x00007fe19d15dc00</span><span class="o">&gt;</span><span class="p">],</span>
+  <span class="ss">type_casted_binds: </span><span class="p">[</span><span class="mi">11</span><span class="p">],</span>
+  <span class="ss">statement_name: </span><span class="kp">nil</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='strict_loading_violation-active_record' class='inside_page_header'><a href="#strict_loading_violation-active_record">4.5.2.</a> <code>strict_loading_violation.active_record</code></h5><p>Это событие выпускается, только когда <a href="configuring.html#config-active-record-action-on-strict-loading-violation"><code>config.active_record.action_on_strict_loading_violation</code></a> установлен <code>:log</code>.</p><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:owner</code></td>
+<td>Модель с включенным <code>strict_loading</code></td>
+</tr>
+<tr>
+<td><code>:reflection</code></td>
+<td>Отражение связи, которая пытается загрузиться</td>
+</tr>
+</table><h5 id='instantiation-active_record' class='inside_page_header'><a href="#instantiation-active_record">4.5.3.</a> <code>instantiation.active_record</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:record_count</code></td>
+<td>Количество записей</td>
+</tr>
+<tr>
+<td><code>:class_name</code></td>
+<td>Класс записи</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">record_count: </span><span class="mi">1</span><span class="p">,</span>
+  <span class="ss">class_name: </span><span class="s2">"User"</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h4 id='action-mailer' class='inside_page_header'><a href="#action-mailer">4.6.</a> Action Mailer</h4><h5 id='deliver-action_mailer' class='inside_page_header'><a href="#deliver-action_mailer">4.6.1.</a> <code>deliver.action_mailer</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:mailer</code></td>
+<td>Имя класса рассыльщика</td>
+</tr>
+<tr>
+<td><code>:message_id</code></td>
+<td>ID сообщения, создается Mail гемом</td>
+</tr>
+<tr>
+<td><code>:subject</code></td>
+<td>Тема сообщения</td>
+</tr>
+<tr>
+<td><code>:to</code></td>
+<td>Адресат(ы) сообщения</td>
+</tr>
+<tr>
+<td><code>:from</code></td>
+<td>Отправитель сообщения</td>
+</tr>
+<tr>
+<td><code>:bcc</code></td>
+<td>BCC адреса сообщения</td>
+</tr>
+<tr>
+<td><code>:cc</code></td>
+<td>CC адреса сообщения</td>
+</tr>
+<tr>
+<td><code>:date</code></td>
+<td>Дата сообщения</td>
+</tr>
+<tr>
+<td><code>:mail</code></td>
+<td>Кодированная форма сообщения</td>
+</tr>
+<tr>
+<td><code>:perform_deliveries</code></td>
+<td>Была ли вызвана доставка этого сообщения или нет</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">mailer: </span><span class="s2">"Notification"</span><span class="p">,</span>
+  <span class="ss">message_id: </span><span class="s2">"4f5b5491f1774_181b23fc3d4434d38138e5@mba.local.mail"</span><span class="p">,</span>
+  <span class="ss">subject: </span><span class="s2">"Rails Guides"</span><span class="p">,</span>
+  <span class="ss">to: </span><span class="p">[</span><span class="s2">"users@rails.com"</span><span class="p">,</span> <span class="s2">"dhh@rails.com"</span><span class="p">],</span>
+  <span class="ss">from: </span><span class="p">[</span><span class="s2">"me@rails.com"</span><span class="p">],</span>
+  <span class="ss">date: </span><span class="no">Sat</span><span class="p">,</span> <span class="mi">10</span> <span class="no">Mar</span> <span class="mi">2012</span> <span class="mi">14</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">09</span> <span class="o">+</span><span class="mo">0100</span><span class="p">,</span>
+  <span class="ss">mail: </span><span class="s2">"..."</span><span class="p">,</span> <span class="c1"># опущено для краткости</span>
+  <span class="ss">perform_deliveries: </span><span class="kp">true</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='process-action_mailer' class='inside_page_header'><a href="#process-action_mailer">4.6.2.</a> <code>process.action_mailer</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:mailer</code></td>
+<td>Имя класса рассыльщика</td>
+</tr>
+<tr>
+<td><code>:action</code></td>
+<td>Экшн</td>
+</tr>
+<tr>
+<td><code>:args</code></td>
+<td>Аргументы</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">mailer: </span><span class="s2">"Notification"</span><span class="p">,</span>
+  <span class="ss">action: </span><span class="s2">"welcome_email"</span><span class="p">,</span>
+  <span class="ss">args: </span><span class="p">[]</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h4 id='active-support-keshirovanie' class='inside_page_header'><a href="#active-support-keshirovanie">4.7.</a> Active Support - кэширование</h4><h5 id='cache_read-active_support' class='inside_page_header'><a href="#cache_read-active_support">4.7.1.</a> <code>cache_read.active_support</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Ключ, используемый при хранении</td>
+</tr>
+<tr>
+<td><code>:store</code></td>
+<td>Имя класса хранилища</td>
+</tr>
+<tr>
+<td><code>:hit</code></td>
+<td>Если это чтение успешно</td>
+</tr>
+<tr>
+<td><code>:super_operation</code></td>
+<td><code>:fetch</code>, когда чтение выполняется с <a href="https://api.rubyonrails.org/classes/ActiveSupport/Cache/Store.html#method-i-fetch"><code>fetch</code></a></td>
+</tr>
+</table><h5 id='cache_read_multi-active_support' class='inside_page_header'><a href="#cache_read_multi-active_support">4.7.2.</a> <code>cache_read_multi.active_support</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Ключ, используемый при хранении</td>
+</tr>
+<tr>
+<td><code>:store</code></td>
+<td>Имя класса хранилища</td>
+</tr>
+<tr>
+<td><code>:hit</code></td>
+<td>Если это чтение успешно</td>
+</tr>
+<tr>
+<td><code>:super_operation</code></td>
+<td><code>:fetch_multi</code>, когда чтение выполняется с <a href="https://api.rubyonrails.org/classes/ActiveSupport/Cache/Store.html#method-i-fetch"><code>fetch_multi</code></a></td>
+</tr>
+</table><h5 id='cache_generate-active_support' class='inside_page_header'><a href="#cache_generate-active_support">4.7.3.</a> <code>cache_generate.active_support</code></h5><p>Это событие используется, только когда <a href="https://api.rubyonrails.org/classes/ActiveSupport/Cache/Store.html#method-i-fetch"><code>fetch</code></a> вызывается с блоком.</p><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Ключ, используемый при хранении</td>
+</tr>
+<tr>
+<td><code>:store</code></td>
+<td>Имя класса хранилища</td>
+</tr>
+</table><p>Опции, переданные в <code>fetch</code>, будут объединены с полезной нагрузкой при записи в хранилище.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">key: </span><span class="s2">"name-of-complicated-computation"</span><span class="p">,</span>
+  <span class="ss">store: </span><span class="s2">"ActiveSupport::Cache::MemCacheStore"</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='cache_fetch_hit-active_support' class='inside_page_header'><a href="#cache_fetch_hit-active_support">4.7.4.</a> <code>cache_fetch_hit.active_support</code></h5><p>Это событие используется только когда <a href="https://api.rubyonrails.org/classes/ActiveSupport/Cache/Store.html#method-i-fetch"><code>fetch</code></a> вызывается с блоком.</p><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Ключ, используемый при хранении</td>
+</tr>
+<tr>
+<td><code>:store</code></td>
+<td>Имя класса хранилища</td>
+</tr>
+</table><p>Опции, переданные в <code>fetch</code>, будут объединены с полезной нагрузкой.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">key: </span><span class="s2">"name-of-complicated-computation"</span><span class="p">,</span>
+  <span class="ss">store: </span><span class="s2">"ActiveSupport::Cache::MemCacheStore"</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='cache_write-active_support' class='inside_page_header'><a href="#cache_write-active_support">4.7.5.</a> <code>cache_write.active_support</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Ключ, используемый при хранении</td>
+</tr>
+<tr>
+<td><code>:store</code></td>
+<td>Имя класса хранилища</td>
+</tr>
+</table><p>Хранилища кэша также могут добавлять свои собственные данные.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">key: </span><span class="s2">"name-of-complicated-computation"</span><span class="p">,</span>
+  <span class="ss">store: </span><span class="s2">"ActiveSupport::Cache::MemCacheStore"</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='cache_write_multi-active_support' class='inside_page_header'><a href="#cache_write_multi-active_support">4.7.6.</a> <code>cache_write_multi.active_support</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Ключ, используемый при хранении</td>
+</tr>
+<tr>
+<td><code>:store</code></td>
+<td>Имя класса хранилища</td>
+</tr>
+</table><h5 id='cache_increment-active_support' class='inside_page_header'><a href="#cache_increment-active_support">4.7.7.</a> <code>cache_increment.active_support</code></h5><p>Это событие вызывается только при использовании <a href="https://api.rubyonrails.org/classes/ActiveSupport/Cache/MemCacheStore.html"><code>MemCacheStore</code></a> или <a href="https://api.rubyonrails.org/classes/ActiveSupport/Cache/RedisCacheStore.html"><code>RedisCacheStore</code></a>.</p><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Ключ, используемый при хранении</td>
+</tr>
+<tr>
+<td><code>:store</code></td>
+<td>Имя класса хранилища</td>
+</tr>
+<tr>
+<td><code>:amount</code></td>
+<td>Сумма увеличения</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">key: </span><span class="s2">"bottles-of-beer"</span><span class="p">,</span>
+  <span class="ss">store: </span><span class="s2">"ActiveSupport::Cache::RedisCacheStore"</span><span class="p">,</span>
+  <span class="ss">amount: </span><span class="mi">99</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='cache_decrement-active_support' class='inside_page_header'><a href="#cache_decrement-active_support">4.7.8.</a> <code>cache_decrement.active_support</code></h5><p>Это событие вызывается только при использовании хранилищ кэша Memcached или Redis.</p><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Ключ, используемый при хранении</td>
+</tr>
+<tr>
+<td><code>:store</code></td>
+<td>Имя класса хранилища</td>
+</tr>
+<tr>
+<td><code>:amount</code></td>
+<td>Сумма уменьшения</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">key: </span><span class="s2">"bottles-of-beer"</span><span class="p">,</span>
+  <span class="ss">store: </span><span class="s2">"ActiveSupport::Cache::RedisCacheStore"</span><span class="p">,</span>
+  <span class="ss">amount: </span><span class="mi">1</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='cache_delete-active_support' class='inside_page_header'><a href="#cache_delete-active_support">4.7.9.</a> <code>cache_delete.active_support</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Ключ, используемый при хранении</td>
+</tr>
+<tr>
+<td><code>:store</code></td>
+<td>Имя класса хранилища</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">key: </span><span class="s2">"name-of-complicated-computation"</span><span class="p">,</span>
+  <span class="ss">store: </span><span class="s2">"ActiveSupport::Cache::MemCacheStore"</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='cache_delete_multi-active_support' class='inside_page_header'><a href="#cache_delete_multi-active_support">4.7.10.</a> <code>cache_delete_multi.active_support</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Ключ, используемый при хранении</td>
+</tr>
+<tr>
+<td><code>:store</code></td>
+<td>Имя класса хранилища</td>
+</tr>
+</table><h5 id='cache_delete_matched-active_support' class='inside_page_header'><a href="#cache_delete_matched-active_support">4.7.11.</a> <code>cache_delete_matched.active_support</code></h5><p>Это событие вызывается только при использовании <a href="https://api.rubyonrails.org/classes/ActiveSupport/Cache/RedisCacheStore.html"><code>RedisCacheStore</code></a>, <a href="https://api.rubyonrails.org/classes/ActiveSupport/Cache/FileStore.html"><code>FileStore</code></a> или <a href="https://api.rubyonrails.org/classes/ActiveSupport/Cache/MemoryStore.html"><code>MemoryStore</code></a>.</p><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Используемый паттерн ключа</td>
+</tr>
+<tr>
+<td><code>:store</code></td>
+<td>Имя класса хранилища</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">key: </span><span class="s2">"posts/*"</span><span class="p">,</span>
+  <span class="ss">store: </span><span class="s2">"ActiveSupport::Cache::RedisCacheStore"</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='cache_cleanup-active_support' class='inside_page_header'><a href="#cache_cleanup-active_support">4.7.12.</a> <code>cache_cleanup.active_support</code></h5><p>Это событие вызывается только при использовании <a href="https://api.rubyonrails.org/classes/ActiveSupport/Cache/MemoryStore.html"><code>MemoryStore</code></a>.</p><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:store</code></td>
+<td>Имя класса хранилища</td>
+</tr>
+<tr>
+<td><code>:size</code></td>
+<td>Количество записей в кэше перед очисткой</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">store: </span><span class="s2">"ActiveSupport::Cache::MemoryStore"</span><span class="p">,</span>
+  <span class="ss">size: </span><span class="mi">9001</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='cache_prune-active_support' class='inside_page_header'><a href="#cache_prune-active_support">4.7.13.</a> <code>cache_prune.active_support</code></h5><p>Это событие вызывается только при использовании <a href="https://api.rubyonrails.org/classes/ActiveSupport/Cache/MemoryStore.html"><code>MemoryStore</code></a>.</p><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:store</code></td>
+<td>Имя класса хранилища</td>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Целевой размер (в байтах) для кэша</td>
+</tr>
+<tr>
+<td><code>:from</code></td>
+<td>Размер (в байтах) кэша перед сокращением</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">store: </span><span class="s2">"ActiveSupport::Cache::MemoryStore"</span><span class="p">,</span>
+  <span class="ss">key: </span><span class="mi">5000</span><span class="p">,</span>
+  <span class="ss">from: </span><span class="mi">9001</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='cache_exist-active_support' class='inside_page_header'><a href="#cache_exist-active_support">4.7.14.</a> <code>cache_exist?.active_support</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Ключ, используемый при хранении</td>
+</tr>
+<tr>
+<td><code>:store</code></td>
+<td>Имя класса хранилища</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">key: </span><span class="s2">"name-of-complicated-computation"</span><span class="p">,</span>
+  <span class="ss">store: </span><span class="s2">"ActiveSupport::Cache::MemCacheStore"</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h4 id='active-support-soobscheniya' class='inside_page_header'><a href="#active-support-soobscheniya">4.8.</a> Active Support — сообщения</h4><h5 id='message_serializer_fallback-active_support' class='inside_page_header'><a href="#message_serializer_fallback-active_support">4.8.1.</a> <code>message_serializer_fallback.active_support</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:serializer</code></td>
+<td>Основной (предназначенный) сериализатор</td>
+</tr>
+<tr>
+<td><code>:fallback</code></td>
+<td>Запасной (фактический) сериализатор</td>
+</tr>
+<tr>
+<td><code>:serialized</code></td>
+<td>Сериализованная строка</td>
+</tr>
+<tr>
+<td><code>:deserialized</code></td>
+<td>Десериализованное значение</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">serializer: :json_allow_marshal</span><span class="p">,</span>
+  <span class="ss">fallback: :marshal</span><span class="p">,</span>
+  <span class="ss">serialized: </span><span class="s2">"</span><span class="se">\x04\b</span><span class="s2">{</span><span class="se">\x06</span><span class="s2">I</span><span class="se">\"\n</span><span class="s2">Hello</span><span class="se">\x06</span><span class="s2">:</span><span class="se">\x06</span><span class="s2">ETI</span><span class="se">\"\n</span><span class="s2">World</span><span class="se">\x06</span><span class="s2">;</span><span class="se">\x00</span><span class="s2">T"</span><span class="p">,</span>
+  <span class="ss">deserialized: </span><span class="p">{</span> <span class="s2">"Hello"</span> <span class="o">=&gt;</span> <span class="s2">"World"</span> <span class="p">},</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h4 id='active-job' class='inside_page_header'><a href="#active-job">4.9.</a> Active Job</h4><h5 id='enqueue_at-active_job' class='inside_page_header'><a href="#enqueue_at-active_job">4.9.1.</a> <code>enqueue_at.active_job</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:adapter</code></td>
+<td>Объект QueueAdapter, обрабатывающий задание</td>
+</tr>
+<tr>
+<td><code>:job</code></td>
+<td>Объект задания</td>
+</tr>
+</table><h5 id='enqueue-active_job' class='inside_page_header'><a href="#enqueue-active_job">4.9.2.</a> <code>enqueue.active_job</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:adapter</code></td>
+<td>Объект QueueAdapter, обрабатывающий задание</td>
+</tr>
+<tr>
+<td><code>:job</code></td>
+<td>Объект задания</td>
+</tr>
+</table><h5 id='enqueue_retry-active_job' class='inside_page_header'><a href="#enqueue_retry-active_job">4.9.3.</a> <code>enqueue_retry.active_job</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:job</code></td>
+<td>Объект задания</td>
+</tr>
+<tr>
+<td><code>:adapter</code></td>
+<td>Объект QueueAdapter, обрабатывающий задание</td>
+</tr>
+<tr>
+<td><code>:error</code></td>
+<td>Ошибка, вызвавшая повтор</td>
+</tr>
+<tr>
+<td><code>:wait</code></td>
+<td>Задержка повтора</td>
+</tr>
+</table><h5 id='enqueue_all-active_job' class='inside_page_header'><a href="#enqueue_all-active_job">4.9.4.</a> <code>enqueue_all.active_job</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:adapter</code></td>
+<td>Объект QueueAdapter, обрабатывающий задание</td>
+</tr>
+<tr>
+<td><code>:jobs</code></td>
+<td>Массив объектов Job</td>
+</tr>
+</table><h5 id='perform_start-active_job' class='inside_page_header'><a href="#perform_start-active_job">4.9.5.</a> <code>perform_start.active_job</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:adapter</code></td>
+<td>Объект QueueAdapter, обрабатывающий задание</td>
+</tr>
+<tr>
+<td><code>:job</code></td>
+<td>Объект задания</td>
+</tr>
+</table><h5 id='perform-active_job' class='inside_page_header'><a href="#perform-active_job">4.9.6.</a> <code>perform.active_job</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:adapter</code></td>
+<td>Объект QueueAdapter, обрабатывающий задание</td>
+</tr>
+<tr>
+<td><code>:job</code></td>
+<td>Объект задания</td>
+</tr>
+<tr>
+<td><code>:db_runtime</code></td>
+<td>Сколько затрачено на выполнение запросов в базу данных в миллисекундах</td>
+</tr>
+</table><h5 id='retry_stopped-active_job' class='inside_page_header'><a href="#retry_stopped-active_job">4.9.7.</a> <code>retry_stopped.active_job</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:adapter</code></td>
+<td>Объект QueueAdapter, обрабатывающий задание</td>
+</tr>
+<tr>
+<td><code>:job</code></td>
+<td>Объект задания</td>
+</tr>
+<tr>
+<td><code>:error</code></td>
+<td>Ошибка, вызвавшая повтор</td>
+</tr>
+</table><h5 id='discard-active_job' class='inside_page_header'><a href="#discard-active_job">4.9.8.</a> <code>discard.active_job</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:adapter</code></td>
+<td>Объект QueueAdapter, обрабатывающий задание</td>
+</tr>
+<tr>
+<td><code>:job</code></td>
+<td>Объект задания</td>
+</tr>
+<tr>
+<td><code>:error</code></td>
+<td>Ошибка, вызвавшая отказ</td>
+</tr>
+</table><h4 id='action-cable' class='inside_page_header'><a href="#action-cable">4.10.</a> Action Cable</h4><h5 id='perform_action-action_cable' class='inside_page_header'><a href="#perform_action-action_cable">4.10.1.</a> <code>perform_action.action_cable</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:channel_class</code></td>
+<td>Имя класса канала</td>
+</tr>
+<tr>
+<td><code>:action</code></td>
+<td>Экшн</td>
+</tr>
+<tr>
+<td><code>:data</code></td>
+<td>Данные хэша</td>
+</tr>
+</table><h5 id='transmit-action_cable' class='inside_page_header'><a href="#transmit-action_cable">4.10.2.</a> <code>transmit.action_cable</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:channel_class</code></td>
+<td>Имя класса канала</td>
+</tr>
+<tr>
+<td><code>:data</code></td>
+<td>Данные хэша</td>
+</tr>
+<tr>
+<td><code>:via</code></td>
+<td>С помощью</td>
+</tr>
+</table><h5 id='transmit_subscription_confirmation-action_cable' class='inside_page_header'><a href="#transmit_subscription_confirmation-action_cable">4.10.3.</a> <code>transmit_subscription_confirmation.action_cable</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:channel_class</code></td>
+<td>Имя класса канала</td>
+</tr>
+</table><h5 id='transmit_subscription_rejection-action_cable' class='inside_page_header'><a href="#transmit_subscription_rejection-action_cable">4.10.4.</a> <code>transmit_subscription_rejection.action_cable</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:channel_class</code></td>
+<td>Имя класса канала</td>
+</tr>
+</table><h5 id='broadcast-action_cable' class='inside_page_header'><a href="#broadcast-action_cable">4.10.5.</a> <code>broadcast.action_cable</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:broadcasting</code></td>
+<td>Имя трансляции</td>
+</tr>
+<tr>
+<td><code>:message</code></td>
+<td>Сообщение хэша</td>
+</tr>
+<tr>
+<td><code>:coder</code></td>
+<td>Кодировщик</td>
+</tr>
+</table><h4 id='active-storage' class='inside_page_header'><a href="#active-storage">4.11.</a> Active Storage</h4><h5 id='preview-active_storage' class='inside_page_header'><a href="#preview-active_storage">4.11.1.</a> <code>preview.active_storage</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Токен безопасности</td>
+</tr>
+</table><h5 id='transform-active_storage' class='inside_page_header'><a href="#transform-active_storage">4.11.2.</a> <code>transform.active_storage</code></h5><h5 id='analyze-active_storage' class='inside_page_header'><a href="#analyze-active_storage">4.11.3.</a> <code>analyze.active_storage</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:analyzer</code></td>
+<td>Имя анализатора, например ffprobe</td>
+</tr>
+</table><h4 id='active-storage-servis-hraneniya' class='inside_page_header'><a href="#active-storage-servis-hraneniya">4.12.</a> Active Storage — сервис хранения</h4><h5 id='service_upload-active_storage' class='inside_page_header'><a href="#service_upload-active_storage">4.12.1.</a> <code>service_upload.active_storage</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Токен безопасности</td>
+</tr>
+<tr>
+<td><code>:service</code></td>
+<td>Имя сервиса</td>
+</tr>
+<tr>
+<td><code>:checksum</code></td>
+<td>Контрольная сумма для обеспечения целостности</td>
+</tr>
+</table><h5 id='service_streaming_download-active_storage' class='inside_page_header'><a href="#service_streaming_download-active_storage">4.12.2.</a> <code>service_streaming_download.active_storage</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Токен безопасности</td>
+</tr>
+<tr>
+<td><code>:service</code></td>
+<td>Имя сервиса</td>
+</tr>
+</table><h5 id='service_download-active_storage' class='inside_page_header'><a href="#service_download-active_storage">4.12.3.</a> <code>service_download.active_storage</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Токен безопасности</td>
+</tr>
+<tr>
+<td><code>:service</code></td>
+<td>Имя сервиса</td>
+</tr>
+</table><h5 id='service_download_chunk-active_storage' class='inside_page_header'><a href="#service_download_chunk-active_storage">4.12.4.</a> <code>service_download_chunk.active_storage</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Токен безопасности</td>
+</tr>
+<tr>
+<td><code>:service</code></td>
+<td>Имя сервиса</td>
+</tr>
+<tr>
+<td><code>:range</code></td>
+<td>Диапазон битов к прочтению</td>
+</tr>
+</table><h5 id='service_delete-active_storage' class='inside_page_header'><a href="#service_delete-active_storage">4.12.5.</a> <code>service_delete.active_storage</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Токен безопасности</td>
+</tr>
+<tr>
+<td><code>:service</code></td>
+<td>Имя сервиса</td>
+</tr>
+</table><h5 id='service_delete_prefixed-active_storage' class='inside_page_header'><a href="#service_delete_prefixed-active_storage">4.12.6.</a> <code>service_delete_prefixed.active_storage</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:prefix</code></td>
+<td>Префикс ключа</td>
+</tr>
+<tr>
+<td><code>:service</code></td>
+<td>Имя сервиса</td>
+</tr>
+</table><h5 id='service_exist-active_storage' class='inside_page_header'><a href="#service_exist-active_storage">4.12.7.</a> <code>service_exist.active_storage</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Токен безопасности</td>
+</tr>
+<tr>
+<td><code>:service</code></td>
+<td>Имя сервиса</td>
+</tr>
+<tr>
+<td><code>:exist</code></td>
+<td>Существует или же нет файл или blob</td>
+</tr>
+</table><h5 id='service_url-active_storage' class='inside_page_header'><a href="#service_url-active_storage">4.12.8.</a> <code>service_url.active_storage</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Токен безопасности</td>
+</tr>
+<tr>
+<td><code>:service</code></td>
+<td>Имя сервиса</td>
+</tr>
+<tr>
+<td><code>:url</code></td>
+<td>Сгенерированный URL</td>
+</tr>
+</table><h5 id='service_update_metadata-active_storage' class='inside_page_header'><a href="#service_update_metadata-active_storage">4.12.9.</a> <code>service_update_metadata.active_storage</code></h5><p>Это событие вызывается только при использовании сервиса Google Cloud Storage.</p><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:key</code></td>
+<td>Токен безопасности</td>
+</tr>
+<tr>
+<td><code>:service</code></td>
+<td>Имя сервиса</td>
+</tr>
+<tr>
+<td><code>:content_type</code></td>
+<td>Поле HTTP <code>Content-Type</code></td>
+</tr>
+<tr>
+<td><code>:disposition</code></td>
+<td>Поле HTTP <code>Content-Disposition</code></td>
+</tr>
+</table><h4 id='action-mailbox' class='inside_page_header'><a href="#action-mailbox">4.13.</a> Action Mailbox</h4><h5 id='process-action_mailbox' class='inside_page_header'><a href="#process-action_mailbox">4.13.1.</a> <code>process.action_mailbox</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:mailbox</code></td>
+<td>Экземпляр класс Mailbox, унаследованного от <a href="https://api.rubyonrails.org/classes/ActionMailbox/Base.html"><code>ActionMailbox::Base</code></a></td>
+</tr>
+<tr>
+<td><code>:inbound_email</code></td>
+<td>Хэш с данными о входящем письме, которое обрабатывается</td>
+</tr>
+</table><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">{</span>
+  <span class="ss">mailbox: </span><span class="c1">#&lt;RepliesMailbox:0x00007f9f7a8388&gt;,</span>
+  <span class="ss">inbound_email: </span><span class="p">{</span>
+    <span class="ss">id: </span><span class="mi">1</span><span class="p">,</span>
+    <span class="ss">message_id: </span><span class="s2">"0CB459E0-0336-41DA-BC88-E6E28C697DDB@37signals.com"</span><span class="p">,</span>
+    <span class="ss">status: </span><span class="s2">"processing"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h4 id='railties' class='inside_page_header'><a href="#railties">4.14.</a> Railties</h4><h5 id='load_config_initializer-railties' class='inside_page_header'><a href="#load_config_initializer-railties">4.14.1.</a> <code>load_config_initializer.railties</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:initializer</code></td>
+<td>Путь к загруженному инициализатору в <code>config/initializers</code></td>
+</tr>
+</table><h4 id='rails' class='inside_page_header'><a href="#rails">4.15.</a> Rails</h4><h5 id='deprecation-rails' class='inside_page_header'><a href="#deprecation-rails">4.15.1.</a> <code>deprecation.rails</code></h5><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:message</code></td>
+<td>Предупреждение устаревания</td>
+</tr>
+<tr>
+<td><code>:callstack</code></td>
+<td>Откуда предупреждение пришло</td>
+</tr>
+<tr>
+<td><code>:gem_name</code></td>
+<td>Название гема, отчитывающегося об устаревания</td>
+</tr>
+<tr>
+<td><code>:deprecation_horizon</code></td>
+<td>Версия, в которой устаревшее поведение будет убрано</td>
+</tr>
+</table><h3 id='isklyucheniya' class='inside_page_header'><a href="#isklyucheniya">5.</a> Исключения</h3><p>Если происходит исключение во время любого инструментария, полезная нагрузка будет включать информацию о нем.</p><table class='table table-striped'><tr>
+<th>Ключ</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><code>:exception</code></td>
+<td>Массив из двух элементов. Имя класса исключение и сообщение</td>
+</tr>
+<tr>
+<td><code>:exception_object</code></td>
+<td>Объект исключения</td>
+</tr>
+</table><h3 id='creating-custom-events' class='inside_page_header'><a href="#creating-custom-events">6.</a>  Создание пользовательского события</h3><p>Добавить свои события очень просто. Active Support будет делать всю тяжелую работу за вас. Просто вызовите <a href="https://api.rubyonrails.org/classes/ActiveSupport/Notifications.html#method-c-instrument"><code>ActiveSupport::Notifications.instrument</code></a> с <code>name</code>, <code>payload</code> и блоком. Уведомление будет отправлено после возвращения блока. Active Support сгенерирует время старта и окончания и добавит уникальный ID инструментария. Все данные переданные в вызов <code>instrument</code> будут выполнены в полезной нагрузке.</p><p>Пример:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Notifications</span><span class="p">.</span><span class="nf">instrument</span> <span class="s2">"my.custom.event"</span><span class="p">,</span> <span class="ss">this: :data</span> <span class="k">do</span>
+  <span class="c1"># Создание ваших пользовательских настроек тут</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь можно слушать это событие:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Notifications</span><span class="p">.</span><span class="nf">subscribe</span> <span class="s2">"my.custom.event"</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="p">,</span> <span class="n">started</span><span class="p">,</span> <span class="n">finished</span><span class="p">,</span> <span class="n">unique_id</span><span class="p">,</span> <span class="n">data</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">data</span><span class="p">.</span><span class="nf">inspect</span> <span class="c1"># {:this=&gt;:data}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Также можно вызвать <code>instrument</code> без передачи блока. Это позволяет использовать инфраструктуру инструментария для других применений (обмен сообщениями).</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Notifications</span><span class="p">.</span><span class="nf">instrument</span> <span class="s2">"my.custom.event"</span><span class="p">,</span> <span class="ss">this: :data</span>
+
+<span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Notifications</span><span class="p">.</span><span class="nf">subscribe</span> <span class="s2">"my.custom.event"</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="p">,</span> <span class="n">started</span><span class="p">,</span> <span class="n">finished</span><span class="p">,</span> <span class="n">unique_id</span><span class="p">,</span> <span class="n">data</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">data</span><span class="p">.</span><span class="nf">inspect</span> <span class="c1"># {:this=&gt;:data}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Вы должны следовать соглашениям Rails при создании своих событий. Формат: <code>event.library</code>. Если ваше приложение отправляет Tweets, вы должны назвать событие <code>tweet.twitter</code>.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

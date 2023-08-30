@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Валидации Active Record" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Валидации Active Record" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/active-record-validations" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Валидации Active Record
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="rsRlOZYXlJDM83UmSs3rE0hN9VPWpqQXcDoIsWfXMVqAvIJB8QLT4pVgELHEj4OtwKqdW8P1x8Px/1B3UjrfMw==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#obzor-validatsiy">1. Обзор валидаций</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#zachem-ispolzovat-validatsii">1.1. Зачем использовать валидации?</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#kogda-proishodit-validatsiya">1.2. Когда происходит валидация?</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#propusk-validatsiy">1.3. Пропуск валидаций</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#valid-ili-invalid">1.4. <code>valid?</code> или <code>invalid?</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#errors">1.5. <code>errors[]</code></a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#validatsionnye-helpery">2. Валидационные хелперы</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#acceptance">2.1. <code>acceptance</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#confirmation">2.2. <code>confirmation</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#comparison">2.3. <code>comparison</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#format">2.4. <code>format</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#inclusion">2.5. <code>inclusion</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#exclusion">2.6. <code>exclusion</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#length">2.7. <code>length</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#numericality">2.8. <code>numericality</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#presence">2.9. <code>presence</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#absence">2.10. <code>absence</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#uniqueness">2.11. <code>uniqueness</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#validates_associated">2.12. <code>validates_associated</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#validates_each">2.13. <code>validates_each</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#validates_with">2.14. <code>validates_with</code></a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#obschie-optsii-validatsiy">3. Общие опции валидаций</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#allow_nil">3.1. <code>:allow_nil</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#allow_blank">3.2. <code>:allow_blank</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#message">3.3. <code>:message</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#on">3.4. <code>:on</code></a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#strict-validations">4.  Строгие валидации</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#conditional-validation">5.  Условная валидация</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-simvola-s-if-i-unless">5.1. Использование символа с <code>:if</code> и <code>:unless</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ispolzovanie-proc-s-if-i-unless">5.2. Использование Proc с <code>:if</code> и <code>:unless</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#gruppirovka-uslovnyh-validatsiy">5.3. Группировка условных валидаций</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ob-edinenie-usloviy-validatsii">5.4. Объединение условий валидации</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#performing-custom-validations">6.  Выполнение собственных валидаций</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#sobstvennye-validatory">6.1. Собственные валидаторы</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#sobstvennye-metody">6.2. Собственные методы</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#spisok-validatorov">6.3. Список валидаторов</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#working-with-validation-errors">7.  Работаем с ошибками валидации</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#errors2">7.1. <code>errors</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#errors3">7.2. <code>errors[]</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#errors-where-i-ob-ekt-oshibki">7.3. <code>errors.where</code> и объект ошибки</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#errors-add">7.4. <code>errors.add</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#errors-base">7.5. <code>errors[:base]</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#errors-size">7.6. <code>errors.size</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#errors-clear">7.7. <code>errors.clear</code></a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#displaying-validation-errors-in-the-view">8.  Отображение ошибок валидации во вью</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='validatsii-active-record' class='inside_page_header'> Валидации Active Record</h2><p>Это руководство научит, как осуществлять валидацию состояния объектов до того, как они будут направлены в базу данных, используя особенность валидаций Active Record.</p><p>После прочтения руководства вы узнаете:</p><ul><li>Как использовать встроенные хелперы валидации Active Record
+</li><li>Как создавать свои собственные методы валидации
+</li><li>Как работать с сообщениями об ошибках, генерируемыми в процессе валидации
+</li></ul><h3 id='obzor-validatsiy' class='inside_page_header'><a href="#obzor-validatsiy">1.</a> Обзор валидаций</h3><p>Вот пример очень простой валидации:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Person</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"John Doe"</span><span class="p">).</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Person</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">name: </span><span class="kp">nil</span><span class="p">).</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+</code></pre>
+</div>
+<p>Как видите, наша валидация позволяет узнать, что наш <code>Person</code> не валиден без атрибута <code>name</code>. Второй <code>Person</code> не будет персистентным в базе данных.</p><p>Прежде чем погрузиться в подробности, давайте поговорим о том, как валидации вписываются в общую картину приложения.</p><h4 id='zachem-ispolzovat-validatsii' class='inside_page_header'><a href="#zachem-ispolzovat-validatsii">1.1.</a> Зачем использовать валидации?</h4><p>Валидации используются, чтобы быть уверенными, что только валидные данные сохраняются в вашу базу данных. Например, для вашего приложения может быть важно, что каждый пользователь предоставил валидный электронный и почтовый адреса. Валидации на уровне модели - наилучший способ убедиться, что в базу данных будут сохранены только валидные данные. Они не зависят от базы данных, не могут быть обойдены конечными пользователями и удобны в тестировании и обслуживании. Rails предоставляет встроенные хелперы для общих нужд, а также позволяет создавать свои собственные методы валидации.</p><p>Есть несколько способов валидации данных, прежде чем они будут сохранены в вашу базу данных, включая ограничения, встроенные в базу данных, валидации на клиентской части и валидации на уровне контроллера. Вкратце о плюсах и минусах:</p><ul><li>Ограничения базы данных и/или хранимые процедуры делают механизмы валидации зависимыми от базы данных, что делает тестирование и поддержку более трудными. Однако, если ваша база данных используется другими приложениями, валидация на уровне базы данных может безопасно обрабатывать некоторые вещи (такие как уникальность в нагруженных таблицах), которые затруднительно выполнять по-другому.
+</li><li>Валидации на клиентской части могут быть очень полезны, но в целом ненадежны, если используются в одиночку. Если они используют JavaScript, они могут быть пропущены, если JavaScript отключен в клиентском браузере. Однако, если этот способ комбинировать с другими, валидации на клиентской части могут быть удобным способом предоставить пользователям немедленную обратную связь при использовании вашего сайта.
+</li><li>Валидации на уровне контроллера заманчиво делать, но это часто приводит к громоздкости и трудности тестирования и поддержки. Во всех случаях, когда это возможно, держите свои контроллеры &#39;тощими&#39;, тогда с вашим приложением будет приятно работать в долгосрочной перспективе.
+</li></ul><p>Выбирайте их под свои определенные специфичные задачи. Общее мнение команды Rails состоит в том, что валидации на уровне модели - наиболее подходящий вариант во многих случаях.</p><h4 id='kogda-proishodit-validatsiya' class='inside_page_header'><a href="#kogda-proishodit-validatsiya">1.2.</a> Когда происходит валидация?</h4><p>Есть два типа объектов Active Record: те, которые соответствуют строке в вашей базе данных, и те, которые нет. Когда создаете новый объект, например, используя метод <code>new</code>, этот объект еще не привязан к базе данных. Как только вы вызовете <code>save</code>, этот объект будет сохранен в подходящую таблицу базы данных. Active Record использует метод экземпляра <code>new_record?</code> для определения, есть ли уже объект в базе данных или нет. Рассмотрим следующий класс Active Record:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Можно увидеть, как он работает, взглянув на результат <code>bin/rails console</code>:</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="nb">p</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"John Doe"</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">Person</span> <span class="ss">id: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">name: </span><span class="s2">"John Doe"</span><span class="p">,</span> <span class="ss">created_at: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">updated_at: </span><span class="kp">nil</span><span class="kt">&gt;</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="nb">p</span><span class="p">.</span><span class="nf">new_record?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="nb">p</span><span class="p">.</span><span class="nf">save</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="nb">p</span><span class="p">.</span><span class="nf">new_record?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+</code></pre>
+</div>
+<p>Создание и сохранение новой записи посылает операцию SQL <code>INSERT</code> базе данных. Обновление существующей записи вместо этого посылает операцию SQL <code>UPDATE</code>. Валидации обычно запускаются до того, как эти команды посылаются базе данных. Если любая из валидаций проваливается, объект помечается как недействительный и Active Record не выполняет операцию <code>INSERT</code> или <code>UPDATE</code>. Это помогает избежать хранения невалидного объекта в базе данных. Можно выбирать запуск специфичных валидаций, когда объект создается, сохраняется или обновляется.</p><div class="warning"><p>Есть разные методы изменения состояния объекта в базе данных. Некоторые методы вызывают валидации, некоторые нет. Это означает, что возможно сохранить в базу данных объект с недействительным статусом, если вы будете не внимательны.</p></div><p>Следующие методы вызывают валидацию, и сохраняют объект в базу данных только если он валиден:</p><ul><li><code>create</code>
+</li><li><code>create!</code>
+</li><li><code>save</code>
+</li><li><code>save!</code>
+</li><li><code>update</code>
+</li><li><code>update!</code>
+</li></ul><p>Версии с восклицательным знаком (т.е. <code>save!</code>) вызывают исключение, если запись недействительна. Невосклицательные версии не вызывают: <code>save</code> и <code>update</code> возвращают <code>false</code>, <code>create</code> возвращает объект.</p><h4 id='propusk-validatsiy' class='inside_page_header'><a href="#propusk-validatsiy">1.3.</a> Пропуск валидаций</h4><p>Следующие методы пропускают валидации, и сохраняют объект в базу данных, независимо от его валидности. Их нужно использовать осторожно.</p><ul><li><code>decrement!</code>
+</li><li><code>decrement_counter</code>
+</li><li><code>increment!</code>
+</li><li><code>increment_counter</code>
+</li><li><code>insert</code>
+</li><li><code>insert!</code>
+</li><li><code>insert_all</code>
+</li><li><code>insert_all!</code>
+</li><li><code>toggle!</code>
+</li><li><code>touch</code>
+</li><li><code>touch_all</code>
+</li><li><code>update_all</code>
+</li><li><code>update_attribute</code>
+</li><li><code>update_column</code>
+</li><li><code>update_columns</code>
+</li><li><code>update_counters</code>
+</li><li><code>upsert</code>
+</li><li><code>upsert_all</code>
+</li></ul><p>Заметьте, что <code>save</code> также имеет способность пропустить валидации, если передать <code>validate: false</code> как аргумент. Этот способ нужно использовать осторожно.</p><ul><li><code>save(validate: false)</code>
+</li></ul><h4 id='valid-ili-invalid' class='inside_page_header'><a href="#valid-ili-invalid">1.4.</a> <code>valid?</code> или <code>invalid?</code></h4><p>Перед сохранением объекта Active Record, Rails запускает ваши валидации. Если валидации производят какие-либо ошибки, Rails не сохраняет этот объект.</p><p>Вы также можете запускать эти валидации самостоятельно. <a href="https://api.rubyonrails.org/classes/ActiveRecord/Validations.html#method-i-valid-3F"><code>valid?</code></a> вызывает ваши валидации и возвращает true, если ни одной ошибки не было найдено у объекта, иначе false.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Person</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"John Doe"</span><span class="p">).</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Person</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">name: </span><span class="kp">nil</span><span class="p">).</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+</code></pre>
+</div>
+<p>После того, как Active Record выполнит валидации, все неудачи будут доступны в методе экземпляра <a href="https://api.rubyonrails.org/classes/ActiveModel/Validations.html#method-i-errors"><code>errors</code></a>, возвращающем коллекцию ошибок. По определению объект валиден, если эта коллекция будет пуста после запуска валидаций.</p><p>Заметьте, что объект, созданный с помощью <code>new</code> не сообщает об ошибках, даже если технически невалиден, поскольку валидации автоматически запускаются только когда сохраняется объект, как в случае с методами <code>create</code> или <code>save</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="nb">p</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">Person</span> <span class="ss">id: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">name: </span><span class="kp">nil</span><span class="kt">&gt;</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="nb">p</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">size</span>
+<span class="p">=&gt;</span> <span class="mi">0</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="nb">p</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="nb">p</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">objects</span><span class="p">.</span><span class="nf">first</span><span class="p">.</span><span class="nf">full_message</span>
+<span class="p">=&gt;</span> <span class="s2">"Name can’t be blank"</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="nb">p</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">create</span>
+<span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">Person</span> <span class="ss">id: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">name: </span><span class="kp">nil</span><span class="kt">&gt;</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="nb">p</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">objects</span><span class="p">.</span><span class="nf">first</span><span class="p">.</span><span class="nf">full_message</span>
+<span class="p">=&gt;</span> <span class="s2">"Name can’t be blank"</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="nb">p</span><span class="p">.</span><span class="nf">save</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="nb">p</span><span class="p">.</span><span class="nf">save!</span>
+<span class="go">ActiveRecord::RecordInvalid: Validation failed: Name can’t be blank
+</span><span class="err">
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Person</span><span class="p">.</span><span class="nf">create!</span>
+<span class="go">ActiveRecord::RecordInvalid: Validation failed: Name can’t be blank
+</span></code></pre>
+</div>
+<p><a href="https://api.rubyonrails.org/classes/ActiveModel/Validations.html#method-i-invalid-3F"><code>invalid?</code></a> это антипод <code>valid?</code>. Он запускает ваши валидации, возвращая true, если для объекта были добавлены ошибки, и false в противном случае.</p><h4 id='errors' class='inside_page_header'><a href="#errors">1.5.</a> <code>errors[]</code></h4><p>Чтобы проверить, является или нет конкретный атрибут объекта валидным, можно использовать <a href="https://api.rubyonrails.org/classes/ActiveModel/Errors.html#method-i-5B-5D"><code>errors[:attribute]</code></a>, который возвращает массив со всеми сообщениями об ошибке атрибута, когда нет ошибок по определенному атрибуту, возвращается пустой массив.</p><p>Этот метод полезен только <em>после того</em>, как валидации были запущены, так как он всего лишь исследует коллекцию errors, но сам не вызывает валидации. Он отличается от метода <code>ActiveRecord::Base#invalid?</code>, описанного выше, тем, что не проверяет валидность объекта в целом. Он всего лишь проверяет, какие ошибки были найдены для отдельного атрибута объекта.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">errors</span><span class="p">[</span><span class="ss">:name</span><span class="p">].</span><span class="nf">any?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Person</span><span class="p">.</span><span class="nf">create</span><span class="p">.</span><span class="nf">errors</span><span class="p">[</span><span class="ss">:name</span><span class="p">].</span><span class="nf">any?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<p>Мы рассмотрим ошибки валидации подробнее в разделе <a href="#working-with-validation-errors">Работаем с ошибками валидации</a>.</p><h3 id='validatsionnye-helpery' class='inside_page_header'><a href="#validatsionnye-helpery">2.</a> Валидационные хелперы</h3><p>Active Record предлагает множество предопределенных валидационных хелперов, которые вы можете использовать прямо внутри ваших определений класса. Эти хелперы предоставляют общие правила валидации. Каждый раз, когда валидация проваливается, ошибка добавляется в коллекцию <code>errors</code> объекта и связывается с атрибутом, который подлежал валидации.</p><p>Каждый хелпер принимает произвольное количество имен атрибутов, поэтому в одной строчке кода можно добавить валидации одинакового вида для нескольких атрибутов.</p><p>Они все принимают опции <code>:on</code> и <code>:message</code>, которые определяют, когда валидация должна быть запущена, и какое сообщение должно быть добавлено в коллекцию <code>errors</code>, если она провалится. Опция <code>:on</code> принимает одно из значений <code>:create</code> или <code>:update</code>. Для каждого валидационного хелпера есть свое сообщение об ошибке по умолчанию. Эти сообщения используются, если не определена опция <code>:message</code>. Давайте рассмотрим каждый из доступных хелперов.</p><div class="info"><p>Чтобы просмотреть список доступных хелперов по умолчанию, обратитесь к <a href="https://api.rubyonrails.org/classes/ActiveModel/Validations/HelperMethods.html"><code>ActiveModel::Validations::HelperMethods</code></a>.</p></div><h4 id='acceptance' class='inside_page_header'><a href="#acceptance">2.1.</a> <code>acceptance</code></h4><p>Этот метод проверяет, что чекбокс в пользовательском интерфейсе был нажат, когда форма была подтверждена. Обычно используется, когда пользователю нужно согласиться с условиями использования вашего приложения, подтвердить, что некоторый текст прочтен, или другой подобной концепции.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:terms_of_service</span><span class="p">,</span> <span class="ss">acceptance: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Эта проверка выполнится, только если <code>terms_of_service</code> не <code>nil</code>. Для этого хелпера сообщение об ошибке по умолчанию следующее <em>&quot;must be accepted&quot;</em>. Можно передать произвольное сообщение с помощью опции <code>message</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:terms_of_service</span><span class="p">,</span> <span class="ss">acceptance: </span><span class="p">{</span> <span class="ss">message: </span><span class="s1">'must be abided'</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Также он может получать опцию <code>:accept</code>, которая определяет допустимые значения, которые будут считаться приемлемыми. По умолчанию это <code>[&#39;1&#39;, true]</code>, но его можно изменить.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:eula</span><span class="p">,</span> <span class="ss">acceptance: </span><span class="p">{</span> <span class="ss">accept: </span><span class="p">[</span><span class="s1">'TRUE'</span><span class="p">,</span> <span class="s1">'accepted'</span><span class="p">]</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Эта валидация очень специфична для веб-приложений, и ее принятие не нужно записывать куда-либо в базу данных. Если у вас нет поля для него, хелпер создаст виртуальный атрибут. Если поле существует в базе данных, опция <code>accept</code> должна быть установлена или включать <code>true</code>, а иначе эта валидация не будет выполнена.</p><h4 id='confirmation' class='inside_page_header'><a href="#confirmation">2.2.</a> <code>confirmation</code></h4><p>Этот хелпер можно использовать, если у вас есть два текстовых поля, из которых нужно получить полностью идентичное содержание. Например, вы хотите подтверждение адреса электронной почты или пароля. Эта валидация создает виртуальный атрибут, имя которого равно имени подтверждаемого поля с добавлением &quot;_confirmation&quot;.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">confirmation: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>В вашем шаблоне вью нужно использовать что-то вроде этого</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">text_field</span> <span class="ss">:person</span><span class="p">,</span> <span class="ss">:email</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">text_field</span> <span class="ss">:person</span><span class="p">,</span> <span class="ss">:email_confirmation</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<div class="note"><p>Эта проверка выполняется, только если <code>email_confirmation</code> не равно <code>nil</code>. Чтобы требовать подтверждение, нужно добавить еще проверку на существование проверяемого атрибута (мы рассмотрим <code>presence</code> <a href="#presence">чуть позже</a>):</p></div><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">confirmation: </span><span class="kp">true</span>
+  <span class="n">validates</span> <span class="ss">:email_confirmation</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Также имеется опция <code>:case_sensitive</code>, которую используют, чтобы определить, должно ли ограничение подтверждения быть чувствительным к регистру. Эта опция по умолчанию true.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">confirmation: </span><span class="p">{</span> <span class="ss">case_sensitive: </span><span class="kp">false</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>По умолчанию сообщение об ошибке для этого хелпера такое <em>&quot;doesn&#39;t match confirmation&quot;</em>. Также можно передать произвольное сообщение с помощью опции <code>message</code>.</p><p>В основном, при использовании этого валидатора, хочется объединить его с опцией <code>:if</code>, чтобы валидировать поле &quot;_confirmation&quot; только тогда, когда изменяется изначальное поле, а <strong>не</strong> каждый раз при сохранении записи. Подробности об <a href="#conditional-validation">условных валидациях</a> позже.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">confirmation: </span><span class="kp">true</span>
+  <span class="n">validates</span> <span class="ss">:email_confirmation</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">if: :email_changed?</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='comparison' class='inside_page_header'><a href="#comparison">2.3.</a> <code>comparison</code></h4><p>Эта проверка проводит валидацию сравнения между любыми двумя сравниваемыми значениями. Этот валидатор требует предоставления опции сравнения.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Promotion</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:end_date</span><span class="p">,</span> <span class="ss">comparison: </span><span class="p">{</span> <span class="ss">greater_than: :start_date</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Сообщение об ошибке по умолчанию для этого хелпера <em>&quot;failed comparison&quot;</em>. Также можно передать произвольное сообщение с помощью опции <code>message</code>.</p><p>Все эти опции поддерживаются:</p><ul><li><code>:greater_than</code> - Указывает что значение должно быть больше, чем предоставленное значение. Сообщение об ошибке для этой опции такое <em>&quot;must be greater than %{count}&quot;</em>.
+</li><li><code>:greater_than_or_equal_to</code> - Указывает что значение должно быть больше или равно предоставленному значению. Сообщение об ошибке для этой опции такое <em>&quot;must be greater than or equal to %{count}&quot;</em>.
+</li><li><code>:equal_to</code> - Указывает что значение должно быть равно предоставленному значению. Сообщение об ошибке для этой опции такое <em>&quot;must be equal to %{count}&quot;</em>.
+</li><li><code>:less_than</code> - Указывает что значение должно быть меньше, чем предоставленное значение. Сообщение об ошибке для этой опции такое <em>&quot;must be less than %{count}&quot;</em>.
+</li><li><code>:less_than_or_equal_to</code> - Указывает что значение должно быть меньше или равно предоставленному значению. Сообщение об ошибке для этой опции такое <em>&quot;must be less than or equal to %{count}&quot;</em>.
+</li><li><code>:other_than</code> - Указывает что значение должно быть иным, чем предоставленное значение. Сообщение об ошибке для этой опции такое <em>&quot;must be other than %{count}&quot;</em>.
+</li></ul><div class="note"><p>Этот валидатор требует предоставления опции сравнения. Каждая опция принимает значение, proc или символ. Любой класс, включающий Comparable, может быть сравнен.</p></div><h4 id='format' class='inside_page_header'><a href="#format">2.4.</a> <code>format</code></h4><p>Этот хелпер проводит валидацию значений атрибутов, тестируя их на соответствие указанному регулярному выражению, которое определяется с помощью опции <code>:with</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Product</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:legacy_code</span><span class="p">,</span> <span class="ss">format: </span><span class="p">{</span> <span class="ss">with: </span><span class="sr">/\A[a-zA-Z]+\z/</span><span class="p">,</span>
+    <span class="ss">message: </span><span class="s2">"only allows letters"</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>В качестве альтернативы можно потребовать, чтобы указанный атрибут <em>не</em> соответствовал регулярному выражению, используя опцию <code>:without</code>.</p><p>Наоборот, используя опцию <code>:without</code>, можно потребовать, что указанный атрибут <em>не</em> соответствует регулярному выражению.</p><p>В любом случае, предоставленная опция <code>:with</code> или <code>:without</code> должна быть либо регулярное выражение, либо proc, либо lambda, возвращающая это.</p><p>Значение сообщения об ошибке по умолчанию &quot;<em>is invalid</em>&quot;.</p><div class="warning"><p>Используйте <code>\A</code> и <code>\z</code> для соответствия началу и концу строки, <code>^</code> и <code>$</code> для соответствия началу/концу строчки. Из-за частого неправильного использования <code>^</code> и <code>$</code>, необходимо передать опцию <code>multiline: true</code> в случае использования этих двух якорей в предоставленном регулярном выражении. В большинстве случаев следует использовать <code>\A</code> и <code>\z</code>.</p></div><h4 id='inclusion' class='inside_page_header'><a href="#inclusion">2.5.</a> <code>inclusion</code></h4><p>Этот хелпер проводит валидацию значений атрибутов на включение в указанный набор. Фактически этот набор может быть любым перечисляемым объектом.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Coffee</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:size</span><span class="p">,</span> <span class="ss">inclusion: </span><span class="p">{</span> <span class="ss">in: </span><span class="sx">%w(small medium large)</span><span class="p">,</span>
+    <span class="ss">message: </span><span class="s2">"%{value} is not a valid size"</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Хелпер <code>inclusion</code> имеет опцию <code>:in</code>, которая получает набор значений, которые должны быть приняты. Опция <code>:in</code> имеет псевдоним <code>:within</code>, который используется для тех же целей. Предыдущий пример использует опцию <code>:message</code>, чтобы показать вам, как можно включать значение атрибута. Для того, чтобы увидеть все опции смотрите <a href="#message">документацию по message</a>.</p><p>Значение сообщения об ошибке по умолчанию для этого хелпера такое &quot;<em>is not included in the list</em>&quot;.</p><h4 id='exclusion' class='inside_page_header'><a href="#exclusion">2.6.</a> <code>exclusion</code></h4><p>Противоположностью <code>inclusion</code> является... <code>exclusion</code>!</p><p>Этот хелпер проводит валидацию того, что значения атрибутов не включены в указанный набор. Фактически, этот набор может быть любым перечисляемым объектом.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Account</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:subdomain</span><span class="p">,</span> <span class="ss">exclusion: </span><span class="p">{</span> <span class="ss">in: </span><span class="sx">%w(www us ca jp)</span><span class="p">,</span>
+    <span class="ss">message: </span><span class="s2">"%{value} is reserved."</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Хелпер <code>exclusion</code> имеет опцию <code>:in</code>, которая получает набор значений, которые не должны приниматься проверяемыми атрибутами. Опция <code>:in</code> имеет псевдоним <code>:within</code>, который используется для тех же целей. Этот пример использует опцию <code>:message</code>, чтобы показать вам, как можно включать значение атрибута. Для того, чтобы увидеть все опции аргументов сообщения смотрите <a href="#message">документацию по message</a>.</p><p>Значение сообщения об ошибке по умолчанию &quot;<em>is reserved</em>&quot;.</p><p>Альтернативно к традиционным перечисляемым (наподобие Array), можно предоставить proc, lambda или symbol, возвращающие перечисляемое. Если перечисляемое является числовым, временным или дата-временным рядом, проверка осуществляется с помощью <code>Range#cover?</code>, в противном случае <code>include?</code>. при использовании proc или lambda, проверяемый экземпляр передается как аргумент.</p><h4 id='length' class='inside_page_header'><a href="#length">2.7.</a> <code>length</code></h4><p>Этот хелпер проводит валидацию длины значений атрибутов. Он предлагает ряд опций, с помощью которых вы можете определить ограничения по длине разными способами:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">2</span> <span class="p">}</span>
+  <span class="n">validates</span> <span class="ss">:bio</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">maximum: </span><span class="mi">500</span> <span class="p">}</span>
+  <span class="n">validates</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">in: </span><span class="mi">6</span><span class="o">..</span><span class="mi">20</span> <span class="p">}</span>
+  <span class="n">validates</span> <span class="ss">:registration_number</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">is: </span><span class="mi">6</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Возможные опции ограничения длины такие:</p><ul><li><code>:minimum</code> - атрибут не может быть меньше определенной длины.
+</li><li><code>:maximum</code> - атрибут не может быть больше определенной длины.
+</li><li><code>:in</code> (или <code>:within</code>) - длина атрибута должна находиться в указанном интервале. Значение этой опции должно быть интервалом.
+</li><li><code>:is</code> - длина атрибута должна быть равной указанному значению.
+</li></ul><p>Значение сообщения об ошибке по умолчанию зависит от типа выполняемой валидации длины. Можно настроить эти сообщения, используя опции <code>:wrong_length</code>, <code>:too_long</code> и <code>:too_short</code>, и <code>%{count}</code> как местозаполнитель (placeholder) числа, соответствующего длине используемого ограничения. Можете использовать опцию <code>:message</code> для определения сообщения об ошибке.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:bio</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">maximum: </span><span class="mi">1000</span><span class="p">,</span>
+    <span class="ss">too_long: </span><span class="s2">"%{count} characters is the maximum allowed"</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Отметьте, что сообщения об ошибке по умолчанию во множественном числе (т.е., &quot;is too short (minimum is %{count} characters)&quot;). По этой причине, когда <code>:minimum</code> равно 1, следует предоставить собственное сообщение или использовать вместо него <code>presence: true</code>. Когда <code>:in</code> или <code>:within</code> имеют как нижнюю границу 1, следует или предоставить собственное сообщение, или вызвать <code>presence</code> перед <code>length</code>.</p><div class="note"><p>Одновременно может быть использована одна опция, кроме опций <code>:minimum</code> и <code>:maximum</code>, которые комбинируются вместе.</p></div><h4 id='numericality' class='inside_page_header'><a href="#numericality">2.8.</a> <code>numericality</code></h4><p>Этот хелпер проводит валидацию того, что ваши атрибуты имеют только числовые значения. По умолчанию, этому будет соответствовать возможный знак первым символом, и следующее за ним целочисленное или с плавающей запятой число.</p><p>Чтобы определить, что допустимы только целочисленные значения, установите <code>:only_integer</code> в true. Тогда будет использоваться регулярное выражение для проведения валидации значения атрибута.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="sr">/\A[+-]?\d+\z/</span>
+</code></pre>
+</div>
+<p>В противном случае, он будет пытаться конвертировать значение в число, используя <code>Float</code>. <code>Float</code> приводятся к <code>BigDecimal</code> с использованием значения precision столбца или максимум 15 разрядов.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Player</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:points</span><span class="p">,</span> <span class="ss">numericality: </span><span class="kp">true</span>
+  <span class="n">validates</span> <span class="ss">:games_played</span><span class="p">,</span> <span class="ss">numericality: </span><span class="p">{</span> <span class="ss">only_integer: </span><span class="kp">true</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Для <code>:only_integer</code> значение сообщения об ошибке по умолчанию <em>&quot;must be an integer&quot;</em>.</p><p>Кроме <code>:only_integer</code>, хелпер <code>validates_numericality_of</code> также принимает опцию <code>:only_numeric</code>, которая указывает, что значение должно быть экземпляром <code>Numeric</code> и пытается парсить значение, если оно <code>String</code>.</p><div class="note"><p>По умолчанию <code>numericality</code> не допускает значения <code>nil</code>. Чтобы их разрешить, можно использовать опцию <code>allow_nil: true</code>. Отметьте, что для столбцов <code>Integer</code> и <code>Float</code> пустые строки конвертируются в <code>nil</code>.</p></div><p>По умолчанию сообщение об ошибке <em>&quot;is not a number&quot;</em>.</p><p>Также есть множество опций для добавления ограничений к приемлемым значениям:</p><ul><li><code>:greater_than</code> - Указывает, что значение должно быть больше, чем значение опции. По умолчанию сообщение об ошибке для этой опции такое <em>&quot;must be greater than %{count}&quot;</em>.
+</li><li><code>:greater_than_or_equal_to</code> - Указывает, что значение должно быть больше или равно значению опции. По умолчанию сообщение об ошибке для этой опции такое <em>&quot;must be greater than or equal to %{count}&quot;</em>.
+</li><li><code>:equal_to</code> - Указывает, что значение должно быть равно значению опции. По умолчанию сообщение об ошибке для этой опции такое <em>&quot;must be equal to %{count}&quot;</em>.
+</li><li><code>:less_than</code> - Указывает, что значение должно быть меньше, чем значение опции. По умолчанию сообщение об ошибке для этой опции такое <em>&quot;must be less than %{count}&quot;</em>.
+</li><li><code>:less_than_or_equal_to</code> - Указывает, что значение должно быть меньше или равно значению опции. По умолчанию сообщение об ошибке для этой опции такое <em>&quot;must be less than or equal to %{count}&quot;</em>.
+</li><li><code>:other_than</code> - Указывает, что значение должно отличаться от представленного значения. По умолчанию сообщение об ошибке для этой опции такое <em>&quot;must be other than %{count}&quot;</em>.
+</li><li><code>:in</code> - Указывает, что значение должно быть в предоставленном диапазоне. По умолчанию сообщение об ошибке для этой опции такое <em>&quot;must be in %{count}&quot;</em>.
+</li><li><code>:odd</code> - Указывает, что значение должно быть нечетным. По умолчанию сообщение об ошибке для этой опции такое <em>&quot;must be odd&quot;</em>.
+</li><li><code>:even</code> - Указывает, что значение должно быть четным. По умолчанию сообщение об ошибке для этой опции такое <em>&quot;must be even&quot;</em>.
+</li></ul><h4 id='presence' class='inside_page_header'><a href="#presence">2.9.</a> <code>presence</code></h4><p>Этот хелпер проводит валидацию того, что определенные атрибуты не пустые. Он использует метод <a href="https://api.rubyonrails.org/classes/Object.html#method-i-blank-3F"><code>Object#blank?</code></a> для проверки того, является ли значение или <code>nil</code>, или пустой строкой (это строка, которая или пуста, или состоит из пробелов).</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:login</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если хотите быть уверенным, что связь существует, нужно проверить, существует ли сам связанный объект, а не внешний ключ, используемый для связи.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Supplier</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_one</span> <span class="ss">:account</span>
+  <span class="n">validates</span> <span class="ss">:account</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Для того, чтобы проверять связанные записи, чье присутствие необходимо, нужно определить опцию <code>:inverse_of</code> для связи:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:line_items</span><span class="p">,</span> <span class="ss">inverse_of: :order</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="note"><p>Если хотите убедиться, что связь и существует, и валидна, нужно также использовать <code>validates_associated</code>. Подробнее <a href="#validates-associated">ниже</a></p></div><p>При проведении валидации существования объекта, связанного отношением <code>has_one</code> или <code>has_many</code>, будет проверено, что объект ни <code>blank?</code>, ни <code>marked_for_destruction?</code>.</p><p>Так как <code>false.blank?</code> это true, если хотите провести валидацию существования булева поля, нужно использовать одну из следующих валидаций:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Значение _должно_ быть true или false</span>
+<span class="n">validates</span> <span class="ss">:boolean_field_name</span><span class="p">,</span> <span class="ss">inclusion: </span><span class="p">[</span><span class="kp">true</span><span class="p">,</span> <span class="kp">false</span><span class="p">]</span>
+<span class="c1"># Значение _не должно_ быть nil, только true или false</span>
+<span class="n">validates</span> <span class="ss">:boolean_field_name</span><span class="p">,</span> <span class="ss">exclusion: </span><span class="p">[</span><span class="kp">nil</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>При использовании одной из этих валидаций, вы можете быть уверены, что значение не будет <code>nil</code>, которое в большинстве случаев преобразуется в <code>NULL</code> значение.</p><p>Значение об ошибке по умолчанию <em>&quot;can’t be blank&quot;</em>.</p><h4 id='absence' class='inside_page_header'><a href="#absence">2.10.</a> <code>absence</code></h4><p>Этот хелпер проверяет, что указанные атрибуты отсутствуют. Он использует метод <a href="https://api.rubyonrails.org/classes/Object.html#method-i-present-3F"><code>Object#present?</code></a> для проверки, что значение является либо nil, либо пустой строкой (то есть либо нулевой длины, либо состоящей из пробелов).</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:login</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">absence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если хотите убедиться, что отсутствует связь, необходимо проверить, что отсутствует сам связанный объект, а не внешний ключ, используемый для связи.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">LineItem</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">belongs_to</span> <span class="ss">:order</span>
+  <span class="n">validates</span> <span class="ss">:order</span><span class="p">,</span> <span class="ss">absence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Чтобы проверять связанные объекты, отсутствие которых требуется, для связи необходимо указать опцию <code>:inverse_of</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:line_items</span><span class="p">,</span> <span class="ss">inverse_of: :order</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="note"><p>Если желаете убедиться, что связь и существует, и валидна, также необходимо использовать <code>validates_associated</code>. Подробнее <a href="#validates-associated">ниже</a></p></div><p>Если проверяете отсутствие объекта, связанного отношением <code>has_one</code> или <code>has_many</code>, он проверит, что объект и не <code>present?</code>, и не <code>marked_for_destruction?</code>.</p><p>Поскольку <code>false.present?</code> является false, если хотите проверить отсутствие булева поля, следует использовать <code>validates :field_name, exclusion: { in: [true, false] }</code>.</p><p>По умолчанию сообщение об ошибке <em>&quot;must be blank&quot;</em>.</p><h4 id='uniqueness' class='inside_page_header'><a href="#uniqueness">2.11.</a> <code>uniqueness</code></h4><p>Этот хелпер проводит валидацию того, что значение атрибута уникально, перед тем, как объект будет сохранен.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Account</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">uniqueness: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Валидация производится путем SQL-запроса в таблицу модели, поиска существующей записи с тем же значением атрибута.</p><p>Имеется опция <code>:scope</code>, которую можно использовать для определения одного и более атрибутов, используемых для ограничения проверки уникальности:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Holiday</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">uniqueness: </span><span class="p">{</span> <span class="ss">scope: :year</span><span class="p">,</span>
+    <span class="ss">message: </span><span class="s2">"should happen once per year"</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="warning"><p>Эта валидация не создает условие уникальности в базе данных, следовательно, может произойти так, что два разных подключения к базе данных создадут две записи с одинаковым значением для столбца, который вы подразумеваете уникальным. Чтобы этого избежать, нужно создать индекс unique на оба столбцах в вашей базе данных.</p></div><p>Чтобы добавить ограничение уникальности для базы данных, используйте выражение <a href="https://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/SchemaStatements.html#method-i-add_index"><code>add_index</code></a> в миграции и включите опцию <code>unique: true</code>.</p><p>Если хотите создать ограничение на уровне базы данных, чтобы предотвратить возможные нарушения валидации уникальности с помощью опции <code>:scope</code>, необходимо создать индекс уникальности на обоих столбцах базы данных. Подробнее об индексах для нескольких столбцов смотрите в [мануале MySQL][], или примеры ограничений уникальности, относящихся к группе столбцов в [мануале PostgreSQL][].</p><p>Также имеется опция <code>:case_sensitive</code>, которой можно определить, будет ли ограничение уникальности чувствительно к регистру, не чувствительным к регистру или соответствовать сортировке базы данных по умолчанию. Опцией по умолчанию является соответствие сортировке базы данных по умолчанию.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">uniqueness: </span><span class="p">{</span> <span class="ss">case_sensitive: </span><span class="kp">false</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="warning"><p>Отметьте, что некоторые базы данных настроены на выполнение чувствительного к регистру поиска в любом случае.</p></div><p>Имеется опция <code>:conditions</code>, которой можно указать дополнительные условия в виде фрагмента SQL <code>WHERE</code> для ограничения поиска уникального ограничения (напр. <code>conditions: -&gt; { where(status: &#39;active&#39;) }</code>).</p><p>По умолчанию сообщение об ошибке <em>&quot;has already been taken&quot;</em>.</p><p>Подробнее смотрите <a href="https://api.rubyonrails.org/classes/ActiveRecord/Validations/ClassMethods.html#method-i-validates_uniqueness_of"><code>validates_uniqueness_of</code></a>.</p><h4 id='validates_associated' class='inside_page_header'><a href="#validates_associated">2.12.</a> <code>validates_associated</code></h4><p>Этот хелпер можно использовать, когда у вашей модели есть связи, которые всегда нужно проверять на валидность. Каждый раз, когда вы пытаетесь сохранить свой объект, будет вызван метод <code>valid?</code> для каждого из связанных объектов.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Library</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:books</span>
+  <span class="n">validates_associated</span> <span class="ss">:books</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Эта валидация работает со всеми типами связей.</p><div class="warning"><p>Не используйте <code>validates_associated</code> на обоих концах ваших связей, они будут вызывать друг друга в бесконечном цикле.</p></div><p>Для <a href="https://api.rubyonrails.org/classes/ActiveRecord/Validations/ClassMethods.html#method-i-validates_associated"><code>validates_associated</code></a> сообщение об ошибке по умолчанию следующее <em>&quot;is invalid&quot;</em>. Заметьте, что каждый связанный объект имеет свою собственную коллекцию <code>errors</code>; ошибки не добавляются к вызывающей модели.</p><div class="note"><p><a href="https://api.rubyonrails.org/classes/ActiveRecord/Validations/ClassMethods.html#method-i-validates_associated"><code>validates_associated</code></a> можно использовать только с объектами ActiveRecord, а все до этого можно было также использовать с любым объектом, включающим <a href="https://api.rubyonrails.org/classes/ActiveModel/Validations.html"><code>ActiveModel::Validations</code></a>.</p></div><h4 id='validates_each' class='inside_page_header'><a href="#validates_each">2.13.</a> <code>validates_each</code></h4><p>Этот хелпер валидирует атрибуты в блоке. У него нет предопределенной функции валидации. Его следует создавать с помощью блока, и каждый атрибут, переданный в <a href="https://api.rubyonrails.org/classes/ActiveModel/Validations/ClassMethods.html#method-i-validates_each"><code>validates_each</code></a> будет в нем протестирован.</p><p>В следующем примере мы отвергаем имена и фамилии, начинающиеся со строчной буквы.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates_each</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:surname</span> <span class="k">do</span> <span class="o">|</span><span class="n">record</span><span class="p">,</span> <span class="kp">attr</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
+    <span class="n">record</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="kp">attr</span><span class="p">,</span> <span class="s1">'must start with upper case'</span><span class="p">)</span> <span class="k">if</span> <span class="sr">/\A[[:lower:]]/</span><span class="p">.</span><span class="nf">match?</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Блок получает запись, имя атрибута и значение атрибута.</p><p>Можно делать все, что угодно, чтобы проверять валидность данных внутри блока. Если ваша валидация проваливается, следует добавить ошибку к модели, что сделает ее невалидной.</p><h4 id='validates_with' class='inside_page_header'><a href="#validates_with">2.14.</a> <code>validates_with</code></h4><p>Этот хелпер передает запись в отдельный класс для валидации.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">GoodnessValidator</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Validator</span>
+  <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">record</span><span class="p">.</span><span class="nf">first_name</span> <span class="o">==</span> <span class="s2">"Evil"</span>
+      <span class="n">record</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">add</span> <span class="ss">:base</span><span class="p">,</span> <span class="s2">"This person is evil"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates_with</span> <span class="no">GoodnessValidator</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Для <code>validates_with</code> нет сообщения об ошибке по умолчанию. Следует вручную добавлять ошибки в коллекцию errors записи в классе валидатора.</p><div class="note"><p>Ошибки, добавляемые в <code>record.errors[:base]</code> относятся к состоянию записи в целом.</p></div><p>Для реализации метода валидации, необходимо принимать параметр <code>record</code>, который является записью, проходящей валидацию.</p><p>Если хотите добавить ошибку к определенному атрибуту, передайте его в качестве первого аргумента, как в <code>record.errors.add(:first_name, &quot;please choose another name&quot;)</code>. Мы раскроем [валидационные ошибки][] гораздо детальнее позже.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">record</span><span class="p">.</span><span class="nf">some_field</span> <span class="o">!=</span> <span class="s2">"acceptable"</span>
+    <span class="n">record</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">add</span> <span class="ss">:some_field</span><span class="p">,</span> <span class="s2">"this field is unacceptable"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Хелпер <a href="https://api.rubyonrails.org/classes/ActiveModel/Validations/ClassMethods.html#method-i-validates_with"><code>validates_with</code></a> принимает класс или список классов для использования в валидации.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates_with</span> <span class="no">MyValidator</span><span class="p">,</span> <span class="no">MyOtherValidator</span><span class="p">,</span> <span class="ss">on: :create</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Подобно всем другим валидациям, <code>validates_with</code> принимает опции <code>:if</code>, <code>:unless</code> и <code>:on</code>. Если передадите любые другие опции, они будут переданы в класс валидатора как <code>options</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">GoodnessValidator</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Validator</span>
+  <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="ss">:fields</span><span class="p">].</span><span class="nf">any?</span> <span class="p">{</span> <span class="o">|</span><span class="n">field</span><span class="o">|</span> <span class="n">record</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Evil"</span> <span class="p">}</span>
+      <span class="n">record</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">add</span> <span class="ss">:base</span><span class="p">,</span> <span class="s2">"This person is evil"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates_with</span> <span class="no">GoodnessValidator</span><span class="p">,</span> <span class="ss">fields: </span><span class="p">[</span><span class="ss">:first_name</span><span class="p">,</span> <span class="ss">:last_name</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Отметьте, что валидатор будет инициализирован <strong>только один раз</strong> на протяжении всего жизненного цикла приложения, а не при каждом запуске валидации, поэтому будьте аккуратнее с использованием переменных экземпляра в нем.</p><p>Если ваш валидатор настолько сложный, что вы хотите использовать переменные экземпляра, вместо него проще использовать обычные объекты Ruby:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validate</span> <span class="k">do</span> <span class="o">|</span><span class="n">person</span><span class="o">|</span>
+    <span class="no">GoodnessValidator</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">person</span><span class="p">).</span><span class="nf">validate</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">GoodnessValidator</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+    <span class="vi">@person</span> <span class="o">=</span> <span class="n">person</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">validate</span>
+    <span class="k">if</span> <span class="n">some_complex_condition_involving_ivars_and_private_methods?</span>
+      <span class="vi">@person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">add</span> <span class="ss">:base</span><span class="p">,</span> <span class="s2">"This person is evil"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Мы раскроем <a href="#performing-custom-validations">произвольные валидации</a> позже.</p><p><a href="#working-with-validation-errors">валидационные ошибки</a></p><h3 id='obschie-optsii-validatsiy' class='inside_page_header'><a href="#obschie-optsii-validatsiy">3.</a> Общие опции валидаций</h3><p>Есть несколько общих опций валидаций, поддерживаемых валидаторами, которые мы только что описали, давайте пройдемся по ним!</p><div class="note"><p>Не все из этих опций поддерживаются каждым валидатором, обратитесь к документации API для <a href="https://api.rubyonrails.org/classes/ActiveModel/Validations.html"><code>ActiveModel::Validations</code></a>.</p></div><p>Используя любой из упомянутых методов валидации, также имеется список общих для валидаторов опций. Сейчас мы их раскроем!</p><ul><li><a href="#allow-nil"><code>:allow_nil</code></a>: Пропускает валидацию, если атрибут <code>nil</code>.
+</li><li><a href="#allow-blank"><code>:allow_blank</code></a>: Пропускает валидацию, если атрибут пустой.
+</li><li><a href="#message"><code>:message</code></a>: Указывает произвольное сообщение об ошибке.
+</li><li><a href="#on"><code>:on</code></a>: Указывает контексты, в которых валидация активна.
+</li><li><a href="#strict-validations"><code>:strict</code></a>: Вызывает исключение, когда валидация проваливается.
+</li><li><a href="#conditional-validation"><code>:if</code> и <code>:unless</code></a>: Указывает, когда валидации следует или не следует происходить.
+</li></ul><h4 id='allow_nil' class='inside_page_header'><a href="#allow_nil">3.1.</a> <code>:allow_nil</code></h4><p>Опция <code>:allow_nil</code> пропускает валидацию, когда проверяемое значение равно <code>nil</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Coffee</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:size</span><span class="p">,</span> <span class="ss">inclusion: </span><span class="p">{</span> <span class="ss">in: </span><span class="sx">%w(small medium large)</span><span class="p">,</span>
+    <span class="ss">message: </span><span class="s2">"%{value} is not a valid size"</span> <span class="p">},</span> <span class="ss">allow_nil: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Coffee</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">size: </span><span class="kp">nil</span><span class="p">).</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Coffee</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">size: </span><span class="s2">"mega"</span><span class="p">).</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+</code></pre>
+</div>
+<p>Для того, чтобы увидеть все опции аргументов сообщения смотрите <a href="#message">документацию по message</a>.</p><h4 id='allow_blank' class='inside_page_header'><a href="#allow_blank">3.2.</a> <code>:allow_blank</code></h4><p>Опция <code>:allow_blank</code> подобна опции <code>:allow_nil</code>. Эта опция пропускает валидацию, если значение атрибута <code>blank?</code>, например <code>nil</code> или пустая строка.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Topic</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">is: </span><span class="mi">5</span> <span class="p">},</span> <span class="ss">allow_blank: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Topic</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">title: </span><span class="s2">""</span><span class="p">).</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Topic</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">title: </span><span class="kp">nil</span><span class="p">).</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<h4 id='message' class='inside_page_header'><a href="#message">3.3.</a> <code>:message</code></h4><p>Как мы уже видели, опция <code>:message</code> позволяет определить сообщение, которое будет добавлено в коллекцию <code>errors</code>, когда валидация проваливается. Если эта опция не используется, Active Record будет использовать соответствующие сообщения об ошибках по умолчанию для каждого валидационного хелпера.</p><p>Опция <code>:message</code> принимает <code>String</code> или <code>Proc</code> в качестве значения.</p><p>Значение <code>String</code> в <code>:message</code> может опционально содержать любые из <code>%{value}</code>, <code>%{attribute}</code> и <code>%{model}</code>, которые будут динамически заменены, когда валидация провалится. Эта замена выполняется, если используется гем i18n, и местозаполнитель должен полностью совпадать, пробелы не допускаются.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="c1"># Жестко закодированное сообщение</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="p">{</span> <span class="ss">message: </span><span class="s2">"must be given please"</span> <span class="p">}</span>
+
+  <span class="c1"># Сообщение со значением с динамическим атрибутом. %{value} будет заменено</span>
+  <span class="c1"># фактическим значением атрибута. Также доступны %{attribute} и %{model}.</span>
+  <span class="n">validates</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">numericality: </span><span class="p">{</span> <span class="ss">message: </span><span class="s2">"%{value} seems wrong"</span> <span class="p">}</span>
+</code></pre>
+</div>
+<p>Значение <code>Proc</code> в <code>:message</code> задается с двумя аргументами: проверяемым объектом и хэшем с ключами <code>:model</code>, <code>:attribute</code> и <code>:value</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>  <span class="n">validates</span> <span class="ss">:username</span><span class="p">,</span>
+    <span class="ss">uniqueness: </span><span class="p">{</span>
+      <span class="c1"># object = person object being validated</span>
+      <span class="c1"># data = { model: "Person", attribute: "Username", value: &lt;username&gt; }</span>
+      <span class="ss">message: </span><span class="o">-&gt;</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="k">do</span>
+        <span class="s2">"Hey </span><span class="si">#{</span><span class="n">object</span><span class="p">.</span><span class="nf">name</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">data</span><span class="p">[</span><span class="ss">:value</span><span class="p">]</span><span class="si">}</span><span class="s2"> is already taken."</span>
+      <span class="k">end</span>
+    <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='on' class='inside_page_header'><a href="#on">3.4.</a> <code>:on</code></h4><p>Опция <code>:on</code> позволяет определить, когда должна произойти валидация. Стандартное поведение для всех встроенных валидационных хелперов это запускаться при сохранении (и когда создается новая запись, и когда она обновляется). Если хотите изменить это, используйте <code>on: :create</code>, для запуска валидации только когда создается новая запись, или <code>on: :update</code>, для запуска валидации когда запись обновляется.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="c1"># будет возможно обновить email с дублирующим значением</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">uniqueness: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">on: :create</span>
+
+  <span class="c1"># будет возможно создать запись с нечисловым возрастом</span>
+  <span class="n">validates</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">numericality: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">on: :update</span>
+
+  <span class="c1"># по умолчанию (проверяет и при создании, и при обновлении)</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p><code>on:</code> также можно использовать для определения пользовательского контекста. Пользовательские контексты должны быть явно включены с помощью передачи имени контекста в <code>valid?</code>, <code>invalid?</code> или <code>save</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">uniqueness: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">on: :account_setup</span>
+  <span class="n">validates</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">numericality: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">on: :account_setup</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">age: </span><span class="s1">'thirty-three'</span><span class="p">)</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span><span class="p">(</span><span class="ss">:account_setup</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">messages</span>
+<span class="p">=&gt;</span> <span class="p">{</span><span class="ss">:email</span><span class="o">=&gt;</span><span class="p">[</span><span class="s2">"has already been taken"</span><span class="p">],</span> <span class="ss">:age</span><span class="o">=&gt;</span><span class="p">[</span><span class="s2">"is not a number"</span><span class="p">]}</span>
+</code></pre>
+</div>
+<p><code>person.valid?(:account_setup)</code> выполнит обе валидации без сохранения модели. <code>person.save(context: :account_setup)</code> перед сохранением валидирует <code>person</code> в контексте <code>account_setup</code>.</p><p>Передача массива символов также приемлема.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Book</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Validations</span>
+
+  <span class="n">validates</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">on: </span><span class="p">[</span><span class="ss">:update</span><span class="p">,</span> <span class="ss">:ensure_title</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">title: </span><span class="kp">nil</span><span class="p">)</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span><span class="p">.</span><span class="nf">valid?</span><span class="p">(</span><span class="ss">:ensure_title</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">messages</span>
+<span class="p">=&gt;</span> <span class="p">{</span><span class="ss">:title</span><span class="o">=&gt;</span><span class="p">[</span><span class="s2">"can’t be blank"</span><span class="p">]}</span>
+</code></pre>
+</div>
+<p>При вызове с явным контекстом, будут запущены валидации не только этого контекста, но и валидации <em>без</em> контекста.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">uniqueness: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">on: :account_setup</span>
+  <span class="n">validates</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">numericality: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">on: :account_setup</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span><span class="p">(</span><span class="ss">:account_setup</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">messages</span>
+<span class="p">=&gt;</span> <span class="p">{</span><span class="ss">:email</span><span class="o">=&gt;</span><span class="p">[</span><span class="s2">"has already been taken"</span><span class="p">],</span> <span class="ss">:age</span><span class="o">=&gt;</span><span class="p">[</span><span class="s2">"is not a number"</span><span class="p">],</span> <span class="ss">:name</span><span class="o">=&gt;</span><span class="p">[</span><span class="s2">"can’t be blank"</span><span class="p">]}</span>
+</code></pre>
+</div>
+<p>Мы раскроем больше способов использования для <code>on:</code> в <a href="/active-record-callbacks">руководстве по колбэкам</a>.</p><h3 id='strict-validations' class='inside_page_header'><a href="#strict-validations">4.</a>  Строгие валидации</h3><p>Также можно определить валидации строгими, чтобы они вызывали <code>ActiveModel::StrictValidationFailed</code>, когда объект невалиден.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="p">{</span> <span class="ss">strict: </span><span class="kp">true</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="go">ActiveModel::StrictValidationFailed: Name can’t be blank
+</span></code></pre>
+</div>
+<p>Также возможно передать собственное исключение в опцию <code>:strict</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:token</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">uniqueness: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">strict: </span><span class="no">TokenGenerationException</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="gr">TokenGenerationException: Token can’t be blank
+</span></code></pre>
+</div>
+<h3 id='conditional-validation' class='inside_page_header'><a href="#conditional-validation">5.</a>  Условная валидация</h3><p>Иногда имеет смысл проводить валидацию объекта только при выполнении заданного предиката. Это можно сделать, используя опции <code>:if</code> и <code>:unless</code>, которые принимают символ, <code>Proc</code> или <code>Array</code>. Опцию <code>:if</code> можно использовать, если необходимо определить, когда валидация <strong>должна</strong> произойти. Альтернативно, если нужно определить, когда валидация <strong>не должна</strong> произойти, воспользуйтесь опцией <code>:unless</code>.</p><h4 id='ispolzovanie-simvola-s-if-i-unless' class='inside_page_header'><a href="#ispolzovanie-simvola-s-if-i-unless">5.1.</a> Использование символа с <code>:if</code> и <code>:unless</code></h4><p>Вы можете связать опции <code>:if</code> и <code>:unless</code> с символом, соответствующим имени метода, который будет вызван перед валидацией. Это наиболее часто используемый вариант.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:card_number</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">if: :paid_with_card?</span>
+
+  <span class="k">def</span> <span class="nf">paid_with_card?</span>
+    <span class="n">payment_type</span> <span class="o">==</span> <span class="s2">"card"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='ispolzovanie-proc-s-if-i-unless' class='inside_page_header'><a href="#ispolzovanie-proc-s-if-i-unless">5.2.</a> Использование Proc с <code>:if</code> и <code>:unless</code></h4><p>Можно связать <code>:if</code> и <code>:unless</code> с объектом <code>Proc</code>, который будет вызван. Использование объекта <code>Proc</code> дает возможность написать встроенное условие вместо отдельного метода. Этот вариант лучше всего подходит для однострочного кода.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Account</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">confirmation: </span><span class="kp">true</span><span class="p">,</span>
+    <span class="ss">unless: </span><span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="n">a</span><span class="p">.</span><span class="nf">password</span><span class="p">.</span><span class="nf">blank?</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Так как <code>lambda</code> это тип <code>Proc</code>, она также может быть использована для написания вложенных условий, используя преимущество сокращенного синтаксиса.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">validates</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">confirmation: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">unless: </span><span class="o">-&gt;</span> <span class="p">{</span> <span class="n">password</span><span class="p">.</span><span class="nf">blank?</span> <span class="p">}</span>
+</code></pre>
+</div>
+<h4 id='gruppirovka-uslovnyh-validatsiy' class='inside_page_header'><a href="#gruppirovka-uslovnyh-validatsiy">5.3.</a> Группировка условных валидаций</h4><p>Иногда полезно иметь несколько валидаций с одним условием. Это легко достигается с использованием <a href="https://api.rubyonrails.org/classes/Object.html#method-i-with_options"><code>with_options</code></a>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">with_options</span> <span class="ss">if: :is_admin?</span> <span class="k">do</span> <span class="o">|</span><span class="n">admin</span><span class="o">|</span>
+    <span class="n">admin</span><span class="p">.</span><span class="nf">validates</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">10</span> <span class="p">}</span>
+    <span class="n">admin</span><span class="p">.</span><span class="nf">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Во все валидации внутри <code>with_options</code> будет автоматически передано условие <code>if: :is_admin?</code>.</p><h4 id='ob-edinenie-usloviy-validatsii' class='inside_page_header'><a href="#ob-edinenie-usloviy-validatsii">5.4.</a> Объединение условий валидации</h4><p>С другой стороны, может использоваться массив, когда несколько условий определяют, должна ли произойти валидация. Более того, в одной и той же валидации можно применить и <code>:if:</code>, и <code>:unless</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Computer</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:mouse</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span>
+                    <span class="ss">if: </span><span class="p">[</span><span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span> <span class="n">c</span><span class="p">.</span><span class="nf">market</span><span class="p">.</span><span class="nf">retail?</span> <span class="p">},</span> <span class="ss">:desktop?</span><span class="p">],</span>
+                    <span class="ss">unless: </span><span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span> <span class="n">c</span><span class="p">.</span><span class="nf">trackpad</span><span class="p">.</span><span class="nf">present?</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Валидация выполнится только тогда, когда все условия <code>:if</code> и ни одно из условий <code>:unless</code> будут вычислены со значением <code>true</code>.</p><h3 id='performing-custom-validations' class='inside_page_header'><a href="#performing-custom-validations">6.</a>  Выполнение собственных валидаций</h3><p>Когда встроенных валидационных хелперов недостаточно для ваших нужд, можете написать свои собственные валидаторы или методы валидации.</p><h4 id='sobstvennye-validatory' class='inside_page_header'><a href="#sobstvennye-validatory">6.1.</a> Собственные валидаторы</h4><p>Собственные валидаторы это классы, наследуемые от <a href="https://api.rubyonrails.org/classes/ActiveModel/Validator.html"><code>ActiveModel::Validator</code></a>. Эти классы должны реализовать метод <code>validate</code>, принимающий запись как аргумент и выполняющий валидацию на ней. Собственный валидатор вызывается с использованием метода <code>validates_with</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">MyValidator</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Validator</span>
+  <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+    <span class="k">unless</span> <span class="n">record</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">start_with?</span> <span class="s1">'X'</span>
+      <span class="n">record</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">add</span> <span class="ss">:name</span><span class="p">,</span> <span class="s2">"Need a name starting with X please!"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="err"> </span>
+<span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates_with</span> <span class="no">MyValidator</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Простейшим способом добавить собственные валидаторы для валидации отдельных атрибутов является наследуемость от <a href="https://api.rubyonrails.org/classes/ActiveModel/EachValidator.html"><code>ActiveModel::EachValidator</code></a>. В этом случае класс собственного валидатора должен реализовать метод <code>validate_each</code>, принимающий три аргумента: запись, атрибут и значение. Это будут соответствующие экземпляр, атрибут, который будет проверяться и значение атрибута в переданном экземпляре:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">EmailValidator</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">EachValidator</span>
+  <span class="k">def</span> <span class="nf">validate_each</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="k">unless</span> <span class="no">URI</span><span class="o">::</span><span class="no">MailTo</span><span class="o">::</span><span class="no">EMAIL_REGEXP</span><span class="p">.</span><span class="nf">match?</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+      <span class="n">record</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">add</span> <span class="n">attribute</span><span class="p">,</span> <span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="ss">:message</span><span class="p">]</span> <span class="o">||</span> <span class="s2">"is not an email"</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">email: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Как показано в примере, можно объединять стандартные валидации со своими произвольными валидаторами.</p><h4 id='sobstvennye-metody' class='inside_page_header'><a href="#sobstvennye-metody">6.2.</a> Собственные методы</h4><p>Также возможно создать методы, проверяющие состояние ваших моделей и добавляющие ошибки в коллекцию <code>errors</code>, когда они невалидны. Затем эти методы следует зарегистрировать, используя метод класса <a href="https://api.rubyonrails.org/classes/ActiveModel/Validations/ClassMethods.html#method-i-validate"><code>validate</code></a>, передав символьные имена валидационных методов.</p><p>Можно передать более одного символа для каждого метода класса, и соответствующие валидации будут запущены в том порядке, в котором они зарегистрированы.</p><p>Метод <code>valid?</code> проверит, что коллекция <code>errors</code> пуста, поэтому ваши собственные методы валидации должны добавить ошибки в нее, когда вы хотите, чтобы валидация провалилась:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Invoice</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validate</span> <span class="ss">:expiration_date_cannot_be_in_the_past</span><span class="p">,</span>
+    <span class="ss">:discount_cannot_be_greater_than_total_value</span>
+
+  <span class="k">def</span> <span class="nf">expiration_date_cannot_be_in_the_past</span>
+    <span class="k">if</span> <span class="n">expiration_date</span><span class="p">.</span><span class="nf">present?</span> <span class="o">&amp;&amp;</span> <span class="n">expiration_date</span> <span class="o">&lt;</span> <span class="no">Date</span><span class="p">.</span><span class="nf">today</span>
+      <span class="n">errors</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="ss">:expiration_date</span><span class="p">,</span> <span class="s2">"can't be in the past"</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">discount_cannot_be_greater_than_total_value</span>
+    <span class="n">errors</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="ss">:discount</span><span class="p">,</span> <span class="s2">"can't be greater than total value"</span><span class="p">)</span> <span class="k">if</span>
+      <span class="n">discount</span> <span class="o">&gt;</span> <span class="n">total_value</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>По умолчанию такие валидации будут выполнены каждый раз при вызове <code>valid?</code> или сохранении объекта. Но также возможно контролировать, когда выполнять собственные валидации, передав опцию <code>:on</code> в метод <code>validate</code>, с ключами: <code>:create</code> или <code>:update</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Invoice</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validate</span> <span class="ss">:active_customer</span><span class="p">,</span> <span class="ss">on: :create</span>
+
+  <span class="k">def</span> <span class="nf">active_customer</span>
+    <span class="n">errors</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="ss">:customer_id</span><span class="p">,</span> <span class="s2">"is not active"</span><span class="p">)</span> <span class="k">unless</span> <span class="n">customer</span><span class="p">.</span><span class="nf">active?</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Подробности об <a href="#on"><code>:on</code></a> смотрите в разделе выше.</p><h4 id='spisok-validatorov' class='inside_page_header'><a href="#spisok-validatorov">6.3.</a> Список валидаторов</h4><p>Если хотите обнаружить все валидаторы для данного объекта, не ищите что-то другое, кроме <code>validators</code>.</p><p>Например, если у нас есть следующая модель, использующая пользовательский валидатор и встроенный валидатор:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">on: :create</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">format: </span><span class="no">URI</span><span class="o">::</span><span class="no">MailTo</span><span class="o">::</span><span class="no">EMAIL_REGEXP</span>
+  <span class="n">validates_with</span> <span class="no">MyOtherValidator</span><span class="p">,</span> <span class="ss">strict: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь можно использовать <code>validators</code> на модели &quot;Person&quot; для перечисления всех валидаторов, или даже проверяющих определенного поля с помощью <code>validators_on</code>.</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Person</span><span class="p">.</span><span class="nf">validators</span>
+<span class="c">#=&gt; [#&lt;ActiveRecord::Validations::PresenceValidator:0x10b2f2158
+</span><span class="go">      @attributes=[:name], @options={:on=&gt;:create}&gt;,
+</span><span class="c">     #&lt;MyOtherValidatorValidator:0x10b2f17d0
+</span><span class="go">      @attributes=[:name], @options={:strict=&gt;true}&gt;,
+</span><span class="c">     #&lt;ActiveModel::Validations::FormatValidator:0x10b2f0f10
+</span><span class="go">      @attributes=[:email],
+      @options={:with=&gt;URI::MailTo::EMAIL_REGEXP}&gt;]
+</span><span class="c">     #&lt;MyOtherValidator:0x10b2f0948 @options={:strict=&gt;true}&gt;]
+</span><span class="err">
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Person</span><span class="p">.</span><span class="nf">validators_on</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span>
+<span class="c">#=&gt; [#&lt;ActiveModel::Validations::PresenceValidator:0x10b2f2158
+</span><span class="go">      @attributes=[:name], @options={on: :create}&gt;]
+</span></code></pre>
+</div>
+<h3 id='working-with-validation-errors' class='inside_page_header'><a href="#working-with-validation-errors">7.</a>  Работаем с ошибками валидации</h3><p>Методы <a href="https://api.rubyonrails.org/classes/ActiveRecord/Validations.html#method-i-valid-3F"><code>valid?</code></a> и <a href="https://api.rubyonrails.org/classes/ActiveModel/Validations.html#method-i-invalid-3F"><code>invalid?</code></a> предоставляют только итоговый статус валидности. Однако, можно погрузиться в каждую отдельную ошибку с помощью различных методов из коллекции <code>errors</code>.</p><p>Предлагаем список наиболее часто используемых методов. Если хотите увидеть список всех доступных методов, обратитесь к документации по <a href="https://api.rubyonrails.org/classes/ActiveModel/Errors.html"><code>ActiveModel::Errors</code></a>.</p><h4 id='errors2' class='inside_page_header'><a href="#errors2">7.1.</a> <code>errors</code></h4><p>Шлюз, через который можно извлечь различные подробности о каждой ошибке.</p><p>Он возвращает экземпляр класса <code>ActiveModel::Errors</code>, содержащий все ошибки, каждая ошибка представлена объектом <a href="https://api.rubyonrails.org/classes/ActiveModel/Error.html"><code>ActiveModel::Error</code></a>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">3</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">full_messages</span>
+<span class="p">=&gt;</span> <span class="p">[</span><span class="s2">"Name can’t be blank"</span><span class="p">,</span> <span class="s2">"Name is too short (minimum is 3 characters)"</span><span class="p">]</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"John Doe"</span><span class="p">)</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">full_messages</span>
+<span class="p">=&gt;</span> <span class="p">[]</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">first</span><span class="p">.</span><span class="nf">details</span>
+<span class="p">=&gt;</span> <span class="p">{</span><span class="ss">:error</span><span class="o">=&gt;</span><span class="ss">:too_short</span><span class="p">,</span> <span class="ss">:count</span><span class="o">=&gt;</span><span class="mi">3</span><span class="p">}</span>
+</code></pre>
+</div>
+<h4 id='errors3' class='inside_page_header'><a href="#errors3">7.2.</a> <code>errors[]</code></h4><p><a href="https://api.rubyonrails.org/classes/ActiveModel/Errors.html#method-i-5B-5D"><code>errors[]</code></a> используется, когда вы хотите проверить сообщения об ошибке для определенного атрибута. Он возвращает массив строк со всеми сообщениями об ошибке для заданного атрибута, каждая строка с одним сообщением об ошибке. Если нет ошибок, относящихся к атрибуту, возвратится пустой массив.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">3</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"John Doe"</span><span class="p">)</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span>
+<span class="p">=&gt;</span> <span class="p">[]</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"JD"</span><span class="p">)</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span>
+<span class="p">=&gt;</span> <span class="p">[</span><span class="s2">"is too short (minimum is 3 characters)"</span><span class="p">]</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span>
+<span class="p">=&gt;</span> <span class="p">[</span><span class="s2">"can’t be blank"</span><span class="p">,</span> <span class="s2">"is too short (minimum is 3 characters)"</span><span class="p">]</span>
+</code></pre>
+</div>
+<h4 id='errors-where-i-ob-ekt-oshibki' class='inside_page_header'><a href="#errors-where-i-ob-ekt-oshibki">7.3.</a> <code>errors.where</code> и объект ошибки</h4><p>Иногда нам нужно больше подробностей о каждой ошибке, кроме ее сообщения. Каждая ошибка инкапсулирована как объект <code>ActiveModel::Error</code>, и метод <a href="https://api.rubyonrails.org/classes/ActiveModel/Errors.html#method-i-where"><code>where</code></a> является наиболее простым способом доступа.</p><p><code>where</code> возвращает массив объектов ошибки, фильтрованный различными условиями.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">3</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Можно отфильтровать только по <code>attribute</code>, передав его как первый параметр в <code>errors.where(:attr)</code>. Второй параметр используется для фильтрации по <code>type</code> требуемой ошибки, вызывая <code>errors.where(:attr, :type)</code>.</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="p">[</span> <span class="o">...</span> <span class="p">]</span> <span class="c1"># все ошибки, связанные с атрибутом :name</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:too_short</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="p">[</span> <span class="o">...</span> <span class="p">]</span> <span class="c1"># ошибки :too_short для атрибута :name</span>
+</code></pre>
+</div>
+<p>Наконец, можно отфильтровать по любой <code>options</code>, существующих для данного типа объекта ошибки.</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:too_short</span><span class="p">,</span> <span class="ss">minimum: </span><span class="mi">3</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="p">[</span> <span class="o">...</span> <span class="p">]</span> <span class="c1"># all name errors being too short and minimum is 2</span>
+</code></pre>
+</div>
+<p>Из этих объектов ошибки можно считывать разную информацию:</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">error</span> <span class="o">=</span> <span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">:name</span><span class="p">).</span><span class="nf">last</span>
+<span class="err">
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">error</span><span class="p">.</span><span class="nf">attribute</span>
+<span class="p">=&gt;</span> <span class="ss">:name</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">error</span><span class="p">.</span><span class="nf">type</span>
+<span class="p">=&gt;</span> <span class="ss">:too_short</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">error</span><span class="p">.</span><span class="nf">options</span><span class="p">[</span><span class="ss">:count</span><span class="p">]</span>
+<span class="p">=&gt;</span> <span class="mi">3</span>
+</code></pre>
+</div>
+<p>Также можно сгенерировать сообщение об ошибке:</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">error</span><span class="p">.</span><span class="nf">message</span>
+<span class="p">=&gt;</span> <span class="s2">"is too short (minimum is 3 characters)"</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">error</span><span class="p">.</span><span class="nf">full_message</span>
+<span class="p">=&gt;</span> <span class="s2">"Name is too short (minimum is 3 characters)"</span>
+</code></pre>
+</div>
+<p>Метод <a href="https://api.rubyonrails.org/classes/ActiveModel/Errors.html#method-i-full_message"><code>full_message</code></a> генерирует более дружелюбное сообщение с добавлением имени атрибута с большой буквы вначале. (Чтобы настроить формат, используемый <code>full_message</code>, посмотрите <a href="/i18n#active-model-methods">руководство I18n</a>.)</p><h4 id='errors-add' class='inside_page_header'><a href="#errors-add">7.4.</a> <code>errors.add</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/ActiveModel/Errors.html#method-i-add"><code>add</code></a> создает объект ошибки, принимая <code>attribute</code>, <code>type</code> ошибки и дополнительный хэш опций. Это полезно при написания собственного валидатора, так как это позволяет определить очень специфичные ситуации с ошибками.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validate</span> <span class="k">do</span> <span class="o">|</span><span class="n">person</span><span class="o">|</span>
+    <span class="n">errors</span><span class="p">.</span><span class="nf">add</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:too_plain</span><span class="p">,</span> <span class="ss">message: </span><span class="s2">"is not cool enough"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">create</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">:name</span><span class="p">).</span><span class="nf">first</span><span class="p">.</span><span class="nf">type</span>
+<span class="p">=&gt;</span> <span class="ss">:too_plain</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">:name</span><span class="p">).</span><span class="nf">first</span><span class="p">.</span><span class="nf">full_message</span>
+<span class="p">=&gt;</span> <span class="s2">"Name is not cool enough"</span>
+</code></pre>
+</div>
+<h4 id='errors-base' class='inside_page_header'><a href="#errors-base">7.5.</a> <code>errors[:base]</code></h4><p>Можете добавлять ошибки, которые относятся к состоянию объекта в целом, а не к отдельному атрибуту. Для этого необходимо использовать <code>:base</code> как атрибут при добавлении новой ошибки.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validate</span> <span class="k">do</span> <span class="o">|</span><span class="n">person</span><span class="o">|</span>
+    <span class="n">errors</span><span class="p">.</span><span class="nf">add</span> <span class="ss">:base</span><span class="p">,</span> <span class="ss">:invalid</span><span class="p">,</span> <span class="ss">message: </span><span class="s2">"This person is invalid because ..."</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">create</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">:base</span><span class="p">).</span><span class="nf">first</span><span class="p">.</span><span class="nf">full_message</span>
+<span class="p">=&gt;</span> <span class="s2">"This person is invalid because ..."</span>
+</code></pre>
+</div>
+<h4 id='errors-size' class='inside_page_header'><a href="#errors-size">7.6.</a> <code>errors.size</code></h4><p>Метод <code>size</code> возвращает количество ошибок для объекта.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">3</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">size</span>
+<span class="p">=&gt;</span> <span class="mi">2</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"Andrea"</span><span class="p">,</span> <span class="ss">email: </span><span class="s2">"andrea@example.com"</span><span class="p">)</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">size</span>
+<span class="p">=&gt;</span> <span class="mi">0</span>
+</code></pre>
+</div>
+<h4 id='errors-clear' class='inside_page_header'><a href="#errors-clear">7.7.</a> <code>errors.clear</code></h4><p>Метод <code>clear</code> используется, когда вы намеренно хотите очистить коллекцию <code>errors</code>. Естественно, вызов <code>errors.clear</code> для невалидного объекта фактически не сделает его валидным: сейчас коллекция <code>errors</code> будет пуста, но в следующий раз, когда вы вызовете <code>valid?</code> или любой метод, который пытается сохранить этот объект в базу данных, валидации выполнятся снова. Если любая из валидаций провалится, коллекция <code>errors</code> будет заполнена снова.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">3</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">empty?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">clear</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">empty?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">save</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">empty?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+</code></pre>
+</div>
+<h3 id='displaying-validation-errors-in-the-view' class='inside_page_header'><a href="#displaying-validation-errors-in-the-view">8.</a>  Отображение ошибок валидации во вью</h3><p>Как только вы создали модель и добавили валидации, если эта модель создается с помощью веб-формы, то вы, возможно хотите отображать сообщение об ошибке, когда одна из валидаций проваливается.</p><p>Поскольку каждое приложение обрабатывает подобные вещи по-разному, в Rails нет какого-то хелпера вью для непосредственной генерации этих сообщений. Однако, благодаря богатому набору методов, которые Rails в целом дает для взаимодействия с валидациями, можно создать свой собственный. Кроме того, при генерации скаффолда, Rails поместит некоторый ERB в <code>_form.html.erb</code>, генерируемый для отображения полного списка ошибок этой модели.</p><p>Допустим, у нас имеется модель, сохраненная в переменную экземпляра <code>@article</code>, это выглядит следующим образом:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%</span> <span class="k">if</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">any?</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"error_explanation"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;%=</span> <span class="n">pluralize</span><span class="p">(</span><span class="vi">@article</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">count</span><span class="p">,</span> <span class="s2">"error"</span><span class="p">)</span> <span class="cp">%&gt;</span> prohibited this article from being saved:<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+      <span class="cp">&lt;%</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">error</span><span class="o">|</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;li&gt;</span><span class="cp">&lt;%=</span> <span class="n">error</span><span class="p">.</span><span class="nf">full_message</span> <span class="cp">%&gt;</span><span class="nt">&lt;/li&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Более того, при использовании хелперов форм Rails для создания форм, когда у поля происходит ошибка валидации, генерируется дополнительный <code>&lt;div&gt;</code> вокруг содержимого.</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"field_with_errors"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"article_title"</span> <span class="na">name=</span><span class="s">"article[title]"</span> <span class="na">size=</span><span class="s">"30"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+<p>Этот div можно стилизовать по желанию. К примеру, дефолтный скаффолд, который генерирует Rails, добавляет это правило CSS:</p><div class="code_container">
+  <pre><code class="highlight css"><span class="nc">.field_with_errors</span> <span class="p">{</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">2px</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">table</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>Это означает, что любое поле с ошибкой обведено красной рамкой толщиной 2 пикселя.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

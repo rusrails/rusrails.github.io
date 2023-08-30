@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Основы Active Model" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Основы Active Model" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/active-model-basics" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Основы Active Model
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="onJVf45vjAHZdyhS8rHfidpKSFHWPsyCyKHtk2+nSrYanRFl7e5oj815KHbVPcnKg8jqnSB/eNVY7WxD2hRqrg==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#chto-takoe-active-model">1. Что такое Active Model?</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#api">1.1. API</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#metody-atributov">1.2. Методы атрибутов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#kolbeki">1.3. Колбэки</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#preobrazovaniya">1.4. Преобразования</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#gryaznyy-ob-ekt">1.5. Грязный объект</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#zaprashivaem-u-ob-ekta-spisok-vseh-izmenennyh-atributov">1.5.1. Запрашиваем у объекта список всех измененных атрибутов.</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#aktsessor-metody-osnovannye-na-atributah">1.5.2. Акцессор-методы, основанные на атрибутах</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#validatsii">1.6. Валидации</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#imenovanie">1.7. Именование</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#model">1.8. Модель</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#serializatsiya">1.9. Сериализация</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#activemodel-serializers">1.9.1. ActiveModel::Serializers</a>
+</h6>      </li>
+      <li>
+        <h7>
+          <a href="#activemodel-serializers-json">1.9.1.1. ActiveModel::Serializers::JSON</a>
+</h7>      </li>
+      <li>
+        <h5>
+          <a href="#perevod">1.10. Перевод</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#testy-sovmestimosti">1.11. Тесты совместимости</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#securepassword">1.12. SecurePassword</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#trebovaniya">1.12.1. Требования</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#primery">1.12.2. Примеры</a>
+</h6>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='osnovy-active-model' class='inside_page_header'> Основы Active Model</h2><p>Это руководство познакомит вас со всем необходимым для начала использования классов моделей. Active Model позволяет хелперам Action Pack взаимодействовать с обычными объектами на чистом Ruby. Также Active Model помогает с созданием гибкой, настраиваемой ORM для использования вне фреймворка Rails.</p><p>После прочтение данного руководства, вы узнаете:</p><ul><li>Как ведет себя модель Active Record.
+</li><li>Как работают колбэки и валидации.
+</li><li>Как работают сериализаторы.
+</li><li>Как Active Model интегрируется с фреймворком интернационализации Rails (i18n).
+</li></ul>
+<hr>
+<h3 id='chto-takoe-active-model' class='inside_page_header'><a href="#chto-takoe-active-model">1.</a> Что такое Active Model?</h3><p>Библиотека Active Model содержит различные модули, используемые для разработки классов, которым необходимы некоторые особенности, присутствующие в Active Record. Некоторые из этих модулей описаны ниже.</p><h4 id='api' class='inside_page_header'><a href="#api">1.1.</a> API</h4><p><code>ActiveModel::API</code> добавляет возможность классу работать с Action Pack и Action View прямо из коробки.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">EmailContact</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">API</span>
+
+  <span class="nb">attr_accessor</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">:message</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">:message</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+
+  <span class="k">def</span> <span class="nf">deliver</span>
+    <span class="k">if</span> <span class="n">valid?</span>
+      <span class="c1"># доставляем письмо</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>При включении <code>ActiveModel::API</code> вы получаете несколько возможностей, таких как:</p><ul><li>интроспекция имени модели
+</li><li>преобразования
+</li><li>переводы
+</li><li>валидации
+</li></ul><p>Он также дает возможность инициализировать объект с помощью хэша атрибутов, подобно любому объекту Active Record.</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">email_contact</span> <span class="o">=</span> <span class="no">EmailContact</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">,</span> <span class="ss">email: </span><span class="s1">'david@example.com'</span><span class="p">,</span> <span class="ss">message: </span><span class="s1">'Hello World'</span><span class="p">)</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">email_contact</span><span class="p">.</span><span class="nf">name</span>
+<span class="p">=&gt;</span> <span class="s2">"David"</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">email_contact</span><span class="p">.</span><span class="nf">email</span>
+<span class="p">=&gt;</span> <span class="s2">"david@example.com"</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">email_contact</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">email_contact</span><span class="p">.</span><span class="nf">persisted?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+</code></pre>
+</div>
+<p>Любой класс, включающий <code>ActiveModel::API</code>, может быть использован с <code>form_with</code>, <code>render</code> и любыми другими методами хелпера Action View, точно так же, как и объекты Active Record.</p><h4 id='metody-atributov' class='inside_page_header'><a href="#metody-atributov">1.2.</a> Методы атрибутов</h4><p>Модуль <code>ActiveModel::AttributeMethods</code> позволяет добавлять различные суффиксы и префиксы к методам класса. Для использования необходимо определить суффиксы, префиксы, а также к каким методам объекта они будут применяться.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">AttributeMethods</span>
+
+  <span class="n">attribute_method_prefix</span> <span class="s1">'reset_'</span>
+  <span class="n">attribute_method_suffix</span> <span class="s1">'_highest?'</span>
+  <span class="n">define_attribute_methods</span> <span class="s1">'age'</span>
+
+  <span class="nb">attr_accessor</span> <span class="ss">:age</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">reset_attribute</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span>
+      <span class="nb">send</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="n">attribute</span><span class="si">}</span><span class="s2">="</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">attribute_highest?</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span>
+      <span class="nb">send</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">age</span> <span class="o">=</span> <span class="mi">110</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">age_highest?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">reset_age</span>
+<span class="p">=&gt;</span> <span class="mi">0</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">age_highest?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+</code></pre>
+</div>
+<h4 id='kolbeki' class='inside_page_header'><a href="#kolbeki">1.3.</a> Колбэки</h4><p>Модуль <code>ActiveModel::Callbacks</code> дает Active Record возможность использования функций обратного вызова (колбэков). Это позволяет определять колбэки, вызываемые в определенное время. После определения колбэков можно обернуть их дополнительной функциональностью before, after и around, которые позволяют определить момент вызова колбэка &quot;до&quot;, &quot;после&quot; и &quot;до и после&quot; вызова нужного метода.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">extend</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Callbacks</span>
+
+  <span class="n">define_model_callbacks</span> <span class="ss">:update</span>
+
+  <span class="n">before_update</span> <span class="ss">:reset_me</span>
+
+  <span class="k">def</span> <span class="nf">update</span>
+    <span class="n">run_callbacks</span><span class="p">(</span><span class="ss">:update</span><span class="p">)</span> <span class="k">do</span>
+      <span class="c1"># Этот метод вызывается при вызове у обьекта метода update.</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">reset_me</span>
+    <span class="c1"># Этот метод вызывается при вызове у обьекта метода update, выполнение метода reset_me произойдет до вызова update, т.к он определен как колбэк before_update.</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='preobrazovaniya' class='inside_page_header'><a href="#preobrazovaniya">1.4.</a> Преобразования</h4><p>Если для класса определены методы <code>persisted?</code> и <code>id</code>, то можно добавить модуль <code>ActiveModel::Conversion</code> в этот класс и вызывать методы преобразования Rails на объектах этого класса.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Conversion</span>
+
+  <span class="k">def</span> <span class="nf">persisted?</span>
+    <span class="kp">false</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">id</span>
+    <span class="kp">nil</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">to_model</span> <span class="o">==</span> <span class="n">person</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">to_key</span>
+<span class="p">=&gt;</span> <span class="kp">nil</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">to_param</span>
+<span class="p">=&gt;</span> <span class="kp">nil</span>
+</code></pre>
+</div>
+<h4 id='gryaznyy-ob-ekt' class='inside_page_header'><a href="#gryaznyy-ob-ekt">1.5.</a> Грязный объект</h4><p>Объект становится грязным после одного или нескольких изменений его атрибутов, и при этом он не был сохранен. <code>ActiveModel::Dirty</code> дает возможность проверить, был ли объект изменен или нет. Также имеются акцессор-методы на основе атрибутов. Представим, что имеется класс Person с атрибутами <code>first_name</code> и <code>last_name</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Dirty</span>
+  <span class="n">define_attribute_methods</span> <span class="ss">:first_name</span><span class="p">,</span> <span class="ss">:last_name</span>
+
+  <span class="k">def</span> <span class="nf">first_name</span>
+    <span class="vi">@first_name</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">first_name</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">first_name_will_change!</span>
+    <span class="vi">@first_name</span> <span class="o">=</span> <span class="n">value</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">last_name</span>
+    <span class="vi">@last_name</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">last_name</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">last_name_will_change!</span>
+    <span class="vi">@last_name</span> <span class="o">=</span> <span class="n">value</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">save</span>
+    <span class="c1"># метод для сохранения изменений...</span>
+    <span class="n">changes_applied</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='zaprashivaem-u-ob-ekta-spisok-vseh-izmenennyh-atributov' class='inside_page_header'><a href="#zaprashivaem-u-ob-ekta-spisok-vseh-izmenennyh-atributov">1.5.1.</a> Запрашиваем у объекта список всех измененных атрибутов.</h5><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">changed?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">first_name</span> <span class="o">=</span> <span class="s2">"First Name"</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">first_name</span>
+<span class="p">=&gt;</span> <span class="s2">"First Name"</span>
+
+<span class="c"># Возвращает true, если хотя бы у одного из атрибутов есть несохраненное значение.
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">changed?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+
+<span class="c"># Возвращает список атрибутов, которые были изменены до сохранения.
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">changed</span>
+<span class="p">=&gt;</span> <span class="p">[</span><span class="s2">"first_name"</span><span class="p">]</span>
+
+<span class="c"># Возвращает хэш с измененными атрибутами вместе с их первоначальными значениями.
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">changed_attributes</span>
+<span class="p">=&gt;</span> <span class="p">{</span><span class="s2">"first_name"</span><span class="o">=&gt;</span><span class="kp">nil</span><span class="p">}</span>
+
+<span class="c"># Возвращает хэш изменений с именами атрибутов в качестве ключей, и их значений как массива, который содержит старое и новое значение поля.
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">changes</span>
+<span class="p">=&gt;</span> <span class="p">{</span><span class="s2">"first_name"</span><span class="o">=&gt;</span><span class="p">[</span><span class="kp">nil</span><span class="p">,</span> <span class="s2">"First Name"</span><span class="p">]}</span>
+</code></pre>
+</div>
+<h5 id='aktsessor-metody-osnovannye-na-atributah' class='inside_page_header'><a href="#aktsessor-metody-osnovannye-na-atributah">1.5.2.</a> Акцессор-методы, основанные на атрибутах</h5><p>Отслеживает, был ли атрибут изменен или нет.</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">first_name</span>
+<span class="p">=&gt;</span> <span class="s2">"First Name"</span>
+
+<span class="c"># attr_name_changed?
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">first_name_changed?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<p>Отслеживает предыдущее значение атрибута.</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="c"># акцессор attr_name_was
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">first_name_was</span>
+<span class="p">=&gt;</span> <span class="kp">nil</span>
+</code></pre>
+</div>
+<p>Отслеживает старое и новое значения измененного атрибута. Возвращает массив, если изменяли, в противном случае nil.</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="c"># attr_name_change
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">first_name_change</span>
+<span class="p">=&gt;</span> <span class="p">[</span><span class="kp">nil</span><span class="p">,</span> <span class="s2">"First Name"</span><span class="p">]</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">last_name_change</span>
+<span class="p">=&gt;</span> <span class="kp">nil</span>
+</code></pre>
+</div>
+<h4 id='validatsii' class='inside_page_header'><a href="#validatsii">1.6.</a> Валидации</h4><p>Модуль <code>ActiveModel::Validations</code> добавляет возможность проверять объекты, как в Active Record.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Validations</span>
+
+  <span class="nb">attr_accessor</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">:token</span>
+
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+  <span class="n">validates_format_of</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">with: </span><span class="sr">/\A([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})\z/i</span>
+  <span class="n">validates!</span> <span class="ss">:token</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">token</span> <span class="o">=</span> <span class="s2">"2b1f325"</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s1">'vishnu'</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">email</span> <span class="o">=</span> <span class="s1">'me'</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">email</span> <span class="o">=</span> <span class="s1">'me@vishnuatrai.com'</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">token</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="go">ActiveModel::StrictValidationFailed
+</span></code></pre>
+</div>
+<h4 id='imenovanie' class='inside_page_header'><a href="#imenovanie">1.7.</a> Именование</h4><p><code>ActiveModel::Naming</code> добавляет несколько методов класса, упрощающих управление именованием и роутингом. Модуль определяет метод класса <code>model_name</code>, который определит несколько акцессоров с помощью методов <code>ActiveSupport::Inflector</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">extend</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Naming</span>
+<span class="k">end</span>
+
+<span class="no">Person</span><span class="p">.</span><span class="nf">model_name</span><span class="p">.</span><span class="nf">name</span>                <span class="c1"># =&gt; "Person"</span>
+<span class="no">Person</span><span class="p">.</span><span class="nf">model_name</span><span class="p">.</span><span class="nf">singular</span>            <span class="c1"># =&gt; "person"</span>
+<span class="no">Person</span><span class="p">.</span><span class="nf">model_name</span><span class="p">.</span><span class="nf">plural</span>              <span class="c1"># =&gt; "people"</span>
+<span class="no">Person</span><span class="p">.</span><span class="nf">model_name</span><span class="p">.</span><span class="nf">element</span>             <span class="c1"># =&gt; "person"</span>
+<span class="no">Person</span><span class="p">.</span><span class="nf">model_name</span><span class="p">.</span><span class="nf">human</span>               <span class="c1"># =&gt; "Person"</span>
+<span class="no">Person</span><span class="p">.</span><span class="nf">model_name</span><span class="p">.</span><span class="nf">collection</span>          <span class="c1"># =&gt; "people"</span>
+<span class="no">Person</span><span class="p">.</span><span class="nf">model_name</span><span class="p">.</span><span class="nf">param_key</span>           <span class="c1"># =&gt; "person"</span>
+<span class="no">Person</span><span class="p">.</span><span class="nf">model_name</span><span class="p">.</span><span class="nf">i18n_key</span>            <span class="c1"># =&gt; :person</span>
+<span class="no">Person</span><span class="p">.</span><span class="nf">model_name</span><span class="p">.</span><span class="nf">route_key</span>           <span class="c1"># =&gt; "people"</span>
+<span class="no">Person</span><span class="p">.</span><span class="nf">model_name</span><span class="p">.</span><span class="nf">singular_route_key</span>  <span class="c1"># =&gt; "person"</span>
+</code></pre>
+</div>
+<h4 id='model' class='inside_page_header'><a href="#model">1.8.</a> Модель</h4><p><code>ActiveModel::Model</code> позволяет реализовывать модели, схоже с <code>ActiveRecord::Base</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">EmailContact</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Model</span>
+
+  <span class="nb">attr_accessor</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">:message</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">:message</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+
+  <span class="k">def</span> <span class="nf">deliver</span>
+    <span class="k">if</span> <span class="n">valid?</span>
+      <span class="c1"># отправить электронную почту</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>При включении <code>ActiveModel::Model</code>, вы получите все особенности из <code>ActiveModel::API</code>.</p><h4 id='serializatsiya' class='inside_page_header'><a href="#serializatsiya">1.9.</a> Сериализация</h4><p><code>ActiveModel::Serialization</code> предоставляет базовую сериализацию для вашего объекта. Вам необходимо объявить хэш, содержащий атрибуты, которые вы хотите сериализовать. Атрибуты должны быть строками, не символами.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Serialization</span>
+
+  <span class="nb">attr_accessor</span> <span class="ss">:name</span>
+
+  <span class="k">def</span> <span class="nf">attributes</span>
+    <span class="p">{</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь можно получить доступ к сериализованному хэшу вашего объекта с помощью метода <code>serializable_hash</code>.</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">serializable_hash</span>
+<span class="p">=&gt;</span> <span class="p">{</span><span class="s2">"name"</span><span class="o">=&gt;</span><span class="kp">nil</span><span class="p">}</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"Bob"</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">serializable_hash</span>
+<span class="p">=&gt;</span> <span class="p">{</span><span class="s2">"name"</span><span class="o">=&gt;</span><span class="s2">"Bob"</span><span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='activemodel-serializers' class='inside_page_header'><a href="#activemodel-serializers">1.9.1.</a> ActiveModel::Serializers</h5><p>Active Model также предоставляет модуль <code>ActiveModel::Serializers::JSON</code> для сериализации/десериализации JSON. Этот модуль автоматически подключает ранее обсужденный модуль <code>ActiveModel::Serialization</code>.</p><h6 id='activemodel-serializers-json' class='inside_page_header'><a href="#activemodel-serializers-json">1.9.1.1.</a> ActiveModel::Serializers::JSON</h6><p>Для использования <code>ActiveModel::Serializers::JSON</code> необходимо только изменить модуль, который вы подключали, с <code>ActiveModel::Serialization</code> на <code>ActiveModel::Serializers::JSON</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Serializers</span><span class="o">::</span><span class="no">JSON</span>
+
+  <span class="nb">attr_accessor</span> <span class="ss">:name</span>
+
+  <span class="k">def</span> <span class="nf">attributes</span>
+    <span class="p">{</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Метод <code>as_json</code>, подобно <code>serializable_hash</code>, предоставляет хэш, описывающий модель.</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">as_json</span>
+<span class="p">=&gt;</span> <span class="p">{</span><span class="s2">"name"</span><span class="o">=&gt;</span><span class="kp">nil</span><span class="p">}</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"Bob"</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">as_json</span>
+<span class="p">=&gt;</span> <span class="p">{</span><span class="s2">"name"</span><span class="o">=&gt;</span><span class="s2">"Bob"</span><span class="p">}</span>
+</code></pre>
+</div>
+<p>Также можно определить атрибуты для модели из строки JSON. Однако, в классе нужно определить метод <code>attributes=</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Serializers</span><span class="o">::</span><span class="no">JSON</span>
+
+  <span class="nb">attr_accessor</span> <span class="ss">:name</span>
+
+  <span class="k">def</span> <span class="nf">attributes</span><span class="o">=</span><span class="p">(</span><span class="nb">hash</span><span class="p">)</span>
+    <span class="nb">hash</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
+      <span class="nb">send</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">="</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">attributes</span>
+    <span class="p">{</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь есть возможность создавать экземпляры <code>Person</code> и устанавливать атрибуты с помощью <code>from_json</code>.</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">json</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">name: </span><span class="s1">'Bob'</span> <span class="p">}.</span><span class="nf">to_json</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">from_json</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">Person</span><span class="p">:</span><span class="mh">0x00000100c773f0</span> <span class="vi">@name</span><span class="o">=</span><span class="s2">"Bob"</span><span class="kt">&gt;</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">name</span>
+<span class="p">=&gt;</span> <span class="s2">"Bob"</span>
+</code></pre>
+</div>
+<h4 id='perevod' class='inside_page_header'><a href="#perevod">1.10.</a> Перевод</h4><p><code>ActiveModel::Translation</code> предоставляет интеграцию между вашим объектом и фреймворком интернационализации Rails (i18n).</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">extend</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Translation</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>С помощью метода <code>human_attribute_name</code> можно преобразовывать имена атрибутов в более удобочитаемый формат. Удобочитаемый формат определяется в вашем(-их) файле(-ах) локали.</p><ul><li>config/locales/app.pt-BR.yml
+</li></ul><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">pt-BR</span><span class="pi">:</span>
+  <span class="na">activemodel</span><span class="pi">:</span>
+    <span class="na">attributes</span><span class="pi">:</span>
+      <span class="na">person</span><span class="pi">:</span>
+        <span class="na">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Nome'</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Person</span><span class="p">.</span><span class="nf">human_attribute_name</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span> <span class="c1"># =&gt; "Nome"</span>
+</code></pre>
+</div>
+<h4 id='testy-sovmestimosti' class='inside_page_header'><a href="#testy-sovmestimosti">1.11.</a> Тесты совместимости</h4><p><code>ActiveModel::Lint::Tests</code> позволяет проверить, совместим ли объект с Active Model API.</p><ul><li><p><code>app/models/person.rb</code></p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Model</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+</li><li><p><code>test/models/person_test.rb</code></p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="nb">require</span> <span class="s2">"test_helper"</span>
+
+<span class="k">class</span> <span class="nc">PersonTest</span> <span class="o">&lt;</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">TestCase</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Lint</span><span class="o">::</span><span class="no">Tests</span>
+
+  <span class="n">setup</span> <span class="k">do</span>
+    <span class="vi">@model</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+</li></ul><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails test</span>
+<span class="go">
+Run options: --seed 14596
+
+</span><span class="gp">#</span><span class="w"> </span>Running:
+<span class="go">
+</span><span class="c">......
+</span><span class="go">
+Finished in 0.024899s, 240.9735 runs/s, 1204.8677 assertions/s.
+
+6 runs, 30 assertions, 0 failures, 0 errors, 0 skips
+</span></code></pre>
+</div>
+<p>Объекту не нужно реализовывать все API, чтобы работать с Action Pack. Этот модуль всего лишь предназначен для руководства в случае, если вы хотите все особенности из коробки.</p><h4 id='securepassword' class='inside_page_header'><a href="#securepassword">1.12.</a> SecurePassword</h4><p><code>ActiveModel::SecurePassword</code> предоставляет способ безопасно хранить любой пароль в зашифрованном виде. При включении этого модуля предоставляется метод класса <code>has_secure_password</code>, определяющий акцессор <code>password</code> с определенными валидациями на нем по умолчанию.</p><h5 id='trebovaniya' class='inside_page_header'><a href="#trebovaniya">1.12.1.</a> Требования</h5><p><code>ActiveModel::SecurePassword</code> зависит от <a href="https://github.com/codahale/bcrypt-ruby" title="BCrypt"><code>bcrypt</code></a>, поэтому включите этот гем в свой <code>Gemfile</code> для правильного использования <code>ActiveModel::SecurePassword</code>. Чтобы он работал, в модели должен быть акцессор с именем <code>XXX_digest</code>. Где <code>XXX</code> это имя атрибута желаемого пароля. Следующие валидации добавляются автоматически:</p><ul><li>Пароль должен существовать.
+</li><li>Пароль должен совпадать с подтверждением (проверяется, если передан <code>XXX_confirmation</code>).
+</li><li>Максимальная длина пароля 72 (требуется <code>bcrypt</code>, от которого зависит ActiveModel::SecurePassword)
+</li></ul><h5 id='primery' class='inside_page_header'><a href="#primery">1.12.2.</a> Примеры</h5><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">SecurePassword</span>
+  <span class="n">has_secure_password</span>
+  <span class="n">has_secure_password</span> <span class="ss">:recovery_password</span><span class="p">,</span> <span class="ss">validations: </span><span class="kp">false</span>
+
+  <span class="nb">attr_accessor</span> <span class="ss">:password_digest</span><span class="p">,</span> <span class="ss">:recovery_password_digest</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="err">
+</span><span class="c"># Когда пароль пустой.
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+
+<span class="c"># Когда подтверждение не совпадает с паролем.
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">password</span> <span class="o">=</span> <span class="s1">'aditya'</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">password_confirmation</span> <span class="o">=</span> <span class="s1">'nomatch'</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+
+<span class="c"># Когда длина пароля превышает 72.
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">password</span> <span class="o">=</span> <span class="n">person</span><span class="p">.</span><span class="nf">password_confirmation</span> <span class="o">=</span> <span class="s1">'a'</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+
+<span class="c"># Когда предоставлен только пароль без password_confirmation.
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">password</span> <span class="o">=</span> <span class="s1">'aditya'</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+
+<span class="c"># Когда проходят все валидации.
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">password</span> <span class="o">=</span> <span class="n">person</span><span class="p">.</span><span class="nf">password_confirmation</span> <span class="o">=</span> <span class="s1">'aditya'</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
+<span class="p">=&gt;</span> <span class="kp">true</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">recovery_password</span> <span class="o">=</span> <span class="s2">"42password"</span>
+<span class="err">
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="s1">'aditya'</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">Person</span><span class="kt">&gt;</span> <span class="c1"># == person</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="s1">'notright'</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">authenticate_password</span><span class="p">(</span><span class="s1">'aditya'</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">Person</span><span class="kt">&gt;</span> <span class="c1"># == person</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">authenticate_password</span><span class="p">(</span><span class="s1">'notright'</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">authenticate_recovery_password</span><span class="p">(</span><span class="s1">'42password'</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">Person</span><span class="kt">&gt;</span> <span class="c1"># == person</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">authenticate_recovery_password</span><span class="p">(</span><span class="s1">'notright'</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="kp">false</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">password_digest</span>
+<span class="p">=&gt;</span> <span class="s2">"$2a$04$gF8RfZdoXHvyTjHhiU4ZsO.kQqV9oonYZu31PRE4hLQn3xM2qkpIy"</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="nf">recovery_password_digest</span>
+<span class="p">=&gt;</span> <span class="s2">"$2a$04$iOfhwahFymCs5weB3BNH/uXkTG65HR.qpW.bNhEjFP3ftli3o5DQC"</span>
+</code></pre>
+</div>
+
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

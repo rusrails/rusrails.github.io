@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Обзор Action View" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Обзор Action View" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/action-view-overview" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Обзор Action View
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="DmFEFExJcvKPpwHAyg5fK7XSzSYBOUzNWuIGiUrja5bk9xMMUeIl2dPaZWlDm7wxYPivw/jQmJZlcsLsapVgrQ==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#chto-takoe-action-view">1. Что такое Action View?</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#ispolzovanie-action-view-s-rails">2. Использование Action View с Rails</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#shablony-partialy-i-makety">3. Шаблоны, партиалы и макеты</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#shablony">3.1. Шаблоны</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#erb">3.1.1. ERB</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#builder">3.1.2. Builder</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#jbuilder">3.1.3. Jbuilder</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#keshirovanie-shablonov">3.1.4. Кэширование шаблонов</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#partialy">3.2. Партиалы</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#imenovanie-partialov">3.2.1. Именование партиалов</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#ispolzovanie-partialov-dlya-uproscheniya-vyu">3.2.2. Использование партиалов для упрощения вью</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#render-bez-optsiy-partial-i-locals">3.2.3. <code>render</code> без опций <code>partial</code> и <code>locals</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#optsii-as-i-object">3.2.4. Опции <code>as</code> и <code>object</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#rendering-kollektsiy">3.2.5. Рендеринг коллекций</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#razdelyayuschie-shablony">3.2.6. Разделяющие шаблоны</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#strogie-lokali">3.2.7. Строгие локали</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#makety">3.3. Макеты</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#makety-partialov">4. Макеты партиалов</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#view-paths">5.  Пути вью</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#prepend-view-path">5.1. Prepend view path</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#append-view-path">5.2. Append view path</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#helpery">6. Хелперы</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#lokalizovannye-vyu">7. Локализованные вью</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='obzor-action-view' class='inside_page_header'> Обзор Action View</h2><p>После прочтения этого руководства вы узнаете:</p><ul><li>Что такое Action View, и как его использовать вместе с Rails.
+</li><li>Как лучше использовать шаблоны, партиалы и макеты.
+</li><li>Как использовать локализованные вью.
+</li></ul>
+<hr>
+<h3 id='chto-takoe-action-view' class='inside_page_header'><a href="#chto-takoe-action-view">1.</a> Что такое Action View?</h3><p>В Rails веб-запросы обрабатываются <a href="/action-controller-overview">Action Controller</a> и Action View. Обычно Action Controller ответственен за связь с базой данных и выполнение экшнов CRUD. Тогда как Action View ответственен за компиляцию отклика.</p><p>Шаблоны Action View пишутся с помощью тегов встроенного Ruby, смешанных с HTML. Чтобы избежать загромождения вью шаблонным кодом, общее поведение для форм, дат и строк представлено несколькими классами хелпера. В существующее приложение также легко добавлять новые хелперы.</p><div class="note"><p>Некоторые особенности Action View связаны с Active Record, но это не означает, что Action View зависит от Active Record. Action View — это независимый пакет, который можно использовать с любой библиотекой Ruby.</p></div><h3 id='ispolzovanie-action-view-s-rails' class='inside_page_header'><a href="#ispolzovanie-action-view-s-rails">2.</a> Использование Action View с Rails</h3><p>Для каждого контроллера имеется связанная директория в директории <code>app/views</code>, содержащая файлы шаблонов, которые формируют вью, связанные с этим контроллером. Эти файлы используются для отображения вью, являющейся результатом каждого экшна контроллера.</p><p>Давайте взглянем на то, что делает Rails по умолчанию, когда создает новый ресурс с помощью генератора скаффолда:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate scaffold article
+<span class="go">      [...]
+      invoke  scaffold_controller
+      create    app/controllers/articles_controller.rb
+      invoke    erb
+      create      app/views/articles
+      create      app/views/articles/index.html.erb
+      create      app/views/articles/edit.html.erb
+      create      app/views/articles/show.html.erb
+      create      app/views/articles/new.html.erb
+      create      app/views/articles/_form.html.erb
+      [...]
+</span></code></pre>
+</div>
+<p>В Rails имеется соглашение по именованию вью. Как правило, имя вью совпадает с соответствующим экшном контроллера, как вы могли видеть выше. Например, экшн index контроллера в <code>articles_controller.rb</code> будет использовать файл вью <code>index.html.erb</code> в директории <code>app/views/articles</code>. Полный HTML, возвращенный клиенту, состоит из комбинации этого файла ERB, шаблона макета, оборачивающего его, и всех партиалов, на которые вью может ссылаться. В этом руководстве имеется более детальное описание каждого из этих трех компонентов.</p><h3 id='shablony-partialy-i-makety' class='inside_page_header'><a href="#shablony-partialy-i-makety">3.</a> Шаблоны, партиалы и макеты</h3><p>Как уже упоминалось, итоговый HTML состоит из трех элементов Rails: шаблонов (<code>Templates</code>), партиалов (<code>Partials</code>) и макетов (<code>Layouts</code>). Ниже краткий обзор каждого из них.</p><h4 id='shablony' class='inside_page_header'><a href="#shablony">3.1.</a> Шаблоны</h4><p>Шаблоны Action View могут быть написаны несколькими способами. Если у файла шаблона расширение <code>.erb</code>, то он использует смесь ERB (Embedded Ruby) и HTML. Если у файла шаблона расширение <code>.builder</code>, то используется библиотека <code>Builder::XmlMarkup</code>.</p><p>Rails поддерживает несколько систем шаблонирования и использует расширение файла, чтобы различать их. Например, файл HTML, использующий систему шаблонирования ERB, будет иметь расширение файла <code>.html.erb</code>.</p><h5 id='erb' class='inside_page_header'><a href="#erb">3.1.1.</a> ERB</h5><p>В шаблоне ERB код Ruby может быть включен с помощью тегов <code>&lt;% %&gt;</code> и <code>&lt;%= %&gt;</code>. Теги <code>&lt;% %&gt;</code> используются для выполнения кода Ruby, который ничего не возвращает, такого как условия, циклы или блоки, а теги <code>&lt;%= %&gt;</code> используются, когда вам нужен результат выполнения.</p><p>Рассмотрим следующий цикл для имен:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;h1&gt;</span>Names of all the people<span class="nt">&lt;/h1&gt;</span>
+<span class="cp">&lt;%</span> <span class="vi">@people</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">person</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  Name: <span class="cp">&lt;%=</span> <span class="n">person</span><span class="p">.</span><span class="nf">name</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Цикл настроен с помощью обычных встраиваемых тегов (<code>&lt;% %&gt;</code>), а имя вставлено с помощью выводящих встраиваемых тегов (<code>&lt;%= %&gt;</code>). Отметьте, что это не просто совет по использованию: обычные функции для вывода, такие как <code>print</code> и <code>puts</code> не будут рендериться во вью в шаблонах ERB. Поэтому, так будет неправильно:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;%# WRONG %&gt;</span>
+Hi, Mr. <span class="cp">&lt;%</span> <span class="nb">puts</span> <span class="s2">"Frodo"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Чтобы запретить предварительные и завершающие пробелы можно использовать <code>&lt;%-</code> <code>-%&gt;</code> вместо <code>&lt;%</code> и <code>%&gt;</code>.</p><h5 id='builder' class='inside_page_header'><a href="#builder">3.1.2.</a> Builder</h5><p>Шаблоны Builder — это более программная альтернатива ERB. Они особенно полезны для генерации содержимого в XML. Объект XmlMarkup с именем <code>xml</code> автоматически доступен в шаблонах с расширением <code>.builder</code>.</p><p>Вот несколько простых примеров:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">xml</span><span class="p">.</span><span class="nf">em</span><span class="p">(</span><span class="s2">"emphasized"</span><span class="p">)</span>
+<span class="n">xml</span><span class="p">.</span><span class="nf">em</span> <span class="p">{</span> <span class="n">xml</span><span class="p">.</span><span class="nf">b</span><span class="p">(</span><span class="s2">"emph &amp; bold"</span><span class="p">)</span> <span class="p">}</span>
+<span class="n">xml</span><span class="p">.</span><span class="nf">a</span><span class="p">(</span><span class="s2">"A Link"</span><span class="p">,</span> <span class="s2">"href"</span> <span class="o">=&gt;</span> <span class="s2">"https://rubyonrails.org"</span><span class="p">)</span>
+<span class="n">xml</span><span class="p">.</span><span class="nf">target</span><span class="p">(</span><span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"compile"</span><span class="p">,</span> <span class="s2">"option"</span> <span class="o">=&gt;</span> <span class="s2">"fast"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>которые создадут:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;em&gt;</span>emphasized<span class="nt">&lt;/em&gt;</span>
+<span class="nt">&lt;em&gt;&lt;b&gt;</span>emph <span class="ni">&amp;amp;</span> bold<span class="nt">&lt;/b&gt;&lt;/em&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://rubyonrails.org"</span><span class="nt">&gt;</span>A link<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;target</span> <span class="na">option=</span><span class="s">"fast"</span> <span class="na">name=</span><span class="s">"compile"</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+<p>Любой метод с блоком будет трактован как разметка тега XML с вложенной разметкой в блоке. Например, следующее:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">xml</span><span class="p">.</span><span class="nf">div</span> <span class="p">{</span>
+  <span class="n">xml</span><span class="p">.</span><span class="nf">h1</span><span class="p">(</span><span class="vi">@person</span><span class="p">.</span><span class="nf">name</span><span class="p">)</span>
+  <span class="n">xml</span><span class="p">.</span><span class="nf">p</span><span class="p">(</span><span class="vi">@person</span><span class="p">.</span><span class="nf">bio</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>создаст что-то вроде:</p><div class="code_container">
+  <pre><code class="highlight html"><span class="nt">&lt;div&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>David Heinemeier Hansson<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;p&gt;</span>A product of Danish Design during the Winter of '79...<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+<p>Ниже приведен полноценный пример RSS, фактически используемый в Basecamp:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">xml</span><span class="p">.</span><span class="nf">rss</span><span class="p">(</span><span class="s2">"version"</span> <span class="o">=&gt;</span> <span class="s2">"2.0"</span><span class="p">,</span> <span class="s2">"xmlns:dc"</span> <span class="o">=&gt;</span> <span class="s2">"http://purl.org/dc/elements/1.1/"</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">xml</span><span class="p">.</span><span class="nf">channel</span> <span class="k">do</span>
+    <span class="n">xml</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="vi">@feed_title</span><span class="p">)</span>
+    <span class="n">xml</span><span class="p">.</span><span class="nf">link</span><span class="p">(</span><span class="vi">@url</span><span class="p">)</span>
+    <span class="n">xml</span><span class="p">.</span><span class="nf">description</span> <span class="s2">"Basecamp: Recent items"</span>
+    <span class="n">xml</span><span class="p">.</span><span class="nf">language</span> <span class="s2">"en-us"</span>
+    <span class="n">xml</span><span class="p">.</span><span class="nf">ttl</span> <span class="s2">"40"</span>
+
+    <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="vi">@recent_items</span>
+      <span class="n">xml</span><span class="p">.</span><span class="nf">item</span> <span class="k">do</span>
+        <span class="n">xml</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="n">item_title</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+        <span class="n">xml</span><span class="p">.</span><span class="nf">description</span><span class="p">(</span><span class="n">item_description</span><span class="p">(</span><span class="n">item</span><span class="p">))</span> <span class="k">if</span> <span class="n">item_description</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="n">xml</span><span class="p">.</span><span class="nf">pubDate</span><span class="p">(</span><span class="n">item_pubDate</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+        <span class="n">xml</span><span class="p">.</span><span class="nf">guid</span><span class="p">(</span><span class="vi">@person</span><span class="p">.</span><span class="nf">firm</span><span class="p">.</span><span class="nf">account</span><span class="p">.</span><span class="nf">url</span> <span class="o">+</span> <span class="vi">@recent_items</span><span class="p">.</span><span class="nf">url</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+        <span class="n">xml</span><span class="p">.</span><span class="nf">link</span><span class="p">(</span><span class="vi">@person</span><span class="p">.</span><span class="nf">firm</span><span class="p">.</span><span class="nf">account</span><span class="p">.</span><span class="nf">url</span> <span class="o">+</span> <span class="vi">@recent_items</span><span class="p">.</span><span class="nf">url</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+        <span class="n">xml</span><span class="p">.</span><span class="nf">tag!</span><span class="p">(</span><span class="s2">"dc:creator"</span><span class="p">,</span> <span class="n">item</span><span class="p">.</span><span class="nf">author_name</span><span class="p">)</span> <span class="k">if</span> <span class="n">item_has_creator?</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='jbuilder' class='inside_page_header'><a href="#jbuilder">3.1.3.</a> Jbuilder</h5><p><a href="https://github.com/rails/jbuilder">Jbuilder</a> — это гем, поддерживаемый командой Rails и включенный в Rails <code>Gemfile</code> по умолчанию. Он похож на Builder, но используется для генерации JSON вместо XML.</p><p>Если у вас его нет, можно добавить следующее в <code>Gemfile</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s1">'jbuilder'</span>
+</code></pre>
+</div>
+<p>Объект Jbuilder с именем <code>json</code> автоматически становится доступным в шаблонах с расширением <code>.jbuilder</code>.</p><p>Вот простой пример:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">json</span><span class="p">.</span><span class="nf">name</span><span class="p">(</span><span class="s2">"Alex"</span><span class="p">)</span>
+<span class="n">json</span><span class="p">.</span><span class="nf">email</span><span class="p">(</span><span class="s2">"alex@example.com"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>что создаст:</p><div class="code_container">
+  <pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alex"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alex@example.com"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>Больше примеров и информации в <a href="https://github.com/rails/jbuilder#jbuilder">документации Jbuilder</a>.</p><h5 id='keshirovanie-shablonov' class='inside_page_header'><a href="#keshirovanie-shablonov">3.1.4.</a> Кэширование шаблонов</h5><p>По умолчанию Rails компилирует каждый шаблон в метод, чтобы отрендерить его. Когда вы измените шаблон в режиме development, Rails проверит время модификации файла и перекомпилирует его.</p><h4 id='partialy' class='inside_page_header'><a href="#partialy">3.2.</a> Партиалы</h4><p>Частичные шаблоны - обычно называемые &quot;партиалы&quot; - это другая схема разделения процесса рендеринга на более управляемые части. С помощью партиалов можно извлечь части кода из ваших шаблонов в отдельные файлы, а также повторно использовать их в разных шаблонах.</p><h5 id='imenovanie-partialov' class='inside_page_header'><a href="#imenovanie-partialov">3.2.1.</a> Именование партиалов</h5><p>Чтобы отрендерить партиал как часть вью, в ней используется метод <code>render</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s2">"menu"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Это отрендерит файл с именем <code>_menu.html.erb</code> во вью, которая рендерится. Обратите внимание на первый символ подчеркивания: партиалы именуются, начинаясь с подчеркивания, чтобы отличить их от обычных вью, хотя к ним и обращаются без подчеркивания. Это истинно, даже если вы вставляете партиал из другой директории:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s2">"shared/menu"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Этот код вставит партиал из <code>app/views/shared/_menu.html.erb</code>.</p><h5 id='ispolzovanie-partialov-dlya-uproscheniya-vyu' class='inside_page_header'><a href="#ispolzovanie-partialov-dlya-uproscheniya-vyu">3.2.2.</a> Использование партиалов для упрощения вью</h5><p>Одним из способов использования партиалов является трактовка их как эквивалента подпрограмм; способ выноса части разметки из вью, чтобы можно было проще понять, что происходит. Например, у вас может быть такая вью:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s2">"shared/ad_banner"</span> <span class="cp">%&gt;</span>
+
+<span class="nt">&lt;h1&gt;</span>Products<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>Here are a few of our fine products:<span class="nt">&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="vi">@products</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">product</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"product"</span><span class="p">,</span> <span class="ss">locals: </span><span class="p">{</span> <span class="ss">product: </span><span class="n">product</span> <span class="p">}</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+
+<span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s2">"shared/footer"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Здесь партиалы <code>_ad_banner.html.erb</code> и <code>_footer.html.erb</code> могут содержать контент, общий для многих страниц приложения. Нет необходимости видеть код этих разделов, чтобы сконцентрироваться на определенной странице.</p><h5 id='render-bez-optsiy-partial-i-locals' class='inside_page_header'><a href="#render-bez-optsiy-partial-i-locals">3.2.3.</a> <code>render</code> без опций <code>partial</code> и <code>locals</code></h5><p>В вышеприведенном примере <code>render</code> принимает 2 опции: <code>partial</code> и <code>locals</code>. Но если это единственные опции, которые нужно передать, их можно опустить. Например, вместо:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"product"</span><span class="p">,</span> <span class="ss">locals: </span><span class="p">{</span> <span class="ss">product: </span><span class="vi">@product</span> <span class="p">}</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Можно сделать:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s2">"product"</span><span class="p">,</span> <span class="ss">product: </span><span class="vi">@product</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<h5 id='optsii-as-i-object' class='inside_page_header'><a href="#optsii-as-i-object">3.2.4.</a> Опции <code>as</code> и <code>object</code></h5><p>По умолчанию у <code>ActionView::Partials::PartialRenderer</code> есть собственный объект в локальной переменной с тем же именем, как у шаблона. Так, если имеем:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"product"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>в партиале <code>_product</code> мы получим <code>@product</code> в локальной переменной <code>product</code>, как будто мы написали:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"product"</span><span class="p">,</span> <span class="ss">locals: </span><span class="p">{</span> <span class="ss">product: </span><span class="vi">@product</span> <span class="p">}</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Опцию <code>object</code> можно использовать, чтобы непосредственно указать, какой объект рендерится в партиале; полезно, когда объект шаблона находится где-то еще (например, в другой переменной экземпляра или в локальной переменной).</p><p>Например, вместо:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"product"</span><span class="p">,</span> <span class="ss">locals: </span><span class="p">{</span> <span class="ss">product: </span><span class="vi">@item</span> <span class="p">}</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>можно сделать:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"product"</span><span class="p">,</span> <span class="ss">object: </span><span class="vi">@item</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>С помощью опции <code>as</code> можно указать другое имя для данной локальной переменной. Например, если нам нужно, чтобы оно было <code>item</code> вместо <code>product</code>, мы сделаем:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"product"</span><span class="p">,</span> <span class="ss">object: </span><span class="vi">@item</span><span class="p">,</span> <span class="ss">as: </span><span class="s2">"item"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Это эквивалентно:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"product"</span><span class="p">,</span> <span class="ss">locals: </span><span class="p">{</span> <span class="ss">item: </span><span class="vi">@item</span> <span class="p">}</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<h5 id='rendering-kollektsiy' class='inside_page_header'><a href="#rendering-kollektsiy">3.2.5.</a> Рендеринг коллекций</h5><p>Обычно шаблону нужно пройтись по коллекции и отрендерить подшаблон для каждого элемента. Этот паттерн был реализован как отдельный метод, принимающий массив и рендерящий партиал для каждого элемента массива.</p><p>Поэтому такой пример для рендеринга всех продуктов:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%</span> <span class="vi">@products</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">product</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"product"</span><span class="p">,</span> <span class="ss">locals: </span><span class="p">{</span> <span class="ss">product: </span><span class="n">product</span> <span class="p">}</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>может быть переписан с помощью одной строчки:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s2">"product"</span><span class="p">,</span> <span class="ss">collection: </span><span class="vi">@products</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Когда партиал вызывается с коллекцией, у отдельных экземпляров партиала есть доступ к рендерящемуся члену коллекции через переменную с именем партиала. В данном случае партиалом является <code>_product</code>, и внутри него можно обратиться к <code>product</code>, чтобы получить член коллекции, который будет отрендерен.</p><p>Для рендеринга коллекций можно использовать сокращенный синтаксис. Предположим, <code>@products</code> — это коллекция экземпляров <code>Product</code>, тогда можно просто написать следующее, чтобы получить тот же самый результат:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="vi">@products</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Rails определяет имя используемого партиала по имени модели в коллекции, в данном случае <code>Product</code>. Фактически с помощью этого сокращенного синтаксиса можно рендерить коллекцию, состоящую из экземпляров различных моделей, и Rails выберет подходящий партиал для каждого члена коллекции.</p><h5 id='razdelyayuschie-shablony' class='inside_page_header'><a href="#razdelyayuschie-shablony">3.2.6.</a> Разделяющие шаблоны</h5><p>Также можете определить второй партиал, который будет отрендерен между экземплярами главного партиала, используя опцию <code>:spacer_template</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="vi">@products</span><span class="p">,</span> <span class="ss">spacer_template: </span><span class="s2">"product_ruler"</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Rails отрендерит партиал <code>_product_ruler</code> (без переданных в него данных) между каждой парой партиалов <code>_product</code>.</p><h5 id='strogie-lokali' class='inside_page_header'><a href="#strogie-lokali">3.2.7.</a> Строгие локали</h5><p>По умолчанию шаблоны принимают любые <code>locals</code> в качестве ключевого аргумента. Чтобы определить, какие <code>locals</code> принимает шаблон, добавьте волшебный комментарий <code>locals</code>:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;%# locals: (message:) -%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">message</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Также могут быть предоставлены значения по умолчанию:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;%# locals: (message: "Hello, world!") -%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">message</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Или <code>locals</code> могут быть полностью отключены:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;%# locals: () %&gt;</span>
+</code></pre>
+</div>
+<h4 id='makety' class='inside_page_header'><a href="#makety">3.3.</a> Макеты</h4><p>Макеты могут быть использованы для рендеринга общего шаблона вью вокруг результатов экшна контроллера Rails. Обычно в приложении Rails несколько макетов, в которых будут рендериться страницы. Например, на сайте может быть один макет для авторизованного пользователя и другой для маркетинга или продаж. Макет для авторизованного пользователя может включать навигацию верхнего уровня, которая должна присутствовать во многих экшнах контроллера. Макет для продаж для приложения SaaS может включать верхнеуровневую навигацию для таких, скажем, страниц как &quot;Pricing&quot; и &quot;Contact Us&quot;. Ожидается, что каждый макет должен выглядеть по разному. Подробнее о макетах можно прочитать в руководстве <a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>.</p><h3 id='makety-partialov' class='inside_page_header'><a href="#makety-partialov">4.</a> Макеты партиалов</h3><p>У партиалов могут быть собственные макеты, применимые к ним. Эти макеты отличаются от тех, которые применяются к экшну контроллера, хотя они работают подобным образом.</p><p>Допустим, мы отображаем статью на странице, которая должна быть обернута в <code>div</code>, с целью отображения ее как блочный элемент. Сначала мы создадим новую <code>Article</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Article</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">body: </span><span class="s1">'Partial Layouts are cool!'</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>В шаблоне <code>show</code> мы отрендерим партиал <code>_article</code>, обернутый в макет <code>box</code>:</p><p><strong>articles/show.html.erb</strong></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="s1">'article'</span><span class="p">,</span> <span class="ss">layout: </span><span class="s1">'box'</span><span class="p">,</span> <span class="ss">locals: </span><span class="p">{</span> <span class="ss">article: </span><span class="vi">@article</span> <span class="p">}</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Макет <code>box</code> просто оборачивает партиал <code>_article</code> в <code>div</code>:</p><p><strong>articles/_box.html.erb</strong></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'box'</span><span class="nt">&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+<p>Отметьте, что у макета партиала есть доступ к локальной переменной <code>article</code>, переданной в вызов <code>render</code>. Однако, в отличие от макетов приложения, макеты партиалов должны начинаться с подчеркивания.</p><p>Также можно отрендерить блок кода в макете партиала вместо вызова <code>yield</code>. Например, если у нас нет партиала <code>_article</code>, вместо него можно использовать это:</p><p><strong>articles/show.html.erb</strong></p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%</span> <span class="n">render</span><span class="p">(</span><span class="ss">layout: </span><span class="s1">'box'</span><span class="p">,</span> <span class="ss">locals: </span><span class="p">{</span> <span class="ss">article: </span><span class="vi">@article</span> <span class="p">})</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;p&gt;</span><span class="cp">&lt;%=</span> <span class="n">article</span><span class="p">.</span><span class="nf">body</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Предположив, что мы используем тот же партиал <code>_box</code>, мы получим тот же результат, что и в предыдущем примере.</p><h3 id='view-paths' class='inside_page_header'><a href="#view-paths">5.</a>  Пути вью</h3><p>При рендеринге отклика контроллер должен решить, где располагаются различные вью. По умолчанию он смотрит только в директории <code>app/views</code>.</p><p>Мы можем добавить другие места расположения и дать им некий приоритет при определении путей с помощью методов <code>prepend_view_path</code> и <code>append_view_path</code>.</p><h4 id='prepend-view-path' class='inside_page_header'><a href="#prepend-view-path">5.1.</a> Prepend view path</h4><p>Метод может быть полезным, например, когда мы хотим поместить вью в разные директории для поддоменов.</p><p>Мы можем сделать это используя:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">prepend_view_path</span> <span class="s2">"app/views/</span><span class="si">#{</span><span class="n">request</span><span class="p">.</span><span class="nf">subdomain</span><span class="si">}</span><span class="s2">"</span>
+</code></pre>
+</div>
+<p>Тогда Action View при поиске нужной вью будет искать сначала в этой директории.</p><h4 id='append-view-path' class='inside_page_header'><a href="#append-view-path">5.2.</a> Append view path</h4><p>Аналогично, мы можем добавить путь:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">append_view_path</span> <span class="s2">"app/views/direct"</span>
+</code></pre>
+</div>
+<p>Это добавит путь <code>app/views/direct</code> в конец поиска путей.</p><h3 id='helpery' class='inside_page_header'><a href="#helpery">6.</a> Хелперы</h3><p>Rails предоставляет множество вспомогательных методов для использования с Action View. Эти методы включают:</p><ul><li>Форматирование дат, строк и чисел
+</li><li>Создание ссылок HTML на картинки, видео, таблицы стилей и т.д...
+</li><li>Очистку содержимого
+</li><li>Создание форм
+</li><li>Локализацию содержимого
+</li></ul><p>Подробнее о хелперах можно узнать в <a href="/action-view-helpers">руководстве по хелперам Action View</a> и <a href="/form-helpers">руководстве по хелперам форм Action View</a>.</p><h3 id='lokalizovannye-vyu' class='inside_page_header'><a href="#lokalizovannye-vyu">7.</a> Локализованные вью</h3><p>В Action View есть возможность рендерить различные шаблоны в зависимости от текущей локали.</p><p>Например, предположим, что у вас есть <code>ArticlesController</code> с экшном show. По умолчанию вызов этого экшна отрендерит <code>app/views/articles/show.html.erb</code>. Но если вы установите <code>I18n.locale = :de</code>, то вместо него будет отрендерен <code>app/views/articles/show.de.html.erb</code>. Если локализованный шаблон отсутствует, будет использована недекорированная версия. Это означает, что не нужно предоставлять локализованные вью для всех случаев, но они будут предпочтительными и будут использоваться, если станут доступны.</p><p>Ту же технику можно использовать для локализации страниц ошибок в директории public. Например, установка <code>I18n.locale = :de</code> и создание <code>public/500.de.html</code> и <code>public/404.de.html</code> позволит иметь локализованные страницы ошибок.</p><p>Так как Rails не ограничивает символы, используемые для установления I18n.locale, эту систему можно использовать для отображения различного содержимого, зависящего от чего-либо иного. Например, предположим у вас есть пользователи &quot;expert&quot;, которые должны видеть страницы иные, чем пользователи &quot;normal&quot;. Можно добавить следующее в <code>app/controllers/application_controller.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">before_action</span> <span class="ss">:set_expert_locale</span>
+
+<span class="k">def</span> <span class="nf">set_expert_locale</span>
+  <span class="no">I18n</span><span class="p">.</span><span class="nf">locale</span> <span class="o">=</span> <span class="ss">:expert</span> <span class="k">if</span> <span class="n">current_user</span><span class="p">.</span><span class="nf">expert?</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Затем можно добавить специальные вью, такие как <code>app/views/articles/show.expert.html.erb</code> которые будут отображены только пользователям expert.</p><p>Подробнее об API интернационализации Rails (I18n) можно прочитать в руководстве <a href="/i18n">API интернационализации Rails (I18n)</a>.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

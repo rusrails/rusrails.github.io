@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Заметки о релизе Ruby on Rails 3.2" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Заметки о релизе Ruby on Rails 3.2" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/3_2_release_notes" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Заметки о релизе Ruby on Rails 3.2
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="rpWxQiaYfkRMbvWxMucGkjxdLG8KBD4NJqJLIQNe+rD/WLXXGKSGalyYaRxoGa3sP4BXWSimS2jaPPLdkePpiw==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#apgreyd-do-rails-3-2">1. Апгрейд до Rails 3.2</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#rails-3-2-trebuet-kak-minimum-ruby-1-8-7">1.1. Rails 3.2 требует как минимум Ruby 1.8.7</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#chto-obnovit-v-prilozhenii">1.2. Что обновить в приложении</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#chto-obnovit-v-vashih-engine-ah">1.3. Что обновить в ваших engine-ах</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#sozdanie-prilozheniya-rails-3-2">2. Создание приложения Rails 3.2</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#storonnie-gemy">2.1. Сторонние гемы</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#zhivite-na-grani">2.2. Живите на грани</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#osnovnye-osobennosti">3. Основные особенности</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#bystryy-rezhim-development-i-routing">3.1. Быстрый режим Development и роутинг</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#avtomaticheskie-explain-zaprosov">3.2. Автоматические Explain запросов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#tegirovannoe-logirovanie">3.3. Тегированное логирование</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#dokumentatsiya">4. Документация</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#railties">5. Railties</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#ustarevaniya">5.1. Устаревания</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-mailer">6. Action Mailer</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#action-pack">7. Action Pack</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#action-controller">7.1. Action Controller</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#ustarevaniya2">7.1.1. Устаревания</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#action-dispatch">7.2. Action Dispatch</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#ustarevaniya3">7.2.1. Устаревания</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#action-view">7.3. Action View</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#ustarevaniya4">7.3.1. Устаревания</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#sprockets">7.4. Sprockets</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-record">8. Active Record</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#ustarevaniya5">8.1. Устаревания</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-model">9. Active Model</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#ustarevaniya6">9.1. Устаревания</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-resource">10. Active Resource</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#active-support">11. Active Support</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#ustarevaniya7">11.1. Устаревания</a>
+</h5>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='zametki-o-relize-ruby-on-rails-3-2' class='inside_page_header'> Заметки о релизе Ruby on Rails 3.2</h2><p>Ключевые новинки в Rails 3.2:</p><ul><li>Режим Development стал быстрее
+</li><li>Новый Engine для роутинга
+</li><li>Автоматические Explain для запросов
+</li><li>Тегированное логирование
+</li></ul><p>Эти заметки о релизе покрывают только основные изменения. Чтобы узнать о различных исправлениях программных ошибок и изменениях, обратитесь к логам изменений или к <a href="https://github.com/rails/rails/commits/3-2-stable">списку коммитов</a> в главном репозитории Rails на GitHub.</p>
+<hr>
+<h3 id='apgreyd-do-rails-3-2' class='inside_page_header'><a href="#apgreyd-do-rails-3-2">1.</a> Апгрейд до Rails 3.2</h3><p>Прежде чем апгрейднуть существующее приложение, было бы хорошо иметь перед этим покрытие тестами. Также, до попытки обновиться до Rails 3.2, необходимо сначала произвести апгрейд до Rails 3.1 и убедиться, что приложение все еще выполняется так, как нужно. Затем обратите внимание на следующие изменения:</p><h4 id='rails-3-2-trebuet-kak-minimum-ruby-1-8-7' class='inside_page_header'><a href="#rails-3-2-trebuet-kak-minimum-ruby-1-8-7">1.1.</a> Rails 3.2 требует как минимум Ruby 1.8.7</h4><p>Rails 3.2 требует Ruby 1.8.7 или выше. Поддержка всех прежних версий Ruby была официально прекращена, и следует произвести апгрейд как можно раньше. Rails 3.2 также совместим с Ruby 1.9.2.</p><div class="info"><p>Отметьте, что в Ruby 1.8.7 p248 и p249 имеются программные ошибки маршаллинга, ломающие Rails. Хотя в Ruby Enterprise Edition это было исправлено, начиная с релиза 1.8.7-2010.02. В ветке 1.9, Ruby 1.9.1 не пригоден к использованию, поскольку он иногда вылетает, поэтому, если хотите использовать 1.9.x перепрыгивайте на 1.9.2 для гладкой работы.</p></div><h4 id='chto-obnovit-v-prilozhenii' class='inside_page_header'><a href="#chto-obnovit-v-prilozhenii">1.2.</a> Что обновить в приложении</h4><ul><li><p>Обновите зависимости в вашем <code>Gemfile</code></p><ul><li><code>rails = 3.2.0</code>
+</li><li><code>sass-rails ~&gt; 3.2.3</code>
+</li><li><code>coffee-rails ~&gt; 3.2.1</code>
+</li><li><code>uglifier &gt;= 1.0.3</code>
+</li></ul></li><li><p>В Rails 3.2 устаревает <code>vendor/plugins</code>, а в Rails 4.0 будет убрано окончательно. Можете начинать перемещать эти плагины, выделяя их в гемы и добавляя в свой <code>Gemfile</code>. Если вы не хотите делать из них гемы, можно их переместить, скажем в <code>lib/my_plugin/*</code>, и добавить соответствующий инициализатор в <code>config/initializers/my_plugin.rb</code>.</p></li><li><p>Имеется ряд новых конфигурационных изменений, которые можно добавить в <code>config/environments/development.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Raise exception on mass assignment protection for Active Record models</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">mass_assignment_sanitizer</span> <span class="o">=</span> <span class="ss">:strict</span>
+
+<span class="c1"># Log the query plan for queries taking more than this (works</span>
+<span class="c1"># with SQLite, MySQL, and PostgreSQL)</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">auto_explain_threshold_in_seconds</span> <span class="o">=</span> <span class="mf">0.5</span>
+</code></pre>
+</div>
+<p>Также необходимо добавить конфиг <code>mass_assignment_sanitizer</code> в <code>config/environments/test.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Raise exception on mass assignment protection for Active Record models</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">mass_assignment_sanitizer</span> <span class="o">=</span> <span class="ss">:strict</span>
+</code></pre>
+</div>
+</li></ul><h4 id='chto-obnovit-v-vashih-engine-ah' class='inside_page_header'><a href="#chto-obnovit-v-vashih-engine-ah">1.3.</a> Что обновить в ваших engine-ах</h4><p>Замените код ниже комментариев в <code>script/rails</code> следующим содержимым:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">ENGINE_ROOT</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s1">'../..'</span><span class="p">,</span> <span class="kp">__FILE__</span><span class="p">)</span>
+<span class="no">ENGINE_PATH</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s1">'../../lib/your_engine_name/engine'</span><span class="p">,</span> <span class="kp">__FILE__</span><span class="p">)</span>
+
+<span class="nb">require</span> <span class="s2">"rails/all"</span>
+<span class="nb">require</span> <span class="s2">"rails/engine/commands"</span>
+</code></pre>
+</div>
+<h3 id='sozdanie-prilozheniya-rails-3-2' class='inside_page_header'><a href="#sozdanie-prilozheniya-rails-3-2">2.</a> Создание приложения Rails 3.2</h3><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">#</span><span class="w"> </span>Необходим установленный рубигем <span class="s1">'rails'</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new myapp
+<span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>myapp
+</code></pre>
+</div>
+<h4 id='storonnie-gemy' class='inside_page_header'><a href="#storonnie-gemy">2.1.</a> Сторонние гемы</h4><p>Сейчас Rails использует <code>Gemfile</code> в корне приложения, чтобы определить гемы, требуемые для запуска вашего приложения. Этот <code>Gemfile</code> обрабатывается <a href="http://github.com/carlhuda/bundler">Bundler</a>, который затем устанавливает все зависимости. Он может даже установить все зависимости локально в ваше приложение, и оно не будет зависеть от системных гемов.</p><p>Подробнее: - <a href="https://bundler.io/">домашняя страница Bundler</a></p><h4 id='zhivite-na-grani' class='inside_page_header'><a href="#zhivite-na-grani">2.2.</a> Живите на грани</h4><p><code>Bundler</code> и <code>Gemfile</code> замораживает ваше приложение Rails с помощью новой отдельной команды <code>bundle</code>. Если хотите установить напрямую из репозитория Git, передайте флажок <code>--edge</code>:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new myapp <span class="nt">--edge</span>
+</code></pre>
+</div>
+<p>Если имеется локальная копия репозитория Rails, и необходимо сгенерировать приложение используя ее, передайте флажок <code>--dev</code>:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">ruby</span> /path/to/rails/railties/bin/rails new myapp <span class="nt">--dev</span>
+</code></pre>
+</div>
+<h3 id='osnovnye-osobennosti' class='inside_page_header'><a href="#osnovnye-osobennosti">3.</a> Основные особенности</h3><h4 id='bystryy-rezhim-development-i-routing' class='inside_page_header'><a href="#bystryy-rezhim-development-i-routing">3.1.</a> Быстрый режим Development и роутинг</h4><p>В Rails 3.2 режим development стал ощутимо быстрее. Вдохновившись работой <a href="https://github.com/paneq/active_reload">Active Reload</a>, Rails перезагружает классы только тогда, когда файлы фактически изменились. В больших приложениях наблюдается существенный прирост производительности. Распознавание маршрутов также получило прирост скорости, благодаря новому engine <a href="https://github.com/rails/journey">Journey</a>.</p><h4 id='avtomaticheskie-explain-zaprosov' class='inside_page_header'><a href="#avtomaticheskie-explain-zaprosov">3.2.</a> Автоматические Explain запросов</h4><p>Rails 3.2 поставляется с прекрасной возможностью раскрытия запросов, сгенерированных Arel, определив метод <code>explain</code> в <code>ActiveRecord::Relation</code>. Для примера, можно запустить что-то наподобие <code>puts Person.active.limit(5).explain</code> и результат запроса Arel будет раскрыт. Это позволяет проверку правильности индексирования и дальнейшую оптимизацию.</p><p>Запросы, выполняющиеся более чем пол секунды, <em>автоматически</em> раскрываются в режиме development. Это поведение, разумеется, может быть изменено.</p><h4 id='tegirovannoe-logirovanie' class='inside_page_header'><a href="#tegirovannoe-logirovanie">3.3.</a> Тегированное логирование</h4><p>При запуске многопользовательского приложения может сильно помочь фильтрация в логе, кто что делал. TaggedLogging в Active Support помогает это сделать точным, помечая строчки лога поддоменами, id запросов и чем угодно, что поможет вам отладить такие приложения.</p><h3 id='dokumentatsiya' class='inside_page_header'><a href="#dokumentatsiya">4.</a> Документация</h3><p>Начиная с Rails 3.2, руководства по Rails доступны для Kindle, и как бесплатные Kindle Reading Apps для iPad, iPhone, Mac, Android и т.д.</p><h3 id='railties' class='inside_page_header'><a href="#railties">5.</a> Railties</h3><ul><li><p>Ускорен режим development за счет перезагрузки классов только при изменении зависимых файлов. Это может быть отключено, если установить <code>config.reload_classes_only_on_change</code> в false.</p></li><li><p>Новые приложения получают флажок <code>config.active_record.auto_explain_threshold_in_seconds</code> в файлах конфигурации среды. Со значением <code>0.5</code> в <code>development.rb</code> и закомментированным в <code>production.rb</code>. Не упоминается в <code>test.rb</code>.</p></li><li><p>Добавлена <code>config.exceptions_app</code> для указания приложения для обработки исключений, вызываемого промежуточной программой <code>ShowException</code> при вызове исключения. По умолчанию <code>ActionDispatch::PublicExceptions.new(Rails.public_path)</code>.</p></li><li><p>Добавлена промежуточная программа <code>DebugExceptions</code>, содержащая особенности, извлеченные из промежуточной программы <code>ShowExceptions</code>.</p></li><li><p>Отображает маршруты монтированных engine-ов в <code>rake routes</code>.</p></li><li><p>Позволяет изменить порядок загрузки railties с помощью <code>config.railties_order</code> следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">railties_order</span> <span class="o">=</span> <span class="p">[</span><span class="no">Blog</span><span class="o">::</span><span class="no">Engine</span><span class="p">,</span> <span class="ss">:main_app</span><span class="p">,</span> <span class="ss">:all</span><span class="p">]</span>
+</code></pre>
+</div>
+</li><li><p>Скаффолд возвращает 204 No Content для API запросов без содержимого. Это позволяет скаффолду работать с jQuery &quot;из коробки&quot;.</p></li><li><p>Обновлена промежуточная программа <code>Rails::Rack::Logger</code>, чтобы добавлять любые теги, установленные в <code>config.log_tags</code>, в <code>ActiveSupport::TaggedLogging</code>. Это позволяет легко тегировать строчки лога отладочной информацией, такой как поддомен и id запроса -- оба очень полезны при отладке production многопользовательских приложений.</p></li><li><p>Опции по умолчанию для <code>rails new</code> могут быть установлены в <code>~/.railsrc</code>. Можно указать дополнительные аргументы командной строки, используемые каждый раз при запуске &#39;rails new&#39;, в конфигурационном файле <code>.railsrc</code> в домашней директории.</p></li><li><p>Добавлен псевдоним <code>d</code> для <code>destroy</code>. Это также работает для engine.</p></li><li><p>Атрибуты генераторов скаффолда и модели по умолчанию строковые. Это позволяет следующее: <code>rails g scaffold Post title body:text author</code></p></li><li><p>Позволяет генераторам скаффолда/модели/миграции принимать модификаторы &quot;index&quot; и &quot;uniq&quot;. Например,</p><div class="code_container">
+  <pre><code class="highlight console"><span class="go">bin/rails g scaffold Post title:string:index author:uniq price:decimal{7,2}
+</span></code></pre>
+</div>
+<p>создаст индексы для <code>title</code> и <code>author</code>, причем последний будет уникальным индексом. Некоторые типы, такие как decimal, принимают произвольные опции. В примере <code>price</code> будет столбцом decimal с установленными точностью и масштабом 7 и 2 соответственно.</p></li><li><p>Гем Turn был убран из дефолтного <code>Gemfile</code>.</p></li><li><p>Убран старый генератор плагинов <code>rails generate plugin</code> в пользу команды <code>rails plugin new</code>.</p></li><li><p>Убрано старое <code>config.paths.app.controller</code> API в пользу <code>config.paths[&quot;app/controller&quot;]</code>.</p></li></ul><h4 id='ustarevaniya' class='inside_page_header'><a href="#ustarevaniya">5.1.</a> Устаревания</h4><ul><li><code>Rails::Plugin</code> устарел и будет убран в Rails 4.0. Вместо добавления плагинов в <code>vendor/plugins</code>, используйте гемы, или bundler с путем, или зависимости git.
+</li></ul><h3 id='action-mailer' class='inside_page_header'><a href="#action-mailer">6.</a> Action Mailer</h3><ul><li><p>Апгрейд версия <code>mail</code> до 2.4.0.</p></li><li><p>Убрано старое Action Mailer API, которое было объявлено устаревшим в Rails 3.0.</p></li></ul><h3 id='action-pack' class='inside_page_header'><a href="#action-pack">7.</a> Action Pack</h3><h4 id='action-controller' class='inside_page_header'><a href="#action-controller">7.1.</a> Action Controller</h4><ul><li><p><code>ActiveSupport::Benchmarkable</code> стал модулем по умолчанию для <code>ActionController::Base,</code> таким образом, метод <code>#benchmark</code> снова доступен в контексте контроллера, как это было раньше.</p></li><li><p>Добавлена опция <code>:gzip</code> в <code>caches_page</code>. Дефолтная опция может быть настроена глобально с использованием <code>page_cache_compression</code>.</p></li><li><p>Теперь Rails будет использовать ваш макет по умолчанию (такой как &quot;layouts/application&quot;) при определенных условий <code>:only</code> и <code>:except</code>, и если они не выполняются.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CarsController</span>
+  <span class="n">layout</span> <span class="s1">'single_car'</span><span class="p">,</span> <span class="ss">:only</span> <span class="o">=&gt;</span> <span class="ss">:show</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Rails будет использовать &#39;layouts/single_car&#39; если запрос придет в экшн <code>:show</code>, и использовать <code>layouts/application</code> (или <code>layouts/cars</code>, если он существует), если запрос придет в любой другой экшн.</p></li><li><p><code>form_for</code> изменился и использует <code>#{action}_#{as}</code> как класс CSS и id, если предоставлена опция <code>:as</code>. Ранние версии использовали <code>#{as}_#{action}</code>.</p></li><li><p><code>ActionController::ParamsWrapper</code> на моделях Active Record теперь оборачивают атрибуты <code>attr_accessible</code>, только если они существуют. Если нет, будут обернуты только атрибуты, возвращенные методом класса <code>attribute_names</code>. Это устраняет оборачивание вложенных атрибутов при помещении их в <code>attr_accessible</code>.</p></li><li><p>Пишет в лог &quot;Filter chain halted as CALLBACKNAME rendered or redirected&quot; каждый раз при прерывании предварительного колбэка.</p></li><li><p>Проведен рефакторинг <code>ActionDispatch::ShowExceptions</code>. Контроллер ответственен за выбор как показывать исключения. В контроллере возможно переопределить <code>show_detailed_exceptions?</code>, чтобы определить, какие запросы должны предоставлять отладочную информацию при ошибках.</p></li><li><p>Responders теперь возвращают 204 No Content для API запросов без тела отклика (как в новых скаффолдах).</p></li><li><p>Проведен рефакторинг куки <code>ActionController::TestCase</code>. Назначаемые куки для тестовых случаев теперь должны использовать <code>cookies[]</code></p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">cookies</span><span class="p">[</span><span class="ss">:email</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'user@example.com'</span>
+<span class="n">get</span> <span class="ss">:index</span>
+<span class="n">assert_equal</span> <span class="s1">'user@example.com'</span><span class="p">,</span> <span class="n">cookies</span><span class="p">[</span><span class="ss">:email</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Для очистки куки используйте <code>clear</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">cookies</span><span class="p">.</span><span class="nf">clear</span>
+<span class="n">get</span> <span class="ss">:index</span>
+<span class="n">assert_nil</span> <span class="n">cookies</span><span class="p">[</span><span class="ss">:email</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Больше не пишется HTTP_COOKIE и куки теперь персистентные между запросами, поэтому если нужно манипулировать средой для вашего теста, это нужно сделать до того, как куки будут созданы.</p></li><li><p><code>send_file</code> теперь угадывает тип MIME по расширению файла, если не предоставлен <code>:type</code>.</p></li><li><p>Добавлены записи типов MIME для PDF, ZIP и других форматов.</p></li><li><p>Позволяет <code>fresh_when/stale?</code> принимать запись вместо хэша опций.</p></li><li><p>Изменен уровень лога для предупреждения об отсутствующем токене CSRF с <code>:debug</code> до <code>:warn</code>.</p></li><li><p>По умолчанию ассеты должны использовать протокол запроса или протокол по умолчанию, если запрос недоступен.</p></li></ul><h5 id='ustarevaniya2' class='inside_page_header'><a href="#ustarevaniya2">7.1.1.</a> Устаревания</h5><ul><li><p>Устарел поиск подразумеваемого макета в контроллерах, чей родитель имеет явно установленный макет:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationController</span>
+  <span class="n">layout</span> <span class="s2">"application"</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">PostsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>В вышеуказанном примере <code>PostsController</code> больше не будет автоматически искать макет posts. Если вам нужна такая функциональность, следует либо убрать <code>layout &quot;application&quot;</code> из <code>ApplicationController</code> или явно установить его в <code>nil</code> в <code>PostsController</code>.</p></li><li><p>Устарел <code>ActionController::UnknownAction</code> в пользу <code>AbstractController::ActionNotFound</code>.</p></li><li><p>Устарел <code>ActionController::DoubleRenderError</code> в пользу <code>AbstractController::DoubleRenderError</code>.</p></li><li><p>Устарел <code>method_missing</code> в пользу <code>action_missing</code> для отсутствующих экшнов.</p></li><li><p>Устарели <code>ActionController#rescue_action</code>, <code>ActionController#initialize_template_class</code> и <code>ActionController#assign_shortcuts</code>.</p></li></ul><h4 id='action-dispatch' class='inside_page_header'><a href="#action-dispatch">7.2.</a> Action Dispatch</h4><ul><li><p>Добавлена <code>config.action_dispatch.default_charset</code> для настройки кодировки по умолчанию для <code>ActionDispatch::Response</code>.</p></li><li><p>Добавлена промежуточная программа <code>ActionDispatch::RequestId</code>, создающая уникальный заголовок X-Request-Id, доступный в отклике, и включает метод <code>ActionDispatch::Request#uuid</code>. Это позволяет легко отслеживать запросы от начала до конца в стеке и идентифицировать отдельные запросы в смешанных логах, наподобие Syslog.</p></li><li><p>Промежуточная программа <code>ShowExceptions</code> теперь принимает приложение для обработки исключений, ответственное за рендеринг исключения при ошибках приложения. Приложение запускается с копией исключения в <code>env[&quot;action_dispatch.exception&quot;]</code>, и с переписанным <code>PATH_INFO</code> в код статуса.</p></li><li><p>Позволяет настроить отклики rescue с помощью railtie, как в <code>config.action_dispatch.rescue_responses</code>.</p></li></ul><h5 id='ustarevaniya3' class='inside_page_header'><a href="#ustarevaniya3">7.2.1.</a> Устаревания</h5><ul><li>Устарела возможность установить кодировку по умолчанию на уровне контроллера, вместо этого используйте новую <code>config.action_dispatch.default_charset</code>.
+</li></ul><h4 id='action-view' class='inside_page_header'><a href="#action-view">7.3.</a> Action View</h4><ul><li><p>В <code>ActionView::Helpers::FormBuilder</code> добавлена поддержка <code>button_tag</code>. Эта поддержка повторяет поведение по умолчанию <code>submit_tag</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="o">&lt;</span><span class="sx">%= form_for @post do |f| %&gt;
+  &lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">button</span> <span class="sx">%&gt;
+&lt;% end %&gt;</span>
+</code></pre>
+</div>
+</li><li><p>Хелперы дат принимают новую опцию <code>:use_two_digit_numbers =&gt; true</code>, отрисовывающую селект-боксы для месяцев и дней с ведущим нулем без изменения соответствующих value. Для примера, это полезно для отображения дат в стиле ISO 8601, таких как &#39;2011-08-01&#39;.</p></li><li><p>Для вашей формы можно предоставить пространство имен для обеспечения уникальности атрибута id у элементов формы. В сгенерированном HTML id пространство имен атрибута будет идти впереди с подчеркиванием.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="o">&lt;</span><span class="sx">%= form_for(@offer, :namespace =</span><span class="o">&gt;</span> <span class="s1">'namespace'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="sx">%&gt;
+  &lt;%= f.label :version, 'Version' %&gt;</span><span class="p">:</span>
+  <span class="o">&lt;</span><span class="sx">%= f.text_field :version %&gt;
+&lt;% end %&gt;
+</span></code></pre>
+</div>
+</li><li><p>Ограничено количество пунктов списка для <code>select_year</code> в 1000. Передайте опцию <code>:max_years_allowed</code> для установки своего лимита.</p></li><li><p>Теперь <code>content_tag_for</code> и <code>div_for</code> могут принимать коллекцию записей. Они также передадут запись как первый аргумент, если вы вставите получаемый аргумент в блок. Таким образом, вместо этого:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="vi">@items</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+  <span class="n">content_tag_for</span><span class="p">(</span><span class="ss">:li</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span> <span class="k">do</span>
+    <span class="no">Title</span><span class="p">:</span> <span class="o">&lt;</span><span class="sx">%= item.title %&gt;
+  end
+end
+</span></code></pre>
+</div>
+<p>Можно сделать так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">content_tag_for</span><span class="p">(</span><span class="ss">:li</span><span class="p">,</span> <span class="vi">@items</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+  <span class="no">Title</span><span class="p">:</span> <span class="o">&lt;</span><span class="sx">%= item.title %&gt;
+end
+</span></code></pre>
+</div>
+</li><li><p>Добавлен метод хелпера <code>font_path</code>, вычисляющий путь к ассету шрифта в <code>public/fonts</code>.</p></li></ul><h5 id='ustarevaniya4' class='inside_page_header'><a href="#ustarevaniya4">7.3.1.</a> Устаревания</h5><ul><li>Передача форматов или обработчиков в render :template и тому подобные методы, например <code>render :template =&gt; &quot;foo.html.erb&quot;</code>, устарела. Вместо этого можно предоставить непосредственно :handlers и :formats как опции: <code>render :template =&gt; &quot;foo&quot;, :formats =&gt; [:html, :js], :handlers =&gt; :erb</code>.
+</li></ul><h4 id='sprockets' class='inside_page_header'><a href="#sprockets">7.4.</a> Sprockets</h4><ul><li>Добавлена конфигурационная опция <code>config.assets.logger</code> для контроля над логированием Sprockets. Установите ее <code>false</code> для отключения логирования, и <code>nil</code> для дефолтного <code>Rails.logger</code>.
+</li></ul><h3 id='active-record' class='inside_page_header'><a href="#active-record">8.</a> Active Record</h3><ul><li><p>Булевы столбцы со значениями &#39;on&#39; и &#39;ON&#39; считаются за true.</p></li><li><p>Когда метод <code>timestamps</code> создает столбцы <code>created_at</code> и <code>updated_at</code>, по умолчанию он их делает non-nullable.</p></li><li><p>Реализован <code>ActiveRecord::Relation#explain</code>.</p></li><li><p>Реализован <code>ActiveRecord::Base.silence_auto_explain</code>, позволяющий пользователю выборочно отключать автоматические EXPLAIN в блоке.</p></li><li><p>Реализовано логирование автоматического EXPLAIN для медленных запросов. Новый конфигурационный параметр <code>config.active_record.auto_explain_threshold_in_seconds</code> определяет, что рассматривается как медленный запрос. Установите ему nil, чтобы отключить эту возможность. По умолчанию 0.5 в режиме development, и nil в режимах test и production. Rails 3.2 поддерживает эту возможность для SQLite, MySQL (адаптер mysql2) и PostgreSQL.</p></li><li><p>Добавлен <code>ActiveRecord::Base.store</code> для определения простых key/value хранилищ с одним столбцом.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">store</span> <span class="ss">:settings</span><span class="p">,</span> <span class="ss">accessors: </span><span class="p">[</span> <span class="ss">:color</span><span class="p">,</span> <span class="ss">:homepage</span> <span class="p">]</span>
+<span class="k">end</span>
+
+<span class="n">u</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">color: </span><span class="s1">'black'</span><span class="p">,</span> <span class="ss">homepage: </span><span class="s1">'37signals.com'</span><span class="p">)</span>
+<span class="n">u</span><span class="p">.</span><span class="nf">color</span>                          <span class="c1"># Акцессор хранимого атрибута</span>
+<span class="n">u</span><span class="p">.</span><span class="nf">settings</span><span class="p">[</span><span class="ss">:country</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Denmark'</span> <span class="c1"># Любой атрибут, даже если не указать через акцессор</span>
+</code></pre>
+</div>
+</li><li><p>Добавлена возможность запуска миграций только для определенного пространства имен, позволяющая запустить миграции только для одного engine (например, чтобы откатить изменения от engine, чтобы убрать его).</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">rake</span> <span class="n">db</span><span class="ss">:migrate</span> <span class="no">SCOPE</span><span class="o">=</span><span class="n">blog</span>
+</code></pre>
+</div>
+</li><li><p>Миграции, скопированные из engine-ов, теперь помещаются в пространство имен с именем engine, например <code>01_create_posts.blog.rb</code>.</p></li><li><p>Реализован метод <code>ActiveRecord::Relation#pluck</code>, возвращающий массив значений столбца непосредственно из лежащей в основе таблицы. Он также работает с сериализованными атрибутами.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Client</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">:active</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">).</span><span class="nf">pluck</span><span class="p">(</span><span class="ss">:id</span><span class="p">)</span>
+<span class="c1"># SELECT id from clients where active = 1</span>
+</code></pre>
+</div>
+</li><li><p>Методы сгенерированных связей создаются в отдельном модуле, чтобы позволить переопределение и компоновку. Для класса с именем MyModel, модель будет называться <code>MyModel::GeneratedFeatureMethods</code>. Он включается в класс модели сразу после модуля <code>generated_attributes_methods</code>, определенного в Active Model, таким образом, методы связей переопределяют методы атрибутов с таким же именем.</p></li><li><p>Добавлен <code>ActiveRecord::Relation#uniq</code> для генерации уникальных запросов.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Client</span><span class="p">.</span><span class="nf">select</span><span class="p">(</span><span class="s1">'DISTINCT name'</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>..может быть записано так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Client</span><span class="p">.</span><span class="nf">select</span><span class="p">(</span><span class="ss">:name</span><span class="p">).</span><span class="nf">uniq</span>
+</code></pre>
+</div>
+<p>В relation также можно отменить уникальность:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Client</span><span class="p">.</span><span class="nf">select</span><span class="p">(</span><span class="ss">:name</span><span class="p">).</span><span class="nf">uniq</span><span class="p">.</span><span class="nf">uniq</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span>
+</code></pre>
+</div>
+</li><li><p>Поддержка порядка сортировки по индексу в адаптерах SQLite, MySQL и PostgreSQL.</p></li><li><p>Опция <code>:class_name</code> для связей может принимать символ, в дополнение к строке. Это сделано, чтобы не смущать новичков, и быть последовательными в том факте, что другие опции, такие как <code>:foreign_key</code>, уже допускают символ или строку.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">has_many</span> <span class="ss">:clients</span><span class="p">,</span> <span class="ss">:class_name</span> <span class="o">=&gt;</span> <span class="ss">:Client</span> <span class="c1"># Отметьте, что символ должен начинаться с заглавной буквы</span>
+</code></pre>
+</div>
+</li><li><p>В режиме development, <code>db:drop</code> также уничтожает тестовую базу данных, чтобы быть симметричной с <code>db:create</code>.</p></li><li><p>Не чувствительные к регистру валидации уникальности избегают вызов LOWER в MySQL, когда столбец уже использует не чувствительное к регистру сопоставление.</p></li><li><p>Транзакционные фикстуры выполняются во все активные соединения с базой данных. Можно тестировать модели на различных соединениях без отключения транзакционных фикстур.</p></li><li><p>В Active Record добавлены методы <code>first_or_create</code>, <code>first_or_create!</code>, <code>first_or_initialize</code>. Этот подход лучше, чем старые динамические методы <code>find_or_create_by</code>, поскольку очевиднее, какие аргументы использованы для поиска записи, а какие для ее создания.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">User</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">:first_name</span> <span class="o">=&gt;</span> <span class="s2">"Scarlett"</span><span class="p">).</span><span class="nf">first_or_create!</span><span class="p">(</span><span class="ss">:last_name</span> <span class="o">=&gt;</span> <span class="s2">"Johansson"</span><span class="p">)</span>
+</code></pre>
+</div>
+</li><li><p>К объектам Active Record добавлен метод <code>with_lock</code>, начинающий транзакцию, блокирующий объект (пессимистично) и вызывающий блок. Метод принимает один (опциональный) параметр и передает его в <code>lock!</code>.</p><p>Поэтому возможно написать следующее:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="k">def</span> <span class="nf">cancel!</span>
+    <span class="n">transaction</span> <span class="k">do</span>
+      <span class="n">lock!</span>
+      <span class="c1"># ... cancelling logic</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>как:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="k">def</span> <span class="nf">cancel!</span>
+    <span class="n">with_lock</span> <span class="k">do</span>
+      <span class="c1"># ... cancelling logic</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+</li></ul><h4 id='ustarevaniya5' class='inside_page_header'><a href="#ustarevaniya5">8.1.</a> Устаревания</h4><ul><li><p>Устарело автоматическое закрытие соединений в тредах. Для примера, следующий код устарел:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Thread</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="no">Post</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">}.</span><span class="nf">join</span>
+</code></pre>
+</div>
+<p>Он должен быть изменен, чтобы закрывать соединение с базой данных в конце треда:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Thread</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span>
+  <span class="no">Post</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="no">Post</span><span class="p">.</span><span class="nf">connection</span><span class="p">.</span><span class="nf">close</span>
+<span class="p">}.</span><span class="nf">join</span>
+</code></pre>
+</div>
+<p>Об этом должны беспокоиться только те, кто в своих приложениях создает треды.</p></li><li><p>Методы <code>set_table_name</code>, <code>set_inheritance_column</code>, <code>set_sequence_name</code>, <code>set_primary_key</code>, <code>set_locking_column</code> устарели. Используйте вместо них методы назначения. Для примера, вместо <code>set_table_name</code> используйте <code>self.table_name=</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Project</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">table_name</span> <span class="o">=</span> <span class="s2">"project"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Или определите собственный метод <code>self.table_name</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">table_name</span>
+    <span class="s2">"special_"</span> <span class="sb">` super
+  end
+end
+
+Post.table_name # =&gt; "special_posts"
+</span></code></pre>
+</div>
+</li></ul><h3 id='active-model' class='inside_page_header'><a href="#active-model">9.</a> Active Model</h3><ul><li><p>Добавлен <code>ActiveModel::Errors#added?</code> для проверки, была ли добавлена определенная ошибка.</p></li><li><p>Добавлена возможность определить строгие валидации с помощью <code>strict =&gt; true</code>, которые всегда вызывают исключение, когда не проходят.</p></li><li><p>Представлен mass_assignment_sanitizer как простое API для замены возможности экранизатора. Также поддерживаются возможность экранизатора :logger (по умолчанию) и :strict.</p></li></ul><h4 id='ustarevaniya6' class='inside_page_header'><a href="#ustarevaniya6">9.1.</a> Устаревания</h4><ul><li><p>Устарел <code>define_attr_method</code> в <code>ActiveModel::AttributeMethods</code>, поскольку он использовался только во вспомогательных методах, таких как <code>set_table_name</code> в Active Record, которые сами устарели.</p></li><li><p>Устарел <code>Model.model_name.partial_path</code> в пользу <code>model.to_partial_path</code>.</p></li></ul><h3 id='active-resource' class='inside_page_header'><a href="#active-resource">10.</a> Active Resource</h3><ul><li>Отклики перенаправления: 303 See Other и 307 Temporary Redirect теперь ведут себя как 301 Moved Permanently и 302 Found.
+</li></ul><h3 id='active-support' class='inside_page_header'><a href="#active-support">11.</a> Active Support</h3><ul><li><p>Добавлен <code>ActiveSupport:TaggedLogging</code>, который может обернуть любой стандартный класс <code>Logger</code>, чтобы предоставить возможности тегирования.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Logger</span> <span class="o">=</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">TaggedLogging</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Logger</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">STDOUT</span><span class="p">))</span>
+
+<span class="no">Logger</span><span class="p">.</span><span class="nf">tagged</span><span class="p">(</span><span class="s2">"BCX"</span><span class="p">)</span> <span class="p">{</span> <span class="no">Logger</span><span class="p">.</span><span class="nf">info</span> <span class="s2">"Stuff"</span> <span class="p">}</span>
+<span class="c1"># Logs "[BCX] Stuff"</span>
+
+<span class="no">Logger</span><span class="p">.</span><span class="nf">tagged</span><span class="p">(</span><span class="s2">"BCX"</span><span class="p">,</span> <span class="s2">"Jason"</span><span class="p">)</span> <span class="p">{</span> <span class="no">Logger</span><span class="p">.</span><span class="nf">info</span> <span class="s2">"Stuff"</span> <span class="p">}</span>
+<span class="c1"># Logs "[BCX] [Jason] Stuff"</span>
+
+<span class="no">Logger</span><span class="p">.</span><span class="nf">tagged</span><span class="p">(</span><span class="s2">"BCX"</span><span class="p">)</span> <span class="p">{</span> <span class="no">Logger</span><span class="p">.</span><span class="nf">tagged</span><span class="p">(</span><span class="s2">"Jason"</span><span class="p">)</span> <span class="p">{</span> <span class="no">Logger</span><span class="p">.</span><span class="nf">info</span> <span class="s2">"Stuff"</span> <span class="p">}</span> <span class="p">}</span>
+<span class="c1"># Logs "[BCX] [Jason] Stuff"</span>
+</code></pre>
+</div>
+</li><li><p>Метод <code>beginning_of_week</code> в <code>Date</code>, <code>Time</code> и <code>DateTime</code> принимает опциональный аргумент, представляющий день, в который начинается неделя.</p></li><li><p><code>ActiveSupport::Notifications.subscribed</code> предоставляет подписки на события, пока выполняется блок.</p></li><li><p>Определены новые методы <code>Module#qualified_const_defined?</code>, <code>Module#qualified_const_get</code> и <code>Module#qualified_const_set</code>, являющиеся аналогами соответствующих методов в стандартном API, но принимающие ограниченные имена констант.</p></li><li><p>Добавлен <code>#deconstantize</code>, дополняющий <code>#demodulize</code> в словообразовании. Он убирает самый правый сегмент в ограниченном имени константы.</p></li><li><p>Добавлен <code>safe_constantize</code>, преобразующий строку в константу, но возвращающий <code>nil</code> вместо исключения, если константа (или ее часть) не существует.</p></li><li><p><code>ActiveSupport::OrderedHash</code> теперь помечается как extractable при использовании <code>Array#extract_options!</code>.</p></li><li><p>Добавлены <code>Array#prepend</code> как псевдоним для <code>Array#unshift</code> и <code>Array#append</code> как псевдоним для <code>Array#&lt;&lt;</code>.</p></li><li><p>Определение пустой строки для Ruby 1.9 было расширено пробелом Unicode. А также в Ruby 1.8 идеографический пробел U`3000 рассматривается как пробел.</p></li><li><p>Инфлектор понимает акронимы.</p></li><li><p>Добавлены <code>Time#all_day</code>, <code>Time#all_week</code>, <code>Time#all_quarter</code> и <code>Time#all_year</code> как способ генерации интервалов.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Event</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">:created_at</span> <span class="o">=&gt;</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">all_week</span><span class="p">)</span>
+<span class="no">Event</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">:created_at</span> <span class="o">=&gt;</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">all_day</span><span class="p">)</span>
+</code></pre>
+</div>
+</li><li><p>Добавлена <code>instance_accessor: false</code> как опция в <code>Class#cattr_accessor</code> и схожих методах.</p></li><li><p>Теперь у <code>ActiveSupport::OrderedHash</code> иное поведение для <code>#each</code> и <code>#each_pair</code> при передаче блока, принимающего свои параметры расплющенными.</p></li><li><p>Добавлен <code>ActiveSupport::Cache::NullStore</code> для использования при разработке и тестировании.</p></li><li><p>Убран <code>ActiveSupport::SecureRandom</code> в пользу <code>SecureRandom</code> из стандартной библиотеки.</p></li></ul><h4 id='ustarevaniya7' class='inside_page_header'><a href="#ustarevaniya7">11.1.</a> Устаревания</h4><ul><li><p><code>ActiveSupport::Base64</code> устарел в пользу <code>::Base64</code>.</p></li><li><p><code>ActiveSupport::Memoizable</code> устарел в пользу паттерна запоминания из Ruby.</p></li><li><p><code>Module#synchronize</code> устарел без какой-либо замены. Пожалуйста, используйте monitor из стандартной библиотеки ruby.</p></li><li><p>Устарели <code>ActiveSupport::MessageEncryptor#encrypt</code> и <code>ActiveSupport::MessageEncryptor#decrypt</code>.</p></li><li><p>Устарел <code>ActiveSupport::BufferedLogger#silence</code>. Если хотите приглушить лог в определенном блоке, измените для него уровень лога.</p></li><li><p>Устарел <code>ActiveSupport::BufferedLogger#open_log</code>. Прежде всего, этот метод не должен быть публичным.</p></li><li><p>Поведение <code>ActiveSupport::BufferedLogger&#39;s</code> в части автоматического создания директории для файла лога устарело. Пожалуйста, убедитесь до инициализации, что директория для файла лога создана.</p></li><li><p>Устарел <code>ActiveSupport::BufferedLogger#auto_flushing</code>. Или установите уровень синхронизации на соответствующем файловом дескрипторе следующим образом. Или настройте свою файловую систему. Теперь очистку контролирует кэш файловой системы.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">f</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s1">'foo.log'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">sync</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="no">ActiveSupport</span><span class="o">::</span><span class="no">BufferedLogger</span><span class="p">.</span><span class="nf">new</span> <span class="n">f</span>
+</code></pre>
+</div>
+</li><li><p>Устарел <code>ActiveSupport::BufferedLogger#flush</code>. Установите sync на ваш дескриптор или настройте свою файловую систему.</p></li></ul>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

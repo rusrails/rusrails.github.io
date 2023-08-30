@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Основы Active Job" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Основы Active Job" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/active_job_basics" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Основы Active Job
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="DXF59xFMhRpB06U4chP/4A6NS5HbRLa5achoa069bmHt4zrFl7ilv38ootg2Z27/6zhBd7KmTeL8EjGPQGEUzA==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#chto-takoe-active-job">1. Что такое Active Job?</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#naznachenie-active-job">2. Назначение Active Job</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#sozdanie-zadaniya">3. Создание задания</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#sozdanie-zadaniya2">3.1. Создание задания</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#pomeschenie-zadaniya-v-ochered">3.2. Помещение задания в очередь</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#vypolnenie-zadaniy">4. Выполнение заданий</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#bekendy">4.1. Бэкенды</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#nastroyka-bekenda">4.2. Настройка бэкенда</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#zapusk-bekenda">4.3. Запуск бэкенда</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#ocheredi">5. Очереди</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#kolbeki">6. Колбэки</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#dostupnye-kolbeki">6.1. Доступные колбэки</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-mailer">7. Action Mailer</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#internatsionalizatsiya">8. Интернационализация</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#podderzhivaemye-tipy-argumentov">9. Поддерживаемые типы аргументов</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#globalid">9.1. GlobalID</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#serializatory">9.2. Сериализаторы</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#isklyucheniya">10. Исключения</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#povtornaya-otpravka-ili-otmena-neudachnyh-zadaniy">10.1. Повторная отправка или отмена неудачных заданий</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#deserializatsiya">10.2. Десериализация</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#testirovanie-zadaniy">11. Тестирование заданий</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='osnovy-active-job' class='inside_page_header'> Основы Active Job</h2><p>Это руководство даст вам все, что нужно, чтобы начать создавать, ставить в очередь и выполнять фоновые задания.</p><p>После его прочтения, вы узнаете:</p><ul><li>Как создавать задания.
+</li><li>Как ставить в очередь задания.
+</li><li>Как запускать задания в фоне.
+</li><li>Как асинхронно рассылать письма из вашего приложения.
+</li></ul>
+<hr>
+<h3 id='chto-takoe-active-job' class='inside_page_header'><a href="#chto-takoe-active-job">1.</a> Что такое Active Job?</h3><p>Active Job - это фреймворк для объявления заданий и их запуска на разных бэкендах для очередей. Эти задания могут быть чем угодно, от регулярно запланированных чисток до списаний с карт или рассылок. В общем, всем, что может быть выделено в небольшие работающие части и запускаться параллельно.</p><h3 id='naznachenie-active-job' class='inside_page_header'><a href="#naznachenie-active-job">2.</a> Назначение Active Job</h3><p>Главным является то, что он обеспечивает, что у всех приложений на Rails имеется встроенная инфраструктура для заданий. Затем у нас могут появиться особенности фреймворка или других гемов, созданных на его основе, позволяющие не заботится об отличиях в API между различными исполнителями заданий, такими как Delayed Job и Resque. Подбор бэкенда для очередей станет более оперативной работой. Вы сможете переключаться между ними без необходимости переписывать свои задания.</p><div class="note"><p>По умолчанию, Rails поставляется с асинхронной реализацией очереди, запускающей задания с помощью пула тредов внутри процесса. Задания будут запущены асинхронно, но любые задания в очереди будут потеряны при перезагрузке.</p></div><h3 id='sozdanie-zadaniya' class='inside_page_header'><a href="#sozdanie-zadaniya">3.</a> Создание задания</h3><p>Этот раздел предоставляет пошаговое руководство к созданию задания и добавлению его в очередь.</p><h4 id='sozdanie-zadaniya2' class='inside_page_header'><a href="#sozdanie-zadaniya2">3.1.</a> Создание задания</h4><p>Active Job предоставляет генератор Rails для создания заданий. Следующая команда создаст задание в <code>app/jobs</code> (а также тестовый случай в <code>test/jobs</code>):</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate job guests_cleanup
+<span class="go">invoke  test_unit
+create    test/jobs/guests_cleanup_job_test.rb
+create  app/jobs/guests_cleanup_job.rb
+</span></code></pre>
+</div>
+<p>Также можно создать задание, которое будет запущено в определенной очереди:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate job guests_cleanup <span class="nt">--queue</span> urgent
+</code></pre>
+</div>
+<p>Если не хотите использовать генератор, можно создать файл очереди в <code>app/jobs</code>, просто убедитесь, что он наследуется от <code>ApplicationJob</code>.</p><p>Вот как выглядит задание:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">GuestsCleanupJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="n">queue_as</span> <span class="ss">:default</span>
+
+  <span class="k">def</span> <span class="nf">perform</span><span class="p">(</span><span class="o">*</span><span class="n">guests</span><span class="p">)</span>
+    <span class="c1"># Сделать что-нибудь позже</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Отметьте, что можно определить <code>perform</code> с любым количеством аргументов.</p><p>Если у вас уже есть абстрактный класс, и его имя отличается от <code>ApplicationJob</code>, можно передать опцию <code>--parent</code>, чтобы обозначить, что вы желаете иной абстрактный класс:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate job process_payment <span class="nt">--parent</span><span class="o">=</span>payment_job
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ProcessPaymentJob</span> <span class="o">&lt;</span> <span class="no">PaymentJob</span>
+  <span class="n">queue_as</span> <span class="ss">:default</span>
+
+  <span class="k">def</span> <span class="nf">perform</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="c1"># Сделать что-нибудь позже</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='pomeschenie-zadaniya-v-ochered' class='inside_page_header'><a href="#pomeschenie-zadaniya-v-ochered">3.2.</a> Помещение задания в очередь</h4><p>Поместите задание в очередь с помощью <a href="https://api.rubyonrails.org/classes/ActiveJob/Enqueuing/ClassMethods.html#method-i-perform_later"><code>perform_later</code></a> и, опционально, <a href="https://api.rubyonrails.org/classes/ActiveJob/Core/ClassMethods.html#method-i-set"><code>set</code></a>. Например, так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Помещенное в очередь задание выполнится, как только освободится система очередей.</span>
+<span class="no">GuestsCleanupJob</span><span class="p">.</span><span class="nf">perform_later</span> <span class="n">guest</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Помещенное в очередь задание выполнится завтра в полдень.</span>
+<span class="no">GuestsCleanupJob</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="ss">wait_until: </span><span class="no">Date</span><span class="p">.</span><span class="nf">tomorrow</span><span class="p">.</span><span class="nf">noon</span><span class="p">).</span><span class="nf">perform_later</span><span class="p">(</span><span class="n">guest</span><span class="p">)</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Помещенное в очередь задание выполнится через неделю.</span>
+<span class="no">GuestsCleanupJob</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="ss">wait: </span><span class="mi">1</span><span class="p">.</span><span class="nf">week</span><span class="p">).</span><span class="nf">perform_later</span><span class="p">(</span><span class="n">guest</span><span class="p">)</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># `perform_now` и `perform_later` вызывают `perform`, поэтому</span>
+<span class="c1"># можно передать столько аргументов, сколько определено в последнем.</span>
+<span class="no">GuestsCleanupJob</span><span class="p">.</span><span class="nf">perform_later</span><span class="p">(</span><span class="n">guest1</span><span class="p">,</span> <span class="n">guest2</span><span class="p">,</span> <span class="ss">filter: </span><span class="s1">'some_filter'</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Вот и все!</p><h3 id='vypolnenie-zadaniy' class='inside_page_header'><a href="#vypolnenie-zadaniy">4.</a> Выполнение заданий</h3><p>Чтобы поместить задание в очередь и выполнить его в production, необходимо настроить бэкенд для очереди, т.е. нужно решить, какую стороннюю библиотеку для очереди Rails будет использовать. Rails предоставляет только внутрипроцессную систему очереди, хранящую задания в памяти. Если процесс упадет, или машина будет перезагружена, тогда в асинхронном бэкенде по умолчанию все оставшиеся задания будут потеряны. Это может быть нормальным для маленьких приложений или некритичных заданий, но для большей части серьезных приложений нужно подобрать персистентный бэкенд.</p><h4 id='bekendy' class='inside_page_header'><a href="#bekendy">4.1.</a> Бэкенды</h4><p>У Active Job есть встроенные адаптеры для различных бэкендов очередей (Sidekiq, Resque, Delayed Job и другие). Чтобы получить актуальный список адаптеров, обратитесь к документации API по <a href="https://api.rubyonrails.org/classes/ActiveJob/QueueAdapters.html"><code>ActiveJob::QueueAdapters</code></a>.</p><h4 id='nastroyka-bekenda' class='inside_page_header'><a href="#nastroyka-bekenda">4.2.</a> Настройка бэкенда</h4><p>Настроить бэкенд — это просто с помощью <a href="/configuring#config-active-job-queue-adapter"><code>config.active_job.queue_adapter</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+<span class="k">module</span> <span class="nn">YourApp</span>
+  <span class="k">class</span> <span class="nc">Application</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Application</span>
+    <span class="c1"># Убедитесь, что гем адаптера добавлен в Gemfile, и что выполнены</span>
+    <span class="c1"># инструкции по установке и развертыванию адаптера.</span>
+    <span class="n">config</span><span class="p">.</span><span class="nf">active_job</span><span class="p">.</span><span class="nf">queue_adapter</span> <span class="o">=</span> <span class="ss">:sidekiq</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Также можно настроить бэкенд для отдельного задания:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">GuestsCleanupJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">queue_adapter</span> <span class="o">=</span> <span class="ss">:resque</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+
+<span class="c1"># Теперь ваше задание будет использовать `resque` в качестве адаптера бэкенда очереди,</span>
+<span class="c1"># переопределяя тот, что был настроен в `config.active_job.queue_adapter`.</span>
+</code></pre>
+</div>
+<h4 id='zapusk-bekenda' class='inside_page_header'><a href="#zapusk-bekenda">4.3.</a> Запуск бэкенда</h4><p>Поскольку задания запускаются параллельно с вашим Rails приложением, большинство библиотек для работы с очередями требуют запуска специфичного для библиотеки сервиса очередей (помимо старта Rails приложения) для обработки заданий. Обратитесь к документации по библиотеке за инструкциями по запуску бэкенда очереди.</p><p>Вот неполный список документации:</p><ul><li><a href="https://github.com/mperham/sidekiq/wiki/Active-Job">Sidekiq</a>
+</li><li><a href="https://github.com/resque/resque/wiki/ActiveJob">Resque</a>
+</li><li><a href="https://github.com/jondot/sneakers/wiki/How-To:-Rails-Background-Jobs-with-ActiveJob">Sneakers</a>
+</li><li><a href="https://github.com/brandonhilkert/sucker_punch#active-job">Sucker Punch</a>
+</li><li><a href="https://github.com/QueueClassic/queue_classic#active-job">Queue Classic</a>
+</li><li><a href="https://github.com/collectiveidea/delayed_job#active-job">Delayed Job</a>
+</li><li><a href="https://github.com/que-rb/que#additional-rails-specific-setup">Que</a>
+</li><li><a href="https://github.com/bensheldon/good_job#readme">Good Job</a>
+</li></ul><h3 id='ocheredi' class='inside_page_header'><a href="#ocheredi">5.</a> Очереди</h3><p>Большая часть адаптеров поддерживает несколько очередей. С помощью Active Job можно запланировать, что задание будет выполнено в определенной очереди, с помощью <a href="https://api.rubyonrails.org/classes/ActiveJob/QueueName/ClassMethods.html#method-i-queue_as"><code>queue_as</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">GuestsCleanupJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="n">queue_as</span> <span class="ss">:low_priority</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Можно задать префикс для имени очереди для всех заданий с помощью <a href="/configuring#config-active-job-queue-name-prefix"><code>config.active_job.queue_name_prefix</code></a> в <code>application.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+<span class="k">module</span> <span class="nn">YourApp</span>
+  <span class="k">class</span> <span class="nc">Application</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Application</span>
+    <span class="n">config</span><span class="p">.</span><span class="nf">active_job</span><span class="p">.</span><span class="nf">queue_name_prefix</span> <span class="o">=</span> <span class="no">Rails</span><span class="p">.</span><span class="nf">env</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/jobs/guests_cleanup_job.rb</span>
+<span class="k">class</span> <span class="nc">GuestsCleanupJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="n">queue_as</span> <span class="ss">:low_priority</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+
+<span class="c1"># Теперь ваше задание запустится в очереди production_low_priority в среде</span>
+<span class="c1"># production и в staging_low_priority в среде staging</span>
+</code></pre>
+</div>
+<p>Также можно настроить префикс на уровне задания.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">GuestsCleanupJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="n">queue_as</span> <span class="ss">:low_priority</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">queue_name_prefix</span> <span class="o">=</span> <span class="kp">nil</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+
+<span class="c1"># Теперь очередь задания не будет иметь префикс, переопределяя то,</span>
+<span class="c1"># что было настроено в `config.active_job.queue_name_prefix`.</span>
+</code></pre>
+</div>
+<p>Разделитель префикса имени очереди по умолчанию &#39;_&#39;. Его можно изменить, установив <a href="/configuring#config-active-job-queue-name-delimiter"><code>config.active_job.queue_name_delimiter</code></a> в <code>application.rb</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+<span class="k">module</span> <span class="nn">YourApp</span>
+  <span class="k">class</span> <span class="nc">Application</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Application</span>
+    <span class="n">config</span><span class="p">.</span><span class="nf">active_job</span><span class="p">.</span><span class="nf">queue_name_prefix</span> <span class="o">=</span> <span class="no">Rails</span><span class="p">.</span><span class="nf">env</span>
+    <span class="n">config</span><span class="p">.</span><span class="nf">active_job</span><span class="p">.</span><span class="nf">queue_name_delimiter</span> <span class="o">=</span> <span class="s1">'.'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/jobs/guests_cleanup_job.rb</span>
+<span class="k">class</span> <span class="nc">GuestsCleanupJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="n">queue_as</span> <span class="ss">:low_priority</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+
+<span class="c1"># Теперь ваше задание запустится в очереди production.low_priority в среде</span>
+<span class="c1"># production и в staging.low_priority в среде staging</span>
+</code></pre>
+</div>
+<p>Если хотите больше контроля, в какой очереди задание будет запущено, можно передать опцию <code>:queue</code> в <code>set</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">MyJob</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="ss">queue: :another_queue</span><span class="p">).</span><span class="nf">perform_later</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Чтобы контролировать очередь на уровне задания, можно передать блок в <code>queue_as</code>. Блок будет выполнен в контексте задания (таким образом, у него будет доступ к <code>self.arguments</code>), и он должен вернуть имя очереди:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ProcessVideoJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="n">queue_as</span> <span class="k">do</span>
+    <span class="n">video</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="nf">arguments</span><span class="p">.</span><span class="nf">first</span>
+    <span class="k">if</span> <span class="n">video</span><span class="p">.</span><span class="nf">owner</span><span class="p">.</span><span class="nf">premium?</span>
+      <span class="ss">:premium_videojobs</span>
+    <span class="k">else</span>
+      <span class="ss">:videojobs</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">perform</span><span class="p">(</span><span class="n">video</span><span class="p">)</span>
+    <span class="c1"># Делаем обработку видео</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">ProcessVideoJob</span><span class="p">.</span><span class="nf">perform_later</span><span class="p">(</span><span class="no">Video</span><span class="p">.</span><span class="nf">last</span><span class="p">)</span>
+</code></pre>
+</div>
+<div class="note"><p>Убедитесь, что ваш бэкенд для очередей &quot;слушает&quot; имя вашей очереди. Для некоторых бэкендов необходимо указать очереди, которые нужно слушать.</p></div><h3 id='kolbeki' class='inside_page_header'><a href="#kolbeki">6.</a> Колбэки</h3><p>Active Job предоставляет хуки для включения логики на протяжение жизненного цикла задания. Подобно другим колбэкам в Rails, можно реализовывать колбэки как обычные методы и использовать макрос-метод класса, чтобы зарегистрировать их в качестве колбэков:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">GuestsCleanupJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="n">queue_as</span> <span class="ss">:default</span>
+
+  <span class="n">around_perform</span> <span class="ss">:around_cleanup</span>
+
+  <span class="k">def</span> <span class="nf">perform</span>
+    <span class="c1"># Отложенное задание</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">around_cleanup</span>
+      <span class="c1"># Делаем что-то перед perform</span>
+      <span class="k">yield</span>
+      <span class="c1"># Делаем что-то после perform</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Макрос-методы класса также могут принимать блок. Рассмотрите возможность использования этого макроса, если код внутри блока настолько короток, что он помещается в одну строчку. Например, можно отправлять показатели для каждого помещенного в очередь задания.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationJob</span> <span class="o">&lt;</span> <span class="no">ActiveJob</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">before_enqueue</span> <span class="p">{</span> <span class="o">|</span><span class="n">job</span><span class="o">|</span> <span class="vg">$statsd</span><span class="p">.</span><span class="nf">increment</span> <span class="s2">"</span><span class="si">#{</span><span class="n">job</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">underscore</span><span class="si">}</span><span class="s2">.enqueue"</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='dostupnye-kolbeki' class='inside_page_header'><a href="#dostupnye-kolbeki">6.1.</a> Доступные колбэки</h4><ul><li><a href="https://api.rubyonrails.org/classes/ActiveJob/Callbacks/ClassMethods.html#method-i-before_enqueue"><code>before_enqueue</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/ActiveJob/Callbacks/ClassMethods.html#method-i-around_enqueue"><code>around_enqueue</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/ActiveJob/Callbacks/ClassMethods.html#method-i-after_enqueue"><code>after_enqueue</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/ActiveJob/Callbacks/ClassMethods.html#method-i-before_perform"><code>before_perform</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/ActiveJob/Callbacks/ClassMethods.html#method-i-around_perform"><code>around_perform</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/ActiveJob/Callbacks/ClassMethods.html#method-i-after_perform"><code>after_perform</code></a>
+</li></ul><h3 id='action-mailer' class='inside_page_header'><a href="#action-mailer">7.</a> Action Mailer</h3><p>Одним из обычных заданий в современном веб-приложении является рассылка писем за пределами цикла запроса-отклика, чтобы пользователь не ждал. Active Job интегрируется с Action Mailer, поэтому рассылать письма асинхронно очень просто:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Если хотите отправить письмо сейчас, используйте #deliver_now</span>
+<span class="no">UserMailer</span><span class="p">.</span><span class="nf">welcome</span><span class="p">(</span><span class="vi">@user</span><span class="p">).</span><span class="nf">deliver_now</span>
+
+<span class="c1"># Если хотите отправить письмо через Active Job, используйте #deliver_later</span>
+<span class="no">UserMailer</span><span class="p">.</span><span class="nf">welcome</span><span class="p">(</span><span class="vi">@user</span><span class="p">).</span><span class="nf">deliver_later</span>
+</code></pre>
+</div>
+<div class="note"><p>Использование асинхронной очереди из задач Rake (например, для отправки электронной почты с помощью <code>.deliver_later</code>), как правило, не будет работать, потому что Rake, вероятно, завершится, в результате чего пул тредов внутри процесса будет удален до того, как любой/все из <code>.deliver_later</code> писем будут обработаны. Чтобы избежать этой проблемы, используйте <code>.deliver_now</code> или запустите персистентную очередь в development режиме.</p></div><h3 id='internatsionalizatsiya' class='inside_page_header'><a href="#internatsionalizatsiya">8.</a> Интернационализация</h3><p>Каждое задание использует настройку <code>I18n.locale</code> при создании. Это полезно, если вы отправляете письма асинхронно:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">locale</span> <span class="o">=</span> <span class="ss">:eo</span>
+
+<span class="no">UserMailer</span><span class="p">.</span><span class="nf">welcome</span><span class="p">(</span><span class="vi">@user</span><span class="p">).</span><span class="nf">deliver_later</span> <span class="c1"># Email будет локализован в Эсперанто.</span>
+</code></pre>
+</div>
+<h3 id='podderzhivaemye-tipy-argumentov' class='inside_page_header'><a href="#podderzhivaemye-tipy-argumentov">9.</a> Поддерживаемые типы аргументов</h3><p>ActiveJob по умолчанию поддерживает следующие типы аргументов:</p><ul><li>Базовые типы (<code>NilClass</code>, <code>String</code>, <code>Integer</code>, <code>Float</code>, <code>BigDecimal</code>, <code>TrueClass</code>, <code>FalseClass</code>)
+</li><li><code>Symbol</code>
+</li><li><code>Date</code>
+</li><li><code>Time</code>
+</li><li><code>DateTime</code>
+</li><li><code>ActiveSupport::TimeWithZone</code>
+</li><li><code>ActiveSupport::Duration</code>
+</li><li><code>Hash</code> (Ключи должны быть типа <code>String</code> или <code>Symbol</code>)
+</li><li><code>ActiveSupport::HashWithIndifferentAccess</code>
+</li><li><code>Array</code>
+</li><li><code>Range</code>
+</li><li><code>Module</code>
+</li><li><code>Class</code>
+</li></ul><h4 id='globalid' class='inside_page_header'><a href="#globalid">9.1.</a> GlobalID</h4><p>Active Job поддерживает <a href="https://github.com/rails/globalid/blob/master/README.md">GlobalID</a> для параметров. Это позволяет передавать объекты Active Record в ваши задания, вместо пар класс/id, которые нужно затем десериализовать вручную. Раньше задания выглядели так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">TrashableCleanupJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="k">def</span> <span class="nf">perform</span><span class="p">(</span><span class="n">trashable_class</span><span class="p">,</span> <span class="n">trashable_id</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span>
+    <span class="n">trashable</span> <span class="o">=</span> <span class="n">trashable_class</span><span class="p">.</span><span class="nf">constantize</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">trashable_id</span><span class="p">)</span>
+    <span class="n">trashable</span><span class="p">.</span><span class="nf">cleanup</span><span class="p">(</span><span class="n">depth</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь можно просто сделать так:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">TrashableCleanupJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="k">def</span> <span class="nf">perform</span><span class="p">(</span><span class="n">trashable</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span>
+    <span class="n">trashable</span><span class="p">.</span><span class="nf">cleanup</span><span class="p">(</span><span class="n">depth</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Это работает с любым классом, в который подмешан <code>GlobalID::Identification</code>, который по умолчанию был подмешан в классы Active Record.</p><h4 id='serializatory' class='inside_page_header'><a href="#serializatory">9.2.</a> Сериализаторы</h4><p>Можно расширить список поддерживаемых типов для аргументов. Для этого необходимо определить свой собственный сериализатор.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/serializers/money_serializer.rb</span>
+<span class="k">class</span> <span class="nc">MoneySerializer</span> <span class="o">&lt;</span> <span class="no">ActiveJob</span><span class="o">::</span><span class="no">Serializers</span><span class="o">::</span><span class="no">ObjectSerializer</span>
+  <span class="c1"># Проверяем, должен ли argument быть сериализован с использованием этого сериализатора.</span>
+  <span class="k">def</span> <span class="nf">serialize?</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span>
+    <span class="n">argument</span><span class="p">.</span><span class="nf">is_a?</span> <span class="no">Money</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Преобразование объекта к более простому представителю, используя поддерживаемые типы объектов.</span>
+  <span class="c1"># Рекомендуемым представителем является хэш с определенным ключом. Ключи могут быть только базового типа.</span>
+  <span class="c1"># Необходимо вызвать `super`, чтобы добавить собственный тип сериализатора в хэш.</span>
+  <span class="k">def</span> <span class="nf">serialize</span><span class="p">(</span><span class="n">money</span><span class="p">)</span>
+    <span class="k">super</span><span class="p">(</span>
+      <span class="s2">"amount"</span> <span class="o">=&gt;</span> <span class="n">money</span><span class="p">.</span><span class="nf">amount</span><span class="p">,</span>
+      <span class="s2">"currency"</span> <span class="o">=&gt;</span> <span class="n">money</span><span class="p">.</span><span class="nf">currency</span>
+    <span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Преобразование сериализованного значения в надлежащий объект.</span>
+  <span class="k">def</span> <span class="nf">deserialize</span><span class="p">(</span><span class="nb">hash</span><span class="p">)</span>
+    <span class="no">Money</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="nb">hash</span><span class="p">[</span><span class="s2">"amount"</span><span class="p">],</span> <span class="nb">hash</span><span class="p">[</span><span class="s2">"currency"</span><span class="p">])</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>и добавить этот сериализатор в список:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/initializers/custom_serializers.rb</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">active_job</span><span class="p">.</span><span class="nf">custom_serializers</span> <span class="o">&lt;&lt;</span> <span class="no">MoneySerializer</span>
+</code></pre>
+</div>
+<p>Отметьте, что автозагрузка перезагружаемого кода в течение инициализации не поддерживается. Поэтому рекомендуется настраивать сериализаторы, чтобы они загружались лишь однажды, то есть изменяя <code>config/application.rb</code> таким образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+<span class="k">module</span> <span class="nn">YourApp</span>
+  <span class="k">class</span> <span class="nc">Application</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Application</span>
+    <span class="n">config</span><span class="p">.</span><span class="nf">autoload_once_paths</span> <span class="o">&lt;&lt;</span> <span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'app'</span><span class="p">,</span> <span class="s1">'serializers'</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h3 id='isklyucheniya' class='inside_page_header'><a href="#isklyucheniya">10.</a> Исключения</h3><p>Исключения, вызванные в течение исполнения задания, могут быть обработаны с помощью <a href="https://api.rubyonrails.org/classes/ActiveSupport/Rescuable/ClassMethods.html#method-i-rescue_from"><code>rescue_from</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby">
+<span class="k">class</span> <span class="nc">GuestsCleanupJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="n">queue_as</span> <span class="ss">:default</span>
+
+  <span class="n">rescue_from</span><span class="p">(</span><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">RecordNotFound</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">exception</span><span class="o">|</span>
+    <span class="c1"># Сделать что-то с этим исключением</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">perform</span>
+    <span class="c1"># Отложенное задание</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если исключение от задания не будет поймано, тогда задание будет помечено как &quot;неудачное&quot;.</p><h4 id='povtornaya-otpravka-ili-otmena-neudachnyh-zadaniy' class='inside_page_header'><a href="#povtornaya-otpravka-ili-otmena-neudachnyh-zadaniy">10.1.</a> Повторная отправка или отмена неудачных заданий</h4><p>Неудачное задание не будет повторено, если не настроено обратное.</p><p>Возможно повторить отправку или отменить неудачное задание, с помощью <a href="https://api.rubyonrails.org/classes/ActiveJob/Exceptions/ClassMethods.html#method-i-retry_on"><code>retry_on</code></a> или <a href="https://api.rubyonrails.org/classes/ActiveJob/Exceptions/ClassMethods.html#method-i-discard_on"><code>discard_on</code></a>, соответственно. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">RemoteServiceJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="n">retry_on</span> <span class="no">CustomAppException</span> <span class="c1"># по умолчанию, ожидание: 3 сек., попыток: 5</span>
+
+  <span class="n">discard_on</span> <span class="no">ActiveJob</span><span class="o">::</span><span class="no">DeserializationError</span>
+
+  <span class="k">def</span> <span class="nf">perform</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="c1"># Может быть вызвано CustomAppException или ActiveJob::DeserializationError</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='deserializatsiya' class='inside_page_header'><a href="#deserializatsiya">10.2.</a> Десериализация</h4><p>GlobalID позволяет сериализовать полностью объекты Active Record, переданные в <code>#perform</code>.</p><p>Если переданная запись была удалена после того, как задание было помещено в очередь, но до того, как метод <code>#perform</code> был вызван, Active Job вызовет исключение <a href="https://api.rubyonrails.org/classes/ActiveJob/DeserializationError.html"><code>ActiveJob::DeserializationError</code></a>.</p><h3 id='testirovanie-zadaniy' class='inside_page_header'><a href="#testirovanie-zadaniy">11.</a> Тестирование заданий</h3><p>Подробные инструкции о том, как тестировать ваши задания, можно найти в руководстве <a href="testing#jobs-testing">Тестирование приложений на Rails</a>.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

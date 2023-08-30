@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Вносим вклад в Ruby on Rails" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Вносим вклад в Ruby on Rails" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/contributing_to_ruby_on_rails" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Вносим вклад в Ruby on Rails
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="Ljmk2OudKiGppvBRIcRUnLDNroBj+xXWNZn7aOtgXfyf3gNmVJd11+bE56c5pBXvofqpZ5oCjQ0cWKh7GwpOEA==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#soobschenie-o-probleme">1. Сообщение о проблеме</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#sozdanie-otcheta-o-programmnoy-oshibke">1.1. Создание отчета о программной ошибке</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#sozdanie-ispolnyaemogo-testovogo-sluchaya">1.2. Создание исполняемого тестового случая</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#osobaya-traktovka-problem-bezopasnosti">1.3. Особая трактовка проблем безопасности</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#chto-naschet-zaprosov-o-novoy-osobennosti">1.4. Что насчет запросов о новой особенности?</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#pomosch-v-razreshenii-suschestvuyuschih-problem">2. Помощь в разрешении существующих проблем</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#podtverdit-soobschenie-o-programmnoy-oshibke">2.1. Подтвердить сообщение о программной ошибке</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#protestirovat-izmeneniya">2.2. Протестировать изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#vnosim-vklad-v-dokumentatsiyu-rails">3. Вносим вклад в документацию Rails</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#perevod-rukovodstv-rails">4. Перевод руководств Rails</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#contributing-to-the-rails-code">5.  Вносим вклад в код Rails</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#setting-up-a-development-environment">5.1.  Настраиваем среду разработки</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#ispolzovanie-github-codespaces">5.1.1. Использование GitHub Codespaces</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#ispolzovanie-udalennyh-konteynerov-vs-code">5.1.2. Использование удаленных контейнеров VS Code</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#ispolzovanie-rails-dev-box">5.1.3. Использование rails-dev-box</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#lokalnaya-razrabotka">5.1.4. Локальная разработка</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#klonirovanie-repozitoriya-rails">5.2. Клонирование репозитория Rails</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#bundle-install">5.3. Bundle install</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#running-an-application-against-your-local-branch">5.4.  Запуск приложения на вашей локальной ветке</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#pishite-svoy-kod">5.5. Пишите свой код</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#follow-the-coding-conventions">5.5.1.  Следуйте соглашениям по программированию</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#proverka-orfografii">5.5.2. Проверка орфографии</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#testiruyte-proizvoditelnost-svoego-koda">5.6. Тестируйте производительность своего кода</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#zapusk-testov">5.7. Запуск тестов</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#ves-rails">5.7.1. Весь Rails:</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#dlya-opredelennogo-komponenta">5.7.2. Для определенного компонента</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#dlya-opredelennoy-direktorii">5.7.3. Для определенной директории</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#dlya-opredelennogo-fayla">5.7.4. Для определенного файла</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#zapusk-otdelnogo-testa">5.7.5. Запуск отдельного теста</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#zapusk-testov-s-opredelennym-porozhdayuschim-elementom">5.7.6. Запуск тестов с определенным порождающим элементом</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#zapusk-testov-posledovatelno">5.7.7. Запуск тестов последовательно</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#testirovanie-active-record">5.7.8. Тестирование Active Record</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#ispolzovanie-otladchikov-v-teste">5.7.9. Использование отладчиков в тесте</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#preduprezhdeniya">5.8. Предупреждения</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#obnovlenie-dokumentatsii">5.9. Обновление документации</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#obnovlenie-changelog">5.10. Обновление CHANGELOG</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#kriticheskie-izmeneniya">5.11. Критические изменения</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#udalenie-povedeniya">5.11.1. Удаление поведения</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#izmenenie-povedeniya">5.11.2. Изменение поведения</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#ignorirovanie-faylov-sozdavaemyh-vashim-redaktorom-ide">5.12. Игнорирование файлов, создаваемых вашим редактором / IDE</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#apgreyd-gemfile-lock">5.13. Апгрейд Gemfile.lock</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#kommit-vashih-izmeneniy">5.14. Коммит ваших изменений</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#obnovlenie-vashey-vetki">5.15. Обновление вашей ветки</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#fork">5.16. Форк</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#publikatsiya-pul-rekvesta">5.17. Публикация пул-реквеста</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#poluchenie-obratnoy-svyazi">5.18. Получение обратной связи</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#povtorenie-po-neobhodimosti">5.19. Повторение по необходимости</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#skleivanie-kommitov">5.19.1. Склеивание коммитов</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#obnovlenie-pul-rekvesta">5.19.2. Обновление пул-реквеста</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#starshie-versii-ruby-on-rails">5.20. Старшие версии Ruby on Rails</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#bekportirovanie">5.20.1. Бэкпортирование</a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#avtory-rails">6. Авторы Rails</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='vnosim-vklad-v-ruby-on-rails' class='inside_page_header'> Вносим вклад в Ruby on Rails</h2><p>Это руководство раскрывает, как <em>ты</em> можешь стать частью продолжающейся разработки Ruby on Rails.</p><p>После прочтения этого руководства, вы узнаете:</p><ul><li>Как использовать GitHub для сообщения о проблемах.
+</li><li>Как клонировать main и запустить тестовый набор.
+</li><li>Как помочь в решении существующих проблем.
+</li><li>Как внести вклад в документацию Ruby on Rails.
+</li><li>Как внести вклад в код Ruby on Rails.
+</li></ul><p>Ruby on Rails — это не &quot;чей-то там фреймворк&quot;. На протяжение лет тысячи людей вносили вклад в Ruby on Rails, от одиночного символа до огромных архитектурных изменений или значимой документации — все, чтобы сделать Ruby on Rails лучше для каждого. Даже если пока не готовы писать код или документацию, имеется ряд других способов, которыми можно внести вклад, от сообщений о проблемах до тестирования новых изменений.</p><p>Как упомянуто в <a href="https://github.com/rails/rails/blob/main/README.md">Rails README</a>, от каждого, участвующего в коде Rails и его подпроектах, системах отслеживания ошибок, чатах, форумах и списках рассылок, ожидается следование <a href="https://rubyonrails.org/conduct/">нормам поведения</a> Rails.</p>
+<hr>
+<h3 id='soobschenie-o-probleme' class='inside_page_header'><a href="#soobschenie-o-probleme">1.</a> Сообщение о проблеме</h3><p>Ruby on Rails использует <a href="https://github.com/rails/rails/issues">GitHub Issue Tracking</a> для отслеживания проблем (в основном, программных ошибок и нового кода). Если вы нашли программную ошибку в Ruby on Rails, нужно начать отсюда. Чтобы сообщить о проблеме, прокомментировать ее или создавать пул-реквесты, необходимо создать аккаунт (бесплатный) на GitHub.</p><div class="note"><p>Программным ошибкам в самой последней версии Ruby on Rails будет уделяться наибольшее внимание. Кроме этого, основная команда Rails всегда заинтересована в обратной связи от тех, у кого есть время потестировать <em>edge Rails</em> (код версии Rails, которая разрабатывается в текущий момент). Позже в этом руководстве будет рассказано, как получить edge Rails для тестирования. Смотрите в нашей <a href="/maintenance-policy">политике поддержки</a> информацию о том, какие версии поддерживаются. Никогда не сообщайте об ошибке безопасности в трекере проблем GitHub.</p></div><h4 id='sozdanie-otcheta-o-programmnoy-oshibke' class='inside_page_header'><a href="#sozdanie-otcheta-o-programmnoy-oshibke">1.1.</a> Создание отчета о программной ошибке</h4><p>Если вы обнаружили проблему в Ruby on Rails, не несущую риск безопасности, поищите в <a href="https://github.com/rails/rails/issues">Issues</a> на Github, о ней уже может быть сообщено. Если вы не смогли найти какую-либо открытую проблему на GitHub, посвященную ошибке, которую вы нашли, вашим следующим действием будет <a href="https://github.com/rails/rails/issues/new">открыть новую проблему</a>. (Смотрите следующий раздел, посвященный вопросам безопасности.)</p><p>Мы предоставили шаблон проблемы, чтобы, когда вы создаете отчет о проблеме, вы включили всю необходимую информацию, чтобы определить, есть ли ошибка во фреймворке. Каждый отчет о проблеме должен содержать заголовок и ясное описание проблемы. Убедитесь, что включили как можно больше релевантной информации, включая пример кода или падающий тест, демонстрирующих ожидаемое поведение, а также вашу конфигурацию системы. Вашей целью должно быть упрощение для себя — и для других — в воспроизведении программной ошибки и понимании, как ее починить.</p><p>Как только вы открыли отчет о проблеме, там как может, так и нет какая-то активность сразу, если только это не какая-то критическая программная ошибка. Это не означает, что нам все равно на вашу ошибку, просто есть много проблем и пул-реквестов для работы. Другие люди со схожей проблемой могут обнаружить вашу проблему и подтвердить ошибку, и могут обсудить с вами, как ее починить. Если вы знаете, как починить ошибку, сделайте это и откройте пул-реквест.</p><h4 id='sozdanie-ispolnyaemogo-testovogo-sluchaya' class='inside_page_header'><a href="#sozdanie-ispolnyaemogo-testovogo-sluchaya">1.2.</a> Создание исполняемого тестового случая</h4><p>Наличие способа воспроизвести вашу проблему поможет людям подтвердить, исследовать и, в конечном счете, починить вашу проблему. Это можно сделать с помощью исполняемого тестового случая. Чтобы упростить этот процесс, мы подготовили для вас несколько шаблонов отчетов об ошибке, которые можно использовать в качестве отправной точки:</p><ul><li>Шаблон для проблем с Active Record (модели, база данных): <a href="https://github.com/rails/rails/blob/main/guides/bug_report_templates/active_record_gem.rb">gem</a> / <a href="https://github.com/rails/rails/blob/main/guides/bug_report_templates/active_record_main.rb">main</a>
+</li><li>Шаблон для тестирования проблем с Active Record (миграции): <a href="https://github.com/rails/rails/blob/main/guides/bug_report_templates/active_record_migrations_gem.rb">gem</a> / <a href="https://github.com/rails/rails/blob/main/guides/bug_report_templates/active_record_migrations_main.rb">main</a>
+</li><li>Шаблон для проблем с Action Pack (контроллеры, роутинг): <a href="https://github.com/rails/rails/blob/main/guides/bug_report_templates/action_controller_gem.rb">gem</a> / <a href="https://github.com/rails/rails/blob/main/guides/bug_report_templates/action_controller_main.rb">main</a>
+</li><li>Шаблон для проблем с Active Job: <a href="https://github.com/rails/rails/blob/main/guides/bug_report_templates/active_job_gem.rb">gem</a> / <a href="https://github.com/rails/rails/blob/main/guides/bug_report_templates/active_job_main.rb">main</a>
+</li><li>Шаблон для проблем с Active Storage: <a href="https://github.com/rails/rails/blob/main/guides/bug_report_templates/active_storage_gem.rb">gem</a> / <a href="https://github.com/rails/rails/blob/main/guides/bug_report_templates/active_storage_main.rb">main</a>
+</li><li>Шаблон для проблем с Action Mailbox: <a href="https://github.com/rails/rails/blob/main/guides/bug_report_templates/action_mailbox_gem.rb">gem</a> / <a href="https://github.com/rails/rails/blob/main/guides/bug_report_templates/action_mailbox_main.rb">main</a>
+</li><li>Шаблон для других проблем: <a href="https://github.com/rails/rails/blob/main/guides/bug_report_templates/generic_gem.rb">gem</a> / <a href="https://github.com/rails/rails/blob/main/guides/bug_report_templates/generic_main.rb">main</a>
+</li></ul><p>Эти шаблоны включают шаблонный код для настройки тестового случая для либо выпущенной версии Rails (<code>*_gem.rb</code>), либо разрабатываемого Rails (<code>*_main.rb</code>).</p><p>Скопируйте содержимое подходящего шаблона в файл <code>.rb</code> и сделайте необходимые изменения, чтобы продемонстрировать проблему. Его можно запустить в терминале с помощью <code>ruby the_file.rb</code>. Если все получилось, вы должны увидеть, что ваш тестовый случай падает.</p><p>Затем можно поделиться своим исполняемым тестовым случаем через <a href="https://gist.github.com">gist</a> или вставить содержимое в описание issue.</p><h4 id='osobaya-traktovka-problem-bezopasnosti' class='inside_page_header'><a href="#osobaya-traktovka-problem-bezopasnosti">1.3.</a> Особая трактовка проблем безопасности</h4><div class="warning"><p>Пожалуйста, не сообщайте об уязвимостях в безопасности с помощью публичных отчетов о проблеме на GitHub. <a href="https://rubyonrails.org/security">Страница о политике безопасности Rails</a> подробно излагает процедуру для проблем безопасности.</p></div><h4 id='chto-naschet-zaprosov-o-novoy-osobennosti' class='inside_page_header'><a href="#chto-naschet-zaprosov-o-novoy-osobennosti">1.4.</a> Что насчет запросов о новой особенности?</h4><p>Пожалуйста не складывайте &quot;feature request&quot; в GitHub Issues. Если имеется новая особенность, которую вы бы хотели видеть добавленной в Ruby on Rails, вам необходимо написать код самим, или убедить кого-то другого помочь вам с написанием кода. Позже в этом руководстве будут даны подробные инструкции по предложению патча в Ruby on Rails. Если вы опубликуете список пожеланий в GitHub Issues без кода, будьте уверены, он будет помечен &quot;invalid&quot;, как только будет рассмотрен.</p><p>Иногда грань между &#39;программная ошибка&#39; и &#39;особенность&#39; трудно провести. Как правило, особенность — это все, что добавляет новое поведение, в то время как программная ошибка — это все, что вызывает неправильное поведение. Иногда команде Core приходиться делать очень непростой выбор. Тем не менее, различие, как правило, влияет лишь на то, с каким патчем ваше изменение будет выпущено; им нравится рассматривать особенности! Они просто не будут бэкпортировать в поддерживаемые ветки.</p><p>Если вы хотите получить обратную связь на идею особенности до того, как начнете работать над изменениями, начните обсуждение на <a href="https://discuss.rubyonrails.org/c/rubyonrails-core">форуме rails-core</a>. Вы можете не получить откликов, что означает, что всем безразлично. Вы можете найти кого-то, кто так же заинтересован в создании этой особенности. Вы можете получить &quot;This won&#39;t be accepted&quot;. Но это подходящее место для обсуждения новых идей. GitHub Issues являются не особо хорошим местом для проведения длительных и обширных обсуждений новых особенностей.</p><h3 id='pomosch-v-razreshenii-suschestvuyuschih-problem' class='inside_page_header'><a href="#pomosch-v-razreshenii-suschestvuyuschih-problem">2.</a> Помощь в разрешении существующих проблем</h3><p>Кроме сообщения о проблемах, вы можете помочь основной команде разрешить существующие проблемы, предоставив обратную связь о них. Если вы новичок в разработке ядра Rails, предоставление обратной связи поможет вам познакомиться с кодовой базой и процессами.</p><p>Если посмотреть на <a href="https://github.com/rails/rails/issues">список проблем</a> в GitHub Issues, можно обнаружить множество проблем, требующих внимания прямо сейчас. Что можно с ними сделать? Фактически, немного:</p><h4 id='podtverdit-soobschenie-o-programmnoy-oshibke' class='inside_page_header'><a href="#podtverdit-soobschenie-o-programmnoy-oshibke">2.1.</a> Подтвердить сообщение о программной ошибке</h4><p>Начинающие могут помочь только в подтверждении сообщений о программных ошибках. Сможете ли вы воспроизвести сообщенную проблему на своем компьютере? Если так, можете добавить комментарий к проблеме, что вы наблюдали то же самое.</p><p>Если проблема очень расплывчатая, сможете ли вы помочь сузить ее до чего-то конкретного? Может быть вы сможете предоставить дополнительную информацию для воспроизведения программной ошибки, или помочь в устранении ненужных шагов, не требуемых для демонстрации проблемы.</p><p>Если обнаружили сообщение о программной ошибке без теста, было бы полезным внести вклад, написав падающий тест. Это также отличный способ исследования исходного кода: глядя на существующие файлы тестов, научитесь как писать больше тестов. Новые тесты лучше всего вносить в виде изменений, как объяснено позже в разделе <a href="#contributing-to-the-rails-code">Вносим вклад в код Rails</a>.</p><p>Все, что вы сможете сделать, чтобы отчеты о программной ошибке стали более краткими и более простыми для воспроизведения, поможет ребятам, пытающимся починить эти программные ошибки — независимо от того, дойдете вы до написания кода, или нет.</p><h4 id='protestirovat-izmeneniya' class='inside_page_header'><a href="#protestirovat-izmeneniya">2.2.</a> Протестировать изменения</h4><p>Также можно помочь, изучая пул-реквесты, которые были отправлены в Ruby on Rails с помощью GitHub. Для того, чтобы применить чьи-то изменения, сначала создайте отдельную ветку:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>checkout <span class="nt">-b</span> testing_branch
+</code></pre>
+</div>
+<p>Затем вы можете использовать их удаленную ветку для обновления кода в своей. Например, скажем, что на GitHub пользователь JohnSmith форкнул и запушил в ветку &quot;orange&quot;, расположенную в <a href="https://github.com/JohnSmith/rails">https://github.com/JohnSmith/rails</a>.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>remote add JohnSmith https://github.com/JohnSmith/rails.git
+<span class="gp">$</span><span class="w"> </span><span class="nb">git </span>pull JohnSmith orange
+</code></pre>
+</div>
+<p>Альтернативой добавлению их удаленной ветки к своему контролю является использование <a href="https://cli.github.com/">инструмента GitHub CLI</a> для контроля их пул-реквеста.</p><p>После применения их ветки, протестируйте ее! Вот несколько вещей, о которых стоит подумать:</p><ul><li>Работает ли фактически это изменение?
+</li><li>Довольны ли вы тестами? Сможете ли вы выполнить то, что они тестируют? Нет ли отсутствующих тестов?
+</li><li>Имеется ли достаточное покрытие документацией? Должна ли быть обновлена документация где-то еще?
+</li><li>Нравится ли вам реализация? Можете подумать о более красивом или быстром способе реализации части его изменений?
+</li></ul><p>Как только вы будете довольны тем, что пул-реквест содержит хорошее изменение, прокомментируйте на GitHub, обозначив свои выводы. Ваш комментарий должен показать, что вам нравится изменение, и что вы думаете о нем. Что-то вроде:</p>
+<blockquote>
+<p>I like the way you&#39;ve restructured that code in generate_finder_sql - much nicer. The tests look good too.</p></blockquote>
+<p>Если ваш комментарий просто содержит &quot;+1&quot;, есть шанс, что прочие ревьюверы не воспримут его серьезно. Покажите, что вы потратили время на обзор этого пул-реквеста.</p><h3 id='vnosim-vklad-v-dokumentatsiyu-rails' class='inside_page_header'><a href="#vnosim-vklad-v-dokumentatsiyu-rails">3.</a> Вносим вклад в документацию Rails</h3><p>В Ruby on Rails имеется два главных набора документации: руководства, помогающие изучить Ruby on Rails, и API, также служащее в качестве эталона.</p><p>Вы можете помочь в улучшении руководств по Rails или описания API, сделав их более последовательными или читаемыми, добавив отсутствующую информацию, исправив имеющиеся ошибки, скорректировав описки или обновив их в соответствие крайней версии Rails.</p><p>Для этого внесите изменения в исходные файлы руководств Rails (<a href="https://github.com/rails/rails/tree/main/guides/source">расположенные</a> на GitHub) или комментарии RDoc в исходном коде. Затем откройте пул-реквест, чтобы применить изменения к ветке main.</p><p>При работе с документацией принимайте во внимание <a href="/api_documentation_guidelines">Рекомендации по документированию API</a> и <a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>.</p><h3 id='perevod-rukovodstv-rails' class='inside_page_header'><a href="#perevod-rukovodstv-rails">4.</a> Перевод руководств Rails</h3><p>Мы счастливы, что находятся волонтеры, переводящие руководства Rails, просто следуйте этим шагам:</p><ul><li>Сделайте форк <a href="https://github.com/rails/rails">https://github.com/rails/rails</a>.
+</li><li>Добавьте папку исходников для вашего языка, например: <em>guides/source/it-IT</em> для итальянского.
+</li><li>Скопируйте содержимое <em>guides/source</em> в директорию для вашего языка и переведите их.
+</li><li>НЕ переводите файлы HTML, так как они генерируются автоматически.
+</li></ul><p>Обратите внимание, что переводы не передаются в репозиторий Rails. Как подробно описано выше, ваша работа находится в форке. Это происходит из-за того, что на практике изменения в документацию вносятся только для английского языка.</p><p>Чтобы сгенерировать руководства в формате HTML, нужно установить зависимости для руководств, <code>cd</code> в директорию <em>guides</em> и запустите (например, для it-IT):</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">#</span><span class="w"> </span>установить только гемы, необходимые для руководств. Чтобы отменить, запустите: <span class="nb">bundle </span>config <span class="nt">--delete</span> without
+<span class="gp">$</span><span class="w"> </span><span class="nb">bundle install</span> <span class="nt">--without</span> job cable storage ujs <span class="nb">test </span>db
+<span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>guides/
+<span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake </span>guides:generate:html <span class="nv">GUIDES_LANGUAGE</span><span class="o">=</span>it-IT
+</code></pre>
+</div>
+<p>Это сгенерирует руководства в директории <em>output</em>.</p><div class="note"><p>Гем Redcarpet не работает с JRuby.</p></div><p>Деятельность по переводу, о которой мы знаем (разные версии):</p><ul><li><strong>Итальянский</strong>: <a href="https://github.com/rixlabs/docrails">https://github.com/rixlabs/docrails</a>
+</li><li><strong>Испанский</strong>: <a href="https://github.com/latinadeveloper/railsguides.es">https://github.com/latinadeveloper/railsguides.es</a>
+</li><li><strong>Польский</strong>: <a href="https://github.com/apohllo/docrails">https://github.com/apohllo/docrails</a>
+</li><li><strong>Французский</strong> : <a href="https://github.com/railsfrance/docrails">https://github.com/railsfrance/docrails</a>
+</li><li><strong>Чешский</strong> : <a href="https://github.com/rubyonrails-cz/docrails/tree/czech">https://github.com/rubyonrails-cz/docrails/tree/czech</a>
+</li><li><strong>Турецкий</strong> : <a href="https://github.com/ujk/docrails">https://github.com/ujk/docrails</a>
+</li><li><strong>Корейский</strong> : <a href="https://github.com/rorlakr/rails-guides">https://github.com/rorlakr/rails-guides</a>
+</li><li><strong>Упрощенный китайский</strong> : <a href="https://github.com/ruby-china/guides">https://github.com/ruby-china/guides</a>
+</li><li><strong>Традиционный китайский</strong> : <a href="https://github.com/docrails-tw/guides">https://github.com/docrails-tw/guides</a>
+</li><li><strong>Русский</strong> : <a href="https://github.com/rusrails/rusrails">https://github.com/rusrails/rusrails</a>
+</li><li><strong>Японский</strong> : <a href="https://github.com/yasslab/railsguides.jp">https://github.com/yasslab/railsguides.jp</a>
+</li><li><strong>Бразильский португальский</strong> : <a href="https://github.com/campuscode/rails-guides-pt-BR">https://github.com/campuscode/rails-guides-pt-BR</a>
+</li></ul><h3 id='contributing-to-the-rails-code' class='inside_page_header'><a href="#contributing-to-the-rails-code">5.</a>  Вносим вклад в код Rails</h3><h4 id='setting-up-a-development-environment' class='inside_page_header'><a href="#setting-up-a-development-environment">5.1.</a>  Настраиваем среду разработки</h4><p>Чтобы продвинуться от подтверждения программных ошибок к помощи в разрешении существующих проблем или внесения собственного кода в Ruby on Rails, вы <em>должны</em> уметь запускать его тестовый набор. В этом разделе руководства вы изучите, как настроить тесты на своем компьютере.</p><h5 id='ispolzovanie-github-codespaces' class='inside_page_header'><a href="#ispolzovanie-github-codespaces">5.1.1.</a> Использование GitHub Codespaces</h5><p>Если вы член организации со включенными codespaces, можно сделать форк Rails в организацию и использовать codespaces на GitHub. Codespace будут инициализированы со всеми требуемыми зависимостями и позволят запускать все тесты.</p><h5 id='ispolzovanie-udalennyh-konteynerov-vs-code' class='inside_page_header'><a href="#ispolzovanie-udalennyh-konteynerov-vs-code">5.1.2.</a> Использование удаленных контейнеров VS Code</h5><p>Если у вас есть установленные <a href="https://code.visualstudio.com">Visual Studio Code</a> и <a href="https://www.docker.com">Docker</a>, можно использовать <a href="https://code.visualstudio.com/docs/remote/containers-tutorial">плагин для удаленных контейнеров VS Code</a>. Плагин прочитает конфигурацию <a href="https://github.com/rails/rails/tree/main/.devcontainer"><code>.devcontainer</code></a> в репозитории и построит контейнер Docker локально.</p><h5 id='ispolzovanie-rails-dev-box' class='inside_page_header'><a href="#ispolzovanie-rails-dev-box">5.1.3.</a> Использование rails-dev-box</h5><p>Также возможно использовать <a href="https://github.com/rails/rails-dev-box">rails-dev-box</a>, чтобы получить готовую среду разработки. Однако, rails-dev-box использует Vagrant и Virtual Box, которые не работают на Mac с Apple silicon.</p><h5 id='lokalnaya-razrabotka' class='inside_page_header'><a href="#lokalnaya-razrabotka">5.1.4.</a> Локальная разработка</h5><p>Когда вы не можете использовать GitHub Codespaces, смотрите <a href="/development_dependencies_install">это другое руководство</a> о том, как настроить локальную разработку. Это рассматривается как сложный способ, так как установка зависимостей может быть специфичной для операционной системы.</p><h4 id='klonirovanie-repozitoriya-rails' class='inside_page_header'><a href="#klonirovanie-repozitoriya-rails">5.2.</a> Клонирование репозитория Rails</h4><p>Чтобы вносить изменения в код, необходимо клонировать репозиторий Rails:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>clone https://github.com/rails/rails.git
+</code></pre>
+</div>
+<p>и создать отдельную ветку:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd rails</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">git </span>checkout <span class="nt">-b</span> my_new_branch
+</code></pre>
+</div>
+<p>Не имеет значения, какое имя вы используете, так как эта ветка существует только на вашем локальном компьютере и вашем персональном репозитории на GitHub. Она не будет частью гит-репозитория Rails.</p><h4 id='bundle-install' class='inside_page_header'><a href="#bundle-install">5.3.</a> Bundle install</h4><p>Установите требуемые гемы.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bundle install</span>
+</code></pre>
+</div>
+<h4 id='running-an-application-against-your-local-branch' class='inside_page_header'><a href="#running-an-application-against-your-local-branch">5.4.</a>  Запуск приложения на вашей локальной ветке</h4><p>Если вам нужно приложение Rails для тестирования изменений, флажок <code>--dev</code> для <code>rails new</code> создаст приложение, использующее вашу локальную ветку:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd rails</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rails </span>new ~/my-test-app <span class="nt">--dev</span>
+</code></pre>
+</div>
+<p>Приложение, сгенерированное в <code>~/my-test-app</code> запускается на вашей локальной ветке, и, в частности, видит любые модификации после перезагрузки сервера.</p><p>Для пакетов JavaScript, можно использовать <a href="https://yarnpkg.com/cli/link"><code>yarn link</code></a>, чтобы загрузить вашу локальную ветку в генерируемое приложение:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd rails</span>/activestorage
+<span class="gp">$</span><span class="w"> </span><span class="nb">yarn link</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">cd</span> ~/my-test-app
+<span class="gp">$</span><span class="w"> </span><span class="nb">yarn link</span> <span class="s2">"@rails/activestorage"</span>
+</code></pre>
+</div>
+<h4 id='pishite-svoy-kod' class='inside_page_header'><a href="#pishite-svoy-kod">5.5.</a> Пишите свой код</h4><p>Теперь пришло время написать некоторый код! При осуществлении изменений в Rails, есть несколько вещей, которые нужно иметь в виду:</p><ul><li>Следуйте стилю и соглашениям Rails.
+</li><li>Используйте идиомы и хелперы Rails.
+</li><li>Включайте тесты, которые падают без вашего кода, и проходят с ним.
+</li><li>Обновляйте документацию, примеры и руководства: все, что было затронуто вашим вкладом.
+</li><li>Если изменения добавляют, убирают или изменяют особенность, убедитесь, что включили запись CHANGELOG. Если ваше изменение исправляет ошибку, запись CHANGELOG не обязательна.
+</li></ul><div class="info"><p>Косметические изменения, не добавляющие ничего ощутимого в стабильность, функциональность или тестируемость Rails, обычно не принимаются (читайте подробнее об <a href="https://github.com/rails/rails/pull/13771#issuecomment-32746700">обосновании этого решения</a>).</p></div><h5 id='follow-the-coding-conventions' class='inside_page_header'><a href="#follow-the-coding-conventions">5.5.1.</a>  Следуйте соглашениям по программированию</h5><p>Rails следует простому набору соглашений о стиле кода:</p><ul><li>Два пробела, нет табуляции (для отступов).
+</li><li>Нет конечных пробелов. Пустые строчки не должны иметь пробелов.
+</li><li>Отступ без пустой строчки после private/protected.
+</li><li>Используйте синтаксис Ruby &gt;= 1.9 для хэшей. Предпочитайте <code>{ a: :b }</code> над <code>{ :a =&gt; :b }</code>.
+</li><li>Предпочитайте <code>&amp;&amp;</code>/<code>||</code> над <code>and</code>/<code>or</code>.
+</li><li>Предпочитайте <code>class &lt;&lt; self</code> над <code>self.method</code> для методов класса.
+</li><li>Используйте <code>my_method(my_arg)</code>, а не <code>my_method( my_arg )</code> или <code>my_method my_arg</code>.
+</li><li>Используйте <code>a = b</code>, а не <code>a=b</code>.
+</li><li>Используйте методы <code>assert_not</code> вместо <code>refute</code>.
+</li><li>Предпочитайте <code>method { do_stuff }</code> вместо <code>method{do_stuff}</code> для однострочных блоков.
+</li><li>Следуйте соглашениям в исходном коде, которые вы уже видели.
+</li></ul><p>Что касается вышеприведенных рекомендаций - пожалуйста, поступайте по своему усмотрению при использовании их.</p><p>Помимо этого у нас имеются определенные правила <a href="https://www.rubocop.org/">RuboCop</a> для систематизации некоторых из наших соглашений по кодированию. Вы можете запустить RuboCop локально для файла, который вы изменили, до отправки пул реквеста:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec </span>rubocop actionpack/lib/action_controller/metal/strong_parameters.rb
+<span class="go">Inspecting 1 file
+</span><span class="c">.
+</span><span class="go">
+1 file inspected, no offenses detected
+</span></code></pre>
+</div>
+<p>Для файлов <code>rails-ujs</code> CoffeeScript и JavaScript можно запустить <code>npm run lint</code> в папке <code>actionview</code>.</p><h5 id='proverka-orfografii' class='inside_page_header'><a href="#proverka-orfografii">5.5.2.</a> Проверка орфографии</h5><p>Мы запускаем <a href="https://github.com/client9/misspell">misspell</a>, который в основном написан на <a href="https://golang.org/">Golang</a>, чтобы проверять орфографию с помощью <a href="https://github.com/rails/rails/blob/main/.github/workflows/lint.yml">GitHub Actions</a>. Исправляйте распространенные описки английских слов с помощью <code>misspell</code>. <code>misspell</code> отличается от большинства других средств проверки орфографии, так как он не использует пользовательский словарь. Можно запустить <code>misspell</code> локально против всех файлов, с помощью:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="go">find . -type f | xargs ./misspell -i 'aircrafts,devels,invertions' -error
+</span></code></pre>
+</div>
+<p>Значимые опции или флажки <code>misspell</code>:</p><ul><li><code>-i</code> строка: игнорировать последующие исправления, разделенные запятыми
+</li><li><code>-w</code>: Переписать файл с исправлениями (по умолчанию просто отображаются)
+</li></ul><p>Мы также запускаем <a href="https://github.com/codespell-project/codespell">codespell</a> с помощью GitHub Actions, чтобы проверить орфографию, и <a href="https://pypi.org/project/codespell/">codespell</a> запускается против <a href="https://github.com/rails/rails/blob/main/codespell.txt">небольшого пользовательского словаря</a>. <code>codespell</code> написан на <a href="https://www.python.org/">Python</a>, и его можно запустить с помощью:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="go">codespell --ignore-words=codespell.txt
+</span></code></pre>
+</div>
+<h4 id='testiruyte-proizvoditelnost-svoego-koda' class='inside_page_header'><a href="#testiruyte-proizvoditelnost-svoego-koda">5.6.</a> Тестируйте производительность своего кода</h4><p>Для изменений, способных повлиять на производительность, пожалуйста, тестируйте производительность вашего кода и измеряйте влияние. Пожалуйста, покажите используемый. Следует рассмотреть включение этой информации в сообщении вашего коммита, чтобы позволить будущим контрибьюторам с легкостью проверить ваши выводы и определить, являются ли они по прежнему уместными. (Например, будущие оптимизации в виртуальной машине Ruby могут привести к ненужности определенных оптимизаций.)</p><p>При оптимизации для нужного вам определенного сценария легко ухудшить быстродействие для других распространенных случаев. Следовательно, необходимо тестировать ваше изменение на списке репрезентативных сценариев, в идеале извлеченных из реальных приложений.</p><p>В качестве отправной точки можно использовать <a href="https://github.com/rails/rails/blob/main/guides/bug_report_templates/benchmark.rb">шаблон теста производительности</a>. Он включает шаблонный код для настройки теста с помощью гема <a href="https://github.com/evanphx/benchmark-ips">benchmark-ips</a>. Шаблон разработан для тестирования относительно самодостаточных изменений, которые можно встроить в скрипт.</p><h4 id='zapusk-testov' class='inside_page_header'><a href="#zapusk-testov">5.7.</a> Запуск тестов</h4><p>В Rails не является необходимым запускать полный тестовый набор перед отправкой изменений. В частности, тестовый набор railties занимает много времени, и особенно долго, если исходный код монтирован в <code>/vagrant</code>, как происходит в рекомендованном рабочем процессе с помощью <a href="https://github.com/rails/rails-dev-box">rails-dev-box</a>.</p><p>В качестве компромисса, тестируйте то, на что ваш код явно влияет, и, если изменение не в railties, запускайте полный тестовый набор затронутого компонента. Если все тесты проходят, этого достаточно, чтобы предложить ваш вклад. У нас есть <a href="https://buildkite.com/rails/rails">Buildkite</a> в качестве безопасной сети для отлова неожиданных поломок где-то еще.</p><h5 id='ves-rails' class='inside_page_header'><a href="#ves-rails">5.7.1.</a> Весь Rails:</h5><p>Чтобы запустить все тесты, выполните:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd rails</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake test</span>
+</code></pre>
+</div>
+<h5 id='dlya-opredelennogo-komponenta' class='inside_page_header'><a href="#dlya-opredelennogo-komponenta">5.7.2.</a> Для определенного компонента</h5><p>Можно запустить тесты только для определенного компонента (такого как Action Pack). Например, чтобы запустить тесты Action Mailer:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>actionmailer
+<span class="gp">$</span><span class="w"> </span>bin/test
+</code></pre>
+</div>
+<h5 id='dlya-opredelennoy-direktorii' class='inside_page_header'><a href="#dlya-opredelennoy-direktorii">5.7.3.</a> Для определенной директории</h5><p>Можно запускать тесты только для определенной директории определенного компонента (например, models в Active Storage). К примеру, для запуска тестов в <code>/activestorage/test/models</code>:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>activestorage
+<span class="gp">$</span><span class="w"> </span>bin/test models
+</code></pre>
+</div>
+<h5 id='dlya-opredelennogo-fayla' class='inside_page_header'><a href="#dlya-opredelennogo-fayla">5.7.4.</a> Для определенного файла</h5><p>Можно запустить тесты из определенного файла:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>actionview
+<span class="gp">$</span><span class="w"> </span>bin/test <span class="nb">test</span>/template/form_helper_test.rb
+</code></pre>
+</div>
+<h5 id='zapusk-otdelnogo-testa' class='inside_page_header'><a href="#zapusk-otdelnogo-testa">5.7.5.</a> Запуск отдельного теста</h5><p>Можно запустить отдельный тест по имени с помощью опции <code>-n</code>:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>actionmailer
+<span class="gp">$</span><span class="w"> </span>bin/test <span class="nb">test</span>/mail_layout_test.rb <span class="nt">-n</span> test_explicit_class_layout
+</code></pre>
+</div>
+<h5 id='zapusk-testov-s-opredelennym-porozhdayuschim-elementom' class='inside_page_header'><a href="#zapusk-testov-s-opredelennym-porozhdayuschim-elementom">5.7.6.</a> Запуск тестов с определенным порождающим элементом</h5><p>Запуск тестов случайный с помощью порождающего элемента. Если вы испытываете случайные ошибки в тесте, можно более аккуратно воспроизвести сценарий падающего теста, установив порождающий элемент.</p><p>Запуск всех тестов для компонента:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>actionmailer
+<span class="gp">$</span><span class="w"> </span><span class="nv">SEED</span><span class="o">=</span>15002 bin/test
+</code></pre>
+</div>
+<p>Запуск отдельного тестового файла:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>actionmailer
+<span class="gp">$</span><span class="w"> </span><span class="nv">SEED</span><span class="o">=</span>15002 bin/test <span class="nb">test</span>/mail_layout_test.rb
+</code></pre>
+</div>
+<h5 id='zapusk-testov-posledovatelno' class='inside_page_header'><a href="#zapusk-testov-posledovatelno">5.7.7.</a> Запуск тестов последовательно</h5><p>По умолчанию юнит-тесты Action Pack и Action View запускаются параллельно. Если вы испытываете случайные падающие тесты, можно установить порождающий элемент и позволить этим юнит-тестам запускаться последовательно, установив <code>PARALLEL_WORKERS=1</code></p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>actionview
+<span class="gp">$</span><span class="w"> </span><span class="nv">PARALLEL_WORKERS</span><span class="o">=</span>1 <span class="nv">SEED</span><span class="o">=</span>53708 bin/test <span class="nb">test</span>/template/test_case_test.rb
+</code></pre>
+</div>
+<h5 id='testirovanie-active-record' class='inside_page_header'><a href="#testirovanie-active-record">5.7.8.</a> Тестирование Active Record</h5><p>Сначала создайте необходимые вам базы данных. Список необходимых имен таблиц, имен пользователей и паролей можно находится в <code>activerecord/test/config.example.yml</code>.</p><p>Для MySQL и PostgreSQL необходимо запускать:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>activerecord
+<span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake </span>db:mysql:build
+</code></pre>
+</div>
+<p>Или:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>activerecord
+<span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake </span>db:postgresql:build
+</code></pre>
+</div>
+<p>Для SQLite3 это необязательно.</p><p>Вот как можно запустить тестовый набор Active Record только для SQLite3:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>activerecord
+<span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake test</span>:sqlite3
+</code></pre>
+</div>
+<p>Теперь вы можете запускать тесты, как вы делали для <code>sqlite3</code>. Соответствующие задачи:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake test</span>:mysql2
+<span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake test</span>:postgresql
+</code></pre>
+</div>
+<p>Наконец,</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake test</span>
+</code></pre>
+</div>
+<p>запустит все три по очереди.</p><p>Также можно запустить любой одиночный тест отдельно:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nv">ARCONN</span><span class="o">=</span>mysql2 <span class="nb">bundle exec ruby</span> <span class="nt">-Itest</span> <span class="nb">test</span>/cases/associations/has_many_associations_test.rb
+</code></pre>
+</div>
+<p>Чтобы запустить одиночный тест на всех адаптерах, используйте:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake </span><span class="nv">TEST</span><span class="o">=</span><span class="nb">test</span>/cases/associations/has_many_associations_test.rb
+</code></pre>
+</div>
+<p>Также можно вызвать <code>test_jdbcmysql</code>, <code>test_jdbcsqlite3</code> или <code>test_jdbcpostgresql</code>. Информацию по запуску нацеленных на базу данных тестов смотрите в файле <code>activerecord/RUNNING_UNIT_TESTS.rdoc</code>.</p><h5 id='ispolzovanie-otladchikov-v-teste' class='inside_page_header'><a href="#ispolzovanie-otladchikov-v-teste">5.7.9.</a> Использование отладчиков в тесте</h5><p>Чтобы использовать внешний отладчик (pry, byebug и т.д.), установите отладчик и используйте его, как обычно. Если возникнут проблемы с отладчиком, запустите тесты последовательно, установив <code>PARALLEL_WORKERS=1</code>, или запустите отдельный тест с помощью <code>-n test_long_test_name</code>.</p><h4 id='preduprezhdeniya' class='inside_page_header'><a href="#preduprezhdeniya">5.8.</a> Предупреждения</h4><p>Тестовый набор запускается с включенными предупреждениями. В идеале, Ruby on Rails не должен выдавать предупреждения, но их может быть несколько, в том числе от сторонних библиотек. Пожалуйста, игнорируйте (или почините!) их, если имеются, и отправляйте изменения, не имеющих новых предупреждений.</p><h4 id='obnovlenie-dokumentatsii' class='inside_page_header'><a href="#obnovlenie-dokumentatsii">5.9.</a> Обновление документации</h4><p><a href="https://guides.rubyonrails.org/">Руководства</a> Ruby on Rails представляют высокоуровневый обзор особенностей Rails, в то время как <a href="https://api.rubyonrails.org/">документация API</a> погружает в подробности.</p><p>Если ваш PR добавляет новую особенность или изменяет поведение существующую особенность, проверьте релевантную документацию, и обновите или добавьте к ней при необходимости.</p><p>Например, если вы изменяете анализатор изображений Active Storage, добавляя новое поле метаданных, следует обновить раздел <a href="https://edgeguides.rubyonrails.org/active_storage_overview.html#analyzing-files">Analyzing Files</a> руководства по Active Storage, чтобы отразить это.</p><h4 id='obnovlenie-changelog' class='inside_page_header'><a href="#obnovlenie-changelog">5.10.</a> Обновление CHANGELOG</h4><p>CHANGELOG — это важная часть каждого релиза. Он содержит список изменений для каждой версии Rails.</p><p>Вам следует добавить запись <strong>в самый верх</strong> CHANGELOG того фреймворка, который вы модифицировали, если вы добавили или убрали особенность, или добавили предупреждения об устаревании. Рефакторинг, исправление небольших программных ошибок и изменения документации обычно не идут в CHANGELOG.</p><p>Запись в CHANGELOG должна кратко описывать то, что было изменено, и заканчиваться именем автора. Можно использовать несколько строчек, если необходимо место, а также можно прикрепить примеры кода с отступом в 4 пробела. Если изменение относится к определенной проблеме, следует прикрепить номер проблемы. Вот пример записи в CHANGELOG:</p><div class="code_container">
+  <pre><code class="highlight plaintext">*   Summary of a change that briefly describes what was changed. You can use multiple
+    lines and wrap them at around 80 characters. Code examples are ok, too, if needed:
+
+        class Foo
+          def bar
+            puts 'baz'
+          end
+        end
+
+    You can continue after the code example and you can attach issue number.
+
+    Fixes #1234.
+
+    *Your Name*
+</code></pre>
+</div>
+<p>Ваше имя может быть добавлено непосредственно после последнего слова, если нет примеров кода или нескольких параграфов. В противном случае, лучше добавить его как новый параграф.</p><h4 id='kriticheskie-izmeneniya' class='inside_page_header'><a href="#kriticheskie-izmeneniya">5.11.</a> Критические изменения</h4><p>Любое изменение, которое может сломать существующие приложения, рассматривается как критическое изменение. Чтобы облегчить обновление приложений Rails, критические изменения требуют цикл устаревания.</p><h5 id='udalenie-povedeniya' class='inside_page_header'><a href="#udalenie-povedeniya">5.11.1.</a> Удаление поведения</h5><p>Если ваше критическое изменение убирает существующее поведение, сперва нужно добавить предупреждение об устаревании, сохраняя существующее поведение.</p><p>В качестве примера допустим, что вы хотите убрать публичный метод из <code>ActiveRecord::Base</code>. Если ветка main указывает на невыпущенную версию 7.0, Rails 7.0 нужно показать предупреждение об устаревании. Это позволит убедиться, что каждый, обновляющийся на версию Rails 7.0, увидит предупреждение об устаревании. В Rails 7.1 метод можно удалить.</p><p>Можно добавить следующее предупреждение об устаревании:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">deprecated_method</span>
+  <span class="no">ActiveRecord</span><span class="p">.</span><span class="nf">deprecator</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="o">&lt;&lt;-</span><span class="no">MSG</span><span class="p">.</span><span class="nf">squish</span><span class="p">)</span><span class="sh">
+    `ActiveRecord::Base.deprecated_method` is deprecated and will be removed in Rails 7.1.
+</span><span class="no">  MSG</span>
+  <span class="c1"># Существующее поведение</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='izmenenie-povedeniya' class='inside_page_header'><a href="#izmenenie-povedeniya">5.11.2.</a> Изменение поведения</h5><p>Если ваше критическое изменение изменяет существующее поведение, нужно добавить значение по умолчанию фреймворка. Значения по умолчанию фреймворка упрощают обновления Rails, позволяя приложениям переключиться на новые значения по умолчанию один за одним.</p><p>Чтобы реализовать новое значение по умолчанию фреймворка, сначала создайте конфигурацию, добавив метод акцессора в целевом фреймворке. Установите значение по умолчанию для существующего поведения, чтобы убедиться, что ничего не поломается в течение обновления.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">module</span> <span class="nn">ActiveJob</span>
+  <span class="n">mattr_accessor</span> <span class="ss">:existing_behavior</span><span class="p">,</span> <span class="ss">default: </span><span class="kp">true</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Новая конфигурация позволяет условно реализовать новое поведение:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">changed_method</span>
+  <span class="k">if</span> <span class="no">ActiveJob</span><span class="p">.</span><span class="nf">existing_behavior</span>
+    <span class="c1"># Существующее поведение</span>
+  <span class="k">else</span>
+    <span class="c1"># Новое поведение</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Чтобы установить новое значение по умолчанию фреймворка, установите новое значение в <code>Rails::Application::Configuration#load_defaults</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">load_defaults</span><span class="p">(</span><span class="n">target_version</span><span class="p">)</span>
+  <span class="k">case</span> <span class="n">target_version</span><span class="p">.</span><span class="nf">to_s</span>
+  <span class="k">when</span> <span class="s2">"7.1"</span>
+    <span class="o">...</span>
+    <span class="k">if</span> <span class="nb">respond_to?</span><span class="p">(</span><span class="ss">:active_job</span><span class="p">)</span>
+      <span class="n">active_job</span><span class="p">.</span><span class="nf">existing_behavior</span> <span class="o">=</span> <span class="kp">false</span>
+    <span class="k">end</span>
+    <span class="o">...</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Чтобы упростить обновление, требуется добавить новое значение по умолчанию в шаблон <code>new_framework_defaults</code>. Добавьте закомментированный раздел, устанавливающее новое поведение:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># new_framework_defaults_7_1.rb.tt</span>
+
+<span class="c1"># Rails.application.config.active_job.existing_behavior = false</span>
+</code></pre>
+</div>
+<p>И последним шагом добавьте новую конфигурацию в руководство по конфигурированию в <code>configuration.md</code>:</p><div class="code_container">
+  <pre><code class="highlight markdown"><span class="gu">#### `config.active_job.existing_behavior</span>
+
+| Starting with version | The default value is |
+| --------------------- | -------------------- |
+| (original)            | <span class="sb">`true`</span>               |
+| 7.1                   | <span class="sb">`false`</span>              |
+</code></pre>
+</div>
+<h4 id='ignorirovanie-faylov-sozdavaemyh-vashim-redaktorom-ide' class='inside_page_header'><a href="#ignorirovanie-faylov-sozdavaemyh-vashim-redaktorom-ide">5.12.</a> Игнорирование файлов, создаваемых вашим редактором / IDE</h4><p>Некоторые редакторы или IDE создадут скрытые файлы или папки внутри папки <code>rails</code>. Вместо ручного исключения их из каждого коммита или добавления их в <code>.gitignore</code> Rails, следует включить их в свой <a href="https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files#configuring-ignored-files-for-all-repositories-on-your-computer">глобальный файл gitignore</a>.</p><h4 id='apgreyd-gemfile-lock' class='inside_page_header'><a href="#apgreyd-gemfile-lock">5.13.</a> Апгрейд Gemfile.lock</h4><p>Некоторые изменения требуют апгрейда зависимостей. В таких случаях убедитесь, что вы запустили <code>bundle update</code>, чтобы получить правильную версию зависимости и сделайте коммит с файлом <code>Gemfile.lock</code> со своими изменениями.</p><h4 id='kommit-vashih-izmeneniy' class='inside_page_header'><a href="#kommit-vashih-izmeneniy">5.14.</a> Коммит ваших изменений</h4><p>Когда вы довольны своим кодом на своем компьютере, необходимо отправить коммит с изменениями в Git:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>commit <span class="nt">-a</span>
+</code></pre>
+</div>
+<p>Это должно запустить ваш редактор, чтобы написать сообщение для этого коммита. После завершения, сохраните и закройте его, чтобы продолжить.</p><p>Хорошо отформатированное и содержательное сообщение коммита очень полезно для остальных для понимания, зачем было сделано изменение, поэтому найдите время написать его.</p><p>Хорошее сообщение коммита должно выглядеть так:</p><div class="code_container">
+  <pre><code class="highlight plaintext">Краткое содержание (в идеале до 50 символов)
+
+Более детальное описание, если необходимо. Каждая строка должна
+переноситься по 72 символа. Попытайтесь быть как можно более наглядным.
+Даже если вы думаете, что содержание коммита очевидно, оно может быть
+неочевидным для остальных. Добавьте любое описание, уже присутствующее
+в соответствующих описаниях проблем; должно быть необязательным
+посещение веб-страницы чтобы посмотреть историю.
+
+Раздел описания может иметь несколько параграфов.
+
+Можно встраивать примеры кода, отступив их на 4 пробелами:
+
+    class ArticlesController
+      def index
+        render json: Article.limit(10)
+      end
+    end
+
+Можно добавить маркированные списки:
+
+- создав пункт списка, начав строчку с черточки (-) или звездочки (*)
+
+- перенося длинные строчки по 72 символа и отступая дополнительные
+  строчки на 2 символа для читаемости
+</code></pre>
+</div>
+<div class="info"><p>Пожалуйста, склеивайте свои коммиты в один коммит, когда это уместно. Это упрощает будущий черри-пикинг и поддерживает чистоту лога.</p></div><h4 id='obnovlenie-vashey-vetki' class='inside_page_header'><a href="#obnovlenie-vashey-vetki">5.15.</a> Обновление вашей ветки</h4><p>Очень вероятно, что были сделаны другие изменения в main, пока вы работали. Получите новые изменения в main:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>checkout main
+<span class="gp">$</span><span class="w"> </span><span class="nb">git </span>pull <span class="nt">--rebase</span>
+</code></pre>
+</div>
+<p>Теперь можно применить ваш патч на последних изменениях:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>checkout my_new_branch
+<span class="gp">$</span><span class="w"> </span><span class="nb">git </span>rebase main
+</code></pre>
+</div>
+<p>Нет конфликтов? Тесты все еще проходят? Изменения еще актуальны? Затем отправьте изменения после ребейза на GitHub:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>push <span class="nt">--force-with-lease</span>
+</code></pre>
+</div>
+<p>Мы не разрешаем принудительную отправку в основной репозиторий rails/rails, но вы можете принудительно отправлять в свой форк. После ребейза это требуется, так как история изменяется.</p><h4 id='fork' class='inside_page_header'><a href="#fork">5.16.</a> Форк</h4><p>Перейдите в репозиторий Rails <a href="https://github.com/rails/rails">на GitHub</a> и нажмите &quot;Fork&quot; в верхнем правом углу.</p><p>Добавьте новый удаленный репозиторий к вашему локальному:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>remote add fork https://github.com/&lt;your username&gt;/rails.git
+</code></pre>
+</div>
+<p>Возможно, у вас есть клонированный форк-репозиторий, и вы хотите добавить удаленным оригинальный репозиторий Rails, в этом случае вот что вам нужно сделать.</p><p>В директории, в которую вы клонировали свой форк:</p><p>Вы можете клонировать свой локальный репозиторий от rails/rails, или можете клонировать свой форк-репозиторий. Следующие команды git предполагают, что вы сделали удаленный репозиторий &quot;rails&quot;, указывающий на rails/rails.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>remote add <span class="nb">rails </span>https://github.com/rails/rails.git
+</code></pre>
+</div>
+<p>Скачать новые коммиты и ветки из официального репозитория:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>fetch <span class="nb">rails</span>
+</code></pre>
+</div>
+<p>Слить новое содержимое:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>checkout main
+<span class="gp">$</span><span class="w"> </span><span class="nb">git </span>rebase <span class="nb">rails</span>/main
+<span class="gp">$</span><span class="w"> </span><span class="nb">git </span>checkout my_new_branch
+<span class="gp">$</span><span class="w"> </span><span class="nb">git </span>rebase <span class="nb">rails</span>/main
+</code></pre>
+</div>
+<p>Обновить ваш форк:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>push fork main
+<span class="gp">$</span><span class="w"> </span><span class="nb">git </span>push fork my_new_branch
+</code></pre>
+</div>
+<h4 id='publikatsiya-pul-rekvesta' class='inside_page_header'><a href="#publikatsiya-pul-rekvesta">5.17.</a> Публикация пул-реквеста</h4><p>Перейдите в репозиторий Rails, в который вы только что отправили код (т.е. <a href="https://github.com/your-user-name/rails">https://github.com/your-user-name/rails</a>) и нажмите на &quot;Pull Requests&quot; в верхней панели (прямо над кодом). На следующей странице нажмите &quot;New pull request&quot; в верхнем правом углу.</p><p>Нажмите на &quot;Edit&quot;, если необходимо изменить сравниваемые ветки (по умолчанию он сравнивает &quot;main&quot;) и нажмите &quot;Click to create a pull request for this comparison&quot;.
+Пул-реквест должен быть нацелен на базовый репозиторий <code>rails/rails</code>и ветку <code>main</code>. Головным репозиторием будет ваш рабочий (<code>your-user-name/rails</code>), а веткой будет то имя, которое вы дали своей ветке. Нажмите &quot;create pull request&quot;, когда будете готовы.</p><p>Убедитесь, что включены изменения, которые вы представили. Заполните некоторыми подробностями о вашем потенциальном патче, используя предоставленный шаблон пул-реквеста. Когда закончите, нажмите &quot;Create pull request&quot;.</p><h4 id='poluchenie-obratnoy-svyazi' class='inside_page_header'><a href="#poluchenie-obratnoy-svyazi">5.18.</a> Получение обратной связи</h4><p>Большая часть пул-реквестов пройдут через ряд итераций до того, как они будут слиты. У разных контрибьюторов иногда разные мнения, и часто изменения нуждаются в пересмотре до того, как их можно слить.</p><p>У некоторых контрибьюторов в Rails включены уведомления по email с GitHub, у некоторых нет. Более того, (почти) все, кто работает над Rails, являются добровольцами, поэтому может пройти несколько дней до того, как вы получите первую обратную связь на пул-реквест. Не отчаивайтесь! Иногда это быстро, иногда это медленно. Такова жизнь открытого ПО.</p><p>Если прошло больше недели, и никто не ответил, можно попытаться немного ускорить процесс. Для этого используйте <a href="https://discuss.rubyonrails.org/c/rubyonrails-core">форум rubyonrails-core</a>. Также можно оставить комментарий в своем пул-реквесте.</p><p>ПОка вы ждете обратную связь на свой пул-реквест, откройте несколько чужих пул-реквестов и дайте обратную связь кому-то еще! Они будут признательны за это не меньше, чем вы были бы признательны за обратную связь на ваши изменения.</p><p>Отметьте, что только командам Core и Committers разрешено мержить изменения кода. Если кто-то даст обратную связь и &quot;одобрит&quot; ваши изменения, у них нет возможности или последнего слова для мержа вашего изменения.</p><h4 id='povtorenie-po-neobhodimosti' class='inside_page_header'><a href="#povtorenie-po-neobhodimosti">5.19.</a> Повторение по необходимости</h4><p>Очень вероятно, что полученная обратная связь предложит изменения. Не отчаивайтесь: весь смысл вклада в активный проект с открытым кодом заключается в том, чтобы использовать знания сообщества. Если люди призывают подправить ваш код, то стоит внести правки и отправить заново. Если обратная связь говорит, что ваш код не будет смержен, вы можете подумать о выпуске его в качестве гема.</p><h5 id='skleivanie-kommitov' class='inside_page_header'><a href="#skleivanie-kommitov">5.19.1.</a> Склеивание коммитов</h5><p>Одной из вещей, которая может быть попрошена, является &quot;squash your commits&quot;, которая объединит все ваши коммиты в один. Мы предпочитаем пул-реквесты с одним коммитом. Это упрощает бэкпортирование в стабильные ветки, склеивание (squashing) позволяет легко откатывать плохие коммиты, слежение за историей git. Rails — это большой проект, и ряд множество сторонних коммитов может добавить много шума.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>fetch <span class="nb">rails</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">git </span>checkout my_new_branch
+<span class="gp">$</span><span class="w"> </span><span class="nb">git </span>rebase <span class="nt">-i</span> <span class="nb">rails</span>/main
+<span class="go">
+</span><span class="gp">&lt; Выберите 'squash' для всех ваших коммитов, кроме первого. &gt;</span><span class="w">
+</span><span class="gp">&lt; Отредактируйте сообщение коммита, чтобы оно было осмысленным, и опишите все свои изменения. &gt;</span><span class="w">
+</span><span class="go">
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>commit <span class="nt">--amend</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">git </span>push fork my_new_branch <span class="nt">--force-with-lease</span>
+</code></pre>
+</div>
+<p>Далее вам необходимо обновить пул-реквест на GitHub и посмотреть, что он был изменен.</p><h5 id='obnovlenie-pul-rekvesta' class='inside_page_header'><a href="#obnovlenie-pul-rekvesta">5.19.2.</a> Обновление пул-реквеста</h5><p>Иногда вас попросят внести некоторые изменения в код, который уже был закоммичен. Это может включать исправление существующих коммитов. В этом случае Git не позволит отправить изменения, так как удаленная и локальная ветки не соответствуют друг другу. Вместо открытия нового пул-реквеста, можно принудить отправку в вашу ветку на GitHub, как описано ранее в разделе про склеивание коммитов:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>push fork my_new_branch <span class="nt">--force-with-lease</span>
+</code></pre>
+</div>
+<p>Это позволит обновить ветку и пул-реквест на GitHub вашим новым кодом. Принудительно отправив с помощью <code>--force-with-lease</code>, git более безопасно обновит удаленный репозиторий, чем с помощью обычного <code>-f</code>, который может стереть работу с удаленного репозитория, которой у вас уже нет.</p><h4 id='starshie-versii-ruby-on-rails' class='inside_page_header'><a href="#starshie-versii-ruby-on-rails">5.20.</a> Старшие версии Ruby on Rails</h4><p>Если вы хотите добавить исправление в версии Ruby on Rails, старше чем следующий релиз, необходимо настроить и переключить свою локальную отслеживаемую ветку. Вот пример, как переключиться на ветку 7-0-stable:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>branch <span class="nt">--track</span> 7-0-stable <span class="nb">rails</span>/7-0-stable
+<span class="gp">$</span><span class="w"> </span><span class="nb">git </span>checkout 7-0-stable
+</code></pre>
+</div>
+<div class="note"><p>Перед работой над старшими версиями, проверьте <a href="/maintenance-policy">политику поддержки</a>. Изменения не будут приняты в версии, которые достигли конец поддержки.</p></div><h5 id='bekportirovanie' class='inside_page_header'><a href="#bekportirovanie">5.20.1.</a> Бэкпортирование</h5><p>Изменения, слитые в main, предназначены для следующего главного релиза Rails. Иногда полезно, распространить ваши изменения на поддерживаемые релизы для стабильных веток. Как правило, хорошими кандидатами для бэкпортирования являются исправления безопасности и исправления программных ошибок, в то время как новые особенности и исправления, изменяющие поведение, не будут приняты. Когда сомневаетесь, лучше всего проконсультироваться с членом основной команды Rails до бэкпортирования ваших изменений, чтобы избежать потери времени.</p><p>Сначала убедитесь, что ваша ветка main актуальна:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>checkout main
+<span class="gp">$</span><span class="w"> </span><span class="nb">git </span>pull <span class="nt">--rebase</span>
+</code></pre>
+</div>
+<p>Перейдите в ветку, которую вы бэкпортируете, например, <code>7-0-stable</code>, и убедитесь, что она актуальна:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>checkout 7-0-stable
+<span class="gp">$</span><span class="w"> </span><span class="nb">git </span>reset <span class="nt">--hard</span> origin/7-0-stable
+<span class="gp">$</span><span class="w"> </span><span class="nb">git </span>checkout <span class="nt">-b</span> my-backport-branch
+</code></pre>
+</div>
+<p>Если вы бэкпортируете смерженный пул-реквест, найдите коммит для мержа, и вытащите его:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>cherry-pick <span class="nt">-m1</span> MERGE_SHA
+</code></pre>
+</div>
+<p>Почините все конфликты, случающиеся при вытаскивании, отправьте ваши изменения, затем откройте PR, указывающий на стабильную ветку, в которую вы бэкпортируете. Если у вас более сложный набор изменений, документация по <a href="https://git-scm.com/docs/git-cherry-pick">cherry-pick</a> может помочь.</p><h3 id='avtory-rails' class='inside_page_header'><a href="#avtory-rails">6.</a> Авторы Rails</h3><p>Все внесшие вклад восхваляются в <a href="https://contributors.rubyonrails.org">Rails Contributors</a>.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

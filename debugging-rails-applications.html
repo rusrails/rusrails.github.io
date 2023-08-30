@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Отладка приловжений на Rails" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Отладка приловжений на Rails" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/debugging-rails-applications" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Отладка приловжений на Rails
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="3gsjgfT4/Z8DMNs5XESIR8fWtkXM4O4l0rRfx0tm7wv12264UiV9ehzcwVv8fnI1xu0JQ6WlqmMsmN7JiHIctQ==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#helpery-vyu-dlya-otladki">1. Хелперы вью для отладки</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#debug">1.1. <code>debug</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#to_yaml">1.2. <code>to_yaml</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#inspect">1.3. <code>inspect</code></a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#logger">2. Логгер</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#chto-takoe-logger">2.1. Что такое Логгер?</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#urovni-loga">2.2. Уровни лога</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#otpravka-soobscheniy">2.3. Отправка сообщений</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#podrobnye-logi-zaprosa-query-logs">2.4. Подробные логи запроса Query Logs</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#kommentarii-v-zaprose-sql">3. Комментарии в запросе SQL</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#tegirovannoe-logirovanie">3.1. Тегированное логирование</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#vozdeystvie-logov-na-proizvoditelnost">3.2. Воздействие логов на производительность</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#otladka-s-pomoschyu-gema-debug">4. Отладка с помощью гема &quot;debug&quot;</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#vhod-v-sessiyu-otladki">4.1. Вход в сессию отладки</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#kontekst">4.2. Контекст</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#komanda-info">4.2.1. Команда <code>info</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#komanda-backtrace">4.2.2. Команда <code>backtrace</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#komanda-outline">4.2.3. Команда <code>outline</code></a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#tochki-ostanova">4.3. Точки останова</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#komanda-break">4.3.1. Команда <code>break</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#komanda-catch">4.3.2. Команда <code>catch</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#komanda-watch">4.3.3. Команда <code>watch</code></a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#optsii-tochki-ostanova">4.3.4. Опции точки останова</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#programmiruyte-svoy-rabochiy-protsess-otladki">4.3.5. Программируйте свой рабочий процесс отладки</a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#otladka-s-pomoschyu-gema-web-console">5. Отладка с помощью гема <code>web-console</code></a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#konsol">5.1. Консоль</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#proverka-peremennyh">5.2. Проверка переменных</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#nastroyki">5.3. Настройки</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#otladka-utechki-pamyati">6. Отладка утечки памяти</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#valgrind">6.1. Valgrind</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#poisk-utechek-pamyati">6.2. Поиск утечек памяти</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#plaginy-dlya-otladki">7. Плагины для отладки</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#ssylki">8. Ссылки</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='otladka-prilozheniy-na-rails' class='inside_page_header'> Отладка приложений на Rails</h2><p>Это руководство представляет технику отладки приложений на Ruby on Rails.</p><p>После прочтения этого руководства, вы узнаете:</p><ul><li>Цель отладки
+</li><li>Как отслеживать проблемы и вопросы в вашем приложении, которые не определили ваши тесты
+</li><li>Различные способы отладки
+</li><li>Как анализировать трассировку
+</li></ul><h3 id='helpery-vyu-dlya-otladki' class='inside_page_header'><a href="#helpery-vyu-dlya-otladki">1.</a> Хелперы вью для отладки</h3><p>Одной из обычных задач является проверить содержимое переменной. Rails предоставляет три пути как сделать это:</p><ul><li><code>debug</code>
+</li><li><code>to_yaml</code>
+</li><li><code>inspect</code>
+</li></ul><h4 id='debug' class='inside_page_header'><a href="#debug">1.1.</a> <code>debug</code></h4><p>Хелпер <code>debug</code> возвратит тег &lt;pre&gt;, который рендерит объект, с использованием формата YAML. Это сгенерирует читаемые данные из объекта. Например, если у вас такой код во вью:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">debug</span> <span class="vi">@article</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;b&gt;</span>Title:<span class="nt">&lt;/b&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+<p>Вы получите что-то наподобие этого:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="nn">---</span> <span class="kt">!ruby/object</span> <span class="s">Article</span>
+<span class="na">attributes</span><span class="pi">:</span>
+  <span class="na">updated_at</span><span class="pi">:</span> <span class="s">2008-09-05 22:55:47</span>
+  <span class="na">body</span><span class="pi">:</span> <span class="s">It's a very helpful guide for debugging your Rails app.</span>
+  <span class="na">title</span><span class="pi">:</span> <span class="s">Rails debugging guide</span>
+  <span class="na">published</span><span class="pi">:</span> <span class="s">t</span>
+  <span class="na">id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1"</span>
+  <span class="na">created_at</span><span class="pi">:</span> <span class="s">2008-09-05 22:55:47</span>
+<span class="na">attributes_cache</span><span class="pi">:</span> <span class="pi">{}</span>
+
+
+<span class="na">Title</span><span class="pi">:</span> <span class="s">Rails debugging guide</span>
+</code></pre>
+</div>
+<h4 id='to_yaml' class='inside_page_header'><a href="#to_yaml">1.2.</a> <code>to_yaml</code></h4><p>Другой вариант, вызов <code>to_yaml</code> на любом объекте конвертирует его в YAML. Вы можете передать этот сконвертированный объект в метод хелпера <code>simple_format</code> для форматирования выходных данных. Именно так и работает метод <code>debug</code>.</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">simple_format</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">to_yaml</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;b&gt;</span>Title:<span class="nt">&lt;/b&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+<p>Код выше отрендерит что-то вроде этого:</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="nn">---</span> <span class="kt">!ruby/object</span> <span class="s">Article</span>
+<span class="na">attributes</span><span class="pi">:</span>
+<span class="na">updated_at</span><span class="pi">:</span> <span class="s">2008-09-05 22:55:47</span>
+<span class="na">body</span><span class="pi">:</span> <span class="s">It's a very helpful guide for debugging your Rails app.</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Rails debugging guide</span>
+<span class="na">published</span><span class="pi">:</span> <span class="s">t</span>
+<span class="na">id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1"</span>
+<span class="na">created_at</span><span class="pi">:</span> <span class="s">2008-09-05 22:55:47</span>
+<span class="na">attributes_cache</span><span class="pi">:</span> <span class="pi">{}</span>
+
+<span class="na">Title</span><span class="pi">:</span> <span class="s">Rails debugging guide</span>
+</code></pre>
+</div>
+<h4 id='inspect' class='inside_page_header'><a href="#inspect">1.3.</a> <code>inspect</code></h4><p>Другим полезным методом для отображения значений объекта является <code>inspect</code>, особенно при работе с массивами и хэшами. Он напечатает значение объекта как строку. Например:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">].</span><span class="nf">inspect</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;b&gt;</span>Title:<span class="nt">&lt;/b&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+<p>Отрендерит:</p><div class="code_container">
+  <pre><code class="highlight plaintext">[1, 2, 3, 4, 5]
+
+Title: Rails debugging guide
+</code></pre>
+</div>
+<h3 id='logger' class='inside_page_header'><a href="#logger">2.</a> Логгер</h3><p>Также может быть полезным сохранять информацию в файл лога в процессе выполнения. Rails поддерживает отдельный файл лога для каждой среды запуска.</p><h4 id='chto-takoe-logger' class='inside_page_header'><a href="#chto-takoe-logger">2.1.</a> Что такое Логгер?</h4><p>Rails использует класс <code>ActiveSupport::Logger</code> для записи информации в лог. Другие логгеры, такие как <code>Log4R</code>, могут так же стать заменой.</p><p>Альтернативный логгер можно определить в <code>config/application.rb</code> или любом другом файле среды, например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">logger</span> <span class="o">=</span> <span class="no">Logger</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">STDOUT</span><span class="p">)</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">logger</span> <span class="o">=</span> <span class="no">Log4r</span><span class="o">::</span><span class="no">Logger</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Application Log"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Или в разделе <code>Initializer</code> добавьте <em>одно из</em> следующего</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">logger</span> <span class="o">=</span> <span class="no">Logger</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">STDOUT</span><span class="p">)</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">logger</span> <span class="o">=</span> <span class="no">Log4r</span><span class="o">::</span><span class="no">Logger</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Application Log"</span><span class="p">)</span>
+</code></pre>
+</div>
+<div class="info"><p>По умолчанию каждый лог создается в <code>Rails.root/log/</code> с файлом лога, названным по окружению, в котором запущено приложение.</p></div><h4 id='urovni-loga' class='inside_page_header'><a href="#urovni-loga">2.2.</a> Уровни лога</h4><p>Когда что-то логируется, оно записывается в соответствующий лог, если уровень лога сообщения равен или выше чем настроенный уровень лога. Если хотите узнать текущий уровень лога, вызовите метод <code>ActiveRecord::Base.logger.level</code>.</p><p>Доступные уровни лога следующие: <code>:debug</code>, <code>:info</code>, <code>:warn</code>, <code>:error</code>, <code>:fatal</code> и <code>:unknown</code>, соответствующие номерам уровня лога от 0 до 5 соответственно. Чтобы изменить уровень лога по умолчанию, используйте</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">log_level</span> <span class="o">=</span> <span class="ss">:warn</span> <span class="c1"># В любом инициализаторе среды, или</span>
+<span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span><span class="p">.</span><span class="nf">logger</span><span class="p">.</span><span class="nf">level</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># в любое время</span>
+</code></pre>
+</div>
+<p>Это полезно, когда вы хотите логировать в development или staging, но не хотите захламлять production лог ненужной информацией.</p><div class="info"><p>По умолчанию, уровень лога Rails - <code>debug</code> во всех средах.</p></div><h4 id='otpravka-soobscheniy' class='inside_page_header'><a href="#otpravka-soobscheniy">2.3.</a> Отправка сообщений</h4><p>Чтобы писать в текущий лог, используйте метод <code>logger.(debug|info|warn|error|fatal|unknown)</code> внутри контроллера, модели или рассыльщика:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">logger</span><span class="p">.</span><span class="nf">debug</span> <span class="s2">"Person attributes hash: </span><span class="si">#{</span><span class="vi">@person</span><span class="p">.</span><span class="nf">attributes</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span>
+<span class="n">logger</span><span class="p">.</span><span class="nf">info</span> <span class="s2">"Processing the request..."</span>
+<span class="n">logger</span><span class="p">.</span><span class="nf">fatal</span> <span class="s2">"Terminating application, raised unrecoverable error!!!"</span>
+</code></pre>
+</div>
+<p>Вот пример метода, оборудованного дополнительным логированием:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ArticlesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="c1"># ...</span>
+
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@article</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">article_params</span><span class="p">)</span>
+    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span> <span class="s2">"New article: </span><span class="si">#{</span><span class="vi">@article</span><span class="p">.</span><span class="nf">attributes</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span>
+    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span> <span class="s2">"Article should be valid: </span><span class="si">#{</span><span class="vi">@article</span><span class="p">.</span><span class="nf">valid?</span><span class="si">}</span><span class="s2">"</span>
+
+    <span class="k">if</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">save</span>
+      <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span> <span class="s2">"The article was saved and now the user is going to be redirected..."</span>
+      <span class="n">redirect_to</span> <span class="vi">@article</span><span class="p">,</span> <span class="ss">notice: </span><span class="s1">'Article was successfully created.'</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="ss">:new</span><span class="p">,</span> <span class="ss">status: :unprocessable_entity</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="c1"># ...</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">article_params</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:article</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">:published</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Пример лога, сгенерированного при выполнении экшна контроллера:</p><div class="code_container">
+  <pre><code class="highlight plaintext">Started POST "/articles" for 127.0.0.1 at 2018-10-18 20:09:23 -0400
+  Parameters: {"utf8"=&gt;"✓", "authenticity_token"=&gt;"XLveDrKzF1SwaiNRPTaMtkrsTzedtebPPkmxEFIU0ordLjICSnXsSNfrdMa4ccyBjuGwnnEiQhEoMN6H1Gtz3A==", "article"=&gt;{"title"=&gt;"Debugging Rails", "body"=&gt;"I'm learning how to print in logs.", "published"=&gt;"0"}, "commit"=&gt;"Create Article"}
+New article: {"id"=&gt;nil, "title"=&gt;"Debugging Rails", "body"=&gt;"I'm learning how to print in logs.", "published"=&gt;false, "created_at"=&gt;nil, "updated_at"=&gt;nil}
+Article should be valid: true
+   (0.0ms)  begin transaction
+  ↳ app/controllers/articles_controller.rb:31
+  Article Create (0.5ms)  INSERT INTO "articles" ("title", "body", "published", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Debugging Rails"], ["body", "I'm learning how to print in logs."], ["published", 0], ["created_at", "2018-10-19 00:09:23.216549"], ["updated_at", "2018-10-19 00:09:23.216549"]]
+  ↳ app/controllers/articles_controller.rb:31
+   (2.3ms)  commit transaction
+  ↳ app/controllers/articles_controller.rb:31
+The article was saved and now the user is going to be redirected...
+Redirected to http://localhost:3000/articles/1
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+</code></pre>
+</div>
+<p>Добавление дополнительного логирования, подобного этому, облегчает поиск неожиданного или необычного поведения в ваших логах. Если добавляете дополнительное логирование, убедитесь в разумном использовании уровней лога, для избежания заполнения ваших рабочих логов ненужными мелочами.</p><h4 id='podrobnye-logi-zaprosa-query-logs' class='inside_page_header'><a href="#podrobnye-logi-zaprosa-query-logs">2.4.</a> Подробные логи запроса Query Logs</h4><p>При взгляде на вывод запросов к базе данных в логах, может быть не до конца понятным, почему выполняются несколько запросов при вызове одного метода:</p><div class="code_container">
+  <pre><code class="highlight plaintext">irb(main):001:0&gt; Article.pamplemousse
+  Article Load (0.4ms)  SELECT "articles".* FROM "articles"
+  Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 1]]
+  Comment Load (0.1ms)  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 2]]
+  Comment Load (0.1ms)  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 3]]
+=&gt; #&lt;Comment id: 2, author: "1", body: "Well, actually...", article_id: 1, created_at: "2018-10-19 00:56:10", updated_at: "2018-10-19 00:56:10"&gt;
+</code></pre>
+</div>
+<p>После запуска <code>ActiveRecord.verbose_query_logs = true</code> в сессии <code>bin/rails console</code>, чтобы включить подробные логи, и запуска метода снова, становится ясным, что единственная строчка кода генерирует все эти отдельные запросы к базе данных:</p><div class="code_container">
+  <pre><code class="highlight plaintext">irb(main):003:0&gt; Article.pamplemousse
+  Article Load (0.2ms)  SELECT "articles".* FROM "articles"
+  ↳ app/models/article.rb:5
+  Comment Load (0.1ms)  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 1]]
+  ↳ app/models/article.rb:6
+  Comment Load (0.1ms)  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 2]]
+  ↳ app/models/article.rb:6
+  Comment Load (0.1ms)  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 3]]
+  ↳ app/models/article.rb:6
+=&gt; #&lt;Comment id: 2, author: "1", body: "Well, actually...", article_id: 1, created_at: "2018-10-19 00:56:10", updated_at: "2018-10-19 00:56:10"&gt;
+</code></pre>
+</div>
+<p>Под каждым выражением базы данных можно увидеть стрелки, указывающие на определенное имя файла исходного кода (и номер строчки) метода, приведшего к вызову базы данных. Это может помочь обнаружить и обойти проблемы быстродействия, вызванные N+1 запросом: отдельные запросы к базе данных, генерирующие множество дополнительных запросов.</p><p>Подробные логи запросов включены по умолчанию в среде development после Rails 5.2.</p><div class="warning"><p>Мы отговариваем от использования этой настройки в среде production. Она полагается на метод Ruby <code>Kernel#caller</code>, который, как правило, использует много памяти для генерации трассировок стека вызовов метода. Вместо этого используйте теги логов (смотрите ниже).</p></div><h3 id='kommentarii-v-zaprose-sql' class='inside_page_header'><a href="#kommentarii-v-zaprose-sql">3.</a> Комментарии в запросе SQL</h3><p>Выражения SQL могут быть откомментированы с помощью тегов, содержащих информацию о выполнении, такой как имя контроллера или задачи, чтобы связать проблемные запросы с областью приложения, сгенерировавшей эти выражения. Это полезно, когда вы логируете медленные запросы (например, <a href="https://dev.mysql.com/doc/refman/en/slow-query-log.html">MySQL</a>, <a href="https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT">PostgreSQL</a>), просматриваете текущие запущенные запросы, или для end-to-end инструментов отслеживания.</p><p>Чтобы включить, добавьте в <code>application.rb</code> или любом инициализаторе среды:</p><div class="code_container">
+  <pre><code class="highlight rb"><span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">query_log_tags_enabled</span> <span class="o">=</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<p>По умолчанию логируются имя приложения, имя и экшн контроллера, или имя задачи. Формат по умолчанию <a href="https://open-telemetry.github.io/opentelemetry-sqlcommenter/">SQLCommenter</a>. Например:</p><div class="code_container">
+  <pre><code class="highlight plaintext">Article Load (0.2ms)  SELECT "articles".* FROM "articles" /*application='Blog',controller='articles',action='index'*/
+
+Article Update (0.3ms)  UPDATE "articles" SET "title" = ?, "updated_at" = ? WHERE "posts"."id" = ? /*application='Blog',job='ImproveTitleJob'*/  [["title", "Improved Rails debugging guide"], ["updated_at", "2022-10-16 20:25:40.091371"], ["id", 1]]
+</code></pre>
+</div>
+<p>Поведение <a href="https://api.rubyonrails.org/classes/ActiveRecord/QueryLogs.html"><code>ActiveRecord::QueryLogs</code></a> может быть изменено, чтобы включить все, что поможет идентифицировать запрос SQL, такое как id запроса или задачи для логов приложения, идентификаторы учетной записи и владельца, и так далее.</p><h4 id='tegirovannoe-logirovanie' class='inside_page_header'><a href="#tegirovannoe-logirovanie">3.1.</a> Тегированное логирование</h4><p>При запуске многопользовательских приложений часто полезно фильтровать логи с использованием произвольных правил.
+<code>TaggedLogging</code> в Active Support помогает это сделать, помечая строчки лога с помощью поддомена, идентификаторов запроса, и тому подобного, помогая отладке таких приложений.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">logger</span> <span class="o">=</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">TaggedLogging</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Logger</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">STDOUT</span><span class="p">))</span>
+<span class="n">logger</span><span class="p">.</span><span class="nf">tagged</span><span class="p">(</span><span class="s2">"BCX"</span><span class="p">)</span> <span class="p">{</span> <span class="n">logger</span><span class="p">.</span><span class="nf">info</span> <span class="s2">"Stuff"</span> <span class="p">}</span>                            <span class="c1"># Logs "[BCX] Stuff"</span>
+<span class="n">logger</span><span class="p">.</span><span class="nf">tagged</span><span class="p">(</span><span class="s2">"BCX"</span><span class="p">,</span> <span class="s2">"Jason"</span><span class="p">)</span> <span class="p">{</span> <span class="n">logger</span><span class="p">.</span><span class="nf">info</span> <span class="s2">"Stuff"</span> <span class="p">}</span>                   <span class="c1"># Logs "[BCX] [Jason] Stuff"</span>
+<span class="n">logger</span><span class="p">.</span><span class="nf">tagged</span><span class="p">(</span><span class="s2">"BCX"</span><span class="p">)</span> <span class="p">{</span> <span class="n">logger</span><span class="p">.</span><span class="nf">tagged</span><span class="p">(</span><span class="s2">"Jason"</span><span class="p">)</span> <span class="p">{</span> <span class="n">logger</span><span class="p">.</span><span class="nf">info</span> <span class="s2">"Stuff"</span> <span class="p">}</span> <span class="p">}</span> <span class="c1"># Logs "[BCX] [Jason] Stuff"</span>
+</code></pre>
+</div>
+<h4 id='vozdeystvie-logov-na-proizvoditelnost' class='inside_page_header'><a href="#vozdeystvie-logov-na-proizvoditelnost">3.2.</a> Воздействие логов на производительность</h4><p>У логирования всегда будет небольшое воздействие на производительность приложения rails, особенно при логировании на диск. Кроме того, тут есть несколько тонкостей:</p><p>Использование уровня <code>:debug</code> оказывает гораздо большее влияние на производительность, чем использование уровня <code>:fatal</code>, так как вычисляется и пишется в лог (т.е. на диск) гораздо большее количество строк.</p><p>Другая потенциальная ловушка - частые вызовы <code>Logger</code> в вашем коде:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">logger</span><span class="p">.</span><span class="nf">debug</span> <span class="s2">"Person attributes hash: </span><span class="si">#{</span><span class="vi">@person</span><span class="p">.</span><span class="nf">attributes</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span>
+</code></pre>
+</div>
+<p>В этом примере будет воздействие на производительность, даже если допустимый уровень вывода не включает debug. Причина этого в том, что Ruby вычисляет эти строки, включая инициализацию относительно весомого объекта <code>String</code> и интерполяцию переменных.</p><p>Следовательно, в методы логгера рекомендуется передавать блоки, так как они только вычисляются, если уровень вывода такой же или включен в допустимый (т.е. ленивая загрузка). Переписанный тот же код:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">logger</span><span class="p">.</span><span class="nf">debug</span> <span class="p">{</span><span class="s2">"Person attributes hash: </span><span class="si">#{</span><span class="vi">@person</span><span class="p">.</span><span class="nf">attributes</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span><span class="p">}</span>
+</code></pre>
+</div>
+<p>Содержимое блока и, следовательно, интерполяция строки будут только вычислены, если включен уровень debug. Экономия производительности будет реально заметна только при большом количестве логирования, но это все равно хорошая практика применения.</p><div class="info"><p>Этот подраздел в оригинале был написан <a href="https://stackoverflow.com/questions/16546730/logging-in-rails-is-there-any-performance-hit/16546935#16546935">Jon Cairns в ответе на StackOverflow</a> и лицензирован по <a href="https://creativecommons.org/licenses/by-sa/4.0/">cc by-sa 4.0</a>.</p></div><h3 id='otladka-s-pomoschyu-gema-debug' class='inside_page_header'><a href="#otladka-s-pomoschyu-gema-debug">4.</a> Отладка с помощью гема &quot;debug&quot;</h3><p>Когда ваш код ведет себя неожиданным образом, можете печатать в логи или консоль, чтобы выявить проблему. К сожалению, иногда бывает, что такой способ отслеживания ошибки не эффективен в поиске причины проблемы. Когда вы фактически нуждаетесь в путешествии вглубь исполняемого кода, отладчик - это ваш лучший напарник.</p><p>Отладчик также может помочь, если хотите изучить исходный код Rails, но не знаете с чего начать. Просто отладьте любой запрос к своему приложению и используйте это руководство для изучения, как идет движение от написанного вами кода в основной код Rails.</p><p>Rails 7 включает гем <code>debug</code> в <code>Gemfile</code> нового приложения, сгенерированного CRuby. По умолчанию он подготовлен к работе в средах <code>development</code> и <code>test</code>. Чтобы узнать, как его использовать, обратитесь к его <a href="https://github.com/ruby/debug">документации</a>.</p><h4 id='vhod-v-sessiyu-otladki' class='inside_page_header'><a href="#vhod-v-sessiyu-otladki">4.1.</a> Вход в сессию отладки</h4><p>По умолчанию сессия отладки начнется после подключения библиотеки <code>debug</code>, что происходит при запуске вашего приложения. Но не беспокойтесь, сессия не будет вмешиваться в вашу программу.</p><p>Чтобы войти в сессию отладки, можно использовать <code>binding.break</code> и его псевдонимы: <code>binding.b</code> и <code>debugger</code>. Нижеследующие примеры будут использовать <code>debugger</code>:</p><div class="code_container">
+  <pre><code class="highlight rb"><span class="k">class</span> <span class="nc">PostsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">before_action</span> <span class="ss">:set_post</span><span class="p">,</span> <span class="ss">only: </span><span class="sx">%i[ show edit update destroy ]</span>
+
+  <span class="c1"># GET /posts or /posts.json</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@posts</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">all</span>
+    <span class="n">debugger</span>
+  <span class="k">end</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Как только ваше приложение вычислит выражение отладки, оно войдет в сессию отладки:</p><div class="code_container">
+  <pre><code class="highlight rb"><span class="no">Processing</span> <span class="n">by</span> <span class="no">PostsController</span><span class="c1">#index as HTML</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span> <span class="k">in</span> <span class="o">~</span><span class="sr">/projects/</span><span class="n">rails</span><span class="o">-</span><span class="n">guide</span><span class="o">-</span><span class="n">example</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">controllers</span><span class="o">/</span><span class="n">posts_controller</span><span class="p">.</span><span class="nf">rb</span>
+     <span class="mi">2</span><span class="o">|</span>   <span class="n">before_action</span> <span class="ss">:set_post</span><span class="p">,</span> <span class="ss">only: </span><span class="sx">%i[ show edit update destroy ]</span>
+     <span class="mi">3</span><span class="o">|</span>
+     <span class="mi">4</span><span class="o">|</span>   <span class="c1"># GET /posts or /posts.json</span>
+     <span class="mi">5</span><span class="o">|</span>   <span class="k">def</span> <span class="nf">index</span>
+     <span class="mi">6</span><span class="o">|</span>     <span class="vi">@posts</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">all</span>
+<span class="o">=&gt;</span>   <span class="mi">7</span><span class="o">|</span>     <span class="n">debugger</span>
+     <span class="mi">8</span><span class="o">|</span>   <span class="k">end</span>
+     <span class="mi">9</span><span class="o">|</span>
+    <span class="mi">10</span><span class="o">|</span>   <span class="c1"># GET /posts/1 or /posts/1.json</span>
+    <span class="mi">11</span><span class="o">|</span>   <span class="k">def</span> <span class="nf">show</span>
+<span class="o">=&gt;</span><span class="c1">#0    PostsController#index at ~/projects/rails-guide-example/app/controllers/posts_controller.rb:7</span>
+  <span class="c1">#1    ActionController::BasicImplicitRender#send_action(method="index", args=[]) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/actionpack-7.1.0.alpha/lib/action_controller/metal/basic_implicit_render.rb:6</span>
+  <span class="c1"># and 72 frames (use `bt' command for all frames)</span>
+<span class="p">(</span><span class="n">rdbg</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Из сессии отладки можно выйти в любое время и продолжить выполнение вашего приложения с помощью команды <code>continue</code> (или <code>c</code>).  Или, чтобы выйти и из сессии отладки, и из вашего приложения, используйте команду <code>quit</code> (или <code>q</code>).</p><h4 id='kontekst' class='inside_page_header'><a href="#kontekst">4.2.</a> Контекст</h4><p>После входа в сессию отладки, можно писать код на Ruby, как будто в консоли Rails или IRB.</p><div class="code_container">
+  <pre><code class="highlight rb"><span class="p">(</span><span class="n">rdbg</span><span class="p">)</span> <span class="vi">@posts</span>    <span class="c1"># ruby</span>
+<span class="p">[]</span>
+<span class="p">(</span><span class="n">rdbg</span><span class="p">)</span> <span class="nb">self</span>
+<span class="c1">#&lt;PostsController:0x0000000000aeb0&gt;</span>
+<span class="p">(</span><span class="n">rdbg</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Также можно использовать команду <code>p</code> или <code>pp</code>, чтобы вычислить выражение Ruby (например, когда имя переменной конфликтует с командой отладчика).</p><div class="code_container">
+  <pre><code class="highlight rb"><span class="p">(</span><span class="n">rdbg</span><span class="p">)</span> <span class="nb">p</span> <span class="n">headers</span>    <span class="c1"># command</span>
+<span class="o">=&gt;</span> <span class="p">{</span><span class="s2">"X-Frame-Options"</span><span class="o">=&gt;</span><span class="s2">"SAMEORIGIN"</span><span class="p">,</span> <span class="s2">"X-XSS-Protection"</span><span class="o">=&gt;</span><span class="s2">"1; mode=block"</span><span class="p">,</span> <span class="s2">"X-Content-Type-Options"</span><span class="o">=&gt;</span><span class="s2">"nosniff"</span><span class="p">,</span> <span class="s2">"X-Download-Options"</span><span class="o">=&gt;</span><span class="s2">"noopen"</span><span class="p">,</span> <span class="s2">"X-Permitted-Cross-Domain-Policies"</span><span class="o">=&gt;</span><span class="s2">"none"</span><span class="p">,</span> <span class="s2">"Referrer-Policy"</span><span class="o">=&gt;</span><span class="s2">"strict-origin-when-cross-origin"</span><span class="p">}</span>
+<span class="p">(</span><span class="n">rdbg</span><span class="p">)</span> <span class="n">pp</span> <span class="n">headers</span>    <span class="c1"># command</span>
+<span class="p">{</span><span class="s2">"X-Frame-Options"</span><span class="o">=&gt;</span><span class="s2">"SAMEORIGIN"</span><span class="p">,</span>
+ <span class="s2">"X-XSS-Protection"</span><span class="o">=&gt;</span><span class="s2">"1; mode=block"</span><span class="p">,</span>
+ <span class="s2">"X-Content-Type-Options"</span><span class="o">=&gt;</span><span class="s2">"nosniff"</span><span class="p">,</span>
+ <span class="s2">"X-Download-Options"</span><span class="o">=&gt;</span><span class="s2">"noopen"</span><span class="p">,</span>
+ <span class="s2">"X-Permitted-Cross-Domain-Policies"</span><span class="o">=&gt;</span><span class="s2">"none"</span><span class="p">,</span>
+ <span class="s2">"Referrer-Policy"</span><span class="o">=&gt;</span><span class="s2">"strict-origin-when-cross-origin"</span><span class="p">}</span>
+<span class="p">(</span><span class="n">rdbg</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Помимо непосредственного вычисления, отладчик также помогает собрать расширенное количество информации с помощью различных команд. Вот только некоторые из них:</p><ul><li><code>info</code> (или <code>i</code>) - Информация о текущем фрейме.
+</li><li><code>backtrace</code> (или <code>bt</code>) - Трассировка (с дополнительной информацией).
+</li><li><code>outline</code> (или <code>o</code>, <code>ls</code>) - Доступные в текущей области видимости методы, константы, локальные переменные и переменные экземпляра.
+</li></ul><h5 id='komanda-info' class='inside_page_header'><a href="#komanda-info">4.2.1.</a> Команда <code>info</code></h5><p>Она выдает обзор значений локальных переменных и переменных экземпляра, которые видны в текущем фрейме.</p><div class="code_container">
+  <pre><code class="highlight rb"><span class="p">(</span><span class="n">rdbg</span><span class="p">)</span> <span class="n">info</span>    <span class="c1"># command</span>
+<span class="o">%</span><span class="nb">self</span> <span class="o">=</span> <span class="c1">#&lt;PostsController:0x0000000000af78&gt;</span>
+<span class="vi">@_action_has_layout</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="vi">@_action_name</span> <span class="o">=</span> <span class="s2">"index"</span>
+<span class="vi">@_config</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="vi">@_lookup_context</span> <span class="o">=</span> <span class="c1">#&lt;ActionView::LookupContext:0x00007fd91a037e38 @details_key=nil, @digest_cache=...</span>
+<span class="vi">@_request</span> <span class="o">=</span> <span class="c1">#&lt;ActionDispatch::Request GET "http://localhost:3000/posts" for 127.0.0.1&gt;</span>
+<span class="vi">@_response</span> <span class="o">=</span> <span class="c1">#&lt;ActionDispatch::Response:0x00007fd91a03ea08 @mon_data=#&lt;Monitor:0x00007fd91a03e8c8&gt;...</span>
+<span class="vi">@_response_body</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="vi">@_routes</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="vi">@marked_for_same_origin_verification</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="vi">@posts</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="vi">@rendered_format</span> <span class="o">=</span> <span class="kp">nil</span>
+</code></pre>
+</div>
+<h5 id='komanda-backtrace' class='inside_page_header'><a href="#komanda-backtrace">4.2.2.</a> Команда <code>backtrace</code></h5><p>При использовании без опций она перечисляет все фреймы стека:</p><div class="code_container">
+  <pre><code class="highlight rb"><span class="o">=&gt;</span><span class="c1">#0    PostsController#index at ~/projects/rails-guide-example/app/controllers/posts_controller.rb:7</span>
+  <span class="c1">#1    ActionController::BasicImplicitRender#send_action(method="index", args=[]) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/actionpack-7.1.0.alpha/lib/action_controller/metal/basic_implicit_render.rb:6</span>
+  <span class="c1">#2    AbstractController::Base#process_action(method_name="index", args=[]) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/actionpack-7.1.0.alpha/lib/abstract_controller/base.rb:214</span>
+  <span class="c1">#3    ActionController::Rendering#process_action(#arg_rest=nil) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/actionpack-7.1.0.alpha/lib/action_controller/metal/rendering.rb:53</span>
+  <span class="c1">#4    block in process_action at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/actionpack-7.1.0.alpha/lib/abstract_controller/callbacks.rb:221</span>
+  <span class="c1">#5    block in run_callbacks at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/activesupport-7.1.0.alpha/lib/active_support/callbacks.rb:118</span>
+  <span class="c1">#6    ActionText::Rendering::ClassMethods#with_renderer(renderer=#&lt;PostsController:0x0000000000af78&gt;) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/actiontext-7.1.0.alpha/lib/action_text/rendering.rb:20</span>
+  <span class="c1">#7    block {|controller=#&lt;PostsController:0x0000000000af78&gt;, action=#&lt;Proc:0x00007fd91985f1c0 /Users/st0012/...|} in &lt;class:Engine&gt; (4 levels) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/actiontext-7.1.0.alpha/lib/action_text/engine.rb:69</span>
+  <span class="c1">#8    [C] BasicObject#instance_exec at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/activesupport-7.1.0.alpha/lib/active_support/callbacks.rb:127</span>
+  <span class="o">.....</span> <span class="err">и</span> <span class="err">так</span> <span class="err">далее</span>
+</code></pre>
+</div>
+<p>Каждый фрейм содержит:</p><ul><li>Идентификатор фрейма
+</li><li>Расположение вызова
+</li><li>Дополнительную информацию (например, аргументы блока или метода)
+</li></ul><p>Это даст вам хорошее ощущение того, что происходит в вашем приложении. Однако, вы, возможно, заметите, что:</p><ul><li>Фреймов очень много (обычно 50+ в приложении Rails).
+</li><li>Большинство фреймов из Rails и других используемых библиотек.
+</li></ul><p>Не беспокойтесь, команда <code>backtrace</code> предоставляет две опции, чтобы помочь с фильтрацией фреймов:</p><ul><li><code>backtrace [num]</code> - показать только <code>num</code> штук фреймов, т.е. <code>backtrace 10</code>.
+</li><li><code>backtrace /pattern/</code> - показывать только фреймы с идентификатором или расположением, соответствующим образцу, т.е. <code>backtrace /MyModel/</code>.
+</li></ul><p>Также возможно использовать эти опции вместе: <code>backtrace [num] /pattern/</code>.</p><h5 id='komanda-outline' class='inside_page_header'><a href="#komanda-outline">4.2.3.</a> Команда <code>outline</code></h5><p>Команда похожа на команду <code>ls</code> из <code>pry</code> и <code>irb</code>. Она покажет вам, что доступна в текущем пространстве, включая:</p><ul><li>Локальные переменные
+</li><li>Переменные экземпляра
+</li><li>Переменные класса
+</li><li>Методы и их источники
+</li></ul><div class="code_container">
+  <pre><code class="highlight rb"><span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Configurable</span><span class="c1">#methods: config</span>
+<span class="no">AbstractController</span><span class="o">::</span><span class="no">Base</span><span class="c1">#methods:</span>
+  <span class="n">action_methods</span>  <span class="n">action_name</span>  <span class="n">action_name</span><span class="o">=</span>  <span class="n">available_action?</span>  <span class="n">controller_path</span>  <span class="nb">inspect</span>
+  <span class="n">response_body</span>
+<span class="no">ActionController</span><span class="o">::</span><span class="no">Metal</span><span class="c1">#methods:</span>
+  <span class="n">content_type</span>       <span class="n">content_type</span><span class="o">=</span>  <span class="n">controller_name</span>  <span class="n">dispatch</span>          <span class="n">headers</span>
+  <span class="n">location</span>           <span class="n">location</span><span class="o">=</span>      <span class="n">media_type</span>       <span class="n">middleware_stack</span>  <span class="n">middleware_stack</span><span class="o">=</span>
+  <span class="n">middleware_stack?</span>  <span class="n">performed?</span>     <span class="n">request</span>          <span class="n">request</span><span class="o">=</span>          <span class="n">reset_session</span>
+  <span class="n">response</span>           <span class="n">response</span><span class="o">=</span>      <span class="n">response_body</span><span class="o">=</span>   <span class="n">response_code</span>     <span class="n">session</span>
+  <span class="n">set_request!</span>       <span class="n">set_response!</span>  <span class="n">status</span>           <span class="n">status</span><span class="o">=</span>           <span class="nb">to_a</span>
+<span class="no">ActionView</span><span class="o">::</span><span class="no">ViewPaths</span><span class="c1">#methods:</span>
+  <span class="n">_prefixes</span>  <span class="n">any_templates?</span>  <span class="n">append_view_path</span>   <span class="n">details_for_lookup</span>  <span class="n">formats</span>     <span class="n">formats</span><span class="o">=</span>  <span class="n">locale</span>
+  <span class="n">locale</span><span class="o">=</span>    <span class="n">lookup_context</span>  <span class="n">prepend_view_path</span>  <span class="n">template_exists?</span>    <span class="n">view_paths</span>
+<span class="no">AbstractController</span><span class="o">::</span><span class="no">Rendering</span><span class="c1">#methods: view_assigns</span>
+
+<span class="c1"># .....</span>
+
+<span class="no">PostsController</span><span class="c1">#methods: create  destroy  edit  index  new  show  update</span>
+<span class="n">instance</span> <span class="ss">variables:
+  </span><span class="vi">@_action_has_layout</span>  <span class="vi">@_action_name</span>    <span class="vi">@_config</span>  <span class="vi">@_lookup_context</span>                      <span class="vi">@_request</span>
+  <span class="vi">@_response</span>           <span class="vi">@_response_body</span>  <span class="vi">@_routes</span>  <span class="vi">@marked_for_same_origin_verification</span>  <span class="vi">@posts</span>
+  <span class="vi">@rendered_format</span>
+<span class="k">class</span> <span class="ss">variables: </span><span class="vc">@@raise_on_missing_translations</span>  <span class="vc">@@raise_on_open_redirects</span>
+</code></pre>
+</div>
+<h4 id='tochki-ostanova' class='inside_page_header'><a href="#tochki-ostanova">4.3.</a> Точки останова</h4><p>Есть множество способов вставить и вызвать точку останова в отладчике. В дополнение к добавлению отладочных выражений (т.е. <code>debugger</code>) непосредственно в вашем коде, также можно вставить точки останова с помощью команд:</p><ul><li><code>break</code> (или <code>b</code>)
+<ul><li><code>break</code> - отобразит все точки останова
+</li><li><code>break &lt;num&gt;</code> - установит точку останова на строчке <code>num</code> текущего файла
+</li><li><code>break &lt;file:num&gt;</code> - установит точку останова на строчке <code>num</code> в <code>file</code>
+</li><li><code>break &lt;Class#method&gt;</code> или <code>break &lt;Class.method&gt;</code> - установит точку останова на <code>Class#method</code> или <code>Class.method</code>
+</li><li><code>break &lt;expr&gt;.&lt;method&gt;</code> - установит точку останова на методе <code>&lt;method&gt;</code> результата <code>&lt;expr&gt;</code>.
+</li></ul></li><li><code>catch &lt;Exception&gt;</code> - установит точку останова, которая остановится, когда вызовется исключение <code>Exception</code>
+</li><li><code>watch &lt;@ivar&gt;</code> - установит точку останова изменится результат <code>@ivar</code> текущего объекта (это медленно)
+</li></ul><p>И чтобы их убрать, можно использовать:</p><ul><li><code>delete</code> (или <code>del</code>)
+<ul><li><code>delete</code> - удалить все точки останова
+</li><li><code>delete &lt;num&gt;</code> - удалить точку останова с идентификатором <code>num</code>
+</li></ul></li></ul><h5 id='komanda-break' class='inside_page_header'><a href="#komanda-break">4.3.1.</a> Команда <code>break</code></h5><p><strong>Устанавливаем точку останова на указанном номере строчки - т.е. <code>b 28</code></strong></p><div class="code_container">
+  <pre><code class="highlight rb"><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">29</span><span class="p">]</span> <span class="k">in</span> <span class="o">~</span><span class="sr">/projects/</span><span class="n">rails</span><span class="o">-</span><span class="n">guide</span><span class="o">-</span><span class="n">example</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">controllers</span><span class="o">/</span><span class="n">posts_controller</span><span class="p">.</span><span class="nf">rb</span>
+    <span class="mi">20</span><span class="o">|</span>   <span class="k">end</span>
+    <span class="mi">21</span><span class="o">|</span>
+    <span class="mi">22</span><span class="o">|</span>   <span class="c1"># POST /posts or /posts.json</span>
+    <span class="mi">23</span><span class="o">|</span>   <span class="k">def</span> <span class="nf">create</span>
+    <span class="mi">24</span><span class="o">|</span>     <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">post_params</span><span class="p">)</span>
+<span class="o">=&gt;</span>  <span class="mi">25</span><span class="o">|</span>     <span class="n">debugger</span>
+    <span class="mi">26</span><span class="o">|</span>
+    <span class="mi">27</span><span class="o">|</span>     <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+    <span class="mi">28</span><span class="o">|</span>       <span class="k">if</span> <span class="vi">@post</span><span class="p">.</span><span class="nf">save</span>
+    <span class="mi">29</span><span class="o">|</span>         <span class="nb">format</span><span class="p">.</span><span class="nf">html</span> <span class="p">{</span> <span class="n">redirect_to</span> <span class="vi">@post</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"Post was successfully created."</span> <span class="p">}</span>
+<span class="o">=&gt;</span><span class="c1">#0    PostsController#create at ~/projects/rails-guide-example/app/controllers/posts_controller.rb:25</span>
+  <span class="c1">#1    ActionController::BasicImplicitRender#send_action(method="create", args=[]) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/actionpack-7.0.0.alpha2/lib/action_controller/metal/basic_implicit_render.rb:6</span>
+  <span class="c1"># and 72 frames (use `bt' command for all frames)</span>
+<span class="p">(</span><span class="n">rdbg</span><span class="p">)</span> <span class="n">b</span> <span class="mi">28</span>    <span class="c1"># команда break</span>
+<span class="c1">#0  BP - Line  /Users/st0012/projects/rails-guide-example/app/controllers/posts_controller.rb:28 (line)</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight rb"><span class="p">(</span><span class="n">rdbg</span><span class="p">)</span> <span class="n">c</span>    <span class="c1"># команда continue</span>
+<span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">32</span><span class="p">]</span> <span class="k">in</span> <span class="o">~</span><span class="sr">/projects/</span><span class="n">rails</span><span class="o">-</span><span class="n">guide</span><span class="o">-</span><span class="n">example</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">controllers</span><span class="o">/</span><span class="n">posts_controller</span><span class="p">.</span><span class="nf">rb</span>
+    <span class="mi">23</span><span class="o">|</span>   <span class="k">def</span> <span class="nf">create</span>
+    <span class="mi">24</span><span class="o">|</span>     <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">post_params</span><span class="p">)</span>
+    <span class="mi">25</span><span class="o">|</span>     <span class="n">debugger</span>
+    <span class="mi">26</span><span class="o">|</span>
+    <span class="mi">27</span><span class="o">|</span>     <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+<span class="o">=&gt;</span>  <span class="mi">28</span><span class="o">|</span>       <span class="k">if</span> <span class="vi">@post</span><span class="p">.</span><span class="nf">save</span>
+    <span class="mi">29</span><span class="o">|</span>         <span class="nb">format</span><span class="p">.</span><span class="nf">html</span> <span class="p">{</span> <span class="n">redirect_to</span> <span class="vi">@post</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"Post was successfully created."</span> <span class="p">}</span>
+    <span class="mi">30</span><span class="o">|</span>         <span class="nb">format</span><span class="p">.</span><span class="nf">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">:show</span><span class="p">,</span> <span class="ss">status: :created</span><span class="p">,</span> <span class="ss">location: </span><span class="vi">@post</span> <span class="p">}</span>
+    <span class="mi">31</span><span class="o">|</span>       <span class="k">else</span>
+    <span class="mi">32</span><span class="o">|</span>         <span class="nb">format</span><span class="p">.</span><span class="nf">html</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">:new</span><span class="p">,</span> <span class="ss">status: :unprocessable_entity</span> <span class="p">}</span>
+<span class="o">=&gt;</span><span class="c1">#0    block {|format=#&lt;ActionController::MimeResponds::Collec...|} in create at ~/projects/rails-guide-example/app/controllers/posts_controller.rb:28</span>
+  <span class="c1">#1    ActionController::MimeResponds#respond_to(mimes=[]) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/actionpack-7.0.0.alpha2/lib/action_controller/metal/mime_responds.rb:205</span>
+  <span class="c1"># and 74 frames (use `bt' command for all frames)</span>
+
+<span class="no">Stop</span> <span class="n">by</span> <span class="c1">#0  BP - Line  /Users/st0012/projects/rails-guide-example/app/controllers/posts_controller.rb:28 (line)</span>
+</code></pre>
+</div>
+<p><strong>Устанавливаем точку останова на заданном вызове метода - т.е. <code>b @post.save</code></strong></p><div class="code_container">
+  <pre><code class="highlight rb"><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">29</span><span class="p">]</span> <span class="k">in</span> <span class="o">~</span><span class="sr">/projects/</span><span class="n">rails</span><span class="o">-</span><span class="n">guide</span><span class="o">-</span><span class="n">example</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">controllers</span><span class="o">/</span><span class="n">posts_controller</span><span class="p">.</span><span class="nf">rb</span>
+    <span class="mi">20</span><span class="o">|</span>   <span class="k">end</span>
+    <span class="mi">21</span><span class="o">|</span>
+    <span class="mi">22</span><span class="o">|</span>   <span class="c1"># POST /posts or /posts.json</span>
+    <span class="mi">23</span><span class="o">|</span>   <span class="k">def</span> <span class="nf">create</span>
+    <span class="mi">24</span><span class="o">|</span>     <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">post_params</span><span class="p">)</span>
+<span class="o">=&gt;</span>  <span class="mi">25</span><span class="o">|</span>     <span class="n">debugger</span>
+    <span class="mi">26</span><span class="o">|</span>
+    <span class="mi">27</span><span class="o">|</span>     <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+    <span class="mi">28</span><span class="o">|</span>       <span class="k">if</span> <span class="vi">@post</span><span class="p">.</span><span class="nf">save</span>
+    <span class="mi">29</span><span class="o">|</span>         <span class="nb">format</span><span class="p">.</span><span class="nf">html</span> <span class="p">{</span> <span class="n">redirect_to</span> <span class="vi">@post</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"Post was successfully created."</span> <span class="p">}</span>
+<span class="o">=&gt;</span><span class="c1">#0    PostsController#create at ~/projects/rails-guide-example/app/controllers/posts_controller.rb:25</span>
+  <span class="c1">#1    ActionController::BasicImplicitRender#send_action(method="create", args=[]) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/actionpack-7.0.0.alpha2/lib/action_controller/metal/basic_implicit_render.rb:6</span>
+  <span class="c1"># and 72 frames (use `bt' command for all frames)</span>
+<span class="p">(</span><span class="n">rdbg</span><span class="p">)</span> <span class="n">b</span> <span class="vi">@post</span><span class="p">.</span><span class="nf">save</span>    <span class="c1"># команда break</span>
+<span class="c1">#0  BP - Method  @post.save at /Users/st0012/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/activerecord-7.0.0.alpha2/lib/active_record/suppressor.rb:43</span>
+
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight rb"><span class="p">(</span><span class="n">rdbg</span><span class="p">)</span> <span class="n">c</span>    <span class="c1"># команда continue</span>
+<span class="p">[</span><span class="mi">39</span><span class="p">,</span> <span class="mi">48</span><span class="p">]</span> <span class="k">in</span> <span class="o">~</span><span class="sr">/.rbenv/</span><span class="n">versions</span><span class="o">/</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">1</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">activerecord</span><span class="o">-</span><span class="mf">7.0</span><span class="o">.</span><span class="mi">0</span><span class="p">.</span><span class="nf">alpha2</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">active_record</span><span class="o">/</span><span class="n">suppressor</span><span class="p">.</span><span class="nf">rb</span>
+    <span class="mi">39</span><span class="o">|</span>         <span class="no">SuppressorRegistry</span><span class="p">.</span><span class="nf">suppressed</span><span class="p">[</span><span class="nb">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">previous_state</span>
+    <span class="mi">40</span><span class="o">|</span>       <span class="k">end</span>
+    <span class="mi">41</span><span class="o">|</span>     <span class="k">end</span>
+    <span class="mi">42</span><span class="o">|</span>
+    <span class="mi">43</span><span class="o">|</span>     <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="o">**</span><span class="p">)</span> <span class="c1"># :nodoc:</span>
+<span class="o">=&gt;</span>  <span class="mi">44</span><span class="o">|</span>       <span class="no">SuppressorRegistry</span><span class="p">.</span><span class="nf">suppressed</span><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">name</span><span class="p">]</span> <span class="p">?</span> <span class="kp">true</span> <span class="p">:</span> <span class="k">super</span>
+    <span class="mi">45</span><span class="o">|</span>     <span class="k">end</span>
+    <span class="mi">46</span><span class="o">|</span>
+    <span class="mi">47</span><span class="o">|</span>     <span class="k">def</span> <span class="nf">save!</span><span class="p">(</span><span class="o">**</span><span class="p">)</span> <span class="c1"># :nodoc:</span>
+    <span class="mi">48</span><span class="o">|</span>       <span class="no">SuppressorRegistry</span><span class="p">.</span><span class="nf">suppressed</span><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">name</span><span class="p">]</span> <span class="p">?</span> <span class="kp">true</span> <span class="p">:</span> <span class="k">super</span>
+<span class="o">=&gt;</span><span class="c1">#0    ActiveRecord::Suppressor#save(#arg_rest=nil) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/activerecord-7.0.0.alpha2/lib/active_record/suppressor.rb:44</span>
+  <span class="c1">#1    block {|format=#&lt;ActionController::MimeResponds::Collec...|} in create at ~/projects/rails-guide-example/app/controllers/posts_controller.rb:28</span>
+  <span class="c1"># and 75 frames (use `bt' command for all frames)</span>
+
+<span class="no">Stop</span> <span class="n">by</span> <span class="c1">#0  BP - Method  @post.save at /Users/st0012/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/activerecord-7.0.0.alpha2/lib/active_record/suppressor.rb:43</span>
+</code></pre>
+</div>
+<h5 id='komanda-catch' class='inside_page_header'><a href="#komanda-catch">4.3.2.</a> Команда <code>catch</code></h5><p><strong>Останавливаем при вызове исключения - т.е. <code>catch ActiveRecord::RecordInvalid</code></strong></p><div class="code_container">
+  <pre><code class="highlight rb"><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">29</span><span class="p">]</span> <span class="k">in</span> <span class="o">~</span><span class="sr">/projects/</span><span class="n">rails</span><span class="o">-</span><span class="n">guide</span><span class="o">-</span><span class="n">example</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">controllers</span><span class="o">/</span><span class="n">posts_controller</span><span class="p">.</span><span class="nf">rb</span>
+    <span class="mi">20</span><span class="o">|</span>   <span class="k">end</span>
+    <span class="mi">21</span><span class="o">|</span>
+    <span class="mi">22</span><span class="o">|</span>   <span class="c1"># POST /posts or /posts.json</span>
+    <span class="mi">23</span><span class="o">|</span>   <span class="k">def</span> <span class="nf">create</span>
+    <span class="mi">24</span><span class="o">|</span>     <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">post_params</span><span class="p">)</span>
+<span class="o">=&gt;</span>  <span class="mi">25</span><span class="o">|</span>     <span class="n">debugger</span>
+    <span class="mi">26</span><span class="o">|</span>
+    <span class="mi">27</span><span class="o">|</span>     <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+    <span class="mi">28</span><span class="o">|</span>       <span class="k">if</span> <span class="vi">@post</span><span class="p">.</span><span class="nf">save!</span>
+    <span class="mi">29</span><span class="o">|</span>         <span class="nb">format</span><span class="p">.</span><span class="nf">html</span> <span class="p">{</span> <span class="n">redirect_to</span> <span class="vi">@post</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"Post was successfully created."</span> <span class="p">}</span>
+<span class="o">=&gt;</span><span class="c1">#0    PostsController#create at ~/projects/rails-guide-example/app/controllers/posts_controller.rb:25</span>
+  <span class="c1">#1    ActionController::BasicImplicitRender#send_action(method="create", args=[]) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/actionpack-7.0.0.alpha2/lib/action_controller/metal/basic_implicit_render.rb:6</span>
+  <span class="c1"># and 72 frames (use `bt' command for all frames)</span>
+<span class="p">(</span><span class="n">rdbg</span><span class="p">)</span> <span class="kp">catch</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">RecordInvalid</span>    <span class="c1"># команда</span>
+<span class="c1">#1  BP - Catch  "ActiveRecord::RecordInvalid"</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight rb"><span class="p">(</span><span class="n">rdbg</span><span class="p">)</span> <span class="n">c</span>    <span class="c1"># команда continue</span>
+<span class="p">[</span><span class="mi">75</span><span class="p">,</span> <span class="mi">84</span><span class="p">]</span> <span class="k">in</span> <span class="o">~</span><span class="sr">/.rbenv/</span><span class="n">versions</span><span class="o">/</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">1</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">activerecord</span><span class="o">-</span><span class="mf">7.0</span><span class="o">.</span><span class="mi">0</span><span class="p">.</span><span class="nf">alpha2</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">active_record</span><span class="o">/</span><span class="n">validations</span><span class="p">.</span><span class="nf">rb</span>
+    <span class="mi">75</span><span class="o">|</span>     <span class="k">def</span> <span class="nf">default_validation_context</span>
+    <span class="mi">76</span><span class="o">|</span>       <span class="n">new_record?</span> <span class="p">?</span> <span class="ss">:create</span> <span class="p">:</span> <span class="ss">:update</span>
+    <span class="mi">77</span><span class="o">|</span>     <span class="k">end</span>
+    <span class="mi">78</span><span class="o">|</span>
+    <span class="mi">79</span><span class="o">|</span>     <span class="k">def</span> <span class="nf">raise_validation_error</span>
+<span class="o">=&gt;</span>  <span class="mi">80</span><span class="o">|</span>       <span class="k">raise</span><span class="p">(</span><span class="no">RecordInvalid</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="nb">self</span><span class="p">))</span>
+    <span class="mi">81</span><span class="o">|</span>     <span class="k">end</span>
+    <span class="mi">82</span><span class="o">|</span>
+    <span class="mi">83</span><span class="o">|</span>     <span class="k">def</span> <span class="nf">perform_validations</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>
+    <span class="mi">84</span><span class="o">|</span>       <span class="n">options</span><span class="p">[</span><span class="ss">:validate</span><span class="p">]</span> <span class="o">==</span> <span class="kp">false</span> <span class="o">||</span> <span class="n">valid?</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="ss">:context</span><span class="p">])</span>
+<span class="o">=&gt;</span><span class="c1">#0    ActiveRecord::Validations#raise_validation_error at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/activerecord-7.0.0.alpha2/lib/active_record/validations.rb:80</span>
+  <span class="c1">#1    ActiveRecord::Validations#save!(options={}) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/activerecord-7.0.0.alpha2/lib/active_record/validations.rb:53</span>
+  <span class="c1"># and 88 frames (use `bt' command for all frames)</span>
+
+<span class="no">Stop</span> <span class="n">by</span> <span class="c1">#1  BP - Catch  "ActiveRecord::RecordInvalid"</span>
+</code></pre>
+</div>
+<h5 id='komanda-watch' class='inside_page_header'><a href="#komanda-watch">4.3.3.</a> Команда <code>watch</code></h5><p><strong>Останавливаем, когда изменяется переменная экземпляра - т.е. <code>watch @_response_body</code></strong></p><div class="code_container">
+  <pre><code class="highlight rb"><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">29</span><span class="p">]</span> <span class="k">in</span> <span class="o">~</span><span class="sr">/projects/</span><span class="n">rails</span><span class="o">-</span><span class="n">guide</span><span class="o">-</span><span class="n">example</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">controllers</span><span class="o">/</span><span class="n">posts_controller</span><span class="p">.</span><span class="nf">rb</span>
+    <span class="mi">20</span><span class="o">|</span>   <span class="k">end</span>
+    <span class="mi">21</span><span class="o">|</span>
+    <span class="mi">22</span><span class="o">|</span>   <span class="c1"># POST /posts or /posts.json</span>
+    <span class="mi">23</span><span class="o">|</span>   <span class="k">def</span> <span class="nf">create</span>
+    <span class="mi">24</span><span class="o">|</span>     <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">post_params</span><span class="p">)</span>
+<span class="o">=&gt;</span>  <span class="mi">25</span><span class="o">|</span>     <span class="n">debugger</span>
+    <span class="mi">26</span><span class="o">|</span>
+    <span class="mi">27</span><span class="o">|</span>     <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+    <span class="mi">28</span><span class="o">|</span>       <span class="k">if</span> <span class="vi">@post</span><span class="p">.</span><span class="nf">save!</span>
+    <span class="mi">29</span><span class="o">|</span>         <span class="nb">format</span><span class="p">.</span><span class="nf">html</span> <span class="p">{</span> <span class="n">redirect_to</span> <span class="vi">@post</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"Post was successfully created."</span> <span class="p">}</span>
+<span class="o">=&gt;</span><span class="c1">#0    PostsController#create at ~/projects/rails-guide-example/app/controllers/posts_controller.rb:25</span>
+  <span class="c1">#1    ActionController::BasicImplicitRender#send_action(method="create", args=[]) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/actionpack-7.0.0.alpha2/lib/action_controller/metal/basic_implicit_render.rb:6</span>
+  <span class="c1"># and 72 frames (use `bt' command for all frames)</span>
+<span class="p">(</span><span class="n">rdbg</span><span class="p">)</span> <span class="n">watch</span> <span class="vi">@_response_body</span>    <span class="c1"># команда</span>
+<span class="c1">#0  BP - Watch  #&lt;PostsController:0x00007fce69ca5320&gt; @_response_body =</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight rb"><span class="p">(</span><span class="n">rdbg</span><span class="p">)</span> <span class="n">c</span>    <span class="c1"># команда continue</span>
+<span class="p">[</span><span class="mi">173</span><span class="p">,</span> <span class="mi">182</span><span class="p">]</span> <span class="k">in</span> <span class="o">~</span><span class="sr">/.rbenv/</span><span class="n">versions</span><span class="o">/</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">1</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">actionpack</span><span class="o">-</span><span class="mf">7.0</span><span class="o">.</span><span class="mi">0</span><span class="p">.</span><span class="nf">alpha2</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">action_controller</span><span class="o">/</span><span class="n">metal</span><span class="p">.</span><span class="nf">rb</span>
+   <span class="mi">173</span><span class="o">|</span>       <span class="n">body</span> <span class="o">=</span> <span class="p">[</span><span class="n">body</span><span class="p">]</span> <span class="k">unless</span> <span class="n">body</span><span class="p">.</span><span class="nf">nil?</span> <span class="o">||</span> <span class="n">body</span><span class="p">.</span><span class="nf">respond_to?</span><span class="p">(</span><span class="ss">:each</span><span class="p">)</span>
+   <span class="mi">174</span><span class="o">|</span>       <span class="n">response</span><span class="p">.</span><span class="nf">reset_body!</span>
+   <span class="mi">175</span><span class="o">|</span>       <span class="k">return</span> <span class="k">unless</span> <span class="n">body</span>
+   <span class="mi">176</span><span class="o">|</span>       <span class="n">response</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="n">body</span>
+   <span class="mi">177</span><span class="o">|</span>       <span class="k">super</span>
+<span class="o">=&gt;</span> <span class="mi">178</span><span class="o">|</span>     <span class="k">end</span>
+   <span class="mi">179</span><span class="o">|</span>
+   <span class="mi">180</span><span class="o">|</span>     <span class="c1"># Tests if render or redirect has already happened.</span>
+   <span class="mi">181</span><span class="o">|</span>     <span class="k">def</span> <span class="nf">performed?</span>
+   <span class="mi">182</span><span class="o">|</span>       <span class="n">response_body</span> <span class="o">||</span> <span class="n">response</span><span class="p">.</span><span class="nf">committed?</span>
+<span class="o">=&gt;</span><span class="c1">#0    ActionController::Metal#response_body=(body=["&lt;html&gt;&lt;body&gt;You are being &lt;a href=\"ht...) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/actionpack-7.0.0.alpha2/lib/action_controller/metal.rb:178 #=&gt; ["&lt;html&gt;&lt;body&gt;You are being &lt;a href=\"ht...</span>
+  <span class="c1">#1    ActionController::Redirecting#redirect_to(options=#&lt;Post id: 13, title: "qweqwe", content:..., response_options={:allow_other_host=&gt;false}) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/actionpack-7.0.0.alpha2/lib/action_controller/metal/redirecting.rb:74</span>
+  <span class="c1"># and 82 frames (use `bt' command for all frames)</span>
+
+<span class="no">Stop</span> <span class="n">by</span> <span class="c1">#0  BP - Watch  #&lt;PostsController:0x00007fce69ca5320&gt; @_response_body =  -&gt; ["&lt;html&gt;&lt;body&gt;You are being &lt;a href=\"http://localhost:3000/posts/13\"&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;"]</span>
+<span class="p">(</span><span class="n">rdbg</span><span class="p">)</span>
+</code></pre>
+</div>
+<h5 id='optsii-tochki-ostanova' class='inside_page_header'><a href="#optsii-tochki-ostanova">4.3.4.</a> Опции точки останова</h5><p>В дополнение к различным типам точек останова, также можно указать опции для достижения более продвинутого процесса отладки. В настоящий момент отладчик поддерживает 4 опции:</p><ul><li><code>do: &lt;cmd or expr&gt;</code> - когда срабатывает точка останова, выполнить заданную команду/выражение и продолжить программу:
+<ul><li><code>break Foo#bar do: bt</code> - когда вызывается <code>Foo#bar</code>, вывести фреймы стека
+</li></ul></li><li><code>pre: &lt;cmd or expr&gt;</code> - когда срабатывает точка останова, выполнить заданную команду/выражение перед остановкой:
+<ul><li><code>break Foo#bar pre: info</code> - когда вызывается <code>Foo#bar</code>, вывести окружающие ее переменные перед остановкой.
+</li></ul></li><li><code>if: &lt;expr&gt;</code> - точка останова останавливается, только если результат <code>&lt;expr</code>&gt; истинный:
+<ul><li><code>break Post#save if: params[:debug]</code> - останавливается на <code>Post#save</code>, если <code>params[:debug]</code> истинный
+</li></ul></li><li><code>path: &lt;path_regexp&gt;</code> - точка останова останавливается, только если событие, ее вызывающее (например, вызов метода), происходит по заданному пути:
+<ul><li><code>break Post#save if: app/services/a_service</code> - останавливается на <code>Post#save</code>, если вызов метода происходит в методе, соответствующему регулярному выражению Ruby <code>/app\/services\/a_service/</code>.
+</li></ul></li></ul><p>Также отметьте, что первые 3 опции: <code>do:</code>, <code>pre:</code> и <code>if:</code> также доступны для выражений отладки, упомянутые ранее. Например:</p><div class="code_container">
+  <pre><code class="highlight rb"><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span> <span class="k">in</span> <span class="o">~</span><span class="sr">/projects/</span><span class="n">rails</span><span class="o">-</span><span class="n">guide</span><span class="o">-</span><span class="n">example</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">controllers</span><span class="o">/</span><span class="n">posts_controller</span><span class="p">.</span><span class="nf">rb</span>
+     <span class="mi">2</span><span class="o">|</span>   <span class="n">before_action</span> <span class="ss">:set_post</span><span class="p">,</span> <span class="ss">only: </span><span class="sx">%i[ show edit update destroy ]</span>
+     <span class="mi">3</span><span class="o">|</span>
+     <span class="mi">4</span><span class="o">|</span>   <span class="c1"># GET /posts or /posts.json</span>
+     <span class="mi">5</span><span class="o">|</span>   <span class="k">def</span> <span class="nf">index</span>
+     <span class="mi">6</span><span class="o">|</span>     <span class="vi">@posts</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">all</span>
+<span class="o">=&gt;</span>   <span class="mi">7</span><span class="o">|</span>     <span class="n">debugger</span><span class="p">(</span><span class="ss">do: </span><span class="s2">"info"</span><span class="p">)</span>
+     <span class="mi">8</span><span class="o">|</span>   <span class="k">end</span>
+     <span class="mi">9</span><span class="o">|</span>
+    <span class="mi">10</span><span class="o">|</span>   <span class="c1"># GET /posts/1 or /posts/1.json</span>
+    <span class="mi">11</span><span class="o">|</span>   <span class="k">def</span> <span class="nf">show</span>
+<span class="o">=&gt;</span><span class="c1">#0    PostsController#index at ~/projects/rails-guide-example/app/controllers/posts_controller.rb:7</span>
+  <span class="c1">#1    ActionController::BasicImplicitRender#send_action(method="index", args=[]) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/actionpack-7.0.0.alpha2/lib/action_controller/metal/basic_implicit_render.rb:6</span>
+  <span class="c1"># and 72 frames (use `bt' command for all frames)</span>
+<span class="p">(</span><span class="n">rdbg</span><span class="ss">:binding</span><span class="p">.</span><span class="nf">break</span><span class="p">)</span> <span class="n">info</span>
+<span class="o">%</span><span class="nb">self</span> <span class="o">=</span> <span class="c1">#&lt;PostsController:0x00000000017480&gt;</span>
+<span class="vi">@_action_has_layout</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="vi">@_action_name</span> <span class="o">=</span> <span class="s2">"index"</span>
+<span class="vi">@_config</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="vi">@_lookup_context</span> <span class="o">=</span> <span class="c1">#&lt;ActionView::LookupContext:0x00007fce3ad336b8 @details_key=nil, @digest_cache=...</span>
+<span class="vi">@_request</span> <span class="o">=</span> <span class="c1">#&lt;ActionDispatch::Request GET "http://localhost:3000/posts" for 127.0.0.1&gt;</span>
+<span class="vi">@_response</span> <span class="o">=</span> <span class="c1">#&lt;ActionDispatch::Response:0x00007fce3ad397e8 @mon_data=#&lt;Monitor:0x00007fce3ad396a8&gt;...</span>
+<span class="vi">@_response_body</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="vi">@_routes</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="vi">@marked_for_same_origin_verification</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="vi">@posts</span> <span class="o">=</span> <span class="c1">#&lt;ActiveRecord::Relation [#&lt;Post id: 2, title: "qweqwe", content: "qweqwe", created_at: "...</span>
+<span class="vi">@rendered_format</span> <span class="o">=</span> <span class="kp">nil</span>
+</code></pre>
+</div>
+<h5 id='programmiruyte-svoy-rabochiy-protsess-otladki' class='inside_page_header'><a href="#programmiruyte-svoy-rabochiy-protsess-otladki">4.3.5.</a> Программируйте свой рабочий процесс отладки</h5><p>С помощью этих опций можно записать свой процесс отладки в одну строчку, наподобие:</p><div class="code_container">
+  <pre><code class="highlight rb"><span class="k">def</span> <span class="nf">create</span>
+  <span class="n">debugger</span><span class="p">(</span><span class="ss">do: </span><span class="s2">"catch ActiveRecord::RecordInvalid do: bt 10"</span><span class="p">)</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>И затем отладчик запустит записанную команду и вставит точку останова catch</p><div class="code_container">
+  <pre><code class="highlight rb"><span class="p">(</span><span class="n">rdbg</span><span class="ss">:binding</span><span class="p">.</span><span class="nf">break</span><span class="p">)</span> <span class="kp">catch</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">RecordInvalid</span> <span class="ss">do: </span><span class="n">bt</span> <span class="mi">10</span>
+<span class="c1">#0  BP - Catch  "ActiveRecord::RecordInvalid"</span>
+<span class="p">[</span><span class="mi">75</span><span class="p">,</span> <span class="mi">84</span><span class="p">]</span> <span class="k">in</span> <span class="o">~</span><span class="sr">/.rbenv/</span><span class="n">versions</span><span class="o">/</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">1</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">activerecord</span><span class="o">-</span><span class="mf">7.0</span><span class="o">.</span><span class="mi">0</span><span class="p">.</span><span class="nf">alpha2</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">active_record</span><span class="o">/</span><span class="n">validations</span><span class="p">.</span><span class="nf">rb</span>
+    <span class="mi">75</span><span class="o">|</span>     <span class="k">def</span> <span class="nf">default_validation_context</span>
+    <span class="mi">76</span><span class="o">|</span>       <span class="n">new_record?</span> <span class="p">?</span> <span class="ss">:create</span> <span class="p">:</span> <span class="ss">:update</span>
+    <span class="mi">77</span><span class="o">|</span>     <span class="k">end</span>
+    <span class="mi">78</span><span class="o">|</span>
+    <span class="mi">79</span><span class="o">|</span>     <span class="k">def</span> <span class="nf">raise_validation_error</span>
+<span class="o">=&gt;</span>  <span class="mi">80</span><span class="o">|</span>       <span class="k">raise</span><span class="p">(</span><span class="no">RecordInvalid</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="nb">self</span><span class="p">))</span>
+    <span class="mi">81</span><span class="o">|</span>     <span class="k">end</span>
+    <span class="mi">82</span><span class="o">|</span>
+    <span class="mi">83</span><span class="o">|</span>     <span class="k">def</span> <span class="nf">perform_validations</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>
+    <span class="mi">84</span><span class="o">|</span>       <span class="n">options</span><span class="p">[</span><span class="ss">:validate</span><span class="p">]</span> <span class="o">==</span> <span class="kp">false</span> <span class="o">||</span> <span class="n">valid?</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="ss">:context</span><span class="p">])</span>
+<span class="o">=&gt;</span><span class="c1">#0    ActiveRecord::Validations#raise_validation_error at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/activerecord-7.0.0.alpha2/lib/active_record/validations.rb:80</span>
+  <span class="c1">#1    ActiveRecord::Validations#save!(options={}) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/activerecord-7.0.0.alpha2/lib/active_record/validations.rb:53</span>
+  <span class="c1"># and 88 frames (use `bt' command for all frames)</span>
+</code></pre>
+</div>
+<p>Как только точка останова catch сработает, он выведет стек фреймов</p><div class="code_container">
+  <pre><code class="highlight rb"><span class="no">Stop</span> <span class="n">by</span> <span class="c1">#0  BP - Catch  "ActiveRecord::RecordInvalid"</span>
+
+<span class="p">(</span><span class="n">rdbg</span><span class="ss">:catch</span><span class="p">)</span> <span class="n">bt</span> <span class="mi">10</span>
+<span class="o">=&gt;</span><span class="c1">#0    ActiveRecord::Validations#raise_validation_error at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/activerecord-7.0.0.alpha2/lib/active_record/validations.rb:80</span>
+  <span class="c1">#1    ActiveRecord::Validations#save!(options={}) at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/activerecord-7.0.0.alpha2/lib/active_record/validations.rb:53</span>
+  <span class="c1">#2    block in save! at ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/activerecord-7.0.0.alpha2/lib/active_record/transactions.rb:302</span>
+</code></pre>
+</div>
+<p>Такая техника может спасти вас от повторяющихся вводов вручную, и сделает опыт отладки более сглаженным.</p><p>Больше команд и конфигурационных опций можно найти в его <a href="https://github.com/ruby/debug">документации</a>.</p><h3 id='otladka-s-pomoschyu-gema-web-console' class='inside_page_header'><a href="#otladka-s-pomoschyu-gema-web-console">5.</a> Отладка с помощью гема <code>web-console</code></h3><p>Web Console немного похож на <code>debug</code>, но запускается в браузере. Вы можете запустить консоль в контексте вью или контроллера на любой странице. Консоль отрендерит содержимое HTML.</p><h4 id='konsol' class='inside_page_header'><a href="#konsol">5.1.</a> Консоль</h4><p>Внутри экшна контроллера или вью, вы можете вызвать консоль с помощью метода <code>console</code>.</p><p>Например, в контроллере:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">PostsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">new</span>
+    <span class="n">console</span>
+    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">new</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Или во вью:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%</span> <span class="n">console</span> <span class="cp">%&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>New Post<span class="nt">&lt;/h2&gt;</span>
+</code></pre>
+</div>
+<p>Это отрендерит консоль внутри вью. Вам не нужно беспокоится о месте расположения вызова <code>console</code>, это не будет отрисовано на месте команды, а после вашего HTML содержимого.</p><p>Консоль выполняет чистый Ruby code: вы можете определить или инициализировать собственные классы, создавать новые модели и проверять переменные.</p><div class="note"><p>Только одна консоль может быть отрисована за один запрос. Иначе <code>web-console</code> вызовет ошибку при выполнении второго <code>console</code>.</p></div><h4 id='proverka-peremennyh' class='inside_page_header'><a href="#proverka-peremennyh">5.2.</a> Проверка переменных</h4><p>Вы можете вызвать <code>instance_variables</code> для вывода всех переменных экземпляра, доступных в контексте. Если вы хотите получить список всех локальных переменных, вы можете сделать это с помощью <code>local_variables</code>.</p><h4 id='nastroyki' class='inside_page_header'><a href="#nastroyki">5.3.</a> Настройки</h4><ul><li><code>config.web_console.allowed_ips</code>: Список авторизованных адресов IPv4 или IPv6 и сетей (по умолчанию: <code>127.0.0.1/8, ::1</code>).
+</li><li><code>config.web_console.whiny_requests</code>: Выводить сообщение, когда консоль не может быть отрисована (по умолчанию: <code>true</code>).
+</li></ul><p>Поскольку <code>web-console</code> вычисляет чистый Ruby-код удаленно на сервере, не пытайтесь использовать это в production.</p><h3 id='otladka-utechki-pamyati' class='inside_page_header'><a href="#otladka-utechki-pamyati">6.</a> Отладка утечки памяти</h3><p>Приложение Ruby (на Rails или нет), может съедать память - или в коде Ruby, или на уровне кода C.</p><p>В этом разделе вы научитесь находить и исправлять такие утечки, используя инструменты отладки, такие как Valgrind.</p><h4 id='valgrind' class='inside_page_header'><a href="#valgrind">6.1.</a> Valgrind</h4><p><a href="http://valgrind.org/">Valgrind</a> - это приложение для обнаружения утечек памяти, связанных с языком C, и состоянием гонки.</p><p>Имеются инструменты Valgrind, которые могут автоматически обнаруживать многие программные ошибки управления памятью и тредами, и подробно профилировать ваши программы. Например, если расширение C в интерпретаторе вызывает <code>malloc()</code>, но не вызывает должным образом <code>free()</code>, эта память не будет доступна пока приложение не будет остановлено.</p><p>Чтобы узнать подробности, как установить Valgrind и использовать его с Ruby, обратитесь к <a href="https://blog.evanweaver.com/2008/02/05/valgrind-and-ruby/">Valgrind and Ruby</a> by Evan Weaver.</p><h4 id='poisk-utechek-pamyati' class='inside_page_header'><a href="#poisk-utechek-pamyati">6.2.</a> Поиск утечек памяти</h4><p>Есть отличная статья об обнаружении и починке утечек памяти в Derailed, <a href="https://github.com/schneems/derailed_benchmarks#is-my-app-leaking-memory">которую можно прочесть тут</a>.</p><h3 id='plaginy-dlya-otladki' class='inside_page_header'><a href="#plaginy-dlya-otladki">7.</a> Плагины для отладки</h3><p>Имеются некоторые плагины Rails, помогающие в поиске ошибок и отладке вашего приложения. Вот список полезных плагинов для отладки:</p><ul><li><a href="https://github.com/ruckus/active-record-query-trace/tree/master">Query Trace</a>: Добавляет трассировку запросов в ваши логи.
+</li><li><a href="https://github.com/smartinez87/exception_notification/tree/master">Exception Notifier</a>: Предоставляет объект рассыльщика и набор шаблонов по умолчанию для отправки уведомлений по email, когда происходят ошибки в приложении в Rails.
+</li><li><a href="https://github.com/charliesome/better_errors">Better Errors</a>: Заменяет стандартную страницу ошибки Rails новой, содержащей больше контекстной информации, такой как исходный код и просмотр переменных.
+</li><li><a href="https://github.com/dejan/rails_panel">RailsPanel</a>: Расширение для Chrome для разработки на Rails, которое подхватывает изменения в development.log. Всю информацию о запросах к приложению Rails можно смотреть в браузере, в панели Developer Tools. Предоставляет обзор времени db/rendering/total, списка параметров, отрендеренных вью и так далее.
+</li><li><a href="https://github.com/pry/pry">Pry</a> альтернатива IRB и интерактивная консоль для разработчиков.
+</li></ul><h3 id='ssylki' class='inside_page_header'><a href="#ssylki">8.</a> Ссылки</h3><ul><li><a href="http://bashdb.sourceforge.net/ruby-debug/home-page.html">Домашняя страница ruby-debug</a>
+</li><li><a href="https://github.com/cldwalker/debugger">Домашняя страница debugger</a>
+</li><li><a href="https://github.com/rails/web-console">Домашняя страница web-console</a>
+</li><li><a href="http://www.sitepoint.com/debug-rails-app-ruby-debug/">Статья: Debugging a Rails application with ruby-debug</a>
+</li><li><a href="http://railscasts.com/episodes/54-debugging-ruby-revised">Скринкаст Ryan Bates&#39; debugging ruby (revised)</a>
+</li><li><a href="http://railscasts.com/episodes/24-the-stack-trace">Скринкаст Ryan Bates&#39; stack trace</a>
+</li><li><a href="http://railscasts.com/episodes/56-the-logger">Скринкаст Ryan Bates&#39; logger</a>
+</li><li><a href="http://bashdb.sourceforge.net/ruby-debug.html">Debugging with ruby-debug</a>
+</li><li><a href="https://github.com/ruby/debug">домашняя страница debug</a>
+</li></ul>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

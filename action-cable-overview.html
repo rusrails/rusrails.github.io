@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Обзор Action Cable" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Обзор Action Cable" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/action-cable-overview" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Обзор Action Cable
+    </title>
+    <link rel="stylesheet" media="screen" href="/assets/application-4f65588939909a694017a295c9ca934821f6a6358454c26c5360579d7ee0054d.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="NWiSjQkzaBEt9892J3OSeDXmtVzOUK2uxtHhbw4OBdjAzrc58bzBhEIePcQPTF+F7ExuQSUBZJuP3J+vUYbWZA==" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <form class="navbar-search pull-right" action="/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="search" id="search" class="search-query" placeholder="Поиск.." />
+</form>          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - ?</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#chto-takoe-action-cable">1. Что такое Action Cable?</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#terminologiya">2. Терминология</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#soedineniya">2.1. Соединения</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#potrebiteli">2.2. Потребители</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#kanaly">2.3. Каналы</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#podpischiki">2.4. Подписчики</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#pub-sub">2.5. Pub/Sub</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#translyatsii">2.6. Трансляции</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#servernye-komponenty">3. Серверные компоненты</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#soedineniya2">3.1. Соединения</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#connection-setup">3.1.1.  Настройка соединения</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#obrabotka-isklyucheniy">3.1.2. Обработка исключений</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#kolbeki-soedineniy">3.1.3. Колбэки соединений</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#kanaly2">3.2. Каналы</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#parent-channel-setup">3.2.1.  Настройка родительского канала</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#podpiski">3.2.2. Подписки</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#obrabotka-isklyucheniy2">3.2.3. Обработка исключений</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#kolbeki-kanala">3.2.4. Колбэки канала</a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#klientskie-komponenty">4. Клиентские компоненты</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#soedineniya3">4.1. Соединения</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#connect-consumer">4.1.1.  Присоединение потребителя</a>
+</h6>      </li>
+      <li>
+        <h6>
+          <a href="#subscriber">4.1.2.  Подписчик</a>
+</h6>      </li>
+      <li>
+        <h4>
+          <a href="#klient-servernoe-vzaimodeystvie">5. Клиент-серверное взаимодействие</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#potoki-streams">5.1. Потоки (Streams)</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#broadcasting">5.2.  Трансляции</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#podpiski2">5.3. Подписки</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#peredacha-parametrov-v-kanaly">5.4. Передача параметров в каналы</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#peretranslyatsiya-soobscheniya">5.5. Перетрансляция сообщения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#polnye-primery">6. Полные примеры</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#primer-1-poyavlenie-polzovatelya">6.1. Пример 1: Появление пользователя</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#klient-servernoe-vzaimodeystvie2">6.1.1. Клиент-серверное взаимодействие</a>
+</h6>      </li>
+      <li>
+        <h5>
+          <a href="#primer-2-poluchenie-novyh-veb-uvedomleniy">6.2. Пример 2: Получение новых веб-уведомлений</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#bolshe-polnyh-primerov">6.3. Больше полных примеров</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#configuration">7.  Настройка</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#adapter-podpiski">7.1. Адаптер подписки</a>
+</h5>      </li>
+      <li>
+        <h6>
+          <a href="#konfiguratsiya-adaptera">7.1.1. Конфигурация адаптера</a>
+</h6>      </li>
+      <li>
+        <h7>
+          <a href="#adapter-async">7.1.1.1. Адаптер async</a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#adapter-redis">7.1.1.2. Адаптер Redis</a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#adapter-postgresql">7.1.1.3. Адаптер PostgreSQL</a>
+</h7>      </li>
+      <li>
+        <h5>
+          <a href="#dopustimye-domeny-zaprosa">7.2. Допустимые домены запроса</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#consumer-configuration">7.3.  Настройка потребителя</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#nastroyka-pula-vorkerov">7.4. Настройка пула воркеров</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#logirovanie-na-kliente">7.5. Логирование на клиенте</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#drugie-nastroyki">7.6. Другие настройки</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#zapusk-otdelnogo-servera-cable">8. Запуск отдельного сервера Cable</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#v-prilozhenii">8.1. В приложении</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#otdelnoe">8.2. Отдельное</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#zametki">8.3. Заметки</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#dependencies">9.  Зависимости</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#razvertyvanie">10. Развертывание</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#testirovanie">11. Тестирование</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='obzor-action-cable' class='inside_page_header'> Обзор Action Cable</h2><p>В этом руководстве вы изучите, как работает Action Cable, и как использовать WebSockets для внедрения функциональности реального времени в ваше приложение Rails.</p><p>После прочтения этого руководства, вы узнаете:</p><ul><li>Что такое Action Cable и об его интеграции на бэкенде и фронтенде
+</li><li>Как настроить Action Cable
+</li><li>Как настроить каналы
+</li><li>О настройке развертывания и архитектуры для запуска Action Cable
+</li></ul>
+<hr>
+<h3 id='chto-takoe-action-cable' class='inside_page_header'><a href="#chto-takoe-action-cable">1.</a> Что такое Action Cable?</h3><p>Action Cable с легкостью интегрирует <a href="https://ru.wikipedia.org/wiki/WebSocket">WebSockets</a> с остальными частями приложения Rails. Он позволяет писать функциональность реального времени на Ruby в стиле и формате остальной части приложения Rails, в то же время являясь производительным и масштабируемым. Он представляет полный стек, включая клиентский фреймворк на JavaScript и серверный фреймворк на Ruby. Вы получаете полный доступ к моделям предметной области, написанным с помощью Active Record или другой ORM на выбор.</p><h3 id='terminologiya' class='inside_page_header'><a href="#terminologiya">2.</a> Терминология</h3><p>Action Cable использует WebSockets вместо протокола запросов-откликов HTTP. И Action Cable, и WebSockets представляют более-менее одинаковую терминологию:</p><h4 id='soedineniya' class='inside_page_header'><a href="#soedineniya">2.1.</a> Соединения</h4><p><em>Соединения</em> формируют основу взаимоотношения клиента с сервером.</p><p>Отдельный сервер Action Cable может обслужить несколько экземпляров соединения. В нем есть один экземпляр соединения на соединение WebSocket. Отдельный пользователь может иметь несколько WebSocket, открытых в вашем приложении, если он использует несколько вкладок браузера или устройств.</p><h4 id='potrebiteli' class='inside_page_header'><a href="#potrebiteli">2.2.</a> Потребители</h4><p>Клиент соединения WebSocket называется <em>потребителем</em>. В Action Cable потребитель создается клиентским фреймворком JavaScript.</p><h4 id='kanaly' class='inside_page_header'><a href="#kanaly">2.3.</a> Каналы</h4><p>Каждый потребитель, в свою очередь, может подписаться на несколько <em>каналов</em>. Каждый канал инкапсулирует логическую единицу работы, подобно тому, что делает контроллер в типичной настройке MVC. Например, могут быть <code>ChatChannel</code> и <code>AppearancesChannel</code>, а потребитель может подписаться на один или оба этих канала. Потребитель должен минимум быть подписан на один канал.</p><h4 id='podpischiki' class='inside_page_header'><a href="#podpischiki">2.4.</a> Подписчики</h4><p>Когда потребитель подписан на канал, он действует как <em>подписчик</em>. Соединение между подписчиком и каналом называется (сюрприз!) подпиской. Потребитель может действовать как подписчик на данный канал любое количество раз. Например, потребитель может подписаться на несколько комнат чата одновременно. (И помните, что физический пользователь может иметь несколько потребителей,
+один на вкладку/устройство, открытых к соединению).</p><h4 id='pub-sub' class='inside_page_header'><a href="#pub-sub">2.5.</a> Pub/Sub</h4><p><a href="https://ru.wikipedia.org/wiki/%D0%98%D0%B7%D0%B4%D0%B0%D1%82%D0%B5%D0%BB%D1%8C-%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)">Pub/Sub</a>, или Publish-Subscribe, относится к парадигме очереди сообщений, когда отправители информации (publishers) посылают данные в абстрактный класс получателей (subscribers), без указания отдельных получателей. Action Cable использует этот подход для коммуникации между сервером и множеством клиентов.</p><h4 id='translyatsii' class='inside_page_header'><a href="#translyatsii">2.6.</a> Трансляции</h4><p>Трансляция — это ссылка pub/sub, по которой все, передаваемое транслятором, посылается непосредственно подписчикам на канал, которые слушают эту названную трансляцию. Каждый канал может вещать ноль или более трансляций.</p><h3 id='servernye-komponenty' class='inside_page_header'><a href="#servernye-komponenty">3.</a> Серверные компоненты</h3><h4 id='soedineniya2' class='inside_page_header'><a href="#soedineniya2">3.1.</a> Соединения</h4><p>Для каждого WebSocket, принимаемого сервером, на стороне сервера будет инициализирован объект соединения. Этот объект становится родителем для всех <em>подписок на канал</em>, которые создаются впоследствии. Само соединение не работает с какой-либо определенной логикой приложения после аутентификации и авторизации. Клиент соединения WebSocket называется <em>потребителем</em> соединения (consumer). Отдельный пользователь создаст одну пару потребитель-соединение на каждую вкладку браузера, окно или устройство, которые он использует.</p><p>Соединения - это экземпляры класса <code>ApplicationCable::Connection</code> который расширяет <a href="https://api.rubyonrails.org/classes/ActionCable/Connection/Base.html"><code>ActionCable::Connection::Base</code></a>. В <code>ApplicationCable::Connection</code> вы авторизуете входящее соединение и приступаете к его созданию, если пользователь может быть идентифицирован.</p><h5 id='connection-setup' class='inside_page_header'><a href="#connection-setup">3.1.1.</a>  Настройка соединения</h5><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/channels/application_cable/connection.rb</span>
+<span class="k">module</span> <span class="nn">ApplicationCable</span>
+  <span class="k">class</span> <span class="nc">Connection</span> <span class="o">&lt;</span> <span class="no">ActionCable</span><span class="o">::</span><span class="no">Connection</span><span class="o">::</span><span class="no">Base</span>
+    <span class="n">identified_by</span> <span class="ss">:current_user</span>
+
+    <span class="k">def</span> <span class="nf">connect</span>
+      <span class="nb">self</span><span class="p">.</span><span class="nf">current_user</span> <span class="o">=</span> <span class="n">find_verified_user</span>
+    <span class="k">end</span>
+
+    <span class="kp">private</span>
+      <span class="k">def</span> <span class="nf">find_verified_user</span>
+        <span class="k">if</span> <span class="n">verified_user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">id: </span><span class="n">cookies</span><span class="p">.</span><span class="nf">encrypted</span><span class="p">[</span><span class="ss">:user_id</span><span class="p">])</span>
+          <span class="n">verified_user</span>
+        <span class="k">else</span>
+          <span class="n">reject_unauthorized_connection</span>
+        <span class="k">end</span>
+      <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Здесь <a href="https://api.rubyonrails.org/classes/ActionCable/Connection/Identification/ClassMethods.html#method-i-identified_by"><code>identified_by</code></a> назначает идентификатор соединения, который может быть использован, чтобы найти определенное соединение позже. Отметьте, что все, помеченное как идентификатор, автоматически создаст делегирование с тем же именем в каждом экземпляре канала, унаследованного от соединения.</p><p>Этот пример полагается на факт, что вы уже провели аутентификацию пользователя где-то в вашем приложении, и что успешная аутентификация устанавливает зашифрованные куки с ID пользователя.</p><p>Тогда куки автоматически посылаются в экземпляр соединения при попытке нового соединения, и используются для установления <code>current_user</code>. Идентифицировав соединения тем же текущим пользователем, вы также удостоверяетесь, что в дальнейшем можете получить все открытые соединения данного пользователя (и потенциально рассоединить их все, если пользователь удален или не авторизован).</p><p>Если ваш подход к аутентификации включает использование сессии, вы используете хранилище куки для для сессии, ваши куки сессии названы <code>_session</code>, и ключ ID пользователя <code>user_id</code>, можно использовать следующий подход:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">verified_user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">id: </span><span class="n">cookies</span><span class="p">.</span><span class="nf">encrypted</span><span class="p">[</span><span class="s1">'_session'</span><span class="p">][</span><span class="s1">'user_id'</span><span class="p">])</span>
+</code></pre>
+</div>
+<h5 id='obrabotka-isklyucheniy' class='inside_page_header'><a href="#obrabotka-isklyucheniy">3.1.2.</a> Обработка исключений</h5><p>По умолчанию необработанные исключения ловятся и логируются логгером Rails&#39;. Если вы хотите глобально перехватывать эти исключения чтобы, например, затем отправить их в какой-нибудь сторонний баг-трекер, то вы можете это сделать используя <a href="https://api.rubyonrails.org/classes/ActiveSupport/Rescuable/ClassMethods.html#method-i-rescue_from"><code>rescue_from</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/channels/application_cable/connection.rb</span>
+<span class="k">module</span> <span class="nn">ApplicationCable</span>
+  <span class="k">class</span> <span class="nc">Connection</span> <span class="o">&lt;</span> <span class="no">ActionCable</span><span class="o">::</span><span class="no">Connection</span><span class="o">::</span><span class="no">Base</span>
+    <span class="n">rescue_from</span> <span class="no">StandardError</span><span class="p">,</span> <span class="ss">with: :report_error</span>
+
+    <span class="kp">private</span>
+
+    <span class="k">def</span> <span class="nf">report_error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+      <span class="no">SomeExternalBugtrackingService</span><span class="p">.</span><span class="nf">notify</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='kolbeki-soedineniy' class='inside_page_header'><a href="#kolbeki-soedineniy">3.1.3.</a> Колбэки соединений</h5><p>Есть доступные колбэки <code>before_command</code>, <code>after_command</code> и <code>around_command</code>, которые вызываются, соответственно, до, после или вокруг каждой команды, полученной клиентом. Термин &quot;команда&quot; здесь относится к любому взаимодействию, полученному клиенту (подписке, отписке или выполняемым действиям):</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/channels/application_cable/connection.rb</span>
+<span class="k">module</span> <span class="nn">ApplicationCable</span>
+  <span class="k">class</span> <span class="nc">Connection</span> <span class="o">&lt;</span> <span class="no">ActionCable</span><span class="o">::</span><span class="no">Connection</span><span class="o">::</span><span class="no">Base</span>
+    <span class="n">identified_by</span> <span class="ss">:user</span>
+
+    <span class="n">around_command</span> <span class="ss">:set_current_account</span>
+
+    <span class="kp">private</span>
+
+    <span class="k">def</span> <span class="nf">set_current_account</span>
+      <span class="c1"># Теперь все каналы могут использовать Current.account</span>
+      <span class="no">Current</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="ss">account: </span><span class="n">user</span><span class="p">.</span><span class="nf">account</span><span class="p">)</span> <span class="p">{</span> <span class="k">yield</span> <span class="p">}</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='kanaly2' class='inside_page_header'><a href="#kanaly2">3.2.</a> Каналы</h4><p><em>Канал</em> инкапсулирует логическую единицу работы, схожей с той, что делает контроллер в типичном MVC. По умолчанию Rails создает родительский класс <code>ApplicationCable::Channel</code> (который расширяет <a href="https://api.rubyonrails.org/classes/ActionCable/Channel/Base.html"><code>ActionCable::Channel::Base</code></a>) для инкапсуляции логики, общей для ваших каналов.</p><h5 id='parent-channel-setup' class='inside_page_header'><a href="#parent-channel-setup">3.2.1.</a>  Настройка родительского канала</h5><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/channels/application_cable/channel.rb</span>
+<span class="k">module</span> <span class="nn">ApplicationCable</span>
+  <span class="k">class</span> <span class="nc">Channel</span> <span class="o">&lt;</span> <span class="no">ActionCable</span><span class="o">::</span><span class="no">Channel</span><span class="o">::</span><span class="no">Base</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Далее можно создать собственные классы каналов. Например, можно создать <code>ChatChannel</code> и <code>AppearanceChannel</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/channels/chat_channel.rb</span>
+<span class="k">class</span> <span class="nc">ChatChannel</span> <span class="o">&lt;</span> <span class="no">ApplicationCable</span><span class="o">::</span><span class="no">Channel</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/channels/appearance_channel.rb</span>
+<span class="k">class</span> <span class="nc">AppearanceChannel</span> <span class="o">&lt;</span> <span class="no">ApplicationCable</span><span class="o">::</span><span class="no">Channel</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Затем потребитель может быть подписан на один или оба этих канала.</p><h5 id='podpiski' class='inside_page_header'><a href="#podpiski">3.2.2.</a> Подписки</h5><p>Потребитель подписывается на канал, действуя как <em>подписчик</em> (subscriber). Это соединение называется <em>подпиской</em>. Созданные сообщения затем маршрутизируются на эти подписки на канал, основываясь на идентификаторе, посланным потребителем канала.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/channels/chat_channel.rb</span>
+<span class="k">class</span> <span class="nc">ChatChannel</span> <span class="o">&lt;</span> <span class="no">ApplicationCable</span><span class="o">::</span><span class="no">Channel</span>
+  <span class="c1"># Вызывается, когда потребитель успешно</span>
+  <span class="c1"># стал подписчиком этого канала</span>
+  <span class="k">def</span> <span class="nf">subscribed</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='obrabotka-isklyucheniy2' class='inside_page_header'><a href="#obrabotka-isklyucheniy2">3.2.3.</a> Обработка исключений</h5><p>Как и в случае с <code>ApplicationCable::Connection</code>, можно использовать <a href="https://api.rubyonrails.org/classes/ActiveSupport/Rescuable/ClassMethods.html#method-i-rescue_from"><code>rescue_from</code></a> на определенном канале для обработки вызванных исключений:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/channels/chat_channel.rb</span>
+<span class="k">class</span> <span class="nc">ChatChannel</span> <span class="o">&lt;</span> <span class="no">ApplicationCable</span><span class="o">::</span><span class="no">Channel</span>
+  <span class="n">rescue_from</span> <span class="s1">'MyError'</span><span class="p">,</span> <span class="ss">with: :deliver_error_message</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">deliver_error_message</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">broadcast_to</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h5 id='kolbeki-kanala' class='inside_page_header'><a href="#kolbeki-kanala">3.2.4.</a> Колбэки канала</h5><p><code>ApplicationCable::Channel</code> предоставляет ряд колбэков, которые можно использовать, чтобы запустить логику в течение жизненного цикла канала. Доступные колбэки:</p><ul><li><code>before_subscribe</code>
+</li><li><code>after_subscribe</code> (также псевдоним: <code>on_subscribe</code>)
+</li><li><code>before_unsubscribe</code>
+</li><li><code>after_unsubscribe</code> (также псевдоним: <code>on_unsubscribe</code>)
+</li></ul><div class="note"><p>Колбэк <code>after_subscribe</code> запускается, всякий раз, когда вызывается метод <code>subscribed</code>, даже если подписка отвергнута с помощью метода <code>reject</code>. Чтобы запустить <code>after_subscribe</code> только при успешной подписке, используйте <code>after_subscribe :send_welcome_message, unless: :subscription_rejected?</code></p></div><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/channels/chat_channel.rb</span>
+<span class="k">class</span> <span class="nc">ChatChannel</span> <span class="o">&lt;</span> <span class="no">ApplicationCable</span><span class="o">::</span><span class="no">Channel</span>
+  <span class="n">after_subscribe</span> <span class="ss">:send_welcome_message</span><span class="p">,</span> <span class="ss">unless: :subscription_rejected?</span>
+  <span class="n">after_subscribe</span> <span class="ss">:track_subscription</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">send_welcome_message</span>
+    <span class="n">broadcast_to</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">track_subscription</span>
+    <span class="c1"># ...</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h3 id='klientskie-komponenty' class='inside_page_header'><a href="#klientskie-komponenty">4.</a> Клиентские компоненты</h3><h4 id='soedineniya3' class='inside_page_header'><a href="#soedineniya3">4.1.</a> Соединения</h4><p>Потребителям нужен экземпляр соединения на их стороне. Оно может быть установлено с использованием следующего JavaScript, который генерируется в Rails по умолчанию:</p><h5 id='connect-consumer' class='inside_page_header'><a href="#connect-consumer">4.1.1.</a>  Присоединение потребителя</h5><div class="code_container">
+  <pre><code class="highlight js"><span class="c1">// app/javascript/channels/consumer.js</span>
+<span class="c1">// Action Cable provides the framework to deal with WebSockets in Rails.</span>
+<span class="c1">// You can generate new channels where WebSocket features live using the `bin/rails generate channel` command.</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">createConsumer</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@rails/actioncable</span><span class="dl">"</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">createConsumer</span><span class="p">()</span>
+</code></pre>
+</div>
+<p>Это подготовит потребителя, который по умолчанию присоединится к <code>/cable</code> на вашем сервере. Соединение не будет установлено, пока вы не определите хотя бы одну подписку, в которой вы заинтересованы.</p><p>Опционально, потребитель может принять аргумент, указывающий URL для соединения. Он может быть строкой или функцией, возвращающей строку, которая будет вызвана, когда откроется WebSocket.</p><div class="code_container">
+  <pre><code class="highlight js"><span class="c1">// Указан другой URL для соединения</span>
+<span class="nx">createConsumer</span><span class="p">(</span><span class="dl">'</span><span class="s1">wss://example.com/cable</span><span class="dl">'</span><span class="p">)</span>
+<span class="c1">// Или при использовании websockets поверх HTTP</span>
+<span class="nx">createConsumer</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://ws.example.com/cable</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="c1">// Использована функция для динамической генерации URL</span>
+<span class="nx">createConsumer</span><span class="p">(</span><span class="nx">getWebSocketURL</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="nx">getWebSocketURL</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">auth-token</span><span class="dl">'</span><span class="p">)</span>
+  <span class="k">return</span> <span class="s2">`wss://example.com/cable?token=</span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h5 id='subscriber' class='inside_page_header'><a href="#subscriber">4.1.2.</a>  Подписчик</h5><p>Потребитель становится подписчиком создав подписку на заданный канал:</p><div class="code_container">
+  <pre><code class="highlight js"><span class="c1">// app/javascript/channels/chat_channel.js</span>
+<span class="k">import</span> <span class="nx">consumer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./consumer</span><span class="dl">"</span>
+
+<span class="nx">consumer</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span> <span class="na">channel</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ChatChannel</span><span class="dl">"</span><span class="p">,</span> <span class="na">room</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Best Room</span><span class="dl">"</span> <span class="p">})</span>
+
+<span class="c1">// app/javascript/channels/appearance_channel.js</span>
+<span class="k">import</span> <span class="nx">consumer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./consumer</span><span class="dl">"</span>
+
+<span class="nx">consumer</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span> <span class="na">channel</span><span class="p">:</span> <span class="dl">"</span><span class="s2">AppearanceChannel</span><span class="dl">"</span> <span class="p">})</span>
+</code></pre>
+</div>
+<p>Хотя это создает подписку, функциональность требует отклика на полученные данные, что будет описано позже.</p><p>Потребитель может действовать как подписчик на заданный канал любое количество раз. Например, потребитель может подписаться на несколько комнат чата одновременно:</p><div class="code_container">
+  <pre><code class="highlight js"><span class="c1">// app/javascript/channels/chat_channel.js</span>
+<span class="k">import</span> <span class="nx">consumer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./consumer</span><span class="dl">"</span>
+
+<span class="nx">consumer</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span> <span class="na">channel</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ChatChannel</span><span class="dl">"</span><span class="p">,</span> <span class="na">room</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1st Room</span><span class="dl">"</span> <span class="p">})</span>
+<span class="nx">consumer</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span> <span class="na">channel</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ChatChannel</span><span class="dl">"</span><span class="p">,</span> <span class="na">room</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2nd Room</span><span class="dl">"</span> <span class="p">})</span>
+</code></pre>
+</div>
+<h3 id='klient-servernoe-vzaimodeystvie' class='inside_page_header'><a href="#klient-servernoe-vzaimodeystvie">5.</a> Клиент-серверное взаимодействие</h3><h4 id='potoki-streams' class='inside_page_header'><a href="#potoki-streams">5.1.</a> Потоки (Streams)</h4><p><em>Потоки</em> предоставляют механизм, с помощью которого каналы направляют опубликованный контент (трансляции) их подписчикам. Например, следующий код использует <a href="https://api.rubyonrails.org/classes/ActionCable/Channel/Streams.html#method-i-stream_from"><code>stream_from</code></a> для подписки на трансляцию с именем <code>chat_Best Room</code>, где значение параметра <code>:room</code> <code>&quot;Best Room&quot;</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/channels/chat_channel.rb</span>
+<span class="k">class</span> <span class="nc">ChatChannel</span> <span class="o">&lt;</span> <span class="no">ApplicationCable</span><span class="o">::</span><span class="no">Channel</span>
+  <span class="k">def</span> <span class="nf">subscribed</span>
+    <span class="n">stream_from</span> <span class="s2">"chat_</span><span class="si">#{</span><span class="n">params</span><span class="p">[</span><span class="ss">:room</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Затем, где-нибудь в приложении Rails, можно транслировать в такую комнату, вызвав <a href="https://api.rubyonrails.org/classes/ActionCable/Server/Broadcasting.html#method-i-broadcast"><code>broadcast</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">ActionCable</span><span class="p">.</span><span class="nf">server</span><span class="p">.</span><span class="nf">broadcast</span><span class="p">(</span><span class="s2">"chat_Best Room"</span><span class="p">,</span> <span class="p">{</span> <span class="ss">body: </span><span class="s2">"This Room is Best Room."</span> <span class="p">})</span>
+</code></pre>
+</div>
+<p>Если у вас есть поток, относящийся к модели, тогда используемое имя трансляции может быть сгенерировано из модели и канала. Например, следующий код использует <a href="https://api.rubyonrails.org/classes/ActionCable/Channel/Streams.html#method-i-stream_for"><code>stream_for</code></a> для подписки на трансляцию наподобие <code>comments:Z2lkOi8vVGVzdEFwcC9Qb3N0LzE</code>, где <code>Z2lkOi8vVGVzdEFwcC9Qb3N0LzE</code> это GlobalID модели Post.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CommentsChannel</span> <span class="o">&lt;</span> <span class="no">ApplicationCable</span><span class="o">::</span><span class="no">Channel</span>
+  <span class="k">def</span> <span class="nf">subscribed</span>
+    <span class="n">post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+    <span class="n">stream_for</span> <span class="n">post</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Затем можно транслировать на этот канал с помощью <a href="https://api.rubyonrails.org/classes/ActionCable/Channel/Broadcasting/ClassMethods.html#method-i-broadcast_to"><code>broadcast_to</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">CommentsChannel</span><span class="p">.</span><span class="nf">broadcast_to</span><span class="p">(</span><span class="vi">@post</span><span class="p">,</span> <span class="vi">@comment</span><span class="p">)</span>
+</code></pre>
+</div>
+<h4 id='broadcasting' class='inside_page_header'><a href="#broadcasting">5.2.</a>  Трансляции</h4><p><em>Трансляция</em> — это ссылка pub/sub, по которой все, переданное издателем (publisher), направляется непосредственно подписчикам канала, которые читают из потока трансляции с этим именем. Каждый канал может писать в поток ноль или более трансляций. Трансляции — это очередь реального времени. Если потребитель не читает поток (не подписан на данный канал), он не получит трансляцию, когда присоединится позже.</p><h4 id='podpiski2' class='inside_page_header'><a href="#podpiski2">5.3.</a> Подписки</h4><p>Когда потребитель подписывается на канал, он действует как подписчик. Это соединение называется подпиской. Затем, входящие сообщения направляются на эти подписки на канал, основываясь на идентификаторе, посланным потребителем cable.</p><div class="code_container">
+  <pre><code class="highlight js"><span class="c1">// app/javascript/channels/chat_channel.js</span>
+<span class="k">import</span> <span class="nx">consumer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./consumer</span><span class="dl">"</span>
+
+<span class="nx">consumer</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span> <span class="na">channel</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ChatChannel</span><span class="dl">"</span><span class="p">,</span> <span class="na">room</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Best Room</span><span class="dl">"</span> <span class="p">},</span> <span class="p">{</span>
+  <span class="nx">received</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">appendLine</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+  <span class="p">},</span>
+
+  <span class="nx">appendLine</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">html</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">createLine</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+    <span class="kd">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">[data-chat-room='Best Room']</span><span class="dl">"</span><span class="p">)</span>
+    <span class="nx">element</span><span class="p">.</span><span class="nx">insertAdjacentHTML</span><span class="p">(</span><span class="dl">"</span><span class="s2">beforeend</span><span class="dl">"</span><span class="p">,</span> <span class="nx">html</span><span class="p">)</span>
+  <span class="p">},</span>
+
+  <span class="nx">createLine</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">`
+      &lt;article class="chat-line"&gt;
+        &lt;span class="speaker"&gt;</span><span class="p">${</span><span class="nx">data</span><span class="p">[</span><span class="dl">"</span><span class="s2">sent_by</span><span class="dl">"</span><span class="p">]}</span><span class="s2">&lt;/span&gt;
+        &lt;span class="body"&gt;</span><span class="p">${</span><span class="nx">data</span><span class="p">[</span><span class="dl">"</span><span class="s2">body</span><span class="dl">"</span><span class="p">]}</span><span class="s2">&lt;/span&gt;
+      &lt;/article&gt;
+    `</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+<h4 id='peredacha-parametrov-v-kanaly' class='inside_page_header'><a href="#peredacha-parametrov-v-kanaly">5.4.</a> Передача параметров в каналы</h4><p>Вы можете передавать параметры из клиента на сервер при создании подписки. Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/channels/chat_channel.rb</span>
+<span class="k">class</span> <span class="nc">ChatChannel</span> <span class="o">&lt;</span> <span class="no">ApplicationCable</span><span class="o">::</span><span class="no">Channel</span>
+  <span class="k">def</span> <span class="nf">subscribed</span>
+    <span class="n">stream_from</span> <span class="s2">"chat_</span><span class="si">#{</span><span class="n">params</span><span class="p">[</span><span class="ss">:room</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Объект, переданный в качестве первого аргумента в <code>subscriptions.create</code>, станет хэшем params в канале cable. Ключевое слово <code>channel</code> обязательное:</p><div class="code_container">
+  <pre><code class="highlight js"><span class="c1">// app/javascript/channels/chat_channel.js</span>
+<span class="k">import</span> <span class="nx">consumer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./consumer</span><span class="dl">"</span>
+
+<span class="nx">consumer</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span> <span class="na">channel</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ChatChannel</span><span class="dl">"</span><span class="p">,</span> <span class="na">room</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Best Room</span><span class="dl">"</span> <span class="p">},</span> <span class="p">{</span>
+  <span class="nx">received</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">appendLine</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+  <span class="p">},</span>
+
+  <span class="nx">appendLine</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">html</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">createLine</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+    <span class="kd">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">[data-chat-room='Best Room']</span><span class="dl">"</span><span class="p">)</span>
+    <span class="nx">element</span><span class="p">.</span><span class="nx">insertAdjacentHTML</span><span class="p">(</span><span class="dl">"</span><span class="s2">beforeend</span><span class="dl">"</span><span class="p">,</span> <span class="nx">html</span><span class="p">)</span>
+  <span class="p">},</span>
+
+  <span class="nx">createLine</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">`
+      &lt;article class="chat-line"&gt;
+        &lt;span class="speaker"&gt;</span><span class="p">${</span><span class="nx">data</span><span class="p">[</span><span class="dl">"</span><span class="s2">sent_by</span><span class="dl">"</span><span class="p">]}</span><span class="s2">&lt;/span&gt;
+        &lt;span class="body"&gt;</span><span class="p">${</span><span class="nx">data</span><span class="p">[</span><span class="dl">"</span><span class="s2">body</span><span class="dl">"</span><span class="p">]}</span><span class="s2">&lt;/span&gt;
+      &lt;/article&gt;
+    `</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Это вызывается где-нибудь в приложении,</span>
+<span class="c1"># возможно из NewCommentJob</span>
+<span class="no">ActionCable</span><span class="p">.</span><span class="nf">server</span><span class="p">.</span><span class="nf">broadcast</span><span class="p">(</span>
+  <span class="s2">"chat_</span><span class="si">#{</span><span class="n">room</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="p">{</span>
+    <span class="ss">sent_by: </span><span class="s1">'Paul'</span><span class="p">,</span>
+    <span class="ss">body: </span><span class="s1">'This is a cool chat app.'</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+<h4 id='peretranslyatsiya-soobscheniya' class='inside_page_header'><a href="#peretranslyatsiya-soobscheniya">5.5.</a> Перетрансляция сообщения</h4><p>Обычным сценарием является <em>перетрансляция</em> сообщения, посланного одним клиентом, любым другим подсоединенным клиентам.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/channels/chat_channel.rb</span>
+<span class="k">class</span> <span class="nc">ChatChannel</span> <span class="o">&lt;</span> <span class="no">ApplicationCable</span><span class="o">::</span><span class="no">Channel</span>
+  <span class="k">def</span> <span class="nf">subscribed</span>
+    <span class="n">stream_from</span> <span class="s2">"chat_</span><span class="si">#{</span><span class="n">params</span><span class="p">[</span><span class="ss">:room</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">receive</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="no">ActionCable</span><span class="p">.</span><span class="nf">server</span><span class="p">.</span><span class="nf">broadcast</span><span class="p">(</span><span class="s2">"chat_</span><span class="si">#{</span><span class="n">params</span><span class="p">[</span><span class="ss">:room</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight js"><span class="c1">// app/javascript/channels/chat_channel.js</span>
+<span class="k">import</span> <span class="nx">consumer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./consumer</span><span class="dl">"</span>
+
+<span class="kd">const</span> <span class="nx">chatChannel</span> <span class="o">=</span> <span class="nx">consumer</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span> <span class="na">channel</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ChatChannel</span><span class="dl">"</span><span class="p">,</span> <span class="na">room</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Best Room</span><span class="dl">"</span> <span class="p">},</span> <span class="p">{</span>
+  <span class="nx">received</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// data =&gt; { sent_by: "Paul", body: "This is a cool chat app." }</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="nx">chatChannel</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span> <span class="na">sent_by</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Paul</span><span class="dl">"</span><span class="p">,</span> <span class="na">body</span><span class="p">:</span> <span class="dl">"</span><span class="s2">This is a cool chat app.</span><span class="dl">"</span> <span class="p">})</span>
+</code></pre>
+</div>
+<p>Перетрансляция будет получена всеми подсоединенными клиентами, <em>включая</em> клиента, отправившего сообщение. Отметьте, что params те же самые, что были при подписке на канал.</p><h3 id='polnye-primery' class='inside_page_header'><a href="#polnye-primery">6.</a> Полные примеры</h3><p>Следующие шаги настройки общие для обоих примеров:</p><ul><li><a href="#connection-setup">Настройка вашего соединения</a>.
+</li><li><a href="#parent-channel-setup">Настройка родительского канала</a>.
+</li><li><a href="#connect-consumer">Присоединение вашего потребителя</a>.
+</li></ul><h4 id='primer-1-poyavlenie-polzovatelya' class='inside_page_header'><a href="#primer-1-poyavlenie-polzovatelya">6.1.</a> Пример 1: Появление пользователя</h4><p>Вот простой пример канала, отслеживающего является ли пользователь онлайн или нет, и на какой он странице. (Это полезно для создания особенностей присутствия, наподобие зеленой точки рядом с именем пользователя, если он онлайн).</p><p>Создание канала появлений на сервере:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/channels/appearance_channel.rb</span>
+<span class="k">class</span> <span class="nc">AppearanceChannel</span> <span class="o">&lt;</span> <span class="no">ApplicationCable</span><span class="o">::</span><span class="no">Channel</span>
+  <span class="k">def</span> <span class="nf">subscribed</span>
+    <span class="n">current_user</span><span class="p">.</span><span class="nf">appear</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">unsubscribed</span>
+    <span class="n">current_user</span><span class="p">.</span><span class="nf">disappear</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">appear</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">current_user</span><span class="p">.</span><span class="nf">appear</span><span class="p">(</span><span class="ss">on: </span><span class="n">data</span><span class="p">[</span><span class="s1">'appearing_on'</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">away</span>
+    <span class="n">current_user</span><span class="p">.</span><span class="nf">away</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Когда инициализируется подписка, вызывается колбэк <code>subscribed</code>, и мы имеем возможность сказать &quot;определенно, текущий пользователь появился онлайн&quot;. Это API появления/исчезновения может быть реализовано в Redis, базе данных или еще как-нибудь.</p><p>Создание подписки на канал появлений на клиенте:</p><div class="code_container">
+  <pre><code class="highlight js"><span class="c1">// app/javascript/channels/appearance_channel.js</span>
+<span class="k">import</span> <span class="nx">consumer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./consumer</span><span class="dl">"</span>
+
+<span class="nx">consumer</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="dl">"</span><span class="s2">AppearanceChannel</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span>
+  <span class="c1">// Вызывается единожды при создании подписки.</span>
+  <span class="nx">initialized</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">update</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+  <span class="p">},</span>
+
+  <span class="c1">// Вызывается, когда подписка готова на сервере для использования.</span>
+  <span class="nx">connected</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">install</span><span class="p">()</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">update</span><span class="p">()</span>
+  <span class="p">},</span>
+
+  <span class="c1">// Вызывается, когда закрывается соединения WebSocket.</span>
+  <span class="nx">disconnected</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">uninstall</span><span class="p">()</span>
+  <span class="p">},</span>
+
+  <span class="c1">// Вызывается, когда подписка отвергается сервером.</span>
+  <span class="nx">rejected</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">uninstall</span><span class="p">()</span>
+  <span class="p">},</span>
+
+  <span class="nx">update</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">documentIsActive</span> <span class="p">?</span> <span class="k">this</span><span class="p">.</span><span class="nx">appear</span><span class="p">()</span> <span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">away</span><span class="p">()</span>
+  <span class="p">},</span>
+
+  <span class="nx">appear</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Вызывает `AppearanceChannel#appear(data)` на сервере.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">perform</span><span class="p">(</span><span class="dl">"</span><span class="s2">appear</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span> <span class="na">appearing_on</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">appearingOn</span> <span class="p">})</span>
+  <span class="p">},</span>
+
+  <span class="nx">away</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Вызывает `AppearanceChannel#away` на сервере.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">perform</span><span class="p">(</span><span class="dl">"</span><span class="s2">away</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">},</span>
+
+  <span class="nx">install</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">focus</span><span class="dl">"</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">update</span><span class="p">)</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">blur</span><span class="dl">"</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">update</span><span class="p">)</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">turbo:load</span><span class="dl">"</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">update</span><span class="p">)</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">visibilitychange</span><span class="dl">"</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">update</span><span class="p">)</span>
+  <span class="p">},</span>
+
+  <span class="nx">uninstall</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">focus</span><span class="dl">"</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">update</span><span class="p">)</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">blur</span><span class="dl">"</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">update</span><span class="p">)</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">turbo:load</span><span class="dl">"</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">update</span><span class="p">)</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">visibilitychange</span><span class="dl">"</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">update</span><span class="p">)</span>
+  <span class="p">},</span>
+
+  <span class="kd">get</span> <span class="nx">documentIsActive</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">document</span><span class="p">.</span><span class="nx">visibilityState</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">visible</span><span class="dl">"</span> <span class="o">&amp;&amp;</span> <span class="nb">document</span><span class="p">.</span><span class="nx">hasFocus</span><span class="p">()</span>
+  <span class="p">},</span>
+
+  <span class="kd">get</span> <span class="nx">appearingOn</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">[data-appearing-on]</span><span class="dl">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">element</span> <span class="p">?</span> <span class="nx">element</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">data-appearing-on</span><span class="dl">"</span><span class="p">)</span> <span class="p">:</span> <span class="kc">null</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+<h5 id='klient-servernoe-vzaimodeystvie2' class='inside_page_header'><a href="#klient-servernoe-vzaimodeystvie2">6.1.1.</a> Клиент-серверное взаимодействие</h5><ul><li><p><strong>Клиент</strong> соединяется с <strong>Сервером</strong> с помощью <code>createConsumer()</code>. (<code>consumer.js</code>). <strong>Сервер</strong> идентифицирует экземпляр этого соединения по <code>current_user</code>.</p></li><li><p><strong>Клиент</strong> подписывается на канал появлений с помощью <code>consumer.subscriptions.create({ channel: &quot;AppearanceChannel&quot; })</code>. (<code>appearance_channel.js</code>)</p></li><li><p><strong>Сервер</strong> распознает, что была инициализирована новая подписка для канала появлений, и запускает колбэк <code>subscribed</code>, вызывающий метод <code>appear</code> на <code>current_user</code>. (<code>appearance_channel.rb</code>)</p></li><li><p><strong>Клиент</strong> распознав, что подписка была установлена, вызывает <code>connected</code> (<code>appearance_channel.js</code>), который, в свою очередь, вызывает <code>install</code> и <code>appear</code>. <code>appear</code> вызывает <code>AppearanceChannel#appear(data)</code> на сервере и предоставляет хэш данных <code>{ appearing_on: this.appearingOn }</code>. Это возможно, так как экземпляр канала на сервере автоматически открывает публичные методы, объявленные в классе (кроме колбэков), таким образом, они достижимы для вызова в качестве удаленных процедур с помощью метода подписки <code>perform</code>.</p></li><li><p><strong>Сервер</strong> получает запрос для экшна <code>appear</code> на канале появлений для соединения, идентифицированного <code>current_user</code>. (<code>appearance_channel.rb</code>). <strong>Сервер</strong> получает данные с ключом <code>:appearing_on</code> из хэша данных и устанавливает его в качестве значения для ключа <code>:on</code>, передаваемого в <code>current_user.appear</code>.</p></li></ul><h4 id='primer-2-poluchenie-novyh-veb-uvedomleniy' class='inside_page_header'><a href="#primer-2-poluchenie-novyh-veb-uvedomleniy">6.2.</a> Пример 2: Получение новых веб-уведомлений</h4><p>Пример с появлением пользователей был об открытии серверного функциональности для вызова на стороне клиента через соединение WebSocket. Но отличительная особенность WebSockets в том, что они двусторонние. Давайте покажем пример, когда сервер вызывает экшн на клиенте.</p><p>Это канал веб-уведомлений, позволяющий показать веб-уведомления на клиенте при трансляции в релевантные потоки:</p><p>Создание канала веб-уведомлений на сервере:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/channels/web_notifications_channel.rb</span>
+<span class="k">class</span> <span class="nc">WebNotificationsChannel</span> <span class="o">&lt;</span> <span class="no">ApplicationCable</span><span class="o">::</span><span class="no">Channel</span>
+  <span class="k">def</span> <span class="nf">subscribed</span>
+    <span class="n">stream_for</span> <span class="n">current_user</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Создание подписки на канал веб-уведомлений на клиенте:</p><div class="code_container">
+  <pre><code class="highlight js"><span class="c1">// app/javascript/channels/web_notifications_channel.js</span>
+<span class="c1">// На клиенте полагаем, что уже запросили право</span>
+<span class="c1">// посылать веб-уведомления</span>
+<span class="k">import</span> <span class="nx">consumer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./consumer</span><span class="dl">"</span>
+
+<span class="nx">consumer</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="dl">"</span><span class="s2">WebNotificationsChannel</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">received</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">new</span> <span class="nx">Notification</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">],</span> <span class="p">{</span> <span class="na">body</span><span class="p">:</span> <span class="nx">data</span><span class="p">[</span><span class="dl">"</span><span class="s2">body</span><span class="dl">"</span><span class="p">]</span> <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+<p>Транслируем содержимое в экземпляр канала веб-уведомлений откуда-нибудь из приложения:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Это вызывается где-то в приложении, возможно из NewCommentJob</span>
+<span class="no">WebNotificationsChannel</span><span class="p">.</span><span class="nf">broadcast_to</span><span class="p">(</span>
+  <span class="n">current_user</span><span class="p">,</span>
+  <span class="ss">title: </span><span class="s1">'New things!'</span><span class="p">,</span>
+  <span class="ss">body: </span><span class="s1">'All the news fit to print'</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+<p>Вызов <code>WebNotificationsChannel.broadcast_to</code> помещает сообщение в очередь pubsub текущего адаптера подписки под отдельным именем трансляции для каждого пользователя. Для пользователя с ID 1, имя трансляции будет <code>web_notifications:1</code>.</p><p>Канал проинструктирован писать в поток все, что приходит в <code>web_notifications:1</code>, непосредственно на клиент, вызывая колбэк <code>received</code>. Данные, передаваемые как аргумент, – это хэш, посылаемый в качестве второго параметра в вызов трансляции на сервере, кодируемый для передачи в JSON и распакованный в аргументе data, приходящем как <code>received</code>.</p><h4 id='bolshe-polnyh-primerov' class='inside_page_header'><a href="#bolshe-polnyh-primerov">6.3.</a> Больше полных примеров</h4><p>Смотрите репозиторий <a href="https://github.com/rails/actioncable-examples">rails/actioncable-examples</a>, чтобы получить полный пример, как настроить Action Cable в приложении Rails и добавить каналы.</p><h3 id='configuration' class='inside_page_header'><a href="#configuration">7.</a>  Настройка</h3><p>У Action Cable есть две требуемые настройки: адаптер подписки и допустимые домены запроса.</p><h4 id='adapter-podpiski' class='inside_page_header'><a href="#adapter-podpiski">7.1.</a> Адаптер подписки</h4><p>По умолчанию Action Cable ищет конфигурационный файл в <code>config/cable.yml</code>. Этот файл должен указывать адаптер для каждой среды Rails. Подробности об адаптерах смотрите в разделе <a href="#dependencies">Зависимости</a>.</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">development</span><span class="pi">:</span>
+  <span class="na">adapter</span><span class="pi">:</span> <span class="s">async</span>
+
+<span class="na">test</span><span class="pi">:</span>
+  <span class="na">adapter</span><span class="pi">:</span> <span class="s">test</span>
+
+<span class="na">production</span><span class="pi">:</span>
+  <span class="na">adapter</span><span class="pi">:</span> <span class="s">redis</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="s">redis://10.10.3.153:6381</span>
+  <span class="na">channel_prefix</span><span class="pi">:</span> <span class="s">appname_production</span>
+</code></pre>
+</div>
+<h5 id='konfiguratsiya-adaptera' class='inside_page_header'><a href="#konfiguratsiya-adaptera">7.1.1.</a> Конфигурация адаптера</h5><p>Ниже приведен список адаптеров подписки, доступных для конечных пользователей.</p><h6 id='adapter-async' class='inside_page_header'><a href="#adapter-async">7.1.1.1.</a> Адаптер async</h6><p>Асинхронный адаптер предназначен для development/testing сред и не должен использоваться в production.</p><h6 id='adapter-redis' class='inside_page_header'><a href="#adapter-redis">7.1.1.2.</a> Адаптер Redis</h6><p>Адаптер Redis требует от пользователей предоставления URL, указывающего на сервер Redis. Кроме того, может быть предоставлен <code>channel_prefix</code>, чтобы избежать конфликта имен каналов при использовании одного и того же сервера Redis для нескольких приложений. Смотрите <a href="https://redis.io/docs/manual/pubsub/#database--scoping">документацию Redis Pub/Sub</a> для получения дополнительной информации.</p><p>Адаптер Redis также поддерживает соединения SSL/TLS. Требуемые параметры SSL/TLS могут быть переданы в ключ <code>ssl_params</code> в конфигурационном файле YAML.</p><div class="code_container">
+  <pre><code class="highlight plaintext">production:
+  adapter: redis
+  url: rediss://10.10.3.153:tls_port
+  channel_prefix: appname_production
+  ssl_params: {
+    ca_file: "/path/to/ca.crt"
+  }
+</code></pre>
+</div>
+<p>Опции, переданные в <code>ssl_params</code>, передаются непосредственно в метод <code>OpenSSL::SSL::SSLContext#set_params</code>, и они могут быть любыми валидными атрибутами контекста SSL. Обратитесь к <a href="https://docs.ruby-lang.org/en/master/OpenSSL/SSL/SSLContext.html">документации OpenSSL::SSL::SSLContext</a> за другими доступными атрибутами.</p><p>Если вы используете самоподписанные сертификаты для адаптера redis за файрволом и пропускаете проверку сертификата, тогда в ssl <code>verify_mode</code> должен быть установлен как <code>OpenSSL::SSL::VERIFY_NONE</code>.</p><div class="warning"><p>Не рекомендуется использовать <code>VERIFY_NONE</code> в production, если вы только не абсолютно понимаете влияние на безопасность. Чтобы установить эту опцию для адаптера Redis, настройка должна быть <code>ssl_params: { verify_mode: &lt;%= OpenSSL::SSL::VERIFY_NONE %&gt; }</code>.</p></div><h6 id='adapter-postgresql' class='inside_page_header'><a href="#adapter-postgresql">7.1.1.3.</a> Адаптер PostgreSQL</h6><p>Адаптер PostgreSQL использует пул подключений Active Record и, соответственно, конфигурацию базы данных приложения <code>config/database.yml</code> для ее подключения. Это может измениться в будущем. <a href="https://github.com/rails/rails/issues/27214">#27214</a></p><h4 id='dopustimye-domeny-zaprosa' class='inside_page_header'><a href="#dopustimye-domeny-zaprosa">7.2.</a> Допустимые домены запроса</h4><p>Action Cable принимает только запросы с определенных доменов, которые передаются в конфигурацию сервера массивом. Домены могут быть экземплярами строк или регулярных выражений, с которыми выполняется сверка.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">action_cable</span><span class="p">.</span><span class="nf">allowed_request_origins</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'https://rubyonrails.com'</span><span class="p">,</span> <span class="sr">%r{http://ruby.*}</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Чтобы отключить и, тем самым, разрешить запросы с любого домена:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">action_cable</span><span class="p">.</span><span class="nf">disable_request_forgery_protection</span> <span class="o">=</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<p>По умолчанию Action Cable позволяет все запросы из localhost:3000 при запуске в среде development.</p><h4 id='consumer-configuration' class='inside_page_header'><a href="#consumer-configuration">7.3.</a>  Настройка потребителя</h4><p>Чтобы сконфигурировать URL, добавьте вызов <a href="https://api.rubyonrails.org/classes/ActionCable/Helpers/ActionCableHelper.html#method-i-action_cable_meta_tag"><code>action_cable_meta_tag</code></a> в макете HTML HEAD. Он использует URL или путь, обычно устанавливаемые с помощью <a href="/configuring#config-action-cable-url"><code>config.action_cable.url</code></a> в файлах настройки среды.</p><h4 id='nastroyka-pula-vorkerov' class='inside_page_header'><a href="#nastroyka-pula-vorkerov">7.4.</a> Настройка пула воркеров</h4><p>Пул воркеров используется для запуска колбэков соединения и экшнов канала в изоляции от основного треда сервера. Action Cable позволяет приложению настроить количество одновременно обрабатываемых тредов в пуле воркеров.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">action_cable</span><span class="p">.</span><span class="nf">worker_pool_size</span> <span class="o">=</span> <span class="mi">4</span>
+</code></pre>
+</div>
+<p>Также отметим, что ваш сервер должен предоставить как минимум то же самое количество соединений с базой данных, сколько у вас есть воркеров. Пул воркеров по умолчанию установлен 4, это означает, что нужно сделать как минимум 4 доступных соединения к базе данных. Это можно изменить в <code>config/database.yml</code> с помощью атрибута <code>pool</code>.</p><h4 id='logirovanie-na-kliente' class='inside_page_header'><a href="#logirovanie-na-kliente">7.5.</a> Логирование на клиенте</h4><p>Логирование на клиенте отключено по умолчанию. Его можно включить, установив <code>ActionCable.logger.enabled</code> true.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">import</span> <span class="o">*</span> <span class="n">as</span> <span class="no">ActionCable</span> <span class="n">from</span> <span class="s1">'@rails/actioncable'</span>
+
+<span class="no">ActionCable</span><span class="p">.</span><span class="nf">logger</span><span class="p">.</span><span class="nf">enabled</span> <span class="o">=</span> <span class="kp">true</span>
+</code></pre>
+</div>
+<h4 id='drugie-nastroyki' class='inside_page_header'><a href="#drugie-nastroyki">7.6.</a> Другие настройки</h4><p>Другой обычной опцией для настройки являются теги логирования, присоединяемые к логгеру для каждого соединения. Вот пример, использующий при тегировании идентификатор пользовательской записи при наличии, а в противном случае &quot;no-account&quot;</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">action_cable</span><span class="p">.</span><span class="nf">log_tags</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="o">-&gt;</span> <span class="n">request</span> <span class="p">{</span> <span class="n">request</span><span class="p">.</span><span class="nf">env</span><span class="p">[</span><span class="s1">'user_account_id'</span><span class="p">]</span> <span class="o">||</span> <span class="s2">"no-account"</span> <span class="p">},</span>
+  <span class="ss">:action_cable</span><span class="p">,</span>
+  <span class="o">-&gt;</span> <span class="n">request</span> <span class="p">{</span> <span class="n">request</span><span class="p">.</span><span class="nf">uuid</span> <span class="p">}</span>
+<span class="p">]</span>
+</code></pre>
+</div>
+<p>Полный список всех конфигурационных опций смотрите в классе <code>ActionCable::Server::Configuration</code>.</p><h3 id='zapusk-otdelnogo-servera-cable' class='inside_page_header'><a href="#zapusk-otdelnogo-servera-cable">8.</a> Запуск отдельного сервера Cable</h3><p>Action Cable может быть запущен, как часть приложения Rails, или как отдельный сервер. В development, запускать как часть приложения Rails обычно нормально, но в production следует запускать его отдельно.</p><h4 id='v-prilozhenii' class='inside_page_header'><a href="#v-prilozhenii">8.1.</a> В приложении</h4><p>Action Cable может быть запущен вместе с вашим приложением Rails. Например, чтобы слушать запросы WebSocket на <code>/websocket</code>, укажите этот путь в <a href="/configuring#config-action-cable-mount-path"><code>config.action_cable.mount_path</code></a>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/application.rb</span>
+<span class="k">class</span> <span class="nc">Application</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Application</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">action_cable</span><span class="p">.</span><span class="nf">mount_path</span> <span class="o">=</span> <span class="s1">'/websocket'</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Можно использовать <code>ActionCable.createConsumer()</code>, чтобы соединить с сервером cable, если <a href="https://api.rubyonrails.org/classes/ActionCable/Helpers/ActionCableHelper.html#method-i-action_cable_meta_tag"><code>action_cable_meta_tag</code></a> вызван в макете. В противном случае, путь указывается в качестве первого аргумента <code>createConsumer</code> (например, <code>ActionCable.createConsumer(&quot;/websocket&quot;)</code>).</p><p>Для каждого экземпляра создаваемого сервера и для каждого воркера, порождаемого сервером, у вас также будет новый экземпляр Action Cable, но использование адаптеров Redis или PostgreSQL позволяет синхронизировать сообщения между соединениями.</p><h4 id='otdelnoe' class='inside_page_header'><a href="#otdelnoe">8.2.</a> Отдельное</h4><p>Серверы cable могут быть отделены от обычного сервера приложений. Это все еще приложение Rack, но это отдельное приложение Rack. Рекомендуемая базовая настройка следующая:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># cable/config.ru</span>
+<span class="nb">require_relative</span> <span class="s2">"../config/environment"</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">eager_load!</span>
+
+<span class="n">run</span> <span class="no">ActionCable</span><span class="p">.</span><span class="nf">server</span>
+</code></pre>
+</div>
+<p>Затем можно запустить сервер:</p><div class="code_container">
+  <pre><code class="highlight plaintext">bundle exec puma -p 28080 cable/config.ru
+</code></pre>
+</div>
+<p>Это запустит сервер cable на порту 28080. Чтобы сообщить Rails использовать этот сервер, обновите свою конфигурацию:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># config/environments/development.rb</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">action_cable</span><span class="p">.</span><span class="nf">mount_path</span> <span class="o">=</span> <span class="kp">nil</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">action_cable</span><span class="p">.</span><span class="nf">url</span> <span class="o">=</span> <span class="s2">"ws://localhost:28080"</span> <span class="c1"># используйте wss:// в production</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Наконец, убедитесь, что у вас <a href="#consumer-configuration">правильно сконфигурирован потребитель</a>.</p><h4 id='zametki' class='inside_page_header'><a href="#zametki">8.3.</a> Заметки</h4><p>У сервера WebSocket нет доступа к сессии, но есть доступ к куки. Это можно использовать, если нужно обрабатывать аутентификацию. Один из способов с помощью Devise можно посмотреть в этой <a href="https://greg.molnar.io/blog/actioncable-devise-authentication/">статье</a>.</p><h3 id='dependencies' class='inside_page_header'><a href="#dependencies">9.</a>  Зависимости</h3><p>Action Cable предоставляет интерфейс адаптера подписки для обработки его pubsub внутренностей. По умолчанию включены адаптеры асинхронный, встроенный, PostgreSQL, и адаптеры Redis. В новых приложениях Rails по умолчанию используется асинхронный (<code>async</code>) адаптер.</p><p>Часть Ruby этих вещей создана на основе <a href="https://github.com/faye/websocket-driver-ruby">websocket-driver</a>,
+<a href="https://github.com/celluloid/nio4r">nio4r</a> и <a href="https://github.com/ruby-concurrency/concurrent-ruby">concurrent-ruby</a>.</p><h3 id='razvertyvanie' class='inside_page_header'><a href="#razvertyvanie">10.</a> Развертывание</h3><p>Action Cable работает на комбинации WebSockets и тредов. Работа обоих фреймворка и определенного для пользователя канала, внутренне обрабатываются с помощью поддержки нативных тредов Ruby. Это означает, что вы можете без проблем использовать все существующие модели Rails, до тех пор, пока они отвечают тредобезопасности.</p><p>Сервер Action Cable реализует Rack API угона сокетов (socket hijacking), тем самым позволяет внутренне использовать многотредовый паттерн для управления соединениями, независимо от того, является ли сервер приложения многотредовым.</p><p>В соответствии с этим, Action Cable работает с популярными серверами, такими как Unicorn, Puma и Passenger.</p><h3 id='testirovanie' class='inside_page_header'><a href="#testirovanie">11.</a> Тестирование</h3><p>Детальные инструкции по тестированию функционала Action Cable можно найти в <a href="/testing#testing-action-cable">руководстве по тестированию</a>.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

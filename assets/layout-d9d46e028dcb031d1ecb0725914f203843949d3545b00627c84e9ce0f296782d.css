@@ -1,0 +1,100 @@
+/* line 2, app/assets/stylesheets/layout.css.sass */
+.navbar .brand {
+  height: 77px;
+  width: 380px;
+  padding: 0;
+  position: absolute;
+  border-radius: 0 0 25px 0;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.102);
+  background-image: url(/assets/rusrails-54a1a180f3e4a1e24dae01860cd57bd558fbea67d1f55280272e85a09f294c06.png), -moz-linear-gradient(top, #eee, #f7f7f7);
+  background-image: url(/assets/rusrails-54a1a180f3e4a1e24dae01860cd57bd558fbea67d1f55280272e85a09f294c06.png), -webkit-gradient(linear, 0 0, 0 100%, from(#eee), to(#f7f7f7));
+  background-image: url(/assets/rusrails-54a1a180f3e4a1e24dae01860cd57bd558fbea67d1f55280272e85a09f294c06.png), -webkit-linear-gradient(top, #eee, #f7f7f7);
+  background-image: url(/assets/rusrails-54a1a180f3e4a1e24dae01860cd57bd558fbea67d1f55280272e85a09f294c06.png), -o-linear-gradient(top, #eee, #f7f7f7);
+  background-image: url(/assets/rusrails-54a1a180f3e4a1e24dae01860cd57bd558fbea67d1f55280272e85a09f294c06.png), linear-gradient(to bottom, #eee, #f7f7f7);
+}
+
+/* line 17, app/assets/stylesheets/layout.css.sass */
+.navbar .nav.top-menu {
+  margin-right: 20px;
+}
+
+/* line 20, app/assets/stylesheets/layout.css.sass */
+.popover.index-content {
+  width: 680px;
+  max-width: 680px;
+  padding-bottom: 15px;
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* line 28, app/assets/stylesheets/layout.css.sass */
+.popover.index-content .popover-content {
+  display: flex;
+}
+
+/* line 31, app/assets/stylesheets/layout.css.sass */
+.popover.index-content .popover-content > p {
+  display: none;
+}
+
+/* line 34, app/assets/stylesheets/layout.css.sass */
+.popover.index-content .popover-content > ul {
+  float: left;
+  width: 350px;
+  list-style: none outside none;
+  margin-left: 0px;
+}
+
+/* line 40, app/assets/stylesheets/layout.css.sass */
+.popover.index-content .popover-content > ul > li {
+  margin-top: 15px;
+}
+
+/* line 43, app/assets/stylesheets/layout.css.sass */
+.popover.index-content .popover-content > ul:first-child {
+  width: 300px;
+}
+
+/* line 46, app/assets/stylesheets/layout.css.sass */
+.to_top {
+  display: none;
+}
+
+/* line 48, app/assets/stylesheets/layout.css.sass */
+.to_top .to_top_panel {
+  display: none;
+}
+
+@media (min-width: 990px) {
+  /* line 52, app/assets/stylesheets/layout.css.sass */
+  .to_top {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    display: none;
+  }
+  /* line 59, app/assets/stylesheets/layout.css.sass */
+  .to_top .to_top_panel {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #eeeeee;
+    position: relative;
+  }
+  /* line 65, app/assets/stylesheets/layout.css.sass */
+  .to_top:hover {
+    -moz-opacity: 0.9;
+    filter: alpha(opacity=90);
+    opacity: 0.9;
+  }
+  /* line 69, app/assets/stylesheets/layout.css.sass */
+  .to_top:hover .to_top_panel {
+    cursor: pointer;
+    background: #eeeeee;
+    box-shadow: 0px 10px rgba(0, 0, 0, 0.102);
+  }
+}
