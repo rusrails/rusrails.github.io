@@ -9173,3 +9173,17 @@ span.rails_mark {
 code.highlight.console span.w {
   display: table-cell;
 }
+/* line 1, app/assets/stylesheets/search.css.sass */
+input.gsc-input {
+  box-shadow: none;
+}
+
+/* line 3, app/assets/stylesheets/search.css.sass */
+input.gsc-input:focus {
+  box-shadow: none;
+}
+
+/* line 5, app/assets/stylesheets/search.css.sass */
+button.gsc-search-button {
+  line-height: normal;
+}
