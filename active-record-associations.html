@@ -160,7 +160,11 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#prisoedinenie-k-sebe">2.10. Присоединение к себе</a>
+          <a href="#svyazi-mezhdu-modelyami-so-sostavnymi-pervichnymi-klyuchami">2.10. Связи между моделями со составными первичными ключами</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#prisoedinenie-k-sebe">2.11. Присоединение к себе</a>
 </h5>      </li>
       <li>
         <h4>
@@ -247,13 +251,25 @@
           <a href="#counter_cache">4.2.3. <code>:counter_cache</code></a>
 </h6>      </li>
       <li>
+        <h7>
+          <a href="#default">4.2.3.1. <code>:default</code></a>
+</h7>      </li>
+      <li>
         <h6>
           <a href="#dependent">4.2.4. <code>:dependent</code></a>
 </h6>      </li>
       <li>
+        <h7>
+          <a href="#ensuring_owner_was">4.2.4.1. <code>:ensuring_owner_was</code></a>
+</h7>      </li>
+      <li>
         <h6>
           <a href="#foreign_key">4.2.5. <code>:foreign_key</code></a>
 </h6>      </li>
+      <li>
+        <h7>
+          <a href="#foreign_type">4.2.5.1. <code>:foreign_type</code></a>
+</h7>      </li>
       <li>
         <h6>
           <a href="#primary_key">4.2.6. <code>:primary_key</code></a>
@@ -263,9 +279,21 @@
           <a href="#inverse_of">4.2.7. <code>:inverse_of</code></a>
 </h6>      </li>
       <li>
+        <h7>
+          <a href="#optional">4.2.7.1. <code>:optional</code></a>
+</h7>      </li>
+      <li>
         <h6>
           <a href="#polymorphic">4.2.8. <code>:polymorphic</code></a>
 </h6>      </li>
+      <li>
+        <h7>
+          <a href="#required">4.2.8.1. <code>:required</code></a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#strict_loading">4.2.8.2. <code>:strict_loading</code></a>
+</h7>      </li>
       <li>
         <h6>
           <a href="#touch">4.2.9. <code>:touch</code></a>
@@ -273,10 +301,6 @@
       <li>
         <h6>
           <a href="#validate">4.2.10. <code>:validate</code></a>
-</h6>      </li>
-      <li>
-        <h6>
-          <a href="#optional">4.2.11. <code>:optional</code></a>
 </h6>      </li>
       <li>
         <h5>
@@ -355,6 +379,10 @@
           <a href="#dependent2">5.2.4. <code>:dependent</code></a>
 </h6>      </li>
       <li>
+        <h7>
+          <a href="#disable_joins">5.2.4.1. <code>:disable_joins</code></a>
+</h7>      </li>
+      <li>
         <h6>
           <a href="#foreign_key2">5.2.5. <code>:foreign_key</code></a>
 </h6>      </li>
@@ -367,6 +395,14 @@
           <a href="#primary_key2">5.2.7. <code>:primary_key</code></a>
 </h6>      </li>
       <li>
+        <h7>
+          <a href="#query_constraints">5.2.7.1. <code>:query_constraints</code></a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#required2">5.2.7.2. <code>:required</code></a>
+</h7>      </li>
+      <li>
         <h6>
           <a href="#source">5.2.8. <code>:source</code></a>
 </h6>      </li>
@@ -374,6 +410,10 @@
         <h6>
           <a href="#source_type">5.2.9. <code>:source_type</code></a>
 </h6>      </li>
+      <li>
+        <h7>
+          <a href="#strict_loading2">5.2.9.1. <code>:strict_loading</code></a>
+</h7>      </li>
       <li>
         <h6>
           <a href="#through">5.2.10. <code>:through</code></a>
@@ -515,9 +555,25 @@
           <a href="#dependent3">6.2.5. <code>:dependent</code></a>
 </h6>      </li>
       <li>
+        <h7>
+          <a href="#disable_joins2">6.2.5.1. <code>:disable_joins</code></a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#ensuring_owner_was2">6.2.5.2. <code>:ensuring_owner_was</code></a>
+</h7>      </li>
+      <li>
+        <h7>
+          <a href="#extend">6.2.5.3. <code>:extend</code></a>
+</h7>      </li>
+      <li>
         <h6>
           <a href="#foreign_key3">6.2.6. <code>:foreign_key</code></a>
 </h6>      </li>
+      <li>
+        <h7>
+          <a href="#foreign_type2">6.2.6.1. <code>:foreign_type</code></a>
+</h7>      </li>
       <li>
         <h6>
           <a href="#inverse_of3">6.2.7. <code>:inverse_of</code></a>
@@ -527,6 +583,10 @@
           <a href="#primary_key3">6.2.8. <code>:primary_key</code></a>
 </h6>      </li>
       <li>
+        <h7>
+          <a href="#query_constraints2">6.2.8.1. <code>:query_constraints</code></a>
+</h7>      </li>
+      <li>
         <h6>
           <a href="#source2">6.2.9. <code>:source</code></a>
 </h6>      </li>
@@ -534,6 +594,10 @@
         <h6>
           <a href="#source_type2">6.2.10. <code>:source_type</code></a>
 </h6>      </li>
+      <li>
+        <h7>
+          <a href="#strict_loading3">6.2.10.1. <code>:strict_loading</code></a>
+</h7>      </li>
       <li>
         <h6>
           <a href="#through2">6.2.11. <code>:through</code></a>
@@ -695,6 +759,10 @@
           <a href="#join_table">7.2.5. <code>:join_table</code></a>
 </h6>      </li>
       <li>
+        <h7>
+          <a href="#strict_loading4">7.2.5.1. <code>:strict_loading</code></a>
+</h7>      </li>
+      <li>
         <h6>
           <a href="#validate4">7.2.6. <code>:validate</code></a>
 </h6>      </li>
@@ -759,9 +827,29 @@
           <a href="#rasshireniya-svyazi">8.2. Расширения связи</a>
 </h5>      </li>
       <li>
+        <h5>
+          <a href="#ogranichenie-svyazi-s-pomoschyu-vladeltsa-svyazi">8.3. Ограничение связи с помощью владельца связи</a>
+</h5>      </li>
+      <li>
         <h4>
-          <a href="#nasledovanie-s-edinoy-tablitsey-sti">9. Наследование с единой таблицей (STI)</a>
+          <a href="#single-table-inheritance-sti">9.  Наследование с единой таблицей (STI)</a>
 </h4>      </li>
+      <li>
+        <h4>
+          <a href="#delegirovannye-tipy">10. Делегированные типы</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#ob-yavlyaem-delegated_type">10.1. Объявляем <code>delegated_type</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#sozdanie-ob-ekta">10.2. Создание объекта</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#dobavlenie-dalneyshey-delegatsii">10.3. Добавление дальнейшей делегации</a>
+</h5>      </li>
 </ul>
 
               </div>
@@ -797,12 +885,12 @@
 </script>
 
             </div>
-              <h2 id='svyazi-assotsiatsii-active-record' class='inside_page_header'> Связи (ассоциации) Active Record</h2><p>Это руководство раскрывает особенности связей Active Record.</p><p>После его прочтения, вы узнаете:</p><ul><li>Как объявлять связи между моделями Active Record.
-</li><li>Как понимать различные типы связей Active Record.
-</li><li>Как использовать методы, добавленные в ваши модели при создании связей.
+              <h2 id='svyazi-assotsiatsii-active-record' class='inside_page_header'> Связи (ассоциации) Active Record</h2><p>Это руководство раскрывает особенности связей Active Record.</p><p>После его прочтения, вы узнаете, как:</p><ul><li>Объявлять связи между моделями Active Record.
+</li><li>Понимать различные типы связей Active Record.
+</li><li>Использовать методы, добавленные в ваши модели при создании связей.
 </li></ul>
 <hr>
-<h3 id='zachem-nuzhny-svyazi' class='inside_page_header'><a href="#zachem-nuzhny-svyazi">1.</a> Зачем нужны связи?</h3><p>В Rails <em>связь</em> - это соединение между двумя моделями Active Record. Зачем нам нужны связи между моделями? Затем, что они позволяют сделать код для обычных операций проще и легче. Например, рассмотрим простое приложение на Rails, которое включает модель для авторов и модель для книг. Каждый автор может иметь много книг. Без связей объявление модели будет выглядеть так:</p><div class="code_container">
+<h3 id='zachem-nuzhny-svyazi' class='inside_page_header'><a href="#zachem-nuzhny-svyazi">1.</a> Зачем нужны связи?</h3><p>В Rails <em>связь</em> - это соединение между двумя моделями Active Record. Зачем нам нужны связи между моделями? Затем, что они позволяют сделать код для обычных операций проще и легче.</p><p>Например, рассмотрим простое приложение на Rails, которое включает модель для авторов и модель для книг.</p><p>Каждый автор может иметь много книг. Без связей объявление модели будет выглядеть так:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Author</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
 <span class="k">end</span>
 
@@ -840,7 +928,7 @@
   <pre><code class="highlight ruby"><span class="vi">@author</span><span class="p">.</span><span class="nf">destroy</span>
 </code></pre>
 </div>
-<p>Чтобы узнать больше о различных типах связей, читайте следующий раздел руководства. Затем следуют некоторые полезные советы по работе со связями, а затем полное описание методов и опций для связей в Rails.</p><h3 id='tipy-svyazey' class='inside_page_header'><a href="#tipy-svyazey">2.</a> Типы связей</h3><p>Rails поддерживает шесть типов связей:</p><ul><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html#method-i-belongs_to"><code>belongs_to</code></a>
+<p>Чтобы узнать больше о различных типах связей, читайте следующий раздел руководства. Затем следуют некоторые полезные советы по работе со связями, а затем полное описание методов и опций для связей в Rails.</p><h3 id='tipy-svyazey' class='inside_page_header'><a href="#tipy-svyazey">2.</a> Типы связей</h3><p>Rails поддерживает шесть типов связей, каждый подразумевает конкретный вариант использования.</p><p>Вот список всех поддерживаемых типов со ссылкой на их документацию API с подробностями, как их использовать, параметрами их методов, и т.д.</p><ul><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html#method-i-belongs_to"><code>belongs_to</code></a>
 </li><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html#method-i-has_one"><code>has_one</code></a>
 </li><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html#method-i-has_many"><code>has_many</code></a>
 </li><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html#method-i-has_many"><code>has_many :through</code></a>
@@ -853,7 +941,7 @@
 </code></pre>
 </div>
 <p><img src='/assets/association_basics/belongs_to-9920fb07a7a268b626652094ac514783eabad5106fd797f075a937834ff93a1a.png' title='' alt='Диаграмма для связи belongs_to' class='img-polaroid' /></p><div class="note"><p>Связи <code>belongs_to</code> <em>обязаны</em> использовать единственное число. Если использовать множественное число в вышеприведенном примере для связи <code>author</code> в модели <code>Book</code> и создать экземпляр с помощью <code>Book.create(authors: @author)</code>, будет сообщено &quot;uninitialized constant Book::Authors&quot;. Это так, потому что Rails автоматически получает имя класса из имени связи. Если в имени связи неправильно использовано число, то получаемый класс также будет неправильного числа.</p></div><p>Соответствующая миграция может выглядеть так:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateOrders</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateOrders</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:authors</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:name</span>
@@ -869,7 +957,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>При одиночном использовании, <code>belongs_to</code> создает однонаправленное соединение один-к-одному. Следовательно, в вышеприведенном примере каждая книга &quot;знает&quot; своего автора, но авторы не знают о своих книгах. Чтобы настроить <a href="#bi-directional-associations">двунаправленную связь</a> - используйте <code>belongs_to</code> в сочетании с <code>has_one</code> или <code>has_many</code> на другой модели.</p><p><code>belongs_to</code> не гарантирует ссылочной целостности, если <code>optional</code> установлен true, поэтому, в зависимости от использования, возможно, необходимо добавить ограничение внешнего ключа на столбце ссылки на уровне базы данных, подобным образом:</p><div class="code_container">
+<p>При одиночном использовании, <code>belongs_to</code> создает однонаправленное соединение один-к-одному. Следовательно, в вышеприведенном примере каждая книга &quot;знает&quot; своего автора, но авторы не знают о своих книгах. Чтобы настроить <a href="#bi-directional-associations">двунаправленную связь</a> - используйте <code>belongs_to</code> в сочетании с <code>has_one</code> или <code>has_many</code> на другой модели, в данном случае модели Author.</p><p><code>belongs_to</code> не гарантирует ссылочной целостности, если <code>optional</code> установлен true, поэтому, в зависимости от использования, возможно, необходимо добавить ограничение внешнего ключа на столбце ссылки на уровне базы данных, подобным образом:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">create_table</span> <span class="ss">:books</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
   <span class="n">t</span><span class="p">.</span><span class="nf">belongs_to</span> <span class="ss">:author</span><span class="p">,</span> <span class="ss">foreign_key: </span><span class="kp">true</span>
   <span class="c1"># ...</span>
@@ -883,7 +971,7 @@
 </code></pre>
 </div>
 <p>Главным отличием от <code>belongs_to</code> является то, что связующий столбец <code>supplier_id</code> расположен в другой таблице:</p><p><img src='/assets/association_basics/has_one-474d796d405556400b0023794819f307e6901fe7b825b11e11594a6847299cdd.png' title='' alt='Диаграмма для связи has_one' class='img-polaroid' /></p><p>Соответствующая миграция может выглядеть так:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateSuppliers</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateSuppliers</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:suppliers</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:name</span>
@@ -913,7 +1001,7 @@
 </code></pre>
 </div>
 <div class="note"><p>Имя другой модели указывается во множественном числе при объявлении связи <code>has_many</code>.</p></div><p><img src='/assets/association_basics/has_many-b6fb815393a8b38888fb9ec8215a11c33913f10cff54837e2491b030cd96824e.png' title='' alt='Диаграмма для связи has_many' class='img-polaroid' /></p><p>Соответствующая миграция может выглядеть так:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateAuthors</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateAuthors</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:authors</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:name</span>
@@ -954,7 +1042,7 @@
 </code></pre>
 </div>
 <p><img src='/assets/association_basics/has_many_through-b8b306c6e3fec380ae60261a3db7ec58a7e50750539433c3993e528c111ec332.png' title='' alt='Диаграмма для связи has_many :through' class='img-polaroid' /></p><p>Соответствующая миграция может выглядеть так:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateAppointments</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateAppointments</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:physicians</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:name</span>
@@ -1017,7 +1105,7 @@
 </code></pre>
 </div>
 <p><img src='/assets/association_basics/has_one_through-d9cad54a85e7e2e2e334541326ad33c37f2bf84e3e30b8aa80b6e029f889c82a.png' title='' alt='Диаграмма для связи has_one :through' class='img-polaroid' /></p><p>Соответствующая миграция может выглядеть так:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateAccountHistories</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateAccountHistories</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:suppliers</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:name</span>
@@ -1050,7 +1138,7 @@
 </code></pre>
 </div>
 <p><img src='/assets/association_basics/habtm-873c780b161cfd6dee3dbeaa367f8885a0282557beba80dcb865da4636a620d5.png' title='' alt='Диаграмма для связи has_and_belongs_to_many' class='img-polaroid' /></p><p>Соответствующая миграция может выглядеть так:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateAssembliesAndParts</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateAssembliesAndParts</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:assemblies</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:name</span>
@@ -1081,7 +1169,7 @@
 </code></pre>
 </div>
 <p>Соответствующая миграция может выглядеть так:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateSuppliers</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateSuppliers</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:suppliers</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:name</span>
@@ -1126,7 +1214,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Простейший признак того, что нужно настраивать отношение <code>has_many :through</code> - если необходимо работать с моделью отношений как с независимым объектом. Если вам не нужно ничего делать с моделью отношений, проще настроить связь <code>has_and_belongs_to_many</code> (хотя нужно не забыть создать соединяющую таблицу в базе данных).</p><p>Вы должны использовать <code>has_many :through</code>, если нужны валидации, колбэки или дополнительные атрибуты для соединительной модели.</p><h4 id='polymorphic-associations' class='inside_page_header'><a href="#polymorphic-associations">2.9.</a>  Полиморфные связи</h4><p><em>Полиморфные связи</em> - это немного более &quot;навороченный&quot; вид связей. С полиморфными связями модель может принадлежать более чем одной модели, на одиночной связи. Например, имеется модель изображения, которая принадлежит или модели работника, или модели продукта. Вот как это объявляется:</p><div class="code_container">
+<p>Простейший признак того, что нужно настраивать отношение <code>has_many :through</code> - если необходимо работать с моделью отношений как с независимым объектом. Если вам не нужно ничего делать с моделью отношений, проще настроить связь <code>has_and_belongs_to_many</code> (хотя нужно не забыть создать соединяющую таблицу в базе данных).</p><p>Вы должны использовать <code>has_many :through</code>, если нужны валидации, колбэки или дополнительные атрибуты для соединительной модели.</p><p>Хотя <code>has_and_belongs_to_many</code> предлагает создать соединительную таблицу без первичного ключа с помощью <code>id: false</code>, рассмотрите использование составного первичного ключа для соединительной таблицы в связях <code>has_many :through</code>. Например, рекомендуется использовать <code>create_table :manifests, primary_key: [:assembly_id, :part_id]</code> в вышеуказанном примере.</p><h4 id='polymorphic-associations' class='inside_page_header'><a href="#polymorphic-associations">2.9.</a>  Полиморфные связи</h4><p><em>Полиморфные связи</em> - это немного более &quot;навороченный&quot; вид связей. С полиморфными связями модель может принадлежать более чем одной модели, на одиночной связи. Например, имеется модель изображения, которая принадлежит или модели работника, или модели продукта. Вот как это объявляется:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Picture</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">belongs_to</span> <span class="ss">:imageable</span><span class="p">,</span> <span class="ss">polymorphic: </span><span class="kp">true</span>
 <span class="k">end</span>
@@ -1141,7 +1229,7 @@
 </code></pre>
 </div>
 <p>Можно считать полиморфное объявление <code>belongs_to</code> как настройку интерфейса, которую может использовать любая другая модель. Из экземпляра модели <code>Employee</code> можно получить коллекцию изображений: <code>@employee.pictures</code>.</p><p>Подобным образом можно получить <code>@product.pictures</code>.</p><p>Если имеется экземпляр модели <code>Picture</code>, можно получить его родителя посредством <code>@picture.imageable</code>. Чтобы это работало, необходимо объявить столбец внешнего ключа и столбец типа в модели, объявляющей полиморфный интерфейс:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreatePictures</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreatePictures</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:pictures</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">string</span>  <span class="ss">:name</span>
@@ -1156,7 +1244,7 @@
 </code></pre>
 </div>
 <p>Эта миграция может быть упрощена при использовании формы <code>t.references</code>:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreatePictures</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreatePictures</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:pictures</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:name</span>
@@ -1167,7 +1255,51 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p><img src='/assets/association_basics/polymorphic-a4deb1783f2e5373c0465329e9d3576a7f5f55afd69093f16b3cf6f1629d1cb0.png' title='' alt='Диаграмма для полиморфной связи' class='img-polaroid' /></p><h4 id='prisoedinenie-k-sebe' class='inside_page_header'><a href="#prisoedinenie-k-sebe">2.10.</a> Присоединение к себе</h4><p>При разработке модели данных иногда находится модель, которая может иметь отношение сама к себе. Например, мы хотим хранить всех работников в одной модели базы данных, но нам нужно отслеживать отношения начальник-подчиненный. Эта ситуация может быть смоделирована с помощью связей, присоединяемых к себе:</p><div class="code_container">
+<p><img src='/assets/association_basics/polymorphic-a4deb1783f2e5373c0465329e9d3576a7f5f55afd69093f16b3cf6f1629d1cb0.png' title='' alt='Диаграмма для полиморфной связи' class='img-polaroid' /></p><h4 id='svyazi-mezhdu-modelyami-so-sostavnymi-pervichnymi-klyuchami' class='inside_page_header'><a href="#svyazi-mezhdu-modelyami-so-sostavnymi-pervichnymi-klyuchami">2.10.</a> Связи между моделями со составными первичными ключами</h4><p>Rails часто способен вывести информацию о первичном/внешнем ключах между связанными моделями со составными первичными ключами, без необходимости дополнительной информации. Возьмем следующий пример:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">primary_key</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:shop_id</span><span class="p">,</span> <span class="ss">:id</span><span class="p">]</span>
+  <span class="n">has_many</span> <span class="ss">:books</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Book</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">belongs_to</span> <span class="ss">:order</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Тут Rails предполагает, что столбец <code>:id</code> должен быть использован в качестве первичного ключа для связи между заказом и его книгами, как и при обычных связях <code>has_many</code> / <code>belongs_to</code>. Он выведет, что столбец внешнего ключа на таблице <code>books</code> - <code>:order_id</code>. Получение заказа книги:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">order</span> <span class="o">=</span> <span class="no">Order</span><span class="p">.</span><span class="nf">create!</span><span class="p">(</span><span class="ss">id: </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="ss">status: </span><span class="s2">"pending"</span><span class="p">)</span>
+<span class="n">book</span> <span class="o">=</span> <span class="n">order</span><span class="p">.</span><span class="nf">books</span><span class="p">.</span><span class="nf">create!</span><span class="p">(</span><span class="ss">title: </span><span class="s2">"A Cool Book"</span><span class="p">)</span>
+
+<span class="n">book</span><span class="p">.</span><span class="nf">reload</span><span class="p">.</span><span class="nf">order</span>
+</code></pre>
+</div>
+<p>сгенерирует следующий SQL для доступа к заказу:</p><div class="code_container">
+  <pre><code class="highlight sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">orders</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">2</span>
+</code></pre>
+</div>
+<p>Это работает, только если составной первичный ключ модели содержит столбец <code>:id</code> <em>и</em> столбец, уникальный для всех записей. Чтобы использовать полный составной первичный ключ в связях, установите опцию <code>query_constraints</code> связи. Эта опция указывает составной внешний ключ на связи: будут использованы все столбцы во внешнем ключе при запросе связянной записи(ей). Например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Author</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">primary_key</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:first_name</span><span class="p">,</span> <span class="ss">:last_name</span><span class="p">]</span>
+  <span class="n">has_many</span> <span class="ss">:books</span><span class="p">,</span> <span class="ss">query_constraints: </span><span class="p">[</span><span class="ss">:first_name</span><span class="p">,</span> <span class="ss">:last_name</span><span class="p">]</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Book</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">belongs_to</span> <span class="ss">:author</span><span class="p">,</span> <span class="ss">query_constraints: </span><span class="p">[</span><span class="ss">:author_first_name</span><span class="p">,</span> <span class="ss">:author_last_name</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Доступ к автору книги:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">create!</span><span class="p">(</span><span class="ss">first_name: </span><span class="s2">"Jane"</span><span class="p">,</span> <span class="ss">last_name: </span><span class="s2">"Doe"</span><span class="p">)</span>
+<span class="n">book</span> <span class="o">=</span> <span class="n">author</span><span class="p">.</span><span class="nf">books</span><span class="p">.</span><span class="nf">create!</span><span class="p">(</span><span class="ss">title: </span><span class="s2">"A Cool Book"</span><span class="p">)</span>
+
+<span class="n">book</span><span class="p">.</span><span class="nf">reload</span><span class="p">.</span><span class="nf">author</span>
+</code></pre>
+</div>
+<p>использует <code>:first_name</code> <em>и</em> <code>:last_name</code> в запросе SQL:</p><div class="code_container">
+  <pre><code class="highlight sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">authors</span> <span class="k">WHERE</span> <span class="n">first_name</span> <span class="o">=</span> <span class="s1">'Jane'</span> <span class="k">AND</span> <span class="n">last_name</span> <span class="o">=</span> <span class="s1">'Doe'</span>
+</code></pre>
+</div>
+<h4 id='prisoedinenie-k-sebe' class='inside_page_header'><a href="#prisoedinenie-k-sebe">2.11.</a> Присоединение к себе</h4><p>При разработке модели данных иногда находится модель, которая может иметь отношение сама к себе. Например, мы хотим хранить всех работников в одной модели базы данных, но нам нужно отслеживать отношения начальник-подчиненный. Эта ситуация может быть смоделирована с помощью связей, присоединяемых к себе:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Employee</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_many</span> <span class="ss">:subordinates</span><span class="p">,</span> <span class="ss">class_name: </span><span class="s2">"Employee"</span><span class="p">,</span>
                           <span class="ss">foreign_key: </span><span class="s2">"manager_id"</span>
@@ -1177,7 +1309,7 @@
 </code></pre>
 </div>
 <p>С такой настройкой, вы можете получить <code>@employee.subordinates</code> и <code>@employee.manager</code>.</p><p>В миграциях/схеме следует добавить столбец ссылки модели на саму себя.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateEmployees</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateEmployees</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:employees</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">references</span> <span class="ss">:manager</span><span class="p">,</span> <span class="ss">foreign_key: </span><span class="p">{</span> <span class="ss">to_table: :employees</span> <span class="p">}</span>
@@ -1187,7 +1319,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h3 id='poleznye-sovety-i-preduprezhdeniya' class='inside_page_header'><a href="#poleznye-sovety-i-preduprezhdeniya">3.</a> Полезные советы и предупреждения</h3><p>Вот некоторые вещи, которые необходимо знать для эффективного использования связей Active Record в вашем приложении на Rails:</p><ul><li>Управление кэшированием
+<div class="note"><p>Опция <code>to_table</code>, передаваемая в <code>foreign_key</code>, подробнее объяснена в <a href="https://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/SchemaStatements.html#method-i-add_reference"><code>SchemaStatements#add_reference</code></a>.</p></div><h3 id='poleznye-sovety-i-preduprezhdeniya' class='inside_page_header'><a href="#poleznye-sovety-i-preduprezhdeniya">3.</a> Полезные советы и предупреждения</h3><p>Вот некоторые вещи, которые необходимо знать для эффективного использования связей Active Record в вашем приложении на Rails:</p><ul><li>Управление кэшированием
 </li><li>Предотвращение коллизий имен
 </li><li>Обновление схемы
 </li><li>Управление областью видимости связей
@@ -1221,7 +1353,7 @@
 </code></pre>
 </div>
 <p>Это объявление нуждается в поддержке соответствующим столбцом внешнего ключа в таблице books. Для совершенно новой таблицы миграция может выглядеть примерно так:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateBooks</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateBooks</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:books</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">datetime</span>   <span class="ss">:published_at</span>
@@ -1233,7 +1365,7 @@
 </code></pre>
 </div>
 <p>В то время как для существующей таблицы, это может выглядеть следующим образом:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">AddAuthorToBooks</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">AddAuthorToBooks</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">add_reference</span> <span class="ss">:books</span><span class="p">,</span> <span class="ss">:author</span>
   <span class="k">end</span>
@@ -1251,7 +1383,7 @@
 </code></pre>
 </div>
 <p>Теперь нужно написать миграцию для создания таблицы <code>assemblies_parts</code>. Эта таблица должна быть создана без первичного ключа:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateAssembliesPartsJoinTable</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateAssembliesPartsJoinTable</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:assemblies_parts</span><span class="p">,</span> <span class="ss">id: </span><span class="kp">false</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">bigint</span> <span class="ss">:assembly_id</span>
@@ -1264,8 +1396,8 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Мы передаем <code>id: false</code> в <code>create_table</code>, так как эта таблица не представляет модель. Это необходимо, чтобы связь работала правильно. Если вы видите странное поведение в связи <code>has_and_belongs_to_many</code>, например, искаженные ID моделей, или исключения в связи с конфликтом ID, скорее всего вы забыли убрать первичный ключ.</p><p>Также можно использовать метод <code>create_join_table</code></p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateAssembliesPartsJoinTable</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+<p>Мы передаем <code>id: false</code> в <code>create_table</code>, так как эта таблица не представляет модель. Это необходимо, чтобы связь работала правильно. Если вы видите странное поведение в связи <code>has_and_belongs_to_many</code>, например, искаженные ID моделей, или исключения в связи с конфликтом ID, скорее всего вы забыли убрать первичный ключ.</p><p>Для простоты, также можно использовать метод <code>create_join_table</code></p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateAssembliesPartsJoinTable</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_join_table</span> <span class="ss">:assemblies</span><span class="p">,</span> <span class="ss">:parts</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">index</span> <span class="ss">:assembly_id</span>
@@ -1333,7 +1465,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Active Record попытается автоматически определить, что эти две модели образуют двунаправленную связь, основываясь на имени связи. Эта информация позволяет Active Record:</p><ul><li><p>Предотвращать необходимость запросов для уже загруженных данных</p><div class="code_container">
+<p>Active Record попытается автоматически определить, что эти две модели образуют двунаправленную связь, основываясь на имени связи. Эта информация позволяет Active Record:</p><ul><li><p>Предотвращать необходимость запросов для уже загруженных данных:</p><div class="code_container">
   <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">first</span>
 <span class="gp">irb&gt;</span><span class="w"> </span><span class="n">author</span><span class="p">.</span><span class="nf">books</span><span class="p">.</span><span class="nf">all?</span> <span class="k">do</span> <span class="o">|</span><span class="n">book</span><span class="o">|</span>
 <span class="gp">irb&gt;</span><span class="w">   </span><span class="n">book</span><span class="p">.</span><span class="nf">author</span><span class="p">.</span><span class="nf">equal?</span><span class="p">(</span><span class="n">author</span><span class="p">)</span> <span class="c1"># Тут не выполняются дополнительные запросы</span>
@@ -1341,7 +1473,7 @@
 <span class="p">=&gt;</span> <span class="kp">true</span>
 </code></pre>
 </div>
-</li><li><p>Предотвращать несогласованные данные (как только есть только одна загруженная копия объекта <code>Author</code>)</p><div class="code_container">
+</li><li><p>Предотвращать несогласованные данные (как только есть только одна загруженная копия объекта <code>Author</code>):</p><div class="code_container">
   <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">first</span>
 <span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span> <span class="o">=</span> <span class="n">author</span><span class="p">.</span><span class="nf">books</span><span class="p">.</span><span class="nf">first</span>
 <span class="gp">irb&gt;</span><span class="w"> </span><span class="n">author</span><span class="p">.</span><span class="nf">name</span> <span class="o">==</span> <span class="n">book</span><span class="p">.</span><span class="nf">author</span><span class="p">.</span><span class="nf">name</span>
@@ -1351,7 +1483,7 @@
 <span class="p">=&gt;</span> <span class="kp">true</span>
 </code></pre>
 </div>
-</li><li><p>Автоматически сохраняет связи в большинстве случаев</p><div class="code_container">
+</li><li><p>Автоматически сохраняет связи в большинстве случаев:</p><div class="code_container">
   <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span>
 <span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span> <span class="o">=</span> <span class="n">author</span><span class="p">.</span><span class="nf">books</span><span class="p">.</span><span class="nf">new</span>
 <span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span><span class="p">.</span><span class="nf">save!</span>
@@ -1361,7 +1493,7 @@
 <span class="p">=&gt;</span> <span class="kp">true</span>
 </code></pre>
 </div>
-</li><li><p>Проверяет <a href="/active-record-validations#presence">наличие</a> и <a href="/active-record-validations#absence">отсутствие</a> связей в большинстве случаев</p><div class="code_container">
+</li><li><p>Проверяет <a href="/active-record-validations#presence">наличие</a> и <a href="/active-record-validations#absence">отсутствие</a> связей в большинстве случаев:</p><div class="code_container">
   <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">new</span>
 <span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span><span class="p">.</span><span class="nf">valid?</span>
 <span class="p">=&gt;</span> <span class="kp">false</span>
@@ -1373,7 +1505,7 @@
 <span class="p">=&gt;</span> <span class="kp">true</span>
 </code></pre>
 </div>
-</li></ul><p>Active Record поддерживает автоматическое определение для большинства связей со стандартными именами. Однако, Active Record не будет автоматически определять двунаправленные связи, содержащие опции <code>:through</code> или <code>:foreign_key</code>. Пользовательские скоупы на противоположных связях также предотвращают автоматическое определение, как и пользовательские скоупы на самой связи, за исключением когда <a href="/configuring#config-active-record-automatic-scope-inversing"><code>config.active_record.automatic_scope_inversing</code></a> установлена true (по умолчанию для новых приложений).</p><p>Например, рассмотрим следующие объявления моделей:</p><div class="code_container">
+</li></ul><p>Active Record поддерживает автоматическое определение для большинства связей со стандартными именами. Однако, двунаправленные связи, содержащие опции <code>:through</code> или <code>:foreign_key</code>, не будут автоматически определены.</p><p>Пользовательские скоупы на противоположных связях также предотвращают автоматическое определение, как и пользовательские скоупы на самой связи, за исключением когда <a href="/configuring#config-active-record-automatic-scope-inversing"><code>config.active_record.automatic_scope_inversing</code></a> установлена true (по умолчанию для новых приложений).</p><p>Например, рассмотрим следующие объявления моделей:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Author</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_many</span> <span class="ss">:books</span>
 <span class="k">end</span>
@@ -1383,7 +1515,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Из-за опции <code>:foreign_key</code>, Active Record больше не будет автоматически распознавать двунаправленную связь. Это может вызвать, что ваше приложение:</p><ul><li><p>Выполняет необходимые запросы для тех же данных (в этом примере вызывая N+1 запрос)</p><div class="code_container">
+<p>Из-за опции <code>:foreign_key</code>, Active Record больше не будет автоматически распознавать двунаправленную связь. Это может вызвать, что ваше приложение:</p><ul><li><p>Выполняет необходимые запросы для тех же данных (в этом примере вызывая N+1 запрос):</p><div class="code_container">
   <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">first</span>
 <span class="gp">irb&gt;</span><span class="w"> </span><span class="n">author</span><span class="p">.</span><span class="nf">books</span><span class="p">.</span><span class="nf">any?</span> <span class="k">do</span> <span class="o">|</span><span class="n">book</span><span class="o">|</span>
 <span class="gp">irb&gt;</span><span class="w">   </span><span class="n">book</span><span class="p">.</span><span class="nf">author</span><span class="p">.</span><span class="nf">equal?</span><span class="p">(</span><span class="n">author</span><span class="p">)</span> <span class="c1"># Это выполняет запрос для каждой книги</span>
@@ -1391,7 +1523,7 @@
 <span class="p">=&gt;</span> <span class="kp">false</span>
 </code></pre>
 </div>
-</li><li><p>Ссылается на несколько копий модели с несогласованными данными</p><div class="code_container">
+</li><li><p>Ссылается на несколько копий модели с несогласованными данными:</p><div class="code_container">
   <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">first</span>
 <span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span> <span class="o">=</span> <span class="n">author</span><span class="p">.</span><span class="nf">books</span><span class="p">.</span><span class="nf">first</span>
 <span class="gp">irb&gt;</span><span class="w"> </span><span class="n">author</span><span class="p">.</span><span class="nf">name</span> <span class="o">==</span> <span class="n">book</span><span class="p">.</span><span class="nf">author</span><span class="p">.</span><span class="nf">name</span>
@@ -1401,7 +1533,7 @@
 <span class="p">=&gt;</span> <span class="kp">false</span>
 </code></pre>
 </div>
-</li><li><p>Не в состоянии автоматически сохранять связи</p><div class="code_container">
+</li><li><p>Не в состоянии автоматически сохранять связи:</p><div class="code_container">
   <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span>
 <span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span> <span class="o">=</span> <span class="n">author</span><span class="p">.</span><span class="nf">books</span><span class="p">.</span><span class="nf">new</span>
 <span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span><span class="p">.</span><span class="nf">save!</span>
@@ -1411,7 +1543,7 @@
 <span class="p">=&gt;</span> <span class="kp">false</span>
 </code></pre>
 </div>
-</li><li><p>Не в состоянии проверять наличие или отсутствие</p><div class="code_container">
+</li><li><p>Не в состоянии проверять наличие или отсутствие:</p><div class="code_container">
   <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span>
 <span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span> <span class="o">=</span> <span class="n">author</span><span class="p">.</span><span class="nf">books</span><span class="p">.</span><span class="nf">new</span>
 <span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span><span class="p">.</span><span class="nf">valid?</span>
@@ -1445,19 +1577,16 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Каждый экземпляр модели <code>Book</code> будет иметь эти методы:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">author</span>
-<span class="n">author</span><span class="o">=</span>
-<span class="n">build_author</span>
-<span class="n">create_author</span>
-<span class="n">create_author!</span>
-<span class="n">reload_author</span>
-<span class="n">reset_author</span>
-<span class="n">author_changed?</span>
-<span class="n">author_previously_changed?</span>
-</code></pre>
-</div>
-<div class="note"><p>Когда устанавливаете новую связь <code>has_one</code> или <code>belongs_to</code>, следует использовать префикс <code>build_</code> для построения связи, в отличие от метода <code>association.build</code>, используемый для связей <code>has_many</code> или <code>has_and_belongs_to_many</code>. Чтобы создать связь, используйте префикс <code>create_</code>.</p></div><h5 id='association' class='inside_page_header'><a href="#association">4.1.1.</a> <code>association</code></h5><p>Метод <code>association</code> возвращает связанный объект, если он есть. Если объекта нет, возвращает <code>nil</code>.</p><div class="code_container">
+<p>Каждый экземпляр модели <code>Book</code> будет иметь эти методы:</p><ul><li><code>author</code>
+</li><li><code>author=</code>
+</li><li><code>build_author</code>
+</li><li><code>create_author</code>
+</li><li><code>create_author!</code>
+</li><li><code>reload_author</code>
+</li><li><code>reset_author</code>
+</li><li><code>author_changed?</code>
+</li><li><code>author_previously_changed?</code>
+</li></ul><div class="note"><p>Когда устанавливаете новую связь <code>has_one</code> или <code>belongs_to</code>, следует использовать префикс <code>build_</code> для построения связи, в отличие от метода <code>association.build</code>, используемый для связей <code>has_many</code> или <code>has_and_belongs_to_many</code>. Чтобы создать связь, используйте префикс <code>create_</code>.</p></div><h5 id='association' class='inside_page_header'><a href="#association">4.1.1.</a> <code>association</code></h5><p>Метод <code>association</code> возвращает связанный объект, если он есть. Если объекта нет, возвращает <code>nil</code>.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="vi">@author</span> <span class="o">=</span> <span class="vi">@book</span><span class="p">.</span><span class="nf">author</span>
 </code></pre>
 </div>
@@ -1513,14 +1642,19 @@
 <p>Связь <a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html#method-i-belongs_to"><code>belongs_to</code></a> поддерживает эти опции:</p><ul><li><code>:autosave</code>
 </li><li><code>:class_name</code>
 </li><li><code>:counter_cache</code>
+</li><li><code>:default</code>
 </li><li><code>:dependent</code>
+</li><li><code>:ensuring_owner_was</code>
 </li><li><code>:foreign_key</code>
+</li><li><code>:foreign_type</code>
 </li><li><code>:primary_key</code>
 </li><li><code>:inverse_of</code>
+</li><li><code>:optional</code>
 </li><li><code>:polymorphic</code>
+</li><li><code>:required</code>
+</li><li><code>:strict_loading</code>
 </li><li><code>:touch</code>
 </li><li><code>:validate</code>
-</li><li><code>:optional</code>
 </li></ul><h5 id='autosave' class='inside_page_header'><a href="#autosave">4.2.1.</a> <code>:autosave</code></h5><p>Если установить опцию <code>:autosave</code> в <code>true</code>, Rails сохранит любые загруженные связанные члены и уничтожит члены, помеченные для уничтожения, всякий раз, когда сохраняется родительский объект. Но установить <code>:autosave</code> в <code>false</code> - не то же самое, что не устанавливать опцию <code>:autosave</code>. Если опция <code>:autosave</code> отсутствует, то новые связанные объекты будут сохранены, но обновленные связанные объекты сохранены не будут.</p><h5 id='class_name' class='inside_page_header'><a href="#class_name">4.2.2.</a> <code>:class_name</code></h5><p>Если имя другой модели не может быть получено из имени связи, можете использовать опцию <code>:class_name</code> для предоставления имени модели. Например, если книга принадлежит автору, но фактическое имя модели, содержащей авторов, <code>Patron</code>, можете установить это следующим образом:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Book</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">belongs_to</span> <span class="ss">:author</span><span class="p">,</span> <span class="ss">class_name: </span><span class="s2">"Patron"</span>
@@ -1557,17 +1691,17 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<div class="note"><p>Опцию <code>:counter_cache</code> необходимо указывать только на стороне <code>belongs_to</code> связи.</p></div><p>Столбцы кэша счетчика добавляются в список атрибутов модели только для чтения посредством <code>attr_readonly</code>.</p><p>Если по какой-то причине вы изменяете значение первичного ключа модели, но не обновляете внешние ключи посчитанных моделей, то кэш счетчика может иметь устаревшие данные. Другими словами, любые &quot;осиротевшие&quot; модели все еще будут считать в отношении счетчика. Чтобы починить кэш счетчика, используйте <a href="https://api.rubyonrails.org/classes/ActiveRecord/CounterCache/ClassMethods.html#method-i-reset_counters"><code>reset_counters</code></a>.</p><h5 id='dependent' class='inside_page_header'><a href="#dependent">4.2.4.</a> <code>:dependent</code></h5><p>Если установить опцию <code>:dependent</code> в:</p><ul><li><code>:destroy</code>, когда объект уничтожается, <code>destroy</code> вызывается на его связанных объектах.
+<div class="note"><p>Опцию <code>:counter_cache</code> необходимо указывать только на стороне <code>belongs_to</code> связи.</p></div><p>Столбцы кэша счетчика добавляются в список атрибутов модели только для чтения посредством <code>attr_readonly</code>.</p><p>Если по какой-то причине вы изменяете значение первичного ключа модели, но не обновляете внешние ключи посчитанных моделей, то кэш счетчика может иметь устаревшие данные. Другими словами, любые &quot;осиротевшие&quot; модели все еще будут считать в отношении счетчика. Чтобы починить кэш счетчика, используйте <a href="https://api.rubyonrails.org/classes/ActiveRecord/CounterCache/ClassMethods.html#method-i-reset_counters"><code>reset_counters</code></a>.</p><h6 id='default' class='inside_page_header'><a href="#default">4.2.3.1.</a> <code>:default</code></h6><p>Когда установлен <code>true</code>, у связи не будет проверки ее наличия.</p><h5 id='dependent' class='inside_page_header'><a href="#dependent">4.2.4.</a> <code>:dependent</code></h5><p>Если установить опцию <code>:dependent</code> в:</p><ul><li><code>:destroy</code>, когда объект уничтожается, <code>destroy</code> вызывается на его связанных объектах.
 </li><li><code>:delete</code>, когда объект уничтожается, все его связанные объекты удаляются прямо из базы данных без вызова метода <code>destroy</code>.
-</li><li><code>:destroy_async</code>: когда объект уничтожается, задание <code>ActiveRecord::DestroyAssociationAsyncJob</code> ставится в очередь, которое вызовет destroy на его связанных объектах. Чтобы это работало, должен быть настроен Active Job.
-</li></ul><div class="warning"><p>Не следует определять эту опцию в связи <code>belongs_to</code>, которая соединена со связью <code>has_many</code> в другом классе. Это приведет к &quot;битым&quot; связям в записях вашей базы данных.</p></div><h5 id='foreign_key' class='inside_page_header'><a href="#foreign_key">4.2.5.</a> <code>:foreign_key</code></h5><p>По соглашению Rails предполагает, что столбец, используемый для хранения внешнего ключа в этой модели, имеет имя модели с добавленным суффиксом <code>_id</code>. Опция <code>:foreign_key</code> позволяет установить имя внешнего ключа явно:</p><div class="code_container">
+</li><li><code>:destroy_async</code>: когда объект уничтожается, задание <code>ActiveRecord::DestroyAssociationAsyncJob</code> ставится в очередь, которое вызовет destroy на его связанных объектах. Чтобы это работало, должен быть настроен Active Job. Не используйте эту опцию, если связь обеспечена ограничением внешнего ключу в вашей базе данных. Действия ограничения внешнего ключа произойдут в той же транзакции, которая удаляет владельца.
+</li></ul><div class="warning"><p>Не следует определять эту опцию в связи <code>belongs_to</code>, которая соединена со связью <code>has_many</code> в другом классе. Это приведет к &quot;битым&quot; связям в записях вашей базы данных.</p></div><h6 id='ensuring_owner_was' class='inside_page_header'><a href="#ensuring_owner_was">4.2.4.1.</a> <code>:ensuring_owner_was</code></h6><p>Указывает метод экземпляра, вызываемого на владельце. Этот метод должен возвратить true, чтобы связанные записи удалялись в фоновом задании.</p><h5 id='foreign_key' class='inside_page_header'><a href="#foreign_key">4.2.5.</a> <code>:foreign_key</code></h5><p>По соглашению Rails предполагает, что столбец, используемый для хранения внешнего ключа в этой модели, имеет имя модели с добавленным суффиксом <code>_id</code>. Опция <code>:foreign_key</code> позволяет установить имя внешнего ключа явно:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Book</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">belongs_to</span> <span class="ss">:author</span><span class="p">,</span> <span class="ss">class_name: </span><span class="s2">"Patron"</span><span class="p">,</span>
                       <span class="ss">foreign_key: </span><span class="s2">"patron_id"</span>
 <span class="k">end</span>
 </code></pre>
 </div>
-<div class="info"><p>В любом случае, Rails не создаст столбцы внешнего ключа за вас. Вам необходимо явно определить их в своих миграциях.</p></div><h5 id='primary_key' class='inside_page_header'><a href="#primary_key">4.2.6.</a> <code>:primary_key</code></h5><p>По соглашению Rails предполагает, что для первичного ключа используется столбец <code>id</code> в таблице. Опция <code>:primary_key</code> позволяет указать иной столбец.</p><p>Например, имеется таблица <code>users</code> с <code>guid</code> в качестве первичного ключа. Если мы хотим отдельную таблицу <code>todos</code>, содержащую внешний ключ <code>user_id</code> из столбца <code>guid</code>, для этого можно использовать <code>primary_key</code> следующим образом:</p><div class="code_container">
+<div class="info"><p>В любом случае, Rails не создаст столбцы внешнего ключа за вас. Вам необходимо явно определить их в своих миграциях.</p></div><h6 id='foreign_type' class='inside_page_header'><a href="#foreign_type">4.2.5.1.</a> <code>:foreign_type</code></h6><p>Указывает столбец, используемый для хранения типа связанного объекта, если это полиморфная связь. По умолчанию это угадывается как имя связи с суффиксом “<code>_type</code>”. Таким образом, класс, определяющий связь <code>belongs_to :taggable, polymorphic: true</code>, будет использовать “<code>taggable_type</code>” как <code>:foreign_type</code> по умолчанию.</p><h5 id='primary_key' class='inside_page_header'><a href="#primary_key">4.2.6.</a> <code>:primary_key</code></h5><p>По соглашению Rails предполагает, что для первичного ключа используется столбец <code>id</code> в таблице. Опция <code>:primary_key</code> позволяет указать иной столбец.</p><p>Например, имеется таблица <code>users</code> с <code>guid</code> в качестве первичного ключа. Если мы хотим отдельную таблицу <code>todos</code>, содержащую внешний ключ <code>user_id</code> из столбца <code>guid</code>, для этого можно использовать <code>primary_key</code> следующим образом:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="nb">self</span><span class="p">.</span><span class="nf">primary_key</span> <span class="o">=</span> <span class="s1">'guid'</span> <span class="c1"># primary key is guid and not id</span>
 <span class="k">end</span>
@@ -1587,7 +1721,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h5 id='polymorphic' class='inside_page_header'><a href="#polymorphic">4.2.8.</a> <code>:polymorphic</code></h5><p>Передача <code>true</code> для опции <code>:polymorphic</code> показывает, что это полиморфная связь. Полиморфные связи подробно рассматривались <a href="#polymorphic-associations">ранее</a>.</p><h5 id='touch' class='inside_page_header'><a href="#touch">4.2.9.</a> <code>:touch</code></h5><p>Если установите опцию <code>:touch</code> в <code>true</code>, то временные метки <code>updated_at</code> или <code>updated_on</code> на связанном объекте будут установлены в текущее время всякий раз, когда этот объект будет сохранен или уничтожен:</p><div class="code_container">
+<h6 id='optional' class='inside_page_header'><a href="#optional">4.2.7.1.</a> <code>:optional</code></h6><p>Если установить опции <code>:optional</code> <code>true</code>, не будет проверяться наличие связанного объекта. По умолчанию этой опции установлено <code>false</code>.</p><h5 id='polymorphic' class='inside_page_header'><a href="#polymorphic">4.2.8.</a> <code>:polymorphic</code></h5><p>Передача <code>true</code> для опции <code>:polymorphic</code> показывает, что это полиморфная связь. Полиморфные связи подробно рассматривались <a href="#polymorphic-associations">ранее</a>.</p><h6 id='required' class='inside_page_header'><a href="#required">4.2.8.1.</a> <code>:required</code></h6><p>Когда установлена <code>true</code>, у связи проверяется ее наличие. Будет проверяться сама связь, а не ее id. Можно использовать <code>:inverse_of</code>, чтобы избежать дополнительного запроса во время валидации.</p><div class="note"><p>Установлена <code>true</code> по умолчанию и устарела. Если не хотите, чтобы проверялось наличие связи, используйте <code>optional: true</code>.</p></div><h6 id='strict_loading' class='inside_page_header'><a href="#strict_loading">4.2.8.2.</a> <code>:strict_loading</code></h6><p>Обеспечивает строгую загрузку всякий раз, когда связанная запись загружается через связь.</p><h5 id='touch' class='inside_page_header'><a href="#touch">4.2.9.</a> <code>:touch</code></h5><p>Если установите опцию <code>:touch</code> в <code>true</code>, то временные метки <code>updated_at</code> или <code>updated_on</code> на связанном объекте будут установлены в текущее время всякий раз, когда этот объект будет сохранен или уничтожен:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Book</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">belongs_to</span> <span class="ss">:author</span><span class="p">,</span> <span class="ss">touch: </span><span class="kp">true</span>
 <span class="k">end</span>
@@ -1603,7 +1737,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h5 id='validate' class='inside_page_header'><a href="#validate">4.2.10.</a> <code>:validate</code></h5><p>Если установите опцию <code>:validate</code> в <code>true</code>, тогда связанные объекты будут проходить валидацию всякий раз, когда вы сохраняете этот объект. По умолчанию она равна <code>false</code>: связанные объекты не проходят валидацию, когда этот объект сохраняется.</p><h5 id='optional' class='inside_page_header'><a href="#optional">4.2.11.</a> <code>:optional</code></h5><p>Если установить <code>:optional</code> в <code>true</code>, тогда наличие связанных объектов не будет валидироваться. По умолчанию установлено в <code>false</code>.</p><h4 id='skoupy-dlya-belongs_to' class='inside_page_header'><a href="#skoupy-dlya-belongs_to">4.3.</a> Скоупы для <code>belongs_to</code></h4><p>Иногда хочется настроить запрос, используемый <code>belongs_to</code>. Такая настройка может быть достигнута с помощью блока скоупа. Например:</p><div class="code_container">
+<h5 id='validate' class='inside_page_header'><a href="#validate">4.2.10.</a> <code>:validate</code></h5><p>Если установите опцию <code>:validate</code> в <code>true</code>, тогда связанные объекты будут проходить валидацию всякий раз, когда вы сохраняете этот объект. По умолчанию она равна <code>false</code>: связанные объекты не проходят валидацию, когда этот объект сохраняется.</p><h4 id='skoupy-dlya-belongs_to' class='inside_page_header'><a href="#skoupy-dlya-belongs_to">4.3.</a> Скоупы для <code>belongs_to</code></h4><p>Иногда хочется настроить запрос, используемый <code>belongs_to</code>. Такая настройка может быть достигнута с помощью блока скоупа. Например:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Book</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">belongs_to</span> <span class="ss">:author</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">where</span> <span class="ss">active: </span><span class="kp">true</span> <span class="p">}</span>
 <span class="k">end</span>
@@ -1661,24 +1795,21 @@
 </li><li><code>create_association(attributes = {})</code>
 </li><li><code>create_association!(attributes = {})</code>
 </li><li><code>reload_association</code>
-</li><li><code>reset_assocation</code>
+</li><li><code>reset_association</code>
 </li></ul><p>Во всех этих методах <code>association</code> заменяется на символ, переданный как первый аргумент в <code>has_one</code>. Например, имеем объявление:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Supplier</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_one</span> <span class="ss">:account</span>
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Каждый экземпляр модели <code>Supplier</code> будет иметь эти методы:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">account</span>
-<span class="n">account</span><span class="o">=</span>
-<span class="n">build_account</span>
-<span class="n">create_account</span>
-<span class="n">create_account!</span>
-<span class="n">reload_account</span>
-<span class="n">reset_account</span>
-</code></pre>
-</div>
-<div class="note"><p>При установлении новой связи <code>has_one</code> или <code>belongs_to</code>, следует использовать префикс <code>build_</code> для построения связи, в отличие от метода <code>association.build</code>, используемого для связей <code>has_many</code> или <code>has_and_belongs_to_many</code>. Чтобы создать связь, используйте префикс <code>create_</code>.</p></div><h5 id='association2' class='inside_page_header'><a href="#association2">5.1.1.</a> <code>association</code></h5><p>Метод <code>association</code> возвращает связанный объект, если таковой имеется. Если связанный объект не найден, возвращает <code>nil</code>.</p><div class="code_container">
+<p>Каждый экземпляр модели <code>Supplier</code> будет иметь эти методы:</p><ul><li><code>account</code>
+</li><li><code>account=</code>
+</li><li><code>build_account</code>
+</li><li><code>create_account</code>
+</li><li><code>create_account!</code>
+</li><li><code>reload_account</code>
+</li><li><code>reset_account</code>
+</li></ul><div class="note"><p>При установлении новой связи <code>has_one</code> или <code>belongs_to</code>, следует использовать префикс <code>build_</code> для построения связи, в отличие от метода <code>association.build</code>, используемого для связей <code>has_many</code> или <code>has_and_belongs_to_many</code>. Чтобы создать связь, используйте префикс <code>create_</code>.</p></div><h5 id='association2' class='inside_page_header'><a href="#association2">5.1.1.</a> <code>association</code></h5><p>Метод <code>association</code> возвращает связанный объект, если таковой имеется. Если связанный объект не найден, возвращает <code>nil</code>.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="vi">@account</span> <span class="o">=</span> <span class="vi">@supplier</span><span class="p">.</span><span class="nf">account</span>
 </code></pre>
 </div>
@@ -1712,11 +1843,16 @@
 </li><li><code>:autosave</code>
 </li><li><code>:class_name</code>
 </li><li><code>:dependent</code>
+</li><li><code>:disable_joins</code>
+</li><li><code>:ensuring_owner_was</code>
 </li><li><code>:foreign_key</code>
 </li><li><code>:inverse_of</code>
 </li><li><code>:primary_key</code>
+</li><li><code>:query_constraints</code>
+</li><li><code>:required</code>
 </li><li><code>:source</code>
 </li><li><code>:source_type</code>
+</li><li><code>:strict_loading</code>
 </li><li><code>:through</code>
 </li><li><code>:touch</code>
 </li><li><code>:validate</code>
@@ -1728,11 +1864,11 @@
 </div>
 <h5 id='dependent2' class='inside_page_header'><a href="#dependent2">5.2.4.</a> <code>:dependent</code></h5><p>Управляет тем, что произойдет со связанным объектом, когда его владелец будет уничтожен:</p><ul><li><code>:destroy</code> приведет к тому, что связанный объект также будет уничтожен
 </li><li><code>:delete</code> приведет к тому, что связанный объект будет удален из базы данных напрямую (таким образом не будут выполнены колбэки)
-</li><li><code>:destroy_async</code>: когда объект уничтожается, задание <code>ActiveRecord::DestroyAssociationAsyncJob</code> ставится в очередь, которое вызовет destroy на его связанных объектах. Чтобы это работало, должен быть настроен Active Job.
+</li><li><code>:destroy_async</code>: когда объект уничтожается, задание <code>ActiveRecord::DestroyAssociationAsyncJob</code> ставится в очередь, которое вызовет destroy на его связанных объектах. Чтобы это работало, должен быть настроен Active Job. Не используйте эту опцию, если связь обеспечена ограничением внешнего ключу в вашей базе данных. Действия ограничения внешнего ключа произойдут в той же транзакции, которая удаляет владельца.
 </li><li><code>:nullify</code> приведет к тому, что внешний ключ будет установлен <code>NULL</code>. Столбцы полиморфного типа на полиморфных связях также обнуляются. Колбэки не выполняются.
 </li><li><code>:restrict_with_exception</code> приведет к вызову исключения <code>ActiveRecord::DeleteRestrictionError</code>, если есть связанный объект
 </li><li><code>:restrict_with_error</code> приведет к ошибке, добавляемой к владельцу, если есть связанный объект
-</li></ul><p>Нельзя устанавливать или оставлять опцию <code>:nullify</code> для связей, имеющих ограничение <code>NOT NULL</code>. Если не установить <code>dependent</code> для уничтожения таких связей, вы не сможете изменить связанный объект, так как внешнему ключу изначально связанного объекта будет назначено недопустимое значение <code>NULL</code>.</p><h5 id='foreign_key2' class='inside_page_header'><a href="#foreign_key2">5.2.5.</a> <code>:foreign_key</code></h5><p>По соглашению Rails предполагает, что столбец, используемый для хранения внешнего ключа в этой модели, имеет имя модели с добавленным суффиксом <code>_id</code>. Опция <code>:foreign_key</code> позволяет установить имя внешнего ключа явно:</p><div class="code_container">
+</li></ul><p>Нельзя устанавливать или оставлять опцию <code>:nullify</code> для связей, имеющих ограничение <code>NOT NULL</code>. Если не установить <code>dependent</code> для уничтожения таких связей, вы не сможете изменить связанный объект, так как внешнему ключу изначально связанного объекта будет назначено недопустимое значение <code>NULL</code>.</p><h6 id='disable_joins' class='inside_page_header'><a href="#disable_joins">5.2.4.1.</a> <code>:disable_joins</code></h6><p>Указывает, должны ли опускаться join для связи. Если установлено <code>true</code>, будут сгенерированы два или более запроса. Отметьте, что в некоторых случаях, если применено упорядочивание или лимит, это будет выполнено в памяти из-за ограничений базы данных. Эта опция применима только на связях <code>has_one :through</code>, так как одиночный <code>has_one</code> не выполняет join.</p><h5 id='foreign_key2' class='inside_page_header'><a href="#foreign_key2">5.2.5.</a> <code>:foreign_key</code></h5><p>По соглашению Rails предполагает, что столбец, используемый для хранения внешнего ключа в этой модели, имеет имя модели с добавленным суффиксом <code>_id</code>. Опция <code>:foreign_key</code> позволяет установить имя внешнего ключа явно:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Supplier</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_one</span> <span class="ss">:account</span><span class="p">,</span> <span class="ss">foreign_key: </span><span class="s2">"supp_id"</span>
 <span class="k">end</span>
@@ -1748,7 +1884,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h5 id='primary_key2' class='inside_page_header'><a href="#primary_key2">5.2.7.</a> <code>:primary_key</code></h5><p>По соглашению, Rails предполагает, что столбец, используемый для хранения первичного ключа, это <code>id</code>. Вы можете переопределить это и явно определить первичный ключ с помощью опции <code>:primary_key</code>.</p><h5 id='source' class='inside_page_header'><a href="#source">5.2.8.</a> <code>:source</code></h5><p>Опция <code>:source</code> определяет имя источника связи для связи <code>has_one :through</code>.</p><h5 id='source_type' class='inside_page_header'><a href="#source_type">5.2.9.</a> <code>:source_type</code></h5><p>Опция <code>:source_type</code> определяет тип источника связи для связи <code>has_one :through</code>, который действует при полиморфной связи.</p><div class="code_container">
+<h5 id='primary_key2' class='inside_page_header'><a href="#primary_key2">5.2.7.</a> <code>:primary_key</code></h5><p>По соглашению, Rails предполагает, что столбец, используемый для хранения первичного ключа, это <code>id</code>. Вы можете переопределить это и явно определить первичный ключ с помощью опции <code>:primary_key</code>.</p><h6 id='query_constraints' class='inside_page_header'><a href="#query_constraints">5.2.7.1.</a> <code>:query_constraints</code></h6><p>Служит в качестве составного внешнего ключа. Определяет список столбцов для использования при запросе связанного объекта. Это необязательная опция. По умолчанию Rails попытается вывести значение автоматически. Когда есть значение, размер массива должен соответствовать размеру первичного ключа связанной модели или размеру <code>query_constraints</code>.</p><h6 id='required2' class='inside_page_header'><a href="#required2">5.2.7.2.</a> <code>:required</code></h6><p>Когда установлено <code>true</code>, у связи также будет проверено ее наличие. Это проверит саму связь, а не id. Можно использовать <code>:inverse_of</code>, чтобы избежать дополнительного запроса во время валидации.</p><h5 id='source' class='inside_page_header'><a href="#source">5.2.8.</a> <code>:source</code></h5><p>Опция <code>:source</code> определяет имя источника связи для связи <code>has_one :through</code>.</p><h5 id='source_type' class='inside_page_header'><a href="#source_type">5.2.9.</a> <code>:source_type</code></h5><p>Опция <code>:source_type</code> определяет тип источника связи для связи <code>has_one :through</code>, который действует при полиморфной связи.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Author</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_one</span> <span class="ss">:book</span>
   <span class="n">has_one</span> <span class="ss">:hardback</span><span class="p">,</span> <span class="ss">through: :book</span><span class="p">,</span> <span class="ss">source: :format</span><span class="p">,</span> <span class="ss">source_type: </span><span class="s2">"Hardback"</span>
@@ -1768,7 +1904,7 @@
 <span class="k">class</span> <span class="nc">DustJacket</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span><span class="p">;</span> <span class="k">end</span>
 </code></pre>
 </div>
-<h5 id='through' class='inside_page_header'><a href="#through">5.2.10.</a> <code>:through</code></h5><p>Опция <code>:through</code> определяет соединительную модель, через которую выполняется запрос. Связи <code>has_one :through</code> подробно рассматривались <a href="#the-has-one-through-association">ранее</a>.</p><h6 id='touch2' class='inside_page_header'><a href="#touch2">5.2.10.1.</a> <code>:touch</code></h6><p>Если опция <code>:touch</code> установлена <code>true</code>, тогда временные метки <code>updated_at</code> или <code>updated_on</code> у связанного объекта будут установлены в текущее время всякий раз, когда этот объект будет сохранен или уничтожен:</p><div class="code_container">
+<h6 id='strict_loading2' class='inside_page_header'><a href="#strict_loading2">5.2.9.1.</a> <code>:strict_loading</code></h6><p>Обеспечивает строгую загрузку всякий раз, когда связанная запись загружается через связь.</p><h5 id='through' class='inside_page_header'><a href="#through">5.2.10.</a> <code>:through</code></h5><p>Опция <code>:through</code> определяет соединительную модель, через которую выполняется запрос. Связи <code>has_one :through</code> подробно рассматривались <a href="#the-has-one-through-association">ранее</a>.</p><h6 id='touch2' class='inside_page_header'><a href="#touch2">5.2.10.1.</a> <code>:touch</code></h6><p>Если опция <code>:touch</code> установлена <code>true</code>, тогда временные метки <code>updated_at</code> или <code>updated_on</code> у связанного объекта будут установлены в текущее время всякий раз, когда этот объект будет сохранен или уничтожен:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Supplier</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_one</span> <span class="ss">:account</span><span class="p">,</span> <span class="ss">touch: </span><span class="kp">true</span>
 <span class="k">end</span>
@@ -1860,23 +1996,23 @@
 </code></pre>
 </div>
 <p>Каждый экземпляр модели <code>Author</code> будет иметь эти методы:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">books</span>
-<span class="n">books</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-<span class="n">books</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-<span class="n">books</span><span class="p">.</span><span class="nf">destroy</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-<span class="n">books</span><span class="o">=</span><span class="p">(</span><span class="n">objects</span><span class="p">)</span>
-<span class="n">book_ids</span>
-<span class="n">book_ids</span><span class="o">=</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
-<span class="n">books</span><span class="p">.</span><span class="nf">clear</span>
-<span class="n">books</span><span class="p">.</span><span class="nf">empty?</span>
-<span class="n">books</span><span class="p">.</span><span class="nf">size</span>
-<span class="n">books</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="n">books</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="n">books</span><span class="p">.</span><span class="nf">exists?</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="n">books</span><span class="p">.</span><span class="nf">build</span><span class="p">(</span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{},</span> <span class="o">...</span><span class="p">)</span>
-<span class="n">books</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{})</span>
-<span class="n">books</span><span class="p">.</span><span class="nf">create!</span><span class="p">(</span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{})</span>
-<span class="n">books</span><span class="p">.</span><span class="nf">reload</span>
+  <pre><code class="highlight plaintext">books
+books&lt;&lt;(object, ...)
+books.delete(object, ...)
+books.destroy(object, ...)
+books=(objects)
+book_ids
+book_ids=(ids)
+books.clear
+books.empty?
+books.size
+books.find(...)
+books.where(...)
+books.exists?(...)
+books.build(attributes = {}, ...)
+books.create(attributes = {})
+books.create!(attributes = {})
+books.reload
 </code></pre>
 </div>
 <h5 id='collection' class='inside_page_header'><a href="#collection">6.1.1.</a> <code>collection</code></h5><p>Метод <code>collection</code> возвращает Relation всех связанных объектов. Если нет связанных объектов, он возвращает пустой Relation.</p><div class="code_container">
@@ -1955,11 +2091,17 @@
 </li><li><code>:class_name</code>
 </li><li><code>:counter_cache</code>
 </li><li><code>:dependent</code>
+</li><li><code>:disable_joins</code>
+</li><li><code>:ensuring_owner_was</code>
+</li><li><code>:extend</code>
 </li><li><code>:foreign_key</code>
+</li><li><code>:foreign_type</code>
 </li><li><code>:inverse_of</code>
 </li><li><code>:primary_key</code>
+</li><li><code>:query_constraints</code>
 </li><li><code>:source</code>
 </li><li><code>:source_type</code>
+</li><li><code>:strict_loading</code>
 </li><li><code>:through</code>
 </li><li><code>:validate</code>
 </li></ul><h5 id='as2' class='inside_page_header'><a href="#as2">6.2.1.</a> <code>:as</code></h5><p>Установка опции <code>:as</code> показывает, что это полиморфная связь. Полиморфные связи подробно рассматривались <a href="#polymorphic-associations">ранее</a>.</p><h5 id='autosave3' class='inside_page_header'><a href="#autosave3">6.2.2.</a> <code>:autosave</code></h5><p>Если установить опцию <code>:autosave</code> в <code>true</code>, Rails сохранит любые загруженные связанные члены и уничтожит члены, помеченные для уничтожения, всякий раз, когда сохраняется родительский объект. Но установить <code>:autosave</code> в <code>false</code> - не то же самое, что не устанавливать опцию <code>:autosave</code>. Если опция <code>:autosave</code> отсутствует, то новые связанные объекты будут сохранены, но обновленные связанные объекты сохранены не будут.</p><h5 id='class_name3' class='inside_page_header'><a href="#class_name3">6.2.3.</a> <code>:class_name</code></h5><p>Если имя другой модели не может быть произведено из имени связи, можете использовать опцию <code>:class_name</code> для предоставления имени модели. Например, если автор имеет много книг, но фактическое имя модели, содержащей книги, это <code>Transaction</code>, можете установить это следующим образом:</p><div class="code_container">
@@ -1974,13 +2116,13 @@
 </li><li><code>:nullify</code> приведет к тому, что внешние ключи будет установлен <code>NULL</code>. Столбцы полиморфного типа на полиморфных связях также обнуляются. Колбэки не выполняются.
 </li><li><code>:restrict_with_exception</code> приведет к вызову исключения <code>ActiveRecord::DeleteRestrictionError</code>, если есть какой-нибудь связанный объект
 </li><li><code>:restrict_with_error</code> приведет к ошибке, добавляемой к владельцу, если есть какой-нибудь связанный объект
-</li></ul><p>Опции <code>:destroy</code> и <code>:delete_all</code> также влияют на семантику методов <code>collection.delete</code> и <code>collection=</code>, вынуждая их удалять связанные объекты при удалении из коллекции.</p><h5 id='foreign_key3' class='inside_page_header'><a href="#foreign_key3">6.2.6.</a> <code>:foreign_key</code></h5><p>По соглашению Rails предполагает, что столбец, используемый для хранения внешнего ключа в этой модели, имеет имя модели с добавленным суффиксом <code>_id</code>. Опция <code>:foreign_key</code> позволяет установить имя внешнего ключа явно:</p><div class="code_container">
+</li></ul><p>Опции <code>:destroy</code> и <code>:delete_all</code> также влияют на семантику методов <code>collection.delete</code> и <code>collection=</code>, вынуждая их удалять связанные объекты при удалении из коллекции.</p><h6 id='disable_joins2' class='inside_page_header'><a href="#disable_joins2">6.2.5.1.</a> <code>:disable_joins</code></h6><p>Указывает, должны ли опускаться join для связи. Если установлено <code>true</code>, будут сгенерированы два или более запроса. Отметьте, что в некоторых случаях, если применено упорядочивание или лимит, это будет выполнено в памяти из-за ограничений базы данных. Эта опция применима только на связях <code>has_many :through</code>, так как одиночный <code>has_many</code> не выполняет join.</p><h6 id='ensuring_owner_was2' class='inside_page_header'><a href="#ensuring_owner_was2">6.2.5.2.</a> <code>:ensuring_owner_was</code></h6><p>Указывает метод экземпляра, вызываемого на владельце. Этот метод должен возвратить true, чтобы связанные записи удалялись в фоновом задании.</p><h6 id='extend' class='inside_page_header'><a href="#extend">6.2.5.3.</a> <code>:extend</code></h6><p>Указывает модуль или массив модулей, расширяющих возвращаемый связанный объект. Полезно для определения методов на связях, в особенности когда они должны быть общими у объектов нескольких связей.</p><h5 id='foreign_key3' class='inside_page_header'><a href="#foreign_key3">6.2.6.</a> <code>:foreign_key</code></h5><p>По соглашению Rails предполагает, что столбец, используемый для хранения внешнего ключа в этой модели, имеет имя модели с добавленным суффиксом <code>_id</code>. Опция <code>:foreign_key</code> позволяет установить имя внешнего ключа явно:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Author</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="n">has_many</span> <span class="ss">:books</span><span class="p">,</span> <span class="ss">foreign_key: </span><span class="s2">"cust_id"</span>
 <span class="k">end</span>
 </code></pre>
 </div>
-<div class="info"><p>В любом случае, Rails не создаст столбцы внешнего ключа за вас. Вам необходимо явно определить их в своих миграциях.</p></div><h5 id='inverse_of3' class='inside_page_header'><a href="#inverse_of3">6.2.7.</a> <code>:inverse_of</code></h5><p>Опция <code>:inverse_of</code> определяет имя связи <code>belongs_to</code>, являющейся обратной для этой связи. Подробности смотрите в разделе <a href="#bi-directional-associations">Двунаправленная связь</a>.</p><div class="code_container">
+<div class="info"><p>В любом случае, Rails не создаст столбцы внешнего ключа за вас. Вам необходимо явно определить их в своих миграциях.</p></div><h6 id='foreign_type2' class='inside_page_header'><a href="#foreign_type2">6.2.6.1.</a> <code>:foreign_type</code></h6><p>Указывает столбец, используемый для хранения типа связанного объекта, если это полиморфная связь. По умолчанию это угадывается как имя полиморфной связи, указанное на опции “<code>as</code>” с суффиксом “<code>_type</code>”. Таким образом, класс, определяющий связь <code>has_many :tags, as: :taggable</code>, будет использовать “<code>taggable_type</code>” как <code>:foreign_type</code> по умолчанию.</p><h5 id='inverse_of3' class='inside_page_header'><a href="#inverse_of3">6.2.7.</a> <code>:inverse_of</code></h5><p>Опция <code>:inverse_of</code> определяет имя связи <code>belongs_to</code>, являющейся обратной для этой связи. Подробности смотрите в разделе <a href="#bi-directional-associations">Двунаправленная связь</a>.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Author</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_many</span> <span class="ss">:books</span><span class="p">,</span> <span class="ss">inverse_of: :author</span>
 <span class="k">end</span>
@@ -1996,7 +2138,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Теперь, если выполнить <code>@todo = @user.todos.create</code>, то в запись <code>@todo</code> значение <code>user_id</code> будет таким же, как значение <code>guid</code> в <code>@user</code>.</p><h5 id='source2' class='inside_page_header'><a href="#source2">6.2.9.</a> <code>:source</code></h5><p>Опция <code>:source</code> определяет имя источника связи для связи <code>has_many :through</code>. Эту опцию нужно использовать, только если имя источника связи не может быть автоматически выведено из имени связи.</p><div class="code_container">
+<p>Теперь, если выполнить <code>@todo = @user.todos.create</code>, то в запись <code>@todo</code> значение <code>user_id</code> будет таким же, как значение <code>guid</code> в <code>@user</code>.</p><h6 id='query_constraints2' class='inside_page_header'><a href="#query_constraints2">6.2.8.1.</a> <code>:query_constraints</code></h6><p>Служит в качестве составного внешнего ключа. Определяет список столбцов для использования при запросе связанного объекта. Это необязательная опция. По умолчанию Rails попытается вывести значение автоматически. Когда есть значение, размер массива должен соответствовать размеру первичного ключа связанной модели или размеру <code>query_constraints</code>.</p><h5 id='source2' class='inside_page_header'><a href="#source2">6.2.9.</a> <code>:source</code></h5><p>Опция <code>:source</code> определяет имя источника связи для связи <code>has_many :through</code>. Эту опцию нужно использовать, только если имя источника связи не может быть автоматически выведено из имени связи.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Author</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_many</span> <span class="ss">:books</span>
   <span class="n">has_many</span> <span class="ss">:paperbacks</span><span class="p">,</span> <span class="ss">through: :books</span><span class="p">,</span> <span class="ss">source: :format</span><span class="p">,</span> <span class="ss">source_type: </span><span class="s2">"Paperback"</span>
@@ -2010,7 +2152,7 @@
 <span class="k">class</span> <span class="nc">Paperback</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span><span class="p">;</span> <span class="k">end</span>
 </code></pre>
 </div>
-<h5 id='source_type2' class='inside_page_header'><a href="#source_type2">6.2.10.</a> <code>:source_type</code></h5><p>Опция <code>:source_type</code> определяет тип источника связи для связи <code>has_many :through</code>, который действует при полиморфной связи.</p><h5 id='through2' class='inside_page_header'><a href="#through2">6.2.11.</a> <code>:through</code></h5><p>Опция <code>:through</code> определяет соединительную модель, через которую выполняется запрос. Связи <code>has_many :through</code> предоставляют способ осуществления отношений многие-ко-многим, как обсуждалось <a href="#the-has-many-through-association">ранее в этом руководстве</a>.</p><h5 id='validate3' class='inside_page_header'><a href="#validate3">6.2.12.</a> <code>:validate</code></h5><p>Если установите опцию <code>:validate</code> в <code>false</code>, тогда новые связанные объекты не будут проходить валидацию всякий раз, когда вы сохраняете этот объект. По умолчанию она равна <code>true</code>: новые связанные объекты проходят валидацию, когда этот объект сохраняется.</p><h4 id='skoupy-dlya-has_many' class='inside_page_header'><a href="#skoupy-dlya-has_many">6.3.</a> Скоупы для <code>has_many</code></h4><p>Иногда хочется настроить запрос, используемый <code>has_many</code>. Такая настройка может быть достигнута с помощью блока скоупа. Например:</p><div class="code_container">
+<h5 id='source_type2' class='inside_page_header'><a href="#source_type2">6.2.10.</a> <code>:source_type</code></h5><p>Опция <code>:source_type</code> определяет тип источника связи для связи <code>has_many :through</code>, который действует при полиморфной связи.</p><h6 id='strict_loading3' class='inside_page_header'><a href="#strict_loading3">6.2.10.1.</a> <code>:strict_loading</code></h6><p>Когда установлено true, обеспечивает строгую загрузку всякий раз, когда связанная запись загружается через связь.</p><h5 id='through2' class='inside_page_header'><a href="#through2">6.2.11.</a> <code>:through</code></h5><p>Опция <code>:through</code> определяет соединительную модель, через которую выполняется запрос. Связи <code>has_many :through</code> предоставляют способ осуществления отношений многие-ко-многим, как обсуждалось <a href="#the-has-many-through-association">ранее в этом руководстве</a>.</p><h5 id='validate3' class='inside_page_header'><a href="#validate3">6.2.12.</a> <code>:validate</code></h5><p>Если установите опцию <code>:validate</code> в <code>false</code>, тогда новые связанные объекты не будут проходить валидацию всякий раз, когда вы сохраняете этот объект. По умолчанию она равна <code>true</code>: новые связанные объекты проходят валидацию, когда этот объект сохраняется.</p><h4 id='skoupy-dlya-has_many' class='inside_page_header'><a href="#skoupy-dlya-has_many">6.3.</a> Скоупы для <code>has_many</code></h4><p>Иногда хочется настроить запрос, используемый <code>has_many</code>. Такая настройка может быть достигнута с помощью блока скоупа. Например:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Author</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_many</span> <span class="ss">:books</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">where</span> <span class="ss">processed: </span><span class="kp">true</span> <span class="p">}</span>
 <span class="k">end</span>
@@ -2167,23 +2309,23 @@
 </code></pre>
 </div>
 <p>Каждый экземпляр модели <code>Part</code> будет иметь следующие методы:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">assemblies</span>
-<span class="n">assemblies</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-<span class="n">assemblies</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-<span class="n">assemblies</span><span class="p">.</span><span class="nf">destroy</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-<span class="n">assemblies</span><span class="o">=</span><span class="p">(</span><span class="n">objects</span><span class="p">)</span>
-<span class="n">assembly_ids</span>
-<span class="n">assembly_ids</span><span class="o">=</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
-<span class="n">assemblies</span><span class="p">.</span><span class="nf">clear</span>
-<span class="n">assemblies</span><span class="p">.</span><span class="nf">empty?</span>
-<span class="n">assemblies</span><span class="p">.</span><span class="nf">size</span>
-<span class="n">assemblies</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="n">assemblies</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="n">assemblies</span><span class="p">.</span><span class="nf">exists?</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="n">assemblies</span><span class="p">.</span><span class="nf">build</span><span class="p">(</span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{},</span> <span class="o">...</span><span class="p">)</span>
-<span class="n">assemblies</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{})</span>
-<span class="n">assemblies</span><span class="p">.</span><span class="nf">create!</span><span class="p">(</span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{})</span>
-<span class="n">assemblies</span><span class="p">.</span><span class="nf">reload</span>
+  <pre><code class="highlight plaintext">assemblies
+assemblies&lt;&lt;(object, ...)
+assemblies.delete(object, ...)
+assemblies.destroy(object, ...)
+assemblies=(objects)
+assembly_ids
+assembly_ids=(ids)
+assemblies.clear
+assemblies.empty?
+assemblies.size
+assemblies.find(...)
+assemblies.where(...)
+assemblies.exists?(...)
+assemblies.build(attributes = {}, ...)
+assemblies.create(attributes = {})
+assemblies.create!(attributes = {})
+assemblies.reload
 </code></pre>
 </div>
 <h5 id='dopolnitelnye-metody-stolbtsov' class='inside_page_header'><a href="#dopolnitelnye-metody-stolbtsov">7.1.1.</a> Дополнительные методы столбцов</h5><p>Если соединительная таблица для связи <code>has_and_belongs_to_many</code> имеет дополнительные столбцы, кроме двух внешних ключей, эти столбцы будут добавлены как атрибуты к записям, получаемым посредством связи. Записи, возвращаемые с дополнительными атрибутами, будут всегда только для чтения, поскольку Rails не может сохранить значения этих атрибутов.</p><div class="warning"><p>Использование дополнительных атрибутов в соединительной таблице в связи has_and_belongs_to_many устарело. Если требуется этот тип сложного поведения таблицы, соединяющей две модели в отношениях многие-ко-многим, следует использовать связь <code>has_many :through</code> вместо <code>has_and_belongs_to_many</code>.</p></div><h5 id='collection2' class='inside_page_header'><a href="#collection2">7.1.2.</a> <code>collection</code></h5><p>Метод <code>collection</code> возвращает Relation всех связанных объектов. Если нет связанных объектов, он возвращает пустой Relation.</p><div class="code_container">
@@ -2225,11 +2367,11 @@
 </code></pre>
 </div>
 <h5 id='collection-exists2' class='inside_page_header'><a href="#collection-exists2">7.1.14.</a> <code>collection.exists?(...)</code></h5><p>Метод <a href="https://api.rubyonrails.org/classes/ActiveRecord/FinderMethods.html#method-i-exists-3F"><code>collection.exists?</code></a> проверяет, существует ли в таблице коллекции объект, отвечающий представленным условиям.</p><h5 id='collection-build-attributes2' class='inside_page_header'><a href="#collection-build-attributes2">7.1.15.</a> <code>collection.build(attributes = {})</code></h5><p>Метод <a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/CollectionProxy.html#method-i-build"><code>collection.build</code></a> возвращает один или более объектов связанного типа. Эти объекты будут экземплярами с переданными атрибутами, и будет создана связь через соединительную таблицу, но связанный объект пока <em>не</em> будет сохранен.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="vi">@assembly</span> <span class="o">=</span> <span class="vi">@part</span><span class="p">.</span><span class="nf">assemblies</span><span class="p">.</span><span class="nf">build</span><span class="p">({</span><span class="ss">assembly_name: </span><span class="s2">"Transmission housing"</span><span class="p">})</span>
+  <pre><code class="highlight ruby"><span class="vi">@assembly</span> <span class="o">=</span> <span class="vi">@part</span><span class="p">.</span><span class="nf">assemblies</span><span class="p">.</span><span class="nf">build</span><span class="p">({</span> <span class="ss">assembly_name: </span><span class="s2">"Transmission housing"</span> <span class="p">})</span>
 </code></pre>
 </div>
 <h5 id='collection-create-attributes3' class='inside_page_header'><a href="#collection-create-attributes3">7.1.16.</a> <code>collection.create(attributes = {})</code></h5><p>Метод <a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/CollectionProxy.html#method-i-create"><code>collection.create</code></a> возвращает один или более объектов связанного типа. Эти объекты будут экземплярами с переданными атрибутами, будет создана связь через соединительную таблицу, и, если он пройдет валидации, определенные в связанной модели, связанный объект <em>будет</em> сохранен.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="vi">@assembly</span> <span class="o">=</span> <span class="vi">@part</span><span class="p">.</span><span class="nf">assemblies</span><span class="p">.</span><span class="nf">create</span><span class="p">({</span><span class="ss">assembly_name: </span><span class="s2">"Transmission housing"</span><span class="p">})</span>
+  <pre><code class="highlight ruby"><span class="vi">@assembly</span> <span class="o">=</span> <span class="vi">@part</span><span class="p">.</span><span class="nf">assemblies</span><span class="p">.</span><span class="nf">create</span><span class="p">({</span> <span class="ss">assembly_name: </span><span class="s2">"Transmission housing"</span> <span class="p">})</span>
 </code></pre>
 </div>
 <h5 id='collection-create-attributes4' class='inside_page_header'><a href="#collection-create-attributes4">7.1.17.</a> <code>collection.create!(attributes = {})</code></h5><p>Работает так же, как вышеприведенный <code>collection.create</code>, но вызывает <code>ActiveRecord::RecordInvalid</code>, если запись невалидна.</p><h5 id='collection-reload2' class='inside_page_header'><a href="#collection-reload2">7.1.18.</a> <code>collection.reload</code></h5><p>Метод <a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/CollectionProxy.html#method-i-reload"><code>collection.reload</code></a> возвращает Relation всех связанных объектов, принудительно читая базу данных. Если нет связанных объектов, он возвращает пустой Relation.</p><div class="code_container">
@@ -2248,6 +2390,7 @@
 </li><li><code>:class_name</code>
 </li><li><code>:foreign_key</code>
 </li><li><code>:join_table</code>
+</li><li><code>:strict_loading</code>
 </li><li><code>:validate</code>
 </li></ul><h5 id='association_foreign_key' class='inside_page_header'><a href="#association_foreign_key">7.2.1.</a> <code>:association_foreign_key</code></h5><p>По соглашению Rails предполагает, что столбец в соединительной таблице, используемый для хранения внешнего ключа, указываемого на другую модель, является именем этой модели с добавленным суффиксом <code>_id</code>. Опция <code>:association_foreign_key</code> позволяет установить имя внешнего ключа явно:</p><div class="info"><p>Опции <code>:foreign_key</code> и <code>:association_foreign_key</code> полезны при настройке присоединения к себе многие-ко-многим. Например:</p></div><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
@@ -2273,7 +2416,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h5 id='join_table' class='inside_page_header'><a href="#join_table">7.2.5.</a> <code>:join_table</code></h5><p>Если имя соединительной таблицы по умолчанию, основанное на алфавитном порядке, - это не то, что вам нужно, используйте опцию <code>:join_table</code>, чтобы переопределить его.</p><h5 id='validate4' class='inside_page_header'><a href="#validate4">7.2.6.</a> <code>:validate</code></h5><p>Если установите опцию <code>:validate</code> в <code>false</code>, тогда новые связанные объекты не будут проходить валидацию всякий раз, когда вы сохраняете этот объект. По умолчанию она равна <code>true</code>: новые связанные объекты проходят валидацию, когда этот объект сохраняется.</p><h4 id='skoupy-dlya-has_and_belongs_to_many' class='inside_page_header'><a href="#skoupy-dlya-has_and_belongs_to_many">7.3.</a> Скоупы для <code>has_and_belongs_to_many</code></h4><p>Иногда хочется настроить запрос, используемый <code>has_many</code>. Такая настройка может быть достигнута с помощью блока скоупа. Например:</p><div class="code_container">
+<h5 id='join_table' class='inside_page_header'><a href="#join_table">7.2.5.</a> <code>:join_table</code></h5><p>Если имя соединительной таблицы по умолчанию, основанное на алфавитном порядке, - это не то, что вам нужно, используйте опцию <code>:join_table</code>, чтобы переопределить его.</p><h6 id='strict_loading4' class='inside_page_header'><a href="#strict_loading4">7.2.5.1.</a> <code>:strict_loading</code></h6><p>Обеспечивает строгую загрузку всякий раз, когда связанная запись загружается через связь.</p><h5 id='validate4' class='inside_page_header'><a href="#validate4">7.2.6.</a> <code>:validate</code></h5><p>Если установите опцию <code>:validate</code> в <code>false</code>, тогда новые связанные объекты не будут проходить валидацию всякий раз, когда вы сохраняете этот объект. По умолчанию она равна <code>true</code>: новые связанные объекты проходят валидацию, когда этот объект сохраняется.</p><h4 id='skoupy-dlya-has_and_belongs_to_many' class='inside_page_header'><a href="#skoupy-dlya-has_and_belongs_to_many">7.3.</a> Скоупы для <code>has_and_belongs_to_many</code></h4><p>Иногда хочется настроить запрос, используемый <code>has_many</code>. Такая настройка может быть достигнута с помощью блока скоупа. Например:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Parts</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_and_belongs_to_many</span> <span class="ss">:assemblies</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">where</span> <span class="ss">active: </span><span class="kp">true</span> <span class="p">}</span>
 <span class="k">end</span>
@@ -2337,38 +2480,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Rails передает добавляемый или удаляемый объект в колбэк.</p><p>Можете помещать колбэки в очередь на отдельное событие, передав их как массив:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Author</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="n">has_many</span> <span class="ss">:books</span><span class="p">,</span>
-    <span class="ss">before_add: </span><span class="p">[</span><span class="ss">:check_credit_limit</span><span class="p">,</span> <span class="ss">:calculate_shipping_charges</span><span class="p">]</span>
-
-  <span class="k">def</span> <span class="nf">check_credit_limit</span><span class="p">(</span><span class="n">book</span><span class="p">)</span>
-    <span class="c1"># ...</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">calculate_shipping_charges</span><span class="p">(</span><span class="n">book</span><span class="p">)</span>
-    <span class="c1"># ...</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre>
-</div>
-<p>Если колбэк <code>before_add</code> вызывает <code>:abort</code>, объект не будет добавлен в коллекцию. Подобным образом, если колбэк <code>before_remove</code> вызывает <code>:abort</code>, объект не убирается из коллекции:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="c1"># книга не будет добавлена, если достигнут лимит</span>
-<span class="k">def</span> <span class="nf">check_credit_limit</span><span class="p">(</span><span class="n">book</span><span class="p">)</span>
-  <span class="kp">throw</span><span class="p">(</span><span class="ss">:abort</span><span class="p">)</span> <span class="k">if</span> <span class="n">limit_reached?</span>
-<span class="k">end</span>
-</code></pre>
-</div>
-<div class="note"><p>Эти колбэки вызываются только когда связанные объекты добавляются или убираются через коллекцию связи:</p></div><div class="code_container">
-  <pre><code class="highlight ruby"><span class="c1"># Вызывает колбэк `before_add`</span>
-<span class="n">author</span><span class="p">.</span><span class="nf">books</span> <span class="o">&lt;&lt;</span> <span class="n">book</span>
-<span class="n">author</span><span class="p">.</span><span class="nf">books</span> <span class="o">=</span> <span class="p">[</span><span class="n">book</span><span class="p">,</span> <span class="n">book2</span><span class="p">]</span>
-
-<span class="c1"># Не вызывает колбэк `before_add`</span>
-<span class="n">book</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="ss">author_id: </span><span class="mi">1</span><span class="p">)</span>
-</code></pre>
-</div>
-<h4 id='rasshireniya-svyazi' class='inside_page_header'><a href="#rasshireniya-svyazi">8.2.</a> Расширения связи</h4><p>Вы не ограничены функциональностью, которую Rails автоматически встраивает в выданные по связи объекты. Можно расширить эти объекты с помощью анонимных модулей, добавив новые методы поиска, методы создания и иные методы. Например:</p><div class="code_container">
+<p>Подробнее о колбэках связи читайте в <a href="/active-record-callbacks.html#association-callbacks">Руководстве о колбэках Active Record</a></p><h4 id='rasshireniya-svyazi' class='inside_page_header'><a href="#rasshireniya-svyazi">8.2.</a> Расширения связи</h4><p>Вы не ограничены функциональностью, которую Rails автоматически встраивает в выданные по связи объекты. Можно расширить эти объекты с помощью анонимных модулей, добавив новые методы поиска, методы создания и иные методы. Например:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Author</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_many</span> <span class="ss">:books</span> <span class="k">do</span>
     <span class="k">def</span> <span class="nf">find_by_book_prefix</span><span class="p">(</span><span class="n">book_number</span><span class="p">)</span>
@@ -2397,7 +2509,13 @@
 <p>Расширения могут ссылаться на внутренние методы выданных по связи объектов, используя следующие три атрибута акцессора <code>proxy_association</code>:</p><ul><li><code>proxy_association.owner</code> возвращает объект, в котором объявлена связь.
 </li><li><code>proxy_association.reflection</code> возвращает объект reflection, описывающий связь.
 </li><li><code>proxy_association.target</code> возвращает связанный объект для <code>belongs_to</code> или <code>has_one</code>, или коллекцию связанных объектов для <code>has_many</code> или <code>has_and_belongs_to_many</code>.
-</li></ul><h3 id='nasledovanie-s-edinoy-tablitsey-sti' class='inside_page_header'><a href="#nasledovanie-s-edinoy-tablitsey-sti">9.</a> Наследование с единой таблицей (STI)</h3><p>Иногда можно делиться полями и поведением между различными моделями. Скажем, у нас есть модели Car, Motorcycle и Bicycle. Мы хотим совместно использовать поля <code>color</code> и <code>price</code> и некоторые методы всеми из них, но иметь некоторое специфичное поведение для каждого, а также различные контроллеры.</p><p>Сначала нужно сгенерировать базовую модель Vehicle:</p><div class="code_container">
+</li></ul><h4 id='ogranichenie-svyazi-s-pomoschyu-vladeltsa-svyazi' class='inside_page_header'><a href="#ogranichenie-svyazi-s-pomoschyu-vladeltsa-svyazi">8.3.</a> Ограничение связи с помощью владельца связи</h4><p>Владелец связи может быть передан в качестве единственного аргумента в блок скоупа в ситуации, когда вам необходим больший контроль над ограничением связи. Однако, предупреждаем, что предварительная загрузка связи не будет больше работать.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Supplier</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_one</span> <span class="ss">:account</span><span class="p">,</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">supplier</span><span class="p">)</span> <span class="p">{</span> <span class="n">where</span> <span class="ss">active: </span><span class="n">supplier</span><span class="p">.</span><span class="nf">active?</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h3 id='single-table-inheritance-sti' class='inside_page_header'><a href="#single-table-inheritance-sti">9.</a>  Наследование с единой таблицей (STI)</h3><p>Иногда можно делиться полями и поведением между различными моделями. Скажем, у нас есть модели Car, Motorcycle и Bicycle. Мы хотим совместно использовать поля <code>color</code> и <code>price</code> и некоторые методы всеми из них, но иметь некоторое специфичное поведение для каждого, а также различные контроллеры.</p><p>Сначала нужно сгенерировать базовую модель Vehicle:</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate model vehicle <span class="nb">type</span>:string color:string price:decimal<span class="o">{</span>10.2<span class="o">}</span>
 </code></pre>
 </div>
@@ -2424,6 +2542,140 @@
 </div>
 <p>запустит подобный запрос:</p><div class="code_container">
   <pre><code class="highlight sql"><span class="k">SELECT</span> <span class="nv">"vehicles"</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="nv">"vehicles"</span> <span class="k">WHERE</span> <span class="nv">"vehicles"</span><span class="p">.</span><span class="nv">"type"</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'Car'</span><span class="p">)</span>
+</code></pre>
+</div>
+<h3 id='delegirovannye-tipy' class='inside_page_header'><a href="#delegirovannye-tipy">10.</a> Делегированные типы</h3><p><a href="#single-table-inheritance-sti"><code>Наследование с единой таблицей (STI)</code></a> хорошо работает, когда между подклассами и их атрибутами небольшая разница, но для включения всех атрибутов всех подклассов нужно создать единую таблицу.</p><p>Недостаток такого подхода в том, что он приводит к раздуванию этой таблицы. Поскольку ей нужно включать атрибуты, специфичные только для подкласса, но не используемые где-либо еще.</p><p>В следующем примере есть две модели Active Record, наследуемые от одного класса &quot;Entry&quot;, включающего атрибут <code>subject</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Schema: entries[ id, type, subject, created_at, updated_at]</span>
+<span class="k">class</span> <span class="nc">Entry</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Comment</span> <span class="o">&lt;</span> <span class="no">Entry</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Message</span> <span class="o">&lt;</span> <span class="no">Entry</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Делегируемые типы решают эту проблему с помощью <code>delegated_type</code>.</p><p>Чтобы использовать делегируемые типы, нужно смоделировать данные определенным образом. Требования следующие:</p><ul><li>Имеется суперкласс, хранящий общие атрибуты для всех подклассов в своей таблице.
+</li><li>Каждый подкласс должен наследоваться от суперкласса и иметь отдельную таблицу для любых дополнительных атрибутов, специфичных для него.
+</li></ul><p>Это устраняет необходимость определять атрибуты в единой таблице, которые непреднамеренно доступны всем подклассам.</p><p>Чтобы применить это в вышеприведенном примере, нужно перегенерировать модели. Сначала сгенерируем базовую модель <code>Entry</code>, которая будет выступать в роли суперкласса:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate model entry entryable_type:string entryable_id:integer
+</code></pre>
+</div>
+<p>Затем сгенерируем новые модели <code>Message</code> и <code>Comment</code> для делегации:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate model message subject:string body:string
+<span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate model comment content:string
+</code></pre>
+</div>
+<p>После запуска генераторов, должны получиться такие модели:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Schema: entries[ id, entryable_type, entryable_id, created_at, updated_at ]</span>
+<span class="k">class</span> <span class="nc">Entry</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+<span class="k">end</span>
+
+<span class="c1"># Schema: messages[ id, subject, body, created_at, updated_at ]</span>
+<span class="k">class</span> <span class="nc">Message</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+<span class="k">end</span>
+
+<span class="c1"># Schema: comments[ id, content, created_at, updated_at ]</span>
+<span class="k">class</span> <span class="nc">Comment</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='ob-yavlyaem-delegated_type' class='inside_page_header'><a href="#ob-yavlyaem-delegated_type">10.1.</a> Объявляем <code>delegated_type</code></h4><p>Сначала объявляем <code>delegated_type</code> в суперклассе <code>Entry</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Entry</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">delegated_type</span> <span class="ss">:entryable</span><span class="p">,</span> <span class="ss">types: </span><span class="sx">%w[ Message Comment ]</span><span class="p">,</span> <span class="ss">dependent: :destroy</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Параметр <code>entryable</code> указывает поле, используемое для делегации, и включает типы <code>Message</code> и <code>Comment</code> в качестве делегируемых классов.</p><p>У класса <code>Entry</code> есть поля <code>entryable_type</code> и <code>entryable_id</code>. Это поля с добавленными суффиксами <code>_type</code>, <code>_id</code>, добавленными к имени <code>entryable</code> из определения <code>delegated_type</code>. <code>entryable_type</code> хранит им подкласса делегации, и <code>entryable_id</code> хранит id записи подкласса делегации.</p><p>Затем нужно определить модуль для реализации этих делегируемых типов, объявляя параметр <code>as: :entryable</code> у связи <code>has_one</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">module</span> <span class="nn">Entryable</span>
+  <span class="kp">extend</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Concern</span>
+
+  <span class="n">included</span> <span class="k">do</span>
+    <span class="n">has_one</span> <span class="ss">:entry</span><span class="p">,</span> <span class="ss">as: :entryable</span><span class="p">,</span> <span class="ss">touch: </span><span class="kp">true</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>А затем включить созданный модуль в подкласс.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Message</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="kp">include</span> <span class="no">Entryable</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Comment</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="kp">include</span> <span class="no">Entryable</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>По завершение определения, делегатор <code>Entry</code> будет предоставлять следующие методы:</p><table class='table table-striped'><tr>
+<th>Method</th>
+<th>Return</th>
+</tr>
+<tr>
+<td><code>Entry#entryable_class</code></td>
+<td>Message или Comment</td>
+</tr>
+<tr>
+<td><code>Entry#entryable_name</code></td>
+<td>&quot;message&quot; или &quot;comment&quot;</td>
+</tr>
+<tr>
+<td><code>Entry.messages</code></td>
+<td><code>Entry.where(entryable_type: &quot;Message&quot;)</code></td>
+</tr>
+<tr>
+<td><code>Entry#message?</code></td>
+<td>Возвращает true, когда <code>entryable_type == &quot;Message&quot;</code></td>
+</tr>
+<tr>
+<td><code>Entry#message</code></td>
+<td>Возвращает запись сообщения, когда <code>entryable_type == &quot;Message&quot;</code>, иначе <code>nil</code></td>
+</tr>
+<tr>
+<td><code>Entry#message_id</code></td>
+<td>Возвращает <code>entryable_id</code>, когда <code>entryable_type == &quot;Message&quot;</code>, иначе <code>nil</code></td>
+</tr>
+<tr>
+<td><code>Entry.comments</code></td>
+<td><code>Entry.where(entryable_type: &quot;Comment&quot;)</code></td>
+</tr>
+<tr>
+<td><code>Entry#comment?</code></td>
+<td>Возвращает true, когда <code>entryable_type == &quot;Comment&quot;</code></td>
+</tr>
+<tr>
+<td><code>Entry#comment</code></td>
+<td>Возвращает запись комментария, когда <code>entryable_type == &quot;Comment&quot;</code>, иначе <code>nil</code></td>
+</tr>
+<tr>
+<td><code>Entry#comment_id</code></td>
+<td>Возвращает <code>entryable_id</code>, когда <code>entryable_type == &quot;Comment&quot;</code>, иначе <code>nil</code></td>
+</tr>
+</table><h4 id='sozdanie-ob-ekta' class='inside_page_header'><a href="#sozdanie-ob-ekta">10.2.</a> Создание объекта</h4><p>При создании нового объекта <code>Entry</code> в то же время можно указать подкласс <code>entryable</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Entry</span><span class="p">.</span><span class="nf">create!</span> <span class="ss">entryable: </span><span class="no">Message</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">subject: </span><span class="s2">"hello!"</span><span class="p">)</span>
+</code></pre>
+</div>
+<h4 id='dobavlenie-dalneyshey-delegatsii' class='inside_page_header'><a href="#dobavlenie-dalneyshey-delegatsii">10.3.</a> Добавление дальнейшей делегации</h4><p>Можно расширить делегатор <code>Entry</code> и усовершенствовать его, определив <code>delegate</code> и используя полиморфизм на подклассах. Например, чтобы делегировать метод <code>title</code> из <code>Entry</code> в его подклассы:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Entry</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">delegated_type</span> <span class="ss">:entryable</span><span class="p">,</span> <span class="ss">types: </span><span class="sx">%w[ Message Comment ]</span>
+  <span class="n">delegate</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">to: :entryable</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Message</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="kp">include</span> <span class="no">Entryable</span>
+
+  <span class="k">def</span> <span class="nf">title</span>
+    <span class="n">subject</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Comment</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="kp">include</span> <span class="no">Entryable</span>
+
+  <span class="k">def</span> <span class="nf">title</span>
+    <span class="n">content</span><span class="p">.</span><span class="nf">truncate</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 </code></pre>
 </div>
 

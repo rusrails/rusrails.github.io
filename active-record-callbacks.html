@@ -168,47 +168,51 @@
 </h4>      </li>
       <li>
         <h4>
-          <a href="#uslovnye-kolbeki">8. Условные колбэки</a>
-</h4>      </li>
-      <li>
-        <h5>
-          <a href="#ispolzovanie-if-i-unless-s-symbol">8.1. Использование <code>:if</code> и <code>:unless</code> с <code>Symbol</code></a>
-</h5>      </li>
-      <li>
-        <h5>
-          <a href="#ispolzovanie-if-i-unless-s-proc">8.2. Использование <code>:if</code> и <code>:unless</code> с <code>Proc</code></a>
-</h5>      </li>
-      <li>
-        <h5>
-          <a href="#multiple-callback-conditions">8.3.  Составные условия колбэков</a>
-</h5>      </li>
-      <li>
-        <h5>
-          <a href="#odnovremennoe-ispolzovanie-if-i-unless">8.4. Одновременное использование :if и :unless</a>
-</h5>      </li>
-      <li>
-        <h4>
-          <a href="#callback-classes">9.  Классы колбэков</a>
+          <a href="#association-callbacks">8.  Колбэки связи</a>
 </h4>      </li>
       <li>
         <h4>
-          <a href="#transaction-callbacks">10.  Транзакционные колбэки</a>
+          <a href="#uslovnye-kolbeki">9. Условные колбэки</a>
 </h4>      </li>
       <li>
         <h5>
-          <a href="#razbiraemsya-s-soglasovannostyu">10.1. Разбираемся с согласованностью</a>
+          <a href="#ispolzovanie-if-i-unless-s-symbol">9.1. Использование <code>:if</code> и <code>:unless</code> с <code>Symbol</code></a>
 </h5>      </li>
       <li>
         <h5>
-          <a href="#kontekst-imeet-znachenie">10.2. Контекст имеет значение</a>
+          <a href="#ispolzovanie-if-i-unless-s-proc">9.2. Использование <code>:if</code> и <code>:unless</code> с <code>Proc</code></a>
 </h5>      </li>
       <li>
         <h5>
-          <a href="#after_save_commit">10.3. <code>after_save_commit</code></a>
+          <a href="#multiple-callback-conditions">9.3.  Составные условия колбэков</a>
 </h5>      </li>
       <li>
         <h5>
-          <a href="#uporyadochivanie-tranzaktsionnyh-kolbekov">10.4. Упорядочивание транзакционных колбэков</a>
+          <a href="#odnovremennoe-ispolzovanie-if-i-unless">9.4. Одновременное использование :if и :unless</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#callback-classes">10.  Классы колбэков</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#transaction-callbacks">11.  Транзакционные колбэки</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#razbiraemsya-s-soglasovannostyu">11.1. Разбираемся с согласованностью</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#kontekst-imeet-znachenie">11.2. Контекст имеет значение</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#after_save_commit">11.3. <code>after_save_commit</code></a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#uporyadochivanie-tranzaktsionnyh-kolbekov">11.4. Упорядочивание транзакционных колбэков</a>
 </h5>      </li>
 </ul>
 
@@ -484,13 +488,13 @@ Book/Library was touched
 </span><span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">User</span> <span class="ss">id: </span><span class="mi">1</span><span class="kt">&gt;</span>
 </code></pre>
 </div>
-<h3 id='uslovnye-kolbeki' class='inside_page_header'><a href="#uslovnye-kolbeki">8.</a> Условные колбэки</h3><p>Как и в валидациях, возможно сделать вызов метода колбэка условным в зависимости от заданного предиката. Это осуществляется при использовании опций <code>:if</code> и <code>:unless</code>, которые могут принимать символ, <code>Proc</code> или массив.</p><p>Опцию <code>:if</code> следует использовать для определения, при каких условиях колбэк <em>должен</em> быть вызван. Если вы хотите определить условия, при которых колбэк <em>не должен</em> быть вызван, используйте опцию <code>:unless</code>.</p><h4 id='ispolzovanie-if-i-unless-s-symbol' class='inside_page_header'><a href="#ispolzovanie-if-i-unless-s-symbol">8.1.</a> Использование <code>:if</code> и <code>:unless</code> с <code>Symbol</code></h4><p>Опции <code>:if</code> и <code>:unless</code> можно связать с символом, соответствующим имени метода предиката, который будет вызван непосредственно перед вызовом колбэка.</p><p>При использовании опции <code>:if</code>, колбэк <strong>не будет</strong> выполнен, если метод предиката возвратит <strong>false</strong>; при использовании опции <code>:unless</code>, колбэк <strong>не будет</strong> выполнен, если метод предиката возвратит <strong>true</strong>. Это самый распространенный вариант.</p><div class="code_container">
+<h3 id='association-callbacks' class='inside_page_header'><a href="#association-callbacks">8.</a>  Колбэки связи</h3><p>TODO</p><h3 id='uslovnye-kolbeki' class='inside_page_header'><a href="#uslovnye-kolbeki">9.</a> Условные колбэки</h3><p>Как и в валидациях, возможно сделать вызов метода колбэка условным в зависимости от заданного предиката. Это осуществляется при использовании опций <code>:if</code> и <code>:unless</code>, которые могут принимать символ, <code>Proc</code> или массив.</p><p>Опцию <code>:if</code> следует использовать для определения, при каких условиях колбэк <em>должен</em> быть вызван. Если вы хотите определить условия, при которых колбэк <em>не должен</em> быть вызван, используйте опцию <code>:unless</code>.</p><h4 id='ispolzovanie-if-i-unless-s-symbol' class='inside_page_header'><a href="#ispolzovanie-if-i-unless-s-symbol">9.1.</a> Использование <code>:if</code> и <code>:unless</code> с <code>Symbol</code></h4><p>Опции <code>:if</code> и <code>:unless</code> можно связать с символом, соответствующим имени метода предиката, который будет вызван непосредственно перед вызовом колбэка.</p><p>При использовании опции <code>:if</code>, колбэк <strong>не будет</strong> выполнен, если метод предиката возвратит <strong>false</strong>; при использовании опции <code>:unless</code>, колбэк <strong>не будет</strong> выполнен, если метод предиката возвратит <strong>true</strong>. Это самый распространенный вариант.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">before_save</span> <span class="ss">:normalize_card_number</span><span class="p">,</span> <span class="ss">if: :paid_with_card?</span>
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>При использовании такой формы регистрации, также возможно зарегистрировать несколько различных предикатов, которые будут вызваны, чтобы проверить, должен ли выполняться колбэк. Мы раскроем это <a href="#multiple-callback-conditions">ниже</a>.</p><h4 id='ispolzovanie-if-i-unless-s-proc' class='inside_page_header'><a href="#ispolzovanie-if-i-unless-s-proc">8.2.</a> Использование <code>:if</code> и <code>:unless</code> с <code>Proc</code></h4><p>Можно связать <code>:if</code> и <code>:unless</code> с объектом <code>Proc</code>. Этот вариант больше всего подходит при написании коротких методов, обычно однострочных.</p><div class="code_container">
+<p>При использовании такой формы регистрации, также возможно зарегистрировать несколько различных предикатов, которые будут вызваны, чтобы проверить, должен ли выполняться колбэк. Мы раскроем это <a href="#multiple-callback-conditions">ниже</a>.</p><h4 id='ispolzovanie-if-i-unless-s-proc' class='inside_page_header'><a href="#ispolzovanie-if-i-unless-s-proc">9.2.</a> Использование <code>:if</code> и <code>:unless</code> с <code>Proc</code></h4><p>Можно связать <code>:if</code> и <code>:unless</code> с объектом <code>Proc</code>. Этот вариант больше всего подходит при написании коротких методов, обычно однострочных.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">before_save</span> <span class="ss">:normalize_card_number</span><span class="p">,</span>
     <span class="ss">if: </span><span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">order</span><span class="o">|</span> <span class="n">order</span><span class="p">.</span><span class="nf">paid_with_card?</span> <span class="p">}</span>
@@ -503,7 +507,7 @@ Book/Library was touched
 <span class="k">end</span>
 </code></pre>
 </div>
-<h4 id='multiple-callback-conditions' class='inside_page_header'><a href="#multiple-callback-conditions">8.3.</a>  Составные условия колбэков</h4><p>Опции <code>:if</code> и <code>:unless</code> также принимают массив из proc или имен методов в виде символов:</p><div class="code_container">
+<h4 id='multiple-callback-conditions' class='inside_page_header'><a href="#multiple-callback-conditions">9.3.</a>  Составные условия колбэков</h4><p>Опции <code>:if</code> и <code>:unless</code> также принимают массив из proc или имен методов в виде символов:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Comment</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">before_save</span> <span class="ss">:filter_content</span><span class="p">,</span>
     <span class="ss">if: </span><span class="p">[</span><span class="ss">:subject_to_parental_control?</span><span class="p">,</span> <span class="ss">:untrusted_author?</span><span class="p">]</span>
@@ -517,7 +521,7 @@ Book/Library was touched
 <span class="k">end</span>
 </code></pre>
 </div>
-<h4 id='odnovremennoe-ispolzovanie-if-i-unless' class='inside_page_header'><a href="#odnovremennoe-ispolzovanie-if-i-unless">8.4.</a> Одновременное использование :if и :unless</h4><p>В колбэках можно смешивать <code>:if</code> и <code>:unless</code> в одном выражении:</p><div class="code_container">
+<h4 id='odnovremennoe-ispolzovanie-if-i-unless' class='inside_page_header'><a href="#odnovremennoe-ispolzovanie-if-i-unless">9.4.</a> Одновременное использование :if и :unless</h4><p>В колбэках можно смешивать <code>:if</code> и <code>:unless</code> в одном выражении:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Comment</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">before_save</span> <span class="ss">:filter_content</span><span class="p">,</span>
     <span class="ss">if: </span><span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="n">forum</span><span class="p">.</span><span class="nf">parental_control?</span> <span class="p">},</span>
@@ -525,7 +529,7 @@ Book/Library was touched
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Колбэк запустится только когда все условия <code>:if</code> и не один из условий <code>:unless</code> будут истинны.</p><h3 id='callback-classes' class='inside_page_header'><a href="#callback-classes">9.</a>  Классы колбэков</h3><p>Иногда написанные вами методы колбэков достаточно полезны для повторного использования в других моделях. Active Record делает возможным создавать классы, включающие методы колбэка, так, что их можно использовать повторно.</p><p>Вот пример, где создается класс с колбэком <code>after_destroy</code>, чтобы разобраться с очисткой отвергнутых файлов в файловой системе. Это поведение может быть неуникальным для нашей модели <code>PictureFile</code>, и мы хотим поделиться им, таким образом хорошей идеей будет инкапсуляция его в отдельный класс. Это сделает более простым тестирование и изменение этого поведения.</p><div class="code_container">
+<p>Колбэк запустится только когда все условия <code>:if</code> и не один из условий <code>:unless</code> будут истинны.</p><h3 id='callback-classes' class='inside_page_header'><a href="#callback-classes">10.</a>  Классы колбэков</h3><p>Иногда написанные вами методы колбэков достаточно полезны для повторного использования в других моделях. Active Record делает возможным создавать классы, включающие методы колбэка, так, что их можно использовать повторно.</p><p>Вот пример, где создается класс с колбэком <code>after_destroy</code>, чтобы разобраться с очисткой отвергнутых файлов в файловой системе. Это поведение может быть неуникальным для нашей модели <code>PictureFile</code>, и мы хотим поделиться им, таким образом хорошей идеей будет инкапсуляция его в отдельный класс. Это сделает более простым тестирование и изменение этого поведения.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">FileDestroyerCallback</span>
   <span class="k">def</span> <span class="nf">after_destroy</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
     <span class="k">if</span> <span class="no">File</span><span class="p">.</span><span class="nf">exist?</span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="nf">filepath</span><span class="p">)</span>
@@ -557,7 +561,7 @@ Book/Library was touched
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Внутри своего колбэк-класса можно создать сколько угодно колбэков.</p><h3 id='transaction-callbacks' class='inside_page_header'><a href="#transaction-callbacks">10.</a>  Транзакционные колбэки</h3><h4 id='razbiraemsya-s-soglasovannostyu' class='inside_page_header'><a href="#razbiraemsya-s-soglasovannostyu">10.1.</a> Разбираемся с согласованностью</h4><p>Имеются два дополнительных колбэка, которые включаются по завершению транзакции базы данных: <a href="https://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_commit"><code>after_commit</code></a> и <a href="https://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_rollback"><code>after_rollback</code></a>. Эти колбэки очень похожи на колбэк <code>after_save</code>, за исключением того, что они не выполняются пока изменения в базе данных не будут подтверждены или обращены. Они наиболее полезны, когда вашим моделям Active Record необходимо взаимодействовать с внешними системами, не являющимися частью транзакции базы данных.</p><p>Рассмотрим, допустим, предыдущий пример, где модели <code>PictureFile</code> необходимо удалить файл после того, как запись уничтожена. Если что-либо вызовет исключение после того, как был вызван колбэк <code>after_destroy</code>, и транзакция откатывается, файл будет удален и модель останется в противоречивом состоянии. Например, предположим, что <code>picture_file_2</code> в следующем коде не валидна, и метод <code>save!</code> вызовет ошибку.</p><div class="code_container">
+<p>Внутри своего колбэк-класса можно создать сколько угодно колбэков.</p><h3 id='transaction-callbacks' class='inside_page_header'><a href="#transaction-callbacks">11.</a>  Транзакционные колбэки</h3><h4 id='razbiraemsya-s-soglasovannostyu' class='inside_page_header'><a href="#razbiraemsya-s-soglasovannostyu">11.1.</a> Разбираемся с согласованностью</h4><p>Имеются два дополнительных колбэка, которые включаются по завершению транзакции базы данных: <a href="https://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_commit"><code>after_commit</code></a> и <a href="https://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_rollback"><code>after_rollback</code></a>. Эти колбэки очень похожи на колбэк <code>after_save</code>, за исключением того, что они не выполняются пока изменения в базе данных не будут подтверждены или обращены. Они наиболее полезны, когда вашим моделям Active Record необходимо взаимодействовать с внешними системами, не являющимися частью транзакции базы данных.</p><p>Рассмотрим, допустим, предыдущий пример, где модели <code>PictureFile</code> необходимо удалить файл после того, как запись уничтожена. Если что-либо вызовет исключение после того, как был вызван колбэк <code>after_destroy</code>, и транзакция откатывается, файл будет удален и модель останется в противоречивом состоянии. Например, предположим, что <code>picture_file_2</code> в следующем коде не валидна, и метод <code>save!</code> вызовет ошибку.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">PictureFile</span><span class="p">.</span><span class="nf">transaction</span> <span class="k">do</span>
   <span class="n">picture_file_1</span><span class="p">.</span><span class="nf">destroy</span>
   <span class="n">picture_file_2</span><span class="p">.</span><span class="nf">save!</span>
@@ -576,7 +580,7 @@ Book/Library was touched
 <span class="k">end</span>
 </code></pre>
 </div>
-<div class="note"><p>Опция <code>:on</code> определяет, когда будет запущен колбэк. Если не предоставить опцию <code>:on</code>, колбэк будет запущен для каждого экшна.</p></div><h4 id='kontekst-imeet-znachenie' class='inside_page_header'><a href="#kontekst-imeet-znachenie">10.2.</a> Контекст имеет значение</h4><p>Так как принято использовать колбэк <code>after_commit</code> только при создании, обновлении или удалении, есть псевдонимы для этих операций:</p><ul><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_create_commit"><code>after_create_commit</code></a>
+<div class="note"><p>Опция <code>:on</code> определяет, когда будет запущен колбэк. Если не предоставить опцию <code>:on</code>, колбэк будет запущен для каждого экшна.</p></div><h4 id='kontekst-imeet-znachenie' class='inside_page_header'><a href="#kontekst-imeet-znachenie">11.2.</a> Контекст имеет значение</h4><p>Так как принято использовать колбэк <code>after_commit</code> только при создании, обновлении или удалении, есть псевдонимы для этих операций:</p><ul><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_create_commit"><code>after_create_commit</code></a>
 </li><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_update_commit"><code>after_update_commit</code></a>
 </li><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_destroy_commit"><code>after_destroy_commit</code></a>
 </li></ul><div class="code_container">
@@ -610,7 +614,7 @@ Book/Library was touched
 <span class="go">User was saved to database
 </span></code></pre>
 </div>
-<h4 id='after_save_commit' class='inside_page_header'><a href="#after_save_commit">10.3.</a> <code>after_save_commit</code></h4><p>Также имеется <a href="https://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_save_commit"><code>after_save_commit</code></a>, являющийся псевдонимом для использования колбэком <code>after_commit</code> вместе для создания и обновления:</p><div class="code_container">
+<h4 id='after_save_commit' class='inside_page_header'><a href="#after_save_commit">11.3.</a> <code>after_save_commit</code></h4><p>Также имеется <a href="https://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_save_commit"><code>after_save_commit</code></a>, являющийся псевдонимом для использования колбэком <code>after_commit</code> вместе для создания и обновления:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">after_save_commit</span> <span class="ss">:log_user_saved_to_db</span>
 
@@ -629,7 +633,7 @@ Book/Library was touched
 <span class="go">User was saved to database
 </span></code></pre>
 </div>
-<h4 id='uporyadochivanie-tranzaktsionnyh-kolbekov' class='inside_page_header'><a href="#uporyadochivanie-tranzaktsionnyh-kolbekov">10.4.</a> Упорядочивание транзакционных колбэков</h4><p>При определении нескольких транзакционных колбэков <code>after_</code> (<code>after_commit</code>, <code>after_rollback</code> и т.д.), порядок будет обратным к тому, как они определены.</p><div class="code_container">
+<h4 id='uporyadochivanie-tranzaktsionnyh-kolbekov' class='inside_page_header'><a href="#uporyadochivanie-tranzaktsionnyh-kolbekov">11.4.</a> Упорядочивание транзакционных колбэков</h4><p>При определении нескольких транзакционных колбэков <code>after_</code> (<code>after_commit</code>, <code>after_rollback</code> и т.д.), порядок будет обратным к тому, как они определены.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="n">after_commit</span> <span class="p">{</span> <span class="nb">puts</span><span class="p">(</span><span class="s2">"это будет фактически вызвано вторым"</span><span class="p">)</span> <span class="p">}</span>
   <span class="n">after_commit</span> <span class="p">{</span> <span class="nb">puts</span><span class="p">(</span><span class="s2">"это будет фактически вызвано первым"</span><span class="p">)</span> <span class="p">}</span>
