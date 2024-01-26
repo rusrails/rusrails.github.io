@@ -329,7 +329,7 @@
   <pre><code class="highlight ruby"><span class="c1"># Это также сконфигурирует session_options для использования ниже</span>
 <span class="n">config</span><span class="p">.</span><span class="nf">session_store</span> <span class="ss">:cookie_store</span><span class="p">,</span> <span class="ss">key: </span><span class="s1">'_interslice_session'</span>
 
-<span class="c1"># Требуется для всех управлений сеесиями (независимо от session_store)</span>
+<span class="c1"># Требуется для всех управлений сессиями (независимо от session_store)</span>
 <span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Cookies</span>
 
 <span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">use</span> <span class="n">config</span><span class="p">.</span><span class="nf">session_store</span><span class="p">,</span> <span class="n">config</span><span class="p">.</span><span class="nf">session_options</span>

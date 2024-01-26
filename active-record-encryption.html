@@ -578,7 +578,7 @@ active_record_encryption:
 </code></pre>
 </div>
 <p>Это обеспечивает более производительное дешифрование, так как система может найти нужные ключи вместо перебора списка ключей. Цена, которую нужно заплатить, это место: шифрованные данные будут немного больше в размере.</p><h3 id='api' class='inside_page_header'><a href="#api">5.</a> API</h3><h4 id='bazovyy-api' class='inside_page_header'><a href="#bazovyy-api">5.1.</a> Базовый API</h4><p>Шифрование ActiveRecord подразумевает декларативное использование, но оно также предлагает API для сценариев продвинутого использования.</p><h5 id='shifrovanie-i-deshifrovanie' class='inside_page_header'><a href="#shifrovanie-i-deshifrovanie">5.1.1.</a> Шифрование и дешифрование</h5><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">article</span><span class="p">.</span><span class="nf">encrypt</span> <span class="c1"># шифрует или перешифрует все шифруемые атрибуты</span>
+  <pre><code class="highlight ruby"><span class="n">article</span><span class="p">.</span><span class="nf">encrypt</span> <span class="c1"># шифрует или перешифровывает все шифруемые атрибуты</span>
 <span class="n">article</span><span class="p">.</span><span class="nf">decrypt</span> <span class="c1"># дешифрует все шифруемые атрибуты</span>
 </code></pre>
 </div>

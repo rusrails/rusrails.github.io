@@ -340,7 +340,7 @@ Action Mailbox нужно исходное содержимое email для р�
   <span class="kp">private</span>
     <span class="k">def</span> <span class="nf">require_projects</span>
       <span class="k">if</span> <span class="n">forwarder</span><span class="p">.</span><span class="nf">projects</span><span class="p">.</span><span class="nf">none?</span>
-        <span class="c1"># Мспользуйте Action Mailers для возврата входящих писем отправителю – это прервет обработку</span>
+        <span class="c1"># Используйте Action Mailers для возврата входящих писем отправителю – это прервет обработку</span>
         <span class="n">bounce_with</span> <span class="no">Forwards</span><span class="o">::</span><span class="no">BounceMailer</span><span class="p">.</span><span class="nf">no_projects</span><span class="p">(</span><span class="n">inbound_email</span><span class="p">,</span> <span class="ss">forwarder: </span><span class="n">forwarder</span><span class="p">)</span>
       <span class="k">end</span>
     <span class="k">end</span>

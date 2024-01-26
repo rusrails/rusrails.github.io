@@ -482,7 +482,7 @@
   <pre><code class="highlight ruby"><span class="c1"># Постановка в очередь отдельных заданий</span>
 <span class="no">ActiveJob</span><span class="p">.</span><span class="nf">perform_all_later</span><span class="p">(</span><span class="no">MyJob</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span> <span class="mi">42</span><span class="p">),</span> <span class="no">MyJob</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"world"</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 
-<span class="c1"># Постановка в очередь моссива заданий</span>
+<span class="c1"># Постановка в очередь массива заданий</span>
 <span class="n">user_jobs</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">pluck</span><span class="p">(</span><span class="ss">:id</span><span class="p">).</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="nb">id</span><span class="o">|</span> <span class="no">UserJob</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">user_id: </span><span class="nb">id</span><span class="p">)</span> <span class="p">}</span>
 <span class="no">ActiveJob</span><span class="p">.</span><span class="nf">perform_all_later</span><span class="p">(</span><span class="n">user_jobs</span><span class="p">)</span>
 </code></pre>

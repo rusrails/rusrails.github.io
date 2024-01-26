@@ -993,7 +993,7 @@ user_<span class="cp">&lt;%=</span> <span class="n">n</span> <span class="cp">%&
 </code></pre>
 </div>
 <p>Чтобы получить несколько фикстур за раз, вы можете передать список имен фикстур. Например:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="c1"># это возвратит массив, содержаший фикстуры david и steve</span>
+  <pre><code class="highlight ruby"><span class="c1"># это возвратит массив, содержащий фикстуры david и steve</span>
 <span class="n">users</span><span class="p">(</span><span class="ss">:david</span><span class="p">,</span> <span class="ss">:steve</span><span class="p">)</span>
 </code></pre>
 </div>
@@ -1414,7 +1414,7 @@ Finished in 0.081972s, 12.1993 runs/s, 48.7972 assertions/s.
   <span class="k">end</span>
 
   <span class="nb">test</span> <span class="s2">"should show article"</span> <span class="k">do</span>
-    <span class="c1"># переиспользуем переменную экземпляра @article из setup</span>
+    <span class="c1"># повторно используем переменную экземпляра @article из setup</span>
     <span class="n">get</span> <span class="n">article_url</span><span class="p">(</span><span class="vi">@article</span><span class="p">)}</span>
     <span class="n">assert_response</span> <span class="ss">:success</span>
   <span class="k">end</span>

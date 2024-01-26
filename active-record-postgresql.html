@@ -478,7 +478,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<div class="note"><p>Значения enum нельзя удалять. Можно прочесть почему <a href="http://www.postgresql.org/message-id/29F36C7C98AB09499B1A209D48EAA615B7653DBC8A@mail2a.alliedtesting.com">здесь</a>.</p></div><p>Hint: Чтобы показать все имеющиеся значения enum, можно выполнить этот запрос в консоле <code>bin/rails db</code> или <code>psql</code>:</p><div class="code_container">
+<div class="note"><p>Значения enum нельзя удалять. Можно прочесть почему <a href="http://www.postgresql.org/message-id/29F36C7C98AB09499B1A209D48EAA615B7653DBC8A@mail2a.alliedtesting.com">здесь</a>.</p></div><p>Hint: Чтобы показать все имеющиеся значения enum, можно выполнить этот запрос в консоли <code>bin/rails db</code> или <code>psql</code>:</p><div class="code_container">
   <pre><code class="highlight sql"><span class="k">SELECT</span> <span class="n">n</span><span class="p">.</span><span class="n">nspname</span> <span class="k">AS</span> <span class="n">enum_schema</span><span class="p">,</span>
        <span class="n">t</span><span class="p">.</span><span class="n">typname</span> <span class="k">AS</span> <span class="n">enum_name</span><span class="p">,</span>
        <span class="n">e</span><span class="p">.</span><span class="n">enumlabel</span> <span class="k">AS</span> <span class="n">enum_value</span>
