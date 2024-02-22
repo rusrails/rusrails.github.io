@@ -284,7 +284,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#ispolzovanie-razlichnyh-obrabotchikov-isklyucheniy">6.2. Использование различных обработчиков исключений</a>
+          <a href="#using-different-exception-handlers">6.2.  Использование различных обработчиков исключений</a>
 </h5>      </li>
       <li>
         <h4>
@@ -1124,7 +1124,7 @@
   <pre><code class="highlight ruby"><span class="no">I18n</span><span class="p">.</span><span class="nf">backend</span> <span class="o">=</span> <span class="no">I18n</span><span class="o">::</span><span class="no">Backend</span><span class="o">::</span><span class="no">Chain</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">I18n</span><span class="o">::</span><span class="no">Backend</span><span class="o">::</span><span class="no">ActiveRecord</span><span class="p">.</span><span class="nf">new</span><span class="p">,</span> <span class="no">I18n</span><span class="p">.</span><span class="nf">backend</span><span class="p">)</span>
 </code></pre>
 </div>
-<h4 id='ispolzovanie-razlichnyh-obrabotchikov-isklyucheniy' class='inside_page_header'><a href="#ispolzovanie-razlichnyh-obrabotchikov-isklyucheniy">6.2.</a> Использование различных обработчиков исключений</h4><p>API I18n определяет следующие исключения, вызываемые бэкендами, когда происходят соответствующие неожидаемые условия:</p><div class="code_container">
+<h4 id='using-different-exception-handlers' class='inside_page_header'><a href="#using-different-exception-handlers">6.2.</a>  Использование различных обработчиков исключений</h4><p>API I18n определяет следующие исключения, вызываемые бэкендами, когда происходят соответствующие неожидаемые условия:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">MissingTranslationData</span>       <span class="c1"># не обнаружен перевод для запрашиваемого ключа</span>
 <span class="no">InvalidLocale</span>                <span class="c1"># локаль, установленная I18n.locale, невалидна (например, nil)</span>
 <span class="no">InvalidPluralizationData</span>     <span class="c1"># была передана опция count, но данные для перевода не могут быть возведены во множественное число</span>

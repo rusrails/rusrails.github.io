@@ -159,6 +159,10 @@
           <a href="#zapusk-testov-rails">2.7. Запуск тестов Rails</a>
 </h5>      </li>
       <li>
+        <h5>
+          <a href="#running-tests-in-continuous-integration-ci">2.8.  Running tests in Continuous Integration (CI)</a>
+</h5>      </li>
+      <li>
         <h4>
           <a href="#parallel-testing">3.  Параллельное тестирование</a>
 </h4>      </li>
@@ -855,7 +859,7 @@ Known extensions: rails, pride
     -p, --pride                      Pride. Show your testing pride!
 </span></code></pre>
 </div>
-<h3 id='parallel-testing' class='inside_page_header'><a href="#parallel-testing">3.</a>  Параллельное тестирование</h3><p>Параллельное тестирование позволяет распараллелить тестовый набор. Хотя форк процессов является методом по умолчанию, треды также поддерживаются. Запуск тестов параллельно сокращает время, затрачиваемое на запуск всего тестового набора.</p><h4 id='parallelnoe-testirovanie-s-pomoschyu-protsessov' class='inside_page_header'><a href="#parallelnoe-testirovanie-s-pomoschyu-protsessov">3.1.</a> Параллельное тестирование с помощью процессов</h4><p>Дефолтный метод распараллеливания - это форк процессов с помощью системы DRb. Процессы форкаются, основываясь на количестве предоставленных воркеров. Значение по умолчанию равно фактическому количеству ядер машины, но может быть изменено на число, переданное методу parallelize.</p><p>Чтобы включить распараллеливание, добавьте следующее в <code>test_helper.rb</code>:</p><div class="code_container">
+<h4 id='running-tests-in-continuous-integration-ci' class='inside_page_header'><a href="#running-tests-in-continuous-integration-ci">2.8.</a>  Running tests in Continuous Integration (CI)</h4><p>TODO</p><h3 id='parallel-testing' class='inside_page_header'><a href="#parallel-testing">3.</a>  Параллельное тестирование</h3><p>Параллельное тестирование позволяет распараллелить тестовый набор. Хотя форк процессов является методом по умолчанию, треды также поддерживаются. Запуск тестов параллельно сокращает время, затрачиваемое на запуск всего тестового набора.</p><h4 id='parallelnoe-testirovanie-s-pomoschyu-protsessov' class='inside_page_header'><a href="#parallelnoe-testirovanie-s-pomoschyu-protsessov">3.1.</a> Параллельное тестирование с помощью процессов</h4><p>Дефолтный метод распараллеливания - это форк процессов с помощью системы DRb. Процессы форкаются, основываясь на количестве предоставленных воркеров. Значение по умолчанию равно фактическому количеству ядер машины, но может быть изменено на число, переданное методу parallelize.</p><p>Чтобы включить распараллеливание, добавьте следующее в <code>test_helper.rb</code>:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ActiveSupport::TestCase</span>
   <span class="n">parallelize</span><span class="p">(</span><span class="ss">workers: </span><span class="mi">2</span><span class="p">)</span>
 <span class="k">end</span>
