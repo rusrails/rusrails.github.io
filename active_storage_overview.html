@@ -120,7 +120,7 @@
 </h4>      </li>
       <li>
         <h5>
-          <a href="#trebovaniya">1.1. Требования</a>
+          <a href="#requirements">1.1. Требования</a>
 </h5>      </li>
       <li>
         <h4>
@@ -148,7 +148,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#public-access">2.6.  Публичный доступ</a>
+          <a href="#public-access">2.6. Публичный доступ</a>
 </h5>      </li>
       <li>
         <h4>
@@ -172,7 +172,7 @@
 </h4>      </li>
       <li>
         <h4>
-          <a href="#serving-files">5.  Раздача файлов</a>
+          <a href="#serving-files">5. Раздача файлов</a>
 </h4>      </li>
       <li>
         <h5>
@@ -180,7 +180,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#proxy-mode">5.2.  Режим прокси</a>
+          <a href="#proxy-mode">5.2. Режим прокси</a>
 </h5>      </li>
       <li>
         <h6>
@@ -188,7 +188,7 @@
 </h6>      </li>
       <li>
         <h5>
-          <a href="#authenticated-controllers">5.3.  Аутентифицированные контроллеры</a>
+          <a href="#authenticated-controllers">5.3. Аутентифицированные контроллеры</a>
 </h5>      </li>
       <li>
         <h4>
@@ -216,7 +216,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#direct-uploads">9.  Прямые загрузки</a>
+          <a href="#direct-uploads">9. Прямые загрузки</a>
 </h4>      </li>
       <li>
         <h5>
@@ -256,7 +256,7 @@
 </h4>      </li>
       <li>
         <h5>
-          <a href="#discarding-files-created-during-tests">10.1.  Очистка файлов созданных во время тестов</a>
+          <a href="#discarding-files-created-during-tests">10.1. Очистка файлов созданных во время тестов</a>
 </h5>      </li>
       <li>
         <h6>
@@ -280,7 +280,7 @@
 </h4>      </li>
       <li>
         <h4>
-          <a href="#purging-unattached-uploads">12.  Очистка неприкрепленных загрузок</a>
+          <a href="#purging-unattached-uploads">12. Очистка неприкрепленных загрузок</a>
 </h4>      </li>
 </ul>
 
@@ -327,7 +327,7 @@
 </li><li>Как реализовать поддержку дополнительных сервисов хранения.
 </li></ul>
 <hr>
-<h3 id='chto-takoe-active-storage' class='inside_page_header'><a href="#chto-takoe-active-storage">1.</a> Что такое Active Storage?</h3><p>Active Storage облегчает загрузку файлов в облачные хранилища данных, такие как Amazon S3, Google Cloud Storage или Microsoft Azure Storage, и прикрепляет эти файлы к объектам Active Record. Он поставляется с локальным на основе диска сервисом для разработки и тестирования, и поддерживает отзеркаливание (mirroring) файлов в подчиненных сервисах для резервного копирования и миграций.</p><p>Используя Active Storage приложение может преобразовывать изображения или генерировать изображение файла, который не является изображением, такого, например, как PDF или видео, и извлекать метаданные из произвольных файлов.</p><h4 id='trebovaniya' class='inside_page_header'><a href="#trebovaniya">1.1.</a> Требования</h4><p>Разные особенности Active Storage зависят от стороннего программного обеспечения, которое Rails не устанавливает, и которое должно быть установлено отдельно:</p><ul><li><a href="https://github.com/libvips/libvips">libvips</a> v8.6+ или <a href="https://imagemagick.org/index.php">ImageMagick</a> для анализа и трансформаций изображений
+<h3 id='chto-takoe-active-storage' class='inside_page_header'><a href="#chto-takoe-active-storage">1.</a> Что такое Active Storage?</h3><p>Active Storage облегчает загрузку файлов в облачные хранилища данных, такие как Amazon S3, Google Cloud Storage или Microsoft Azure Storage, и прикрепляет эти файлы к объектам Active Record. Он поставляется с локальным на основе диска сервисом для разработки и тестирования, и поддерживает отзеркаливание (mirroring) файлов в подчиненных сервисах для резервного копирования и миграций.</p><p>Используя Active Storage приложение может преобразовывать изображения или генерировать изображение файла, который не является изображением, такого, например, как PDF или видео, и извлекать метаданные из произвольных файлов.</p><h4 id='requirements' class='inside_page_header'><a href="#requirements">1.1.</a> Требования</h4><p>Разные особенности Active Storage зависят от стороннего программного обеспечения, которое Rails не устанавливает, и которое должно быть установлено отдельно:</p><ul><li><a href="https://github.com/libvips/libvips">libvips</a> v8.6+ или <a href="https://imagemagick.org/index.php">ImageMagick</a> для анализа и трансформаций изображений
 </li><li><a href="http://ffmpeg.org/">ffmpeg</a> v3.4+ для предпросмотра видео и ffprobe для анализа видео/аудио
 </li><li><a href="https://poppler.freedesktop.org/">poppler</a> или <a href="https://mupdf.com/">muPDF</a> для предпросмотра PDF
 </li></ul><p>Анализ и преобразования изображений также требуют гем <code>image_processing</code>. Раскомментируйте его в своем <code>Gemfile</code>, или добавьте:</p><div class="code_container">
@@ -512,7 +512,7 @@
     <span class="pi">-</span> <span class="s">s3_west_coast</span>
 </code></pre>
 </div>
-<p>Хотя все вторичные сервисы получают загрузки, скачивания всегда обрабатываются основным сервисом.</p><p>Сервисы отзеркаливания совместимы с прямой загрузкой. Новые файлы загружаются непосредственно в основной сервис. Когда напрямую загруженный файл прикрепляется к записи, в очередь помещается фоновое задание для копирования его во вторичные сервисы.</p><h4 id='public-access' class='inside_page_header'><a href="#public-access">2.6.</a>  Публичный доступ</h4><p>По умолчанию Active Storage предполагает приватный доступ к сервисам. Это означает генерацию подписанных одноразовых URL для бинарных объектов. Если вы предпочитаете сделать бинарные объекты публично доступными, укажите <code>public: true</code> в <code>config/storage.yml</code> вашего приложения:</p><div class="code_container">
+<p>Хотя все вторичные сервисы получают загрузки, скачивания всегда обрабатываются основным сервисом.</p><p>Сервисы отзеркаливания совместимы с прямой загрузкой. Новые файлы загружаются непосредственно в основной сервис. Когда напрямую загруженный файл прикрепляется к записи, в очередь помещается фоновое задание для копирования его во вторичные сервисы.</p><h4 id='public-access' class='inside_page_header'><a href="#public-access">2.6.</a> Публичный доступ</h4><p>По умолчанию Active Storage предполагает приватный доступ к сервисам. Это означает генерацию подписанных одноразовых URL для бинарных объектов. Если вы предпочитаете сделать бинарные объекты публично доступными, укажите <code>public: true</code> в <code>config/storage.yml</code> вашего приложения:</p><div class="code_container">
   <pre><code class="highlight yaml"><span class="na">gcs</span><span class="pi">:</span> <span class="nl">&amp;gcs</span>
   <span class="na">service</span><span class="pi">:</span> <span class="s">GCS</span>
   <span class="na">project</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
@@ -667,7 +667,7 @@
 <span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">purge_later</span>
 </code></pre>
 </div>
-<h3 id='serving-files' class='inside_page_header'><a href="#serving-files">5.</a>  Раздача файлов</h3><p>Active Storage поддерживает два способа раздачи файлов: перенаправление и прокси.</p><div class="warning"><p>Все контроллеры Active Storage по умолчанию доступны публично. Сгенерированные URL трудно угадать, но они постоянные по определению. Если ваши файлы требуют более высокий уровень защиты, рассмотрите реализацию <a href="#authenticated-controllers">аутентифицированных контроллеров</a>.</p></div><h4 id='rezhim-perenapravleniya' class='inside_page_header'><a href="#rezhim-perenapravleniya">5.1.</a> Режим перенаправления</h4><p>Чтобы сгенерировать постоянный URL для бинарного объекта, можно передать этот объект в хелпер вью <a href="https://api.rubyonrails.org/classes/ActionView/RoutingUrlFor.html#method-i-url_for"><code>url_for</code></a>. Это создаст URL с <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blob.html#method-i-signed_id"><code>signed_id</code></a> бинарного объекта, который направляет в <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blobs/RedirectController.html"><code>RedirectController</code></a> для бинарного объекта.</p><div class="code_container">
+<h3 id='serving-files' class='inside_page_header'><a href="#serving-files">5.</a> Раздача файлов</h3><p>Active Storage поддерживает два способа раздачи файлов: перенаправление и прокси.</p><div class="warning"><p>Все контроллеры Active Storage по умолчанию доступны публично. Сгенерированные URL трудно угадать, но они постоянные по определению. Если ваши файлы требуют более высокий уровень защиты, рассмотрите реализацию <a href="#authenticated-controllers">аутентифицированных контроллеров</a>.</p></div><h4 id='rezhim-perenapravleniya' class='inside_page_header'><a href="#rezhim-perenapravleniya">5.1.</a> Режим перенаправления</h4><p>Чтобы сгенерировать постоянный URL для бинарного объекта, можно передать этот объект в хелпер вью <a href="https://api.rubyonrails.org/classes/ActionView/RoutingUrlFor.html#method-i-url_for"><code>url_for</code></a>. Это создаст URL с <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blob.html#method-i-signed_id"><code>signed_id</code></a> бинарного объекта, который направляет в <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blobs/RedirectController.html"><code>RedirectController</code></a> для бинарного объекта.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">url_for</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">)</span>
 <span class="c1"># =&gt; /rails/active_storage/blobs/:signed_id/my-avatar.png</span>
 </code></pre>
@@ -680,7 +680,7 @@
   <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">url_helpers</span><span class="p">.</span><span class="nf">rails_blob_path</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">,</span> <span class="ss">only_path: </span><span class="kp">true</span><span class="p">)</span>
 </code></pre>
 </div>
-<h4 id='proxy-mode' class='inside_page_header'><a href="#proxy-mode">5.2.</a>  Режим прокси</h4><p>Опционально файлы могут проксированы вместо этого. Это означает, что серверы вашего приложения будут скачивать данные файла из сервиса хранения в отклик на запросы. Это может быть полезным для раздачи файлов из CDN.</p><p>Можно настроить Active Storage для использования проксирования по умолчанию:</p><div class="code_container">
+<h4 id='proxy-mode' class='inside_page_header'><a href="#proxy-mode">5.2.</a> Режим прокси</h4><p>Опционально файлы могут проксированы вместо этого. Это означает, что серверы вашего приложения будут скачивать данные файла из сервиса хранения в отклик на запросы. Это может быть полезным для раздачи файлов из CDN.</p><p>Можно настроить Active Storage для использования проксирования по умолчанию:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="c1"># config/initializers/active_storage.rb</span>
 <span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">active_storage</span><span class="p">.</span><span class="nf">resolve_model_to_route</span> <span class="o">=</span> <span class="ss">:rails_storage_proxy</span>
 </code></pre>
@@ -721,7 +721,7 @@
   <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">cdn_image_url</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">variant</span><span class="p">(</span><span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">]))</span> <span class="cp">%&gt;</span>
 </code></pre>
 </div>
-<h4 id='authenticated-controllers' class='inside_page_header'><a href="#authenticated-controllers">5.3.</a>  Аутентифицированные контроллеры</h4><p>Все контроллеры Active Storage по умолчанию публично доступны. Сгенерированные URL используют <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blob.html#method-i-signed_id"><code>signed_id</code></a>, который трудно угадываемый, но всегда одинаковый. Любой, кто узнает URL бинарного объекта, сможет получить к нему доступ, даже если <code>before_action</code> в вашем <code>ApplicationController</code> в ином случае требовал бы входа. Если ваши файлы требуют более высокий уровень защиты, можно реализовать собственные аутентифицированные контроллеры, основанные на <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blobs/RedirectController.html"><code>ActiveStorage::Blobs::RedirectController</code></a>, <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blobs/ProxyController.html"><code>ActiveStorage::Blobs::ProxyController</code></a>, <a href="https://api.rubyonrails.org/classes/ActiveStorage/Representations/RedirectController.html"><code>ActiveStorage::Representations::RedirectController</code></a> и
+<h4 id='authenticated-controllers' class='inside_page_header'><a href="#authenticated-controllers">5.3.</a> Аутентифицированные контроллеры</h4><p>Все контроллеры Active Storage по умолчанию публично доступны. Сгенерированные URL используют <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blob.html#method-i-signed_id"><code>signed_id</code></a>, который трудно угадываемый, но всегда одинаковый. Любой, кто узнает URL бинарного объекта, сможет получить к нему доступ, даже если <code>before_action</code> в вашем <code>ApplicationController</code> в ином случае требовал бы входа. Если ваши файлы требуют более высокий уровень защиты, можно реализовать собственные аутентифицированные контроллеры, основанные на <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blobs/RedirectController.html"><code>ActiveStorage::Blobs::RedirectController</code></a>, <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blobs/ProxyController.html"><code>ActiveStorage::Blobs::ProxyController</code></a>, <a href="https://api.rubyonrails.org/classes/ActiveStorage/Representations/RedirectController.html"><code>ActiveStorage::Representations::RedirectController</code></a> и
 <a href="https://api.rubyonrails.org/classes/ActiveStorage/Representations/ProxyController.html"><code>ActiveStorage::Representations::ProxyController</code></a></p><p>Чтобы разрешить аккаунту доступ только к своему логотипу, можно сделать следующее:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="c1"># config/routes.rb</span>
 <span class="n">resource</span> <span class="ss">:account</span> <span class="k">do</span>
@@ -841,7 +841,7 @@
   <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">message</span><span class="p">.</span><span class="nf">video</span><span class="p">.</span><span class="nf">preview</span><span class="p">(</span><span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span> <span class="cp">%&gt;</span>
 </code></pre>
 </div>
-<p>Чтобы добавить поддержку другого формата, добавьте собственный previewer. Обратитесь к документации <a href="https://api.rubyonrails.org/classes/ActiveStorage/Preview.html"><code>ActiveStorage::Preview</code></a> за подробностями.</p><h3 id='direct-uploads' class='inside_page_header'><a href="#direct-uploads">9.</a>  Прямые загрузки</h3><p>Active Storage со встроенной библиотекой JavaScript поддерживает загрузку прямо от клиента в облако.</p><h4 id='ispolzovanie' class='inside_page_header'><a href="#ispolzovanie">9.1.</a> Использование</h4><ul><li><p>Включите <code>activestorage.js</code> в комплект JavaScript приложения.</p><p>Используя файлопровод:</p><div class="code_container">
+<p>Чтобы добавить поддержку другого формата, добавьте собственный previewer. Обратитесь к документации <a href="https://api.rubyonrails.org/classes/ActiveStorage/Preview.html"><code>ActiveStorage::Preview</code></a> за подробностями.</p><h3 id='direct-uploads' class='inside_page_header'><a href="#direct-uploads">9.</a> Прямые загрузки</h3><p>Active Storage со встроенной библиотекой JavaScript поддерживает загрузку прямо от клиента в облако.</p><h4 id='ispolzovanie' class='inside_page_header'><a href="#ispolzovanie">9.1.</a> Использование</h4><ul><li><p>Включите <code>activestorage.js</code> в комплект JavaScript приложения.</p><p>Используя файлопровод:</p><div class="code_container">
   <pre><code class="highlight js"><span class="c1">//= require activestorage</span>
 </code></pre>
 </div>
@@ -1142,7 +1142,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h4 id='discarding-files-created-during-tests' class='inside_page_header'><a href="#discarding-files-created-during-tests">10.1.</a>  Очистка файлов созданных во время тестов</h4><h5 id='sistemnye-testy' class='inside_page_header'><a href="#sistemnye-testy">10.1.1.</a> Системные тесты</h5><p>Системные тесты очищают тестовые данные, откатывая транзакцию. Поскольку <code>destroy</code> никогда не вызывается на объекте, прикрепленные файлы никогда не очищаются. Если необходимо очистить файлы, можно сделать это в колбэке <code>after_teardown</code>. Выполнение этого здесь гарантирует, что все соединения, созданные во время теста, будут завершены и не будет получено сообщение об ошибке из Active Storage, в котором говорится, что он не может найти файл.</p><div class="code_container">
+<h4 id='discarding-files-created-during-tests' class='inside_page_header'><a href="#discarding-files-created-during-tests">10.1.</a> Очистка файлов созданных во время тестов</h4><h5 id='sistemnye-testy' class='inside_page_header'><a href="#sistemnye-testy">10.1.1.</a> Системные тесты</h5><p>Системные тесты очищают тестовые данные, откатывая транзакцию. Поскольку <code>destroy</code> никогда не вызывается на объекте, прикрепленные файлы никогда не очищаются. Если необходимо очистить файлы, можно сделать это в колбэке <code>after_teardown</code>. Выполнение этого здесь гарантирует, что все соединения, созданные во время теста, будут завершены и не будет получено сообщение об ошибке из Active Storage, в котором говорится, что он не может найти файл.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationSystemTestCase</span> <span class="o">&lt;</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">SystemTestCase</span>
   <span class="c1"># ...</span>
   <span class="k">def</span> <span class="nf">after_teardown</span>
@@ -1234,7 +1234,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h3 id='realizatsiya-podderzhki-drugih-oblachnyh-servisov' class='inside_page_header'><a href="#realizatsiya-podderzhki-drugih-oblachnyh-servisov">11.</a> Реализация поддержки других облачных сервисов</h3><p>Если необходимо поддерживать облачный сервис, отличный от имеющихся, необходимо реализовать Service. Каждый сервис расширяет <a href="https://api.rubyonrails.org/classes/ActiveStorage/Service.html"><code>ActiveStorage::Service</code></a>, реализуя методы, требуемые для загрузки и скачивания файлов в облако.</p><h3 id='purging-unattached-uploads' class='inside_page_header'><a href="#purging-unattached-uploads">12.</a>  Очистка неприкрепленных загрузок</h3><p>Бывают случаи, когда файл загружен, но никогда не прикреплен к записи. Это может произойти при использовании <a href="#direct-uploads">прямых загрузок</a>. Можно запросить неприкрепленные записи с помощью <a href="https://github.com/rails/rails/blob/8ef5bd9ced351162b673904a0b77c7034ca2bc20/activestorage/app/models/active_storage/lob.rb#L49">скоупа unattached</a>. Ниже пример с помощью <a href="/command-line#custom-rake-tasks">пользовательской задачи rake</a>.</p><div class="code_container">
+<h3 id='realizatsiya-podderzhki-drugih-oblachnyh-servisov' class='inside_page_header'><a href="#realizatsiya-podderzhki-drugih-oblachnyh-servisov">11.</a> Реализация поддержки других облачных сервисов</h3><p>Если необходимо поддерживать облачный сервис, отличный от имеющихся, необходимо реализовать Service. Каждый сервис расширяет <a href="https://api.rubyonrails.org/classes/ActiveStorage/Service.html"><code>ActiveStorage::Service</code></a>, реализуя методы, требуемые для загрузки и скачивания файлов в облако.</p><h3 id='purging-unattached-uploads' class='inside_page_header'><a href="#purging-unattached-uploads">12.</a> Очистка неприкрепленных загрузок</h3><p>Бывают случаи, когда файл загружен, но никогда не прикреплен к записи. Это может произойти при использовании <a href="#direct-uploads">прямых загрузок</a>. Можно запросить неприкрепленные записи с помощью <a href="https://github.com/rails/rails/blob/8ef5bd9ced351162b673904a0b77c7034ca2bc20/activestorage/app/models/active_storage/lob.rb#L49">скоупа unattached</a>. Ниже пример с помощью <a href="/command-line#custom-rake-tasks">пользовательской задачи rake</a>.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">namespace</span> <span class="ss">:active_storage</span> <span class="k">do</span>
   <span class="n">desc</span> <span class="s2">"Purges unattached Active Storage blobs. Run regularly."</span>
   <span class="n">task</span> <span class="ss">purge_unattached: :environment</span> <span class="k">do</span>
