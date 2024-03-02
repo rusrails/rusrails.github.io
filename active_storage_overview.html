@@ -152,7 +152,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#prikreplenie-faylov-k-zapisyam">3. Прикрепление файлов к записям</a>
+          <a href="#attaching-files-to-records">3. Прикрепление файлов к записям</a>
 </h4>      </li>
       <li>
         <h5>
@@ -167,8 +167,16 @@
           <a href="#prikreplenie-ob-ektov-file-io">3.3. Прикрепление объектов File/IO</a>
 </h5>      </li>
       <li>
+        <h5>
+          <a href="#zamena-i-dobavlenie-vlozheniy">3.4. Замена и добавление вложений</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#validatsiya-formy">3.5. Валидация формы</a>
+</h5>      </li>
+      <li>
         <h4>
-          <a href="#udalenie-prikreplennyh-faylov">4. Удаление прикрепленных файлов</a>
+          <a href="#udalenie-faylov">4. Удаление файлов</a>
 </h4>      </li>
       <li>
         <h4>
@@ -248,7 +256,15 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#integratsiya-s-bibliotekami-ili-freymvorkami">9.5. Интеграция с библиотеками или фреймворками</a>
+          <a href="#polzovatelskie-resheniya-dlya-peretaskivaniya-elementov">9.5. Пользовательские решения для перетаскивания элементов</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#otslezhivanie-progressa-zagruzki-fayla">9.6. Отслеживание прогресса загрузки файла</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#integratsiya-s-bibliotekami-ili-freymvorkami">9.7. Интеграция с библиотеками или фреймворками</a>
 </h5>      </li>
       <li>
         <h4>
@@ -274,6 +290,10 @@
         <h6>
           <a href="#ochistka-fikstur">10.2.1. Очистка фикстур</a>
 </h6>      </li>
+      <li>
+        <h5>
+          <a href="#nastroyka-servisov">10.3. Настройка сервисов</a>
+</h5>      </li>
       <li>
         <h4>
           <a href="#realizatsiya-podderzhki-drugih-oblachnyh-servisov">11. Реализация поддержки других облачных сервисов</a>
@@ -334,7 +354,28 @@
   <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s2">"image_processing"</span><span class="p">,</span> <span class="s2">"&gt;= 1.2"</span>
 </code></pre>
 </div>
-<div class="info"><p>По сравнению с libvips, ImageMagick более известный и распространенный. Однако, libvips может быть <a href="https://github.com/libvips/libvips/wiki/Speed-and-memory-use">до 10 раз быстрее и потреблять 1/10 памяти</a>. Для файлов JPEG это может быть еще более улучшено, с помощью замены <code>libjpeg-dev</code> на <code>libjpeg-turbo-dev</code>, который <a href="https://libjpeg-turbo.org/About/Performance">в 2-7 раз быстрее</a>.</p></div><div class="warning"><p>Перед установкой и использованием сторонних программ, убедитесь, что вы понимаете лицензионные последствия этого. В частности, MuPDF лицензирован по AGPL и требует коммерческую лицензию в определенных случаях.</p></div><h3 id='ustanovka' class='inside_page_header'><a href="#ustanovka">2.</a> Установка</h3><p>Active Storage использует три таблицы в базе данных приложения названные <code>active_storage_blobs</code>, <code>active_storage_variant_records</code> и <code>active_storage_attachments</code>. После создания нового приложения (или апгрейда приложения до Rails 5.2), нужно запустить <code>bin/rails active_storage:install</code>, чтобы сгенерировать миграцию, которая создает эти таблицы. Используйте <code>bin/rails db:migrate</code> для запуска миграций.</p><div class="warning"><p><code>active_storage_attachments</code> это полиморфная соединительная таблица, хранящая имена ваших классов моделей. Если имена ваших классов моделей меняются, необходимо запустить миграцию на эту таблицу, чтобы обновить соответствующие <code>record_type</code> новым именем вашего класса модели.</p></div><div class="warning"><p>Если используются UUID вместо чисел в качестве первичного ключа моделей, необходимо изменить тип столбцов <code>active_storage_attachments.record_id</code> и <code>active_storage_variant_records.id</code> в соответствующей сгенерированной миграции. Это можно опустить, если установить <code>Rails.application.config.generators { |g| g.orm :active_record, primary_key_type: :uuid }</code> в файле конфигурации.</p></div><p>Сервисы Active Storage объявляются в <code>config/storage.yml</code>. Для каждого сервиса, используемого в приложении, стоит указать имя и необходимую конфигурацию. В нижеприведенном примере объявляются три сервиса с именами <code>local</code>, <code>test</code> и <code>amazon</code>:</p><div class="code_container">
+<div class="info"><p>По сравнению с libvips, ImageMagick более известный и распространенный. Однако, libvips может быть <a href="https://github.com/libvips/libvips/wiki/Speed-and-memory-use">до 10 раз быстрее и потреблять 1/10 памяти</a>. Для файлов JPEG это может быть еще более улучшено, с помощью замены <code>libjpeg-dev</code> на <code>libjpeg-turbo-dev</code>, который <a href="https://libjpeg-turbo.org/About/Performance">в 2-7 раз быстрее</a>.</p></div><div class="warning"><p>Перед установкой и использованием сторонних программ, убедитесь, что вы понимаете лицензионные последствия этого. В частности, MuPDF лицензирован по AGPL и требует коммерческую лицензию в определенных случаях.</p></div><h3 id='ustanovka' class='inside_page_header'><a href="#ustanovka">2.</a> Установка</h3><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>active_storage:install
+<span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>db:migrate
+</code></pre>
+</div>
+<p>Это настроит конфигурацию и создаст три таблицы, используемые Active Storage: <code>active_storage_blobs</code>, <code>active_storage_attachments</code> и <code>active_storage_variant_records</code>.</p><table class='table table-striped'><tr>
+<th>Таблица</th>
+<th>Предназначение</th>
+</tr>
+<tr>
+<td><code>active_storage_blobs</code></td>
+<td>Хранит данные о загруженных файлах, такие как имя и тип содержимого.</td>
+</tr>
+<tr>
+<td><code>active_storage_attachments</code></td>
+<td>Полиморфная соединительная таблица, <a href="#attaching-files-to-records">соединяющая ваши модели с blobs</a>. Если имя класса вашей модели изменится, вам потребуется выполнить миграцию для этой таблицы, чтобы обновить <code>record_type</code> на новое имя класса вашей модели.</td>
+</tr>
+<tr>
+<td><code>active_storage_variant_records</code></td>
+<td>Если включено <a href="#attaching-files-to-records">отслеживание вариантов</a>, хранит записи для каждого сгенерированного варианта.</td>
+</tr>
+</table><div class="warning"><p>Если используются UUID вместо чисел в качестве первичного ключа моделей, необходимо установить <code>Rails.application.config.generators { |g| g.orm :active_record, primary_key_type: :uuid }</code> в файле конфигурации.</p></div><p>Сервисы Active Storage объявляются в <code>config/storage.yml</code>. Для каждого сервиса, используемого в приложении, стоит указать имя и необходимую конфигурацию. В нижеприведенном примере объявляются три сервиса с именами <code>local</code>, <code>test</code> и <code>amazon</code>:</p><div class="code_container">
   <pre><code class="highlight yaml"><span class="na">local</span><span class="pi">:</span>
   <span class="na">service</span><span class="pi">:</span> <span class="s">Disk</span>
   <span class="na">root</span><span class="pi">:</span> <span class="s">&lt;%= Rails.root.join("storage") %&gt;</span>
@@ -367,7 +408,7 @@
 <span class="n">config</span><span class="p">.</span><span class="nf">active_storage</span><span class="p">.</span><span class="nf">service</span> <span class="o">=</span> <span class="ss">:test</span>
 </code></pre>
 </div>
-<p>Подробнее о встроенных адаптерах сервиса (например, <code>Disk</code> и <code>S3</code>) и требуемой конфигурации написано ниже.</p><div class="note"><p>Конфигурационные файлы, специфичные для среды, имеют приоритет: в production, к примеру, файл <code>config/storage/production.yml</code> (если существует) будет иметь приоритет перед файлом <code>config/storage.yml</code>.</p></div><p>Рекомендовано использовать <code>Rails.env</code> в имени bucket, чтобы в будущем снизить риск случайного уничтожения данных production.</p><div class="code_container">
+<div class="note"><p>Конфигурационные файлы, специфичные для среды, имеют приоритет: в production, к примеру, файл <code>config/storage/production.yml</code> (если существует) будет иметь приоритет перед файлом <code>config/storage.yml</code>.</p></div><p>Рекомендовано использовать <code>Rails.env</code> в имени bucket, чтобы в будущем снизить риск случайного уничтожения данных production.</p><div class="code_container">
   <pre><code class="highlight yaml"><span class="na">amazon</span><span class="pi">:</span>
   <span class="na">service</span><span class="pi">:</span> <span class="s">S3</span>
   <span class="c1"># ...</span>
@@ -384,7 +425,7 @@
   <span class="na">container</span><span class="pi">:</span> <span class="s">your_container_name-&lt;%= Rails.env %&gt;</span>
 </code></pre>
 </div>
-<h4 id='servis-disk' class='inside_page_header'><a href="#servis-disk">2.1.</a> Сервис Disk</h4><p>Объявление сервиса Disk в <code>config/storage.yml</code>:</p><div class="code_container">
+<p>Подробнее о встроенных адаптерах сервиса (например, <code>Disk</code> и <code>S3</code>) и требуемой конфигурации написано ниже.</p><h4 id='servis-disk' class='inside_page_header'><a href="#servis-disk">2.1.</a> Сервис Disk</h4><p>Объявление сервиса Disk в <code>config/storage.yml</code>:</p><div class="code_container">
   <pre><code class="highlight yaml"><span class="na">local</span><span class="pi">:</span>
   <span class="na">service</span><span class="pi">:</span> <span class="s">Disk</span>
   <span class="na">root</span><span class="pi">:</span> <span class="s">&lt;%= Rails.root.join("storage") %&gt;</span>
@@ -411,6 +452,7 @@
   <span class="na">retry_limit</span><span class="pi">:</span> <span class="m">0</span>
   <span class="na">upload</span><span class="pi">:</span>
     <span class="na">server_side_encryption</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <span class="c1"># 'aws:kms' или 'AES256'</span>
+    <span class="na">cache_control</span><span class="pi">:</span> <span class="s2">"</span><span class="s">private,</span><span class="nv"> </span><span class="s">max-age=&lt;%=</span><span class="nv"> </span><span class="s">1.day.to_i</span><span class="nv"> </span><span class="s">%&gt;"</span>
 </code></pre>
 </div>
 <div class="info"><p>Установите разумные лимиты HTTP timeout и retry в своем приложении. В некоторых сценариях неудачи конфигурация клиента AWS по умолчанию может держать соединение несколько минут, что приведет к очереди из запросов.</p></div><p>Добавьте гем <a href="https://github.com/aws/aws-sdk-ruby"><code>aws-sdk-s3</code></a> в <code>Gemfile</code>:</p><div class="code_container">
@@ -486,7 +528,7 @@
   <span class="na">gsa_email</span><span class="pi">:</span> <span class="s2">"</span><span class="s">foobar@baz.iam.gserviceaccount.com"</span>
 </code></pre>
 </div>
-<p>Добавьте гем <a href="https://github.com/GoogleCloudPlatform/google-cloud-ruby/tree/master/google-cloud-storage"><code>google-cloud-storage</code></a> в <code>Gemfile</code>:</p><div class="code_container">
+<p>Добавьте гем <a href="https://github.com/GoogleCloudPlatform/google-cloud-ruby/tree/main/google-cloud-storage"><code>google-cloud-storage</code></a> в <code>Gemfile</code>:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s2">"google-cloud-storage"</span><span class="p">,</span> <span class="s2">"~&gt; 1.11"</span><span class="p">,</span> <span class="ss">require: </span><span class="kp">false</span>
 </code></pre>
 </div>
@@ -519,24 +561,24 @@
 
 <span class="na">private_gcs</span><span class="pi">:</span>
   <span class="s">&lt;&lt;</span><span class="pi">:</span> <span class="nv">*gcs</span>
-  <span class="na">credentials</span><span class="pi">:</span> <span class="s">&lt;%= Rails.root.join("path/to/private_keyfile.json") %&gt;</span>
+  <span class="na">credentials</span><span class="pi">:</span> <span class="s">&lt;%= Rails.root.join("path/to/private_key.json") %&gt;</span>
   <span class="na">bucket</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
 
 <span class="na">public_gcs</span><span class="pi">:</span>
   <span class="s">&lt;&lt;</span><span class="pi">:</span> <span class="nv">*gcs</span>
-  <span class="na">credentials</span><span class="pi">:</span> <span class="s">&lt;%= Rails.root.join("path/to/public_keyfile.json") %&gt;</span>
+  <span class="na">credentials</span><span class="pi">:</span> <span class="s">&lt;%= Rails.root.join("path/to/public_key.json") %&gt;</span>
   <span class="na">bucket</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
   <span class="na">public</span><span class="pi">:</span> <span class="no">true</span>
 </code></pre>
 </div>
-<p>Убедитесь, что ваши bucket правильно настроены для публичного доступа. Обратитесь к документации, как разрешить публичное чтение для сервисов хранения <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access-bucket.html">Amazon S3</a>, <a href="https://cloud.google.com/storage/docs/access-control/making-data-public#buckets">Google Cloud Storage</a> и <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-manage-access-to-resources#set-container-public-access-level-in-the-azure-portal">Microsoft Azure</a>. Amazon S3 дополнительно требует имеющегося разрешения <code>s3:PutObjectAcl</code>.</p><p>При конвертации существующего приложения на использование <code>public: true</code>, убедитесь в обновлении каждого отдельного файла в bucket, чтобы он был публично читаемый до переключения.</p><h3 id='prikreplenie-faylov-k-zapisyam' class='inside_page_header'><a href="#prikreplenie-faylov-k-zapisyam">3.</a> Прикрепление файлов к записям</h3><h4 id='has_one_attached' class='inside_page_header'><a href="#has_one_attached">3.1.</a> <code>has_one_attached</code></h4><p>Макрос <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/Model.html#method-i-has_one_attached"><code>has_one_attached</code></a> устанавливает сопоставление (mapping) один-к-одному между записями и файлами. Каждая запись может содержать один прикрепленный файл.</p><p>Например, предположим, что в приложении имеется модель <code>User</code>. Если необходимо, чтобы у каждого пользователя был аватар, определите модель <code>User</code> так:</p><div class="code_container">
+<p>Убедитесь, что ваши bucket правильно настроены для публичного доступа. Обратитесь к документации, как разрешить публичное чтение для сервисов хранения <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access-bucket.html">Amazon S3</a>, <a href="https://cloud.google.com/storage/docs/access-control/making-data-public#buckets">Google Cloud Storage</a> и <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-manage-access-to-resources#set-container-public-access-level-in-the-azure-portal">Microsoft Azure</a>. Amazon S3 дополнительно требует имеющегося разрешения <code>s3:PutObjectAcl</code>.</p><p>При конвертации существующего приложения на использование <code>public: true</code>, убедитесь в обновлении каждого отдельного файла в bucket, чтобы он был публично читаемый до переключения.</p><h3 id='attaching-files-to-records' class='inside_page_header'><a href="#attaching-files-to-records">3.</a> Прикрепление файлов к записям</h3><h4 id='has_one_attached' class='inside_page_header'><a href="#has_one_attached">3.1.</a> <code>has_one_attached</code></h4><p>Макрос <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/Model.html#method-i-has_one_attached"><code>has_one_attached</code></a> устанавливает сопоставление (mapping) один-к-одному между записями и файлами. Каждая запись может содержать один прикрепленный файл.</p><p>Например, предположим, что в приложении имеется модель <code>User</code>. Если необходимо, чтобы у каждого пользователя был аватар, определите модель <code>User</code> так:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_one_attached</span> <span class="ss">:avatar</span>
 <span class="k">end</span>
 </code></pre>
 </div>
 <p>или, если используете Rails 6.0+, можно запустить команду генератора модели наподобие:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">bin</span><span class="o">/</span><span class="n">rails</span> <span class="n">generate</span> <span class="n">model</span> <span class="no">User</span> <span class="n">avatar</span><span class="ss">:attachment</span>
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate model User avatar:attachment
 </code></pre>
 </div>
 <p>Далее можно создать пользователя с аватаром:</p><div class="code_container">
@@ -566,9 +608,9 @@
   <pre><code class="highlight ruby"><span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">attached?</span>
 </code></pre>
 </div>
-<p>Иногда необходимо переопределить сервис по умолчанию для определенного вложения. Указать сервис для вложения можно с помощью опции <code>service</code>:</p><div class="code_container">
+<p>Иногда необходимо переопределить сервис по умолчанию для определенного вложения. Указать сервис для вложения можно с помощью опции <code>service</code> с именем вашего сервиса:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="n">has_one_attached</span> <span class="ss">:avatar</span><span class="p">,</span> <span class="ss">service: :s3</span>
+  <span class="n">has_one_attached</span> <span class="ss">:avatar</span><span class="p">,</span> <span class="ss">service: :google</span>
 <span class="k">end</span>
 </code></pre>
 </div>
@@ -596,14 +638,22 @@
   <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">user</span><span class="p">.</span><span class="nf">video</span><span class="p">.</span><span class="nf">preview</span><span class="p">(</span><span class="ss">:thumb</span><span class="p">)</span> <span class="cp">%&gt;</span>
 </code></pre>
 </div>
-<h4 id='has_many_attached' class='inside_page_header'><a href="#has_many_attached">3.2.</a> <code>has_many_attached</code></h4><p>Макрос <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/Model.html#method-i-has_many_attached"><code>has_many_attached</code></a> устанавливает отношение один-ко-многим между записями и файлами. У каждой записи может быть много прикрепленных файлов.</p><p>Например, предположим, что в приложении имеется модель <code>Message</code>. Если необходимо, чтобы у каждого сообщения было много изображений, определите модель <code>Message</code> так:</p><div class="code_container">
+<p>Если вы заранее знаете, что к вашим вариантам будет обращение, можете указать Rails на их предварительную генерацию:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_one_attached</span> <span class="ss">:video</span> <span class="k">do</span> <span class="o">|</span><span class="n">attachable</span><span class="o">|</span>
+    <span class="n">attachable</span><span class="p">.</span><span class="nf">variant</span> <span class="ss">:thumb</span><span class="p">,</span> <span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="ss">preprocessed: </span><span class="kp">true</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Rails добавит в очередь задание на генерацию варианта после присоединения вложения к записи.</p><div class="note"><p>Поскольку Active Storage полагается на полиморфные связи, а <a href="/active-record-associations#polymorphic-associations">полиморфные связи</a> полагаются на хранение имен классов в базе данных, эти данные должны оставаться синхронизированы с именем класса, используемым в Ruby-коде. При переименовании классов, использующих <code>has_one_attached</code>, обязательно также обновите имена классов в столбце полиморфного типа <code>active_storage_attachments.record_type</code> соответствующих строк.</p></div><h4 id='has_many_attached' class='inside_page_header'><a href="#has_many_attached">3.2.</a> <code>has_many_attached</code></h4><p>Макрос <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/Model.html#method-i-has_many_attached"><code>has_many_attached</code></a> устанавливает отношение один-ко-многим между записями и файлами. У каждой записи может быть много прикрепленных файлов.</p><p>Например, предположим, что в приложении имеется модель <code>Message</code>. Если необходимо, чтобы у каждого сообщения было много изображений, определите модель <code>Message</code> так:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Message</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_many_attached</span> <span class="ss">:images</span>
 <span class="k">end</span>
 </code></pre>
 </div>
 <p>или, если используете Rails 6.0+, можно запустить команду генератора модели наподобие:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">bin</span><span class="o">/</span><span class="n">rails</span> <span class="n">generate</span> <span class="n">model</span> <span class="no">Message</span> <span class="n">images</span><span class="ss">:attachments</span>
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate model Message images:attachments
 </code></pre>
 </div>
 <p>Далее можно создать сообщение с изображениями:</p><div class="code_container">
@@ -642,7 +692,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h4 id='prikreplenie-ob-ektov-file-io' class='inside_page_header'><a href="#prikreplenie-ob-ektov-file-io">3.3.</a> Прикрепление объектов File/IO</h4><p>Иногда необходимо прикрепить файл, который не поступает через HTTP-запрос. Например, может понадобиться прикрепить файл, сгенерированный на диске, или загрузить файл из введенного пользователем URL. Также можно захотеть прикрепить файл фикстур в тесте модели. Чтобы сделать это, предоставьте хэш, содержащий как минимум открытый объект IO и имя файла:</p><div class="code_container">
+<div class="note"><p>Поскольку Active Storage полагается на полиморфные связи, а <a href="/active-record-associations#polymorphic-associations">полиморфные связи</a> полагаются на хранение имен классов в базе данных, эти данные должны оставаться синхронизированы с именем класса, используемым в Ruby-коде. При переименовании классов, использующих <code>has_one_attached</code>, обязательно также обновите имена классов в столбце полиморфного типа <code>active_storage_attachments.record_type</code> соответствующих строк.</p></div><h4 id='prikreplenie-ob-ektov-file-io' class='inside_page_header'><a href="#prikreplenie-ob-ektov-file-io">3.3.</a> Прикрепление объектов File/IO</h4><p>Иногда необходимо прикрепить файл, который не поступает через HTTP-запрос. Например, может понадобиться прикрепить файл, сгенерированный на диске, или загрузить файл из введенного пользователем URL. Также можно захотеть прикрепить файл фикстур в тесте модели. Чтобы сделать это, предоставьте хэш, содержащий как минимум открытый объект IO и имя файла:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="vi">@message</span><span class="p">.</span><span class="nf">images</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="ss">io: </span><span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s1">'/path/to/file'</span><span class="p">),</span> <span class="ss">filename: </span><span class="s1">'file.pdf'</span><span class="p">)</span>
 </code></pre>
 </div>
@@ -659,7 +709,46 @@
 <span class="p">)</span>
 </code></pre>
 </div>
-<p>Если не предоставляется тип содержимого и Active Storage не может автоматически определить тип содержимого файла, по умолчанию используется application/octet-stream.</p><h3 id='udalenie-prikreplennyh-faylov' class='inside_page_header'><a href="#udalenie-prikreplennyh-faylov">4.</a> Удаление прикрепленных файлов</h3><p>Чтобы удалить прикрепленный файл из модели, необходимо вызвать <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/One.html#method-i-purge"><code>purge</code></a> на нем. Если приложение использует Active Job, удаление может быть выполнено в фоновом режиме, с помощью вызова <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/One.html#method-i-purge_later"><code>purge_later</code></a>. <code>purge</code> удаляет blob и файл из сервиса хранения.</p><div class="code_container">
+<p>Если не предоставляется тип содержимого и Active Storage не может автоматически определить тип содержимого файла, по умолчанию используется application/octet-stream.</p><p>Существует дополнительный параметр <code>key</code>, который можно использовать для указания папок/подпапок в вашем S3 Bucket. В противном случае AWS S3 использует случайный ключ для именования ваших файлов. Этот подход полезен, если вы хотите лучше организовать файлы в вашем S3 Bucket.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="vi">@message</span><span class="p">.</span><span class="nf">images</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span>
+  <span class="ss">io: </span><span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s1">'/path/to/file'</span><span class="p">),</span>
+  <span class="ss">filename: </span><span class="s1">'file.pdf'</span><span class="p">,</span>
+  <span class="ss">content_type: </span><span class="s1">'application/pdf'</span><span class="p">,</span>
+  <span class="ss">key: </span><span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">env</span><span class="si">}</span><span class="s2">/blog_content/intuitive_filename.pdf"</span><span class="p">,</span>
+  <span class="ss">identify: </span><span class="kp">false</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+<p>Таким образом, файл будет сохранен в папке <code>[S3_BUCKET]/development/blog_content/</code>, когда вы тестируете его в своей среде разработки. Обратите внимание, что при использовании параметра ключа необходимо обеспечить уникальность ключа для успешной загрузки. Рекомендуется добавлять к имени файла уникальный случайный ключ, например:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">s3_file_key</span>
+  <span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">env</span><span class="si">}</span><span class="s2">/blog_content/intuitive_filename-</span><span class="si">#{</span><span class="no">SecureRandom</span><span class="p">.</span><span class="nf">uuid</span><span class="si">}</span><span class="s2">.pdf"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight ruby"><span class="vi">@message</span><span class="p">.</span><span class="nf">images</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span>
+  <span class="ss">io: </span><span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s1">'/path/to/file'</span><span class="p">),</span>
+  <span class="ss">filename: </span><span class="s1">'file.pdf'</span><span class="p">,</span>
+  <span class="ss">content_type: </span><span class="s1">'application/pdf'</span><span class="p">,</span>
+  <span class="ss">key: </span><span class="n">s3_file_key</span><span class="p">,</span>
+  <span class="ss">identify: </span><span class="kp">false</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+<h4 id='zamena-i-dobavlenie-vlozheniy' class='inside_page_header'><a href="#zamena-i-dobavlenie-vlozheniy">3.4.</a> Замена и добавление вложений</h4><p>По умолчанию в Rails при прикреплении файлов к связи <code>has_many_attached</code> любые существующие вложения будут заменены.</p><p>Чтобы сохранить существующие вложения, можно использовать скрытые поля формы с <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blob.html#method-i-signed_id"><code>signed_id</code></a> каждого вложенного файла:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%</span> <span class="vi">@message</span><span class="p">.</span><span class="nf">images</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">image</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">hidden_field</span> <span class="ss">:images</span><span class="p">,</span> <span class="ss">multiple: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">value: </span><span class="n">image</span><span class="p">.</span><span class="nf">signed_id</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">file_field</span> <span class="ss">:images</span><span class="p">,</span> <span class="ss">multiple: </span><span class="kp">true</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<p>Это дает дополнительное преимущество: возможность выборочного удаления существующих вложений, например, с помощью JavaScript для удаления отдельных скрытых полей.</p><h4 id='validatsiya-formy' class='inside_page_header'><a href="#validatsiya-formy">3.5.</a> Валидация формы</h4><p>Вложения не отправляются в сервис хранения до успешного <code>save</code> связанной записи. Это означает, что если отправка формы не пройдет валидацию, все новые вложения будут потеряны и их потребуется загрузить снова. Однако, поскольку <a href="#direct-uploads">прямые загрузки</a> сохраняются до отправки формы, их можно использовать для сохранения загрузок при ошибке валидации:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">hidden_field</span> <span class="ss">:avatar</span><span class="p">,</span> <span class="ss">value: </span><span class="vi">@user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">signed_id</span> <span class="k">if</span> <span class="vi">@user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">attached?</span> <span class="cp">%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">file_field</span> <span class="ss">:avatar</span><span class="p">,</span> <span class="ss">direct_upload: </span><span class="kp">true</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
+<h3 id='udalenie-faylov' class='inside_page_header'><a href="#udalenie-faylov">4.</a> Удаление файлов</h3><p>Чтобы удалить прикрепленный файл из модели, необходимо вызвать <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/One.html#method-i-purge"><code>purge</code></a> на нем. Если приложение использует Active Job, удаление может быть выполнено в фоновом режиме, с помощью вызова <a href="https://api.rubyonrails.org/classes/ActiveStorage/Attached/One.html#method-i-purge_later"><code>purge_later</code></a>. <code>purge</code> удаляет blob и файл из сервиса хранения.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="c1"># Синхронно уничтожить аватар и фактические файлы ресурса.</span>
 <span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">purge</span>
 
@@ -669,7 +758,7 @@
 </div>
 <h3 id='serving-files' class='inside_page_header'><a href="#serving-files">5.</a> Раздача файлов</h3><p>Active Storage поддерживает два способа раздачи файлов: перенаправление и прокси.</p><div class="warning"><p>Все контроллеры Active Storage по умолчанию доступны публично. Сгенерированные URL трудно угадать, но они постоянные по определению. Если ваши файлы требуют более высокий уровень защиты, рассмотрите реализацию <a href="#authenticated-controllers">аутентифицированных контроллеров</a>.</p></div><h4 id='rezhim-perenapravleniya' class='inside_page_header'><a href="#rezhim-perenapravleniya">5.1.</a> Режим перенаправления</h4><p>Чтобы сгенерировать постоянный URL для бинарного объекта, можно передать этот объект в хелпер вью <a href="https://api.rubyonrails.org/classes/ActionView/RoutingUrlFor.html#method-i-url_for"><code>url_for</code></a>. Это создаст URL с <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blob.html#method-i-signed_id"><code>signed_id</code></a> бинарного объекта, который направляет в <a href="https://api.rubyonrails.org/classes/ActiveStorage/Blobs/RedirectController.html"><code>RedirectController</code></a> для бинарного объекта.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">url_for</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">)</span>
-<span class="c1"># =&gt; /rails/active_storage/blobs/:signed_id/my-avatar.png</span>
+<span class="c1"># =&gt; https://www.example.com/rails/active_storage/blobs/redirect/:signed_id/my-avatar.png</span>
 </code></pre>
 </div>
 <p><code>RedirectController</code> перенаправляет на фактическую конечную точку сервиса.  Эта косвенная адресация (indirection) отделяет URL сервиса от фактического, и позволяет, например, отзеркаливание прикрепленных файлов в разных сервисах для высокой доступности. Перенаправление имеет HTTP-прекращение 5 минут.</p><p>Чтобы создать ссылку для скачивания, необходимо использовать хелпер <code>rails_blob_{path|url}</code>. С помощью этого хелпера можно установить disposition.</p><div class="code_container">
@@ -745,7 +834,7 @@
   <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">account_logo_path</span> <span class="cp">%&gt;</span>
 </code></pre>
 </div>
-<p>И затем можно отключить маршруты Active Storage по умолчанию с помощью:</p><div class="code_container">
+<p>И затем следует отключить маршруты Active Storage по умолчанию с помощью:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">active_storage</span><span class="p">.</span><span class="nf">draw_routes</span> <span class="o">=</span> <span class="kp">false</span>
 </code></pre>
 </div>
@@ -780,7 +869,11 @@
   <pre><code class="highlight ruby"><span class="n">image_tag</span> <span class="n">file</span><span class="p">.</span><span class="nf">representation</span><span class="p">(</span><span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
 </code></pre>
 </div>
-<p>Создаст тег <code>&lt;img&gt;</code> с <code>src</code>, указывающим на <a href="https://api.rubyonrails.org/classes/ActiveStorage/Representations/RedirectController.html"><code>ActiveStorage::Representations::RedirectController</code></a>. Браузер сделает запрос к этому контроллеру, который вернет перенаправление <code>302</code> на файл на удаленном сервисе (или в <a href="#proxy-mode">режиме прокси</a> возвратит содержимое файла). Ленивая загрузка файла позволяет работать особенностям, таким как <a href="#public-access">одноразовые URL</a>, без замедления загрузки изначальной страницы.</p><p>Это прекрасно работает в большинстве случаев.</p><p>Если хотите немедленно сгенерировать URL для изображений, можно вызвать <code>.processed.url</code>:</p><div class="code_container">
+<p>Создаст тег <code>&lt;img&gt;</code> с <code>src</code>, указывающим на <a href="https://api.rubyonrails.org/classes/ActiveStorage/Representations/RedirectController.html"><code>ActiveStorage::Representations::RedirectController</code></a>. Браузер сделает запрос к этому контроллеру, что выполнит следующее:</p><ul><li>Обработает файл и загрузит обработанный файл, если необходимо.
+</li><li>Вернет редирект с кодом <code>302</code> на файл, направляя либо:
+<ul><li>на удаленный сервис (например, S3).
+</li><li>или на <code>ActiveStorage::Blobs::ProxyController</code>, который вернет содержимое файла, если включен <a href="#proxy-mode">режим прокси</a>.
+</li></ul></li></ul><p>Ленивая загрузка файла позволяет использовать такие функции, как <a href="#public-access">одноразовые URL</a>, не замедляя начальную загрузку страницы.</p><p>Это прекрасно работает в большинстве случаев.</p><p>Если хотите немедленно сгенерировать URL для изображений, можно вызвать <code>.processed.url</code>:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">image_tag</span> <span class="n">file</span><span class="p">.</span><span class="nf">representation</span><span class="p">(</span><span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">]).</span><span class="nf">processed</span><span class="p">.</span><span class="nf">url</span>
 </code></pre>
 </div>
@@ -795,7 +888,7 @@
 </code></pre>
 </div>
 <p>Если запрошен вариант, Active Storage автоматически применит трансформации, в зависимости от формата изображения:</p><ul><li><p>Переменные типы изображения (указанны в <a href="/configuring#config-active-storage-variable-content-types"><code>config.active_storage.variable_content_types</code></a>) и не рассматриваемые веб-изображениями (указаны в  <a href="/configuring#config-active-storage-web-image-content-types"><code>config.active_storage.web_image_content_types</code></a>), будут преобразованы в PNG.</p></li><li><p>Если не указано <code>quality</code>, для форматирования будет использовано качество по умолчанию обработчика варианта.</p></li></ul><p>Active Storage может использовать либо <a href="https://www.rubydoc.info/gems/ruby-vips/Vips/Image">Vips</a>, либо MiniMagick в качестве обработчика варианта. Умолчания зависит от целевой версии вашей <code>config.load_defaults</code>, и обработчик может быть изменен, устанавливая <a href="/configuring#config-active-storage-variant-processor"><code>config.active_storage.variant_processor</code></a>.</p><p>Эти два процессора не полностью совместимы, поэтому при миграции существующего приложения между MiniMagick и Vips, нужно сделать несколько изменений при использовании специфичных опций форматирования:</p><div class="code_container">
-  <pre><code class="highlight rhtml"><span class="c">&lt;!-- MiniMagick --&gt;</span>
+  <pre><code class="highlight erb"><span class="c">&lt;!-- MiniMagick --&gt;</span>
 <span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">user</span><span class="p">.</span><span class="nf">avatar</span><span class="p">.</span><span class="nf">variant</span><span class="p">(</span><span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="ss">format: :jpeg</span><span class="p">,</span> <span class="ss">sampling_factor: </span><span class="s2">"4:2:0"</span><span class="p">,</span> <span class="ss">strip: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">interlace: </span><span class="s2">"JPEG"</span><span class="p">,</span> <span class="ss">colorspace: </span><span class="s2">"sRGB"</span><span class="p">,</span> <span class="ss">quality: </span><span class="mi">0</span><span class="p">)</span> <span class="cp">%&gt;</span>
 
 <span class="c">&lt;!-- Vips --&gt;</span>
@@ -855,7 +948,7 @@
 </code></pre>
 </div>
 <p>Или, если не используете <code>FormBuilder</code>, добавьте непосредственно атрибут данных:</p><div class="code_container">
-  <pre><code class="highlight erb"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">file</span> <span class="na">data-direct-upload-url=</span><span class="s">"</span><span class="cp">&lt;%=</span> <span class="n">rails_direct_uploads_url</span> <span class="cp">%&gt;</span><span class="s">"</span> <span class="nt">/&gt;</span>
+  <pre><code class="highlight erb"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">data-direct-upload-url=</span><span class="s">"</span><span class="cp">&lt;%=</span> <span class="n">rails_direct_uploads_url</span> <span class="cp">%&gt;</span><span class="s">"</span> <span class="nt">/&gt;</span>
 </code></pre>
 </div>
 </li><li><p>Настройте CORS на сторонних сервисах хранения, чтобы разрешить запросы прямой загрузки.</p></li><li><p>Вот и все! Загрузки начинаются с момента отправки формы.</p></li></ul><h4 id='nastroyka-sovmestnogo-ispolzovanie-resursov-cors' class='inside_page_header'><a href="#nastroyka-sovmestnogo-ispolzovanie-resursov-cors">9.2.</a> Настройка совместного использование ресурсов (CORS)</h4><p>Чтобы заработала прямая загрузка на сторонний сервис, необходимо настроить сервис, чтобы разрешить запросы с вашего приложения. Примите во внимание документацию по CORS для вашего сервиса:</p><ul><li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html#how-do-i-enable-cors">S3</a>
@@ -864,8 +957,7 @@
 </li></ul><p>Позаботьтесь о разрешении:</p><ul><li>Всех источников, через которые можно получить доступ к вашему приложению
 </li><li>Метода запроса <code>PUT</code>
 </li><li>Следующих заголовков:
-<ul><li><code>Origin</code>
-</li><li><code>Content-Type</code>
+<ul><li><code>Content-Type</code>
 </li><li><code>Content-MD5</code>
 </li><li><code>Content-Disposition</code> (кроме Azure Storage)
 </li><li><code>x-ms-blob-content-disposition</code> (только для Azure Storage)
@@ -875,19 +967,15 @@
   <pre><code class="highlight json"><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"AllowedHeaders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"*"</span><span class="w">
+      </span><span class="s2">"Content-Type"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Content-MD5"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Content-Disposition"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"AllowedMethods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="s2">"PUT"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"AllowedOrigins"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="s2">"https://www.example.com"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"ExposeHeaders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"Origin"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Content-Type"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Content-MD5"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Content-Disposition"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"MaxAgeSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -899,7 +987,7 @@
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"origin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"https://www.example.com"</span><span class="p">],</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PUT"</span><span class="p">],</span><span class="w">
-    </span><span class="nl">"responseHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Origin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Content-Type"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Content-MD5"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Content-Disposition"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"responseHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Content-MD5"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Content-Disposition"</span><span class="p">],</span><span class="w">
     </span><span class="nl">"maxAgeSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -910,7 +998,7 @@
   <span class="nt">&lt;CorsRule&gt;</span>
     <span class="nt">&lt;AllowedOrigins&gt;</span>https://www.example.com<span class="nt">&lt;/AllowedOrigins&gt;</span>
     <span class="nt">&lt;AllowedMethods&gt;</span>PUT<span class="nt">&lt;/AllowedMethods&gt;</span>
-    <span class="nt">&lt;AllowedHeaders&gt;</span>Origin, Content-Type, Content-MD5, x-ms-blob-content-disposition, x-ms-blob-type<span class="nt">&lt;/AllowedHeaders&gt;</span>
+    <span class="nt">&lt;AllowedHeaders&gt;</span>Content-Type, Content-MD5, x-ms-blob-content-disposition, x-ms-blob-type<span class="nt">&lt;/AllowedHeaders&gt;</span>
     <span class="nt">&lt;MaxAgeInSeconds&gt;</span>3600<span class="nt">&lt;/MaxAgeInSeconds&gt;</span>
   <span class="nt">&lt;/CorsRule&gt;</span>
 <span class="nt">&lt;/Cors&gt;</span>
@@ -1060,7 +1148,7 @@
 <span class="p">}</span>
 </code></pre>
 </div>
-<h4 id='integratsiya-s-bibliotekami-ili-freymvorkami' class='inside_page_header'><a href="#integratsiya-s-bibliotekami-ili-freymvorkami">9.5.</a> Интеграция с библиотеками или фреймворками</h4><p>Если необходимо использовать особенность прямой загрузки из фреймворка JavaScript или необходима интеграция собственных решений перетаскивания (drag-and-drop), для этой цели можно использовать класс <code>DirectUpload</code>. Получив файл из выбранной библиотеки, создайте экземпляр DirectUpload и вызовите его метод create. Этот метод принимает колбэк для вызова, когда загрузка завершена.</p><div class="code_container">
+<h4 id='polzovatelskie-resheniya-dlya-peretaskivaniya-elementov' class='inside_page_header'><a href="#polzovatelskie-resheniya-dlya-peretaskivaniya-elementov">9.5.</a> Пользовательские решения для перетаскивания элементов</h4><p>Для этой цели можно использовать класс <code>DirectUpload</code>. Получив файл из выбранной библиотеки, создайте экземпляр DirectUpload и вызовите его метод create. Этот метод принимает колбэк для вызова, когда загрузка завершена.</p><div class="code_container">
   <pre><code class="highlight js"><span class="k">import</span> <span class="p">{</span> <span class="nx">DirectUpload</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@rails/activestorage</span><span class="dl">"</span>
 
 <span class="kd">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">input[type=file]</span><span class="dl">'</span><span class="p">)</span>
@@ -1099,7 +1187,7 @@
 <span class="p">}</span>
 </code></pre>
 </div>
-<p>Если необходимо отслеживать ход загрузки файла, можно передать третий параметр в конструктор <code>DirectUpload</code>. Во время загрузки DirectUpload вызовет метод <code>directUploadWillStoreFileWithXHR</code> объекта. Затем можно привязать свой собственный обработчик прогресса на XHR.</p><div class="code_container">
+<h4 id='otslezhivanie-progressa-zagruzki-fayla' class='inside_page_header'><a href="#otslezhivanie-progressa-zagruzki-fayla">9.6.</a> Отслеживание прогресса загрузки файла</h4><p>При использовании конструктора <code>DirectUpload</code> можно указать третий параметр. Это позволит объекту <code>DirectUpload</code> вызвать метод <code>directUploadWillStoreFileWithXHR</code> во время процесса загрузки. Затем вы можете прикрепить свой собственный обработчик прогресса к XHR для удовлетворения ваших потребностей.</p><div class="code_container">
   <pre><code class="highlight js"><span class="k">import</span> <span class="p">{</span> <span class="nx">DirectUpload</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@rails/activestorage</span><span class="dl">"</span>
 
 <span class="kd">class</span> <span class="nx">Uploader</span> <span class="p">{</span>
@@ -1128,12 +1216,57 @@
 <span class="p">}</span>
 </code></pre>
 </div>
-<div class="note"><p>Использование <a href="#direct-uploads">прямых загрузок</a> иногда может привести к тому, что загруженный файл никогда не будет прикреплен к записи. Рассмотрите <a href="#purging-unattached-uploads">очистку неприкрепленных загрузок</a>.</p></div><h3 id='testirovanie' class='inside_page_header'><a href="#testirovanie">10.</a> Тестирование</h3><p>Используйте <a href="https://api.rubyonrails.org/classes/ActionDispatch/TestProcess/FixtureFile.html"><code>fixture_file_upload</code></a> для тестирования загрузки файла в интеграционном тесте или тесте контроллера. Rails обрабатывает файлы так же, как и любые другие параметры.</p><div class="code_container">
+<h4 id='integratsiya-s-bibliotekami-ili-freymvorkami' class='inside_page_header'><a href="#integratsiya-s-bibliotekami-ili-freymvorkami">9.7.</a> Интеграция с библиотеками или фреймворками</h4><p>Получив файл из выбранной библиотеки, необходимо создать экземпляр класса <code>DirectUpload</code> и использовать его метод &quot;create&quot; для запуска процесса загрузки, при необходимости добавив любые дополнительные заголовки. Метод &quot;create&quot; также требует указания функции-колбэка, которая будет вызвана по завершении загрузки.</p><div class="code_container">
+  <pre><code class="highlight js"><span class="k">import</span> <span class="p">{</span> <span class="nx">DirectUpload</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@rails/activestorage</span><span class="dl">"</span>
+
+<span class="kd">class</span> <span class="nx">Uploader</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">token</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span> <span class="dl">'</span><span class="s1">Authentication</span><span class="dl">'</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span> <span class="p">}</span>
+    <span class="c1">// INFO: Отправка заголовков является необязательным параметром. Если вы решите не отправлять заголовки,</span>
+    <span class="c1">//       аутентификация будет выполняться с использованием куки или данных сессии.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">upload</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DirectUpload</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">file</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">url</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="nx">headers</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="nx">upload</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">upload</span><span class="p">.</span><span class="nx">create</span><span class="p">((</span><span class="nx">error</span><span class="p">,</span> <span class="nx">blob</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Обрабатываем ошибку</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Используем blob.signed_id как указание на файл в следующем запросе</span>
+      <span class="p">}</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+
+  <span class="nx">directUploadWillStoreFileWithXHR</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">request</span><span class="p">.</span><span class="nx">upload</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">progress</span><span class="dl">"</span><span class="p">,</span>
+      <span class="nx">event</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">directUploadDidProgress</span><span class="p">(</span><span class="nx">event</span><span class="p">))</span>
+  <span class="p">}</span>
+
+  <span class="nx">directUploadDidProgress</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Используем event.loaded и event.total для обновления полосы прогресса</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>Для реализации пользовательской аутентификации необходимо создать новый контроллер в приложении Rails, похожий на следующий:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">DirectUploadsController</span> <span class="o">&lt;</span> <span class="no">ActiveStorage</span><span class="o">::</span><span class="no">DirectUploadsController</span>
+  <span class="n">skip_forgery_protection</span>
+  <span class="n">before_action</span> <span class="ss">:authenticate!</span>
+
+  <span class="k">def</span> <span class="nf">authenticate!</span>
+    <span class="vi">@token</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="s1">'Authorization'</span><span class="p">]</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">split</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">last</span>
+
+    <span class="n">head</span> <span class="ss">:unauthorized</span> <span class="k">unless</span> <span class="n">valid_token?</span><span class="p">(</span><span class="vi">@token</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="note"><p>Использование <a href="#direct-uploads">прямых загрузок</a> иногда может привести к тому, что загруженный файл никогда не будет прикреплен к записи. Рассмотрите <a href="#purging-unattached-uploads">очистку неприкрепленных загрузок</a>.</p></div><h3 id='testirovanie' class='inside_page_header'><a href="#testirovanie">10.</a> Тестирование</h3><p>Используйте <a href="https://api.rubyonrails.org/classes/ActionDispatch/TestProcess/FixtureFile.html#method-i-file_fixture_upload"><code>file_fixture_upload</code></a> для тестирования загрузки файла в интеграционном тесте или тесте контроллера. Rails обрабатывает файлы так же, как и любые другие параметры.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">SignupController</span> <span class="o">&lt;</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">IntegrationTest</span>
   <span class="nb">test</span> <span class="s2">"can sign up"</span> <span class="k">do</span>
     <span class="n">post</span> <span class="n">signup_path</span><span class="p">,</span> <span class="ss">params: </span><span class="p">{</span>
       <span class="ss">name: </span><span class="s2">"David"</span><span class="p">,</span>
-      <span class="ss">avatar: </span><span class="n">fixture_file_upload</span><span class="p">(</span><span class="s2">"david.png"</span><span class="p">,</span> <span class="s2">"image/png"</span><span class="p">)</span>
+      <span class="ss">avatar: </span><span class="n">file_fixture_upload</span><span class="p">(</span><span class="s2">"david.png"</span><span class="p">,</span> <span class="s2">"image/png"</span><span class="p">)</span>
     <span class="p">}</span>
 
     <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">order</span><span class="p">(</span><span class="ss">:created_at</span><span class="p">).</span><span class="nf">last</span>
@@ -1234,11 +1367,27 @@
 <span class="k">end</span>
 </code></pre>
 </div>
+<h4 id='nastroyka-servisov' class='inside_page_header'><a href="#nastroyka-servisov">10.3.</a> Настройка сервисов</h4><p>Вы можете добавить файл <code>config/storage/test.yml</code> для настройки сервисов, используемых в тестовой среде. Это полезно, когда используется опция <code>service</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_one_attached</span> <span class="ss">:avatar</span><span class="p">,</span> <span class="ss">service: :s3</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>При отсутствии <code>config/storage/test.yml</code> служба <code>s3</code>, настроенная в <code>config/storage.yml</code>, будет использоваться даже во время тестирования.</p><p>Это означает, что будет использоваться конфигурация по умолчанию, и файлы будут загружаться провайдеру сервиса, указанного в <code>config/storage.yml</code>.</p><p>В этом случае, можно добавить <code>config/storage/test.yml</code> и использовать сервис Disk вместо сервиса <code>s3</code>, чтобы предотвратить отправление запросов.</p><div class="code_container">
+  <pre><code class="highlight yaml"><span class="na">test</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">Disk</span>
+  <span class="na">root</span><span class="pi">:</span> <span class="s">&lt;%= Rails.root.join("tmp/storage") %&gt;</span>
+
+<span class="na">s3</span><span class="pi">:</span>
+  <span class="na">service</span><span class="pi">:</span> <span class="s">Disk</span>
+  <span class="na">root</span><span class="pi">:</span> <span class="s">&lt;%= Rails.root.join("tmp/storage") %&gt;</span>
+</code></pre>
+</div>
 <h3 id='realizatsiya-podderzhki-drugih-oblachnyh-servisov' class='inside_page_header'><a href="#realizatsiya-podderzhki-drugih-oblachnyh-servisov">11.</a> Реализация поддержки других облачных сервисов</h3><p>Если необходимо поддерживать облачный сервис, отличный от имеющихся, необходимо реализовать Service. Каждый сервис расширяет <a href="https://api.rubyonrails.org/classes/ActiveStorage/Service.html"><code>ActiveStorage::Service</code></a>, реализуя методы, требуемые для загрузки и скачивания файлов в облако.</p><h3 id='purging-unattached-uploads' class='inside_page_header'><a href="#purging-unattached-uploads">12.</a> Очистка неприкрепленных загрузок</h3><p>Бывают случаи, когда файл загружен, но никогда не прикреплен к записи. Это может произойти при использовании <a href="#direct-uploads">прямых загрузок</a>. Можно запросить неприкрепленные записи с помощью <a href="https://github.com/rails/rails/blob/8ef5bd9ced351162b673904a0b77c7034ca2bc20/activestorage/app/models/active_storage/lob.rb#L49">скоупа unattached</a>. Ниже пример с помощью <a href="/command-line#custom-rake-tasks">пользовательской задачи rake</a>.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">namespace</span> <span class="ss">:active_storage</span> <span class="k">do</span>
   <span class="n">desc</span> <span class="s2">"Purges unattached Active Storage blobs. Run regularly."</span>
   <span class="n">task</span> <span class="ss">purge_unattached: :environment</span> <span class="k">do</span>
-    <span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="p">.</span><span class="nf">unattached</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="s2">"active_storage_blobs.created_at &lt;= ?"</span><span class="p">,</span> <span class="mi">2</span><span class="p">.</span><span class="nf">days</span><span class="p">.</span><span class="nf">ago</span><span class="p">).</span><span class="nf">find_each</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:purge_later</span><span class="p">)</span>
+    <span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="p">.</span><span class="nf">unattached</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">created_at: </span><span class="o">..</span><span class="mi">2</span><span class="p">.</span><span class="nf">days</span><span class="p">.</span><span class="nf">ago</span><span class="p">).</span><span class="nf">find_each</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:purge_later</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
