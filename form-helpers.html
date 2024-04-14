@@ -152,7 +152,7 @@
 </h6>      </li>
       <li>
         <h5>
-          <a href="#relying-on-record-identification">2.2.  Положитесь на идентификацию записи</a>
+          <a href="#relying-on-record-identification">2.2. Положитесь на идентификацию записи</a>
 </h5>      </li>
       <li>
         <h6>
@@ -204,7 +204,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#uploading-files">6.  Загрузка файлов</a>
+          <a href="#uploading-files">6. Загрузка файлов</a>
 </h4>      </li>
       <li>
         <h5>
@@ -216,7 +216,7 @@
 </h4>      </li>
       <li>
         <h4>
-          <a href="#understanding-parameter-naming-conventions">8.  Понимание соглашений по именованию параметров</a>
+          <a href="#understanding-parameter-naming-conventions">8. Понимание соглашений по именованию параметров</a>
 </h4>      </li>
       <li>
         <h5>
@@ -454,7 +454,7 @@
 <span class="nt">&lt;/form&gt;</span>
 </code></pre>
 </div>
-<p>Объект, предоставляемый <code>fields_for</code> - это form builder, подобный тому, который предоставляется <code>form_with</code>.</p><h4 id='relying-on-record-identification' class='inside_page_header'><a href="#relying-on-record-identification">2.2.</a>  Положитесь на идентификацию записи</h4><p>Модель Article непосредственно доступна пользователям приложения, и таким образом, следуя лучшим рекомендациям разработки на Rails, вы должны объявить ее как <strong>ресурс</strong>.</p><div class="code_container">
+<p>Объект, предоставляемый <code>fields_for</code> - это form builder, подобный тому, который предоставляется <code>form_with</code>.</p><h4 id='relying-on-record-identification' class='inside_page_header'><a href="#relying-on-record-identification">2.2.</a> Положитесь на идентификацию записи</h4><p>Модель Article непосредственно доступна пользователям приложения, и таким образом, следуя лучшим рекомендациям разработки на Rails, вы должны объявить ее как <strong>ресурс</strong>.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:articles</span>
 </code></pre>
 </div>
@@ -727,7 +727,7 @@
 <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"person_interest_id_2"</span><span class="nt">&gt;</span>Technology<span class="nt">&lt;/label&gt;</span>
 </code></pre>
 </div>
-<h3 id='uploading-files' class='inside_page_header'><a href="#uploading-files">6.</a>  Загрузка файлов</h3><p>Частой задачей является загрузка некоторого файла, аватарки или файла CSV, содержащего информацию для обработки. Поля загрузки файлов могут быть отрендерены с помощью хелпера <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-file_field"><code>file_field</code></a>.</p><div class="code_container">
+<h3 id='uploading-files' class='inside_page_header'><a href="#uploading-files">6.</a> Загрузка файлов</h3><p>Частой задачей является загрузка некоторого файла, аватарки или файла CSV, содержащего информацию для обработки. Поля загрузки файлов могут быть отрендерены с помощью хелпера <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-file_field"><code>file_field</code></a>.</p><div class="code_container">
   <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">form_with</span> <span class="ss">model: </span><span class="vi">@person</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
   <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">file_field</span> <span class="ss">:picture</span> <span class="cp">%&gt;</span>
 <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
@@ -779,7 +779,7 @@
   <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="ss">partial: </span><span class="n">f</span> <span class="cp">%&gt;</span>
 </code></pre>
 </div>
-<p>Если <code>f</code> - это экземпляр <code>ActionView::Helpers::FormBuilder</code>, тогда это отрендерит партиал <code>form</code>, установив объект партиала как form builder. Если у form builder есть класс <code>LabellingFormBuilder</code>, тогда вместо него будет отрендерен партиал <code>labelling_form</code>.</p><h3 id='understanding-parameter-naming-conventions' class='inside_page_header'><a href="#understanding-parameter-naming-conventions">8.</a>  Понимание соглашений по именованию параметров</h3><p>Значения из форм могут быть на верхнем уровне хэша <code>params</code> или вложены в другой хэш. Например, в стандартном экшне <code>create</code> для модели Person, <code>params[:person]</code> будет обычно хэшем всех атрибутов для создания персоны. Хэш <code>params</code> может также содержать массивы, массивы хэшей и тому подобное.</p><p>В основном формы HTML не знают о каких-либо структурировании данных, все, что они генерируют - это пары имя-значение, где пары являются обычными строками. Массивы и хэши, которые можно увидеть в своем приложении, - это результат некоторых соглашений по именованию параметров, которые использует Rails.</p><h4 id='bazovye-struktury' class='inside_page_header'><a href="#bazovye-struktury">8.1.</a> Базовые структуры</h4><p>Две базовые структуры - это массивы и хэши. Хэши отражают синтаксис, используемый для доступа к значению в <code>params</code>. Например, если форма содержит</p><div class="code_container">
+<p>Если <code>f</code> - это экземпляр <code>ActionView::Helpers::FormBuilder</code>, тогда это отрендерит партиал <code>form</code>, установив объект партиала как form builder. Если у form builder есть класс <code>LabellingFormBuilder</code>, тогда вместо него будет отрендерен партиал <code>labelling_form</code>.</p><h3 id='understanding-parameter-naming-conventions' class='inside_page_header'><a href="#understanding-parameter-naming-conventions">8.</a> Понимание соглашений по именованию параметров</h3><p>Значения из форм могут быть на верхнем уровне хэша <code>params</code> или вложены в другой хэш. Например, в стандартном экшне <code>create</code> для модели Person, <code>params[:person]</code> будет обычно хэшем всех атрибутов для создания персоны. Хэш <code>params</code> может также содержать массивы, массивы хэшей и тому подобное.</p><p>В основном формы HTML не знают о каких-либо структурировании данных, все, что они генерируют - это пары имя-значение, где пары являются обычными строками. Массивы и хэши, которые можно увидеть в своем приложении, - это результат некоторых соглашений по именованию параметров, которые использует Rails.</p><h4 id='bazovye-struktury' class='inside_page_header'><a href="#bazovye-struktury">8.1.</a> Базовые структуры</h4><p>Две базовые структуры - это массивы и хэши. Хэши отражают синтаксис, используемый для доступа к значению в <code>params</code>. Например, если форма содержит</p><div class="code_container">
   <pre><code class="highlight html"><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"person_name"</span> <span class="na">name=</span><span class="s">"person[name]"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">value=</span><span class="s">"Henry"</span><span class="nt">/&gt;</span>
 </code></pre>
 </div>

@@ -156,11 +156,11 @@
 </h4>      </li>
       <li>
         <h4>
-          <a href="#contributing-to-the-rails-code">5.  Вносим вклад в код Rails</a>
+          <a href="#contributing-to-the-rails-code">5. Вносим вклад в код Rails</a>
 </h4>      </li>
       <li>
         <h5>
-          <a href="#setting-up-a-development-environment">5.1.  Настраиваем среду разработки</a>
+          <a href="#setting-up-a-development-environment">5.1. Настраиваем среду разработки</a>
 </h5>      </li>
       <li>
         <h6>
@@ -188,7 +188,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#running-an-application-against-your-local-branch">5.4.  Запуск приложения на вашей локальной ветке</a>
+          <a href="#running-an-application-against-your-local-branch">5.4. Запуск приложения на вашей локальной ветке</a>
 </h5>      </li>
       <li>
         <h5>
@@ -196,7 +196,7 @@
 </h5>      </li>
       <li>
         <h6>
-          <a href="#follow-the-coding-conventions">5.5.1.  Следуйте соглашениям по программированию</a>
+          <a href="#follow-the-coding-conventions">5.5.1. Следуйте соглашениям по программированию</a>
 </h6>      </li>
       <li>
         <h6>
@@ -410,7 +410,7 @@
 </li><li><strong>Русский</strong> : <a href="https://github.com/rusrails/rusrails">https://github.com/rusrails/rusrails</a>
 </li><li><strong>Японский</strong> : <a href="https://github.com/yasslab/railsguides.jp">https://github.com/yasslab/railsguides.jp</a>
 </li><li><strong>Бразильский португальский</strong> : <a href="https://github.com/campuscode/rails-guides-pt-BR">https://github.com/campuscode/rails-guides-pt-BR</a>
-</li></ul><h3 id='contributing-to-the-rails-code' class='inside_page_header'><a href="#contributing-to-the-rails-code">5.</a>  Вносим вклад в код Rails</h3><h4 id='setting-up-a-development-environment' class='inside_page_header'><a href="#setting-up-a-development-environment">5.1.</a>  Настраиваем среду разработки</h4><p>Чтобы продвинуться от подтверждения программных ошибок к помощи в разрешении существующих проблем или внесения собственного кода в Ruby on Rails, вы <em>должны</em> уметь запускать его тестовый набор. В этом разделе руководства вы изучите, как настроить тесты на своем компьютере.</p><h5 id='ispolzovanie-github-codespaces' class='inside_page_header'><a href="#ispolzovanie-github-codespaces">5.1.1.</a> Использование GitHub Codespaces</h5><p>Если вы член организации со включенными codespaces, можно сделать форк Rails в организацию и использовать codespaces на GitHub. Codespace будут инициализированы со всеми требуемыми зависимостями и позволят запускать все тесты.</p><h5 id='ispolzovanie-udalennyh-konteynerov-vs-code' class='inside_page_header'><a href="#ispolzovanie-udalennyh-konteynerov-vs-code">5.1.2.</a> Использование удаленных контейнеров VS Code</h5><p>Если у вас есть установленные <a href="https://code.visualstudio.com">Visual Studio Code</a> и <a href="https://www.docker.com">Docker</a>, можно использовать <a href="https://code.visualstudio.com/docs/remote/containers-tutorial">плагин для удаленных контейнеров VS Code</a>. Плагин прочитает конфигурацию <a href="https://github.com/rails/rails/tree/main/.devcontainer"><code>.devcontainer</code></a> в репозитории и построит контейнер Docker локально.</p><h5 id='ispolzovanie-rails-dev-box' class='inside_page_header'><a href="#ispolzovanie-rails-dev-box">5.1.3.</a> Использование rails-dev-box</h5><p>Также возможно использовать <a href="https://github.com/rails/rails-dev-box">rails-dev-box</a>, чтобы получить готовую среду разработки. Однако, rails-dev-box использует Vagrant и Virtual Box, которые не работают на Mac с Apple silicon.</p><h5 id='lokalnaya-razrabotka' class='inside_page_header'><a href="#lokalnaya-razrabotka">5.1.4.</a> Локальная разработка</h5><p>Когда вы не можете использовать GitHub Codespaces, смотрите <a href="/development_dependencies_install">это другое руководство</a> о том, как настроить локальную разработку. Это рассматривается как сложный способ, так как установка зависимостей может быть специфичной для операционной системы.</p><h4 id='klonirovanie-repozitoriya-rails' class='inside_page_header'><a href="#klonirovanie-repozitoriya-rails">5.2.</a> Клонирование репозитория Rails</h4><p>Чтобы вносить изменения в код, необходимо клонировать репозиторий Rails:</p><div class="code_container">
+</li></ul><h3 id='contributing-to-the-rails-code' class='inside_page_header'><a href="#contributing-to-the-rails-code">5.</a> Вносим вклад в код Rails</h3><h4 id='setting-up-a-development-environment' class='inside_page_header'><a href="#setting-up-a-development-environment">5.1.</a> Настраиваем среду разработки</h4><p>Чтобы продвинуться от подтверждения программных ошибок к помощи в разрешении существующих проблем или внесения собственного кода в Ruby on Rails, вы <em>должны</em> уметь запускать его тестовый набор. В этом разделе руководства вы изучите, как настроить тесты на своем компьютере.</p><h5 id='ispolzovanie-github-codespaces' class='inside_page_header'><a href="#ispolzovanie-github-codespaces">5.1.1.</a> Использование GitHub Codespaces</h5><p>Если вы член организации со включенными codespaces, можно сделать форк Rails в организацию и использовать codespaces на GitHub. Codespace будут инициализированы со всеми требуемыми зависимостями и позволят запускать все тесты.</p><h5 id='ispolzovanie-udalennyh-konteynerov-vs-code' class='inside_page_header'><a href="#ispolzovanie-udalennyh-konteynerov-vs-code">5.1.2.</a> Использование удаленных контейнеров VS Code</h5><p>Если у вас есть установленные <a href="https://code.visualstudio.com">Visual Studio Code</a> и <a href="https://www.docker.com">Docker</a>, можно использовать <a href="https://code.visualstudio.com/docs/remote/containers-tutorial">плагин для удаленных контейнеров VS Code</a>. Плагин прочитает конфигурацию <a href="https://github.com/rails/rails/tree/main/.devcontainer"><code>.devcontainer</code></a> в репозитории и построит контейнер Docker локально.</p><h5 id='ispolzovanie-rails-dev-box' class='inside_page_header'><a href="#ispolzovanie-rails-dev-box">5.1.3.</a> Использование rails-dev-box</h5><p>Также возможно использовать <a href="https://github.com/rails/rails-dev-box">rails-dev-box</a>, чтобы получить готовую среду разработки. Однако, rails-dev-box использует Vagrant и Virtual Box, которые не работают на Mac с Apple silicon.</p><h5 id='lokalnaya-razrabotka' class='inside_page_header'><a href="#lokalnaya-razrabotka">5.1.4.</a> Локальная разработка</h5><p>Когда вы не можете использовать GitHub Codespaces, смотрите <a href="/development_dependencies_install">это другое руководство</a> о том, как настроить локальную разработку. Это рассматривается как сложный способ, так как установка зависимостей может быть специфичной для операционной системы.</p><h4 id='klonirovanie-repozitoriya-rails' class='inside_page_header'><a href="#klonirovanie-repozitoriya-rails">5.2.</a> Клонирование репозитория Rails</h4><p>Чтобы вносить изменения в код, необходимо клонировать репозиторий Rails:</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>clone https://github.com/rails/rails.git
 </code></pre>
 </div>
@@ -423,7 +423,7 @@
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bundle install</span>
 </code></pre>
 </div>
-<h4 id='running-an-application-against-your-local-branch' class='inside_page_header'><a href="#running-an-application-against-your-local-branch">5.4.</a>  Запуск приложения на вашей локальной ветке</h4><p>Если вам нужно приложение Rails для тестирования изменений, флажок <code>--dev</code> для <code>rails new</code> создаст приложение, использующее вашу локальную ветку:</p><div class="code_container">
+<h4 id='running-an-application-against-your-local-branch' class='inside_page_header'><a href="#running-an-application-against-your-local-branch">5.4.</a> Запуск приложения на вашей локальной ветке</h4><p>Если вам нужно приложение Rails для тестирования изменений, флажок <code>--dev</code> для <code>rails new</code> создаст приложение, использующее вашу локальную ветку:</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd rails</span>
 <span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rails </span>new ~/my-test-app <span class="nt">--dev</span>
 </code></pre>
@@ -440,7 +440,7 @@
 </li><li>Включайте тесты, которые падают без вашего кода, и проходят с ним.
 </li><li>Обновляйте документацию, примеры и руководства: все, что было затронуто вашим вкладом.
 </li><li>Если изменения добавляют, убирают или изменяют особенность, убедитесь, что включили запись CHANGELOG. Если ваше изменение исправляет ошибку, запись CHANGELOG не обязательна.
-</li></ul><div class="info"><p>Косметические изменения, не добавляющие ничего ощутимого в стабильность, функциональность или тестируемость Rails, обычно не принимаются (читайте подробнее об <a href="https://github.com/rails/rails/pull/13771#issuecomment-32746700">обосновании этого решения</a>).</p></div><h5 id='follow-the-coding-conventions' class='inside_page_header'><a href="#follow-the-coding-conventions">5.5.1.</a>  Следуйте соглашениям по программированию</h5><p>Rails следует простому набору соглашений о стиле кода:</p><ul><li>Два пробела, нет табуляции (для отступов).
+</li></ul><div class="info"><p>Косметические изменения, не добавляющие ничего ощутимого в стабильность, функциональность или тестируемость Rails, обычно не принимаются (читайте подробнее об <a href="https://github.com/rails/rails/pull/13771#issuecomment-32746700">обосновании этого решения</a>).</p></div><h5 id='follow-the-coding-conventions' class='inside_page_header'><a href="#follow-the-coding-conventions">5.5.1.</a> Следуйте соглашениям по программированию</h5><p>Rails следует простому набору соглашений о стиле кода:</p><ul><li>Два пробела, нет табуляции (для отступов).
 </li><li>Нет конечных пробелов. Пустые строчки не должны иметь пробелов.
 </li><li>Отступ без пустой строчки после private/protected.
 </li><li>Используйте синтаксис Ruby &gt;= 1.9 для хэшей. Предпочитайте <code>{ a: :b }</code> над <code>{ :a =&gt; :b }</code>.

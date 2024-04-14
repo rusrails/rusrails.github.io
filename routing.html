@@ -132,7 +132,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#resource-routing-the-rails-default">2.  Ресурсный роутинг: по умолчанию в Rails</a>
+          <a href="#resource-routing-the-rails-default">2. Ресурсный роутинг: по умолчанию в Rails</a>
 </h4>      </li>
       <li>
         <h5>
@@ -152,7 +152,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#singular-resources">2.5.  Одиночные ресурсы</a>
+          <a href="#singular-resources">2.5. Одиночные ресурсы</a>
 </h5>      </li>
       <li>
         <h5>
@@ -204,7 +204,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#dynamic-segments">3.2.  Динамические сегменты</a>
+          <a href="#dynamic-segments">3.2. Динамические сегменты</a>
 </h5>      </li>
       <li>
         <h5>
@@ -228,7 +228,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#segment-constraints">3.8.  Ограничения сегмента</a>
+          <a href="#segment-constraints">3.8. Ограничения сегмента</a>
 </h5>      </li>
       <li>
         <h5>
@@ -236,7 +236,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#advanced-constraints">3.10.  Продвинутые ограничения</a>
+          <a href="#advanced-constraints">3.10. Продвинутые ограничения</a>
 </h5>      </li>
       <li>
         <h6>
@@ -300,7 +300,7 @@
 </h6>      </li>
       <li>
         <h5>
-          <a href="#restricting-the-routes-created">4.6.  Ограничение создаваемых маршрутов</a>
+          <a href="#restricting-the-routes-created">4.6. Ограничение создаваемых маршрутов</a>
 </h5>      </li>
       <li>
         <h5>
@@ -332,7 +332,7 @@
 </h4>      </li>
       <li>
         <h5>
-          <a href="#listing-existing-routes">6.1.  Список существующих маршрутов</a>
+          <a href="#listing-existing-routes">6.1. Список существующих маршрутов</a>
 </h5>      </li>
       <li>
         <h5>
@@ -422,7 +422,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Поскольку это обычный исходный файл Ruby, можно использовать все его особенности, чтобы помочь определять маршруты, но необходимо быть осторожным с именами переменных, так как они могут конфликтовать с методами DSL маршрутизатора.</p><div class="note"><p>Блок <code>Rails.application.routes.draw do ... end</code>, который оборачивает определения маршрутов, требует создания области видимости для DSL маршрутизатора и не должен быть удален.</p></div><h3 id='resource-routing-the-rails-default' class='inside_page_header'><a href="#resource-routing-the-rails-default">2.</a>  Ресурсный роутинг: по умолчанию в Rails</h3><p>Ресурсный роутинг позволяет быстро объявлять все общие маршруты для заданного ресурсного контроллера. Единственный вызов <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Resources.html#method-i-resources"><code>resources</code></a> может объявить все маршруты, необходимые для экшнов <code>index</code>, <code>show</code>, <code>new</code>, <code>edit</code>, <code>create</code>, <code>update</code> и <code>destroy</code>.</p><h4 id='resursy-v-vebe' class='inside_page_header'><a href="#resursy-v-vebe">2.1.</a> Ресурсы в вебе</h4><p>Браузеры запрашивают страницы от Rails, выполняя запрос по URL, используя определенный метод HTTP, такой как <code>GET</code>, <code>POST</code>, <code>PATCH</code>, <code>PUT</code> и <code>DELETE</code>. Каждый метод - это запрос на выполнение операции с ресурсом. Ресурсный маршрут соединяет несколько родственных запросов с экшнами в одном контроллере.</p><p>Когда приложение на Rails получает входящий запрос для:</p><div class="code_container">
+<p>Поскольку это обычный исходный файл Ruby, можно использовать все его особенности, чтобы помочь определять маршруты, но необходимо быть осторожным с именами переменных, так как они могут конфликтовать с методами DSL маршрутизатора.</p><div class="note"><p>Блок <code>Rails.application.routes.draw do ... end</code>, который оборачивает определения маршрутов, требует создания области видимости для DSL маршрутизатора и не должен быть удален.</p></div><h3 id='resource-routing-the-rails-default' class='inside_page_header'><a href="#resource-routing-the-rails-default">2.</a> Ресурсный роутинг: по умолчанию в Rails</h3><p>Ресурсный роутинг позволяет быстро объявлять все общие маршруты для заданного ресурсного контроллера. Единственный вызов <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Resources.html#method-i-resources"><code>resources</code></a> может объявить все маршруты, необходимые для экшнов <code>index</code>, <code>show</code>, <code>new</code>, <code>edit</code>, <code>create</code>, <code>update</code> и <code>destroy</code>.</p><h4 id='resursy-v-vebe' class='inside_page_header'><a href="#resursy-v-vebe">2.1.</a> Ресурсы в вебе</h4><p>Браузеры запрашивают страницы от Rails, выполняя запрос по URL, используя определенный метод HTTP, такой как <code>GET</code>, <code>POST</code>, <code>PATCH</code>, <code>PUT</code> и <code>DELETE</code>. Каждый метод - это запрос на выполнение операции с ресурсом. Ресурсный маршрут соединяет несколько родственных запросов с экшнами в одном контроллере.</p><p>Когда приложение на Rails получает входящий запрос для:</p><div class="code_container">
   <pre><code class="highlight plaintext">DELETE /photos/17
 </code></pre>
 </div>
@@ -496,7 +496,7 @@
 <span class="n">resources</span> <span class="ss">:videos</span>
 </code></pre>
 </div>
-<h4 id='singular-resources' class='inside_page_header'><a href="#singular-resources">2.5.</a>  Одиночные ресурсы</h4><p>Иногда имеется ресурс, который клиенты всегда просматривают без ссылки на ID. Обычный пример, <code>/profile</code> всегда показывает профиль текущего зарегистрированного пользователя. Для этого можно использовать одиночный ресурс, чтобы связать <code>/profile</code> (а не <code>/profile/:id</code>) с экшном <code>show</code>:</p><div class="code_container">
+<h4 id='singular-resources' class='inside_page_header'><a href="#singular-resources">2.5.</a> Одиночные ресурсы</h4><p>Иногда имеется ресурс, который клиенты всегда просматривают без ссылки на ID. Обычный пример, <code>/profile</code> всегда показывает профиль текущего зарегистрированного пользователя. Для этого можно использовать одиночный ресурс, чтобы связать <code>/profile</code> (а не <code>/profile/:id</code>) с экшном <code>show</code>:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'profile'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'users#show'</span>
 </code></pre>
 </div>
@@ -1166,7 +1166,7 @@
   <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'photos(/:id)'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'photos#display'</span>
 </code></pre>
 </div>
-<p>Если входящий запрос <code>/photos/1</code> обрабатывается этим маршрутом (так как он не соответствует любому предыдущему маршруту до этого), то результатом будет вызов экшна <code>display</code> в <code>PhotosController</code>, и результирующий параметр <code>&quot;1&quot;</code> будет доступен как <code>params[:id]</code>. Этот маршрут также свяжет входящий запрос <code>/photos</code> с <code>PhotosController#display</code>, поскольку <code>:id</code> — опциональный параметр, обозначенный скобками.</p><h4 id='dynamic-segments' class='inside_page_header'><a href="#dynamic-segments">3.2.</a>  Динамические сегменты</h4><p>Можете настроить сколько угодно динамических сегментов в обычном маршруте. Любой сегмент будет доступен для соответствующего экшна как часть хэша params. Таким образом, если настроите такой маршрут:</p><div class="code_container">
+<p>Если входящий запрос <code>/photos/1</code> обрабатывается этим маршрутом (так как он не соответствует любому предыдущему маршруту до этого), то результатом будет вызов экшна <code>display</code> в <code>PhotosController</code>, и результирующий параметр <code>&quot;1&quot;</code> будет доступен как <code>params[:id]</code>. Этот маршрут также свяжет входящий запрос <code>/photos</code> с <code>PhotosController#display</code>, поскольку <code>:id</code> — опциональный параметр, обозначенный скобками.</p><h4 id='dynamic-segments' class='inside_page_header'><a href="#dynamic-segments">3.2.</a> Динамические сегменты</h4><p>Можете настроить сколько угодно динамических сегментов в обычном маршруте. Любой сегмент будет доступен для соответствующего экшна как часть хэша params. Таким образом, если настроите такой маршрут:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'photos/:id/:user_id'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'photos#show'</span>
 </code></pre>
 </div>
@@ -1205,7 +1205,7 @@
   <pre><code class="highlight ruby"><span class="n">match</span> <span class="s1">'photos'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'photos#show'</span><span class="p">,</span> <span class="ss">via: :all</span>
 </code></pre>
 </div>
-<div class="note"><p>Роутинг запросов <code>GET</code> и <code>POST</code> одновременно в один экшн небезопасен. В основном, следует избегать роутинг всех методов в экшн, если нет веской причины делать так.</p></div><div class="note"><p><code>GET</code> в Rails не проверяет токен CSRF. Никогда не пишите в базу данных из <code>GET</code> запросов, подробнее о контрмерах CSRF смотрите в руководстве <a href="/security#csrf-countermeasures">Безопасность приложений на Rails</a>.</p></div><h4 id='segment-constraints' class='inside_page_header'><a href="#segment-constraints">3.8.</a>  Ограничения сегмента</h4><p>Можно использовать опцию <code>:constraints</code> для соблюдения формата динамического сегмента:</p><div class="code_container">
+<div class="note"><p>Роутинг запросов <code>GET</code> и <code>POST</code> одновременно в один экшн небезопасен. В основном, следует избегать роутинг всех методов в экшн, если нет веской причины делать так.</p></div><div class="note"><p><code>GET</code> в Rails не проверяет токен CSRF. Никогда не пишите в базу данных из <code>GET</code> запросов, подробнее о контрмерах CSRF смотрите в руководстве <a href="/security#csrf-countermeasures">Безопасность приложений на Rails</a>.</p></div><h4 id='segment-constraints' class='inside_page_header'><a href="#segment-constraints">3.8.</a> Ограничения сегмента</h4><p>Можно использовать опцию <code>:constraints</code> для соблюдения формата динамического сегмента:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'photos/:id'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'photos#show'</span><span class="p">,</span> <span class="ss">constraints: </span><span class="p">{</span> <span class="ss">id: </span><span class="sr">/[A-Z]\d{5}/</span> <span class="p">}</span>
 </code></pre>
 </div>
@@ -1234,7 +1234,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<div class="note"><p>Ограничения запроса работают, вызывая метод на <a href="/action-controller-overview#the-request-and-response-objects">объекте Request</a> с тем же именем, что и ключ хэша, а затем сравнивают возвращенное значение со значением хэша. Следовательно, значения ограничений должны соответствовать возвращаемому типу соответствующего метода объекта Request. Например: <code>constraints: { subdomain: &#39;api&#39; }</code> будет соответствовать поддомену <code>api</code>, как и ожидалось, однако, использование символа <code>constraints: { subdomain: :api }</code> не будет, так как <code>request.subdomain</code> возвращает <code>&#39;api&#39;</code> как строку.</p></div><div class="note"><p>Имеется исключения для ограничения <code>format</code>: так как это метод на объекте Request, это также неявный опциональный параметр для каждого пути. Ограничения сегмента имеют приоритет, и ограничение <code>format</code> применяется как есть, даже когда передано в хэше. Например, <code>get &#39;foo&#39;, constraints: { format: &#39;json&#39; }</code> будет соответствовать <code>GET  /foo</code>, так как формат опциональный по умолчанию. Однако, <a href="#advanced-constraints">используя lambda</a>, как в <code>get &#39;foo&#39;, constraints: lambda { |req| req.format == :json }</code>, маршрут будет соответствовать только явным запросам JSON.</p></div><h4 id='advanced-constraints' class='inside_page_header'><a href="#advanced-constraints">3.10.</a>  Продвинутые ограничения</h4><p>Если имеется более продвинутое ограничение, можете предоставить объект, отвечающий на <code>matches?</code>, который будет использовать Rails. Скажем, вы хотите направить всех пользователей через список ограничений в <code>RestrictedListController</code>. Можно сделать так:</p><div class="code_container">
+<div class="note"><p>Ограничения запроса работают, вызывая метод на <a href="/action-controller-overview#the-request-and-response-objects">объекте Request</a> с тем же именем, что и ключ хэша, а затем сравнивают возвращенное значение со значением хэша. Следовательно, значения ограничений должны соответствовать возвращаемому типу соответствующего метода объекта Request. Например: <code>constraints: { subdomain: &#39;api&#39; }</code> будет соответствовать поддомену <code>api</code>, как и ожидалось, однако, использование символа <code>constraints: { subdomain: :api }</code> не будет, так как <code>request.subdomain</code> возвращает <code>&#39;api&#39;</code> как строку.</p></div><div class="note"><p>Имеется исключения для ограничения <code>format</code>: так как это метод на объекте Request, это также неявный опциональный параметр для каждого пути. Ограничения сегмента имеют приоритет, и ограничение <code>format</code> применяется как есть, даже когда передано в хэше. Например, <code>get &#39;foo&#39;, constraints: { format: &#39;json&#39; }</code> будет соответствовать <code>GET  /foo</code>, так как формат опциональный по умолчанию. Однако, <a href="#advanced-constraints">используя lambda</a>, как в <code>get &#39;foo&#39;, constraints: lambda { |req| req.format == :json }</code>, маршрут будет соответствовать только явным запросам JSON.</p></div><h4 id='advanced-constraints' class='inside_page_header'><a href="#advanced-constraints">3.10.</a> Продвинутые ограничения</h4><p>Если имеется более продвинутое ограничение, можете предоставить объект, отвечающий на <code>matches?</code>, который будет использовать Rails. Скажем, вы хотите направить всех пользователей через список ограничений в <code>RestrictedListController</code>. Можно сделать так:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">RestrictedListConstraint</span>
   <span class="k">def</span> <span class="nf">initialize</span>
     <span class="vi">@ips</span> <span class="o">=</span> <span class="no">RestrictedList</span><span class="p">.</span><span class="nf">retrieve_ips</span>
@@ -1539,7 +1539,7 @@
 <span class="n">form_with</span><span class="p">(</span><span class="ss">model: </span><span class="p">[</span><span class="vi">@account</span><span class="p">,</span> <span class="vi">@article</span><span class="p">])</span>   <span class="c1"># =&gt; &lt;form action="/1/article/9" ...&gt;</span>
 </code></pre>
 </div>
-<p>Мы <a href="#segment-constraints">используем ограничения сегмента</a>, чтобы ограничить пространство, соответствующее только строкам, похожим на ID. Это ограничение можно изменить, приспособив к вашим нуждам, или полностью пропустить. Опция <code>:as</code> также не строго обязательна, но без нее Rails вызовет ошибку при вычислении <code>url_for([@account, @article])</code> или других хелперов, полагающихся на <code>url_for</code>, таких как <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_with"><code>form_with</code></a>.</p><h4 id='restricting-the-routes-created' class='inside_page_header'><a href="#restricting-the-routes-created">4.6.</a>  Ограничение создаваемых маршрутов</h4><p>По умолчанию Rails создает маршруты для всех семи дефолтных экшнов (<code>index</code>, <code>show</code>, <code>new</code>, <code>create</code>, <code>edit</code>, <code>update</code> и <code>destroy</code>) для каждого маршрута RESTful вашего приложения. Можно использовать опции <code>:only</code> и <code>:except</code> для точной настройки этого поведения. Опция <code>:only</code> говорит Rails создать только определенные маршруты:</p><div class="code_container">
+<p>Мы <a href="#segment-constraints">используем ограничения сегмента</a>, чтобы ограничить пространство, соответствующее только строкам, похожим на ID. Это ограничение можно изменить, приспособив к вашим нуждам, или полностью пропустить. Опция <code>:as</code> также не строго обязательна, но без нее Rails вызовет ошибку при вычислении <code>url_for([@account, @article])</code> или других хелперов, полагающихся на <code>url_for</code>, таких как <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_with"><code>form_with</code></a>.</p><h4 id='restricting-the-routes-created' class='inside_page_header'><a href="#restricting-the-routes-created">4.6.</a> Ограничение создаваемых маршрутов</h4><p>По умолчанию Rails создает маршруты для всех семи дефолтных экшнов (<code>index</code>, <code>show</code>, <code>new</code>, <code>create</code>, <code>edit</code>, <code>update</code> и <code>destroy</code>) для каждого маршрута RESTful вашего приложения. Можно использовать опции <code>:only</code> и <code>:except</code> для точной настройки этого поведения. Опция <code>:only</code> говорит Rails создать только определенные маршруты:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">resources</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:index</span><span class="p">,</span> <span class="ss">:show</span><span class="p">]</span>
 </code></pre>
 </div>
@@ -1659,7 +1659,7 @@ edit_video GET  /videos/:identifier/edit(.:format) videos#edit
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Вызов <code>draw(:admin)</code> в блоке <code>Rails.application.routes.draw</code> попытается загрузить маршрутный файл, по имени. заданному аргументом (в этом примере <code>admin.rb</code>). Файл должен быть расположен в директории <code>config/routes</code> или любой поддиректории (например, <code>config/routes/admin.rb</code> , <code>config/routes/external/admin.rb</code>).</p><p>Внутри маршрутного файла <code>admin.rb</code> можно использовать любой маршрутный DSL, но <strong>не следует</strong> оборачивать его в блок <code>Rails.application.routes.draw</code>, как это сделано в основном файле <code>config/routes.rb</code>.</p><h4 id='ne-ispolzuyte-etu-osobennost-esli-vy-ne-nuzhdaetes-v-ney-realno' class='inside_page_header'><a href="#ne-ispolzuyte-etu-osobennost-esli-vy-ne-nuzhdaetes-v-ney-realno">5.1.</a> Не используйте эту особенность, если вы не нуждаетесь в ней реально</h4><p>Множество маршрутных файлов делает сложнее понятность и понимание. Для большинства приложений - даже с сотнями маршрутов - разработчикам проще иметь один маршрутный файл. DSL маршрутизации Rails уже предлагает способ разделения маршрутов организованным способом с помощью <code>namespaces</code> и <code>scopes</code>.</p><h3 id='osmotr-i-testirovanie-marshrutov' class='inside_page_header'><a href="#osmotr-i-testirovanie-marshrutov">6.</a> Осмотр и тестирование маршрутов</h3><p>Rails предлагает инструменты для осмотра и тестирования маршрутов.</p><h4 id='listing-existing-routes' class='inside_page_header'><a href="#listing-existing-routes">6.1.</a>  Список существующих маршрутов</h4><p>Чтобы получить полный список всех доступных маршрутов вашего приложения, посетите <a href="http://localhost:3000/rails/info/routes">http://localhost:3000/rails/info/routes</a> в браузере, в то время как ваш сервер запущен в режиме <strong>development</strong>. Команда <code>bin/rails routes</code>, выполненная в терминале, выдаст тот же результат.</p><p>Оба метода напечатают все ваши маршруты, в том же порядке, что они появляются в <code>config/routes.rb</code>. Для каждого маршрута вы увидите:</p><ul><li>Имя маршрута (если имеется)
+<p>Вызов <code>draw(:admin)</code> в блоке <code>Rails.application.routes.draw</code> попытается загрузить маршрутный файл, по имени. заданному аргументом (в этом примере <code>admin.rb</code>). Файл должен быть расположен в директории <code>config/routes</code> или любой поддиректории (например, <code>config/routes/admin.rb</code> , <code>config/routes/external/admin.rb</code>).</p><p>Внутри маршрутного файла <code>admin.rb</code> можно использовать любой маршрутный DSL, но <strong>не следует</strong> оборачивать его в блок <code>Rails.application.routes.draw</code>, как это сделано в основном файле <code>config/routes.rb</code>.</p><h4 id='ne-ispolzuyte-etu-osobennost-esli-vy-ne-nuzhdaetes-v-ney-realno' class='inside_page_header'><a href="#ne-ispolzuyte-etu-osobennost-esli-vy-ne-nuzhdaetes-v-ney-realno">5.1.</a> Не используйте эту особенность, если вы не нуждаетесь в ней реально</h4><p>Множество маршрутных файлов делает сложнее понятность и понимание. Для большинства приложений - даже с сотнями маршрутов - разработчикам проще иметь один маршрутный файл. DSL маршрутизации Rails уже предлагает способ разделения маршрутов организованным способом с помощью <code>namespaces</code> и <code>scopes</code>.</p><h3 id='osmotr-i-testirovanie-marshrutov' class='inside_page_header'><a href="#osmotr-i-testirovanie-marshrutov">6.</a> Осмотр и тестирование маршрутов</h3><p>Rails предлагает инструменты для осмотра и тестирования маршрутов.</p><h4 id='listing-existing-routes' class='inside_page_header'><a href="#listing-existing-routes">6.1.</a> Список существующих маршрутов</h4><p>Чтобы получить полный список всех доступных маршрутов вашего приложения, посетите <a href="http://localhost:3000/rails/info/routes">http://localhost:3000/rails/info/routes</a> в браузере, в то время как ваш сервер запущен в режиме <strong>development</strong>. Команда <code>bin/rails routes</code>, выполненная в терминале, выдаст тот же результат.</p><p>Оба метода напечатают все ваши маршруты, в том же порядке, что они появляются в <code>config/routes.rb</code>. Для каждого маршрута вы увидите:</p><ul><li>Имя маршрута (если имеется)
 </li><li>Используемый метод HTTP (если маршрут реагирует не на все методы)
 </li><li>Шаблон URL
 </li><li>Параметры роутинга для этого маршрута

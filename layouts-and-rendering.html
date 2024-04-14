@@ -196,7 +196,7 @@
 </h7>      </li>
       <li>
         <h7>
-          <a href="#the-status-option">2.2.13.4.  Опция <code>:status</code></a>
+          <a href="#the-status-option">2.2.13.4. Опция <code>:status</code></a>
 </h7>      </li>
       <li>
         <h7>
@@ -292,7 +292,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#using-partials">3.4.  Использование партиалов</a>
+          <a href="#using-partials">3.4. Использование партиалов</a>
 </h5>      </li>
       <li>
         <h6>
@@ -531,7 +531,7 @@
   <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">xml: </span><span class="n">photo</span><span class="p">,</span> <span class="ss">location: </span><span class="n">photo_url</span><span class="p">(</span><span class="n">photo</span><span class="p">)</span>
 </code></pre>
 </div>
-<h6 id='the-status-option' class='inside_page_header'><a href="#the-status-option">2.2.13.4.</a>  Опция <code>:status</code></h6><p>Rails автоматически сгенерирует отклик с правильным кодом статуса HTML (в большинстве случаев равный <code>200 OK</code>). Опцию <code>:status</code> можно использовать, чтобы изменить это:</p><div class="code_container">
+<h6 id='the-status-option' class='inside_page_header'><a href="#the-status-option">2.2.13.4.</a> Опция <code>:status</code></h6><p>Rails автоматически сгенерирует отклик с правильным кодом статуса HTML (в большинстве случаев равный <code>200 OK</code>). Опцию <code>:status</code> можно использовать, чтобы изменить это:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">render</span> <span class="ss">status: </span><span class="mi">500</span>
 <span class="n">render</span> <span class="ss">status: :forbidden</span>
 </code></pre>
@@ -1249,7 +1249,7 @@ There are no items in this list <span class="nt">&lt;em&gt;</span>yet<span class
 <span class="nt">&lt;/html&gt;</span>
 </code></pre>
 </div>
-<p>Метод <code>content_for</code> может помочь, когда макет содержит отдельные разделы, такие как боковые панели или футеры, в которые нужно вставить свои блоки содержимого. Это также полезно при вставке тегов, загружающих специфичные для страницы файлы JavaScript или CSS в хедер макета в целом.</p><h4 id='using-partials' class='inside_page_header'><a href="#using-partials">3.4.</a>  Использование партиалов</h4><p>Частичные шаблоны - также называемые &quot;партиалы&quot; - являются еще одним подходом к разделению процесса рендеринга на более управляемые кусочки. С партиалами можно перемещать код для рендеринга определенных частей отклика в свои отдельные файлы.</p><h5 id='imenovanie-partialov' class='inside_page_header'><a href="#imenovanie-partialov">3.4.1.</a> Именование партиалов</h5><p>Чтобы отрендерить партиал как часть вью, используем метод <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/RenderingHelper.html#method-i-render"><code>render</code></a> внутри вью:</p><div class="code_container">
+<p>Метод <code>content_for</code> может помочь, когда макет содержит отдельные разделы, такие как боковые панели или футеры, в которые нужно вставить свои блоки содержимого. Это также полезно при вставке тегов, загружающих специфичные для страницы файлы JavaScript или CSS в хедер макета в целом.</p><h4 id='using-partials' class='inside_page_header'><a href="#using-partials">3.4.</a> Использование партиалов</h4><p>Частичные шаблоны - также называемые &quot;партиалы&quot; - являются еще одним подходом к разделению процесса рендеринга на более управляемые кусочки. С партиалами можно перемещать код для рендеринга определенных частей отклика в свои отдельные файлы.</p><h5 id='imenovanie-partialov' class='inside_page_header'><a href="#imenovanie-partialov">3.4.1.</a> Именование партиалов</h5><p>Чтобы отрендерить партиал как часть вью, используем метод <a href="https://api.rubyonrails.org/classes/ActionView/Helpers/RenderingHelper.html#method-i-render"><code>render</code></a> внутри вью:</p><div class="code_container">
   <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s2">"menu"</span> <span class="cp">%&gt;</span>
 </code></pre>
 </div>

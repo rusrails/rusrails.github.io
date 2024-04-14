@@ -168,7 +168,7 @@
 </h6>      </li>
       <li>
         <h4>
-          <a href="#session">5.  Сессия</a>
+          <a href="#session">5. Сессия</a>
 </h4>      </li>
       <li>
         <h5>
@@ -184,7 +184,7 @@
 </h6>      </li>
       <li>
         <h4>
-          <a href="#cookies">6.  Куки</a>
+          <a href="#cookies">6. Куки</a>
 </h4>      </li>
       <li>
         <h4>
@@ -208,7 +208,7 @@
 </h4>      </li>
       <li>
         <h4>
-          <a href="#the-request-and-response-objects">10.  Объекты Request и Response</a>
+          <a href="#the-request-and-response-objects">10. Объекты Request и Response</a>
 </h4>      </li>
       <li>
         <h5>
@@ -256,7 +256,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#live-streaming-of-arbitrary-data">12.3.  Live Streaming произвольных данных</a>
+          <a href="#live-streaming-of-arbitrary-data">12.3. Live Streaming произвольных данных</a>
 </h5>      </li>
       <li>
         <h6>
@@ -276,7 +276,7 @@
 </h4>      </li>
       <li>
         <h5>
-          <a href="#parameters-filtering">13.1.  Фильтрация параметров</a>
+          <a href="#parameters-filtering">13.1. Фильтрация параметров</a>
 </h5>      </li>
       <li>
         <h5>
@@ -500,7 +500,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h5 id='za-predelami-oblasti-vidimosti-strong-parameters' class='inside_page_header'><a href="#za-predelami-oblasti-vidimosti-strong-parameters">4.5.4.</a> За пределами области видимости Strong Parameters</h5><p>Strong parameter API был разработан для наиболее общих вариантов использования. Это не панацея от всех ваших проблем белого списка. Однако можно легко смешивать API с вашим собственным кодом для адаптации к вашей ситуации.</p><h3 id='session' class='inside_page_header'><a href="#session">5.</a>  Сессия</h3><p>В приложении есть сессия для каждого пользователя, в которой можно хранить небольшие объемы данных, которые будут персистентными между запросами. Сессия доступна только в контроллере и во вью, и может использовать один из нескольких механизмов хранения:</p><ul><li><a href="https://api.rubyonrails.org/classes/ActionDispatch/Session/CookieStore.html"><code>ActionDispatch::Session::CookieStore</code></a> - Хранит все на клиенте.
+<h5 id='za-predelami-oblasti-vidimosti-strong-parameters' class='inside_page_header'><a href="#za-predelami-oblasti-vidimosti-strong-parameters">4.5.4.</a> За пределами области видимости Strong Parameters</h5><p>Strong parameter API был разработан для наиболее общих вариантов использования. Это не панацея от всех ваших проблем белого списка. Однако можно легко смешивать API с вашим собственным кодом для адаптации к вашей ситуации.</p><h3 id='session' class='inside_page_header'><a href="#session">5.</a> Сессия</h3><p>В приложении есть сессия для каждого пользователя, в которой можно хранить небольшие объемы данных, которые будут персистентными между запросами. Сессия доступна только в контроллере и во вью, и может использовать один из нескольких механизмов хранения:</p><ul><li><a href="https://api.rubyonrails.org/classes/ActionDispatch/Session/CookieStore.html"><code>ActionDispatch::Session::CookieStore</code></a> - Хранит все на клиенте.
 </li><li><a href="https://api.rubyonrails.org/classes/ActionDispatch/Session/CacheStore.html"><code>ActionDispatch::Session::CacheStore</code></a> - Хранит данные в кэше Rails.
 </li><li><a href="https://api.rubyonrails.org/classes/ActionDispatch/Session/MemCacheStore.html"><code>ActionDispatch::Session::MemCacheStore</code></a> - Хранит данные в кластере memcached (эта устаревшая реализация, вместо нее рассмотрите использование <code>CacheStore</code>).
 </li><li><code>ActionDispatch::Session::ActiveRecordStore</code> - Хранит данные в базе данных с использованием Active Record. (требует гем <a href="https://github.com/rails/activerecord-session_store"><code>activerecord-session_store</code></a>).
@@ -638,7 +638,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h3 id='cookies' class='inside_page_header'><a href="#cookies">6.</a>  Куки</h3><p>Приложение может хранить небольшое количество данных у клиента - в так называемых куки - которые будут персистентными между запросами и даже сессиями. Rails обеспечивает простой доступ к куки посредством метода <a href="https://api.rubyonrails.org/classes/ActionController/Cookies.html#method-i-cookies"><code>cookies</code></a>, который - очень похож на <code>session</code> - и работает как хэш:</p><div class="code_container">
+<h3 id='cookies' class='inside_page_header'><a href="#cookies">6.</a> Куки</h3><p>Приложение может хранить небольшое количество данных у клиента - в так называемых куки - которые будут персистентными между запросами и даже сессиями. Rails обеспечивает простой доступ к куки посредством метода <a href="https://api.rubyonrails.org/classes/ActionController/Cookies.html#method-i-cookies"><code>cookies</code></a>, который - очень похож на <code>session</code> - и работает как хэш:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CommentsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="k">def</span> <span class="nf">new</span>
     <span class="c1"># Автозаполнение имени комментатора, если оно хранится в куки.</span>
@@ -783,7 +783,7 @@
 <span class="nt">&lt;/form&gt;</span>
 </code></pre>
 </div>
-<p>Rails добавит этот токен в каждую форму, генерируемую с помощью <a href="/form-helpers">хелперов форм</a>, таким образом, большую часть времени можете об этом не беспокоиться. Если вы пишете формы вручную или хотите добавить токен по другой причине, это можно сделать, используя метод <code>form_authenticity_token</code>:</p><p><code>form_authenticity_token</code> генерирует валидный аутентификационный токен. Его полезно размещать в тех местах, куда Rails не добавляет его автоматически, например в произвольные вызовы Ajax.</p><p>В руководстве <a href="/security">Безопасность приложений на Rails</a> имеется более подробная информация об этом, и множество других вопросов, посвященных безопасности, которые вы должны принимать во внимание при разработке веб-приложения.</p><h3 id='the-request-and-response-objects' class='inside_page_header'><a href="#the-request-and-response-objects">10.</a>  Объекты Request и Response</h3><p>В каждом контроллере есть два акцессор-метода, указывающих на объекты запроса и отклика, связанные с циклом запроса, находящегося в текущее время на стадии выполнения. Метод <a href="https://api.rubyonrails.org/classes/ActionController/Base.html#method-i-request"><code>request</code></a> содержит экземпляр <a href="https://api.rubyonrails.org/classes/ActionDispatch/Request.html"><code>ActionDispatch::Request</code></a>, а метод <a href="https://api.rubyonrails.org/classes/ActionController/Base.html#method-i-response"><code>response</code></a> возвращает объект отклика, представляющий то, что будет отправлено обратно на клиента.</p><h4 id='ob-ekt-request' class='inside_page_header'><a href="#ob-ekt-request">10.1.</a> Объект <code>request</code></h4><p>Объект request содержит множество полезной информации о запросе, полученном с клиента. Чтобы получить полный перечень доступных методов, обратитесь к <a href="https://api.rubyonrails.org/classes/ActionDispatch/Request.html">документации по Rails API</a> и <a href="https://www.rubydoc.info/github/rack/rack/Rack/Request">документации по Rack</a>. В числе свойств, доступных для этого объекта, следующие:</p><table class='table table-striped'><tr>
+<p>Rails добавит этот токен в каждую форму, генерируемую с помощью <a href="/form-helpers">хелперов форм</a>, таким образом, большую часть времени можете об этом не беспокоиться. Если вы пишете формы вручную или хотите добавить токен по другой причине, это можно сделать, используя метод <code>form_authenticity_token</code>:</p><p><code>form_authenticity_token</code> генерирует валидный аутентификационный токен. Его полезно размещать в тех местах, куда Rails не добавляет его автоматически, например в произвольные вызовы Ajax.</p><p>В руководстве <a href="/security">Безопасность приложений на Rails</a> имеется более подробная информация об этом, и множество других вопросов, посвященных безопасности, которые вы должны принимать во внимание при разработке веб-приложения.</p><h3 id='the-request-and-response-objects' class='inside_page_header'><a href="#the-request-and-response-objects">10.</a> Объекты Request и Response</h3><p>В каждом контроллере есть два акцессор-метода, указывающих на объекты запроса и отклика, связанные с циклом запроса, находящегося в текущее время на стадии выполнения. Метод <a href="https://api.rubyonrails.org/classes/ActionController/Base.html#method-i-request"><code>request</code></a> содержит экземпляр <a href="https://api.rubyonrails.org/classes/ActionDispatch/Request.html"><code>ActionDispatch::Request</code></a>, а метод <a href="https://api.rubyonrails.org/classes/ActionController/Base.html#method-i-response"><code>response</code></a> возвращает объект отклика, представляющий то, что будет отправлено обратно на клиента.</p><h4 id='ob-ekt-request' class='inside_page_header'><a href="#ob-ekt-request">10.1.</a> Объект <code>request</code></h4><p>Объект request содержит множество полезной информации о запросе, полученном с клиента. Чтобы получить полный перечень доступных методов, обратитесь к <a href="https://api.rubyonrails.org/classes/ActionDispatch/Request.html">документации по Rails API</a> и <a href="https://www.rubydoc.info/github/rack/rack/Rack/Request">документации по Rack</a>. В числе свойств, доступных для этого объекта, следующие:</p><table class='table table-striped'><tr>
 <th>Свойство <code>request</code></th>
 <th>Назначение</th>
 </tr>
@@ -959,7 +959,7 @@
   <pre><code class="highlight plaintext">GET /clients/1.pdf
 </code></pre>
 </div>
-<h4 id='live-streaming-of-arbitrary-data' class='inside_page_header'><a href="#live-streaming-of-arbitrary-data">12.3.</a>  Live Streaming произвольных данных</h4><p>Rails позволяет отдавать в потоке не только файлы. Фактически, в объекте отклика можно отдать все, что хотите. Модуль <a href="https://api.rubyonrails.org/classes/ActionController/Live.html"><code>ActionController::Live</code></a> позволяет создать персистентное соединение с браузером. Используя этот модуль, можно послать в браузер произвольные данные в определенные моменты времени.</p><h5 id='podklyuchenie-live-streaming' class='inside_page_header'><a href="#podklyuchenie-live-streaming">12.3.1.</a> Подключение Live Streaming</h5><p>Включение <code>ActionController::Live</code> в класс вашего контроллера предоставит всем экшнам контроллера возможность отдавать данные в потоке. Этот модуль можно включить следующим образом:</p><div class="code_container">
+<h4 id='live-streaming-of-arbitrary-data' class='inside_page_header'><a href="#live-streaming-of-arbitrary-data">12.3.</a> Live Streaming произвольных данных</h4><p>Rails позволяет отдавать в потоке не только файлы. Фактически, в объекте отклика можно отдать все, что хотите. Модуль <a href="https://api.rubyonrails.org/classes/ActionController/Live.html"><code>ActionController::Live</code></a> позволяет создать персистентное соединение с браузером. Используя этот модуль, можно послать в браузер произвольные данные в определенные моменты времени.</p><h5 id='podklyuchenie-live-streaming' class='inside_page_header'><a href="#podklyuchenie-live-streaming">12.3.1.</a> Подключение Live Streaming</h5><p>Включение <code>ActionController::Live</code> в класс вашего контроллера предоставит всем экшнам контроллера возможность отдавать данные в потоке. Этот модуль можно включить следующим образом:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">MyController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
   <span class="kp">include</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Live</span>
 
@@ -996,7 +996,7 @@
 <p>Вышеприведенный код посылает следующую строчку только после того, как певец завершил предыдущую строчку.</p><h5 id='obsuzhdenie-potokovoy-peredachi' class='inside_page_header'><a href="#obsuzhdenie-potokovoy-peredachi">12.3.3.</a> Обсуждение потоковой передачи</h5><p>Потоковая передача произвольных данных – чрезвычайно мощный инструмент. Как показано в предыдущих примерах, можно выбирать, когда и что посылать в потоковом отклике. Однако, также необходимо отметить следующие вещи:</p><ul><li>Каждый потоковый отклик создает новый тред и копирует тредовые локальные переменные из текущего треда. Наличие большого количество тредовых локальных переменных может отрицательно сказаться на производительности. Большое количество тредов также препятствует производительности.
 </li><li>Незакрытие потокового отклика оставит соответствующий сокет открытым навсегда. Убедитесь, что вызываете <code>close</code> при использовании потокового отклика.
 </li><li>Серверы WEBrick буферизируют все отклики, поэтому включение <code>ActionController::Live</code> не будет работать. Необходимо использовать веб-сервер, не буферизирующий отклики автоматически.
-</li></ul><h3 id='filtratsiya-loga' class='inside_page_header'><a href="#filtratsiya-loga">13.</a> Фильтрация лога</h3><p>Rails ведет лог-файл для каждой среды в папке <code>log</code>. Это чрезвычайно полезно при отладке того, что происходит в приложении, но в реальной жизни может быть не нужно хранение каждого бита информации в лог-файле.</p><h4 id='parameters-filtering' class='inside_page_header'><a href="#parameters-filtering">13.1.</a>  Фильтрация параметров</h4><p>Можно фильтровать чувствительные параметры запроса в файлах лога, присоединив их к <a href="/configuring#config-filter-parameters"><code>config.filter_parameters</code></a> в настройках приложения. Эти параметры будут помечены в логе как [FILTERED].</p><div class="code_container">
+</li></ul><h3 id='filtratsiya-loga' class='inside_page_header'><a href="#filtratsiya-loga">13.</a> Фильтрация лога</h3><p>Rails ведет лог-файл для каждой среды в папке <code>log</code>. Это чрезвычайно полезно при отладке того, что происходит в приложении, но в реальной жизни может быть не нужно хранение каждого бита информации в лог-файле.</p><h4 id='parameters-filtering' class='inside_page_header'><a href="#parameters-filtering">13.1.</a> Фильтрация параметров</h4><p>Можно фильтровать чувствительные параметры запроса в файлах лога, присоединив их к <a href="/configuring#config-filter-parameters"><code>config.filter_parameters</code></a> в настройках приложения. Эти параметры будут помечены в логе как [FILTERED].</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">filter_parameters</span> <span class="o">&lt;&lt;</span> <span class="ss">:password</span>
 </code></pre>
 </div>

@@ -168,11 +168,11 @@
 </h6>      </li>
       <li>
         <h5>
-          <a href="#internal-middleware-stack">3.3.  Стек внутренних промежуточных программ</a>
+          <a href="#internal-middleware-stack">3.3. Стек внутренних промежуточных программ</a>
 </h5>      </li>
       <li>
         <h4>
-          <a href="#resources">4.  Источники</a>
+          <a href="#resources">4. Источники</a>
 </h4>      </li>
       <li>
         <h5>
@@ -350,7 +350,7 @@ use ActionDispatch::Static
 <span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">delete!</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Executor</span>
 </code></pre>
 </div>
-<h4 id='internal-middleware-stack' class='inside_page_header'><a href="#internal-middleware-stack">3.3.</a>  Стек внутренних промежуточных программ</h4><p>Значительная часть функциональности Action Controller реализована как промежуточные программы. Следующий перечень объясняет назначение каждой из них:</p><p><strong><code>ActionDispatch::HostAuthorization</code></strong></p><ul><li>Защищает от атак переназначения DNS, явно разрешая хосты, с которых может быть послан запрос. Смотрите инструкции в <a href="/configuring#actiondispatch-hostauthorization">руководстве по конфигурированию</a>.
+<h4 id='internal-middleware-stack' class='inside_page_header'><a href="#internal-middleware-stack">3.3.</a> Стек внутренних промежуточных программ</h4><p>Значительная часть функциональности Action Controller реализована как промежуточные программы. Следующий перечень объясняет назначение каждой из них:</p><p><strong><code>ActionDispatch::HostAuthorization</code></strong></p><ul><li>Защищает от атак переназначения DNS, явно разрешая хосты, с которых может быть послан запрос. Смотрите инструкции в <a href="/configuring#actiondispatch-hostauthorization">руководстве по конфигурированию</a>.
 </li></ul><p><strong><code>Rack::Sendfile</code></strong></p><ul><li>Устанавливает заголовки X-Sendfile, специфичные для сервера. Настраивается с помощью опции <a href="/configuring#config-action-dispatch-x-sendfile-header"><code>config.action_dispatch.x_sendfile_header</code></a>.
 </li></ul><p><strong><code>ActionDispatch::Static</code></strong></p><ul><li>Используется для раздачи статичных файлов из директории public. Отключена, если <a href="/configuring#config-public-file-server-enabled"><code>config.public_file_server.enabled</code></a> является false.
 </li></ul><p><strong><code>Rack::Lock</code></strong></p><ul><li>Устанавливает флажок <code>env[&quot;rack.multithread&quot;]</code> в <code>false</code> и оборачивает приложение в мьютекс.
@@ -377,7 +377,7 @@ use ActionDispatch::Static
 </li></ul><p><strong><code>Rack::ConditionalGet</code></strong></p><ul><li>Добавляет поддержку для &quot;Conditional <code>GET</code>&quot;, чтобы сервер ничего не отвечал, если страница не изменилась.
 </li></ul><p><strong><code>Rack::ETag</code></strong></p><ul><li>Добавляет заголовок ETag во все строковые тела. ETags используются для проверки кэша.
 </li></ul><p><strong><code>Rack::TempfileReaper</code></strong></p><ul><li>Очищает временные файлы, используемые для буферизации multipart запросов.
-</li></ul><div class="info"><p>Можете использовать любые из этих промежуточных программ в своем стеке Rack.</p></div><h3 id='resources' class='inside_page_header'><a href="#resources">4.</a>  Источники</h3><h4 id='obuchenie-rack' class='inside_page_header'><a href="#obuchenie-rack">4.1.</a> Обучение Rack</h4><ul><li><a href="https://rack.github.io">Official Rack Website</a>
+</li></ul><div class="info"><p>Можете использовать любые из этих промежуточных программ в своем стеке Rack.</p></div><h3 id='resources' class='inside_page_header'><a href="#resources">4.</a> Источники</h3><h4 id='obuchenie-rack' class='inside_page_header'><a href="#obuchenie-rack">4.1.</a> Обучение Rack</h4><ul><li><a href="https://rack.github.io">Official Rack Website</a>
 </li><li><a href="http://chneukirchen.org/blog/archive/2007/02/introducing-rack.html">Introducing Rack</a>
 </li></ul><h4 id='ponimanie-promezhutochnyh-programm' class='inside_page_header'><a href="#ponimanie-promezhutochnyh-programm">4.2.</a> Понимание промежуточных программ</h4><ul><li><a href="http://railscasts.com/episodes/151-rack-middleware">Railscast on Rack Middlewares</a>
 </li></ul>

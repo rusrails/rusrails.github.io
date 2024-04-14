@@ -196,7 +196,7 @@
 </h6>      </li>
       <li>
         <h5>
-          <a href="#filtering-params-named-as-encrypted-columns">3.8.  Фильтрация параметров, названных как шифруемые столбцы</a>
+          <a href="#filtering-params-named-as-encrypted-columns">3.8. Фильтрация параметров, названных как шифруемые столбцы</a>
 </h5>      </li>
       <li>
         <h5>
@@ -513,7 +513,7 @@ active_record_encryption:
 <span class="k">end</span>
 </code></pre>
 </div>
-<h4 id='filtering-params-named-as-encrypted-columns' class='inside_page_header'><a href="#filtering-params-named-as-encrypted-columns">3.8.</a>  Фильтрация параметров, названных как шифруемые столбцы</h4><p>По умолчанию шифруемые столбцы настраиваются как <a href="/action-controller-overview#parameters-filtering">автоматически фильтруемые в логах Rails</a>. Это поведение можно отключить, добавив следующее в <code>application.rb</code>:</p><p>При генерации фильтруемого параметра, это будет использовать имя модели как префикс. Например, для <code>Person#name</code> фильтруемым параметром будет <code>person.name</code>.</p><div class="code_container">
+<h4 id='filtering-params-named-as-encrypted-columns' class='inside_page_header'><a href="#filtering-params-named-as-encrypted-columns">3.8.</a> Фильтрация параметров, названных как шифруемые столбцы</h4><p>По умолчанию шифруемые столбцы настраиваются как <a href="/action-controller-overview#parameters-filtering">автоматически фильтруемые в логах Rails</a>. Это поведение можно отключить, добавив следующее в <code>application.rb</code>:</p><p>При генерации фильтруемого параметра, это будет использовать имя модели как префикс. Например, для <code>Person#name</code> фильтруемым параметром будет <code>person.name</code>.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">encryption</span><span class="p">.</span><span class="nf">add_to_filter_parameters</span> <span class="o">=</span> <span class="kp">false</span>
 </code></pre>
 </div>

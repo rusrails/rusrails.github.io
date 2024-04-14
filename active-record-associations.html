@@ -136,11 +136,11 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#the-has-many-through-association">2.4.  Связь <code>has_many :through</code></a>
+          <a href="#the-has-many-through-association">2.4. Связь <code>has_many :through</code></a>
 </h5>      </li>
       <li>
         <h5>
-          <a href="#the-has-one-through-association">2.5.  Связь <code>has_one :through</code></a>
+          <a href="#the-has-one-through-association">2.5. Связь <code>has_one :through</code></a>
 </h5>      </li>
       <li>
         <h5>
@@ -156,7 +156,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#polymorphic-associations">2.9.  Полиморфные связи</a>
+          <a href="#polymorphic-associations">2.9. Полиморфные связи</a>
 </h5>      </li>
       <li>
         <h5>
@@ -196,7 +196,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#bi-directional-associations">3.5.  Двунаправленные связи</a>
+          <a href="#bi-directional-associations">3.5. Двунаправленные связи</a>
 </h5>      </li>
       <li>
         <h4>
@@ -236,7 +236,7 @@
 </h7>      </li>
       <li>
         <h5>
-          <a href="#options-for-belongs-to">4.2.  Опции для <code>belongs_to</code></a>
+          <a href="#options-for-belongs-to">4.2. Опции для <code>belongs_to</code></a>
 </h5>      </li>
       <li>
         <h6>
@@ -456,7 +456,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#has-many-association-reference">6.  Подробная информация по связи <code>has_many</code></a>
+          <a href="#has-many-association-reference">6. Подробная информация по связи <code>has_many</code></a>
 </h4>      </li>
       <li>
         <h5>
@@ -816,7 +816,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#association-callbacks-and-extensions">8.  Подробная информация по колбэкам и расширениям связи</a>
+          <a href="#association-callbacks-and-extensions">8. Подробная информация по колбэкам и расширениям связи</a>
 </h4>      </li>
       <li>
         <h5>
@@ -832,7 +832,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#single-table-inheritance-sti">9.  Наследование с единой таблицей (STI)</a>
+          <a href="#single-table-inheritance-sti">9. Наследование с единой таблицей (STI)</a>
 </h4>      </li>
       <li>
         <h4>
@@ -940,7 +940,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p><img src='/assets/association_basics/belongs_to-9920fb07a7a268b626652094ac514783eabad5106fd797f075a937834ff93a1a.png' title='' alt='Диаграмма для связи belongs_to' class='img-polaroid' /></p><div class="note"><p>Связи <code>belongs_to</code> <em>обязаны</em> использовать единственное число. Если использовать множественное число в вышеприведенном примере для связи <code>author</code> в модели <code>Book</code> и создать экземпляр с помощью <code>Book.create(authors: @author)</code>, будет сообщено &quot;uninitialized constant Book::Authors&quot;. Это так, потому что Rails автоматически получает имя класса из имени связи. Если в имени связи неправильно использовано число, то получаемый класс также будет неправильного числа.</p></div><p>Соответствующая миграция может выглядеть так:</p><div class="code_container">
+<p><img src='/assets/association_basics/belongs_to-df76734b189960ffcc658e600a816364e36345f12ad95568577152b2a0e616d4.png' title='' alt='Диаграмма для связи belongs_to' class='img-polaroid' /></p><div class="note"><p>Связи <code>belongs_to</code> <em>обязаны</em> использовать единственное число. Если использовать множественное число в вышеприведенном примере для связи <code>author</code> в модели <code>Book</code> и создать экземпляр с помощью <code>Book.create(authors: @author)</code>, будет сообщено &quot;uninitialized constant Book::Authors&quot;. Это так, потому что Rails автоматически получает имя класса из имени связи. Если в имени связи неправильно использовано число, то получаемый класс также будет неправильного числа.</p></div><p>Соответствующая миграция может выглядеть так:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateOrders</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:authors</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
@@ -970,7 +970,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Главным отличием от <code>belongs_to</code> является то, что связующий столбец <code>supplier_id</code> расположен в другой таблице:</p><p><img src='/assets/association_basics/has_one-474d796d405556400b0023794819f307e6901fe7b825b11e11594a6847299cdd.png' title='' alt='Диаграмма для связи has_one' class='img-polaroid' /></p><p>Соответствующая миграция может выглядеть так:</p><div class="code_container">
+<p>Главным отличием от <code>belongs_to</code> является то, что связующий столбец <code>supplier_id</code> расположен в другой таблице:</p><p><img src='/assets/association_basics/has_one-599d92df13b624943d4da29db45549fadcc420bb287a6fd361022d20b4112c98.png' title='' alt='Диаграмма для связи has_one' class='img-polaroid' /></p><p>Соответствующая миграция может выглядеть так:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateSuppliers</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:suppliers</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
@@ -1000,7 +1000,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<div class="note"><p>Имя другой модели указывается во множественном числе при объявлении связи <code>has_many</code>.</p></div><p><img src='/assets/association_basics/has_many-b6fb815393a8b38888fb9ec8215a11c33913f10cff54837e2491b030cd96824e.png' title='' alt='Диаграмма для связи has_many' class='img-polaroid' /></p><p>Соответствующая миграция может выглядеть так:</p><div class="code_container">
+<div class="note"><p>Имя другой модели указывается во множественном числе при объявлении связи <code>has_many</code>.</p></div><p><img src='/assets/association_basics/has_many-8b67077983ad33c144a0cf2816b641dfd2f1d246be5bd64ca1f7f8a9bf1b9dc1.png' title='' alt='Диаграмма для связи has_many' class='img-polaroid' /></p><p>Соответствующая миграция может выглядеть так:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateAuthors</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:authors</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
@@ -1024,7 +1024,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h4 id='the-has-many-through-association' class='inside_page_header'><a href="#the-has-many-through-association">2.4.</a>  Связь <code>has_many :through</code></h4><p>Связь <a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html#method-i-has_many"><code>has_many :through</code></a> часто используется для настройки соединения многие-ко-многим с другой моделью. Эта связь указывает, что объявляющая модель может соответствовать нулю или более экземплярам другой модели <em>через</em> третью модель. Например, рассмотрим поликлинику, где пациентам (patients) дают направления (appointments) к врачам (physicians). Соответствующие объявления связей будут выглядеть следующим образом:</p><div class="code_container">
+<h4 id='the-has-many-through-association' class='inside_page_header'><a href="#the-has-many-through-association">2.4.</a> Связь <code>has_many :through</code></h4><p>Связь <a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html#method-i-has_many"><code>has_many :through</code></a> часто используется для настройки соединения многие-ко-многим с другой моделью. Эта связь указывает, что объявляющая модель может соответствовать нулю или более экземплярам другой модели <em>через</em> третью модель. Например, рассмотрим поликлинику, где пациентам (patients) дают направления (appointments) к врачам (physicians). Соответствующие объявления связей будут выглядеть следующим образом:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Physician</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_many</span> <span class="ss">:appointments</span>
   <span class="n">has_many</span> <span class="ss">:patients</span><span class="p">,</span> <span class="ss">through: :appointments</span>
@@ -1088,7 +1088,7 @@
   <pre><code class="highlight ruby"><span class="vi">@document</span><span class="p">.</span><span class="nf">paragraphs</span>
 </code></pre>
 </div>
-<h4 id='the-has-one-through-association' class='inside_page_header'><a href="#the-has-one-through-association">2.5.</a>  Связь <code>has_one :through</code></h4><p>Связь <a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html#method-i-has_one"><code>has_one :through</code></a> настраивает соединение один-к-одному с другой моделью. Эта связь показывает, что объявляющая модель может быть связана с одним экземпляром другой модели <em>через</em> третью модель. Например, если каждый поставщик имеет один аккаунт, и каждый аккаунт связан с одной историей аккаунта, тогда модели могут выглядеть так:</p><div class="code_container">
+<h4 id='the-has-one-through-association' class='inside_page_header'><a href="#the-has-one-through-association">2.5.</a> Связь <code>has_one :through</code></h4><p>Связь <a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html#method-i-has_one"><code>has_one :through</code></a> настраивает соединение один-к-одному с другой моделью. Эта связь показывает, что объявляющая модель может быть связана с одним экземпляром другой модели <em>через</em> третью модель. Например, если каждый поставщик имеет один аккаунт, и каждый аккаунт связан с одной историей аккаунта, тогда модели могут выглядеть так:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Supplier</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_one</span> <span class="ss">:account</span>
   <span class="n">has_one</span> <span class="ss">:account_history</span><span class="p">,</span> <span class="ss">through: :account</span>
@@ -1137,7 +1137,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p><img src='/assets/association_basics/habtm-873c780b161cfd6dee3dbeaa367f8885a0282557beba80dcb865da4636a620d5.png' title='' alt='Диаграмма для связи has_and_belongs_to_many' class='img-polaroid' /></p><p>Соответствующая миграция может выглядеть так:</p><div class="code_container">
+<p><img src='/assets/association_basics/habtm-561e5db1b2463863573e41c54c33a4f23b1f7dcb2830c64dc0eb121d15b0b3ec.png' title='' alt='Диаграмма для связи has_and_belongs_to_many' class='img-polaroid' /></p><p>Соответствующая миграция может выглядеть так:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateAssembliesAndParts</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:assemblies</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
@@ -1214,7 +1214,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Простейший признак того, что нужно настраивать отношение <code>has_many :through</code> - если необходимо работать с моделью отношений как с независимым объектом. Если вам не нужно ничего делать с моделью отношений, проще настроить связь <code>has_and_belongs_to_many</code> (хотя нужно не забыть создать соединяющую таблицу в базе данных).</p><p>Вы должны использовать <code>has_many :through</code>, если нужны валидации, колбэки или дополнительные атрибуты для соединительной модели.</p><p>Хотя <code>has_and_belongs_to_many</code> предлагает создать соединительную таблицу без первичного ключа с помощью <code>id: false</code>, рассмотрите использование составного первичного ключа для соединительной таблицы в связях <code>has_many :through</code>. Например, рекомендуется использовать <code>create_table :manifests, primary_key: [:assembly_id, :part_id]</code> в вышеуказанном примере.</p><h4 id='polymorphic-associations' class='inside_page_header'><a href="#polymorphic-associations">2.9.</a>  Полиморфные связи</h4><p><em>Полиморфные связи</em> - это немного более &quot;навороченный&quot; вид связей. С полиморфными связями модель может принадлежать более чем одной модели, на одиночной связи. Например, имеется модель изображения, которая принадлежит или модели работника, или модели продукта. Вот как это объявляется:</p><div class="code_container">
+<p>Простейший признак того, что нужно настраивать отношение <code>has_many :through</code> - если необходимо работать с моделью отношений как с независимым объектом. Если вам не нужно ничего делать с моделью отношений, проще настроить связь <code>has_and_belongs_to_many</code> (хотя нужно не забыть создать соединяющую таблицу в базе данных).</p><p>Вы должны использовать <code>has_many :through</code>, если нужны валидации, колбэки или дополнительные атрибуты для соединительной модели.</p><p>Хотя <code>has_and_belongs_to_many</code> предлагает создать соединительную таблицу без первичного ключа с помощью <code>id: false</code>, рассмотрите использование составного первичного ключа для соединительной таблицы в связях <code>has_many :through</code>. Например, рекомендуется использовать <code>create_table :manifests, primary_key: [:assembly_id, :part_id]</code> в вышеуказанном примере.</p><h4 id='polymorphic-associations' class='inside_page_header'><a href="#polymorphic-associations">2.9.</a> Полиморфные связи</h4><p><em>Полиморфные связи</em> - это немного более &quot;навороченный&quot; вид связей. С полиморфными связями модель может принадлежать более чем одной модели, на одиночной связи. Например, имеется модель изображения, которая принадлежит или модели работника, или модели продукта. Вот как это объявляется:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Picture</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">belongs_to</span> <span class="ss">:imageable</span><span class="p">,</span> <span class="ss">polymorphic: </span><span class="kp">true</span>
 <span class="k">end</span>
@@ -1455,7 +1455,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h4 id='bi-directional-associations' class='inside_page_header'><a href="#bi-directional-associations">3.5.</a>  Двунаправленные связи</h4><p>Для связей нормально работать в двух направлениях, затребовав объявление в двух различных моделях:</p><div class="code_container">
+<h4 id='bi-directional-associations' class='inside_page_header'><a href="#bi-directional-associations">3.5.</a> Двунаправленные связи</h4><p>Для связей нормально работать в двух направлениях, затребовав объявление в двух различных моделях:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Author</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_many</span> <span class="ss">:books</span>
 <span class="k">end</span>
@@ -1632,7 +1632,7 @@
 <span class="vi">@book</span><span class="p">.</span><span class="nf">author_previously_changed?</span> <span class="c1"># =&gt; true</span>
 </code></pre>
 </div>
-<h4 id='options-for-belongs-to' class='inside_page_header'><a href="#options-for-belongs-to">4.2.</a>  Опции для <code>belongs_to</code></h4><p>Хотя Rails использует разумные значения по умолчанию, работающие во многих ситуациях, бывают случаи, когда хочется изменить поведение связи <code>belongs_to</code>. Такая настройка легко выполнима с помощью передачи опций и блоков со скоупом при создании связи. Например, эта связь использует две такие опции:</p><div class="code_container">
+<h4 id='options-for-belongs-to' class='inside_page_header'><a href="#options-for-belongs-to">4.2.</a> Опции для <code>belongs_to</code></h4><p>Хотя Rails использует разумные значения по умолчанию, работающие во многих ситуациях, бывают случаи, когда хочется изменить поведение связи <code>belongs_to</code>. Такая настройка легко выполнима с помощью передачи опций и блоков со скоупом при создании связи. Например, эта связь использует две такие опции:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Book</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">belongs_to</span> <span class="ss">:author</span><span class="p">,</span> <span class="ss">touch: :books_updated_at</span><span class="p">,</span>
     <span class="ss">counter_cache: </span><span class="kp">true</span>
@@ -1972,7 +1972,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h4 id='kogda-sohranyayutsya-ob-ekty2' class='inside_page_header'><a href="#kogda-sohranyayutsya-ob-ekty2">5.5.</a> Когда сохраняются объекты?</h4><p>Когда вы назначаете объект связью <code>has_one</code>, этот объект автоматически сохраняется (для того, чтобы обновить его внешний ключ). Кроме того, любой заменяемый объект также автоматически сохраняется, поскольку его внешний ключ также изменяется.</p><p>Если одно из этих сохранений проваливается из-за ошибок валидации, тогда выражение назначения возвращает <code>false</code>, и само назначение отменяется.</p><p>Если родительский объект (который объявляет связь <code>has_one</code>) является несохраненным (то есть <code>new_record?</code> возвращает <code>true</code>), тогда дочерние объекты не сохраняются. Они сохранятся автоматически, когда сохранится родительский объект.</p><p>Если вы хотите назначить объект связью <code>has_one</code> без сохранения объекта, используйте метод <code>build_association</code>.</p><h3 id='has-many-association-reference' class='inside_page_header'><a href="#has-many-association-reference">6.</a>  Подробная информация по связи <code>has_many</code></h3><p>Связь <code>has_many</code> создает отношение один-ко-многим с другой моделью. В терминах базы данных эта связь говорит, что другой класс будет иметь внешний ключ, относящийся к экземплярам этого класса.</p><h4 id='metody-dobavlyaemye-has_many' class='inside_page_header'><a href="#metody-dobavlyaemye-has_many">6.1.</a> Методы, добавляемые <code>has_many</code></h4><p>Когда объявляете связь <code>has_many</code>, объявляющий класс автоматически получает 17 методов, относящихся к связи:</p><ul><li><code>collection</code>
+<h4 id='kogda-sohranyayutsya-ob-ekty2' class='inside_page_header'><a href="#kogda-sohranyayutsya-ob-ekty2">5.5.</a> Когда сохраняются объекты?</h4><p>Когда вы назначаете объект связью <code>has_one</code>, этот объект автоматически сохраняется (для того, чтобы обновить его внешний ключ). Кроме того, любой заменяемый объект также автоматически сохраняется, поскольку его внешний ключ также изменяется.</p><p>Если одно из этих сохранений проваливается из-за ошибок валидации, тогда выражение назначения возвращает <code>false</code>, и само назначение отменяется.</p><p>Если родительский объект (который объявляет связь <code>has_one</code>) является несохраненным (то есть <code>new_record?</code> возвращает <code>true</code>), тогда дочерние объекты не сохраняются. Они сохранятся автоматически, когда сохранится родительский объект.</p><p>Если вы хотите назначить объект связью <code>has_one</code> без сохранения объекта, используйте метод <code>build_association</code>.</p><h3 id='has-many-association-reference' class='inside_page_header'><a href="#has-many-association-reference">6.</a> Подробная информация по связи <code>has_many</code></h3><p>Связь <code>has_many</code> создает отношение один-ко-многим с другой моделью. В терминах базы данных эта связь говорит, что другой класс будет иметь внешний ключ, относящийся к экземплярам этого класса.</p><h4 id='metody-dobavlyaemye-has_many' class='inside_page_header'><a href="#metody-dobavlyaemye-has_many">6.1.</a> Методы, добавляемые <code>has_many</code></h4><p>Когда объявляете связь <code>has_many</code>, объявляющий класс автоматически получает 17 методов, относящихся к связи:</p><ul><li><code>collection</code>
 </li><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/CollectionProxy.html#method-i-3C-3C"><code>collection&lt;&lt;(object, ...)</code></a>
 </li><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/CollectionProxy.html#method-i-delete"><code>collection.delete(object, ...)</code></a>
 </li><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/CollectionProxy.html#method-i-destroy"><code>collection.destroy(object, ...)</code></a>
@@ -2466,7 +2466,7 @@ assemblies.reload
 <span class="k">end</span>
 </code></pre>
 </div>
-<h5 id='readonly4' class='inside_page_header'><a href="#readonly4">7.3.8.</a> <code>readonly</code></h5><p>При использовании метода <code>:readonly</code>, связанные объекты будут доступны только для чтения, когда получены посредством связи.</p><h5 id='select4' class='inside_page_header'><a href="#select4">7.3.9.</a> <code>select</code></h5><p>Метод <code>select</code> позволяет переопределить SQL условие <code>SELECT</code>, которое используется для получения данных о связанном объекте. По умолчанию Rails получает все столбцы.</p><h5 id='distinct2' class='inside_page_header'><a href="#distinct2">7.3.10.</a> <code>distinct</code></h5><p>Используйте метод <code>distinct</code>, чтобы убирать дубликаты из коллекции.</p><h4 id='kogda-sohranyayutsya-ob-ekty4' class='inside_page_header'><a href="#kogda-sohranyayutsya-ob-ekty4">7.4.</a> Когда сохраняются объекты?</h4><p>Когда вы назначаете объект связью <code>has_and_belongs_to_many</code>, этот объект автоматически сохраняется (в порядке обновления соединительной таблицы). Если назначаете несколько объектов в одном выражении, они все будут сохранены.</p><p>Если одно из этих сохранений проваливается из-за ошибок валидации, тогда выражение назначения возвращает <code>false</code>, a само назначение отменяется.</p><p>Если родительский объект (который объявляет связь <code>has_and_belongs_to_many</code>) является несохраненным (то есть <code>new_record?</code> возвращает <code>true</code>), тогда дочерние объекты не сохраняются при добавлении. Все несохраненные члены связи сохранятся автоматически, когда сохранится родительский объект.</p><p>Если вы хотите назначить объект связью <code>has_and_belongs_to_many</code> без сохранения объекта, используйте метод <code>collection.build</code>.</p><h3 id='association-callbacks-and-extensions' class='inside_page_header'><a href="#association-callbacks-and-extensions">8.</a>  Подробная информация по колбэкам и расширениям связи</h3><h4 id='kolbeki-svyazi' class='inside_page_header'><a href="#kolbeki-svyazi">8.1.</a> Колбэки связи</h4><p>Обычно колбэки прицепляются к жизненному циклу объектов Active Record, позволяя вам работать с этими объектами в различных точках. Например, можете использовать колбэк <code>:before_save</code>, чтобы вызвать что-то перед тем, как объект будет сохранен.</p><p>Колбэки связи похожи на обычные колбэки, но они включаются событиями в жизненном цикле коллекции. Доступны четыре колбэка связи:</p><ul><li><code>before_add</code>
+<h5 id='readonly4' class='inside_page_header'><a href="#readonly4">7.3.8.</a> <code>readonly</code></h5><p>При использовании метода <code>:readonly</code>, связанные объекты будут доступны только для чтения, когда получены посредством связи.</p><h5 id='select4' class='inside_page_header'><a href="#select4">7.3.9.</a> <code>select</code></h5><p>Метод <code>select</code> позволяет переопределить SQL условие <code>SELECT</code>, которое используется для получения данных о связанном объекте. По умолчанию Rails получает все столбцы.</p><h5 id='distinct2' class='inside_page_header'><a href="#distinct2">7.3.10.</a> <code>distinct</code></h5><p>Используйте метод <code>distinct</code>, чтобы убирать дубликаты из коллекции.</p><h4 id='kogda-sohranyayutsya-ob-ekty4' class='inside_page_header'><a href="#kogda-sohranyayutsya-ob-ekty4">7.4.</a> Когда сохраняются объекты?</h4><p>Когда вы назначаете объект связью <code>has_and_belongs_to_many</code>, этот объект автоматически сохраняется (в порядке обновления соединительной таблицы). Если назначаете несколько объектов в одном выражении, они все будут сохранены.</p><p>Если одно из этих сохранений проваливается из-за ошибок валидации, тогда выражение назначения возвращает <code>false</code>, a само назначение отменяется.</p><p>Если родительский объект (который объявляет связь <code>has_and_belongs_to_many</code>) является несохраненным (то есть <code>new_record?</code> возвращает <code>true</code>), тогда дочерние объекты не сохраняются при добавлении. Все несохраненные члены связи сохранятся автоматически, когда сохранится родительский объект.</p><p>Если вы хотите назначить объект связью <code>has_and_belongs_to_many</code> без сохранения объекта, используйте метод <code>collection.build</code>.</p><h3 id='association-callbacks-and-extensions' class='inside_page_header'><a href="#association-callbacks-and-extensions">8.</a> Подробная информация по колбэкам и расширениям связи</h3><h4 id='kolbeki-svyazi' class='inside_page_header'><a href="#kolbeki-svyazi">8.1.</a> Колбэки связи</h4><p>Обычно колбэки прицепляются к жизненному циклу объектов Active Record, позволяя вам работать с этими объектами в различных точках. Например, можете использовать колбэк <code>:before_save</code>, чтобы вызвать что-то перед тем, как объект будет сохранен.</p><p>Колбэки связи похожи на обычные колбэки, но они включаются событиями в жизненном цикле коллекции. Доступны четыре колбэка связи:</p><ul><li><code>before_add</code>
 </li><li><code>after_add</code>
 </li><li><code>before_remove</code>
 </li><li><code>after_remove</code>
@@ -2515,7 +2515,7 @@ assemblies.reload
 <span class="k">end</span>
 </code></pre>
 </div>
-<h3 id='single-table-inheritance-sti' class='inside_page_header'><a href="#single-table-inheritance-sti">9.</a>  Наследование с единой таблицей (STI)</h3><p>Иногда можно делиться полями и поведением между различными моделями. Скажем, у нас есть модели Car, Motorcycle и Bicycle. Мы хотим совместно использовать поля <code>color</code> и <code>price</code> и некоторые методы всеми из них, но иметь некоторое специфичное поведение для каждого, а также различные контроллеры.</p><p>Сначала нужно сгенерировать базовую модель Vehicle:</p><div class="code_container">
+<h3 id='single-table-inheritance-sti' class='inside_page_header'><a href="#single-table-inheritance-sti">9.</a> Наследование с единой таблицей (STI)</h3><p>Иногда можно делиться полями и поведением между различными моделями. Скажем, у нас есть модели Car, Motorcycle и Bicycle. Мы хотим совместно использовать поля <code>color</code> и <code>price</code> и некоторые методы всеми из них, но иметь некоторое специфичное поведение для каждого, а также различные контроллеры.</p><p>Сначала нужно сгенерировать базовую модель Vehicle:</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate model vehicle <span class="nb">type</span>:string color:string price:decimal<span class="o">{</span>10.2<span class="o">}</span>
 </code></pre>
 </div>

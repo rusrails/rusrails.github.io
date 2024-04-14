@@ -140,7 +140,7 @@
 </h6>      </li>
       <li>
         <h6>
-          <a href="#test-directory">2.1.4.  Директория <code>test</code></a>
+          <a href="#test-directory">2.1.4. Директория <code>test</code></a>
 </h6>      </li>
       <li>
         <h4>
@@ -224,7 +224,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#routes">6.4.  Маршруты</a>
+          <a href="#routes">6.4. Маршруты</a>
 </h5>      </li>
       <li>
         <h5>
@@ -379,7 +379,7 @@
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate model
 </code></pre>
 </div>
-<p>Помните, что все созданное с помощью этих команд в engine, имеющим <code>isolate_namespace</code> в классе <code>Engine</code>, будет помещено в пространство имен.</p><h5 id='test-directory' class='inside_page_header'><a href="#test-directory">2.1.4.</a>  Директория <code>test</code></h5><p>В директории <code>test</code> будут тесты для engine. Для тестирования engine, там будет урезанная версия приложения Rails, вложенная в <code>test/dummy</code>. Это приложение смонтирует в файле <code>test/dummy/config/routes.rb</code>:</p><div class="code_container">
+<p>Помните, что все созданное с помощью этих команд в engine, имеющим <code>isolate_namespace</code> в классе <code>Engine</code>, будет помещено в пространство имен.</p><h5 id='test-directory' class='inside_page_header'><a href="#test-directory">2.1.4.</a> Директория <code>test</code></h5><p>В директории <code>test</code> будут тесты для engine. Для тестирования engine, там будет урезанная версия приложения Rails, вложенная в <code>test/dummy</code>. Это приложение смонтирует в файле <code>test/dummy/config/routes.rb</code>:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
   <span class="n">mount</span> <span class="no">Blorgh</span><span class="o">::</span><span class="no">Engine</span> <span class="o">=&gt;</span> <span class="s2">"/blorgh"</span>
 <span class="k">end</span>
@@ -804,7 +804,7 @@ guide for more information about autoloading and engines.</p><h4 id='pereopredel
 <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
 </code></pre>
 </div>
-<h4 id='routes' class='inside_page_header'><a href="#routes">6.4.</a>  Маршруты</h4><p>По умолчанию маршруты в engine изолированы от приложения. Это выполняется с помощью вызова <code>isolate_namespace</code> в классе <code>Engine</code>. По сути это означает, что приложение и его engine могут иметь одинаково названные маршруты, и не будет никакого конфликта.</p><p>Маршруты в engine отрисовываются в классе <code>Engine</code> в <code>config/routes.rb</code>, подобно:</p><div class="code_container">
+<h4 id='routes' class='inside_page_header'><a href="#routes">6.4.</a> Маршруты</h4><p>По умолчанию маршруты в engine изолированы от приложения. Это выполняется с помощью вызова <code>isolate_namespace</code> в классе <code>Engine</code>. По сути это означает, что приложение и его engine могут иметь одинаково названные маршруты, и не будет никакого конфликта.</p><p>Маршруты в engine отрисовываются в классе <code>Engine</code> в <code>config/routes.rb</code>, подобно:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">Blorgh</span><span class="o">::</span><span class="no">Engine</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
   <span class="n">resources</span> <span class="ss">:articles</span>
 <span class="k">end</span>

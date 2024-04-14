@@ -208,7 +208,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#custom-rake-tasks">2.15.  Пользовательские задачи Rake</a>
+          <a href="#custom-rake-tasks">2.15. Пользовательские задачи Rake</a>
 </h5>      </li>
 </ul>
 
@@ -739,7 +739,7 @@ vendor/tools.rb:
 </li><li><code>bin/rails stats</code> великолепно для обзора статистики вашего кода, отображает такие вещи, как KLOCs (тысячи строчек кода) и ваш код для тестирования показателей.
 </li><li><code>bin/rails secret</code> даст псевдо-случайный ключ для использования в качестве секретного ключа сессии.
 </li><li><code>bin/rails time:zones:all</code> перечислит все временные зоны, о которых знает Rails.
-</li></ul><h4 id='custom-rake-tasks' class='inside_page_header'><a href="#custom-rake-tasks">2.15.</a>  Пользовательские задачи Rake</h4><p>Пользовательские задачи rake имеют расширение <code>.rake</code> и располагаются в <code>Rails.root/lib/tasks</code>. Эти пользовательские задачи rake можно создать с помощью команды <code>bin/rails generate task</code>.</p><div class="code_container">
+</li></ul><h4 id='custom-rake-tasks' class='inside_page_header'><a href="#custom-rake-tasks">2.15.</a> Пользовательские задачи Rake</h4><p>Пользовательские задачи rake имеют расширение <code>.rake</code> и располагаются в <code>Rails.root/lib/tasks</code>. Эти пользовательские задачи rake можно создать с помощью команды <code>bin/rails generate task</code>.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">desc</span> <span class="s2">"I am short, but comprehensive description for my cool task"</span>
 <span class="n">task</span> <span class="ss">task_name: </span><span class="p">[</span><span class="ss">:prerequisite_task</span><span class="p">,</span> <span class="ss">:another_task_we_depend_on</span><span class="p">]</span> <span class="k">do</span>
   <span class="c1"># Вся магия тут</span>

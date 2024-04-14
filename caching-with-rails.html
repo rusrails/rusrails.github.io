@@ -160,7 +160,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#low-level-caching">1.10.  Низкоуровневое кэширование</a>
+          <a href="#low-level-caching">1.10. Низкоуровневое кэширование</a>
 </h5>      </li>
       <li>
         <h6>
@@ -172,15 +172,15 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#cache-stores">2.  Хранилища кэша</a>
+          <a href="#cache-stores">2. Хранилища кэша</a>
 </h4>      </li>
       <li>
         <h5>
-          <a href="#configuration">2.1.  Конфигурация</a>
+          <a href="#configuration">2.1. Конфигурация</a>
 </h5>      </li>
       <li>
         <h6>
-          <a href="#connection-pool-options">2.1.1.  Опции пула соединений</a>
+          <a href="#connection-pool-options">2.1.1. Опции пула соединений</a>
 </h6>      </li>
       <li>
         <h5>
@@ -216,7 +216,7 @@
 </h4>      </li>
       <li>
         <h4>
-          <a href="#conditional-get-support">4.  Поддержка GET с условием (Conditional GET)</a>
+          <a href="#conditional-get-support">4. Поддержка GET с условием (Conditional GET)</a>
 </h4>      </li>
       <li>
         <h5>
@@ -368,7 +368,7 @@
 <span class="cp">&lt;%=</span> <span class="n">some_helper_method</span><span class="p">(</span><span class="n">person</span><span class="p">)</span> <span class="cp">%&gt;</span>
 </code></pre>
 </div>
-<h4 id='low-level-caching' class='inside_page_header'><a href="#low-level-caching">1.10.</a>  Низкоуровневое кэширование</h4><p>Иногда хочется закэшировать определенное значение или результат запроса вместо кэширования фрагментов вью. Механизм кэширования Rails отлично работает для хранения информации любого рода.</p><p>Наиболее эффективным способом реализации низкоуровневого кэширования является использование метода <code>Rails.cache.fetch</code>. Этот метод и читает, и пишет в кэш. Если передать только один аргумент, этот ключ извлекается и возвращается значение из кэша. Если передан блок, этот блок будет выполнен в случае отсутствия кэша. Возвращаемое значение блока будет записано в кэш под заданным ключом кэша, и это возвращаемое значение будет возвращено. В случае наличия кэша, будет возвращено закэшированное значение без выполнения блока.</p><p>Рассмотрим следующий пример. В приложении есть модель <code>Product</code> с методом экземпляра, ищущим цену продукта на конкурирующем сайте. Данные, возвращаемые этим методом отлично подходят для низкоуровневого кэширования:</p><div class="code_container">
+<h4 id='low-level-caching' class='inside_page_header'><a href="#low-level-caching">1.10.</a> Низкоуровневое кэширование</h4><p>Иногда хочется закэшировать определенное значение или результат запроса вместо кэширования фрагментов вью. Механизм кэширования Rails отлично работает для хранения информации любого рода.</p><p>Наиболее эффективным способом реализации низкоуровневого кэширования является использование метода <code>Rails.cache.fetch</code>. Этот метод и читает, и пишет в кэш. Если передать только один аргумент, этот ключ извлекается и возвращается значение из кэша. Если передан блок, этот блок будет выполнен в случае отсутствия кэша. Возвращаемое значение блока будет записано в кэш под заданным ключом кэша, и это возвращаемое значение будет возвращено. В случае наличия кэша, будет возвращено закэшированное значение без выполнения блока.</p><p>Рассмотрим следующий пример. В приложении есть модель <code>Product</code> с методом экземпляра, ищущим цену продукта на конкурирующем сайте. Данные, возвращаемые этим методом отлично подходят для низкоуровневого кэширования:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Product</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="k">def</span> <span class="nf">competing_price</span>
     <span class="no">Rails</span><span class="p">.</span><span class="nf">cache</span><span class="p">.</span><span class="nf">fetch</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="n">cache_key_with_version</span><span class="si">}</span><span class="s2">/competing_price"</span><span class="p">,</span> <span class="ss">expires_in: </span><span class="mi">12</span><span class="p">.</span><span class="nf">hours</span><span class="p">)</span> <span class="k">do</span>
@@ -409,11 +409,11 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Когда тот же запрос будет сделан, фактически он не дойдет до базы данных. В первый раз возвращенный результат запроса сохраняется в кэше запроса (в памяти), а во второй раз он извлекается из памяти.</p><p>Однако, важно отметить, что кэши запросов создаются в начале экшна и уничтожаются в конце того же экшна, тем самым являются персистентными только на протяжении этого экшна. Если необходимо хранить результаты запроса в более персистентной форме, можно использовать низкоуровневое кэширование.</p><h3 id='cache-stores' class='inside_page_header'><a href="#cache-stores">2.</a>  Хранилища кэша</h3><p>Rails предоставляет различные хранилища для кэшированных данных (кроме SQL кэширования и кэширования страниц).</p><h4 id='configuration' class='inside_page_header'><a href="#configuration">2.1.</a>  Конфигурация</h4><p>Можно настроить хранилище кэша по умолчанию своего приложения, установив конфигурационную опцию <code>config.cache_store</code>. Другие параметры могут будут переданы как аргументы в конструктор хранилища кэша.</p><div class="code_container">
+<p>Когда тот же запрос будет сделан, фактически он не дойдет до базы данных. В первый раз возвращенный результат запроса сохраняется в кэше запроса (в памяти), а во второй раз он извлекается из памяти.</p><p>Однако, важно отметить, что кэши запросов создаются в начале экшна и уничтожаются в конце того же экшна, тем самым являются персистентными только на протяжении этого экшна. Если необходимо хранить результаты запроса в более персистентной форме, можно использовать низкоуровневое кэширование.</p><h3 id='cache-stores' class='inside_page_header'><a href="#cache-stores">2.</a> Хранилища кэша</h3><p>Rails предоставляет различные хранилища для кэшированных данных (кроме SQL кэширования и кэширования страниц).</p><h4 id='configuration' class='inside_page_header'><a href="#configuration">2.1.</a> Конфигурация</h4><p>Можно настроить хранилище кэша по умолчанию своего приложения, установив конфигурационную опцию <code>config.cache_store</code>. Другие параметры могут будут переданы как аргументы в конструктор хранилища кэша.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">cache_store</span> <span class="o">=</span> <span class="ss">:memory_store</span><span class="p">,</span> <span class="p">{</span> <span class="ss">size: </span><span class="mi">64</span><span class="p">.</span><span class="nf">megabytes</span> <span class="p">}</span>
 </code></pre>
 </div>
-<p>Альтернативно можно вызвать <code>ActionController::Base.cache_store</code> вне конфигурационного блока.</p><p>К кэшу можно получить доступ, вызвав <code>Rails.cache</code>.</p><h5 id='connection-pool-options' class='inside_page_header'><a href="#connection-pool-options">2.1.1.</a>  Опции пула соединений</h5><p>По умолчанию <a href="#activesupport-cache-memcachestore"><code>:mem_cache_store</code></a> и <a href="#activesupport-cache-rediscachestore"><code>:redis_cache_store</code></a> настроены использовать пул соединений. Это означает, что при использовании Puma или другого сервера на тредах, можно использовать несколько тредов, выполняющих запросы к хранилищу кэша в то же самое время.</p><p>Если хотите отключить пул соединений, установите опции <code>:pool</code> <code>false</code> при конфигурировании хранилища кэша:</p><div class="code_container">
+<p>Альтернативно можно вызвать <code>ActionController::Base.cache_store</code> вне конфигурационного блока.</p><p>К кэшу можно получить доступ, вызвав <code>Rails.cache</code>.</p><h5 id='connection-pool-options' class='inside_page_header'><a href="#connection-pool-options">2.1.1.</a> Опции пула соединений</h5><p>По умолчанию <a href="#activesupport-cache-memcachestore"><code>:mem_cache_store</code></a> и <a href="#activesupport-cache-rediscachestore"><code>:redis_cache_store</code></a> настроены использовать пул соединений. Это означает, что при использовании Puma или другого сервера на тредах, можно использовать несколько тредов, выполняющих запросы к хранилищу кэша в то же самое время.</p><p>Если хотите отключить пул соединений, установите опции <code>:pool</code> <code>false</code> при конфигурировании хранилища кэша:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">cache_store</span> <span class="o">=</span> <span class="ss">:mem_cache_store</span><span class="p">,</span> <span class="s2">"cache.example.com"</span><span class="p">,</span> <span class="ss">pool: </span><span class="kp">false</span>
 </code></pre>
 </div>
@@ -475,7 +475,7 @@
 <span class="no">Rails</span><span class="p">.</span><span class="nf">cache</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="ss">site: </span><span class="s2">"mysite"</span><span class="p">,</span> <span class="ss">owners: </span><span class="p">[</span><span class="n">owner_1</span><span class="p">,</span> <span class="n">owner_2</span><span class="p">])</span>
 </code></pre>
 </div>
-<p>Ключи, используемые на <code>Rails.cache</code> не те же самые, что фактически используются движком хранения. Они могут быть модифицированы пространством имен, или изменены в соответствии с ограничениями технологии. Это значит, к примеру, что нельзя сохранить значения с помощью <code>Rails.cache</code>, а затем попытаться вытащить их с помощью гема <code>memcache-client</code>. Однако, также не стоит беспокоиться о превышения лимита memcached или несоблюдении правил синтаксиса.</p><h3 id='conditional-get-support' class='inside_page_header'><a href="#conditional-get-support">4.</a>  Поддержка GET с условием (Conditional GET)</h3><p>GET с условием - это особенность спецификации HTTP, предоставляющая способ веб-серверам сказать браузерам, что отклик на запрос GET не изменился с последнего запроса и может быть спокойно извлечен из кэша браузера.</p><p>Это работает с использованием заголовков <code>HTTP_IF_NONE_MATCH</code> и <code>HTTP_IF_MODIFIED_SINCE</code> для передачи туда-обратно уникального идентификатора контента и временной метки, когда содержимое было последний раз изменено. Если браузер делает запрос, в котором идентификатор контента (ETag) или временная метка последнего модифицирования соответствует версии сервера, то серверу всего лишь нужно вернуть пустой отклик со статусом not modified.</p><p>Это обязанность сервера (т.е. наша) искать временную метку последнего модифицирования и заголовок if-none-match, и определять, нужно ли отсылать полный отклик. С поддержкой conditional-get в Rails это очень простая задача:</p><div class="code_container">
+<p>Ключи, используемые на <code>Rails.cache</code> не те же самые, что фактически используются движком хранения. Они могут быть модифицированы пространством имен, или изменены в соответствии с ограничениями технологии. Это значит, к примеру, что нельзя сохранить значения с помощью <code>Rails.cache</code>, а затем попытаться вытащить их с помощью гема <code>memcache-client</code>. Однако, также не стоит беспокоиться о превышения лимита memcached или несоблюдении правил синтаксиса.</p><h3 id='conditional-get-support' class='inside_page_header'><a href="#conditional-get-support">4.</a> Поддержка GET с условием (Conditional GET)</h3><p>GET с условием - это особенность спецификации HTTP, предоставляющая способ веб-серверам сказать браузерам, что отклик на запрос GET не изменился с последнего запроса и может быть спокойно извлечен из кэша браузера.</p><p>Это работает с использованием заголовков <code>HTTP_IF_NONE_MATCH</code> и <code>HTTP_IF_MODIFIED_SINCE</code> для передачи туда-обратно уникального идентификатора контента и временной метки, когда содержимое было последний раз изменено. Если браузер делает запрос, в котором идентификатор контента (ETag) или временная метка последнего модифицирования соответствует версии сервера, то серверу всего лишь нужно вернуть пустой отклик со статусом not modified.</p><p>Это обязанность сервера (т.е. наша) искать временную метку последнего модифицирования и заголовок if-none-match, и определять, нужно ли отсылать полный отклик. С поддержкой conditional-get в Rails это очень простая задача:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ProductsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
 
   <span class="k">def</span> <span class="nf">show</span>

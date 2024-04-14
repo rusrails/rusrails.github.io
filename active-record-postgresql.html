@@ -168,7 +168,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#uuid-primary-keys">2.  Первичные ключи UUID</a>
+          <a href="#uuid-primary-keys">2. Первичные ключи UUID</a>
 </h4>      </li>
       <li>
         <h4>
@@ -616,7 +616,7 @@
 <span class="p">=&gt;</span> <span class="mi">2</span> <span class="n">days</span>
 </code></pre>
 </div>
-<h3 id='uuid-primary-keys' class='inside_page_header'><a href="#uuid-primary-keys">2.</a>  Первичные ключи UUID</h3><div class="note"><p>Если используете PostgreSQL более ранний, чем версия 13.0, необходимо включить специальные расширения для использования UUID. Включите расширение <code>pgcrypto</code> (PostgreSQL &gt;= 9.4) или расширения <code>uuid-ossp</code> (для более ранних релизов).</p></div><div class="code_container">
+<h3 id='uuid-primary-keys' class='inside_page_header'><a href="#uuid-primary-keys">2.</a> Первичные ключи UUID</h3><div class="note"><p>Если используете PostgreSQL более ранний, чем версия 13.0, необходимо включить специальные расширения для использования UUID. Включите расширение <code>pgcrypto</code> (PostgreSQL &gt;= 9.4) или расширения <code>uuid-ossp</code> (для более ранних релизов).</p></div><div class="code_container">
   <pre><code class="highlight ruby"><span class="c1"># db/migrate/20131220144913_create_devices.rb</span>
 <span class="n">enable_extension</span> <span class="s1">'pgcrypto'</span> <span class="k">unless</span> <span class="n">extension_enabled?</span><span class="p">(</span><span class="s1">'pgcrypto'</span><span class="p">)</span>
 <span class="n">create_table</span> <span class="ss">:devices</span><span class="p">,</span> <span class="ss">id: :uuid</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>

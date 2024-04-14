@@ -200,7 +200,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#check-zeitwerk-compliance-in-the-test-suite">7.  Проверка правильности Zeitwerk в тестах</a>
+          <a href="#check-zeitwerk-compliance-in-the-test-suite">7. Проверка правильности Zeitwerk в тестах</a>
 </h4>      </li>
       <li>
         <h5>
@@ -475,7 +475,7 @@ app/models/hotel/pricing.rb # Определяет Hotel::Pricing.
   <pre><code class="highlight plaintext">reloading is disabled because config.enable_reloading is false
 </code></pre>
 </div>
-<p>В этом нет никакого ухудшения производительности.</p><h4 id='bootsnap' class='inside_page_header'><a href="#bootsnap">6.12.</a> Bootsnap</h4><p>Убедитесь, что зависите от как минимум Bootsnap 1.4.4.</p><h3 id='check-zeitwerk-compliance-in-the-test-suite' class='inside_page_header'><a href="#check-zeitwerk-compliance-in-the-test-suite">7.</a>  Проверка правильности Zeitwerk в тестах</h3><p>Задача <code>zeitwerk:check</code> удобна при миграции. Как только проект соответствует, рекомендуется автоматизировать эту проверку. Для этого достаточно нетерпеливо загрузить приложение, и, на самом деле, это единственное, что делает <code>zeitwerk:check</code>.</p><h4 id='nepreryvnaya-integratsiya' class='inside_page_header'><a href="#nepreryvnaya-integratsiya">7.1.</a> Непрерывная интеграция</h4><p>Если ваш проект имеет непрерывную интеграцию, неплохо было бы нетерпеливо загрузить приложение при запуске тестов там. Если приложение не сможет быть нетерпеливо загружено по какой-то причине, лучше узнать это в CI, чем в production, не правда ли?</p><p>В CI обычно имеется некая установленная переменная среды для обозначения, что тесты выполняются там. К примеру, это может быть <code>CI</code>:</p><div class="code_container">
+<p>В этом нет никакого ухудшения производительности.</p><h4 id='bootsnap' class='inside_page_header'><a href="#bootsnap">6.12.</a> Bootsnap</h4><p>Убедитесь, что зависите от как минимум Bootsnap 1.4.4.</p><h3 id='check-zeitwerk-compliance-in-the-test-suite' class='inside_page_header'><a href="#check-zeitwerk-compliance-in-the-test-suite">7.</a> Проверка правильности Zeitwerk в тестах</h3><p>Задача <code>zeitwerk:check</code> удобна при миграции. Как только проект соответствует, рекомендуется автоматизировать эту проверку. Для этого достаточно нетерпеливо загрузить приложение, и, на самом деле, это единственное, что делает <code>zeitwerk:check</code>.</p><h4 id='nepreryvnaya-integratsiya' class='inside_page_header'><a href="#nepreryvnaya-integratsiya">7.1.</a> Непрерывная интеграция</h4><p>Если ваш проект имеет непрерывную интеграцию, неплохо было бы нетерпеливо загрузить приложение при запуске тестов там. Если приложение не сможет быть нетерпеливо загружено по какой-то причине, лучше узнать это в CI, чем в production, не правда ли?</p><p>В CI обычно имеется некая установленная переменная среды для обозначения, что тесты выполняются там. К примеру, это может быть <code>CI</code>:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="c1"># config/environments/test.rb</span>
 <span class="n">config</span><span class="p">.</span><span class="nf">eager_load</span> <span class="o">=</span> <span class="no">ENV</span><span class="p">[</span><span class="s2">"CI"</span><span class="p">].</span><span class="nf">present?</span>
 </code></pre>

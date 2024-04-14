@@ -220,11 +220,11 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#strict-validations">4.  Строгие валидации</a>
+          <a href="#strict-validations">4. Строгие валидации</a>
 </h4>      </li>
       <li>
         <h4>
-          <a href="#conditional-validation">5.  Условная валидация</a>
+          <a href="#conditional-validation">5. Условная валидация</a>
 </h4>      </li>
       <li>
         <h5>
@@ -244,7 +244,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#performing-custom-validations">6.  Выполнение собственных валидаций</a>
+          <a href="#performing-custom-validations">6. Выполнение собственных валидаций</a>
 </h4>      </li>
       <li>
         <h5>
@@ -260,7 +260,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#working-with-validation-errors">7.  Работаем с ошибками валидации</a>
+          <a href="#working-with-validation-errors">7. Работаем с ошибками валидации</a>
 </h4>      </li>
       <li>
         <h5>
@@ -292,7 +292,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#displaying-validation-errors-in-the-view">8.  Отображение ошибок валидации во вью</a>
+          <a href="#displaying-validation-errors-in-the-view">8. Отображение ошибок валидации во вью</a>
 </h4>      </li>
 </ul>
 
@@ -834,7 +834,7 @@
 <span class="p">=&gt;</span> <span class="p">{</span><span class="ss">:email</span><span class="o">=&gt;</span><span class="p">[</span><span class="s2">"has already been taken"</span><span class="p">],</span> <span class="ss">:age</span><span class="o">=&gt;</span><span class="p">[</span><span class="s2">"is not a number"</span><span class="p">],</span> <span class="ss">:name</span><span class="o">=&gt;</span><span class="p">[</span><span class="s2">"can’t be blank"</span><span class="p">]}</span>
 </code></pre>
 </div>
-<p>Мы раскроем больше способов использования для <code>on:</code> в <a href="/active-record-callbacks">руководстве по колбэкам</a>.</p><h3 id='strict-validations' class='inside_page_header'><a href="#strict-validations">4.</a>  Строгие валидации</h3><p>Также можно определить валидации строгими, чтобы они вызывали <code>ActiveModel::StrictValidationFailed</code>, когда объект невалиден.</p><div class="code_container">
+<p>Мы раскроем больше способов использования для <code>on:</code> в <a href="/active-record-callbacks">руководстве по колбэкам</a>.</p><h3 id='strict-validations' class='inside_page_header'><a href="#strict-validations">4.</a> Строгие валидации</h3><p>Также можно определить валидации строгими, чтобы они вызывали <code>ActiveModel::StrictValidationFailed</code>, когда объект невалиден.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="p">{</span> <span class="ss">strict: </span><span class="kp">true</span> <span class="p">}</span>
 <span class="k">end</span>
@@ -856,7 +856,7 @@
 <span class="gr">TokenGenerationException: Token can’t be blank
 </span></code></pre>
 </div>
-<h3 id='conditional-validation' class='inside_page_header'><a href="#conditional-validation">5.</a>  Условная валидация</h3><p>Иногда имеет смысл проводить валидацию объекта только при выполнении заданного предиката. Это можно сделать, используя опции <code>:if</code> и <code>:unless</code>, которые принимают символ, <code>Proc</code> или <code>Array</code>. Опцию <code>:if</code> можно использовать, если необходимо определить, когда валидация <strong>должна</strong> произойти. Альтернативно, если нужно определить, когда валидация <strong>не должна</strong> произойти, воспользуйтесь опцией <code>:unless</code>.</p><h4 id='ispolzovanie-simvola-s-if-i-unless' class='inside_page_header'><a href="#ispolzovanie-simvola-s-if-i-unless">5.1.</a> Использование символа с <code>:if</code> и <code>:unless</code></h4><p>Вы можете связать опции <code>:if</code> и <code>:unless</code> с символом, соответствующим имени метода, который будет вызван перед валидацией. Это наиболее часто используемый вариант.</p><div class="code_container">
+<h3 id='conditional-validation' class='inside_page_header'><a href="#conditional-validation">5.</a> Условная валидация</h3><p>Иногда имеет смысл проводить валидацию объекта только при выполнении заданного предиката. Это можно сделать, используя опции <code>:if</code> и <code>:unless</code>, которые принимают символ, <code>Proc</code> или <code>Array</code>. Опцию <code>:if</code> можно использовать, если необходимо определить, когда валидация <strong>должна</strong> произойти. Альтернативно, если нужно определить, когда валидация <strong>не должна</strong> произойти, воспользуйтесь опцией <code>:unless</code>.</p><h4 id='ispolzovanie-simvola-s-if-i-unless' class='inside_page_header'><a href="#ispolzovanie-simvola-s-if-i-unless">5.1.</a> Использование символа с <code>:if</code> и <code>:unless</code></h4><p>Вы можете связать опции <code>:if</code> и <code>:unless</code> с символом, соответствующим имени метода, который будет вызван перед валидацией. Это наиболее часто используемый вариант.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">validates</span> <span class="ss">:card_number</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">if: :paid_with_card?</span>
 
@@ -894,7 +894,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Валидация выполнится только тогда, когда все условия <code>:if</code> и ни одно из условий <code>:unless</code> будут вычислены со значением <code>true</code>.</p><h3 id='performing-custom-validations' class='inside_page_header'><a href="#performing-custom-validations">6.</a>  Выполнение собственных валидаций</h3><p>Когда встроенных валидационных хелперов недостаточно для ваших нужд, можете написать свои собственные валидаторы или методы валидации.</p><h4 id='sobstvennye-validatory' class='inside_page_header'><a href="#sobstvennye-validatory">6.1.</a> Собственные валидаторы</h4><p>Собственные валидаторы это классы, наследуемые от <a href="https://api.rubyonrails.org/classes/ActiveModel/Validator.html"><code>ActiveModel::Validator</code></a>. Эти классы должны реализовать метод <code>validate</code>, принимающий запись как аргумент и выполняющий валидацию на ней. Собственный валидатор вызывается с использованием метода <code>validates_with</code>.</p><div class="code_container">
+<p>Валидация выполнится только тогда, когда все условия <code>:if</code> и ни одно из условий <code>:unless</code> будут вычислены со значением <code>true</code>.</p><h3 id='performing-custom-validations' class='inside_page_header'><a href="#performing-custom-validations">6.</a> Выполнение собственных валидаций</h3><p>Когда встроенных валидационных хелперов недостаточно для ваших нужд, можете написать свои собственные валидаторы или методы валидации.</p><h4 id='sobstvennye-validatory' class='inside_page_header'><a href="#sobstvennye-validatory">6.1.</a> Собственные валидаторы</h4><p>Собственные валидаторы это классы, наследуемые от <a href="https://api.rubyonrails.org/classes/ActiveModel/Validator.html"><code>ActiveModel::Validator</code></a>. Эти классы должны реализовать метод <code>validate</code>, принимающий запись как аргумент и выполняющий валидацию на ней. Собственный валидатор вызывается с использованием метода <code>validates_with</code>.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">MyValidator</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Validator</span>
   <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
     <span class="k">unless</span> <span class="n">record</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">start_with?</span> <span class="s1">'X'</span>
@@ -974,7 +974,7 @@
 </span><span class="go">      @attributes=[:name], @options={on: :create}&gt;]
 </span></code></pre>
 </div>
-<h3 id='working-with-validation-errors' class='inside_page_header'><a href="#working-with-validation-errors">7.</a>  Работаем с ошибками валидации</h3><p>Методы <a href="https://api.rubyonrails.org/classes/ActiveRecord/Validations.html#method-i-valid-3F"><code>valid?</code></a> и <a href="https://api.rubyonrails.org/classes/ActiveModel/Validations.html#method-i-invalid-3F"><code>invalid?</code></a> предоставляют только итоговый статус валидности. Однако, можно погрузиться в каждую отдельную ошибку с помощью различных методов из коллекции <code>errors</code>.</p><p>Предлагаем список наиболее часто используемых методов. Если хотите увидеть список всех доступных методов, обратитесь к документации по <a href="https://api.rubyonrails.org/classes/ActiveModel/Errors.html"><code>ActiveModel::Errors</code></a>.</p><h4 id='errors2' class='inside_page_header'><a href="#errors2">7.1.</a> <code>errors</code></h4><p>Шлюз, через который можно извлечь различные подробности о каждой ошибке.</p><p>Он возвращает экземпляр класса <code>ActiveModel::Errors</code>, содержащий все ошибки, каждая ошибка представлена объектом <a href="https://api.rubyonrails.org/classes/ActiveModel/Error.html"><code>ActiveModel::Error</code></a>.</p><div class="code_container">
+<h3 id='working-with-validation-errors' class='inside_page_header'><a href="#working-with-validation-errors">7.</a> Работаем с ошибками валидации</h3><p>Методы <a href="https://api.rubyonrails.org/classes/ActiveRecord/Validations.html#method-i-valid-3F"><code>valid?</code></a> и <a href="https://api.rubyonrails.org/classes/ActiveModel/Validations.html#method-i-invalid-3F"><code>invalid?</code></a> предоставляют только итоговый статус валидности. Однако, можно погрузиться в каждую отдельную ошибку с помощью различных методов из коллекции <code>errors</code>.</p><p>Предлагаем список наиболее часто используемых методов. Если хотите увидеть список всех доступных методов, обратитесь к документации по <a href="https://api.rubyonrails.org/classes/ActiveModel/Errors.html"><code>ActiveModel::Errors</code></a>.</p><h4 id='errors2' class='inside_page_header'><a href="#errors2">7.1.</a> <code>errors</code></h4><p>Шлюз, через который можно извлечь различные подробности о каждой ошибке.</p><p>Он возвращает экземпляр класса <code>ActiveModel::Errors</code>, содержащий все ошибки, каждая ошибка представлена объектом <a href="https://api.rubyonrails.org/classes/ActiveModel/Error.html"><code>ActiveModel::Error</code></a>.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">3</span> <span class="p">}</span>
 <span class="k">end</span>
@@ -1145,7 +1145,7 @@
 <span class="p">=&gt;</span> <span class="kp">false</span>
 </code></pre>
 </div>
-<h3 id='displaying-validation-errors-in-the-view' class='inside_page_header'><a href="#displaying-validation-errors-in-the-view">8.</a>  Отображение ошибок валидации во вью</h3><p>Как только вы создали модель и добавили валидации, если эта модель создается с помощью веб-формы, то вы, возможно хотите отображать сообщение об ошибке, когда одна из валидаций проваливается.</p><p>Поскольку каждое приложение обрабатывает подобные вещи по-разному, в Rails нет какого-то хелпера вью для непосредственной генерации этих сообщений. Однако, благодаря богатому набору методов, которые Rails в целом дает для взаимодействия с валидациями, можно создать свой собственный. Кроме того, при генерации скаффолда, Rails поместит некоторый ERB в <code>_form.html.erb</code>, генерируемый для отображения полного списка ошибок этой модели.</p><p>Допустим, у нас имеется модель, сохраненная в переменную экземпляра <code>@article</code>, это выглядит следующим образом:</p><div class="code_container">
+<h3 id='displaying-validation-errors-in-the-view' class='inside_page_header'><a href="#displaying-validation-errors-in-the-view">8.</a> Отображение ошибок валидации во вью</h3><p>Как только вы создали модель и добавили валидации, если эта модель создается с помощью веб-формы, то вы, возможно хотите отображать сообщение об ошибке, когда одна из валидаций проваливается.</p><p>Поскольку каждое приложение обрабатывает подобные вещи по-разному, в Rails нет какого-то хелпера вью для непосредственной генерации этих сообщений. Однако, благодаря богатому набору методов, которые Rails в целом дает для взаимодействия с валидациями, можно создать свой собственный. Кроме того, при генерации скаффолда, Rails поместит некоторый ERB в <code>_form.html.erb</code>, генерируемый для отображения полного списка ошибок этой модели.</p><p>Допустим, у нас имеется модель, сохраненная в переменную экземпляра <code>@article</code>, это выглядит следующим образом:</p><div class="code_container">
   <pre><code class="highlight erb"><span class="cp">&lt;%</span> <span class="k">if</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">any?</span> <span class="cp">%&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"error_explanation"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;%=</span> <span class="n">pluralize</span><span class="p">(</span><span class="vi">@article</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">count</span><span class="p">,</span> <span class="s2">"error"</span><span class="p">)</span> <span class="cp">%&gt;</span> prohibited this article from being saved:<span class="nt">&lt;/h2&gt;</span>

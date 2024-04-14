@@ -460,7 +460,7 @@
 </h4>      </li>
       <li>
         <h4>
-          <a href="#creating-custom-events">6.  Создание пользовательского события</a>
+          <a href="#creating-custom-events">6. Создание пользовательского события</a>
 </h4>      </li>
 </ul>
 
@@ -1729,7 +1729,7 @@
 <td><code>:exception_object</code></td>
 <td>Объект исключения</td>
 </tr>
-</table><h3 id='creating-custom-events' class='inside_page_header'><a href="#creating-custom-events">6.</a>  Создание пользовательского события</h3><p>Добавить свои события очень просто. Active Support будет делать всю тяжелую работу за вас. Просто вызовите <a href="https://api.rubyonrails.org/classes/ActiveSupport/Notifications.html#method-c-instrument"><code>ActiveSupport::Notifications.instrument</code></a> с <code>name</code>, <code>payload</code> и блоком. Уведомление будет отправлено после возвращения блока. Active Support сгенерирует время старта и окончания и добавит уникальный ID инструментария. Все данные переданные в вызов <code>instrument</code> будут выполнены в полезной нагрузке.</p><p>Пример:</p><div class="code_container">
+</table><h3 id='creating-custom-events' class='inside_page_header'><a href="#creating-custom-events">6.</a> Создание пользовательского события</h3><p>Добавить свои события очень просто. Active Support будет делать всю тяжелую работу за вас. Просто вызовите <a href="https://api.rubyonrails.org/classes/ActiveSupport/Notifications.html#method-c-instrument"><code>ActiveSupport::Notifications.instrument</code></a> с <code>name</code>, <code>payload</code> и блоком. Уведомление будет отправлено после возвращения блока. Active Support сгенерирует время старта и окончания и добавит уникальный ID инструментария. Все данные переданные в вызов <code>instrument</code> будут выполнены в полезной нагрузке.</p><p>Пример:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Notifications</span><span class="p">.</span><span class="nf">instrument</span> <span class="s2">"my.custom.event"</span><span class="p">,</span> <span class="ss">this: :data</span> <span class="k">do</span>
   <span class="c1"># Создание ваших пользовательских настроек тут</span>
 <span class="k">end</span>

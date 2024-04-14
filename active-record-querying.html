@@ -172,11 +172,11 @@
 </h4>      </li>
       <li>
         <h5>
-          <a href="#pure-string-conditions">3.1.  Чисто строковые условия</a>
+          <a href="#pure-string-conditions">3.1. Чисто строковые условия</a>
 </h5>      </li>
       <li>
         <h5>
-          <a href="#array-conditions">3.2.  Условия с использованием массива</a>
+          <a href="#array-conditions">3.2. Условия с использованием массива</a>
 </h5>      </li>
       <li>
         <h6>
@@ -188,7 +188,7 @@
 </h6>      </li>
       <li>
         <h5>
-          <a href="#hash-conditions">3.3.  Условия с использованием хэша</a>
+          <a href="#hash-conditions">3.3. Условия с использованием хэша</a>
 </h5>      </li>
       <li>
         <h6>
@@ -216,7 +216,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#ordering">4.  Упорядочивание</a>
+          <a href="#ordering">4. Упорядочивание</a>
 </h4>      </li>
       <li>
         <h4>
@@ -292,7 +292,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#joining-tables">13.  Соединительные таблицы</a>
+          <a href="#joining-tables">13. Соединительные таблицы</a>
 </h4>      </li>
       <li>
         <h5>
@@ -380,7 +380,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#scopes">15.  Скоупы</a>
+          <a href="#scopes">15. Скоупы</a>
 </h4>      </li>
       <li>
         <h5>
@@ -392,7 +392,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#applying-a-default-scope">15.3.  Применение скоупа по умолчанию</a>
+          <a href="#applying-a-default-scope">15.3. Применение скоупа по умолчанию</a>
 </h5>      </li>
       <li>
         <h5>
@@ -404,7 +404,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#dynamic-finders">16.  Динамический поиск</a>
+          <a href="#dynamic-finders">16. Динамический поиск</a>
 </h4>      </li>
       <li>
         <h4>
@@ -412,7 +412,7 @@
 </h4>      </li>
       <li>
         <h4>
-          <a href="#method-chaining">18.  Понимание цепочек методов</a>
+          <a href="#method-chaining">18. Понимание цепочек методов</a>
 </h4>      </li>
       <li>
         <h5>
@@ -464,7 +464,7 @@
 </h4>      </li>
       <li>
         <h4>
-          <a href="#calculations">22.  Вычисления</a>
+          <a href="#calculations">22. Вычисления</a>
 </h4>      </li>
       <li>
         <h5>
@@ -596,7 +596,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p><img src='/assets/active_record_querying/bookstore_models-88aeeaf2f9f4a1f5d8b9bd26825102b7749b7691c73761814b04c93963037f4d.png' title='' alt='Диаграмма всех моделей книжного магазина' class='img-polaroid' /></p><h3 id='poluchenie-ob-ektov-iz-bazy-dannyh' class='inside_page_header'><a href="#poluchenie-ob-ektov-iz-bazy-dannyh">2.</a> Получение объектов из базы данных</h3><p>Для получения объектов из базы данных Active Record предоставляет несколько методов поиска. В каждый метод поиска можно передавать аргументы для выполнения определенных запросов в базу данных без необходимости писать на чистом SQL.</p><p>Методы следующие:</p><ul><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-annotate"><code>annotate</code></a>
+<p><img src='/assets/active_record_querying/bookstore_models-199956343e0509fc4c7f8382d6fd257a032b0e398da86cdec0bd37987153681d.png' title='' alt='Диаграмма всех моделей книжного магазина' class='img-polaroid' /></p><h3 id='poluchenie-ob-ektov-iz-bazy-dannyh' class='inside_page_header'><a href="#poluchenie-ob-ektov-iz-bazy-dannyh">2.</a> Получение объектов из базы данных</h3><p>Для получения объектов из базы данных Active Record предоставляет несколько методов поиска. В каждый метод поиска можно передавать аргументы для выполнения определенных запросов в базу данных без необходимости писать на чистом SQL.</p><p>Методы следующие:</p><ul><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-annotate"><code>annotate</code></a>
 </li><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/FinderMethods.html#method-i-find"><code>find</code></a>
 </li><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-create_with"><code>create_with</code></a>
 </li><li><a href="https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-distinct"><code>distinct</code></a>
@@ -821,7 +821,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p><strong><code>:error_on_ignore</code></strong></p><p>Опция <code>error_on_ignore</code> переопределяет настройку приложения, указывающую, должна ли быть вызвана ошибка, если в relation присутствует упорядочивание.</p><h3 id='usloviya' class='inside_page_header'><a href="#usloviya">3.</a> Условия</h3><p>Метод <a href="https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-where"><code>where</code></a> позволяет определить условия для ограничения возвращаемых записей, которые представляют <code>WHERE</code>-часть выражения SQL. Условия могут быть заданы как строка, массив или хэш.</p><h4 id='pure-string-conditions' class='inside_page_header'><a href="#pure-string-conditions">3.1.</a>  Чисто строковые условия</h4><p>Если вы хотите добавить условия в свой поиск, можете просто определить их там, подобно <code>Book.where(&quot;title = &#39;Introduction to Algorithms&#39;&quot;)</code>. Это найдет все книги, где значение поля <code>title</code> равно &#39;Introduction to Algorithms&#39;.</p><div class="warning"><p>Создание условий в чистой строке подвергает вас риску SQL-инъекций. Например, <code>Book.where(&quot;title LIKE &#39;%#{params[:title]}%&#39;&quot;)</code> не безопасно. Смотрите следующий раздел для более предпочтительного способа обработки условий с использованием массива.</p></div><h4 id='array-conditions' class='inside_page_header'><a href="#array-conditions">3.2.</a>  Условия с использованием массива</h4><p>Что если заголовок может быть задан, скажем, как аргумент откуда-то извне? Поиск тогда принимает такую форму:</p><div class="code_container">
+<p><strong><code>:error_on_ignore</code></strong></p><p>Опция <code>error_on_ignore</code> переопределяет настройку приложения, указывающую, должна ли быть вызвана ошибка, если в relation присутствует упорядочивание.</p><h3 id='usloviya' class='inside_page_header'><a href="#usloviya">3.</a> Условия</h3><p>Метод <a href="https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-where"><code>where</code></a> позволяет определить условия для ограничения возвращаемых записей, которые представляют <code>WHERE</code>-часть выражения SQL. Условия могут быть заданы как строка, массив или хэш.</p><h4 id='pure-string-conditions' class='inside_page_header'><a href="#pure-string-conditions">3.1.</a> Чисто строковые условия</h4><p>Если вы хотите добавить условия в свой поиск, можете просто определить их там, подобно <code>Book.where(&quot;title = &#39;Introduction to Algorithms&#39;&quot;)</code>. Это найдет все книги, где значение поля <code>title</code> равно &#39;Introduction to Algorithms&#39;.</p><div class="warning"><p>Создание условий в чистой строке подвергает вас риску SQL-инъекций. Например, <code>Book.where(&quot;title LIKE &#39;%#{params[:title]}%&#39;&quot;)</code> не безопасно. Смотрите следующий раздел для более предпочтительного способа обработки условий с использованием массива.</p></div><h4 id='array-conditions' class='inside_page_header'><a href="#array-conditions">3.2.</a> Условия с использованием массива</h4><p>Что если заголовок может быть задан, скажем, как аргумент откуда-то извне? Поиск тогда принимает такую форму:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">Book</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="s2">"title = ?"</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="ss">:title</span><span class="p">])</span>
 </code></pre>
 </div>
@@ -851,7 +851,7 @@
   <span class="no">Book</span><span class="p">.</span><span class="nf">sanitize_sql_like</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:title</span><span class="p">])</span> <span class="o">+</span> <span class="s2">"%"</span><span class="p">)</span>
 </code></pre>
 </div>
-<h4 id='hash-conditions' class='inside_page_header'><a href="#hash-conditions">3.3.</a>  Условия с использованием хэша</h4><p>Active Record также позволяет передавать условия в хэше, что улучшает читаемость синтаксиса условий. В этом случае передается хэш с ключами, соответствующими полям, которые хотите уточнить, и с значениями, которые вы хотите к ним применить:</p><div class="note"><p>Хэшем можно передать условия проверки только равенства, интервала и подмножества.</p></div><h5 id='usloviya-ravenstva' class='inside_page_header'><a href="#usloviya-ravenstva">3.3.1.</a> Условия равенства</h5><div class="code_container">
+<h4 id='hash-conditions' class='inside_page_header'><a href="#hash-conditions">3.3.</a> Условия с использованием хэша</h4><p>Active Record также позволяет передавать условия в хэше, что улучшает читаемость синтаксиса условий. В этом случае передается хэш с ключами, соответствующими полям, которые хотите уточнить, и с значениями, которые вы хотите к ним применить:</p><div class="note"><p>Хэшем можно передать условия проверки только равенства, интервала и подмножества.</p></div><h5 id='usloviya-ravenstva' class='inside_page_header'><a href="#usloviya-ravenstva">3.3.1.</a> Условия равенства</h5><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">Book</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">out_of_print: </span><span class="kp">true</span><span class="p">)</span>
 </code></pre>
 </div>
@@ -935,7 +935,7 @@
   <pre><code class="highlight sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">customers</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">customers</span><span class="p">.</span><span class="n">id</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">AND</span> <span class="n">customers</span><span class="p">.</span><span class="n">id</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </code></pre>
 </div>
-<h3 id='ordering' class='inside_page_header'><a href="#ordering">4.</a>  Упорядочивание</h3><p>Чтобы получить записи из базы данных в определенном порядке, можете использовать метод <a href="https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-order"><code>order</code></a>.</p><p>Например, если вы получаете ряд записей и хотите упорядочить их в порядке возрастания поля <code>created_at</code> в таблице:</p><div class="code_container">
+<h3 id='ordering' class='inside_page_header'><a href="#ordering">4.</a> Упорядочивание</h3><p>Чтобы получить записи из базы данных в определенном порядке, можете использовать метод <a href="https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-order"><code>order</code></a>.</p><p>Например, если вы получаете ряд записей и хотите упорядочить их в порядке возрастания поля <code>created_at</code> в таблице:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">Book</span><span class="p">.</span><span class="nf">order</span><span class="p">(</span><span class="ss">:created_at</span><span class="p">)</span>
 <span class="c1"># ИЛИ</span>
 <span class="no">Book</span><span class="p">.</span><span class="nf">order</span><span class="p">(</span><span class="s2">"created_at"</span><span class="p">)</span>
@@ -1252,7 +1252,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h3 id='joining-tables' class='inside_page_header'><a href="#joining-tables">13.</a>  Соединительные таблицы</h3><p>Active Record предоставляет два метода поиска для определения условия <code>JOIN</code> в результирующем SQL: <code>joins</code> и <code>left_outer_joins</code>. В то время, как <code>joins</code> следует использовать для <code>INNER JOIN</code> или пользовательских запросов, <code>left_outer_joins</code> используется для запросов с помощью <code>LEFT OUTER JOIN</code>.</p><h4 id='joins' class='inside_page_header'><a href="#joins">13.1.</a> <code>joins</code></h4><p>Существует несколько способов использования метода <a href="https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-joins"><code>joins</code></a>.</p><h5 id='ispolzovanie-strokovogo-fragmenta-sql' class='inside_page_header'><a href="#ispolzovanie-strokovogo-fragmenta-sql">13.1.1.</a> Использование строкового фрагмента SQL</h5><p>Можно просто передать чистый SQL, определяющий условие <code>JOIN</code> в <code>joins</code>.</p><div class="code_container">
+<h3 id='joining-tables' class='inside_page_header'><a href="#joining-tables">13.</a> Соединительные таблицы</h3><p>Active Record предоставляет два метода поиска для определения условия <code>JOIN</code> в результирующем SQL: <code>joins</code> и <code>left_outer_joins</code>. В то время, как <code>joins</code> следует использовать для <code>INNER JOIN</code> или пользовательских запросов, <code>left_outer_joins</code> используется для запросов с помощью <code>LEFT OUTER JOIN</code>.</p><h4 id='joins' class='inside_page_header'><a href="#joins">13.1.</a> <code>joins</code></h4><p>Существует несколько способов использования метода <a href="https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-joins"><code>joins</code></a>.</p><h5 id='ispolzovanie-strokovogo-fragmenta-sql' class='inside_page_header'><a href="#ispolzovanie-strokovogo-fragmenta-sql">13.1.1.</a> Использование строкового фрагмента SQL</h5><p>Можно просто передать чистый SQL, определяющий условие <code>JOIN</code> в <code>joins</code>.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">Author</span><span class="p">.</span><span class="nf">joins</span><span class="p">(</span><span class="s2">"INNER JOIN books ON books.author_id = authors.id AND books.out_of_print = FALSE"</span><span class="p">)</span>
 </code></pre>
 </div>
@@ -1435,7 +1435,7 @@
 <span class="n">user</span><span class="p">.</span><span class="nf">comments</span><span class="p">.</span><span class="nf">to_a</span> <span class="c1"># вызовет ActiveRecord::StrictLoadingViolationError</span>
 </code></pre>
 </div>
-<h3 id='scopes' class='inside_page_header'><a href="#scopes">15.</a>  Скоупы</h3><p>Скоупы позволяют задавать часто используемые запросы, к которым можно обращаться как к вызовам метода в связанных объектах или моделях. С помощью этих скоупов можно использовать каждый ранее раскрытый метод, такой как <code>where</code>, <code>joins</code> и <code>includes</code>. Все методы скоупов возвращают объект <code>ActiveRecord::Relation</code> или <code>nil</code>, что позволяет вызывать на них дополнительные методы (такие как другие скоупы).</p><p>Для определения простого скоупа мы используем метод <a href="https://api.rubyonrails.org/classes/ActiveRecord/Scoping/Named/ClassMethods.html#method-i-scope"><code>scope</code></a> внутри класса, передав запрос, который хотим запустить при вызове этого скоупа:</p><div class="code_container">
+<h3 id='scopes' class='inside_page_header'><a href="#scopes">15.</a> Скоупы</h3><p>Скоупы позволяют задавать часто используемые запросы, к которым можно обращаться как к вызовам метода в связанных объектах или моделях. С помощью этих скоупов можно использовать каждый ранее раскрытый метод, такой как <code>where</code>, <code>joins</code> и <code>includes</code>. Все методы скоупов возвращают объект <code>ActiveRecord::Relation</code> или <code>nil</code>, что позволяет вызывать на них дополнительные методы (такие как другие скоупы).</p><p>Для определения простого скоупа мы используем метод <a href="https://api.rubyonrails.org/classes/ActiveRecord/Scoping/Named/ClassMethods.html#method-i-scope"><code>scope</code></a> внутри класса, передав запрос, который хотим запустить при вызове этого скоупа:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Book</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">scope</span> <span class="ss">:out_of_print</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">where</span><span class="p">(</span><span class="ss">out_of_print: </span><span class="kp">true</span><span class="p">)</span> <span class="p">}</span>
 <span class="k">end</span>
@@ -1495,7 +1495,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Однако, имеется одно важное предостережение: скоуп всегда должен возвращать объект <code>ActiveRecord::Relation</code>, даже если условие вычисляется <code>false</code>, в отличие от метода класса, возвращающего <code>nil</code>. Это может вызвать <code>NoMethodError</code> при сцеплении методов класса с условиями, если одно из условий вернет <code>false</code>.</p><h4 id='applying-a-default-scope' class='inside_page_header'><a href="#applying-a-default-scope">15.3.</a>  Применение скоупа по умолчанию</h4><p>Если хотите, чтобы скоуп был применен ко всем запросам модели, можно использовать метод <a href="https://api.rubyonrails.org/classes/ActiveRecord/Scoping/Default/ClassMethods.html#method-i-default_scope"><code>default_scope</code></a> в самой модели.</p><div class="code_container">
+<p>Однако, имеется одно важное предостережение: скоуп всегда должен возвращать объект <code>ActiveRecord::Relation</code>, даже если условие вычисляется <code>false</code>, в отличие от метода класса, возвращающего <code>nil</code>. Это может вызвать <code>NoMethodError</code> при сцеплении методов класса с условиями, если одно из условий вернет <code>false</code>.</p><h4 id='applying-a-default-scope' class='inside_page_header'><a href="#applying-a-default-scope">15.3.</a> Применение скоупа по умолчанию</h4><p>Если хотите, чтобы скоуп был применен ко всем запросам модели, можно использовать метод <a href="https://api.rubyonrails.org/classes/ActiveRecord/Scoping/Default/ClassMethods.html#method-i-default_scope"><code>default_scope</code></a> в самой модели.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Book</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">default_scope</span> <span class="p">{</span> <span class="n">where</span><span class="p">(</span><span class="ss">out_of_print: </span><span class="kp">false</span><span class="p">)</span> <span class="p">}</span>
 <span class="k">end</span>
@@ -1599,7 +1599,7 @@
 <span class="go">SELECT books.* FROM books WHERE books.out_of_print
 </span></code></pre>
 </div>
-<h3 id='dynamic-finders' class='inside_page_header'><a href="#dynamic-finders">16.</a>  Динамический поиск</h3><p>Для каждого поля (также называемого атрибутом), определенного в вашей таблице, Active Record предоставляет метод поиска. Например, если есть поле <code>first_name</code> в вашей модели <code>Customer</code>, вы автоматически получаете <code>find_by_first_name</code> от Active Record. Если также есть поле <code>locked</code> в модели <code>Customer</code>, вы также получаете <code>find_by_locked</code> метод.</p><p>Можете определить восклицательный знак (<code>!</code>) в конце динамического поиска, чтобы он вызвал ошибку <code>ActiveRecord::RecordNotFound</code>, если не возвратит ни одной записи, например так <code>Customer.find_by_first_name!(&quot;Ryan&quot;)</code></p><p>Если хотите искать и по <code>first_name</code>, и по <code>orders_count</code>, можете сцепить эти поиски вместе, просто написав &quot;<code>and</code>&quot; между полями, например, <code>Customer.find_by_first_name_and_orders_count(&quot;Ryan&quot;, 5)</code>.</p><h3 id='perechislenie' class='inside_page_header'><a href="#perechislenie">17.</a> Перечисление</h3><p>Перечисление позволяет определить массив значений для атрибута, и ссылаться на них по имени. Фактическим значением, хранимым в базе данных, будет целое число, соответствующее одному из значений.</p><p>Объявление перечисления:</p><ul><li>Создаст скоупы, которые можно использовать для поиска всех объектов имеющих или не имеющих одно из значений перечисления
+<h3 id='dynamic-finders' class='inside_page_header'><a href="#dynamic-finders">16.</a> Динамический поиск</h3><p>Для каждого поля (также называемого атрибутом), определенного в вашей таблице, Active Record предоставляет метод поиска. Например, если есть поле <code>first_name</code> в вашей модели <code>Customer</code>, вы автоматически получаете <code>find_by_first_name</code> от Active Record. Если также есть поле <code>locked</code> в модели <code>Customer</code>, вы также получаете <code>find_by_locked</code> метод.</p><p>Можете определить восклицательный знак (<code>!</code>) в конце динамического поиска, чтобы он вызвал ошибку <code>ActiveRecord::RecordNotFound</code>, если не возвратит ни одной записи, например так <code>Customer.find_by_first_name!(&quot;Ryan&quot;)</code></p><p>Если хотите искать и по <code>first_name</code>, и по <code>orders_count</code>, можете сцепить эти поиски вместе, просто написав &quot;<code>and</code>&quot; между полями, например, <code>Customer.find_by_first_name_and_orders_count(&quot;Ryan&quot;, 5)</code>.</p><h3 id='perechislenie' class='inside_page_header'><a href="#perechislenie">17.</a> Перечисление</h3><p>Перечисление позволяет определить массив значений для атрибута, и ссылаться на них по имени. Фактическим значением, хранимым в базе данных, будет целое число, соответствующее одному из значений.</p><p>Объявление перечисления:</p><ul><li>Создаст скоупы, которые можно использовать для поиска всех объектов имеющих или не имеющих одно из значений перечисления
 </li><li>Создаст метод экземпляра, который можно использовать для определения, имеет ли объект определенное значение для перечисления
 </li><li>Создаст метод экземпляра, который можно использовать для изменения значения перечисления у объекта
 </li></ul><p>для каждого возможного значения перечисления.</p><p>Например, дано это определение <a href="https://api.rubyonrails.org/classes/ActiveRecord/Enum.html#method-i-enum"><code>enum</code></a>:</p><div class="code_container">
@@ -1630,7 +1630,7 @@
 </span><span class="p">=&gt;</span> <span class="kp">true</span>
 </code></pre>
 </div>
-<p>Полную документацию об enum можно найти в <a href="https://api.rubyonrails.org/classes/ActiveRecord/Enum.html">документации Rails API</a>.</p><h3 id='method-chaining' class='inside_page_header'><a href="#method-chaining">18.</a>  Понимание цепочек методов</h3><p>В Active Record есть полезный приём программирования <a href="https://en.wikipedia.org/wiki/Method_chaining">Method Chaining</a>, который позволяет нам комбинировать множество Active Record методов.</p><p>Можно сцепить несколько методов в единое выражение, если предыдущий вызываемый метод возвращает <a href="https://api.rubyonrails.org/classes/ActiveRecord/Relation.html"><code>ActiveRecord::Relation</code></a>, такие как <code>all</code>, <code>where</code> и <code>joins</code>. Методы, которые возвращают одиночный объект (смотрите раздел <a href="#poluchenie-odinochnogo-ob-ekta">Получение одиночного объекта</a>) должны вызываться в конце.</p><p>Ниже представлены несколько примеров. Это руководство не покрывает все возможности, а только некоторые, для ознакомления. Когда вызывается Active Record метод, запрос не сразу генерируется и отправляется в базу. Запрос посылается только тогда, когда данные реально необходимы. Таким образом, каждый пример ниже генерирует только один запрос.</p><h4 id='poluchenie-otfiltrovannyh-dannyh-iz-neskolkih-tablits' class='inside_page_header'><a href="#poluchenie-otfiltrovannyh-dannyh-iz-neskolkih-tablits">18.1.</a> Получение отфильтрованных данных из нескольких таблиц</h4><div class="code_container">
+<p>Полную документацию об enum можно найти в <a href="https://api.rubyonrails.org/classes/ActiveRecord/Enum.html">документации Rails API</a>.</p><h3 id='method-chaining' class='inside_page_header'><a href="#method-chaining">18.</a> Понимание цепочек методов</h3><p>В Active Record есть полезный приём программирования <a href="https://en.wikipedia.org/wiki/Method_chaining">Method Chaining</a>, который позволяет нам комбинировать множество Active Record методов.</p><p>Можно сцепить несколько методов в единое выражение, если предыдущий вызываемый метод возвращает <a href="https://api.rubyonrails.org/classes/ActiveRecord/Relation.html"><code>ActiveRecord::Relation</code></a>, такие как <code>all</code>, <code>where</code> и <code>joins</code>. Методы, которые возвращают одиночный объект (смотрите раздел <a href="#poluchenie-odinochnogo-ob-ekta">Получение одиночного объекта</a>) должны вызываться в конце.</p><p>Ниже представлены несколько примеров. Это руководство не покрывает все возможности, а только некоторые, для ознакомления. Когда вызывается Active Record метод, запрос не сразу генерируется и отправляется в базу. Запрос посылается только тогда, когда данные реально необходимы. Таким образом, каждый пример ниже генерирует только один запрос.</p><h4 id='poluchenie-otfiltrovannyh-dannyh-iz-neskolkih-tablits' class='inside_page_header'><a href="#poluchenie-otfiltrovannyh-dannyh-iz-neskolkih-tablits">18.1.</a> Получение отфильтрованных данных из нескольких таблиц</h4><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">Customer</span>
   <span class="p">.</span><span class="nf">select</span><span class="p">(</span><span class="s1">'customers.id, customers.last_name, reviews.body'</span><span class="p">)</span>
   <span class="p">.</span><span class="nf">joins</span><span class="p">(</span><span class="ss">:reviews</span><span class="p">)</span>
@@ -1852,7 +1852,7 @@
 <span class="no">Customer</span><span class="p">.</span><span class="nf">first</span><span class="p">.</span><span class="nf">orders</span><span class="p">.</span><span class="nf">many?</span>
 </code></pre>
 </div>
-<h3 id='calculations' class='inside_page_header'><a href="#calculations">22.</a>  Вычисления</h3><p>Этот раздел использует <a href="https://api.rubyonrails.org/classes/ActiveRecord/Calculations.html#method-i-count"><code>count</code></a> для примера в этой преамбуле, но описанные опции применяются ко всем подразделам.</p><p>Все методы вычисления работают прямо на модели:</p><div class="code_container">
+<h3 id='calculations' class='inside_page_header'><a href="#calculations">22.</a> Вычисления</h3><p>Этот раздел использует <a href="https://api.rubyonrails.org/classes/ActiveRecord/Calculations.html#method-i-count"><code>count</code></a> для примера в этой преамбуле, но описанные опции применяются ко всем подразделам.</p><p>Все методы вычисления работают прямо на модели:</p><div class="code_container">
   <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="no">Customer</span><span class="p">.</span><span class="nf">count</span>
 <span class="go">SELECT COUNT(*) FROM customers
 </span></code></pre>

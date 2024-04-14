@@ -188,7 +188,7 @@
 </h4>      </li>
       <li>
         <h4>
-          <a href="#view-paths">5.  Пути вью</a>
+          <a href="#view-paths">5. Пути вью</a>
 </h4>      </li>
       <li>
         <h5>
@@ -447,7 +447,7 @@ Hi, Mr. <span class="cp">&lt;%</span> <span class="nb">puts</span> <span class="
 <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
 </code></pre>
 </div>
-<p>Предположив, что мы используем тот же партиал <code>_box</code>, мы получим тот же результат, что и в предыдущем примере.</p><h3 id='view-paths' class='inside_page_header'><a href="#view-paths">5.</a>  Пути вью</h3><p>При рендеринге отклика контроллер должен решить, где располагаются различные вью. По умолчанию он смотрит только в директории <code>app/views</code>.</p><p>Мы можем добавить другие места расположения и дать им некий приоритет при определении путей с помощью методов <code>prepend_view_path</code> и <code>append_view_path</code>.</p><h4 id='prepend-view-path' class='inside_page_header'><a href="#prepend-view-path">5.1.</a> Prepend view path</h4><p>Метод может быть полезным, например, когда мы хотим поместить вью в разные директории для поддоменов.</p><p>Мы можем сделать это используя:</p><div class="code_container">
+<p>Предположив, что мы используем тот же партиал <code>_box</code>, мы получим тот же результат, что и в предыдущем примере.</p><h3 id='view-paths' class='inside_page_header'><a href="#view-paths">5.</a> Пути вью</h3><p>При рендеринге отклика контроллер должен решить, где располагаются различные вью. По умолчанию он смотрит только в директории <code>app/views</code>.</p><p>Мы можем добавить другие места расположения и дать им некий приоритет при определении путей с помощью методов <code>prepend_view_path</code> и <code>append_view_path</code>.</p><h4 id='prepend-view-path' class='inside_page_header'><a href="#prepend-view-path">5.1.</a> Prepend view path</h4><p>Метод может быть полезным, например, когда мы хотим поместить вью в разные директории для поддоменов.</p><p>Мы можем сделать это используя:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">prepend_view_path</span> <span class="s2">"app/views/</span><span class="si">#{</span><span class="n">request</span><span class="p">.</span><span class="nf">subdomain</span><span class="si">}</span><span class="s2">"</span>
 </code></pre>
 </div>

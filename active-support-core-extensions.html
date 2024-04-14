@@ -268,7 +268,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#extensions-to-class">4.  Расширения для <code>Class</code></a>
+          <a href="#extensions-to-class">4. Расширения для <code>Class</code></a>
 </h4>      </li>
       <li>
         <h5>
@@ -340,7 +340,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#truncate_words">5.6.  <code>truncate_words</code></a>
+          <a href="#truncate_words">5.6. <code>truncate_words</code></a>
 </h5>      </li>
       <li>
         <h5>
@@ -828,7 +828,7 @@
 </h7>      </li>
       <li>
         <h7>
-          <a href="#date-time-advance">16.1.2.4.  <code>advance</code></a>
+          <a href="#date-time-advance">16.1.2.4. <code>advance</code></a>
 </h7>      </li>
       <li>
         <h6>
@@ -1376,7 +1376,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Целью может быть все что угодно, вызываемое внутри объекта, например, переменные экземпляра, методы, константы и т.д. Делегируются только публичные методы цели.</p><div class="note"><p>Определено в <code>active_support/core_ext/module/delegation.rb</code>.</p></div><h4 id='pereopredelenie-metodov' class='inside_page_header'><a href="#pereopredelenie-metodov">3.5.</a> Переопределение методов</h4><p>Бывают ситуации, когда нужно определить метод с помощью <code>define_method</code>, но вы не знаете, существует ли уже метод с таким именем. Если так, то выдается предупреждение, если оно включено. Такое поведение хоть и не ошибочно, но не элегантно.</p><p>Метод <a href="https://api.rubyonrails.org/classes/Module.html#method-i-redefine_method"><code>redefine_method</code></a> предотвращает такое потенциальное предупреждение, предварительно убирая существующий метод, если нужно.</p><p>Также можно использовать <a href="https://api.rubyonrails.org/classes/Module.html#method-i-silence_redefinition_of_method"><code>silence_redefinition_of_method</code></a>, если необходимо определить заменяющий метод отдельно (потому что используется <code>delegate</code>, например).</p><div class="note"><p>Определено в <code>active_support/core_ext/module/redefine_method.rb</code>.</p></div><h3 id='extensions-to-class' class='inside_page_header'><a href="#extensions-to-class">4.</a>  Расширения для <code>Class</code></h3><h4 id='atributy-klassa' class='inside_page_header'><a href="#atributy-klassa">4.1.</a> Атрибуты класса</h4><h5 id='class_attribute' class='inside_page_header'><a href="#class_attribute">4.1.1.</a> <code>class_attribute</code></h5><p>Метод <a href="https://api.rubyonrails.org/classes/Class.html#method-i-class_attribute"><code>class_attribute</code></a> объявляет один или более наследуемых атрибутов класса, которые могут быть переопределены на низшем уровне иерархии:</p><div class="code_container">
+<p>Целью может быть все что угодно, вызываемое внутри объекта, например, переменные экземпляра, методы, константы и т.д. Делегируются только публичные методы цели.</p><div class="note"><p>Определено в <code>active_support/core_ext/module/delegation.rb</code>.</p></div><h4 id='pereopredelenie-metodov' class='inside_page_header'><a href="#pereopredelenie-metodov">3.5.</a> Переопределение методов</h4><p>Бывают ситуации, когда нужно определить метод с помощью <code>define_method</code>, но вы не знаете, существует ли уже метод с таким именем. Если так, то выдается предупреждение, если оно включено. Такое поведение хоть и не ошибочно, но не элегантно.</p><p>Метод <a href="https://api.rubyonrails.org/classes/Module.html#method-i-redefine_method"><code>redefine_method</code></a> предотвращает такое потенциальное предупреждение, предварительно убирая существующий метод, если нужно.</p><p>Также можно использовать <a href="https://api.rubyonrails.org/classes/Module.html#method-i-silence_redefinition_of_method"><code>silence_redefinition_of_method</code></a>, если необходимо определить заменяющий метод отдельно (потому что используется <code>delegate</code>, например).</p><div class="note"><p>Определено в <code>active_support/core_ext/module/redefine_method.rb</code>.</p></div><h3 id='extensions-to-class' class='inside_page_header'><a href="#extensions-to-class">4.</a> Расширения для <code>Class</code></h3><h4 id='atributy-klassa' class='inside_page_header'><a href="#atributy-klassa">4.1.</a> Атрибуты класса</h4><h5 id='class_attribute' class='inside_page_header'><a href="#class_attribute">4.1.1.</a> <code>class_attribute</code></h5><p>Метод <a href="https://api.rubyonrails.org/classes/Class.html#method-i-class_attribute"><code>class_attribute</code></a> объявляет один или более наследуемых атрибутов класса, которые могут быть переопределены на низшем уровне иерархии:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">A</span>
   <span class="n">class_attribute</span> <span class="ss">:x</span>
 <span class="k">end</span>
@@ -1580,7 +1580,7 @@
 <span class="c1"># =&gt; "👍👍🖖"</span>
 </code></pre>
 </div>
-<div class="note"><p>Определено в <code>active_support/core_ext/string/filters.rb</code>.</p></div><h4 id='truncate_words' class='inside_page_header'><a href="#truncate_words">5.6.</a>  <code>truncate_words</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/String.html#method-i-truncate_words"><code>truncate_words</code></a> возвращает копию получателя, сокращенную после заданного количества слов:</p><div class="code_container">
+<div class="note"><p>Определено в <code>active_support/core_ext/string/filters.rb</code>.</p></div><h4 id='truncate_words' class='inside_page_header'><a href="#truncate_words">5.6.</a> <code>truncate_words</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/String.html#method-i-truncate_words"><code>truncate_words</code></a> возвращает копию получателя, сокращенную после заданного количества слов:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="s2">"Oh dear! Oh dear! I shall be late!"</span><span class="p">.</span><span class="nf">truncate_words</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="c1"># =&gt; "Oh dear! Oh dear!..."</span>
 </code></pre>
@@ -2774,7 +2774,7 @@ end
 <span class="n">now</span><span class="p">.</span><span class="nf">utc</span><span class="p">.</span><span class="nf">utc?</span>       <span class="c1"># =&gt; true</span>
 </code></pre>
 </div>
-<div class="note"><p>Определено в <code>active_support/core_ext/date_time/calculations.rb</code>.</p></div><h6 id='date-time-advance' class='inside_page_header'><a href="#date-time-advance">16.1.2.4.</a>  <code>advance</code></h6><p>Более обычным способом перейти к другим дате и времени является <a href="https://api.rubyonrails.org/classes/DateTime.html#method-i-advance"><code>advance</code></a>. Этот метод получает хэш с ключами <code>:years</code>, <code>:months</code>, <code>:weeks</code>, <code>:days</code>, <code>:hours</code>, <code>:minutes</code> и <code>:seconds</code>, и возвращает дату и время, передвинутые на столько, на сколько указывают существующие ключи.</p><div class="code_container">
+<div class="note"><p>Определено в <code>active_support/core_ext/date_time/calculations.rb</code>.</p></div><h6 id='date-time-advance' class='inside_page_header'><a href="#date-time-advance">16.1.2.4.</a> <code>advance</code></h6><p>Более обычным способом перейти к другим дате и времени является <a href="https://api.rubyonrails.org/classes/DateTime.html#method-i-advance"><code>advance</code></a>. Этот метод получает хэш с ключами <code>:years</code>, <code>:months</code>, <code>:weeks</code>, <code>:days</code>, <code>:hours</code>, <code>:minutes</code> и <code>:seconds</code>, и возвращает дату и время, передвинутые на столько, на сколько указывают существующие ключи.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">d</span> <span class="o">=</span> <span class="no">DateTime</span><span class="p">.</span><span class="nf">current</span>
 <span class="c1"># =&gt; Thu, 05 Aug 2010 11:33:31 +0000</span>
 <span class="n">d</span><span class="p">.</span><span class="nf">advance</span><span class="p">(</span><span class="ss">years: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">months: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">days: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">hours: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">minutes: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">seconds: </span><span class="mi">1</span><span class="p">)</span>

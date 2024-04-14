@@ -156,7 +156,7 @@
 </h5>      </li>
       <li>
         <h6>
-          <a href="#connection-setup">3.1.1.  Настройка соединения</a>
+          <a href="#connection-setup">3.1.1. Настройка соединения</a>
 </h6>      </li>
       <li>
         <h6>
@@ -172,7 +172,7 @@
 </h5>      </li>
       <li>
         <h6>
-          <a href="#parent-channel-setup">3.2.1.  Настройка родительского канала</a>
+          <a href="#parent-channel-setup">3.2.1. Настройка родительского канала</a>
 </h6>      </li>
       <li>
         <h6>
@@ -196,11 +196,11 @@
 </h5>      </li>
       <li>
         <h6>
-          <a href="#connect-consumer">4.1.1.  Присоединение потребителя</a>
+          <a href="#connect-consumer">4.1.1. Присоединение потребителя</a>
 </h6>      </li>
       <li>
         <h6>
-          <a href="#subscriber">4.1.2.  Подписчик</a>
+          <a href="#subscriber">4.1.2. Подписчик</a>
 </h6>      </li>
       <li>
         <h4>
@@ -212,7 +212,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#broadcasting">5.2.  Трансляции</a>
+          <a href="#broadcasting">5.2. Трансляции</a>
 </h5>      </li>
       <li>
         <h5>
@@ -248,7 +248,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#configuration">7.  Настройка</a>
+          <a href="#configuration">7. Настройка</a>
 </h4>      </li>
       <li>
         <h5>
@@ -276,7 +276,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#consumer-configuration">7.3.  Настройка потребителя</a>
+          <a href="#consumer-configuration">7.3. Настройка потребителя</a>
 </h5>      </li>
       <li>
         <h5>
@@ -308,7 +308,7 @@
 </h5>      </li>
       <li>
         <h4>
-          <a href="#dependencies">9.  Зависимости</a>
+          <a href="#dependencies">9. Зависимости</a>
 </h4>      </li>
       <li>
         <h4>
@@ -360,7 +360,7 @@
 </li></ul>
 <hr>
 <h3 id='chto-takoe-action-cable' class='inside_page_header'><a href="#chto-takoe-action-cable">1.</a> Что такое Action Cable?</h3><p>Action Cable с легкостью интегрирует <a href="https://ru.wikipedia.org/wiki/WebSocket">WebSockets</a> с остальными частями приложения Rails. Он позволяет писать функциональность реального времени на Ruby в стиле и формате остальной части приложения Rails, в то же время являясь производительным и масштабируемым. Он представляет полный стек, включая клиентский фреймворк на JavaScript и серверный фреймворк на Ruby. Вы получаете полный доступ к моделям предметной области, написанным с помощью Active Record или другой ORM на выбор.</p><h3 id='terminologiya' class='inside_page_header'><a href="#terminologiya">2.</a> Терминология</h3><p>Action Cable использует WebSockets вместо протокола запросов-откликов HTTP. И Action Cable, и WebSockets представляют более-менее одинаковую терминологию:</p><h4 id='soedineniya' class='inside_page_header'><a href="#soedineniya">2.1.</a> Соединения</h4><p><em>Соединения</em> формируют основу взаимоотношения клиента с сервером.</p><p>Отдельный сервер Action Cable может обслужить несколько экземпляров соединения. В нем есть один экземпляр соединения на соединение WebSocket. Отдельный пользователь может иметь несколько WebSocket, открытых в вашем приложении, если он использует несколько вкладок браузера или устройств.</p><h4 id='potrebiteli' class='inside_page_header'><a href="#potrebiteli">2.2.</a> Потребители</h4><p>Клиент соединения WebSocket называется <em>потребителем</em>. В Action Cable потребитель создается клиентским фреймворком JavaScript.</p><h4 id='kanaly' class='inside_page_header'><a href="#kanaly">2.3.</a> Каналы</h4><p>Каждый потребитель, в свою очередь, может подписаться на несколько <em>каналов</em>. Каждый канал инкапсулирует логическую единицу работы, подобно тому, что делает контроллер в типичной настройке MVC. Например, могут быть <code>ChatChannel</code> и <code>AppearancesChannel</code>, а потребитель может подписаться на один или оба этих канала. Потребитель должен минимум быть подписан на один канал.</p><h4 id='podpischiki' class='inside_page_header'><a href="#podpischiki">2.4.</a> Подписчики</h4><p>Когда потребитель подписан на канал, он действует как <em>подписчик</em>. Соединение между подписчиком и каналом называется (сюрприз!) подпиской. Потребитель может действовать как подписчик на данный канал любое количество раз. Например, потребитель может подписаться на несколько комнат чата одновременно. (И помните, что физический пользователь может иметь несколько потребителей,
-один на вкладку/устройство, открытых к соединению).</p><h4 id='pub-sub' class='inside_page_header'><a href="#pub-sub">2.5.</a> Pub/Sub</h4><p><a href="https://ru.wikipedia.org/wiki/%D0%98%D0%B7%D0%B4%D0%B0%D1%82%D0%B5%D0%BB%D1%8C-%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)">Pub/Sub</a>, или Publish-Subscribe, относится к парадигме очереди сообщений, когда отправители информации (publishers) посылают данные в абстрактный класс получателей (subscribers), без указания отдельных получателей. Action Cable использует этот подход для коммуникации между сервером и множеством клиентов.</p><h4 id='translyatsii' class='inside_page_header'><a href="#translyatsii">2.6.</a> Трансляции</h4><p>Трансляция — это ссылка pub/sub, по которой все, передаваемое транслятором, посылается непосредственно подписчикам на канал, которые слушают эту названную трансляцию. Каждый канал может вещать ноль или более трансляций.</p><h3 id='servernye-komponenty' class='inside_page_header'><a href="#servernye-komponenty">3.</a> Серверные компоненты</h3><h4 id='soedineniya2' class='inside_page_header'><a href="#soedineniya2">3.1.</a> Соединения</h4><p>Для каждого WebSocket, принимаемого сервером, на стороне сервера будет инициализирован объект соединения. Этот объект становится родителем для всех <em>подписок на канал</em>, которые создаются впоследствии. Само соединение не работает с какой-либо определенной логикой приложения после аутентификации и авторизации. Клиент соединения WebSocket называется <em>потребителем</em> соединения (consumer). Отдельный пользователь создаст одну пару потребитель-соединение на каждую вкладку браузера, окно или устройство, которые он использует.</p><p>Соединения - это экземпляры класса <code>ApplicationCable::Connection</code> который расширяет <a href="https://api.rubyonrails.org/classes/ActionCable/Connection/Base.html"><code>ActionCable::Connection::Base</code></a>. В <code>ApplicationCable::Connection</code> вы авторизуете входящее соединение и приступаете к его созданию, если пользователь может быть идентифицирован.</p><h5 id='connection-setup' class='inside_page_header'><a href="#connection-setup">3.1.1.</a>  Настройка соединения</h5><div class="code_container">
+один на вкладку/устройство, открытых к соединению).</p><h4 id='pub-sub' class='inside_page_header'><a href="#pub-sub">2.5.</a> Pub/Sub</h4><p><a href="https://ru.wikipedia.org/wiki/%D0%98%D0%B7%D0%B4%D0%B0%D1%82%D0%B5%D0%BB%D1%8C-%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)">Pub/Sub</a>, или Publish-Subscribe, относится к парадигме очереди сообщений, когда отправители информации (publishers) посылают данные в абстрактный класс получателей (subscribers), без указания отдельных получателей. Action Cable использует этот подход для коммуникации между сервером и множеством клиентов.</p><h4 id='translyatsii' class='inside_page_header'><a href="#translyatsii">2.6.</a> Трансляции</h4><p>Трансляция — это ссылка pub/sub, по которой все, передаваемое транслятором, посылается непосредственно подписчикам на канал, которые слушают эту названную трансляцию. Каждый канал может вещать ноль или более трансляций.</p><h3 id='servernye-komponenty' class='inside_page_header'><a href="#servernye-komponenty">3.</a> Серверные компоненты</h3><h4 id='soedineniya2' class='inside_page_header'><a href="#soedineniya2">3.1.</a> Соединения</h4><p>Для каждого WebSocket, принимаемого сервером, на стороне сервера будет инициализирован объект соединения. Этот объект становится родителем для всех <em>подписок на канал</em>, которые создаются впоследствии. Само соединение не работает с какой-либо определенной логикой приложения после аутентификации и авторизации. Клиент соединения WebSocket называется <em>потребителем</em> соединения (consumer). Отдельный пользователь создаст одну пару потребитель-соединение на каждую вкладку браузера, окно или устройство, которые он использует.</p><p>Соединения - это экземпляры класса <code>ApplicationCable::Connection</code> который расширяет <a href="https://api.rubyonrails.org/classes/ActionCable/Connection/Base.html"><code>ActionCable::Connection::Base</code></a>. В <code>ApplicationCable::Connection</code> вы авторизуете входящее соединение и приступаете к его созданию, если пользователь может быть идентифицирован.</p><h5 id='connection-setup' class='inside_page_header'><a href="#connection-setup">3.1.1.</a> Настройка соединения</h5><div class="code_container">
   <pre><code class="highlight ruby"><span class="c1"># app/channels/application_cable/connection.rb</span>
 <span class="k">module</span> <span class="nn">ApplicationCable</span>
   <span class="k">class</span> <span class="nc">Connection</span> <span class="o">&lt;</span> <span class="no">ActionCable</span><span class="o">::</span><span class="no">Connection</span><span class="o">::</span><span class="no">Base</span>
@@ -419,7 +419,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h4 id='kanaly2' class='inside_page_header'><a href="#kanaly2">3.2.</a> Каналы</h4><p><em>Канал</em> инкапсулирует логическую единицу работы, схожей с той, что делает контроллер в типичном MVC. По умолчанию Rails создает родительский класс <code>ApplicationCable::Channel</code> (который расширяет <a href="https://api.rubyonrails.org/classes/ActionCable/Channel/Base.html"><code>ActionCable::Channel::Base</code></a>) для инкапсуляции логики, общей для ваших каналов.</p><h5 id='parent-channel-setup' class='inside_page_header'><a href="#parent-channel-setup">3.2.1.</a>  Настройка родительского канала</h5><div class="code_container">
+<h4 id='kanaly2' class='inside_page_header'><a href="#kanaly2">3.2.</a> Каналы</h4><p><em>Канал</em> инкапсулирует логическую единицу работы, схожей с той, что делает контроллер в типичном MVC. По умолчанию Rails создает родительский класс <code>ApplicationCable::Channel</code> (который расширяет <a href="https://api.rubyonrails.org/classes/ActionCable/Channel/Base.html"><code>ActionCable::Channel::Base</code></a>) для инкапсуляции логики, общей для ваших каналов.</p><h5 id='parent-channel-setup' class='inside_page_header'><a href="#parent-channel-setup">3.2.1.</a> Настройка родительского канала</h5><div class="code_container">
   <pre><code class="highlight ruby"><span class="c1"># app/channels/application_cable/channel.rb</span>
 <span class="k">module</span> <span class="nn">ApplicationCable</span>
   <span class="k">class</span> <span class="nc">Channel</span> <span class="o">&lt;</span> <span class="no">ActionCable</span><span class="o">::</span><span class="no">Channel</span><span class="o">::</span><span class="no">Base</span>
@@ -484,7 +484,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h3 id='klientskie-komponenty' class='inside_page_header'><a href="#klientskie-komponenty">4.</a> Клиентские компоненты</h3><h4 id='soedineniya3' class='inside_page_header'><a href="#soedineniya3">4.1.</a> Соединения</h4><p>Потребителям нужен экземпляр соединения на их стороне. Оно может быть установлено с использованием следующего JavaScript, который генерируется в Rails по умолчанию:</p><h5 id='connect-consumer' class='inside_page_header'><a href="#connect-consumer">4.1.1.</a>  Присоединение потребителя</h5><div class="code_container">
+<h3 id='klientskie-komponenty' class='inside_page_header'><a href="#klientskie-komponenty">4.</a> Клиентские компоненты</h3><h4 id='soedineniya3' class='inside_page_header'><a href="#soedineniya3">4.1.</a> Соединения</h4><p>Потребителям нужен экземпляр соединения на их стороне. Оно может быть установлено с использованием следующего JavaScript, который генерируется в Rails по умолчанию:</p><h5 id='connect-consumer' class='inside_page_header'><a href="#connect-consumer">4.1.1.</a> Присоединение потребителя</h5><div class="code_container">
   <pre><code class="highlight js"><span class="c1">// app/javascript/channels/consumer.js</span>
 <span class="c1">// Action Cable provides the framework to deal with WebSockets in Rails.</span>
 <span class="c1">// You can generate new channels where WebSocket features live using the `bin/rails generate channel` command.</span>
@@ -509,7 +509,7 @@
 <span class="p">}</span>
 </code></pre>
 </div>
-<h5 id='subscriber' class='inside_page_header'><a href="#subscriber">4.1.2.</a>  Подписчик</h5><p>Потребитель становится подписчиком создав подписку на заданный канал:</p><div class="code_container">
+<h5 id='subscriber' class='inside_page_header'><a href="#subscriber">4.1.2.</a> Подписчик</h5><p>Потребитель становится подписчиком создав подписку на заданный канал:</p><div class="code_container">
   <pre><code class="highlight js"><span class="c1">// app/javascript/channels/chat_channel.js</span>
 <span class="k">import</span> <span class="nx">consumer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./consumer</span><span class="dl">"</span>
 
@@ -555,7 +555,7 @@
   <pre><code class="highlight ruby"><span class="no">CommentsChannel</span><span class="p">.</span><span class="nf">broadcast_to</span><span class="p">(</span><span class="vi">@post</span><span class="p">,</span> <span class="vi">@comment</span><span class="p">)</span>
 </code></pre>
 </div>
-<h4 id='broadcasting' class='inside_page_header'><a href="#broadcasting">5.2.</a>  Трансляции</h4><p><em>Трансляция</em> — это ссылка pub/sub, по которой все, переданное издателем (publisher), направляется непосредственно подписчикам канала, которые читают из потока трансляции с этим именем. Каждый канал может писать в поток ноль или более трансляций. Трансляции — это очередь реального времени. Если потребитель не читает поток (не подписан на данный канал), он не получит трансляцию, когда присоединится позже.</p><h4 id='podpiski2' class='inside_page_header'><a href="#podpiski2">5.3.</a> Подписки</h4><p>Когда потребитель подписывается на канал, он действует как подписчик. Это соединение называется подпиской. Затем, входящие сообщения направляются на эти подписки на канал, основываясь на идентификаторе, посланным потребителем cable.</p><div class="code_container">
+<h4 id='broadcasting' class='inside_page_header'><a href="#broadcasting">5.2.</a> Трансляции</h4><p><em>Трансляция</em> — это ссылка pub/sub, по которой все, переданное издателем (publisher), направляется непосредственно подписчикам канала, которые читают из потока трансляции с этим именем. Каждый канал может писать в поток ноль или более трансляций. Трансляции — это очередь реального времени. Если потребитель не читает поток (не подписан на данный канал), он не получит трансляцию, когда присоединится позже.</p><h4 id='podpiski2' class='inside_page_header'><a href="#podpiski2">5.3.</a> Подписки</h4><p>Когда потребитель подписывается на канал, он действует как подписчик. Это соединение называется подпиской. Затем, входящие сообщения направляются на эти подписки на канал, основываясь на идентификаторе, посланным потребителем cable.</p><div class="code_container">
   <pre><code class="highlight js"><span class="c1">// app/javascript/channels/chat_channel.js</span>
 <span class="k">import</span> <span class="nx">consumer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./consumer</span><span class="dl">"</span>
 
@@ -774,7 +774,7 @@
 <span class="p">)</span>
 </code></pre>
 </div>
-<p>Вызов <code>WebNotificationsChannel.broadcast_to</code> помещает сообщение в очередь pubsub текущего адаптера подписки под отдельным именем трансляции для каждого пользователя. Для пользователя с ID 1, имя трансляции будет <code>web_notifications:1</code>.</p><p>Канал проинструктирован писать в поток все, что приходит в <code>web_notifications:1</code>, непосредственно на клиент, вызывая колбэк <code>received</code>. Данные, передаваемые как аргумент, – это хэш, посылаемый в качестве второго параметра в вызов трансляции на сервере, кодируемый для передачи в JSON и распакованный в аргументе data, приходящем как <code>received</code>.</p><h4 id='bolshe-polnyh-primerov' class='inside_page_header'><a href="#bolshe-polnyh-primerov">6.3.</a> Больше полных примеров</h4><p>Смотрите репозиторий <a href="https://github.com/rails/actioncable-examples">rails/actioncable-examples</a>, чтобы получить полный пример, как настроить Action Cable в приложении Rails и добавить каналы.</p><h3 id='configuration' class='inside_page_header'><a href="#configuration">7.</a>  Настройка</h3><p>У Action Cable есть две требуемые настройки: адаптер подписки и допустимые домены запроса.</p><h4 id='adapter-podpiski' class='inside_page_header'><a href="#adapter-podpiski">7.1.</a> Адаптер подписки</h4><p>По умолчанию Action Cable ищет конфигурационный файл в <code>config/cable.yml</code>. Этот файл должен указывать адаптер для каждой среды Rails. Подробности об адаптерах смотрите в разделе <a href="#dependencies">Зависимости</a>.</p><div class="code_container">
+<p>Вызов <code>WebNotificationsChannel.broadcast_to</code> помещает сообщение в очередь pubsub текущего адаптера подписки под отдельным именем трансляции для каждого пользователя. Для пользователя с ID 1, имя трансляции будет <code>web_notifications:1</code>.</p><p>Канал проинструктирован писать в поток все, что приходит в <code>web_notifications:1</code>, непосредственно на клиент, вызывая колбэк <code>received</code>. Данные, передаваемые как аргумент, – это хэш, посылаемый в качестве второго параметра в вызов трансляции на сервере, кодируемый для передачи в JSON и распакованный в аргументе data, приходящем как <code>received</code>.</p><h4 id='bolshe-polnyh-primerov' class='inside_page_header'><a href="#bolshe-polnyh-primerov">6.3.</a> Больше полных примеров</h4><p>Смотрите репозиторий <a href="https://github.com/rails/actioncable-examples">rails/actioncable-examples</a>, чтобы получить полный пример, как настроить Action Cable в приложении Rails и добавить каналы.</p><h3 id='configuration' class='inside_page_header'><a href="#configuration">7.</a> Настройка</h3><p>У Action Cable есть две требуемые настройки: адаптер подписки и допустимые домены запроса.</p><h4 id='adapter-podpiski' class='inside_page_header'><a href="#adapter-podpiski">7.1.</a> Адаптер подписки</h4><p>По умолчанию Action Cable ищет конфигурационный файл в <code>config/cable.yml</code>. Этот файл должен указывать адаптер для каждой среды Rails. Подробности об адаптерах смотрите в разделе <a href="#dependencies">Зависимости</a>.</p><div class="code_container">
   <pre><code class="highlight yaml"><span class="na">development</span><span class="pi">:</span>
   <span class="na">adapter</span><span class="pi">:</span> <span class="s">async</span>
 
@@ -805,7 +805,7 @@
   <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">action_cable</span><span class="p">.</span><span class="nf">disable_request_forgery_protection</span> <span class="o">=</span> <span class="kp">true</span>
 </code></pre>
 </div>
-<p>По умолчанию Action Cable позволяет все запросы из localhost:3000 при запуске в среде development.</p><h4 id='consumer-configuration' class='inside_page_header'><a href="#consumer-configuration">7.3.</a>  Настройка потребителя</h4><p>Чтобы сконфигурировать URL, добавьте вызов <a href="https://api.rubyonrails.org/classes/ActionCable/Helpers/ActionCableHelper.html#method-i-action_cable_meta_tag"><code>action_cable_meta_tag</code></a> в макете HTML HEAD. Он использует URL или путь, обычно устанавливаемые с помощью <a href="/configuring#config-action-cable-url"><code>config.action_cable.url</code></a> в файлах настройки среды.</p><h4 id='nastroyka-pula-vorkerov' class='inside_page_header'><a href="#nastroyka-pula-vorkerov">7.4.</a> Настройка пула воркеров</h4><p>Пул воркеров используется для запуска колбэков соединения и экшнов канала в изоляции от основного треда сервера. Action Cable позволяет приложению настроить количество одновременно обрабатываемых тредов в пуле воркеров.</p><div class="code_container">
+<p>По умолчанию Action Cable позволяет все запросы из localhost:3000 при запуске в среде development.</p><h4 id='consumer-configuration' class='inside_page_header'><a href="#consumer-configuration">7.3.</a> Настройка потребителя</h4><p>Чтобы сконфигурировать URL, добавьте вызов <a href="https://api.rubyonrails.org/classes/ActionCable/Helpers/ActionCableHelper.html#method-i-action_cable_meta_tag"><code>action_cable_meta_tag</code></a> в макете HTML HEAD. Он использует URL или путь, обычно устанавливаемые с помощью <a href="/configuring#config-action-cable-url"><code>config.action_cable.url</code></a> в файлах настройки среды.</p><h4 id='nastroyka-pula-vorkerov' class='inside_page_header'><a href="#nastroyka-pula-vorkerov">7.4.</a> Настройка пула воркеров</h4><p>Пул воркеров используется для запуска колбэков соединения и экшнов канала в изоляции от основного треда сервера. Action Cable позволяет приложению настроить количество одновременно обрабатываемых тредов в пуле воркеров.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">action_cable</span><span class="p">.</span><span class="nf">worker_pool_size</span> <span class="o">=</span> <span class="mi">4</span>
 </code></pre>
 </div>
@@ -850,7 +850,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Наконец, убедитесь, что у вас <a href="#consumer-configuration">правильно сконфигурирован потребитель</a>.</p><h4 id='zametki' class='inside_page_header'><a href="#zametki">8.3.</a> Заметки</h4><p>У сервера WebSocket нет доступа к сессии, но есть доступ к куки. Это можно использовать, если нужно обрабатывать аутентификацию. Один из способов с помощью Devise можно посмотреть в этой <a href="https://greg.molnar.io/blog/actioncable-devise-authentication/">статье</a>.</p><h3 id='dependencies' class='inside_page_header'><a href="#dependencies">9.</a>  Зависимости</h3><p>Action Cable предоставляет интерфейс адаптера подписки для обработки его pubsub внутренностей. По умолчанию включены адаптеры асинхронный, встроенный, PostgreSQL, и адаптеры Redis. В новых приложениях Rails по умолчанию используется асинхронный (<code>async</code>) адаптер.</p><p>Часть Ruby этих вещей создана на основе <a href="https://github.com/faye/websocket-driver-ruby">websocket-driver</a>,
+<p>Наконец, убедитесь, что у вас <a href="#consumer-configuration">правильно сконфигурирован потребитель</a>.</p><h4 id='zametki' class='inside_page_header'><a href="#zametki">8.3.</a> Заметки</h4><p>У сервера WebSocket нет доступа к сессии, но есть доступ к куки. Это можно использовать, если нужно обрабатывать аутентификацию. Один из способов с помощью Devise можно посмотреть в этой <a href="https://greg.molnar.io/blog/actioncable-devise-authentication/">статье</a>.</p><h3 id='dependencies' class='inside_page_header'><a href="#dependencies">9.</a> Зависимости</h3><p>Action Cable предоставляет интерфейс адаптера подписки для обработки его pubsub внутренностей. По умолчанию включены адаптеры асинхронный, встроенный, PostgreSQL, и адаптеры Redis. В новых приложениях Rails по умолчанию используется асинхронный (<code>async</code>) адаптер.</p><p>Часть Ruby этих вещей создана на основе <a href="https://github.com/faye/websocket-driver-ruby">websocket-driver</a>,
 <a href="https://github.com/celluloid/nio4r">nio4r</a> и <a href="https://github.com/ruby-concurrency/concurrent-ruby">concurrent-ruby</a>.</p><h3 id='razvertyvanie' class='inside_page_header'><a href="#razvertyvanie">10.</a> Развертывание</h3><p>Action Cable работает на комбинации WebSockets и тредов. Работа обоих фреймворка и определенного для пользователя канала, внутренне обрабатываются с помощью поддержки нативных тредов Ruby. Это означает, что вы можете без проблем использовать все существующие модели Rails, до тех пор, пока они отвечают тредобезопасности.</p><p>Сервер Action Cable реализует Rack API угона сокетов (socket hijacking), тем самым позволяет внутренне использовать многотредовый паттерн для управления соединениями, независимо от того, является ли сервер приложения многотредовым.</p><p>В соответствии с этим, Action Cable работает с популярными серверами, такими как Unicorn, Puma и Passenger.</p><h3 id='testirovanie' class='inside_page_header'><a href="#testirovanie">11.</a> Тестирование</h3><p>Детальные инструкции по тестированию функционала Action Cable можно найти в <a href="/testing#testing-action-cable">руководстве по тестированию</a>.</p>
 
             <div class="banner">
