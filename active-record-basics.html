@@ -124,7 +124,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#object-relational-mapping-orm">1.2. Object Relational Mapping (ORM)</a>
+          <a href="#object-relational-mapping">1.2. Object Relational Mapping</a>
 </h5>      </li>
       <li>
         <h5>
@@ -147,8 +147,12 @@
           <a href="#sozdanie-modeley-active-record">3. Создание моделей Active Record</a>
 </h4>      </li>
       <li>
+        <h5>
+          <a href="#sozdanie-modeley-v-prostranstve-imen">3.1. Создание моделей в пространстве имен</a>
+</h5>      </li>
+      <li>
         <h4>
-          <a href="#pereopredelenie-soglasheniy-ob-imenovanii">4. Переопределение соглашений об именовании</a>
+          <a href="#overriding-the-naming-conventions">4. Переопределение соглашений об именовании</a>
 </h4>      </li>
       <li>
         <h4>
@@ -180,7 +184,11 @@
 </h4>      </li>
       <li>
         <h4>
-          <a href="#migratsii">8. Миграции</a>
+          <a href="#migrations">8. Миграции</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#svyazi">9. Связи</a>
 </h4>      </li>
 </ul>
 
@@ -217,19 +225,19 @@
 </script>
 
             </div>
-              <h2 id='osnovy-active-record' class='inside_page_header'> Основы Active Record</h2><p>Это руководство является введением в Active Record.</p><p>После прочтения этого руководства, вы узнаете:</p><ul><li>Что такое ORM (Object Relational Mapping) и Active Record, и как они используются в Rails.
-</li><li>Как Active Record вписывается в парадигму Model-View-Controller.
+              <h2 id='osnovy-active-record' class='inside_page_header'> Основы Active Record</h2><p>Это руководство является введением в Active Record.</p><p>После прочтения этого руководства, вы узнаете:</p><ul><li>Как Active Record вписывается в парадигму Model-View-Controller (MVC).
+</li><li>Что такое паттерны Object Relational Mapping и Active Record, и как они используются в Rails.
 </li><li>Как использовать модели Active Record для управления информацией, хранящейся в реляционной базе данных.
 </li><li>О соглашении по именованиям схемы Active Record.
-</li><li>О концепциях миграций базы данных, валидаций и колбэков.
-</li></ul><h3 id='chto-takoe-active-record' class='inside_page_header'><a href="#chto-takoe-active-record">1.</a> Что такое Active Record?</h3><p>Active Record это M в <a href="https://ru.wikipedia.org/wiki/Model-View-Controller">MVC</a> - модель - которая является слоем в системе, ответственным за представление бизнес-логики и данных. Active Record упрощает создание и использование бизнес-объектов, данные которых требуют персистентного хранения в базе данных. Сама по себе эта реализация паттерна Active Record является описанием системы ORM (Object Relational Mapping).</p><h4 id='pattern-active-record' class='inside_page_header'><a href="#pattern-active-record">1.1.</a> Паттерн Active Record</h4><p><a href="https://www.martinfowler.com/eaaCatalog/activeRecord.html">Active Record был описан Martin Fowler</a> в его книге <em>Patterns of Enterprise Application Architecture</em>. В Active Record объекты содержат и персистентные данные, и поведение, которое работает с этими данными. Active Record исходит из мнения, что обеспечение логики доступа к данным как части объекта покажет пользователям этого объекта то, как читать и писать в базу данных.</p><h4 id='object-relational-mapping-orm' class='inside_page_header'><a href="#object-relational-mapping-orm">1.2.</a> Object Relational Mapping (ORM)</h4><p><a href="https://ru.wikipedia.org/wiki/ORM">Object Relational Mapping</a> (объектно-реляционное отображение), обычно упоминающееся как аббревиатура ORM, это техника, соединяющая сложные объекты приложения с таблицами в системе управления реляционными базами данных. С помощью ORM, свойства и взаимоотношения этих объектов приложения могут быть с легкостью сохранены и получены из базы данных без непосредственного написания выражений SQL, и, в итоге, с меньшим суммарным кодом для доступа в базу данных.</p><div class="note"><p>Чтобы полностью понять Active Record, будут полезны базовые знания реляционных систем управления базой данных (RDBMS) или языка структурированных запросов (SQL). Если хотите узнать больше, обратитесь <a href="https://www.w3schools.com/sql/default.asp">к этому учебному пособию</a> (или <a href="http://www.sqlcourse.com/">к этому</a>) или изучите их другими способами.</p></div><h4 id='active-record-eto-freymvork-orm' class='inside_page_header'><a href="#active-record-eto-freymvork-orm">1.3.</a> Active Record это фреймворк ORM</h4><p>Active Record предоставляет нам несколько механизмов, наиболее важными из которых являются способности для:</p><ul><li>Представления моделей и их данных.
-</li><li>Представления связей между этими моделями.
+</li><li>О концепциях миграций базы данных, валидаций, колбэков и связей.
+</li></ul><h3 id='chto-takoe-active-record' class='inside_page_header'><a href="#chto-takoe-active-record">1.</a> Что такое Active Record?</h3><p>Active Record является частью M в <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC</a> - модели - это уровень системы, отвечающий за представление данных и бизнес-логики. Active Record помогает создавать и использовать Ruby-объекты, атрибуты которых требуют постоянного хранения в базе данных.</p><div class="note"><p>В чем разница между Active Record и Active Model? Моделирование данных возможно с помощью Ruby-объектов, которым <em>не обязательно</em> иметь поддержку базы данных. <a href="/active-model-basics">Active Model</a> обычно используется для этого в Rails, делая Active Record и Active Model частью M в MVC, также как и ваши собственные обычные Ruby-объекты.</p></div><p>Термин &quot;Active Record&quot; также относится к шаблону архитектуры программного обеспечения. Active Record в Rails является реализацией этого шаблона.  Это также описание того, что иногда называется системой <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">Object Relational Mapping</a>. В следующих разделах объясняются эти термины.</p><h4 id='pattern-active-record' class='inside_page_header'><a href="#pattern-active-record">1.1.</a> Паттерн Active Record</h4><p><a href="https://www.martinfowler.com/eaaCatalog/activeRecord.html">Шаблон Active Record описал Martin Fowler</a> в книге <em>Patterns of Enterprise Application Architecture</em> как &quot;объект, который оборачивает строку в таблице базы данных, инкапсулирует доступ к базе данных и добавляет к этим данным доменную логику&quot;. Объекты Active Record содержат как данные, так и поведение. Классы Active Record тесно связаны со структурой записей лежащей в основе базы данных. Таким образом, пользователи могут легко читать из базы данных и записывать в нее, как вы увидите в приведенных ниже примерах.</p><h4 id='object-relational-mapping' class='inside_page_header'><a href="#object-relational-mapping">1.2.</a> Object Relational Mapping</h4><p>Object Relational Mapping, обычно называемое ORM, - это техника, которая связывает полноценные объекты языка программирования с таблицами в реляционной системе управления базами данных (RDBMS). В случае приложения Rails это объекты Ruby. С помощью ORM атрибуты объектов Ruby, а также связи между объектами, можно легко хранить и извлекать из базы данных без непосредственного написания SQL-запросов. В целом, ORM минимизируют объем кода доступа к базе данных, который вам приходится писать.</p><div class="note"><p>Чтобы полностью понять Active Record, будут полезны базовые знания реляционных систем управления базами данных (RDBMS) или языка структурированных запросов (SQL). Если хотите узнать больше, обратитесь <a href="https://www.khanacademy.org/computing/computer-programming/sql">к этому учебному пособию</a> (или <a href="https://www.devart.com/what-is-rdbms/">к этому</a>) или изучите их другими способами.</p></div><h4 id='active-record-eto-freymvork-orm' class='inside_page_header'><a href="#active-record-eto-freymvork-orm">1.3.</a> Active Record это фреймворк ORM</h4><p>Active Record позволяет нам делать следующее с помощью объектов Ruby:</p><ul><li>Представления моделей и их данных.
+</li><li>Представления связей между моделями.
 </li><li>Представления иерархий наследования с помощью связанных моделей.
 </li><li>Валидации моделей до того, как они станут персистентными в базе данных.
 </li><li>Выполнения операций с базой данных в объектно-ориентированном стиле.
-</li></ul><h3 id='soglasheniya-nad-konfiguratsiey-v-active-record' class='inside_page_header'><a href="#soglasheniya-nad-konfiguratsiey-v-active-record">2.</a> Соглашения над конфигурацией в Active Record</h3><p>При написании приложения с использованием других языков программирования или фреймворков часто требуется писать много конфигурационного кода. В частности, это справедливо для фреймворков ORM. Однако, если следовать соглашениям, принятым Rails, вам придется написать совсем немного конфигураций (а иногда совсем не придется) при создании моделей Active Record. Идея в том, что в большинстве случаев вы настраиваете свои приложения одинаковым образом, и этот способ должен быть способом по умолчанию. Таким образом, явная конфигурация потребуется только тогда, когда вы не следуете соглашениям по какой-то причине.</p><h4 id='soglasheniya-po-imenovaniyu' class='inside_page_header'><a href="#soglasheniya-po-imenovaniyu">2.1.</a> Соглашения по именованию</h4><p>По умолчанию Active Record использует некоторые соглашения по именованию чтобы узнать, как должна быть создана связь между моделями и таблицами базы данных. Rails образует множественное число для имен класса, чтобы найти соответствующую таблицу базы данных. Так, для класса <code>Book</code> следует создать таблицу базы данных с именем <strong>books</strong>. Механизмы образования множественного числа Rails очень мощные, они способны образовывать множественное (и единственное) число как для правильных, так и для неправильных форм слов. При использовании имен класса, созданных из двух и более слов, имя класса модели должно следовать соглашениям Ruby, используя форму CamelCase, тогда как имя таблицы должно использовать форму snake_case. Примеры:</p><ul><li>Класс модели - Единственное число с первой прописной буквой в каждом слове (т.е., <code>BookClub</code>).
-</li><li>Таблица базы данных - Множественная форма со словами, разделенными знаком подчеркивания (т.е., <code>book_clubs</code>).
-</li></ul><table class='table table-striped'><tr>
+</li></ul><h3 id='soglasheniya-nad-konfiguratsiey-v-active-record' class='inside_page_header'><a href="#soglasheniya-nad-konfiguratsiey-v-active-record">2.</a> Соглашения над конфигурацией в Active Record</h3><p>При написании приложения с использованием других языков программирования или фреймворков часто требуется писать много конфигурационного кода. В частности, это справедливо для фреймворков ORM. Однако, если следовать соглашениям, принятым Rails, при создании моделей Active Record вам потребуется писать очень мало или совсем не писать код конфигурации.</p><p>Rails использует принцип, согласно которому если вы конфигурируете свои приложения одинаковым образом в большинстве случаев, то этот способ должен быть установлен по умолчанию. Явная конфигурация должна требоваться только в тех случаях, когда вы не можете следовать соглашениям.</p><p>Чтобы воспользоваться преимуществами соглашения над конфигурацией в Active Record, необходимо соблюдать некоторые соглашения об именах и схемах. А в случае необходимости можно <a href="#overriding-the-naming-conventions">переопределить соглашения об именовании</a>.</p><h4 id='soglasheniya-po-imenovaniyu' class='inside_page_header'><a href="#soglasheniya-po-imenovaniyu">2.1.</a> Соглашения по именованию</h4><p>Active Record использует следующее соглашение об именах для сопоставления между моделями (представленными объектами Ruby) и таблицами базы данных:</p><p>Rails будет использовать множественное число классов ваших моделей, чтобы найти соответствующую таблицу базы данных. Например, класс с именем <code>Book</code> сопоставляется с таблицей базы данных <code>books</code>. Механизмы множественного числа Rails очень мощны и способны образовывать множественное число (и единственное число) как для правильных, так и для неправильных английских слов. В этом используется метод <a href="https://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-pluralize">pluralize</a> из <a href="/active-support-core-extensions#pluralize">Active Support</a>.</p><p>Для имен классов, состоящих из двух или более слов, имя класса модели будет следовать соглашениям Ruby об использовании UpperCamelCase. Имя таблицы базы данных в этом случае будет иметь формат snake_case. Например:</p><ul><li><code>BookClub</code> - класс модели, единственное число, с заглавной первой буквы каждого слова.
+</li><li><code>book_clubs</code> - соответствующая таблица базы данных, множественное число, с разделителями подчеркивания между словами.
+</li></ul><p>Вот еще несколько примеров имен классов моделей и соответствующих имен таблиц:</p><table class='table table-striped'><tr>
 <th>Модель / Класс</th>
 <th>Таблица / Схема</th>
 </tr>
@@ -242,130 +250,257 @@
 <td><code>line_items</code></td>
 </tr>
 <tr>
-<td><code>Deer</code></td>
-<td><code>deers</code></td>
-</tr>
-<tr>
-<td><code>Mouse</code></td>
-<td><code>mice</code></td>
+<td><code>Product</code></td>
+<td><code>products</code></td>
 </tr>
 <tr>
 <td><code>Person</code></td>
 <td><code>people</code></td>
 </tr>
-</table><h4 id='soglasheniya-shemy' class='inside_page_header'><a href="#soglasheniya-shemy">2.2.</a> Соглашения схемы</h4><p>Active Record использует соглашения о именовании для столбцов в таблицах базы данных, зависящих от назначения этих столбцов.</p><ul><li><strong>Внешние ключи</strong> - Эти поля должны именоваться по образцу <code>singularized_table_name_id</code> (т.е., <code>item_id</code>, <code>order_id</code>). Это поля, которые ищет Active Record при создании связей между вашими моделями.
-</li><li><strong>Первичные ключи</strong> - По умолчанию Active Record использует числовой столбец с именем <code>id</code> как первичный ключ таблицы (<code>bigint</code> для PostgreSQL и MySQL, <code>integer</code> для SQLite). Этот столбец будет автоматически создан при использовании <a href="/active-record-migrations">миграций Active Record</a> для создания таблиц.
+</table><h4 id='soglasheniya-shemy' class='inside_page_header'><a href="#soglasheniya-shemy">2.2.</a> Соглашения схемы</h4><p>Active Record также использует соглашения о именах столбцов в таблицах базы данных, зависящих от назначения этих столбцов.</p><ul><li><strong>Первичные ключи</strong> - По умолчанию Active Record использует числовой столбец с именем <code>id</code> как первичный ключ таблицы (<code>bigint</code> для PostgreSQL, MySQL и MariaDB, <code>integer</code> для SQLite). Этот столбец будет автоматически создан при использовании <a href="#migrations">миграций Active Record</a> для создания таблиц.
+</li><li><strong>Внешние ключи</strong> - Эти поля должны именоваться по образцу <code>singularized_table_name_id</code> (т.е., <code>order_id</code>, <code>line_item_id</code>). Это поля, которые ищет Active Record при создании связей между вашими моделями.
 </li></ul><p>Также имеются некоторые опциональные имена столбцов, добавляющие дополнительные особенности для экземпляров Active Record:</p><ul><li><code>created_at</code> - Автоматически будут установлены текущие дата и время при изначальном создании записи.
 </li><li><code>updated_at</code> - Автоматически будут установлены текущие дата и время всякий раз, когда создается или обновляется запись.
 </li><li><code>lock_version</code> - Добавляет <a href="https://api.rubyonrails.org/classes/ActiveRecord/Locking.html">оптимистическую блокировку</a> к модели.
 </li><li><code>type</code> - Указывает, что модель использует <a href="https://api.rubyonrails.org/classes/ActiveRecord/Base.html#class-ActiveRecord::Base-label-Single+table+inheritance">Single Table Inheritance</a>.
 </li><li><code>(association_name)_type</code> - Хранит тип для <a href="/active-record-associations#polymorphic-associations">полиморфных связей</a>.
-</li><li><code>(table_name)_count</code> - Используется для кэширования количества принадлежащих по связи объектов. Например, столбец <code>comments_count</code> в классе <code>Article</code>, у которого может быть несколько связанных экземпляров <code>Comment</code>, закэширует количество существующих комментариев для каждой статьи.
-</li></ul><div class="note"><p>Хотя эти имена столбцов опциональны, фактически они зарезервированы Active Record. Избегайте зарезервированных ключевых слов, если вы не желаете дополнительной функциональности. Например, <code>type</code> - это зарезервированное слово для определения таблицы, использующей наследование с единой таблицей (STI). Если вы не используете STI, попытайтесь использовать аналогичное слово, такое как &quot;context&quot;, которое также может аккуратно описать данные, которые вы моделируете.</p></div><h3 id='sozdanie-modeley-active-record' class='inside_page_header'><a href="#sozdanie-modeley-active-record">3.</a> Создание моделей Active Record</h3><p>Чтобы создать модели Active Record, создайте подкласс <code>ApplicationRecord</code>, и готово:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Product</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+</li><li><code>(table_name)_count</code> - Используется для кэширования количества принадлежащих по связи объектов. Например, если у класса <code>Article</code> несколько <code>Comment</code>, столбец <code>comments_count</code> в таблице <code>articles</code> закэширует количество существующих комментариев для каждой статьи.
+</li></ul><div class="note"><p>Хотя эти имена столбцов опциональны, они зарезервированы Active Record. Избегайте зарезервированных ключевых слов при именовании столбцов таблицы. Например, <code>type</code> - это зарезервированное слово для определения таблицы, использующей наследование с единой таблицей (STI). Если вы не используете STI, используйте другое слово, аккуратно описывающее данные, которые вы моделируете.</p></div><h3 id='sozdanie-modeley-active-record' class='inside_page_header'><a href="#sozdanie-modeley-active-record">3.</a> Создание моделей Active Record</h3><p>При генерации Rails-приложения в <code>app/models/application_record.rb</code> будет создан абстрактный класс <code>ApplicationRecord</code>. Класс <code>ApplicationRecord</code> наследуется от <a href="https://api.rubyonrails.org/classes/ActiveRecord/Base.html"><code>ActiveRecord::Base</code></a> и именно он превращает обычный класс Ruby в модель Active Record.</p><p><code>ApplicationRecord</code> является базовым классом для всех моделей Active Record в вашем приложении. Чтобы создать новую модель, просто наследуйтесь от класса <code>ApplicationRecord</code>, и все готово:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Book</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Это создаст модель <code>Product</code>, связав ее с таблицей <code>products</code> в базе данных. Сделав так, также появится способность связать столбцы каждой строки этой таблицы с атрибутами экземпляров вашей модели. Допустим, что таблица <code>products</code> была создана с использованием такого выражения SQL (или одно из его расширений):</p><div class="code_container">
-  <pre><code class="highlight sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">products</span> <span class="p">(</span>
+<p>Создастся модель <code>Book</code>, сопоставленная с таблицей <code>books</code> в базе данных, где каждый столбец таблицы сопоставляется с атрибутами класса <code>Book</code>. Экземпляр класса <code>Book</code> может представлять собой строку в таблице <code>books</code>. Таблица <code>books</code> со столбцами <code>id</code>, <code>title</code> и <code>author</code> может быть создана с помощью такого SQL-запроса:</p><div class="code_container">
+  <pre><code class="highlight sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">books</span> <span class="p">(</span>
   <span class="n">id</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">auto_increment</span><span class="p">,</span>
-  <span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+  <span class="n">title</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+  <span class="n">author</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
   <span class="k">PRIMARY</span> <span class="k">KEY</span>  <span class="p">(</span><span class="n">id</span><span class="p">)</span>
 <span class="p">);</span>
 </code></pre>
 </div>
-<p>Вышеуказанная схема объявляет таблицу с двумя столбцами: <code>id</code> и <code>name</code>. Каждая строка этой таблицы представляет собой определенный продукт с этими двумя параметрами. Таким образом, можно написать подобный код:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="nb">p</span> <span class="o">=</span> <span class="no">Product</span><span class="p">.</span><span class="nf">new</span>
-<span class="nb">p</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"Some Book"</span>
-<span class="nb">puts</span> <span class="nb">p</span><span class="p">.</span><span class="nf">name</span> <span class="c1"># "Some Book"</span>
+<p>Однако в Rails это обычно делается не так. Таблицы баз данных в Rails обычно создаются с помощью <a href="#migrations">миграций Active Record</a>, а не с помощью чистого SQL. Миграцию для таблицы <code>books</code>, описанной выше, можно создать следующим образом:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate migration CreateBooks title:string author:string
 </code></pre>
 </div>
-<h3 id='pereopredelenie-soglasheniy-ob-imenovanii' class='inside_page_header'><a href="#pereopredelenie-soglasheniy-ob-imenovanii">4.</a> Переопределение соглашений об именовании</h3><p>Но что, если вы следуете другому соглашению по именованию или используете новое приложение Rails со старой базой данных? Не проблема, можно просто переопределить соглашения по умолчанию.</p><p><code>ApplicationRecord</code> наследуется от <code>ActiveRecord::Base</code>, который определяет ряд полезных методов. Можно использовать метод <code>ActiveRecord::Base.table_name=</code> для указания имени таблицы, которая должна быть использована:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Product</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="nb">self</span><span class="p">.</span><span class="nf">table_name</span> <span class="o">=</span> <span class="s2">"my_products"</span>
+<p>что приведет к этому:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Примечание:</span>
+<span class="c1"># Столбец `id`, в качестве первичного ключа, по соглашению создается автоматически.</span>
+<span class="c1"># Столбцы `created_at` и `updated_at` добавляются `t.timestamps`.</span>
+
+<span class="c1"># db/migrate/20240220143807_create_books.rb</span>
+<span class="k">class</span> <span class="nc">CreateBooks</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">create_table</span> <span class="ss">:books</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:title</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:author</span>
+
+      <span class="n">t</span><span class="p">.</span><span class="nf">timestamps</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Если так сделать, нужно вручную определить имя класса, содержащего фикстуры (my_products.yml), используя метод <code>set_fixture_class</code> в определении теста:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ProductTest</span> <span class="o">&lt;</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">TestCase</span>
-  <span class="n">set_fixture_class</span> <span class="ss">my_products: </span><span class="no">Product</span>
-  <span class="n">fixtures</span> <span class="ss">:my_products</span>
+<p>Эта миграция создает столбцы <code>id</code>, <code>title</code>, <code>author</code>, <code>created_at</code> и <code>updated_at</code>. Каждая строка этой таблицы может быть представлена экземпляром класса <code>Book</code> с теми же атрибутами: <code>id</code>, <code>title</code>, <code>author</code>, <code>created_at</code> и <code>updated_at</code>. Вы можете получить доступ к атрибутам книги следующим образом:</p><div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">new</span>
+<span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">Book</span><span class="p">:</span><span class="mh">0x00007fbdf5e9a038</span> <span class="ss">id: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">title: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">author: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">created_at: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">updated_at: </span><span class="kp">nil</span><span class="kt">&gt;</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span><span class="p">.</span><span class="nf">title</span> <span class="o">=</span> <span class="s2">"The Hobbit"</span>
+<span class="p">=&gt;</span> <span class="s2">"The Hobbit"</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">book</span><span class="p">.</span><span class="nf">title</span>
+<span class="p">=&gt;</span> <span class="s2">"The Hobbit"</span>
+</code></pre>
+</div>
+<div class="note"><p>Создание модели Active Record и соответствующей миграции можно выполнить с помощью команды <code>bin/rails generate model Book title:string author:string</code>. Эта команда создаст файлы <code>app/models/book.rb</code>, <code>db/migrate/20240220143807_create_books.rb</code> и несколько дополнительных файлов для тестирования.</p></div><h4 id='sozdanie-modeley-v-prostranstve-imen' class='inside_page_header'><a href="#sozdanie-modeley-v-prostranstve-imen">3.1.</a> Создание моделей в пространстве имен</h4><p>По умолчанию модели Active Record размещаются в директории <code>app/models</code>. Однако вы можете захотеть организовать свои модели, разместив похожие модели в отдельной папке и пространстве имен. Например, файлы <code>order.rb</code> и <code>order.rb</code> можно разместить в <code>app/models/books</code> с именами классов <code>Book::Order</code> и <code>Book::Review</code> соответственно. Active Record позволяет создавать модели в пространстве имен.</p><p>Если модуль <code>Book</code> еще не существует, команда <code>generate</code> создаст все следующим образом:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate model Book::Order
+<span class="go">      invoke  active_record
+      create    db/migrate/20240306194227_create_book_orders.rb
+      create    app/models/book/order.rb
+      create    app/models/book.rb
+      invoke    test_unit
+      create      test/models/book/order_test.rb
+      create      test/fixtures/book/orders.yml
+</span></code></pre>
+</div>
+<p>Если модуль <code>Book</code> уже существует, вам будет предложено разрешить конфликт:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate model Book::Order
+<span class="go">      invoke  active_record
+      create    db/migrate/20240305140356_create_book_orders.rb
+      create    app/models/book/order.rb
+    conflict    app/models/book.rb
+  Overwrite /Users/bhumi/Code/rails_guides/app/models/book.rb? (enter "h" for help) [Ynaqdhm]
+</span></code></pre>
+</div>
+<p>После успешного создания модели в пространстве имен классы <code>Book</code> и <code>Order</code> будут выглядеть следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/models/book.rb</span>
+<span class="k">module</span> <span class="nn">Book</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">table_name_prefix</span>
+    <span class="s2">"book_"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># app/models/book/order.rb</span>
+<span class="k">class</span> <span class="nc">Book::Order</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Установка опции <a href="https://api.rubyonrails.org/classes/ActiveRecord/ModelSchema.html#method-c-table_name_prefix-3D">table_name_prefix</a> в <code>Book</code> позволит назвать таблицу базы данных для модели <code>Order</code> как <code>book_orders</code>, вместо просто <code>orders</code>.</p><p>Другая возможность - у вас уже есть модель <code>Book</code>, которую вы хотите оставить в <code>app/models</code>. В этом случае вы можете выбрать <code>n</code>, чтобы не перезаписывать <code>book.rb</code> во время команды <code>generate</code>.</p><p>Это позволит использовать таблицу с пространством имен для класса <code>Book::Order</code> даже без необходимости использования <code>table_name_prefix</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># app/models/book.rb</span>
+<span class="k">class</span> <span class="nc">Book</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="c1"># существующий код</span>
+<span class="k">end</span>
+
+<span class="no">Book</span><span class="o">::</span><span class="no">Order</span><span class="p">.</span><span class="nf">table_name</span>
+<span class="c1"># =&gt; "book_orders"</span>
+</code></pre>
+</div>
+<h3 id='overriding-the-naming-conventions' class='inside_page_header'><a href="#overriding-the-naming-conventions">4.</a> Переопределение соглашений об именовании</h3><p>Но что, если вы следуете другому соглашению по именованию или используете новое приложение Rails со старой базой данных? Не проблема, можно просто переопределить соглашения по умолчанию.</p><p>Так как <code>ApplicationRecord</code> наследуется от <code>ActiveRecord::Base</code>, модели вашего приложения будут иметь ряд полезных методов. Например, вы можете использовать метод <code>ActiveRecord::Base.table_name=</code> для настройки имени таблицы, которая должна использоваться:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Book</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">table_name</span> <span class="o">=</span> <span class="s2">"my_books"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Если вы сделаете это, вам придется вручную определить имя класса, в котором размещены <a href="/testing#the-low-down-on-fixtures">фикстуры</a> (<code>my_books.yml</code>), используя метод <code>set_fixture_class</code> в вашем определении теста.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># test/models/book_test.rb</span>
+<span class="k">class</span> <span class="nc">BookTest</span> <span class="o">&lt;</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">TestCase</span>
+  <span class="n">set_fixture_class</span> <span class="ss">my_books: </span><span class="no">Book</span>
+  <span class="n">fixtures</span> <span class="ss">:my_books</span>
   <span class="c1"># ...</span>
 <span class="k">end</span>
 </code></pre>
 </div>
 <p>Также возможно переопределить столбец, который должен быть использован как первичный ключ таблицы, с помощью метода <code>ActiveRecord::Base.primary_key=</code>:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Product</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="nb">self</span><span class="p">.</span><span class="nf">primary_key</span> <span class="o">=</span> <span class="s2">"product_id"</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Book</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">primary_key</span> <span class="o">=</span> <span class="s2">"book_id"</span>
 <span class="k">end</span>
 </code></pre>
 </div>
-<div class="note"><p>Active Record не поддерживает использование столбцов c именем <code>id</code>, не являющихся первичными ключами.</p></div><h3 id='crud-chtenie-i-zapis-dannyh' class='inside_page_header'><a href="#crud-chtenie-i-zapis-dannyh">5.</a> CRUD: Чтение и запись данных</h3><p>CRUD это сокращение для четырех глаголов, используемых для описания операций с данными: <strong>C</strong>reate (создать), <strong>R</strong>ead (прочесть), <strong>U</strong>pdate (обновить) и <strong>D</strong>elete (удалить). Active Record автоматически создает методы, позволяющие приложению читать и воздействовать на данные, хранимые в своих таблицах.</p><h4 id='sozdanie' class='inside_page_header'><a href="#sozdanie">5.1.</a> Создание</h4><p>Объекты Active Record могут быть созданы из хэша, блока или из вручную указанных после создания атрибутов. Метод <code>new</code> возвратит новый объект, в то время как <code>create</code> возвратит объект и сохранит его в базу данных.</p><p>Например, для модели <code>User</code> с атрибутами <code>name</code> и <code>occupation</code>, вызов метода <code>create</code> создаст и сохранит новую запись в базу данных:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"David"</span><span class="p">,</span> <span class="ss">occupation: </span><span class="s2">"Code Artist"</span><span class="p">)</span>
+<div class="note"><p><strong>Active Record не рекомендует использовать столбцы с именем id, которые не являются первичным ключом.</strong> Использование столбца <code>id</code>, который не является одностолбцовым первичным ключом, усложняет доступ к значению этого столбца. Приложению придется использовать псевдоним атрибута <a href="https://api.rubyonrails.org/classes/ActiveRecord/ModelSchema.html#method-i-id_value"><code>id_value</code></a> для доступа к значению столбца <code>id</code>, который не является первичным ключом.</p></div><div class="note"><p>Если вы попытаетесь создать столбец с именем <code>id</code>, который не является первичным ключом, Rails выдаст ошибку во время миграции, например: <code>you can&#39;t redefine the primary key column &#39;id&#39; on &#39;my_books&#39;.</code> <code>To define a custom primary key, pass { id: false } to create_table.</code></p></div><h3 id='crud-chtenie-i-zapis-dannyh' class='inside_page_header'><a href="#crud-chtenie-i-zapis-dannyh">5.</a> CRUD: Чтение и запись данных</h3><p>CRUD это сокращение для четырех глаголов, используемых для описания операций с данными: <strong>C</strong>reate (создать), <strong>R</strong>ead (прочесть), <strong>U</strong>pdate (обновить) и <strong>D</strong>elete (удалить). Active Record автоматически создает методы, позволяющие читать и воздействовать на данные, хранимые в своих таблицах.</p><p>Active Record позволяет легко выполнять CRUD-операции с помощью этих высокоуровневых методов, которые абстрагируют детали доступа к базе данных. Обратите внимание, что все эти удобные методы приводят к выполнению SQL-запросов к базе данных.</p><p>В приведенных ниже примерах показано несколько методов CRUD, а также полученные SQL-запросы.</p><h4 id='sozdanie' class='inside_page_header'><a href="#sozdanie">5.1.</a> Создание</h4><p>Объекты Active Record могут быть созданы из хэша, блока или из вручную указанных после создания атрибутов. Метод <code>new</code> возвратит новый несохраненный объект, в то время как <code>create</code> сохранит объект в базе данных и возвратит его.</p><p>Например, для модели <code>Book</code> с атрибутами <code>title</code> и <code>author</code> вызов метода <code>create</code> создаст объект и сохранит новую запись в базе данных:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">title: </span><span class="s2">"The Lord of the Rings"</span><span class="p">,</span> <span class="ss">author: </span><span class="s2">"J.R.R. Tolkien"</span><span class="p">)</span>
+
+<span class="c1"># Имейте в виду, что `id` присваивается автоматически, когда запись фиксируется в базе данных.</span>
+<span class="n">book</span><span class="p">.</span><span class="nf">inspect</span>
+<span class="c1"># =&gt; "#&lt;Book id: 106, title: \"The Lord of the Rings\", author: \"J.R.R. Tolkien\", created_at: \"2024-03-04 19:15:58.033967000 +0000\", updated_at: \"2024-03-04 19:15:58.033967000 +0000\"&gt;"</span>
 </code></pre>
 </div>
-<p>Используя метод <code>new</code>, объект может быть инициализирован без сохранения:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">new</span>
-<span class="n">user</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"David"</span>
-<span class="n">user</span><span class="p">.</span><span class="nf">occupation</span> <span class="o">=</span> <span class="s2">"Code Artist"</span>
+<p>В то время как метод <code>new</code> создаст экземпляр объекта <em>не</em> сохраняя его в базе данных:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">book</span><span class="p">.</span><span class="nf">title</span> <span class="o">=</span> <span class="s2">"The Hobbit"</span>
+<span class="n">book</span><span class="p">.</span><span class="nf">author</span> <span class="o">=</span> <span class="s2">"J.R.R. Tolkien"</span>
+
+<span class="c1"># Имейте в виду, что для этого объекта `id` не установлен.</span>
+<span class="n">book</span><span class="p">.</span><span class="nf">inspect</span>
+<span class="c1"># =&gt; "#&lt;Book id: nil, title: \"The Hobbit\", author: \"J.R.R. Tolkien\", created_at: nil, updated_at: nil&gt;"</span>
+
+<span class="c1"># Вышеупомянутая book` еще не сохранена в базе данных.</span>
+
+<span class="n">book</span><span class="p">.</span><span class="nf">save</span>
+<span class="n">book</span><span class="p">.</span><span class="nf">id</span> <span class="c1"># =&gt; 107</span>
+
+<span class="c1"># Теперь запись `book` зафиксирована в базе данных и имеет `id`.</span>
 </code></pre>
 </div>
-<p>Вызов <code>user.save</code> передаст запись в базу данных.</p><p>Наконец, если предоставлен блок и <code>create</code>, и <code>new</code> передадут новый объект в этот блок для инициализации:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">u</span><span class="o">|</span>
-  <span class="n">u</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"David"</span>
-  <span class="n">u</span><span class="p">.</span><span class="nf">occupation</span> <span class="o">=</span> <span class="s2">"Code Artist"</span>
+<p>Наконец, если предоставлен блок и <code>create</code>, и <code>new</code> передадут новый объект в этот блок для инициализации, при этом только <code>create</code> сохраняет результирующий объект в базе данных:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">b</span><span class="o">|</span>
+  <span class="n">b</span><span class="p">.</span><span class="nf">title</span> <span class="o">=</span> <span class="s2">"Metaprogramming Ruby 2"</span>
+  <span class="n">b</span><span class="p">.</span><span class="nf">author</span> <span class="o">=</span> <span class="s2">"Paolo Perrotta"</span>
 <span class="k">end</span>
+
+<span class="n">book</span><span class="p">.</span><span class="nf">save</span>
 </code></pre>
 </div>
-<h4 id='chtenie' class='inside_page_header'><a href="#chtenie">5.2.</a> Чтение</h4><p>Active Record предоставляет богатый API для доступа к данным в базе данных. Ниже несколько примеров различных методов доступа к данным, предоставленных Active Record.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="c1"># возвратит коллекцию со всеми пользователями</span>
-<span class="n">users</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">all</span>
+<p>В результате выполнения обоих методов <code>book.save</code> и <code>Book.create</code> SQL-запрос будет выглядеть примерно так:</p><div class="code_container">
+  <pre><code class="highlight sql"><span class="cm">/* Имейте в виду, что `created_at` и `updated_at` устанавливаются автоматически. */</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="nv">"books"</span> <span class="p">(</span><span class="nv">"title"</span><span class="p">,</span> <span class="nv">"author"</span><span class="p">,</span> <span class="nv">"created_at"</span><span class="p">,</span> <span class="nv">"updated_at"</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="o">?</span><span class="p">,</span> <span class="o">?</span><span class="p">,</span> <span class="o">?</span><span class="p">,</span> <span class="o">?</span><span class="p">)</span> <span class="n">RETURNING</span> <span class="nv">"id"</span>  <span class="p">[[</span><span class="nv">"title"</span><span class="p">,</span> <span class="nv">"Metaprogramming Ruby 2"</span><span class="p">],</span> <span class="p">[</span><span class="nv">"author"</span><span class="p">,</span> <span class="nv">"Paolo Perrotta"</span><span class="p">],</span> <span class="p">[</span><span class="nv">"created_at"</span><span class="p">,</span> <span class="nv">"2024-02-22 20:01:18.469952"</span><span class="p">],</span> <span class="p">[</span><span class="nv">"updated_at"</span><span class="p">,</span> <span class="nv">"2024-02-22 20:01:18.469952"</span><span class="p">]]</span>
+</code></pre>
+</div>
+<h4 id='chtenie' class='inside_page_header'><a href="#chtenie">5.2.</a> Чтение</h4><p>Active Record предоставляет богатый API для доступа к данным в базе данных. Вы можете выполнять запросы к отдельной записи или нескольким записям, фильтровать их по любому атрибуту, упорядочивать, группировать, выбирать определенные поля и делать все, что можно сделать с помощью SQL.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># возвратит коллекцию со всеми книгами.</span>
+<span class="n">books</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">all</span>
+
+<span class="c1"># Возвратит отдельную книгу.</span>
+<span class="n">first_book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">first</span>
+<span class="n">last_book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">last</span>
+<span class="n">book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">take</span>
+</code></pre>
+</div>
+<p>Вышесказанное приводит к следующему SQL-запросу:</p><div class="code_container">
+  <pre><code class="highlight sql"><span class="c1">-- Book.all</span>
+<span class="k">SELECT</span> <span class="nv">"books"</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="nv">"books"</span>
+
+<span class="c1">-- Book.first</span>
+<span class="k">SELECT</span> <span class="nv">"books"</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="nv">"books"</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="nv">"books"</span><span class="p">.</span><span class="nv">"id"</span> <span class="k">ASC</span> <span class="k">LIMIT</span> <span class="o">?</span>  <span class="p">[[</span><span class="nv">"LIMIT"</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+
+<span class="c1">-- Book.last</span>
+<span class="k">SELECT</span> <span class="nv">"books"</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="nv">"books"</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="nv">"books"</span><span class="p">.</span><span class="nv">"id"</span> <span class="k">DESC</span> <span class="k">LIMIT</span> <span class="o">?</span>  <span class="p">[[</span><span class="nv">"LIMIT"</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+
+<span class="c1">-- Book.take</span>
+<span class="k">SELECT</span> <span class="nv">"books"</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="nv">"books"</span> <span class="k">LIMIT</span> <span class="o">?</span>  <span class="p">[[</span><span class="nv">"LIMIT"</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+</code></pre>
+</div>
+<p>Мы также можем находить конкретные книги с помощью <code>find_by</code> и <code>where</code>. В то время как <code>find_by</code> возвращает одну запись, <code>where</code> возвращает список записей:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="c1"># Возвращает первую книгу с указанным названием или `nil`, если книга не найдена.</span>
+<span class="n">book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">title: </span><span class="s2">"Metaprogramming Ruby 2"</span><span class="p">)</span>
+
+<span class="c1"># Альтернатива Book.find_by(id: 42). Выбросит исключение, если книга не найдена.</span>
+<span class="n">book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Вышесказанное приводит к следующему SQL-запросу:</p><div class="code_container">
+  <pre><code class="highlight sql"><span class="k">SELECT</span> <span class="nv">"books"</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="nv">"books"</span> <span class="k">WHERE</span> <span class="nv">"books"</span><span class="p">.</span><span class="nv">"author"</span> <span class="o">=</span> <span class="o">?</span> <span class="k">LIMIT</span> <span class="o">?</span>  <span class="p">[[</span><span class="nv">"author"</span><span class="p">,</span> <span class="nv">"J.R.R. Tolkien"</span><span class="p">],</span> <span class="p">[</span><span class="nv">"LIMIT"</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+
+<span class="k">SELECT</span> <span class="nv">"books"</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="nv">"books"</span> <span class="k">WHERE</span> <span class="nv">"books"</span><span class="p">.</span><span class="nv">"id"</span> <span class="o">=</span> <span class="o">?</span> <span class="k">LIMIT</span> <span class="o">?</span>  <span class="p">[[</span><span class="nv">"id"</span><span class="p">,</span> <span class="mi">42</span><span class="p">],</span> <span class="p">[</span><span class="nv">"LIMIT"</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
 </code></pre>
 </div>
 <div class="code_container">
-  <pre><code class="highlight ruby"><span class="c1"># возвратит первого пользователя</span>
-<span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">first</span>
+  <pre><code class="highlight ruby"><span class="c1"># Находит все книги данного автора, отсортированные по дате создания в обратном хронологическом порядке.</span>
+<span class="no">Book</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">author: </span><span class="s2">"Douglas Adams"</span><span class="p">).</span><span class="nf">order</span><span class="p">(</span><span class="ss">created_at: :desc</span><span class="p">)</span>
 </code></pre>
 </div>
-<div class="code_container">
-  <pre><code class="highlight ruby"><span class="c1"># возвратит первого пользователя с именем David</span>
-<span class="n">david</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">)</span>
+<p>приводит к следующему SQL-запросу:</p><div class="code_container">
+  <pre><code class="highlight sql"><span class="k">SELECT</span> <span class="nv">"books"</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="nv">"books"</span> <span class="k">WHERE</span> <span class="nv">"books"</span><span class="p">.</span><span class="nv">"author"</span> <span class="o">=</span> <span class="o">?</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="nv">"books"</span><span class="p">.</span><span class="nv">"created_at"</span> <span class="k">DESC</span> <span class="p">[[</span><span class="nv">"author"</span><span class="p">,</span> <span class="nv">"Douglas Adams"</span><span class="p">]]</span>
 </code></pre>
 </div>
-<div class="code_container">
-  <pre><code class="highlight ruby"><span class="c1"># найдет всех пользователей с именем David, занятостью Code Artists, и сортирует их по created_at в обратном хронологическом порядке</span>
-<span class="n">users</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">,</span> <span class="ss">occupation: </span><span class="s1">'Code Artist'</span><span class="p">).</span><span class="nf">order</span><span class="p">(</span><span class="ss">created_at: :desc</span><span class="p">)</span>
-</code></pre>
-</div>
-<p>Подробно о запросах в моделях Active Record можно узнать в руководстве <a href="/active-record-querying">Интерфейс запросов Active Record</a>.</p><h4 id='obnovlenie' class='inside_page_header'><a href="#obnovlenie">5.3.</a> Обновление</h4><p>Как только объект Active Record будет получен, его атрибуты могут быть модифицированы, и он может быть сохранен в базу данных.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">)</span>
-<span class="n">user</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s1">'Dave'</span>
-<span class="n">user</span><span class="p">.</span><span class="nf">save</span>
+<p>Существует множество других методов Active Record для чтения и запроса записей. Подробнее о них вы можете узнать в руководстве <a href="/active-record-querying">по запросам Active Record</a>.</p><h4 id='obnovlenie' class='inside_page_header'><a href="#obnovlenie">5.3.</a> Обновление</h4><p>Как только объект Active Record будет получен, его атрибуты могут быть модифицированы, и он может быть сохранен в базу данных.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">title: </span><span class="s2">"The Lord of the Rings"</span><span class="p">)</span>
+<span class="n">book</span><span class="p">.</span><span class="nf">title</span> <span class="o">=</span> <span class="s2">"The Lord of the Rings: The Fellowship of the Ring"</span>
+<span class="n">book</span><span class="p">.</span><span class="nf">save</span>
 </code></pre>
 </div>
 <p>Сокращенным вариантом для этого является использование хэша с атрибутами, связанными с желаемыми значениями, таким образом:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">)</span>
-<span class="n">user</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'Dave'</span><span class="p">)</span>
+  <pre><code class="highlight ruby"><span class="n">book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">title: </span><span class="s2">"The Lord of the Rings"</span><span class="p">)</span>
+<span class="n">book</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="ss">title: </span><span class="s2">"The Lord of the Rings: The Fellowship of the Ring"</span><span class="p">)</span>
 </code></pre>
 </div>
-<p>Это наиболее полезно, когда необходимо обновить несколько атрибутов за раз.</p><p>Если необходимо обновить несколько записей за раз без колбэков и валидаций, можно обновить базу данных напрямую с помощью <code>update_all</code>:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="no">User</span><span class="p">.</span><span class="nf">update_all</span> <span class="ss">max_login_attempts: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">must_change_password: </span><span class="kp">true</span>
+<p><code>update</code> приводит к следующему SQL-запросу:</p><div class="code_container">
+  <pre><code class="highlight sql"><span class="cm">/* Имейте в виду, что `updated_at` обновляется автоматически. */</span>
+
+ <span class="k">UPDATE</span> <span class="nv">"books"</span> <span class="k">SET</span> <span class="nv">"title"</span> <span class="o">=</span> <span class="o">?</span><span class="p">,</span> <span class="nv">"updated_at"</span> <span class="o">=</span> <span class="o">?</span> <span class="k">WHERE</span> <span class="nv">"books"</span><span class="p">.</span><span class="nv">"id"</span> <span class="o">=</span> <span class="o">?</span>  <span class="p">[[</span><span class="nv">"title"</span><span class="p">,</span> <span class="nv">"The Lord of the Rings: The Fellowship of the Ring"</span><span class="p">],</span> <span class="p">[</span><span class="nv">"updated_at"</span><span class="p">,</span> <span class="nv">"2024-02-22 20:51:13.487064"</span><span class="p">],</span> <span class="p">[</span><span class="nv">"id"</span><span class="p">,</span> <span class="mi">104</span><span class="p">]]</span>
+</code></pre>
+</div>
+<p>Это полезно, когда нужно обновить несколько атрибутов одновременно. Подобно <code>create</code>, использование <code>update</code> зафиксирует обновленные записи в базе данных.</p><p>Если необходимо обновить несколько записей за раз <strong>без колбэков и валидаций</strong>, можно обновить базу данных напрямую с помощью <code>update_all</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Book</span><span class="p">.</span><span class="nf">update_all</span><span class="p">(</span><span class="ss">status: </span><span class="s2">"already own"</span><span class="p">)</span>
 </code></pre>
 </div>
 <h4 id='udalenie' class='inside_page_header'><a href="#udalenie">5.4.</a> Удаление</h4><p>Более того, после получения, объект Active Record может быть уничтожен, что уберет его из базы данных.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">)</span>
-<span class="n">user</span><span class="p">.</span><span class="nf">destroy</span>
+  <pre><code class="highlight ruby"><span class="n">book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">title: </span><span class="s2">"The Lord of the Rings"</span><span class="p">)</span>
+<span class="n">book</span><span class="p">.</span><span class="nf">destroy</span>
+</code></pre>
+</div>
+<p><code>destroy</code> приводит к следующему SQL-запросу:</p><div class="code_container">
+  <pre><code class="highlight sql"><span class="k">DELETE</span> <span class="k">FROM</span> <span class="nv">"books"</span> <span class="k">WHERE</span> <span class="nv">"books"</span><span class="p">.</span><span class="nv">"id"</span> <span class="o">=</span> <span class="o">?</span>  <span class="p">[[</span><span class="nv">"id"</span><span class="p">,</span> <span class="mi">104</span><span class="p">]]</span>
 </code></pre>
 </div>
 <p>Если необходимо удалить сразу несколько записей, можно использовать методы <code>destroy_by</code> или <code>destroy_all</code>:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="c1"># найти и удалить всех пользователей с именем David</span>
-<span class="no">User</span><span class="p">.</span><span class="nf">destroy_by</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">)</span>
+  <pre><code class="highlight ruby"><span class="c1"># Найти и удалить все книги Douglas Adams.</span>
+<span class="no">Book</span><span class="p">.</span><span class="nf">destroy_by</span><span class="p">(</span><span class="ss">author: </span><span class="s2">"Douglas Adams"</span><span class="p">)</span>
 
-<span class="c1"># удалить всех пользователей</span>
-<span class="no">User</span><span class="p">.</span><span class="nf">destroy_all</span>
+<span class="c1"># Удалить все книги.</span>
+<span class="no">Book</span><span class="p">.</span><span class="nf">destroy_all</span>
 </code></pre>
 </div>
-<h3 id='validatsii' class='inside_page_header'><a href="#validatsii">6.</a> Валидации</h3><p>Active Record позволяет проверять состояние модели до того, как она будет записана в базу данных. Имеется несколько методов, которые могут быть использованы для проверки ваших моделей и валидации, что значение атрибута не пустое, уникальное (не существующее в базе данных), отвечает определенному формату, и многие другие.</p><p>Валидация - это очень важный вопрос, который нужно рассмотреть при сохранении в базу данных, поэтому методы <code>save</code> и <code>update</code> учитывают ее при запуске: они возвращают <code>false</code>, когда валидация проваливается, и фактически они не выполняют каких-либо операций с базой данных. Каждый из этих методов имеет пару с восклицательным знаком (<code>save!</code> и <code>update!</code>), которые строже в том, что они вызывают исключение <code>ActiveRecord::RecordInvalid</code> если валидация провалится. Краткий пример:</p><div class="code_container">
+<h3 id='validatsii' class='inside_page_header'><a href="#validatsii">6.</a> Валидации</h3><p>Active Record позволяет проверять состояние модели до того, как она будет записана в базу данных. Имеются различные методы для различных типов валидаций. Например, можно проверить, чтобы значение атрибута не было пустым, было уникальным, отсутствовало в базе данных, соответствовало определенному формату и многое другое.</p><p>Методы <code>save</code>, <code>create</code> и <code>update</code> выполняют валидацию модели перед ее сохранением в базе данных. Если модель невалидна, эти методы возвращают <code>false</code>, и никаких операций с базой данных не выполняется. У всех этих методов есть более строгие аналоги с восклицательным знаком (то есть <code>save!</code>, <code>create!</code> и <code>update!</code>), которые при неудачной валидации вызывают исключение <code>ActiveRecord::RecordInvalid</code>. Быстрый пример для иллюстрации:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
 <span class="k">end</span>
@@ -379,8 +514,24 @@
 <span class="go">ActiveRecord::RecordInvalid: Validation failed: Name can't be blank
 </span></code></pre>
 </div>
-<p>Подробнее о валидациях можно прочитать в руководстве <a href="/active-record-validations">Валидации Active Record</a>.</p><h3 id='kolbeki' class='inside_page_header'><a href="#kolbeki">7.</a> Колбэки</h3><p>Колбэки Active Record разрешают присоединить код к определенным событиям в жизненном цикле ваших моделей. Это позволяет добавить поведение модели, прозрачно выполнив код, когда эти события произойдут, например, когда вы создадите новую запись, обновите её, удалите её и так далее. Подробнее о колбэках можно прочитать в руководстве <a href="/active-record-callbacks">Колбэки Active Record</a>.</p><h3 id='migratsii' class='inside_page_header'><a href="#migratsii">8.</a> Миграции</h3><p>Rails предоставляет DSL для управления схемой базы данных, называемый миграциями. Миграции хранятся в файлах, выполняемых для любой базы данных, которую поддерживает Active Record, с использованием <code>rake</code>. Вот миграция, создающая таблицу:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreatePublications</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.1</span><span class="p">]</span>
+<p>Подробнее о валидациях можно прочитать в руководстве <a href="/active-record-validations">Валидации Active Record</a>.</p><h3 id='kolbeki' class='inside_page_header'><a href="#kolbeki">7.</a> Колбэки</h3><p>Колбэки Active Record разрешают присоединить код к определенным событиям в жизненном цикле ваших моделей. Это позволяет добавить поведение модели, выполнив код, когда эти события произойдут, например, когда вы создадите новую запись, обновите её, удалите её и так далее.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">after_create</span> <span class="ss">:log_new_user</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">log_new_user</span>
+      <span class="nb">puts</span> <span class="s2">"A new user was registered"</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="code_container">
+  <pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">create</span>
+<span class="go">A new user was registered
+</span></code></pre>
+</div>
+<p>Подробнее о колбэках можно прочитать в руководстве <a href="/active-record-callbacks">Колбэки Active Record</a>.</p><h3 id='migrations' class='inside_page_header'><a href="#migrations">8.</a> Миграции</h3><p>Rails предоставляет удобный способ управления схемой базы данных с помощью миграций. Миграции пишутся на специальном языке предметной области и хранятся в файлах, которые выполняются для любой базы данных, поддерживаемой Active Record.</p><p>Вот миграция, которая создает новую таблицу под названием <code>publications</code>:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreatePublications</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:publications</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:title</span>
@@ -395,7 +546,13 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Rails отслеживает, какие файлы переданы в базу данных, и представляет возможность отката. Чтобы фактически создать таблицу, нужно запустить <code>bin/rails db:migrate</code>, а чтобы ее откатить <code>bin/rails db:rollback</code>.</p><p>Отметьте, что вышеприведенный код не зависит от базы данных: он выполнится в MySQL, PostgreSQL, Oracle и иных. Подробнее о миграциях можно прочитать в руководстве <a href="/active-record-migrations">Миграции Active Record</a></p>
+<p>Имейте в виду, что приведенный выше код не зависит от конкретной базы данных: он будет работать в MySQL, MariaDB, PostgreSQL, SQLite и других.</p><p>Rails отслеживает, какие миграции были внедрены в базу данных, и хранит их в соседней таблице той же самой базы данных под названием <code>schema_migrations</code>.</p><p>Для запуска миграции и создания таблицы выполните команду <code>bin/rails db:migrate</code>, а для отката и удаления таблицы - <code>bin/rails db:rollback</code>.</p><p>Подробнее о миграциях вы можете узнать в руководстве Active Record Migrations: Active Record Migrations guide: active_record_migrations.html.</p><p>Подробнее о миграциях можно прочитать в <a href="/active-record-migrations">руководстве по миграциям Active Record</a></p><h3 id='svyazi' class='inside_page_header'><a href="#svyazi">9.</a> Связи</h3><p>Связи Active Record позволяют вам определять взаимосвязи между моделями. Связи могут использоваться для описания отношений один-к-одному, один-ко-многим и многие-ко-многим. Например, отношение &quot;У автора много книг&quot; можно определить следующим образом:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Author</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:books</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь класс <code>Author</code> обладает методами для добавления и удаления книг у автора, а также многим другим.</p><p>Подробнее о связях можно прочитать в <a href="/active-record-associations">руководстве по связям Active Record</a>.</p>
 
             <div class="banner">
               <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
