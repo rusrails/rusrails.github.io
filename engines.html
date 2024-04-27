@@ -238,30 +238,6 @@
         <h5>
           <a href="#zavisimosti-ot-drugih-gemov">6.7. Зависимости от других гемов</a>
 </h5>      </li>
-      <li>
-        <h4>
-          <a href="#huki-zagruzki-i-konfiguratsii">7. Хуки загрузки и конфигурации</a>
-</h4>      </li>
-      <li>
-        <h5>
-          <a href="#izbegayte-zagruzki-freymvorkov-rails">7.1. Избегайте загрузки фреймворков Rails</a>
-</h5>      </li>
-      <li>
-        <h5>
-          <a href="#kogda-vyzyvayutsya-huki">7.2. Когда вызываются хуки</a>
-</h5>      </li>
-      <li>
-        <h4>
-          <a href="#modifitsirovanie-koda-dlya-ispolzovaniya-hukov-zagruzki">8. Модифицирование кода для использования хуков загрузки</a>
-</h4>      </li>
-      <li>
-        <h5>
-          <a href="#dostupnye-huki-zagruzki">8.1. Доступные хуки загрузки</a>
-</h5>      </li>
-      <li>
-        <h5>
-          <a href="#dostupnye-huki-nastroyki">8.2. Доступные хуки настройки</a>
-</h5>      </li>
 </ul>
 
               </div>
@@ -346,7 +322,7 @@
 </code></pre>
 </div>
 <h4 id='vnutri-engine' class='inside_page_header'><a href="#vnutri-engine">2.1.</a> Внутри Engine</h4><h5 id='kritichnye-fayly' class='inside_page_header'><a href="#kritichnye-fayly">2.1.1.</a> Критичные файлы</h5><p>В корне директории нового engine есть файл <code>blorgh.gemspec</code>. Позже, когда вы будете включать engine в приложение, это нужно будет сделать с помощью следующей строчки в <code>Gemfile</code> приложения:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s1">'blorgh'</span><span class="p">,</span> <span class="ss">path: </span><span class="s1">'engines/blorgh'</span>
+  <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s2">"blorgh"</span><span class="p">,</span> <span class="ss">path: </span><span class="s2">"engines/blorgh"</span>
 </code></pre>
 </div>
 <p>Не забудьте запустить <code>bundle install</code>, как обычно. Если указать его как гем в <code>Gemfile</code>, Bundler так его и загрузит, спарсив файл <code>blorgh.gemspec</code>, и затребовав файл в директории <code>lib</code> по имени <code>lib/blorgh.rb</code>. Этот файл требует файл <code>blorgh/engine.rb</code> (расположенный в <code>lib/blorgh/engine.rb</code>) и определяет базовый модуль по имени <code>Blorgh</code>.</p><div class="code_container">
@@ -364,18 +340,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Унаследованный от класса <code>Rails::Engine</code>, этот гем информирует Rails, что по определенному пути есть engine, и должным образом монтирует engine в приложение, выполняя задачи, такие как добавление директории <code>app</code> из engine к путям загрузки для моделей, рассыльщиков, контроллеров и вью.</p><p>Метод <code>isolate_namespace</code> заслуживает особого внимания. Этот вызов ответственен за изолирование контроллеров, моделей, маршрутов и прочего в их собственное пространство имен, подальше от подобных компонентов приложения. Без этого есть вероятность, что компоненты engine могут &quot;просочиться&quot; в приложение, вызвав нежелательные разрушения, или что важные компоненты engine могут быть переопределены таким же образом названными вещами в приложении. Один из примеров таких конфликтов - хелперы. Без вызова <code>isolate_namespace</code>, хелперы engine будут включены в контроллеры приложения.</p><div class="note"><p><strong>Настойчиво</strong> рекомендуется оставить строчку <code>isolate_namespace</code> в определении класса <code>Engine</code>. Без этого созданные в engine классы <strong>могут</strong> конфликтовать с приложением.</p></div><p>Эта изоляция в пространство имен означает, что модель, созданная с помощью <code>bin/rails g model</code>, например <code>bin/rails g model article</code>, не будет называться <code>Article</code>, а будет помещена в пространство имен и названа <code>Blorgh::Article</code>. Кроме того, таблица для модели будет помещена в пространство имен, и станет <code>blorgh_articles</code>, а не просто <code>articles</code>. Подобно пространству имен моделей, контроллер с именем <code>ArticlesController</code> будет <code>Blorgh::ArticlesController</code>, и вью для этого контроллера будут не в <code>app/views/articles</code>, а в <code>app/views/blorgh/articles</code>. Рассыльщики, задания и хелперы также помещены в пространство имен.</p><p>Наконец, маршруты также будут изолированы в engine. Это одна из наиболее важных частей относительно пространства имен, и будет обсуждена позже в разделе <a href="#routes">Маршруты</a> этого руководства.</p><h5 id='direktoriya-app' class='inside_page_header'><a href="#direktoriya-app">2.1.2.</a> Директория <code>app</code></h5><p>В директории <code>app</code> имеются стандартные директории <code>assets</code>, <code>controllers</code>, <code>helpers</code>, <code>jobs</code>, <code>mailers</code>, <code>models</code> и <code>views</code>, с которыми вы уже знакомы по приложению. Мы рассмотрим модели в следующем разделе, когда будем писать engine.</p><p>В директории <code>app/assets</code> имеются директории <code>images</code> и <code>stylesheets</code>, которые, опять же, должны быть знакомы по приложению. Имеется одно отличие - каждая директория содержит поддиректорию с именем engine. Поскольку этот engine будет помещен в пространство имен, его ресурсы также будут помещены.</p><p>В директории <code>app/controllers</code> имеется директория <code>blorgh</code>, содержащая файл с именем <code>application_controller.rb</code>. Этот файл предоставит любую общую функциональность для контроллеров engine. Директория <code>blorgh</code> - то место, в котором будут другие контроллеры engine. Помещая их в этой директории, вы предотвращаете их от возможного конфликта с идентично названными контроллерами других engine или даже приложения.</p><div class="note"><p>Класс <code>ApplicationController</code> в engine называется так же, как и в приложении Rails, чтобы было проще преобразовать ваше приложение в engine.</p></div><div class="note"><p>Если родительское приложение запускается в режиме <code>classic</code>, можно попасть в ситуацию, в которой контроллер вашего engine наследуется от контроллера основного приложения, а не от контроллера приложения engine. Лучшим способом предотвращения этого является переключение на режим <code>zeitwerk</code> в родительском приложении. В противном случае, используйте <code>require_dependency</code>, чтобы убедиться, что контроллер engine загружен. Например:</p></div><div class="code_container">
-  <pre><code class="highlight ruby"><span class="c1"># НУЖНО ТОЛЬКО В РЕЖИМЕ `classic`.</span>
-<span class="n">require_dependency</span> <span class="s2">"blorgh/application_controller"</span>
-
-<span class="k">module</span> <span class="nn">Blorgh</span>
-  <span class="k">class</span> <span class="nc">ArticlesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
-    <span class="c1"># ...</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre>
-</div>
-<div class="warning"><p>Не используйте <code>require</code>, так как он сломает автоматическую перезагрузку классов в среде development - использование <code>require_dependency</code> гарантирует, что классы загружаются и выгружаются правильным способом.</p></div><p>Так же, как и для <code>app/controllers</code>, вы обнаружите поддиректорию <code>blorgh</code> в директориях <code>app/helpers</code>, <code>app/jobs</code>, <code>app/mailers</code> и <code>app/models</code>, содержащую связанный файл <code>application_*.rb</code> для размещения общего функционала. Помещая свои файлы в эту директорию и пространство имен, вы предотвращаете их от возможного пересечения с идентично названными элементами других engine или даже приложения.</p><p>Наконец, директория <code>app/views</code> содержит папку <code>layouts</code>, содержащую файл <code>blorgh/application.html.erb</code>. Этот файл позволяет определить макет для engine. Если этот engine будет использоваться как автономный, следует поместить любые настройки макета в этот файл, а не в файл <code>app/views/layouts/application.html.erb</code> приложения.</p><p>Если не хотите навязывать макет пользователям engine, удалите этот файл и ссылайтесь на другой макет в контроллерах вашего engine.</p><h5 id='direktoriya-bin' class='inside_page_header'><a href="#direktoriya-bin">2.1.3.</a> Директория <code>bin</code></h5><p>Эта директория содержит один файл, <code>bin/rails</code>, позволяющий использовать подкоманды и генераторы <code>rails</code>, как вы это делаете для приложения. Это означает, что можно создать новые контроллеры и модели для этого engine, просто запуская подобные команды:</p><div class="code_container">
+<p>Унаследованный от класса <code>Rails::Engine</code>, этот гем информирует Rails, что по определенному пути есть engine, и должным образом монтирует engine в приложение, выполняя задачи, такие как добавление директории <code>app</code> из engine к путям загрузки для моделей, рассыльщиков, контроллеров и вью.</p><p>Метод <code>isolate_namespace</code> заслуживает особого внимания. Этот вызов ответственен за изолирование контроллеров, моделей, маршрутов и прочего в их собственное пространство имен, подальше от подобных компонентов приложения. Без этого есть вероятность, что компоненты engine могут &quot;просочиться&quot; в приложение, вызвав нежелательные разрушения, или что важные компоненты engine могут быть переопределены таким же образом названными вещами в приложении. Один из примеров таких конфликтов - хелперы. Без вызова <code>isolate_namespace</code>, хелперы engine будут включены в контроллеры приложения.</p><div class="note"><p><strong>Настойчиво</strong> рекомендуется оставить строчку <code>isolate_namespace</code> в определении класса <code>Engine</code>. Без этого созданные в engine классы <strong>могут</strong> конфликтовать с приложением.</p></div><p>Эта изоляция в пространство имен означает, что модель, созданная с помощью <code>bin/rails g model</code>, например <code>bin/rails g model article</code>, не будет называться <code>Article</code>, а будет помещена в пространство имен и названа <code>Blorgh::Article</code>. Кроме того, таблица для модели будет помещена в пространство имен, и станет <code>blorgh_articles</code>, а не просто <code>articles</code>. Подобно пространству имен моделей, контроллер с именем <code>ArticlesController</code> будет <code>Blorgh::ArticlesController</code>, и вью для этого контроллера будут не в <code>app/views/articles</code>, а в <code>app/views/blorgh/articles</code>. Рассыльщики, задания и хелперы также помещены в пространство имен.</p><p>Наконец, маршруты также будут изолированы в engine. Это одна из наиболее важных частей относительно пространства имен, и будет обсуждена позже в разделе <a href="#routes">Маршруты</a> этого руководства.</p><h5 id='direktoriya-app' class='inside_page_header'><a href="#direktoriya-app">2.1.2.</a> Директория <code>app</code></h5><p>В директории <code>app</code> имеются стандартные директории <code>assets</code>, <code>controllers</code>, <code>helpers</code>, <code>jobs</code>, <code>mailers</code>, <code>models</code> и <code>views</code>, с которыми вы уже знакомы по приложению. Мы рассмотрим модели в следующем разделе, когда будем писать engine.</p><p>В директории <code>app/assets</code> имеются директории <code>images</code> и <code>stylesheets</code>, которые, опять же, должны быть знакомы по приложению. Имеется одно отличие - каждая директория содержит поддиректорию с именем engine. Поскольку этот engine будет помещен в пространство имен, его ресурсы также будут помещены.</p><p>В директории <code>app/controllers</code> имеется директория <code>blorgh</code>, содержащая файл с именем <code>application_controller.rb</code>. Этот файл предоставит любую общую функциональность для контроллеров engine. Директория <code>blorgh</code> - то место, в котором будут другие контроллеры engine. Помещая их в этой директории, вы предотвращаете их от возможного конфликта с идентично названными контроллерами других engine или даже приложения.</p><div class="note"><p>Класс <code>ApplicationController</code> в engine называется так же, как и в приложении Rails, чтобы было проще преобразовать ваше приложение в engine.</p></div><p>Так же, как и для <code>app/controllers</code>, вы обнаружите поддиректорию <code>blorgh</code> в директориях <code>app/helpers</code>, <code>app/jobs</code>, <code>app/mailers</code> и <code>app/models</code>, содержащую связанный файл <code>application_*.rb</code> для размещения общего функционала. Помещая свои файлы в эту директорию и пространство имен, вы предотвращаете их от возможного пересечения с идентично названными элементами других engine или даже приложения.</p><p>Наконец, директория <code>app/views</code> содержит папку <code>layouts</code>, содержащую файл <code>blorgh/application.html.erb</code>. Этот файл позволяет определить макет для engine. Если этот engine будет использоваться как автономный, следует поместить любые настройки макета в этот файл, а не в файл <code>app/views/layouts/application.html.erb</code> приложения.</p><p>Если не хотите навязывать макет пользователям engine, удалите этот файл и ссылайтесь на другой макет в контроллерах вашего engine.</p><h5 id='direktoriya-bin' class='inside_page_header'><a href="#direktoriya-bin">2.1.3.</a> Директория <code>bin</code></h5><p>Эта директория содержит один файл, <code>bin/rails</code>, позволяющий использовать подкоманды и генераторы <code>rails</code>, как вы это делаете для приложения. Это означает, что можно создать новые контроллеры и модели для этого engine, просто запуская подобные команды:</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate model
 </code></pre>
 </div>
@@ -407,6 +372,8 @@ create      app/views/blorgh/articles/edit.html.erb
 create      app/views/blorgh/articles/show.html.erb
 create      app/views/blorgh/articles/new.html.erb
 create      app/views/blorgh/articles/_form.html.erb
+create      app/views/blorgh/articles/_article.html.erb
+invoke    resource_route
 invoke    test_unit
 create      test/controllers/blorgh/articles_controller_test.rb
 create      test/system/blorgh/articles_test.rb
@@ -546,11 +513,11 @@ invoke    test_unit
 </code></pre>
 </div>
 <p>Обычно определение engine в <code>Gemfile</code> выполняется как определение обычного повседневного гема.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s1">'devise'</span>
+  <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s2">"devise"</span>
 </code></pre>
 </div>
 <p>Однако, поскольку вы разрабатываете engine <code>blorgh</code> на своей локальной машине, необходимо указать опцию <code>:path</code> в <code>Gemfile</code>:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s1">'blorgh'</span><span class="p">,</span> <span class="ss">path: </span><span class="s1">'engines/blorgh'</span>
+  <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s2">"blorgh"</span><span class="p">,</span> <span class="ss">path: </span><span class="s2">"engines/blorgh"</span>
 </code></pre>
 </div>
 <p>Затем запустите <code>bundle</code> для установки гема.</p><p>Как было сказано ранее, при помещении гема в <code>Gemfile</code>, он будет загружен вместе с Rails, Он сначала затребует <code>lib/blorgh.rb</code> в engine, затем <code>lib/blorgh/engine.rb</code>, который является файлом, определяющим основную функциональность для engine.</p><p>Чтобы функциональность engine была доступна в приложении, необходимо его смонтировать в файле <code>config/routes.rb</code> приложения:</p><div class="code_container">
@@ -563,6 +530,14 @@ invoke    test_unit
 </div>
 <p>Если имеется несколько engine, из которых необходимо скопировать миграции, используйте <code>railties:install:migrations</code>:</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>railties:install:migrations
+</code></pre>
+</div>
+<p>Вы можете указать произвольный путь в исходном engine для миграций, определив переменную среды MIGRATIONS_PATH.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>railties:install:migrations <span class="nv">MIGRATIONS_PATH</span><span class="o">=</span>db_blourgh
+</code></pre>
+</div>
+<p>Если у вас настроено несколько баз данных, вы также можете указать целевую базу данных с помощью DATABASE.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>railties:install:migrations <span class="nv">DATABASE</span><span class="o">=</span>animals
 </code></pre>
 </div>
 <p>Эта команда при первом запуске скопирует все миграции из engine. При следующем запуске она скопирует лишь те миграции, которые еще не были скопированы. Первый запуск этой команды выдаст что-то подобное:</p><div class="code_container">
@@ -625,10 +600,10 @@ Copied migration [timestamp]_add_author_id_to_blorgh_articles.blorgh.rb from blo
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>db:migrate
 </code></pre>
 </div>
-<p>Теперь, когда все на месте, в дальнейшем будет происходить связывание автора - представленного записью в таблице <code>users</code> - со статьей, представленной таблицей <code>blorgh_articles</code> из engine.</p><p>Наконец, на странице статьи должно отображаться имя автора. Добавьте нижеследующий код над выводом &quot;Title&quot; в <code>app/views/blorgh/articles/show.html.erb</code>:</p><div class="code_container">
+<p>Теперь, когда все на месте, в дальнейшем будет происходить связывание автора - представленного записью в таблице <code>users</code> - со статьей, представленной таблицей <code>blorgh_articles</code> из engine.</p><p>Наконец, на странице статьи должно отображаться имя автора. Добавьте нижеследующий код над выводом &quot;Title&quot; в <code>app/views/blorgh/articles/_article.html.erb</code>:</p><div class="code_container">
   <pre><code class="highlight erb"><span class="nt">&lt;p&gt;</span>
-  <span class="nt">&lt;b&gt;</span>Author:<span class="nt">&lt;/b&gt;</span>
-  <span class="cp">&lt;%=</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">author</span><span class="p">.</span><span class="nf">name</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;strong&gt;</span>Author:<span class="nt">&lt;/strong&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">article</span><span class="p">.</span><span class="nf">author</span><span class="p">.</span><span class="nf">name</span> <span class="cp">%&gt;</span>
 <span class="nt">&lt;/p&gt;</span>
 </code></pre>
 </div>
@@ -709,7 +684,7 @@ Copied migration [timestamp]_add_author_id_to_blorgh_articles.blorgh.rb from blo
     <span class="no">Rails</span><span class="p">.</span><span class="nf">autoloaders</span><span class="p">.</span><span class="nf">main</span><span class="p">.</span><span class="nf">ignore</span><span class="p">(</span><span class="n">overrides</span><span class="p">)</span>
 
     <span class="n">config</span><span class="p">.</span><span class="nf">to_prepare</span> <span class="k">do</span>
-      <span class="no">Dir</span><span class="p">.</span><span class="nf">glob</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="n">overrides</span><span class="si">}</span><span class="s2">/**/*_override.rb"</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">override</span><span class="o">|</span>
+      <span class="no">Dir</span><span class="p">.</span><span class="nf">glob</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="n">overrides</span><span class="si">}</span><span class="s2">/**/*_override.rb"</span><span class="p">).</span><span class="nf">sort</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">override</span><span class="o">|</span>
         <span class="nb">load</span> <span class="n">override</span>
       <span class="k">end</span>
     <span class="k">end</span>
@@ -853,217 +828,6 @@ guide for more information about autoloading and engines.</p><h4 id='pereopredel
 
 <span class="k">module</span> <span class="nn">MyEngine</span>
   <span class="k">class</span> <span class="nc">Engine</span> <span class="o">&lt;</span> <span class="o">::</span><span class="no">Rails</span><span class="o">::</span><span class="no">Engine</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre>
-</div>
-<h3 id='huki-zagruzki-i-konfiguratsii' class='inside_page_header'><a href="#huki-zagruzki-i-konfiguratsii">7.</a> Хуки загрузки и конфигурации</h3><p>При загрузке приложения часто может быть ссылка на код Rails. Rails отвечает за порядок загрузки этих фреймворков, поэтому когда вы загружаете фреймворки, такие как <code>ActiveRecord::Base</code>, преждевременно вы нарушаете неявный контракт, который ваше приложение имеет с Rails. Более того, загружая код, такой как <code>ActiveRecord::Base</code> при запуске вашего приложения, вы загружаете целые фреймворки, которые могут замедлять время запуска и могут привести к конфликтам с порядком загрузки и запуском вашего приложения.</p><p>Хуки загрузки и конфигурации - это API, который позволяет вам подключиться к этому процессу инициализации без нарушения контракта загрузки с помощью Rails. Это также позволит уменьшить снижение производительности запуска и избежать конфликтов.</p><h4 id='izbegayte-zagruzki-freymvorkov-rails' class='inside_page_header'><a href="#izbegayte-zagruzki-freymvorkov-rails">7.1.</a> Избегайте загрузки фреймворков Rails</h4><p>Поскольку Ruby является динамическим языком, некоторый код будет вызывать различные фреймворки Rails для загрузки. Возьмем этот фрагмент, например:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span><span class="p">.</span><span class="nf">include</span><span class="p">(</span><span class="no">MyActiveRecordHelper</span><span class="p">)</span>
-</code></pre>
-</div>
-<p>Этот фрагмент означает, что когда этот файл загружен, он будет взаимодействовать с <code>ActiveRecord::Base</code>. Это взаимодействие заставляет Ruby искать определение этой константы и затребовать ее. Это приводит к загрузке всего фреймворка Active Record при запуске.</p><p><code>ActiveSupport.on_load</code> - это механизм, который может быть использован для того, чтобы отложить загрузку кода до тех пор, пока он действительно не понадобится. Вышеуказанный фрагмент можно изменить на:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="no">ActiveSupport</span><span class="p">.</span><span class="nf">on_load</span><span class="p">(</span><span class="ss">:active_record</span><span class="p">)</span> <span class="k">do</span>
-  <span class="kp">include</span> <span class="no">MyActiveRecordHelper</span>
-<span class="k">end</span>
-</code></pre>
-</div>
-<p>Этот новый фрагмент будет включать <code>MyActiveRecordHelper</code>, только когда загружается <code>ActiveRecord::Base</code>.</p><h4 id='kogda-vyzyvayutsya-huki' class='inside_page_header'><a href="#kogda-vyzyvayutsya-huki">7.2.</a> Когда вызываются хуки</h4><p>В фреймворке Rails эти хуки вызываются, когда загружается конкретная библиотека. Например, когда загружается <code>ActionController::Base</code>, вызывается хук <code>:action_controller_base</code>. Это означает, что все вызовы <code>ActiveSupport.on_load</code> с помощью <code>:action_controller_base</code> хуков будут вызываться в контексте <code>ActionController::Base</code> (это значит, что <code>self</code> будет <code>ActionController::Base</code>).</p><h3 id='modifitsirovanie-koda-dlya-ispolzovaniya-hukov-zagruzki' class='inside_page_header'><a href="#modifitsirovanie-koda-dlya-ispolzovaniya-hukov-zagruzki">8.</a> Модифицирование кода для использования хуков загрузки</h3><p>Модифицирование кода, как правило, достаточно простое. Если есть строчка кода, которая ссылается на фреймворк Rails, такой как <code>ActiveRecord::Base</code>, можно обернуть этот код в хук загрузки.</p><p><strong>Изменение вызовов <code>include</code></strong></p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span><span class="p">.</span><span class="nf">include</span><span class="p">(</span><span class="no">MyActiveRecordHelper</span><span class="p">)</span>
-</code></pre>
-</div>
-<p>станет</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="no">ActiveSupport</span><span class="p">.</span><span class="nf">on_load</span><span class="p">(</span><span class="ss">:active_record</span><span class="p">)</span> <span class="k">do</span>
-  <span class="c1"># self ссылается здесь на ActiveRecord::Base,</span>
-  <span class="c1"># поэтому мы можем вызывать .include</span>
-  <span class="kp">include</span> <span class="no">MyActiveRecordHelper</span>
-<span class="k">end</span>
-</code></pre>
-</div>
-<p><strong>Изменение вызовов <code>prepend</code></strong></p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span><span class="p">.</span><span class="nf">prepend</span><span class="p">(</span><span class="no">MyActionControllerHelper</span><span class="p">)</span>
-</code></pre>
-</div>
-<p>станет</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="no">ActiveSupport</span><span class="p">.</span><span class="nf">on_load</span><span class="p">(</span><span class="ss">:action_controller_base</span><span class="p">)</span> <span class="k">do</span>
-  <span class="c1"># self ссылается здесь на ActionController::Base,</span>
-  <span class="c1"># поэтому мы можем вызывать .prepend</span>
-  <span class="n">prepend</span> <span class="no">MyActionControllerHelper</span>
-<span class="k">end</span>
-</code></pre>
-</div>
-<p><strong>Изменение вызовов методов класса</strong></p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span><span class="p">.</span><span class="nf">include_root_in_json</span> <span class="o">=</span> <span class="kp">true</span>
-</code></pre>
-</div>
-<p>станет</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="no">ActiveSupport</span><span class="p">.</span><span class="nf">on_load</span><span class="p">(</span><span class="ss">:active_record</span><span class="p">)</span> <span class="k">do</span>
-  <span class="c1"># self ссылается здесь на ActiveRecord::Base</span>
-  <span class="nb">self</span><span class="p">.</span><span class="nf">include_root_in_json</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="k">end</span>
-</code></pre>
-</div>
-<h4 id='dostupnye-huki-zagruzki' class='inside_page_header'><a href="#dostupnye-huki-zagruzki">8.1.</a> Доступные хуки загрузки</h4><p>Это хуки загрузки, которые можно использовать в своем коде. Чтобы подключиться к процессу инициализации одного из следующих классов, используйте соответствующий ему доступный хук.</p><table class='table table-striped'><tr>
-<th>Класс</th>
-<th>Хук</th>
-</tr>
-<tr>
-<td><code>ActionCable</code></td>
-<td><code>action_cable</code></td>
-</tr>
-<tr>
-<td><code>ActionCable::Channel::Base</code></td>
-<td><code>action_cable_channel</code></td>
-</tr>
-<tr>
-<td><code>ActionCable::Connection::Base</code></td>
-<td><code>action_cable_connection</code></td>
-</tr>
-<tr>
-<td><code>ActionCable::Connection::TestCase</code></td>
-<td><code>action_cable_connection_test_case</code></td>
-</tr>
-<tr>
-<td><code>ActionController::API</code></td>
-<td><code>action_controller_api</code></td>
-</tr>
-<tr>
-<td><code>ActionController::API</code></td>
-<td><code>action_controller</code></td>
-</tr>
-<tr>
-<td><code>ActionController::Base</code></td>
-<td><code>action_controller_base</code></td>
-</tr>
-<tr>
-<td><code>ActionController::Base</code></td>
-<td><code>action_controller</code></td>
-</tr>
-<tr>
-<td><code>ActionController::TestCase</code></td>
-<td><code>action_controller_test_case</code></td>
-</tr>
-<tr>
-<td><code>ActionDispatch::IntegrationTest</code></td>
-<td><code>action_dispatch_integration_test</code></td>
-</tr>
-<tr>
-<td><code>ActionDispatch::Response</code></td>
-<td><code>action_dispatch_response</code></td>
-</tr>
-<tr>
-<td><code>ActionDispatch::Request</code></td>
-<td><code>action_dispatch_request</code></td>
-</tr>
-<tr>
-<td><code>ActionDispatch::SystemTestCase</code></td>
-<td><code>action_dispatch_system_test_case</code></td>
-</tr>
-<tr>
-<td><code>ActionMailbox::Base</code></td>
-<td><code>action_mailbox</code></td>
-</tr>
-<tr>
-<td><code>ActionMailbox::InboundEmail</code></td>
-<td><code>action_mailbox_inbound_email</code></td>
-</tr>
-<tr>
-<td><code>ActionMailbox::Record</code></td>
-<td><code>action_mailbox_record</code></td>
-</tr>
-<tr>
-<td><code>ActionMailbox::TestCase</code></td>
-<td><code>action_mailbox_test_case</code></td>
-</tr>
-<tr>
-<td><code>ActionMailer::Base</code></td>
-<td><code>action_mailer</code></td>
-</tr>
-<tr>
-<td><code>ActionMailer::TestCase</code></td>
-<td><code>action_mailer_test_case</code></td>
-</tr>
-<tr>
-<td><code>ActionText::Content</code></td>
-<td><code>action_text_content</code></td>
-</tr>
-<tr>
-<td><code>ActionText::Record</code></td>
-<td><code>action_text_record</code></td>
-</tr>
-<tr>
-<td><code>ActionText::RichText</code></td>
-<td><code>action_text_rich_text</code></td>
-</tr>
-<tr>
-<td><code>ActionView::Base</code></td>
-<td><code>action_view</code></td>
-</tr>
-<tr>
-<td><code>ActionView::TestCase</code></td>
-<td><code>action_view_test_case</code></td>
-</tr>
-<tr>
-<td><code>ActiveJob::Base</code></td>
-<td><code>active_job</code></td>
-</tr>
-<tr>
-<td><code>ActiveJob::TestCase</code></td>
-<td><code>active_job_test_case</code></td>
-</tr>
-<tr>
-<td><code>ActiveRecord::Base</code></td>
-<td><code>active_record</code></td>
-</tr>
-<tr>
-<td><code>ActiveStorage::Attachment</code></td>
-<td><code>active_storage_attachment</code></td>
-</tr>
-<tr>
-<td><code>ActiveStorage::VariantRecord</code></td>
-<td><code>active_storage_variant_record</code></td>
-</tr>
-<tr>
-<td><code>ActiveStorage::Blob</code></td>
-<td><code>active_storage_blob</code></td>
-</tr>
-<tr>
-<td><code>ActiveStorage::Record</code></td>
-<td><code>active_storage_record</code></td>
-</tr>
-<tr>
-<td><code>ActiveSupport::TestCase</code></td>
-<td><code>active_support_test_case</code></td>
-</tr>
-<tr>
-<td><code>i18n</code></td>
-<td><code>i18n</code></td>
-</tr>
-</table><h4 id='dostupnye-huki-nastroyki' class='inside_page_header'><a href="#dostupnye-huki-nastroyki">8.2.</a> Доступные хуки настройки</h4><p>Хуки настройки не подключаются к какому-либо конкретному фреймворку, вместо этого они запускаются в контексте всего приложения.</p><table class='table table-striped'><tr>
-<th>Хук</th>
-<th>Случаи применения</th>
-</tr>
-<tr>
-<td><code>before_configuration</code></td>
-<td>Первый настраиваемый блок для запуска. Вызывается до запуска любых инициализаторов.</td>
-</tr>
-<tr>
-<td><code>before_initialize</code></td>
-<td>Второй настраиваемый блок для запуска. Вызывается перед инициализацией фреймворков.</td>
-</tr>
-<tr>
-<td><code>before_eager_load</code></td>
-<td>Третий настраиваемый блок для запуска. Не запускается, если для <a href="/configuring#config-eager-load"><code>config.eager_load</code></a> установлено значение false.</td>
-</tr>
-<tr>
-<td><code>after_initialize</code></td>
-<td>Последний настраиваемый блок для запуска. Вызывается после инициализации фреймворков.</td>
-</tr>
-</table><p>Хуки настройки могут вызываться в классе Engine.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">module</span> <span class="nn">Blorgh</span>
-  <span class="k">class</span> <span class="nc">Engine</span> <span class="o">&lt;</span> <span class="o">::</span><span class="no">Rails</span><span class="o">::</span><span class="no">Engine</span>
-    <span class="n">config</span><span class="p">.</span><span class="nf">before_configuration</span> <span class="k">do</span>
-      <span class="nb">puts</span> <span class="s1">'I am called before any initializers'</span>
-    <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
