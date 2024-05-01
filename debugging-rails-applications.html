@@ -148,7 +148,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#podrobnye-logi-zaprosa-query-logs">2.4. Подробные логи запроса Query Logs</a>
+          <a href="#verbose-enqueue-logs">2.4. Подробные логи запроса</a>
 </h5>      </li>
       <li>
         <h4>
@@ -410,7 +410,7 @@ Redirected to http://localhost:3000/articles/1
 Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
 </code></pre>
 </div>
-<p>Добавление дополнительного логирования, подобного этому, облегчает поиск неожиданного или необычного поведения в ваших логах. Если добавляете дополнительное логирование, убедитесь в разумном использовании уровней лога, для избежания заполнения ваших рабочих логов ненужными мелочами.</p><h4 id='podrobnye-logi-zaprosa-query-logs' class='inside_page_header'><a href="#podrobnye-logi-zaprosa-query-logs">2.4.</a> Подробные логи запроса Query Logs</h4><p>При взгляде на вывод запросов к базе данных в логах, может быть не до конца понятным, почему выполняются несколько запросов при вызове одного метода:</p><div class="code_container">
+<p>Добавление дополнительного логирования, подобного этому, облегчает поиск неожиданного или необычного поведения в ваших логах. Если добавляете дополнительное логирование, убедитесь в разумном использовании уровней лога, для избежания заполнения ваших рабочих логов ненужными мелочами.</p><h4 id='verbose-enqueue-logs' class='inside_page_header'><a href="#verbose-enqueue-logs">2.4.</a> Подробные логи запроса</h4><p>При взгляде на вывод запросов к базе данных в логах, может быть не до конца понятным, почему выполняются несколько запросов при вызове одного метода:</p><div class="code_container">
   <pre><code class="highlight plaintext">irb(main):001:0&gt; Article.pamplemousse
   Article Load (0.4ms)  SELECT "articles".* FROM "articles"
   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 1]]
