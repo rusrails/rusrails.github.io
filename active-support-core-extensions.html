@@ -516,39 +516,35 @@
 </h4>      </li>
       <li>
         <h5>
-          <a href="#sum">10.1. <code>sum</code></a>
+          <a href="#index_by">10.1. <code>index_by</code></a>
 </h5>      </li>
       <li>
         <h5>
-          <a href="#index_by">10.2. <code>index_by</code></a>
+          <a href="#index_with">10.2. <code>index_with</code></a>
 </h5>      </li>
       <li>
         <h5>
-          <a href="#index_with">10.3. <code>index_with</code></a>
+          <a href="#many">10.3. <code>many?</code></a>
 </h5>      </li>
       <li>
         <h5>
-          <a href="#many">10.4. <code>many?</code></a>
+          <a href="#exclude">10.4. <code>exclude?</code></a>
 </h5>      </li>
       <li>
         <h5>
-          <a href="#exclude">10.5. <code>exclude?</code></a>
+          <a href="#including">10.5. <code>including</code></a>
 </h5>      </li>
       <li>
         <h5>
-          <a href="#including">10.6. <code>including</code></a>
+          <a href="#excluding">10.6. <code>excluding</code></a>
 </h5>      </li>
       <li>
         <h5>
-          <a href="#excluding">10.7. <code>excluding</code></a>
+          <a href="#pluck">10.7. <code>pluck</code></a>
 </h5>      </li>
       <li>
         <h5>
-          <a href="#pluck">10.8. <code>pluck</code></a>
-</h5>      </li>
-      <li>
-        <h5>
-          <a href="#pick">10.9. <code>pick</code></a>
+          <a href="#pick">10.8. <code>pick</code></a>
 </h5>      </li>
       <li>
         <h4>
@@ -704,7 +700,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#overlaps">14.3. <code>overlaps?</code></a>
+          <a href="#overlap">14.3. <code>overlap?</code></a>
 </h5>      </li>
       <li>
         <h4>
@@ -760,7 +756,7 @@
 </h7>      </li>
       <li>
         <h7>
-          <a href="#weeks_ago">15.1.3.3. <code>weeks_ago</code></a>
+          <a href="#weeks_ago-weeks_since">15.1.3.3. <code>weeks_ago</code>, <code>weeks_since</code></a>
 </h7>      </li>
       <li>
         <h7>
@@ -946,7 +942,7 @@
 </code></pre>
 </div>
 <p>будут загружены только расширения, требуемые для фреймворка Active Support.</p><h5 id='podbor-opredeleniy' class='inside_page_header'><a href="#podbor-opredeleniy">1.1.1.</a> Подбор определений</h5><p>Этот пример показывает, как загрузить <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-with_indifferent_access"><code>Hash#with_indifferent_access</code></a>. Это расширение включает преобразование <code>Hash</code> в <a href="https://api.rubyonrails.org/classes/ActiveSupport/HashWithIndifferentAccess.html"><code>ActiveSupport::HashWithIndifferentAccess</code></a>, который позволяет доступ с как строковыми, так и символьными ключами.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="ss">a: </span><span class="mi">1</span><span class="p">}.</span><span class="nf">with_indifferent_access</span><span class="p">[</span><span class="s2">"a"</span><span class="p">]</span> <span class="c1"># =&gt; 1</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="ss">a: </span><span class="mi">1</span> <span class="p">}.</span><span class="nf">with_indifferent_access</span><span class="p">[</span><span class="s2">"a"</span><span class="p">]</span> <span class="c1"># =&gt; 1</span>
 </code></pre>
 </div>
 <p>Для каждого отдельного метода, определенного как расширение ядра, в этом руководстве имеется заметка, сообщающая, где такой метод определяется. В случае с <code>with_indifferent_access</code> заметка гласит:</p><div class="note"><p>Определено в <code>active_support/core_ext/hash/indifferent_access.rb</code>.</p></div><p>Это означает, что это можно затребовать следующим образом:</p><div class="code_container">
@@ -983,13 +979,14 @@
 </div>
 <p>Метод <a href="https://api.rubyonrails.org/classes/Object.html#method-i-present-3F"><code>present?</code></a> является эквивалентом <code>!blank?</code>. Этот пример взят из <code>ActionDispatch::Http::Cache::Response</code>:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">set_conditional_cache_control!</span>
-  <span class="k">return</span> <span class="k">if</span> <span class="nb">self</span><span class="p">[</span><span class="s2">"Cache-Control"</span><span class="p">].</span><span class="nf">present?</span>
-  <span class="c1"># ...</span>
+  <span class="k">unless</span> <span class="nb">self</span><span class="p">[</span><span class="s2">"Cache-Control"</span><span class="p">].</span><span class="nf">present?</span>
+    <span class="c1"># ...</span>
+  <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
 </div>
 <div class="note"><p>Определено в <code>active_support/core_ext/object/blank.rb</code>.</p></div><h4 id='presence' class='inside_page_header'><a href="#presence">2.2.</a> <code>presence</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Object.html#method-i-presence"><code>presence</code></a> возвращает его получателя, если <code>present?</code>, и <code>nil</code> в противном случае. Он полезен для подобных идиом:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">host</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="ss">:host</span><span class="p">].</span><span class="nf">presence</span> <span class="o">||</span> <span class="s1">'localhost'</span>
+  <pre><code class="highlight ruby"><span class="n">host</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="ss">:host</span><span class="p">].</span><span class="nf">presence</span> <span class="o">||</span> <span class="s2">"localhost"</span>
 </code></pre>
 </div>
 <div class="note"><p>Определено в <code>active_support/core_ext/object/blank.rb</code>.</p></div><h4 id='duplicable' class='inside_page_header'><a href="#duplicable">2.3.</a> <code>duplicable?</code></h4><p>В Ruby 2.5 большинство объектов могут дублироваться с помощью <code>dup</code> или <code>clone</code>:</p><div class="code_container">
@@ -1009,30 +1006,30 @@
 </code></pre>
 </div>
 <div class="warning"><p>Любой класс может запретить дублирование, убрав <code>dup</code> и <code>clone</code>, или вызвав исключение в них. Таким образом, только <code>rescue</code> может сказать, является ли данный произвольный объект дублируемым. <code>duplicable?</code> зависит от жестко заданного вышеуказанного перечня, но он намного быстрее, чем <code>rescue</code>. Используйте его только в том случае, если знаете, что жесткий перечень достаточен в конкретном случае.</p></div><div class="note"><p>Определено в <code>active_support/core_ext/object/duplicable.rb</code>.</p></div><h4 id='deep_dup' class='inside_page_header'><a href="#deep_dup">2.4.</a> <code>deep_dup</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Object.html#method-i-deep_dup"><code>deep_dup</code></a> возвращает &quot;глубокую&quot; копию данного объекта. Обычно при вызове <code>dup</code> на объекте, содержащем другие объекты, Ruby не вызывает <code>dup</code> для них, поэтому он создает &quot;мелкую&quot; копию объекта. Если, к примеру, имеется массив со строкой, это будет выглядеть так:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">array</span>     <span class="o">=</span> <span class="p">[</span><span class="s1">'string'</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="n">array</span>     <span class="o">=</span> <span class="p">[</span><span class="s2">"string"</span><span class="p">]</span>
 <span class="n">duplicate</span> <span class="o">=</span> <span class="n">array</span><span class="p">.</span><span class="nf">dup</span>
 
-<span class="n">duplicate</span><span class="p">.</span><span class="nf">push</span> <span class="s1">'another-string'</span>
+<span class="n">duplicate</span><span class="p">.</span><span class="nf">push</span> <span class="s2">"another-string"</span>
 
 <span class="c1"># объект был дублирован, поэтому элемент был добавлен только в дубликат</span>
-<span class="n">array</span>     <span class="c1"># =&gt; ['string']</span>
-<span class="n">duplicate</span> <span class="c1"># =&gt; ['string', 'another-string']</span>
+<span class="n">array</span>     <span class="c1"># =&gt; ["string"]</span>
+<span class="n">duplicate</span> <span class="c1"># =&gt; ["string", "another-string"]</span>
 
-<span class="n">duplicate</span><span class="p">.</span><span class="nf">first</span><span class="p">.</span><span class="nf">gsub!</span><span class="p">(</span><span class="s1">'string'</span><span class="p">,</span> <span class="s1">'foo'</span><span class="p">)</span>
+<span class="n">duplicate</span><span class="p">.</span><span class="nf">first</span><span class="p">.</span><span class="nf">gsub!</span><span class="p">(</span><span class="s2">"string"</span><span class="p">,</span> <span class="s2">"foo"</span><span class="p">)</span>
 
 <span class="c1"># первый элемент не был дублирован, он будет изменен в обоих массивах</span>
-<span class="n">array</span>     <span class="c1"># =&gt; ['foo']</span>
-<span class="n">duplicate</span> <span class="c1"># =&gt; ['foo', 'another-string']</span>
+<span class="n">array</span>     <span class="c1"># =&gt; ["foo"]</span>
+<span class="n">duplicate</span> <span class="c1"># =&gt; ["foo, "another-string"]</span>
 </code></pre>
 </div>
 <p>Как видите, после дублирования экземпляра <code>Array</code>, мы получили еще один объект, следовательно мы можем его модифицировать, и исходный объект останется нетронутым. Однако, это не истинно для элементов массива. Поскольку <code>dup</code> не делает &quot;глубокую&quot; копию, строка внутри массива остается тем же самым объектом.</p><p>Если нужна &quot;глубокая&quot; копия объекта, следует использовать <code>deep_dup</code>. Вот пример:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">array</span>     <span class="o">=</span> <span class="p">[</span><span class="s1">'string'</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="n">array</span>     <span class="o">=</span> <span class="p">[</span><span class="s2">"string"</span><span class="p">]</span>
 <span class="n">duplicate</span> <span class="o">=</span> <span class="n">array</span><span class="p">.</span><span class="nf">deep_dup</span>
 
-<span class="n">duplicate</span><span class="p">.</span><span class="nf">first</span><span class="p">.</span><span class="nf">gsub!</span><span class="p">(</span><span class="s1">'string'</span><span class="p">,</span> <span class="s1">'foo'</span><span class="p">)</span>
+<span class="n">duplicate</span><span class="p">.</span><span class="nf">first</span><span class="p">.</span><span class="nf">gsub!</span><span class="p">(</span><span class="s2">"string"</span><span class="p">,</span> <span class="s2">"foo"</span><span class="p">)</span>
 
-<span class="n">array</span>     <span class="c1"># =&gt; ['string']</span>
-<span class="n">duplicate</span> <span class="c1"># =&gt; ['foo']</span>
+<span class="n">array</span>     <span class="c1"># =&gt; ["string"]</span>
+<span class="n">duplicate</span> <span class="c1"># =&gt; ["foo"]</span>
 </code></pre>
 </div>
 <p>Если объект нельзя дублировать, <code>deep_dup</code> просто возвратит его:</p><div class="code_container">
@@ -1054,8 +1051,8 @@
 <p>Другим примером является этот код из <code>ActiveRecord::ConnectionAdapters::AbstractAdapter</code>, где <code>@logger</code> может быть <code>nil</code>. Код использует <code>try</code> и позволяет избегать ненужной проверки.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">log_info</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="nb">name</span><span class="p">,</span> <span class="n">ms</span><span class="p">)</span>
   <span class="k">if</span> <span class="vi">@logger</span><span class="p">.</span><span class="nf">try</span><span class="p">(</span><span class="ss">:debug?</span><span class="p">)</span>
-    <span class="nb">name</span> <span class="o">=</span> <span class="s1">'%s (%.1fms)'</span> <span class="o">%</span> <span class="p">[</span><span class="nb">name</span> <span class="o">||</span> <span class="s1">'SQL'</span><span class="p">,</span> <span class="n">ms</span><span class="p">]</span>
-    <span class="vi">@logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="n">format_log_entry</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">sql</span><span class="p">.</span><span class="nf">squeeze</span><span class="p">(</span><span class="s1">' '</span><span class="p">)))</span>
+    <span class="nb">name</span> <span class="o">=</span> <span class="s2">"%s (%.1fms)"</span> <span class="o">%</span> <span class="p">[</span><span class="nb">name</span> <span class="o">||</span> <span class="s2">"SQL"</span><span class="p">,</span> <span class="n">ms</span><span class="p">]</span>
+    <span class="vi">@logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="n">format_log_entry</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">sql</span><span class="p">.</span><span class="nf">squeeze</span><span class="p">(</span><span class="s2">" "</span><span class="p">)))</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
@@ -1126,25 +1123,25 @@
 </code></pre>
 </div>
 <p>мы получим:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">current_user</span><span class="p">.</span><span class="nf">to_query</span><span class="p">(</span><span class="s1">'user'</span><span class="p">)</span> <span class="c1"># =&gt; "user=357-john-smith"</span>
+  <pre><code class="highlight ruby"><span class="n">current_user</span><span class="p">.</span><span class="nf">to_query</span><span class="p">(</span><span class="s2">"user"</span><span class="p">)</span> <span class="c1"># =&gt; "user=357-john-smith"</span>
 </code></pre>
 </div>
 <p>Этот метод экранирует все, что требуется: и ключ, и значение:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">account</span><span class="p">.</span><span class="nf">to_query</span><span class="p">(</span><span class="s1">'company[name]'</span><span class="p">)</span>
+  <pre><code class="highlight ruby"><span class="n">account</span><span class="p">.</span><span class="nf">to_query</span><span class="p">(</span><span class="s2">"company[name]"</span><span class="p">)</span>
 <span class="c1"># =&gt; "company%5Bname%5D=Johnson+%26+Johnson"</span>
 </code></pre>
 </div>
 <p>поэтому результат готов для использования в строке запроса.</p><p>Массивы возвращают результат применения <code>to_query</code> к каждому элементу с <code>key[]</code> в качестве ключа, и соединяет результат с помощью &quot;&amp;&quot;:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">[</span><span class="mf">3.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">45.6</span><span class="p">].</span><span class="nf">to_query</span><span class="p">(</span><span class="s1">'sample'</span><span class="p">)</span>
+  <pre><code class="highlight ruby"><span class="p">[</span><span class="mf">3.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">45.6</span><span class="p">].</span><span class="nf">to_query</span><span class="p">(</span><span class="s2">"sample"</span><span class="p">)</span>
 <span class="c1"># =&gt; "sample%5B%5D=3.4&amp;sample%5B%5D=-45.6"</span>
 </code></pre>
 </div>
 <p>Хэши также отвечают на <code>to_query</code>, но c другой сигнатурой. Если аргумент не передается, вызов генерирует отсортированную серию присваиваний ключ/значение, вызвав <code>to_query(key)</code> на этих значениях. Затем он соединяет результат с помощью &quot;&amp;&quot;:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="ss">c: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">2</span><span class="p">,</span> <span class="ss">a: </span><span class="mi">1</span><span class="p">}.</span><span class="nf">to_query</span> <span class="c1"># =&gt; "a=1&amp;b=2&amp;c=3"</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="ss">c: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">2</span><span class="p">,</span> <span class="ss">a: </span><span class="mi">1</span> <span class="p">}.</span><span class="nf">to_query</span> <span class="c1"># =&gt; "a=1&amp;b=2&amp;c=3"</span>
 </code></pre>
 </div>
 <p>Метод <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-to_query"><code>Hash#to_query</code></a> принимает опциональное пространство имен для ключей:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="ss">id: </span><span class="mi">89</span><span class="p">,</span> <span class="ss">name: </span><span class="s2">"John Smith"</span><span class="p">}.</span><span class="nf">to_query</span><span class="p">(</span><span class="s1">'user'</span><span class="p">)</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="ss">id: </span><span class="mi">89</span><span class="p">,</span> <span class="ss">name: </span><span class="s2">"John Smith"</span> <span class="p">}.</span><span class="nf">to_query</span><span class="p">(</span><span class="s2">"user"</span><span class="p">)</span>
 <span class="c1"># =&gt; "user%5Bid%5D=89&amp;user%5Bname%5D=John+Smith"</span>
 </code></pre>
 </div>
@@ -1207,7 +1204,7 @@
 </code></pre>
 </div>
 <div class="note"><p>Определено в <code>active_support/core_ext/kernel/reporting.rb</code>.</p></div><h4 id='in' class='inside_page_header'><a href="#in">2.14.</a> <code>in?</code></h4><p>Предикат <a href="https://api.rubyonrails.org/classes/Object.html#method-i-in-3F"><code>in?</code></a> проверяет, включен ли объект в другой объект. Если переданный элемент не отвечает на <code>include?</code>, будет вызвано исключение <code>ArgumentError</code>.</p><p>Примеры применения <code>in?</code>:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="mi">1</span><span class="p">.</span><span class="nf">in?</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>        <span class="c1"># =&gt; true</span>
+  <pre><code class="highlight ruby"><span class="mi">1</span><span class="p">.</span><span class="nf">in?</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>       <span class="c1"># =&gt; true</span>
 <span class="s2">"lo"</span><span class="p">.</span><span class="nf">in?</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">)</span>   <span class="c1"># =&gt; true</span>
 <span class="mi">25</span><span class="p">.</span><span class="nf">in?</span><span class="p">(</span><span class="mi">30</span><span class="o">..</span><span class="mi">50</span><span class="p">)</span>      <span class="c1"># =&gt; false</span>
 <span class="mi">1</span><span class="p">.</span><span class="nf">in?</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>            <span class="c1"># =&gt; ArgumentError</span>
@@ -1453,7 +1450,9 @@
 <p>Методы экземпляра также создаются для удобства, они всего лишь прокси к атрибуту класса. Таким образом, экземпляры могут менять атрибут класса, но не могут переопределять его, как это происходит в случае с <code>class_attribute</code> (смотрите выше). К примеру, задав</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">module</span> <span class="nn">ActionView</span>
   <span class="k">class</span> <span class="nc">Base</span>
-    <span class="n">cattr_accessor</span> <span class="ss">:field_error_proc</span><span class="p">,</span> <span class="ss">default: </span><span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+    <span class="n">cattr_accessor</span> <span class="ss">:field_error_proc</span><span class="p">,</span> <span class="ss">default: </span><span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span>
+      <span class="c1"># ...</span>
+    <span class="p">}</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
@@ -1554,14 +1553,14 @@
 </code></pre>
 </div>
 <p>Многоточие может быть настроено с помощью опции <code>:omission</code>:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="s2">"Oh dear! Oh dear! I shall be late!"</span><span class="p">.</span><span class="nf">truncate</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="ss">omission: </span><span class="s1">'&amp;hellip;'</span><span class="p">)</span>
+  <pre><code class="highlight ruby"><span class="s2">"Oh dear! Oh dear! I shall be late!"</span><span class="p">.</span><span class="nf">truncate</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="ss">omission: </span><span class="s2">"&amp;hellip;"</span><span class="p">)</span>
 <span class="c1"># =&gt; "Oh dear! Oh &amp;hellip;"</span>
 </code></pre>
 </div>
 <p>Отметьте, что сокращение учитывает длину строки omission.</p><p>Передайте <code>:separator</code> для сокращения строки по естественным разрывам:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="s2">"Oh dear! Oh dear! I shall be late!"</span><span class="p">.</span><span class="nf">truncate</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
 <span class="c1"># =&gt; "Oh dear! Oh dea..."</span>
-<span class="s2">"Oh dear! Oh dear! I shall be late!"</span><span class="p">.</span><span class="nf">truncate</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="ss">separator: </span><span class="s1">' '</span><span class="p">)</span>
+<span class="s2">"Oh dear! Oh dear! I shall be late!"</span><span class="p">.</span><span class="nf">truncate</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="ss">separator: </span><span class="s2">" "</span><span class="p">)</span>
 <span class="c1"># =&gt; "Oh dear! Oh..."</span>
 </code></pre>
 </div>
@@ -1586,12 +1585,12 @@
 </code></pre>
 </div>
 <p>Многоточие может быть настроено с помощью опции <code>:omission</code>:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="s2">"Oh dear! Oh dear! I shall be late!"</span><span class="p">.</span><span class="nf">truncate_words</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="ss">omission: </span><span class="s1">'&amp;hellip;'</span><span class="p">)</span>
+  <pre><code class="highlight ruby"><span class="s2">"Oh dear! Oh dear! I shall be late!"</span><span class="p">.</span><span class="nf">truncate_words</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="ss">omission: </span><span class="s2">"&amp;hellip;"</span><span class="p">)</span>
 <span class="c1"># =&gt; "Oh dear! Oh dear!&amp;hellip;"</span>
 </code></pre>
 </div>
 <p>Передайте <code>:separator</code> для сокращения строки по естественным разрывам:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="s2">"Oh dear! Oh dear! I shall be late!"</span><span class="p">.</span><span class="nf">truncate_words</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="ss">separator: </span><span class="s1">'!'</span><span class="p">)</span>
+  <pre><code class="highlight ruby"><span class="s2">"Oh dear! Oh dear! I shall be late!"</span><span class="p">.</span><span class="nf">truncate_words</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="ss">separator: </span><span class="s2">"!"</span><span class="p">)</span>
 <span class="c1"># =&gt; "Oh dear! Oh dear! I shall be late..."</span>
 </code></pre>
 </div>
@@ -1869,7 +1868,7 @@ end
 </code></pre>
 </div>
 <p>Если &quot;SSL&quot; был определен как акроним:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="s1">'ssl_error'</span><span class="p">.</span><span class="nf">humanize</span> <span class="c1"># =&gt; "SSL error"</span>
+  <pre><code class="highlight ruby"><span class="s2">"ssl_error"</span><span class="p">.</span><span class="nf">humanize</span> <span class="c1"># =&gt; "SSL error"</span>
 </code></pre>
 </div>
 <p>Метод хелпера <code>full_messages</code> использует <code>humanize</code> как резервный способ для включения имен атрибутов:</p><div class="code_container">
@@ -1879,7 +1878,7 @@ end
 
 <span class="k">def</span> <span class="nf">full_message</span>
   <span class="c1"># ...</span>
-  <span class="n">attr_name</span> <span class="o">=</span> <span class="n">attribute</span><span class="p">.</span><span class="nf">to_s</span><span class="p">.</span><span class="nf">tr</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span> <span class="s1">'_'</span><span class="p">).</span><span class="nf">humanize</span>
+  <span class="n">attr_name</span> <span class="o">=</span> <span class="n">attribute</span><span class="p">.</span><span class="nf">to_s</span><span class="p">.</span><span class="nf">tr</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">).</span><span class="nf">humanize</span>
   <span class="n">attr_name</span> <span class="o">=</span> <span class="vi">@base</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">human_attribute_name</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="ss">default: </span><span class="n">attr_name</span><span class="p">)</span>
   <span class="c1"># ...</span>
 <span class="k">end</span>
@@ -1933,10 +1932,11 @@ end
 </li><li><a href="https://api.rubyonrails.org/classes/Numeric.html#method-i-terabytes"><code>terabytes</code></a>
 </li><li><a href="https://api.rubyonrails.org/classes/Numeric.html#method-i-petabytes"><code>petabytes</code></a>
 </li><li><a href="https://api.rubyonrails.org/classes/Numeric.html#method-i-exabytes"><code>exabytes</code></a>
+</li><li><a href="https://api.rubyonrails.org/classes/Numeric.html#method-i-zettabytes"><code>zettabytes</code></a>
 </li></ul><p>Они возвращают соответствующее количество байтов, используя конвертирующий множитель 1024:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="mi">2</span><span class="p">.</span><span class="nf">kilobytes</span>   <span class="c1"># =&gt; 2048</span>
 <span class="mi">3</span><span class="p">.</span><span class="nf">megabytes</span>   <span class="c1"># =&gt; 3145728</span>
-<span class="mf">3.5</span><span class="p">.</span><span class="nf">gigabytes</span> <span class="c1"># =&gt; 3758096384</span>
+<span class="mf">3.5</span><span class="p">.</span><span class="nf">gigabytes</span> <span class="c1"># =&gt; 3758096384.0</span>
 <span class="o">-</span><span class="mi">4</span><span class="p">.</span><span class="nf">exabytes</span>   <span class="c1"># =&gt; -4611686018427387904</span>
 </code></pre>
 </div>
@@ -1987,7 +1987,7 @@ end
 <span class="c1"># =&gt; 100.000%</span>
 <span class="mi">100</span><span class="p">.</span><span class="nf">to_fs</span><span class="p">(</span><span class="ss">:percentage</span><span class="p">,</span> <span class="ss">precision: </span><span class="mi">0</span><span class="p">)</span>
 <span class="c1"># =&gt; 100%</span>
-<span class="mi">1000</span><span class="p">.</span><span class="nf">to_fs</span><span class="p">(</span><span class="ss">:percentage</span><span class="p">,</span> <span class="ss">delimiter: </span><span class="s1">'.'</span><span class="p">,</span> <span class="ss">separator: </span><span class="s1">','</span><span class="p">)</span>
+<span class="mi">1000</span><span class="p">.</span><span class="nf">to_fs</span><span class="p">(</span><span class="ss">:percentage</span><span class="p">,</span> <span class="ss">delimiter: </span><span class="s2">"."</span><span class="p">,</span> <span class="ss">separator: </span><span class="s2">","</span><span class="p">)</span>
 <span class="c1"># =&gt; 1.000,000%</span>
 <span class="mf">302.24398923423</span><span class="p">.</span><span class="nf">to_fs</span><span class="p">(</span><span class="ss">:percentage</span><span class="p">,</span> <span class="ss">precision: </span><span class="mi">5</span><span class="p">)</span>
 <span class="c1"># =&gt; 302.24399%</span>
@@ -2074,37 +2074,12 @@ end
   <pre><code class="highlight ruby"><span class="no">BigDecimal</span><span class="p">(</span><span class="mf">5.00</span><span class="p">,</span> <span class="mi">6</span><span class="p">).</span><span class="nf">to_s</span><span class="p">(</span><span class="s2">"e"</span><span class="p">)</span>  <span class="c1"># =&gt; "0.5E1"</span>
 </code></pre>
 </div>
-<h3 id='rasshireniya-dlya-enumerable' class='inside_page_header'><a href="#rasshireniya-dlya-enumerable">10.</a> Расширения для <code>Enumerable</code></h3><h4 id='sum' class='inside_page_header'><a href="#sum">10.1.</a> <code>sum</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-sum"><code>sum</code></a> складывает элементы перечисления:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nf">sum</span> <span class="c1"># =&gt; 6</span>
-<span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">100</span><span class="p">).</span><span class="nf">sum</span>  <span class="c1"># =&gt; 5050</span>
-</code></pre>
-</div>
-<p>Сложение применяется только к элементам, откликающимся на <code>+</code>:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]].</span><span class="nf">sum</span>    <span class="c1"># =&gt; [1, 2, 2, 3, 3, 4]</span>
-<span class="sx">%w(foo bar baz)</span><span class="p">.</span><span class="nf">sum</span>             <span class="c1"># =&gt; "foobarbaz"</span>
-<span class="p">{</span><span class="ss">a: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">2</span><span class="p">,</span> <span class="ss">c: </span><span class="mi">3</span><span class="p">}.</span><span class="nf">sum</span>          <span class="c1"># =&gt; [:a, 1, :b, 2, :c, 3]</span>
-</code></pre>
-</div>
-<p>Сумма пустой коллекции равна нулю по умолчанию, но это может быть настроено:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">[].</span><span class="nf">sum</span>    <span class="c1"># =&gt; 0</span>
-<span class="p">[].</span><span class="nf">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># =&gt; 1</span>
-</code></pre>
-</div>
-<p>Если задан блок, <code>sum</code> становится итератором, вкладывающим элементы коллекции и суммирующим возвращаемые значения:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">).</span><span class="nf">sum</span> <span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">}</span> <span class="c1"># =&gt; 30</span>
-<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">].</span><span class="nf">sum</span>    <span class="c1"># =&gt; 30</span>
-</code></pre>
-</div>
-<p>Сумма пустого получателя также может быть настроена в такой форме:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">[].</span><span class="nf">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">**</span><span class="mi">3</span><span class="p">}</span> <span class="c1"># =&gt; 1</span>
-</code></pre>
-</div>
-<div class="note"><p>Определено в <code>active_support/core_ext/enumerable.rb</code>.</p></div><h4 id='index_by' class='inside_page_header'><a href="#index_by">10.2.</a> <code>index_by</code></h4><p>Метод [<code>index_by</code>][Enumerable#index_by] генерирует хэш с элементами перечисления, индексированными по некоторому ключу.</p><p>Он перебирает коллекцию и передает каждый элемент в блок. Значение, возвращенное блоком, будет ключом для элемента:</p><div class="code_container">
+<h3 id='rasshireniya-dlya-enumerable' class='inside_page_header'><a href="#rasshireniya-dlya-enumerable">10.</a> Расширения для <code>Enumerable</code></h3><h4 id='index_by' class='inside_page_header'><a href="#index_by">10.1.</a> <code>index_by</code></h4><p>Метод [<code>index_by</code>][Enumerable#index_by] генерирует хэш с элементами перечисления, индексированными по некоторому ключу.</p><p>Он перебирает коллекцию и передает каждый элемент в блок. Значение, возвращенное блоком, будет ключом для элемента:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">invoices</span><span class="p">.</span><span class="nf">index_by</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:number</span><span class="p">)</span>
-<span class="c1"># =&gt; {'2009-032' =&gt; &lt;Invoice ...&gt;, '2009-008' =&gt; &lt;Invoice ...&gt;, ...}</span>
+<span class="c1"># =&gt; {"2009-032" =&gt; &lt;Invoice ...&gt;, "2009-008" =&gt; &lt;Invoice ...&gt;, ...}</span>
 </code></pre>
 </div>
-<div class="warning"><p>Ключи, как правило, должны быть уникальными. Если блок возвратит одно и то же значение для нескольких элементов, для этого ключа не будет построена коллекция. А значение получит последний элемент.</p></div><div class="note"><p>Определено в <code>active_support/core_ext/enumerable.rb</code>.</p></div><p>[<code>index_by</code>][Enumerable#index_by]</p><h4 id='index_with' class='inside_page_header'><a href="#index_with">10.3.</a> <code>index_with</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-index_with"><code>index_with</code></a> генерирует хэш с элементами перечисления в качестве ключей. Значение является либо переданным по умолчанию, либо возвращенным в блоке.</p><div class="code_container">
+<div class="warning"><p>Ключи, как правило, должны быть уникальными. Если блок возвратит одно и то же значение для нескольких элементов, для этого ключа не будет построена коллекция. А значение получит последний элемент.</p></div><div class="note"><p>Определено в <code>active_support/core_ext/enumerable.rb</code>.</p></div><p>[<code>index_by</code>][Enumerable#index_by]</p><h4 id='index_with' class='inside_page_header'><a href="#index_with">10.2.</a> <code>index_with</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-index_with"><code>index_with</code></a> генерирует хэш с элементами перечисления в качестве ключей. Значение является либо переданным по умолчанию, либо возвращенным в блоке.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">title: </span><span class="s2">"hey there"</span><span class="p">,</span> <span class="ss">body: </span><span class="s2">"what's up?"</span><span class="p">)</span>
 
 <span class="sx">%i( title body )</span><span class="p">.</span><span class="nf">index_with</span> <span class="p">{</span> <span class="o">|</span><span class="n">attr_name</span><span class="o">|</span> <span class="n">post</span><span class="p">.</span><span class="nf">public_send</span><span class="p">(</span><span class="n">attr_name</span><span class="p">)</span> <span class="p">}</span>
@@ -2114,35 +2089,35 @@ end
 <span class="c1"># =&gt; { monday: [ 0, 1440 ], … }</span>
 </code></pre>
 </div>
-<div class="note"><p>Определено в <code>active_support/core_ext/enumerable.rb</code>.</p></div><h4 id='many' class='inside_page_header'><a href="#many">10.4.</a> <code>many?</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-many-3F"><code>many?</code></a> это сокращение для <code>collection.size &gt; 1</code>:</p><div class="code_container">
+<div class="note"><p>Определено в <code>active_support/core_ext/enumerable.rb</code>.</p></div><h4 id='many' class='inside_page_header'><a href="#many">10.3.</a> <code>many?</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-many-3F"><code>many?</code></a> это сокращение для <code>collection.size &gt; 1</code>:</p><div class="code_container">
   <pre><code class="highlight erb"><span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">pages</span><span class="p">.</span><span class="nf">many?</span> <span class="cp">%&gt;</span>
   <span class="cp">&lt;%=</span> <span class="n">pagination_links</span> <span class="cp">%&gt;</span>
 <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
 </code></pre>
 </div>
 <p>Если задан опциональный блок, <code>many?</code> учитывает только те элементы, которые возвращают true:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="vi">@see_more</span> <span class="o">=</span> <span class="n">videos</span><span class="p">.</span><span class="nf">many?</span> <span class="p">{</span><span class="o">|</span><span class="n">video</span><span class="o">|</span> <span class="n">video</span><span class="p">.</span><span class="nf">category</span> <span class="o">==</span> <span class="n">params</span><span class="p">[</span><span class="ss">:category</span><span class="p">]}</span>
+  <pre><code class="highlight ruby"><span class="vi">@see_more</span> <span class="o">=</span> <span class="n">videos</span><span class="p">.</span><span class="nf">many?</span> <span class="p">{</span> <span class="o">|</span><span class="n">video</span><span class="o">|</span> <span class="n">video</span><span class="p">.</span><span class="nf">category</span> <span class="o">==</span> <span class="n">params</span><span class="p">[</span><span class="ss">:category</span><span class="p">]</span> <span class="p">}</span>
 </code></pre>
 </div>
-<div class="note"><p>Определено в <code>active_support/core_ext/enumerable.rb</code>.</p></div><h4 id='exclude' class='inside_page_header'><a href="#exclude">10.5.</a> <code>exclude?</code></h4><p>Предикат <a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-exclude-3F"><code>exclude?</code></a> проверяет, является ли заданный объект <strong>не</strong> принадлежащим коллекции. Это противоположность встроенного <code>include?</code>:</p><div class="code_container">
+<div class="note"><p>Определено в <code>active_support/core_ext/enumerable.rb</code>.</p></div><h4 id='exclude' class='inside_page_header'><a href="#exclude">10.4.</a> <code>exclude?</code></h4><p>Предикат <a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-exclude-3F"><code>exclude?</code></a> проверяет, является ли заданный объект <strong>не</strong> принадлежащим коллекции. Это противоположность встроенного <code>include?</code>:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">to_visit</span> <span class="o">&lt;&lt;</span> <span class="n">node</span> <span class="k">if</span> <span class="n">visited</span><span class="p">.</span><span class="nf">exclude?</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
 </code></pre>
 </div>
-<div class="note"><p>Определено в <code>active_support/core_ext/enumerable.rb</code>.</p></div><h4 id='including' class='inside_page_header'><a href="#including">10.6.</a> <code>including</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-including"><code>including</code></a> возвращает новое перечисление, включающее переданные элементы:</p><div class="code_container">
+<div class="note"><p>Определено в <code>active_support/core_ext/enumerable.rb</code>.</p></div><h4 id='including' class='inside_page_header'><a href="#including">10.5.</a> <code>including</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-including"><code>including</code></a> возвращает новое перечисление, включающее переданные элементы:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">].</span><span class="nf">including</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>                    <span class="c1"># =&gt; [ 1, 2, 3, 4, 5 ]</span>
 <span class="p">[</span><span class="s2">"David"</span><span class="p">,</span> <span class="s2">"Rafael"</span><span class="p">].</span><span class="nf">including</span> <span class="sx">%w[ Aaron Todd ]</span> <span class="c1"># =&gt; ["David", "Rafael", "Aaron", "Todd"]</span>
 </code></pre>
 </div>
-<div class="note"><p>Определено в <code>active_support/core_ext/enumerable.rb</code>.</p></div><h4 id='excluding' class='inside_page_header'><a href="#excluding">10.7.</a> <code>excluding</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-excluding"><code>excluding</code></a> возвращает копию перечисления без указанных элементов:</p><div class="code_container">
+<div class="note"><p>Определено в <code>active_support/core_ext/enumerable.rb</code>.</p></div><h4 id='excluding' class='inside_page_header'><a href="#excluding">10.6.</a> <code>excluding</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-excluding"><code>excluding</code></a> возвращает копию перечисления без указанных элементов:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="p">[</span><span class="s2">"David"</span><span class="p">,</span> <span class="s2">"Rafael"</span><span class="p">,</span> <span class="s2">"Aaron"</span><span class="p">,</span> <span class="s2">"Todd"</span><span class="p">].</span><span class="nf">excluding</span><span class="p">(</span><span class="s2">"Aaron"</span><span class="p">,</span> <span class="s2">"Todd"</span><span class="p">)</span> <span class="c1"># =&gt; ["David", "Rafael"]</span>
 </code></pre>
 </div>
-<p>У <code>excluding</code> есть псевдоним <a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-without"><code>without</code></a>.</p><div class="note"><p>Определено в <code>active_support/core_ext/enumerable.rb</code>.</p></div><h4 id='pluck' class='inside_page_header'><a href="#pluck">10.8.</a> <code>pluck</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-pluck"><code>pluck</code></a> возвращает массив на основе заданного ключа:</p><div class="code_container">
+<p>У <code>excluding</code> есть псевдоним <a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-without"><code>without</code></a>.</p><div class="note"><p>Определено в <code>active_support/core_ext/enumerable.rb</code>.</p></div><h4 id='pluck' class='inside_page_header'><a href="#pluck">10.7.</a> <code>pluck</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-pluck"><code>pluck</code></a> возвращает массив на основе заданного ключа:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="p">[{</span> <span class="ss">name: </span><span class="s2">"David"</span> <span class="p">},</span> <span class="p">{</span> <span class="ss">name: </span><span class="s2">"Rafael"</span> <span class="p">},</span> <span class="p">{</span> <span class="ss">name: </span><span class="s2">"Aaron"</span> <span class="p">}].</span><span class="nf">pluck</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="c1"># =&gt; ["David", "Rafael", "Aaron"]</span>
 <span class="p">[{</span> <span class="ss">id: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">name: </span><span class="s2">"David"</span> <span class="p">},</span> <span class="p">{</span> <span class="ss">id: </span><span class="mi">2</span><span class="p">,</span> <span class="ss">name: </span><span class="s2">"Rafael"</span> <span class="p">}].</span><span class="nf">pluck</span><span class="p">(</span><span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">)</span> <span class="c1"># =&gt; [[1, "David"], [2, "Rafael"]]</span>
 </code></pre>
 </div>
-<div class="note"><p>Определено в <code>active_support/core_ext/enumerable.rb</code>.</p></div><h4 id='pick' class='inside_page_header'><a href="#pick">10.9.</a> <code>pick</code></h4><p>Метод<a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-pick"><code>pick</code></a> извлекает заданный ключ из первого элемента:</p><div class="code_container">
+<div class="note"><p>Определено в <code>active_support/core_ext/enumerable.rb</code>.</p></div><h4 id='pick' class='inside_page_header'><a href="#pick">10.8.</a> <code>pick</code></h4><p>Метод<a href="https://api.rubyonrails.org/classes/Enumerable.html#method-i-pick"><code>pick</code></a> извлекает заданный ключ из первого элемента:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="p">[{</span> <span class="ss">name: </span><span class="s2">"David"</span> <span class="p">},</span> <span class="p">{</span> <span class="ss">name: </span><span class="s2">"Rafael"</span> <span class="p">},</span> <span class="p">{</span> <span class="ss">name: </span><span class="s2">"Aaron"</span> <span class="p">}].</span><span class="nf">pick</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="c1"># =&gt; "David"</span>
 <span class="p">[{</span> <span class="ss">id: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">name: </span><span class="s2">"David"</span> <span class="p">},</span> <span class="p">{</span> <span class="ss">id: </span><span class="mi">2</span><span class="p">,</span> <span class="ss">name: </span><span class="s2">"Rafael"</span> <span class="p">}].</span><span class="nf">pick</span><span class="p">(</span><span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">)</span> <span class="c1"># =&gt; [1, "David"]</span>
 </code></pre>
@@ -2270,7 +2245,7 @@ end
 </code></pre>
 </div>
 <p>Если получатель является массивом хэшей, корневой элемент по умолчанию также &quot;objects&quot;:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">[{</span><span class="ss">a: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="ss">c: </span><span class="mi">3</span><span class="p">}].</span><span class="nf">to_xml</span>
+  <pre><code class="highlight ruby"><span class="p">[{</span> <span class="ss">a: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">2</span> <span class="p">},</span> <span class="p">{</span> <span class="ss">c: </span><span class="mi">3</span> <span class="p">}].</span><span class="nf">to_xml</span>
 <span class="c1"># =&gt;</span>
 <span class="c1"># &lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="c1"># &lt;objects type="array"&gt;</span>
@@ -2360,7 +2335,7 @@ end
 </code></pre>
 </div>
 <p>или выдает их по очереди, если передается блок:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="sx">%w(1 2 3 4 5 6 7)</span><span class="p">.</span><span class="nf">in_groups</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">group</span><span class="o">|</span> <span class="nb">p</span> <span class="n">group</span><span class="p">}</span>
+  <pre><code class="highlight ruby"><span class="sx">%w(1 2 3 4 5 6 7)</span><span class="p">.</span><span class="nf">in_groups</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">group</span><span class="o">|</span> <span class="nb">p</span> <span class="n">group</span> <span class="p">}</span>
 <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">]</span>
 <span class="p">[</span><span class="s2">"4"</span><span class="p">,</span> <span class="s2">"5"</span><span class="p">,</span> <span class="kp">nil</span><span class="p">]</span>
 <span class="p">[</span><span class="s2">"6"</span><span class="p">,</span> <span class="s2">"7"</span><span class="p">,</span> <span class="kp">nil</span><span class="p">]</span>
@@ -2387,7 +2362,7 @@ end
 </code></pre>
 </div>
 <div class="info"><p>Отметьте, в предыдущем примере, что последовательные разделители приводят к пустым массивам.</p></div><div class="note"><p>Определено в <code>active_support/core_ext/array/grouping.rb</code>.</p></div><h3 id='rasshireniya-dlya-hash' class='inside_page_header'><a href="#rasshireniya-dlya-hash">12.</a> Расширения для <code>Hash</code></h3><h4 id='konversiya' class='inside_page_header'><a href="#konversiya">12.1.</a> Конверсия</h4><h5 id='to_xml2' class='inside_page_header'><a href="#to_xml2">12.1.1.</a> <code>to_xml</code></h5><p>Метод <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-to_xml"><code>to_xml</code></a> возвращает строку, содержащую представление XML его получателя:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="s2">"foo"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"bar"</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">}.</span><span class="nf">to_xml</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="ss">foo: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">bar: </span><span class="mi">2</span> <span class="p">}.</span><span class="nf">to_xml</span>
 <span class="c1"># =&gt;</span>
 <span class="c1"># &lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="c1"># &lt;hash&gt;</span>
@@ -2416,12 +2391,12 @@ end
 </code></pre>
 </div>
 <p>По умолчанию корневой узел является &quot;hash&quot;, но это настраивается с помощью опции <code>:root</code>.</p><p>По умолчанию билдер XML является новым экземпляром <code>Builder::XmlMarkup</code>. Можно настроить свой собственный билдер с помощью опции <code>:builder</code>. Метод также принимает опции, такие как <code>:dasherize</code> и ему подобные, они направляются в билдер.</p><div class="note"><p>Определено в <code>active_support/core_ext/hash/conversions.rb</code>.</p></div><h4 id='ob-edinenie' class='inside_page_header'><a href="#ob-edinenie">12.2.</a> Объединение</h4><p>В Ruby имеется встроенный метод <code>Hash#merge</code>, который позволяет объединять два хэша:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="ss">a: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">1</span><span class="p">}.</span><span class="nf">merge</span><span class="p">(</span><span class="ss">a: </span><span class="mi">0</span><span class="p">,</span> <span class="ss">c: </span><span class="mi">2</span><span class="p">)</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="ss">a: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">1</span> <span class="p">}.</span><span class="nf">merge</span><span class="p">(</span><span class="ss">a: </span><span class="mi">0</span><span class="p">,</span> <span class="ss">c: </span><span class="mi">2</span><span class="p">)</span>
 <span class="c1"># =&gt; {:a=&gt;0, :b=&gt;1, :c=&gt;2}</span>
 </code></pre>
 </div>
 <p>Active Support определяет еще несколько способов объединения хэшей, которые могут быть полезными.</p><h5 id='reverse_merge-i-reverse_merge' class='inside_page_header'><a href="#reverse_merge-i-reverse_merge">12.2.1.</a> <code>reverse_merge</code> и <code>reverse_merge!</code></h5><p>В случае коллизии, в <code>merge</code> остается ключ в хэше аргумента. Можно компактно предоставить хэш-опцию со значениями по умолчанию с помощью такой идиомы:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="ss">length: </span><span class="mi">30</span><span class="p">,</span> <span class="ss">omission: </span><span class="s2">"..."</span><span class="p">}.</span><span class="nf">merge</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+  <pre><code class="highlight ruby"><span class="n">options</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">length: </span><span class="mi">30</span><span class="p">,</span> <span class="ss">omission: </span><span class="s2">"..."</span> <span class="p">}.</span><span class="nf">merge</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
 </code></pre>
 </div>
 <p>Active Support определяет <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-reverse_merge"><code>reverse_merge</code></a> в случае, если нужна альтернативная запись:</p><div class="code_container">
@@ -2433,7 +2408,7 @@ end
 </code></pre>
 </div>
 <div class="warning"><p>Обратите внимание, что <code>reverse_merge!</code> может изменить хэш в вызывающем методе, что может как быть, так и не быть хорошей идеей.</p></div><div class="note"><p>Определено в <code>active_support/core_ext/hash/reverse_merge.rb</code>.</p></div><h5 id='reverse_update' class='inside_page_header'><a href="#reverse_update">12.2.2.</a> <code>reverse_update</code></h5><p>Метод <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-reverse_update"><code>reverse_update</code></a> это псевдоним для <code>reverse_merge!</code>, описанного выше.</p><div class="warning"><p>Отметьте, что у <code>reverse_update</code> нет варианта с восклицательным знаком.</p></div><div class="note"><p>Определено в <code>active_support/core_ext/hash/reverse_merge.rb</code>.</p></div><h5 id='deep_merge-i-deep_merge' class='inside_page_header'><a href="#deep_merge-i-deep_merge">12.2.3.</a> <code>deep_merge</code> и <code>deep_merge!</code></h5><p>Как можно было видеть в предыдущем примере, если ключ обнаруживается в обоих хэшах, выбирается значение первого из аргументов.</p><p>Active Support определяет <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-deep_merge"><code>Hash#deep_merge</code></a>. В углубленном объединении, если один и тот же ключ обнаруживается в обоих хэшах, и их значения также хэши, то в результирующем хэше будет <em>объединение</em> их значений.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="ss">a: </span><span class="p">{</span><span class="ss">b: </span><span class="mi">1</span><span class="p">}}.</span><span class="nf">deep_merge</span><span class="p">(</span><span class="ss">a: </span><span class="p">{</span><span class="ss">c: </span><span class="mi">2</span><span class="p">})</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="ss">a: </span><span class="p">{</span> <span class="ss">b: </span><span class="mi">1</span> <span class="p">}</span> <span class="p">}.</span><span class="nf">deep_merge</span><span class="p">(</span><span class="ss">a: </span><span class="p">{</span> <span class="ss">c: </span><span class="mi">2</span> <span class="p">})</span>
 <span class="c1"># =&gt; {:a=&gt;{:b=&gt;1, :c=&gt;2}}</span>
 </code></pre>
 </div>
@@ -2449,21 +2424,21 @@ end
 </code></pre>
 </div>
 <div class="note"><p>Определено в <code>active_support/core_ext/object/deep_dup.rb</code>.</p></div><h4 id='rabota-s-klyuchami' class='inside_page_header'><a href="#rabota-s-klyuchami">12.4.</a> Работа с ключами</h4><h5 id='except-i-except' class='inside_page_header'><a href="#except-i-except">12.4.1.</a> <code>except</code> и <code>except!</code></h5><p>Метод <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-except"><code>except</code></a> возвращает хэш с убранными ключами, содержащимися в перечне аргументов, если они существуют:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="ss">a: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">2</span><span class="p">}.</span><span class="nf">except</span><span class="p">(</span><span class="ss">:a</span><span class="p">)</span> <span class="c1"># =&gt; {:b=&gt;2}</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="ss">a: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">2</span> <span class="p">}.</span><span class="nf">except</span><span class="p">(</span><span class="ss">:a</span><span class="p">)</span> <span class="c1"># =&gt; {:b=&gt;2}</span>
 </code></pre>
 </div>
 <p>Если получатель откликается на <code>convert_key</code>, метод вызывается на каждом из аргументов. Это позволяет <code>except</code> хорошо обращаться с хэшами с индифферентным доступом, например:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="ss">a: </span><span class="mi">1</span><span class="p">}.</span><span class="nf">with_indifferent_access</span><span class="p">.</span><span class="nf">except</span><span class="p">(</span><span class="ss">:a</span><span class="p">)</span>  <span class="c1"># =&gt; {}</span>
-<span class="p">{</span><span class="ss">a: </span><span class="mi">1</span><span class="p">}.</span><span class="nf">with_indifferent_access</span><span class="p">.</span><span class="nf">except</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span> <span class="c1"># =&gt; {}</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="ss">a: </span><span class="mi">1</span> <span class="p">}.</span><span class="nf">with_indifferent_access</span><span class="p">.</span><span class="nf">except</span><span class="p">(</span><span class="ss">:a</span><span class="p">)</span>  <span class="c1"># =&gt; {}</span>
+<span class="p">{</span> <span class="ss">a: </span><span class="mi">1</span> <span class="p">}.</span><span class="nf">with_indifferent_access</span><span class="p">.</span><span class="nf">except</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span> <span class="c1"># =&gt; {}</span>
 </code></pre>
 </div>
 <p>Также имеется вариант с восклицательным знаком <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-except-21"><code>except!</code></a>, который убирает ключи в самом получателе.</p><div class="note"><p>Определено в <code>active_support/core_ext/hash/except.rb</code>.</p></div><h5 id='stringify_keys-i-stringify_keys' class='inside_page_header'><a href="#stringify_keys-i-stringify_keys">12.4.2.</a> <code>stringify_keys</code> и <code>stringify_keys!</code></h5><p>Метод <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-stringify_keys"><code>stringify_keys</code></a> возвращает хэш, в котором ключи получателя преобразованы в строку. Это выполняется с помощью применения к ним <code>to_s</code>:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="kp">nil</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">,</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">a: :a</span><span class="p">}.</span><span class="nf">stringify_keys</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="kp">nil</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">,</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">a: :a</span> <span class="p">}.</span><span class="nf">stringify_keys</span>
 <span class="c1"># =&gt; {"" =&gt; nil, "1" =&gt; 1, "a" =&gt; :a}</span>
 </code></pre>
 </div>
 <p>В случае коллизии ключей, значением будет то, которое вставлено в хэш позже:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="s2">"a"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">a: </span><span class="mi">2</span><span class="p">}.</span><span class="nf">stringify_keys</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="s2">"a"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">a: </span><span class="mi">2</span> <span class="p">}.</span><span class="nf">stringify_keys</span>
 <span class="c1"># Результатом будет</span>
 <span class="c1"># =&gt; {"a"=&gt;2}</span>
 </code></pre>
@@ -2477,17 +2452,17 @@ end
 </code></pre>
 </div>
 <p>Вторая строчка может безопасно обратиться к ключу &quot;type&quot; и позволить пользователю передавать или <code>:type</code>, или &quot;type&quot;.</p><p>Также имеется вариант с восклицательным знаком <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-stringify_keys-21"><code>stringify_keys!</code></a>, который преобразует к строке ключи в самом получателе.</p><p>Кроме этого, можно использовать <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-deep_stringify_keys"><code>deep_stringify_keys</code></a> и <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-deep_stringify_keys-21"><code>deep_stringify_keys!</code></a> для преобразования к строке всех ключей в заданном хэше и всех хэшей, вложенных в него. Пример результата:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="kp">nil</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">,</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">nested: </span><span class="p">{</span><span class="ss">a: </span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">}}.</span><span class="nf">deep_stringify_keys</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="kp">nil</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">,</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">nested: </span><span class="p">{</span> <span class="ss">a: </span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span> <span class="o">=&gt;</span> <span class="mi">5</span> <span class="p">}</span> <span class="p">}.</span><span class="nf">deep_stringify_keys</span>
 <span class="c1"># =&gt; {""=&gt;nil, "1"=&gt;1, "nested"=&gt;{"a"=&gt;3, "5"=&gt;5}}</span>
 </code></pre>
 </div>
 <div class="note"><p>Определено в <code>active_support/core_ext/hash/keys.rb</code>.</p></div><h5 id='symbolize_keys-i-symbolize_keys' class='inside_page_header'><a href="#symbolize_keys-i-symbolize_keys">12.4.3.</a> <code>symbolize_keys</code> и <code>symbolize_keys!</code></h5><p>Метод <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-symbolize_keys"><code>symbolize_keys</code></a> возвращает хэш, в котором ключи получателя преобразованы к символам там, где это возможно. Это выполняется с помощью применения к ним <code>to_sym</code>:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="kp">nil</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">,</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"a"</span> <span class="o">=&gt;</span> <span class="s2">"a"</span><span class="p">}.</span><span class="nf">symbolize_keys</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="kp">nil</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">,</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"a"</span> <span class="o">=&gt;</span> <span class="s2">"a"</span> <span class="p">}.</span><span class="nf">symbolize_keys</span>
 <span class="c1"># =&gt; {nil=&gt;nil, 1=&gt;1, :a=&gt;"a"}</span>
 </code></pre>
 </div>
 <div class="warning"><p>Отметьте в предыдущем примере, что только один ключ был преобразован к символу.</p></div><p>В случае коллизии ключей, значением будет то, которое вставлено в хэш позже:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="s2">"a"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">a: </span><span class="mi">2</span><span class="p">}.</span><span class="nf">symbolize_keys</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="s2">"a"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">a: </span><span class="mi">2</span> <span class="p">}.</span><span class="nf">symbolize_keys</span>
 <span class="c1"># =&gt; {:a=&gt;2}</span>
 </code></pre>
 </div>
@@ -2501,50 +2476,50 @@ end
 </code></pre>
 </div>
 <p>Третья строчка может безопасно обратиться к ключу <code>:input</code> и позволить пользователю передавать или <code>:input</code>, или &quot;input&quot;.</p><p>Также имеется вариант с восклицательным знаком <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-symbolize_keys-21"><code>symbolize_keys!</code></a>, который приводит к символу ключи в самом получателе.</p><p>Кроме этого, можно использовать <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-deep_symbolize_keys"><code>deep_symbolize_keys</code></a> и <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-deep_symbolize_keys-21"><code>deep_symbolize_keys!</code></a> для преобразования к символам всех ключей в заданном хэше и всех хэшей, вложенных в него. Пример результата:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="kp">nil</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">,</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"nested"</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="s2">"a"</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">}}.</span><span class="nf">deep_symbolize_keys</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="kp">nil</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">,</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"nested"</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s2">"a"</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span> <span class="o">=&gt;</span> <span class="mi">5</span> <span class="p">}</span> <span class="p">}.</span><span class="nf">deep_symbolize_keys</span>
 <span class="c1"># =&gt; {nil=&gt;nil, 1=&gt;1, nested:{a:3, 5=&gt;5}}</span>
 </code></pre>
 </div>
 <div class="note"><p>Определено в <code>active_support/core_ext/hash/keys.rb</code>.</p></div><h5 id='to_options-i-to_options' class='inside_page_header'><a href="#to_options-i-to_options">12.4.4.</a> <code>to_options</code> и <code>to_options!</code></h5><p>Методы <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-to_options"><code>to_options</code></a> и <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-to_options-21"><code>to_options!</code></a> являются псевдонимами <code>symbolize_keys</code> и <code>symbolize_keys!</code> соответственно.</p><div class="note"><p>Определено в <code>active_support/core_ext/hash/keys.rb</code>.</p></div><h5 id='assert_valid_keys' class='inside_page_header'><a href="#assert_valid_keys">12.4.5.</a> <code>assert_valid_keys</code></h5><p>Метод <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-assert_valid_keys"><code>assert_valid_keys</code></a> получает определенное число аргументов и проверяет, имеет ли получатель хоть один ключ вне этого белого списка. Если имеет, вызывается <code>ArgumentError</code>.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="ss">a: </span><span class="mi">1</span><span class="p">}.</span><span class="nf">assert_valid_keys</span><span class="p">(</span><span class="ss">:a</span><span class="p">)</span>  <span class="c1"># passes</span>
-<span class="p">{</span><span class="ss">a: </span><span class="mi">1</span><span class="p">}.</span><span class="nf">assert_valid_keys</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span> <span class="c1"># ArgumentError</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="ss">a: </span><span class="mi">1</span> <span class="p">}.</span><span class="nf">assert_valid_keys</span><span class="p">(</span><span class="ss">:a</span><span class="p">)</span>  <span class="c1"># проходит</span>
+<span class="p">{</span> <span class="ss">a: </span><span class="mi">1</span> <span class="p">}.</span><span class="nf">assert_valid_keys</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span> <span class="c1"># ArgumentError</span>
 </code></pre>
 </div>
 <p>Active Record не принимает незнакомые опции при создании связей, к примеру. Он реализует такой контроль через <code>assert_valid_keys</code>.</p><div class="note"><p>Определено в <code>active_support/core_ext/hash/keys.rb</code>.</p></div><h4 id='rabota-so-znacheniyam' class='inside_page_header'><a href="#rabota-so-znacheniyam">12.5.</a> Работа со значениям</h4><h5 id='deep_transform_values-i-deep_transform_values' class='inside_page_header'><a href="#deep_transform_values-i-deep_transform_values">12.5.1.</a> <code>deep_transform_values</code> и <code>deep_transform_values!</code></h5><p>Метод <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-deep_transform_values"><code>deep_transform_values</code></a> возвращает новый хэш со всеми значениями, конвертированными с помощью операции блока. Он включает значения корневого хэша и из всех вложенных хэшей и массивов.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">person: </span><span class="p">{</span> <span class="ss">name: </span><span class="s1">'Rob'</span><span class="p">,</span> <span class="ss">age: </span><span class="s1">'28'</span> <span class="p">}</span> <span class="p">}</span>
+  <pre><code class="highlight ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">person: </span><span class="p">{</span> <span class="ss">name: </span><span class="s2">"Rob"</span><span class="p">,</span> <span class="ss">age: </span><span class="s2">"28"</span> <span class="p">}</span> <span class="p">}</span>
 
-<span class="nb">hash</span><span class="p">.</span><span class="nf">deep_transform_values</span><span class="p">{</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span> <span class="n">value</span><span class="p">.</span><span class="nf">to_s</span><span class="p">.</span><span class="nf">upcase</span> <span class="p">}</span>
+<span class="nb">hash</span><span class="p">.</span><span class="nf">deep_transform_values</span> <span class="p">{</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span> <span class="n">value</span><span class="p">.</span><span class="nf">to_s</span><span class="p">.</span><span class="nf">upcase</span> <span class="p">}</span>
 <span class="c1"># =&gt; {person: {name: "ROB", age: "28"}}</span>
 </code></pre>
 </div>
 <p>Также имеется восклицательный вариант <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-deep_transform_values-21"><code>deep_transform_values!</code></a>, деструктивно конвертирующий все значения с помощью операции блока.</p><div class="note"><p>Определено в <code>active_support/core_ext/hash/deep_transform_values.rb</code>.</p></div><h4 id='narezka' class='inside_page_header'><a href="#narezka">12.6.</a> Нарезка</h4><p>Метод <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-slice-21"><code>slice!</code></a> заменяет хэш только заданными ключами и возвращает хэш, содержащий убранные пары ключ/значение.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">2</span><span class="p">}</span>
+  <pre><code class="highlight ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">a: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">2</span> <span class="p">}</span>
 <span class="n">rest</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">.</span><span class="nf">slice!</span><span class="p">(</span><span class="ss">:a</span><span class="p">)</span> <span class="c1"># =&gt; {:b=&gt;2}</span>
 <span class="nb">hash</span>                   <span class="c1"># =&gt; {:a=&gt;1}</span>
 </code></pre>
 </div>
 <div class="note"><p>Определено в <code>active_support/core_ext/hash/slice.rb</code>.</p></div><h4 id='izvlechenie2' class='inside_page_header'><a href="#izvlechenie2">12.7.</a> Извлечение</h4><p>Метод <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-extract-21"><code>extract!</code></a> убирает и возвращает пары ключ/значение, соответствующие заданным ключам.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:a</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">:b</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">}</span>
+  <pre><code class="highlight ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">a: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">2</span> <span class="p">}</span>
 <span class="n">rest</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">.</span><span class="nf">extract!</span><span class="p">(</span><span class="ss">:a</span><span class="p">)</span> <span class="c1"># =&gt; {:a=&gt;1}</span>
 <span class="nb">hash</span>                     <span class="c1"># =&gt; {:b=&gt;2}</span>
 </code></pre>
 </div>
 <p>Метод <code>extract!</code> возвращает тот же подкласс Hash, каким является получатель.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">2</span><span class="p">}.</span><span class="nf">with_indifferent_access</span>
+  <pre><code class="highlight ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">a: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">2</span> <span class="p">}.</span><span class="nf">with_indifferent_access</span>
 <span class="n">rest</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">.</span><span class="nf">extract!</span><span class="p">(</span><span class="ss">:a</span><span class="p">).</span><span class="nf">class</span>
 <span class="c1"># =&gt; ActiveSupport::HashWithIndifferentAccess</span>
 </code></pre>
 </div>
 <div class="note"><p>Определено в <code>active_support/core_ext/hash/slice.rb</code>.</p></div><h4 id='indifferentnyy-dostup' class='inside_page_header'><a href="#indifferentnyy-dostup">12.8.</a> Индифферентный доступ</h4><p>Метод <a href="https://api.rubyonrails.org/classes/Hash.html#method-i-with_indifferent_access"><code>with_indifferent_access</code></a> возвращает <a href="https://api.rubyonrails.org/classes/ActiveSupport/HashWithIndifferentAccess.html"><code>ActiveSupport::HashWithIndifferentAccess</code></a> из своего получателя:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">{</span><span class="ss">a: </span><span class="mi">1</span><span class="p">}.</span><span class="nf">with_indifferent_access</span><span class="p">[</span><span class="s2">"a"</span><span class="p">]</span> <span class="c1"># =&gt; 1</span>
+  <pre><code class="highlight ruby"><span class="p">{</span> <span class="ss">a: </span><span class="mi">1</span> <span class="p">}.</span><span class="nf">with_indifferent_access</span><span class="p">[</span><span class="s2">"a"</span><span class="p">]</span> <span class="c1"># =&gt; 1</span>
 </code></pre>
 </div>
 <div class="note"><p>Определено в <code>active_support/core_ext/hash/indifferent_access.rb</code>.</p></div><h3 id='rasshireniya-dlya-regexp' class='inside_page_header'><a href="#rasshireniya-dlya-regexp">13.</a> Расширения для <code>Regexp</code></h3><h4 id='multiline' class='inside_page_header'><a href="#multiline">13.1.</a> <code>multiline?</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Regexp.html#method-i-multiline-3F"><code>multiline?</code></a> говорит, имеет ли регулярное выражение установленный флаг <code>/m</code>, то есть соответствует ли точка новым строкам.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="sr">%r{.}</span><span class="p">.</span><span class="nf">multiline?</span>  <span class="c1"># =&gt; false</span>
 <span class="sr">%r{.}m</span><span class="p">.</span><span class="nf">multiline?</span> <span class="c1"># =&gt; true</span>
 
-<span class="no">Regexp</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'.'</span><span class="p">).</span><span class="nf">multiline?</span>                    <span class="c1"># =&gt; false</span>
-<span class="no">Regexp</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span> <span class="no">Regexp</span><span class="o">::</span><span class="no">MULTILINE</span><span class="p">).</span><span class="nf">multiline?</span> <span class="c1"># =&gt; true</span>
+<span class="no">Regexp</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"."</span><span class="p">).</span><span class="nf">multiline?</span>                    <span class="c1"># =&gt; false</span>
+<span class="no">Regexp</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="no">Regexp</span><span class="o">::</span><span class="no">MULTILINE</span><span class="p">).</span><span class="nf">multiline?</span> <span class="c1"># =&gt; true</span>
 </code></pre>
 </div>
 <p>Rails использует этот метод в одном месте, в коде маршрутизации. Регулярные выражения Multiline недопустимы для маршрутных требований, и этот флаг облегчает соблюдение этого ограничения.</p><div class="code_container">
@@ -2581,13 +2556,13 @@ end
 <span class="p">(</span><span class="mi">1</span><span class="o">...</span><span class="mi">9</span><span class="p">).</span><span class="nf">include?</span><span class="p">(</span><span class="mi">3</span><span class="o">..</span><span class="mi">9</span><span class="p">)</span>  <span class="c1"># =&gt; false</span>
 </code></pre>
 </div>
-<div class="note"><p>Определено в <code>active_support/core_ext/range/compare_range.rb</code>.</p></div><h4 id='overlaps' class='inside_page_header'><a href="#overlaps">14.3.</a> <code>overlaps?</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Range.html#method-i-overlaps-3F"><code>Range#overlaps?</code></a> говорит, имеют ли два заданных интервала непустое пересечение:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">).</span><span class="nf">overlaps?</span><span class="p">(</span><span class="mi">7</span><span class="o">..</span><span class="mi">11</span><span class="p">)</span>  <span class="c1"># =&gt; true</span>
-<span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">).</span><span class="nf">overlaps?</span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">7</span><span class="p">)</span>   <span class="c1"># =&gt; true</span>
-<span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">).</span><span class="nf">overlaps?</span><span class="p">(</span><span class="mi">11</span><span class="o">..</span><span class="mi">27</span><span class="p">)</span> <span class="c1"># =&gt; false</span>
+<div class="note"><p>Определено в <code>active_support/core_ext/range/compare_range.rb</code>.</p></div><h4 id='overlap' class='inside_page_header'><a href="#overlap">14.3.</a> <code>overlap?</code></h4><p>Метод <a href="https://api.rubyonrails.org/classes/Range.html#method-i-overlaps-3F"><code>Range#overlap?</code></a> говорит, имеют ли два заданных интервала непустое пересечение:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">).</span><span class="nf">overlap?</span><span class="p">(</span><span class="mi">7</span><span class="o">..</span><span class="mi">11</span><span class="p">)</span>  <span class="c1"># =&gt; true</span>
+<span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">).</span><span class="nf">overlap?</span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">7</span><span class="p">)</span>   <span class="c1"># =&gt; true</span>
+<span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">).</span><span class="nf">overlap?</span><span class="p">(</span><span class="mi">11</span><span class="o">..</span><span class="mi">27</span><span class="p">)</span> <span class="c1"># =&gt; false</span>
 </code></pre>
 </div>
-<div class="note"><p>Определено в <code>active_support/core_ext/range/overlaps.rb</code>.</p></div><h3 id='rasshireniya-dlya-date' class='inside_page_header'><a href="#rasshireniya-dlya-date">15.</a> Расширения для <code>Date</code></h3><h4 id='vychisleniya' class='inside_page_header'><a href="#vychisleniya">15.1.</a> Вычисления</h4><div class="info"><p>Следующие методы вычисления имеют <a href="https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B8%D0%B3%D0%BE%D1%80%D0%B8%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C">временную пропасть</a> в октябре 1582 года, когда дней с 5 по 14 (включительно) просто не существовало. Это руководство не документирует свое поведение в те дни для краткости, но достаточно сказать, будет происходит то, что от них ожидается. То есть, <code>Date.new(1582, 10, 4).tomorrow</code> возвратит <code>Date.new(1582, 10, 15)</code>, и так далее. Пожалуйста, проверьте <code>test/core_ext/date_ext_test.rb</code> в тестовом наборе Active Support, чтобы понять ожидаемое поведение.</p></div><h5 id='date-current' class='inside_page_header'><a href="#date-current">15.1.1.</a> <code>Date.current</code></h5><p>Active Support определяет <a href="https://api.rubyonrails.org/classes/Date.html#method-c-current"><code>Date.current</code></a> как сегодняшний день в текущей временной зоне. Он похож на <code>Date.today</code>, за исключением того, что он учитывает временную зону пользователя, если она определена. Он также определяет <a href="https://api.rubyonrails.org/classes/Date.html#method-c-yesterday"><code>Date.yesterday</code></a> и <a href="https://api.rubyonrails.org/classes/Date.html#method-c-tomorrow"><code>Date.tomorrow</code></a>, и предикаты экземпляра <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-past-3F"><code>past?</code></a>, <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-today-3F"><code>today?</code></a>, <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-tomorrow-3F"><code>tomorrow?</code></a>, <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-next_day-3F"><code>next_day?</code></a>, <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-yesterday-3F"><code>yesterday?</code></a>, <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-prev_day-3F"><code>prev_day?</code></a>, <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-future-3F"><code>future?</code></a>, <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-on_weekday-3F"><code>on_weekday?</code></a> и <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-on_weekend-3F"><code>on_weekend?</code></a>, все они зависят от <code>Date.current</code>.</p><div class="note"><p>Определено в <code>active_support/core_ext/date/calculations.rb</code>.</p></div><h5 id='imenovannye-daty' class='inside_page_header'><a href="#imenovannye-daty">15.1.2.</a> Именованные даты</h5><h6 id='beginning_of_week-end_of_week' class='inside_page_header'><a href="#beginning_of_week-end_of_week">15.1.2.1.</a> <code>beginning_of_week</code>, <code>end_of_week</code></h6><p>Методы <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-beginning_of_week"><code>beginning_of_week</code></a> и <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-end_of_week"><code>end_of_week</code></a> возвращают даты начала и конца недели соответственно. Предполагается, что неделя начинается с понедельника, но это может быть изменено переданным аргументом, установив локально для треда <code>Date.beginning_of_week</code> или <a href="/configuring#config-beginning-of-week"><code>config.beginning_of_week</code></a>.</p><div class="code_container">
+<div class="note"><p>Определено в <code>active_support/core_ext/range/overlap.rb</code>.</p></div><h3 id='rasshireniya-dlya-date' class='inside_page_header'><a href="#rasshireniya-dlya-date">15.</a> Расширения для <code>Date</code></h3><h4 id='vychisleniya' class='inside_page_header'><a href="#vychisleniya">15.1.</a> Вычисления</h4><div class="info"><p>Следующие методы вычисления имеют <a href="https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B8%D0%B3%D0%BE%D1%80%D0%B8%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C">временную пропасть</a> в октябре 1582 года, когда дней с 5 по 14 (включительно) просто не существовало. Это руководство не документирует свое поведение в те дни для краткости, но достаточно сказать, будет происходит то, что от них ожидается. То есть, <code>Date.new(1582, 10, 4).tomorrow</code> возвратит <code>Date.new(1582, 10, 15)</code>, и так далее. Пожалуйста, проверьте <code>test/core_ext/date_ext_test.rb</code> в тестовом наборе Active Support, чтобы понять ожидаемое поведение.</p></div><h5 id='date-current' class='inside_page_header'><a href="#date-current">15.1.1.</a> <code>Date.current</code></h5><p>Active Support определяет <a href="https://api.rubyonrails.org/classes/Date.html#method-c-current"><code>Date.current</code></a> как сегодняшний день в текущей временной зоне. Он похож на <code>Date.today</code>, за исключением того, что он учитывает временную зону пользователя, если она определена. Он также определяет <a href="https://api.rubyonrails.org/classes/Date.html#method-c-yesterday"><code>Date.yesterday</code></a> и <a href="https://api.rubyonrails.org/classes/Date.html#method-c-tomorrow"><code>Date.tomorrow</code></a>, и предикаты экземпляра <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-past-3F"><code>past?</code></a>, <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-today-3F"><code>today?</code></a>, <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-tomorrow-3F"><code>tomorrow?</code></a>, <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-next_day-3F"><code>next_day?</code></a>, <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-yesterday-3F"><code>yesterday?</code></a>, <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-prev_day-3F"><code>prev_day?</code></a>, <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-future-3F"><code>future?</code></a>, <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-on_weekday-3F"><code>on_weekday?</code></a> и <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-on_weekend-3F"><code>on_weekend?</code></a>, все они зависят от <code>Date.current</code>.</p><div class="note"><p>Определено в <code>active_support/core_ext/date/calculations.rb</code>.</p></div><h5 id='imenovannye-daty' class='inside_page_header'><a href="#imenovannye-daty">15.1.2.</a> Именованные даты</h5><h6 id='beginning_of_week-end_of_week' class='inside_page_header'><a href="#beginning_of_week-end_of_week">15.1.2.1.</a> <code>beginning_of_week</code>, <code>end_of_week</code></h6><p>Методы <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-beginning_of_week"><code>beginning_of_week</code></a> и <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-end_of_week"><code>end_of_week</code></a> возвращают даты начала и конца недели соответственно. Предполагается, что неделя начинается с понедельника, но это может быть изменено переданным аргументом, установив локально для треда <code>Date.beginning_of_week</code> или <a href="/configuring#config-beginning-of-week"><code>config.beginning_of_week</code></a>.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="n">d</span> <span class="o">=</span> <span class="no">Date</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>     <span class="c1"># =&gt; Sat, 08 May 2010</span>
 <span class="n">d</span><span class="p">.</span><span class="nf">beginning_of_week</span>          <span class="c1"># =&gt; Mon, 03 May 2010</span>
 <span class="n">d</span><span class="p">.</span><span class="nf">beginning_of_week</span><span class="p">(</span><span class="ss">:sunday</span><span class="p">)</span> <span class="c1"># =&gt; Sun, 02 May 2010</span>
@@ -2667,9 +2642,9 @@ end
 <span class="no">Date</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2009</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">).</span><span class="nf">months_since</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; Sun, 28 Feb 2010</span>
 </code></pre>
 </div>
-<p><a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-last_month"><code>last_month</code></a> это сокращение для <code>#months_ago(1)</code>.</p><div class="note"><p>Определено в <code>active_support/core_ext/date_and_time/calculations.rb</code>.</p></div><h6 id='weeks_ago' class='inside_page_header'><a href="#weeks_ago">15.1.3.3.</a> <code>weeks_ago</code></h6><p>Метод <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-weeks_ago"><code>weeks_ago</code></a> работает аналогично для недель:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="no">Date</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">).</span><span class="nf">weeks_ago</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># =&gt; Mon, 17 May 2010</span>
-<span class="no">Date</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">).</span><span class="nf">weeks_ago</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># =&gt; Mon, 10 May 2010</span>
+<p><a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-last_month"><code>last_month</code></a> это сокращение для <code>#months_ago(1)</code>.</p><div class="note"><p>Определено в <code>active_support/core_ext/date_and_time/calculations.rb</code>.</p></div><h6 id='weeks_ago-weeks_since' class='inside_page_header'><a href="#weeks_ago-weeks_since">15.1.3.3.</a> <code>weeks_ago</code>, <code>weeks_since</code></h6><p>Методы <a href="https://api.rubyonrails.org/classes/DateAndTime/Calculations.html#method-i-weeks_ago"><code>weeks_ago</code></a> и [<code>weeks_since</code>][DateAndTime::Calculations#week_since] работают аналогично для недель:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Date</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">).</span><span class="nf">weeks_ago</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># =&gt; Mon, 17 May 2010</span>
+<span class="no">Date</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">24</span><span class="p">).</span><span class="nf">weeks_since</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; Mon, 07 Jun 2010</span>
 </code></pre>
 </div>
 <div class="note"><p>Определено в <code>active_support/core_ext/date_and_time/calculations.rb</code>.</p></div><h6 id='advance' class='inside_page_header'><a href="#advance">15.1.3.4.</a> <code>advance</code></h6><p>Более обычным способом перейти на другие дни является <a href="https://api.rubyonrails.org/classes/Date.html#method-i-advance"><code>advance</code></a>. Этот метод получает хэш с ключами <code>:years</code>, <code>:months</code>, <code>:weeks</code>, <code>:days</code>, и возвращает дату, передвинутую на столько, сколько указывают существующие ключи:</p><div class="code_container">
@@ -2678,17 +2653,7 @@ end
 <span class="n">date</span><span class="p">.</span><span class="nf">advance</span><span class="p">(</span><span class="ss">months: </span><span class="mi">2</span><span class="p">,</span> <span class="ss">days: </span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; Wed, 04 Aug 2010</span>
 </code></pre>
 </div>
-<p>Отметьте в предыдущем примере, что приросты могут быть отрицательными.</p><p>Для выполнения вычисления метод сначала приращивает года, затем месяцы, затем недели, и, наконец, дни. Этот порядок важен в концах месяцев. Скажем, к примеру, мы в конце февраля 2010, и мы хотим переместиться на один месяц и один день вперед.</p><p>Метод <code>advance</code> передвигает сначала на один месяц, и затем на один день, результат такой:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="no">Date</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">28</span><span class="p">).</span><span class="nf">advance</span><span class="p">(</span><span class="ss">months: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">days: </span><span class="mi">1</span><span class="p">)</span>
-<span class="c1"># =&gt; Sun, 29 Mar 2010</span>
-</code></pre>
-</div>
-<p>Хотя, если бы мы делали по-другому, результат тоже был бы другой:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="no">Date</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">28</span><span class="p">).</span><span class="nf">advance</span><span class="p">(</span><span class="ss">days: </span><span class="mi">1</span><span class="p">).</span><span class="nf">advance</span><span class="p">(</span><span class="ss">months: </span><span class="mi">1</span><span class="p">)</span>
-<span class="c1"># =&gt; Thu, 01 Apr 2010</span>
-</code></pre>
-</div>
-<div class="note"><p>Определено в <code>active_support/core_ext/date/calculations.rb</code>.</p></div><h5 id='izmenenie-komponentov' class='inside_page_header'><a href="#izmenenie-komponentov">15.1.4.</a> Изменение компонентов</h5><p>Метод <a href="https://api.rubyonrails.org/classes/Date.html#method-i-change"><code>change</code></a> позволяет получить новую дату, которая идентична получателю, за исключением заданного года, месяца или дня:</p><div class="code_container">
+<p>Отметьте в предыдущем примере, что приросты могут быть отрицательными.</p><div class="note"><p>Определено в <code>active_support/core_ext/date/calculations.rb</code>.</p></div><h5 id='izmenenie-komponentov' class='inside_page_header'><a href="#izmenenie-komponentov">15.1.4.</a> Изменение компонентов</h5><p>Метод <a href="https://api.rubyonrails.org/classes/Date.html#method-i-change"><code>change</code></a> позволяет получить новую дату, которая идентична получателю, за исключением заданного года, месяца или дня:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">Date</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">23</span><span class="p">).</span><span class="nf">change</span><span class="p">(</span><span class="ss">year: </span><span class="mi">2011</span><span class="p">,</span> <span class="ss">month: </span><span class="mi">11</span><span class="p">)</span>
 <span class="c1"># =&gt; Wed, 23 Nov 2011</span>
 </code></pre>
