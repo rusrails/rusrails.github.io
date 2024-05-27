@@ -273,6 +273,10 @@
 <td>Пропустить git init, .gitignore и .gitattributes</td>
 </tr>
 <tr>
+<td><code>--skip-docker</code></td>
+<td>Пропустить Dockerfile, .dockerignore и bin/docker-entrypoint</td>
+</tr>
+<tr>
 <td><code>--skip-keeps</code></td>
 <td>Пропустить файлы для контроля версий .keep</td>
 </tr>
@@ -332,6 +336,14 @@
 <td><code>--skip-bootsnap</code></td>
 <td>Пропустить гем bootsnap</td>
 </tr>
+<tr>
+<td><code>--skip-dev-gems</code></td>
+<td>Пропустить добавление гемов для разработки</td>
+</tr>
+<tr>
+<td><code>--skip-rubocop</code></td>
+<td>Пропустить настройку RuboCop</td>
+</tr>
 </table><p>Это только некоторые из опций, которые принимает <code>rails new</code>. Для полного списка опций, напишите <code>rails new --help</code>.</p><h4 id='konfigurirovanie-drugoy-bazy-dannyh' class='inside_page_header'><a href="#konfigurirovanie-drugoy-bazy-dannyh">1.2.</a> Конфигурирование другой базы данных</h4><p>При создании нового приложения Rails, есть опция указать, какой вид базы данных собирается использовать ваше приложение. Это сэкономит вам несколько минут, и определенно много нажатий клавиш.</p><p>Давайте рассмотрим, что сделает для нас опция <code>--database=postgresql</code>:</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new petstore <span class="nt">--database</span><span class="o">=</span>postgresql
 <span class="go">      create
@@ -347,8 +359,6 @@
 <span class="c1">#   gem install pg</span>
 <span class="c1"># On macOS with Homebrew:</span>
 <span class="c1">#   gem install pg -- --with-pg-config=/usr/local/bin/pg_config</span>
-<span class="c1"># On macOS with MacPorts:</span>
-<span class="c1">#   gem install pg -- --with-pg-config=/opt/local/lib/postgresql84/bin/pg_config</span>
 <span class="c1"># On Windows:</span>
 <span class="c1">#   gem install pg</span>
 <span class="c1">#       Choose the win32 build.</span>
@@ -360,6 +370,7 @@
 <span class="na">default</span><span class="pi">:</span> <span class="nl">&amp;default</span>
   <span class="na">adapter</span><span class="pi">:</span> <span class="s">postgresql</span>
   <span class="na">encoding</span><span class="pi">:</span> <span class="s">unicode</span>
+
   <span class="c1"># For details on connection pooling, see Rails configuration guide</span>
   <span class="c1"># https://guides.rubyonrails.org/configuring.html#database-pooling</span>
   <span class="na">pool</span><span class="pi">:</span> <span class="s">&lt;%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %&gt;</span>
@@ -381,49 +392,54 @@
 </li><li><code>rails new app_name</code>
 </li></ul><p>Список доступных команд rails, который часто будет зависеть от вашей текущей директории, можно получить, написав <code>rails --help</code>. У каждой команды есть описание, это должно помочь найти то, что вам необходимо.</p><div class="code_container">
   <pre><code class="highlight plaintext">$ rails --help
-Usage: rails COMMAND [ARGS]
+Usage:
+  bin/rails COMMAND [options]
 
-The most common rails commands are:
- generate    Generate new code (short-cut alias: "g")
- console     Start the Rails console (short-cut alias: "c")
- server      Start the Rails server (short-cut alias: "s")
- ...
+You must specify a command. The most common commands are:
+
+  generate     Generate new code (short-cut alias: "g")
+  console      Start the Rails console (short-cut alias: "c")
+  server       Start the Rails server (short-cut alias: "s")
+  ...
 
 All commands can be run with -h (or --help) for more information.
 
 In addition to those commands, there are:
- about                               List versions of all Rails ...
- assets:clean[keep]                  Remove old compiled assets
- assets:clobber                      Remove compiled assets
- assets:environment                  Load asset compile environment
- assets:precompile                   Compile all the assets ...
- ...
- db:fixtures:load                    Loads fixtures into the ...
- db:migrate                          Migrate the database ...
- db:migrate:status                   Display status of migrations
- db:rollback                         Rolls the schema back to ...
- db:schema:cache:clear               Clears a db/schema_cache.yml file
- db:schema:cache:dump                Creates a db/schema_cache.yml file
- db:schema:dump                      Creates a database schema file (either db/schema.rb or db/structure.sql ...
- db:schema:load                      Loads a database schema file (either db/schema.rb or db/structure.sql ...
- db:seed                             Loads the seed data ...
- db:version                          Retrieves the current schema ...
- ...
- restart                             Restart app by touching ...
- tmp:create                          Creates tmp directories ...
+about                               List versions of all Rails ...
+assets:clean[keep]                  Remove old compiled assets
+assets:clobber                      Remove compiled assets
+assets:environment                  Load asset compile environment
+assets:precompile                   Compile all the assets ...
+...
+db:fixtures:load                    Load fixtures into the ...
+db:migrate                          Migrate the database ...
+db:migrate:status                   Display status of migrations
+db:rollback                         Roll the schema back to ...
+db:schema:cache:clear               Clears a db/schema_cache.yml file
+db:schema:cache:dump                Create a db/schema_cache.yml file
+db:schema:dump                      Create a database schema file (either db/schema.rb or db/structure.sql ...
+db:schema:load                      Load a database schema file (either db/schema.rb or db/structure.sql ...
+db:seed                             Load the seed data ...
+db:version                          Retrieve the current schema ...
+...
+restart                             Restart app by touching ...
+tmp:create                          Create tmp directories ...
 </code></pre>
 </div>
 <h4 id='bin-rails-server' class='inside_page_header'><a href="#bin-rails-server">2.1.</a> <code>bin/rails server</code></h4><p>Команда <code>bin/rails server</code> запускает веб-сервер Puma, поставляемый с Ruby. Его будем использовать всякий раз, когда захотим увидеть свою работу в веб-браузере.</p><p>Безо всякого принуждения, <code>bin/rails server</code> запустит наше блестящее приложение на Rails:</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>my_app
 <span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>server
 <span class="gp">=&gt;</span><span class="w"> </span>Booting Puma
-<span class="gp">=&gt;</span><span class="w"> </span>Rails 7.0.0 application starting <span class="k">in </span>development
+<span class="gp">=&gt;</span><span class="w"> </span>Rails 8.0.0 application starting <span class="k">in </span>development
 <span class="gp">=&gt;</span><span class="w"> </span>Run <span class="sb">`</span><span class="nb">bin/rails </span>server <span class="nt">--help</span><span class="sb">`</span> <span class="k">for </span>more startup options
 <span class="go">Puma starting in single mode...
-* Version 3.12.1 (ruby 2.5.7-p206), codename: Llamas in Pajamas
-* Min threads: 5, max threads: 5
-* Environment: development
-* Listening on tcp://localhost:3000
+* Puma version: 6.4.0 (ruby 3.1.3-p185) ("The Eagle of Durango")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: development
+*          PID: 5295
+* Listening on http://127.0.0.1:3000
+* Listening on http://[::1]:3000
 Use Ctrl-C to stop
 </span></code></pre>
 </div>
@@ -433,7 +449,8 @@ Use Ctrl-C to stop
 </div>
 <p>Опция <code>-b</code> привязывает Rails к определенному IP, по умолчанию это localhost. Можете запустить сервер, как демона, передав опцию <code>-d</code>.</p><h4 id='bin-rails-generate' class='inside_page_header'><a href="#bin-rails-generate">2.2.</a> <code>bin/rails generate</code></h4><p>Команда <code>bin/rails generate</code> использует шаблоны для создания целой кучи вещей. Запуск <code>bin/rails generate</code> выдаст список доступных генераторов:</p><div class="info"><p>Также можно использовать псевдоним &quot;g&quot; для вызова команды <code>generate</code>: <code>bin/rails g</code>.</p></div><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate
-<span class="go">Usage: rails generate GENERATOR [args] [options]
+<span class="go">Usage:
+  bin/rails generate GENERATOR [args] [options]
 
 </span><span class="c">...
 ...
@@ -451,7 +468,8 @@ Rails:
 </div>
 <div class="note"><p>Можно установить больше генераторов с помощью гемов генераторов, части плагинов, которые вы, несомненно, установите, и даже можете создать свой собственный!</p></div><p>Использование генераторов поможет сэкономить много времени, написав за вас <strong>шаблонный код</strong> - необходимый для работы приложения.</p><p>Давайте создадим свой собственный контроллер с помощью генератора контроллера. Какую же команду использовать? Давайте спросим у генератора:</p><div class="info"><p>Все консольные утилиты Rails имеют текст помощи. Как и с большинством утилит *nix, можно попробовать <code>--help</code> или <code>-h</code> в конце, например <code>bin/rails server --help</code>.</p></div><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate controller
-<span class="go">Usage: bin/rails generate controller NAME [action action] [options]
+<span class="go">Usage:
+  bin/rails generate controller NAME [action action] [options]
 
 </span><span class="c">...
 ...
@@ -575,7 +593,7 @@ Description:
 </div>
 <p>Если нужно протестировать некоторый код без изменения каких-либо данных, можно это сделать, вызвав <code>bin/rails console --sandbox</code>.</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>console <span class="nt">--sandbox</span>
-<span class="go">Loading development environment in sandbox (Rails 7.1.0)
+<span class="go">Loading development environment in sandbox (Rails 8.0.0)
 Any modifications you make will be rolled back on exit
 </span><span class="gp">irb(main):001:0&gt;</span><span class="w">
 </span></code></pre>
@@ -601,7 +619,7 @@ Any modifications you make will be rolled back on exit
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>dbconsole <span class="nt">--database</span><span class="o">=</span>animals
 </code></pre>
 </div>
-<h4 id='bin-rails-runner' class='inside_page_header'><a href="#bin-rails-runner">2.5.</a> <code>bin/rails runner</code></h4><p><code>runner</code> запускает код Ruby в контексте неинтерактивности Rails. Для примера:</p><div class="code_container">
+<h4 id='bin-rails-runner' class='inside_page_header'><a href="#bin-rails-runner">2.5.</a> <code>bin/rails runner</code></h4><p><code>runner</code> запускает код Ruby в контексте неинтерактивности Rails, без необходимости открывать Rails <code>console</code>. Для примера:</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>runner <span class="s2">"Model.long_running_method"</span>
 </code></pre>
 </div>
@@ -636,12 +654,12 @@ Any modifications you make will be rolled back on exit
 <h4 id='bin-rails-about' class='inside_page_header'><a href="#bin-rails-about">2.7.</a> <code>bin/rails about</code></h4><p><code>bin/rails about</code> предоставляет информацию о номерах версий Ruby, RubyGems, Rails, подкомпонентов Rails, папке вашего приложения, имени текущей среды Rails, адаптере базы данных вашего приложения и версии схемы. Это полезно, когда нужно попросить помощь, проверить патч безопасности, который может повлиять на вас, или просто хотите узнать статистику о текущей инсталляции Rails.</p><div class="code_container">
   <pre><code class="highlight plaintext">$ rails about
 About your application's environment
-Rails version             7.0.0
-Ruby version              2.7.0 (x86_64-linux)
-RubyGems version          2.7.3
-Rack version              2.0.4
+Rails version             8.0.0
+Ruby version              3.1.0 (x86_64-linux)
+RubyGems version          3.3.7
+Rack version              3.0.8
 JavaScript Runtime        Node.js (V8)
-Middleware:               Rack::Sendfile, ActionDispatch::Static, ActionDispatch::Executor, ActiveSupport::Cache::Strategy::LocalCache::Middleware, Rack::Runtime, Rack::MethodOverride, ActionDispatch::RequestId, ActionDispatch::RemoteIp, Sprockets::Rails::QuietAssets, Rails::Rack::Logger, ActionDispatch::ShowExceptions, WebConsole::Middleware, ActionDispatch::DebugExceptions, ActionDispatch::Reloader, ActionDispatch::Callbacks, ActiveRecord::Migration::CheckPending, ActionDispatch::Cookies, ActionDispatch::Session::CookieStore, ActionDispatch::Flash, Rack::Head, Rack::ConditionalGet, Rack::ETag
+Middleware:               ActionDispatch::HostAuthorization, Rack::Sendfile, ActionDispatch::Static, ActionDispatch::Executor, ActionDispatch::ServerTiming, ActiveSupport::Cache::Strategy::LocalCache::Middleware, Rack::Runtime, Rack::MethodOverride, ActionDispatch::RequestId, ActionDispatch::RemoteIp, Sprockets::Rails::QuietAssets, Rails::Rack::Logger, ActionDispatch::ShowExceptions, WebConsole::Middleware, ActionDispatch::DebugExceptions, ActionDispatch::ActionableExceptions, ActionDispatch::Reloader, ActionDispatch::Callbacks, ActiveRecord::Migration::CheckPending, ActionDispatch::Cookies, ActionDispatch::Session::CookieStore, ActionDispatch::Flash, ActionDispatch::ContentSecurityPolicy::Middleware, ActionDispatch::PermissionsPolicy::Middleware, Rack::Head, Rack::ConditionalGet, Rack::ETag, Rack::TempfileReaper
 Application root          /home/foobar/my_app
 Environment               development
 Database adapter          sqlite3
@@ -769,7 +787,13 @@ vendor/tools.rb:
 <span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>db:nothing
 </code></pre>
 </div>
-<div class="note"><p>Если необходимо взаимодействовать с моделями приложения, выполнять запросы в базу данных и так далее, ваша задача должна зависеть от задачи <code>environment</code>, которая загрузит код вашего приложения.</p></div>
+<p>Если необходимо взаимодействовать с моделями приложения, выполнять запросы в базу данных и так далее, ваша задача должна зависеть от задачи <code>environment</code>, которая загрузит код вашего приложения.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="n">task</span> <span class="ss">task_that_requires_app_code: </span><span class="p">[</span><span class="ss">:environment</span><span class="p">]</span> <span class="k">do</span>
+  <span class="no">User</span><span class="p">.</span><span class="nf">create!</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
 
             <div class="banner">
               <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
