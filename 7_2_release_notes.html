@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+<meta content="Ruby on Rails, Ruby, Rails, Rails 3, Rails 4, Rails 5, Rails 6, Rails 6.0, Rails 6.1, Rails 7.0, Rails 7.1 руководство, начинающим, самоучитель, manual, мануал, справочник, учебник, примеры, Руби, рельсы" name="keywords"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" name="description"/>
+<meta content="product" property="twitter:card"/>
+<meta content="@rusrails" property="twitter:site"/>
+<meta content="Rusrails: Заметки о релизе Ruby on Rails 7.2" property="twitter:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="twitter:description"/>
+<meta content="@rusrails" property="twitter:creator"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="twitter:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Rusrails: Заметки о релизе Ruby on Rails 7.2" property="og:title"/>
+<meta content="Ruby on Rails руководства, учебники, статьи на русском языке" property="og:description"/>
+<meta content="http://localhost:3000/7_2_release_notes" property="og:url"/>
+<meta content="http://rusrails.ru/assets/rusrails.png" property="og:image"/>
+    <title>
+      Rusrails: Заметки о релизе Ruby on Rails 7.2
+    </title>
+    <link rel="stylesheet" href="/assets/application-f9dfa6ce7fa871006d478e422639671663284ddaa3126cf81ddfe371ac3533c4.css" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/"></a>
+          <ul class="nav pull-right top-menu">
+            <li>
+              <a href="/">Главная</a>
+            </li>
+            <li class="dropdown">
+              <a class="index-popover" href="#">
+                Содержание
+                <b class="caret"></b>
+</a>              <div class="index-popover-content hide">
+                  <ul><li><p><strong>С чего начать?</strong></p><ul><li><a href="/getting-started">Rails для начинающих</a>
+</li></ul></li><li><p><strong>Модели</strong></p><ul><li><a href="/active-record-basics">Основы Active Record</a>
+</li><li><a href="/active-record-migrations">Миграции Active Record</a>
+</li><li><a href="/active-record-validations">Валидации Active Record</a>
+</li><li><a href="/active-record-callbacks">Колбэки Active Record</a>
+</li><li><a href="/active-record-associations">Связи (ассоциации) Active Record</a>
+</li><li><a href="/active-record-querying">Интерфейс запросов Active Record</a>
+</li><li><a href="/active-model-basics">Основы Active Model</a>
+</li></ul></li><li><p><strong>Вью</strong></p><ul><li><a href="/action-view-overview">Обзор Action View</a>
+</li><li><a href="/layouts-and-rendering">Макеты и рендеринг в Rails</a>
+</li><li><a href="/action-view-helpers">Хелперы Action View</a>
+</li><li><a href="/form-helpers">Хелперы форм в Action View</a>
+</li></ul></li><li><p><strong>Контроллеры</strong></p><ul><li><a href="/action-controller-overview">Обзор Action Controller</a>
+</li><li><a href="/routing">Роутинг в Rails</a>
+</li></ul></li><li><p><strong>Другие компоненты</strong></p><ul><li><a href="/active-support-core-extensions">Расширения ядра Active Support</a>
+</li><li><a href="/action-mailer-basics">Основы Action Mailer</a>
+</li><li><a href="/action-mailbox-basics">Основы Action Mailbox</a>
+</li><li><a href="/action-text-overview">Обзор Action Text</a>
+</li><li><a href="/active_job_basics">Основы Active Job</a>
+</li><li><a href="/active_storage_overview">Обзор Active Storage</a>
+</li><li><a href="/action-cable-overview">Обзор Action Cable</a>
+</li></ul></li><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/i18n">API интернационализации Rails (I18n)</a>
+</li><li><a href="/testing">Тестирование приложений на Rails</a>
+</li><li><a href="/security">Безопасность приложений на Rails</a>
+</li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
+</li><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/command-line">Командная строка Rails</a>
+</li><li><a href="/asset-pipeline">Asset Pipeline</a>
+</li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
+</li><li><a href="/initialization">Процесс инициализации в Rails</a>
+</li><li><a href="/autoloading-and-reloading-constants">Автозагрузка и перезагрузка констант</a>
+</li><li><a href="/classic-to-zeitwerk-howto">Как перейти с Classic на Zeitwerk</a>
+</li><li><a href="/caching-with-rails">Кэширование с Rails: Обзор</a>
+</li><li><a href="/active-support-instrumentation">Инструментарий Active Support</a>
+</li><li><a href="/api-app">Использование Rails для API-приложений</a>
+</li><li><a href="/active-record-postgresql">Active Record для PostgreSQL</a>
+</li><li><a href="/active-record-multiple-databases">Несколько баз данных с Active Record</a>
+</li><li><a href="/active-record-encryption">Шифрование Active Record</a>
+</li></ul></li><li><p><strong>Расширяем Rails</strong></p><ul><li><a href="/plugins">Основы создания плагинов Rails</a>
+</li><li><a href="/rails-on-rack">Rails on Rack</a>
+</li><li><a href="/generators">Создание и настройка генераторов и шаблонов Rails</a>
+</li><li><a href="/engines">Engine для начинающих</a>
+</li><li><a href="/threading_and_code_execution">Треды и выполнение кода в Rails</a>
+</li><li><a href="/rails-application-templates">Шаблоны приложения Rails</a>
+</li></ul></li><li><p><strong>Вносим вклад в Ruby on Rails</strong></p><ul><li><a href="/contributing_to_ruby_on_rails">Вносим вклад в Ruby on Rails</a>
+</li><li><a href="/api_documentation_guidelines">Рекомендации по документированию API</a>
+</li><li><a href="/ruby_on_rails_guides_guidelines">Рекомендации для руководств по Ruby on Rails</a>
+</li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
+</li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
+</li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_2_release_notes">Версия 7.2 - ?</a>
+</li><li><a href="/7_1_release_notes">Версия 7.1 - Октябрь 2023</a>
+</li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
+</li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
+</li><li><a href="/6_0_release_notes">Версия 6.0 - Август 2019</a>
+</li></ul></li></ul>
+              </div>
+            </li>
+            <li>
+              <a href="/search">Поиск</a>
+            </li>
+            <li>
+              <a target="blank" href="http://api.rusrails.ru">Ruby &amp; Rails API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 pull-right">
+            <div class="well social">
+              <h4>Принимаем пожелания и пул-реквесты!</h4>
+              <iframe allowtransparency="true" frameborder="0" height="30" src="http://ghbtns.com/github-btn.html?user=rusrails&repo=rusrails&type=watch&count=true&size=large" width="180"></iframe>
+              <p></p>
+              <a class="twitter-follow-button" data-lang="ru" href="https://twitter.com/rusrails"></a>
+            </div>
+              <div class="well menu">
+                    <ul class="nav nav-list">
+      <li>
+        <h4>
+          <a href="#apgreyd-do-rails-7-2">1. Апгрейд до Rails 7.2</a>
+</h4>      </li>
+      <li>
+        <h4>
+          <a href="#osnovnye-osobennosti">2. Основные особенности</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#konfiguratsiya-konteynerov-razrabotki-dlya-prilozheniy">2.1. Конфигурация контейнеров разработки для приложений</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#po-umolchaniyu-dobavlena-proverka-versii-brauzera">2.2. По умолчанию добавлена проверка версии браузера</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ruby-3-1-sdelan-novoy-minimalnoy-versiey">2.3. Ruby 3.1 сделан новой минимальной версией</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#fayly-progressivnogo-veb-prilozheniya-pwa-po-umolchaniyu">2.4. Файлы прогрессивного веб-приложения (PWA) по умолчанию</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#po-umolchaniyu-dobavleny-pravila-omakase-rubocop">2.5. По умолчанию добавлены правила omakase RuboCop</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#po-umolchaniyu-dobavlen-rabochiy-protsess-github-ci-v-novye-prilozheniya">2.6. По умолчанию добавлен рабочий процесс GitHub CI в новые приложения</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#po-umolchaniyu-dobavlen-brakeman-v-novye-prilozheniya">2.7. По умолчанию добавлен Brakeman в новые приложения</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustanovleno-novoe-znachenie-po-umolchaniyu-dlya-kolichestva-tredov-puma">2.8. Установлено новое значение по умолчанию для количества тредов Puma</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#predotvrascheno-planirovanie-zadaniy-vnutri-tranzaktsiy">2.9. Предотвращено планирование заданий внутри транзакций</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#kolbeki-podtverzhdeniya-i-otkata-tranzaktsiy">2.10. Колбэки подтверждения и отката транзакций</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#vklyuchen-yjit-po-umolchaniyu-pri-rabote-s-ruby-3-3">2.11. Включен YJIT по умолчанию при работе с Ruby 3.3+</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#novyy-dizayn-rukovodstv-po-rails">2.12. Новый дизайн руководств по Rails</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#nastroen-jemalloc-v-dockerfile-po-umolchaniyu-dlya-optimizatsii-vydeleniya-pamyati">2.13. Настроен jemalloc в Dockerfile по умолчанию для оптимизации выделения памяти</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#predlozhena-konfiguratsiyu-puma-dev-v-bin-setup">2.14. Предложена конфигурацию puma-dev в bin/setup</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#railties">3. Railties</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno">3.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo">3.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya">3.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-cable">4. Action Cable</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno2">4.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo2">4.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya2">4.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-pack">5. Action Pack</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno3">5.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo3">5.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya3">5.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-view">6. Action View</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno4">6.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo4">6.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya4">6.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-mailer">7. Action Mailer</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno5">7.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo5">7.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya5">7.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-record">8. Active Record</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno6">8.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo6">8.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya6">8.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-storage">9. Active Storage</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno7">9.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo7">9.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya7">9.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-model">10. Active Model</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno8">10.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo8">10.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya8">10.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-support">11. Active Support</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno9">11.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo9">11.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya9">11.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#active-job">12. Active Job</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno10">12.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo10">12.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya10">12.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-text">13. Action Text</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno11">13.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo11">13.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya11">13.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#action-mailbox">14. Action Mailbox</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#udaleno12">14.1. Удалено</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#ustarelo12">14.2. Устарело</a>
+</h5>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya12">14.3. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#ruby-on-rails-guides">15. Ruby on Rails Guides</a>
+</h4>      </li>
+      <li>
+        <h5>
+          <a href="#znachimye-izmeneniya13">15.1. Значимые изменения</a>
+</h5>      </li>
+      <li>
+        <h4>
+          <a href="#credits">16. Credits</a>
+</h4>      </li>
+</ul>
+
+              </div>
+            <div class="well banner300 banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- sidebar rusrails -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-7764391801669990"
+     data-ad-slot="6089520660"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+          <div class="span9 content pull-left">
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- top rusrails -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:980px;height:120px"
+       data-ad-client="ca-pub-7764391801669990"
+       data-ad-slot="4891989065"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+              <h2 id='zametki-o-relize-ruby-on-rails-7-2' class='inside_page_header'> Заметки о релизе Ruby on Rails 7.2</h2><p>Ключевые новинки в Rails 7.2:</p><ul><li>Конфигурация контейнеров разработки для приложений.
+</li><li>По умолчанию добавлена проверка версии браузера.
+</li><li>Ruby 3.1 сделан новой минимальной версией.
+</li><li>Файлы прогрессивного веб-приложения (PWA) по умолчанию.
+</li><li>По умолчанию добавлены правила omakase RuboCop.
+</li><li>По умолчанию добавлен рабочий процесс GitHub CI в новые приложения.
+</li><li>По умолчанию добавлен Brakeman в новые приложения.
+</li><li>Установлено новое значение по умолчанию для количества тредов Puma.
+</li><li>Предотвращено планирование заданий внутри транзакций.
+</li><li>Колбэки подтверждения и отката транзакций.
+</li><li>Включен YJIT по умолчанию при работе с Ruby 3.3+.
+</li><li>Новый дизайн руководств по Rails.
+</li><li>Настроен jemalloc в Dockerfile по умолчанию для оптимизации выделения памяти.
+</li><li>Предложена конфигурацию puma-dev в bin/setup.
+</li></ul><p>Эти заметки о релизе покрывают только основные изменения. Чтобы узнать о других обновлениях, различных исправлениях программных ошибок и изменениях, обратитесь к логам изменений или к <a href="https://github.com/rails/rails/commits/7-2-stable">списку коммитов</a> в главном репозитории Rails на GitHub.</p>
+<hr>
+<h3 id='apgreyd-do-rails-7-2' class='inside_page_header'><a href="#apgreyd-do-rails-7-2">1.</a> Апгрейд до Rails 7.2</h3><p>Прежде чем апгрейднуть существующее приложение, было бы хорошо иметь перед этим покрытие тестами. Также, до попытки обновиться до Rails 7.2, необходимо сначала произвести апгрейд до Rails 7.1 и убедиться, что приложение все еще выполняется так, как нужно. Список вещей, которые нужно выполнить для апгрейда доступен в руководстве <a href="/upgrading-ruby-on-rails#upgrading-from-rails-7-1-to-rails-7-2">Апгрейд Ruby on Rails</a>.</p><h3 id='osnovnye-osobennosti' class='inside_page_header'><a href="#osnovnye-osobennosti">2.</a> Основные особенности</h3><h4 id='konfiguratsiya-konteynerov-razrabotki-dlya-prilozheniy' class='inside_page_header'><a href="#konfiguratsiya-konteynerov-razrabotki-dlya-prilozheniy">2.1.</a> Конфигурация контейнеров разработки для приложений</h4><p><a href="https://containers.dev/">Контейнер разработки</a> (dev container) позволяет использовать контейнер в качестве полноценной среды разработки.</p><p>Rails 7.2 добавляет возможность генерировать конфигурацию контейнера разработки для вашего приложения. Эта конфигурация включает папку <code>.devcontainer</code> с файлами <code>Dockerfile</code>, <code>docker-compose.yml</code> и <code>devcontainer.json</code>.</p><p>По умолчанию контейнер разработки содержит:</p><ul><li>Контейнер Redis для использования с Kredis, Action Cable и т.д.
+</li><li>Базу данных (SQLite, Postgres, MySQL или MariaDB)
+</li><li>Контейнер Headless Chrome для системных тестов
+</li><li>Active Storage, настроенный для использования локального диска с работающими функциями предварительного просмотра
+</li></ul><p>Для создания нового приложения с контейнером разработки вы можете выполнить команду:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="go">rails new myapp --devcontainer
+</span></code></pre>
+</div>
+<p>Для существующих приложений теперь доступна команда <code>devcontainer</code>.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="go">rails devcontainer
+</span></code></pre>
+</div>
+<p>Подробности смотрите в руководстве <a href="/getting_started_with_devcontainer">TODO: Getting Started with Dev Containers</a>.</p><h4 id='po-umolchaniyu-dobavlena-proverka-versii-brauzera' class='inside_page_header'><a href="#po-umolchaniyu-dobavlena-proverka-versii-brauzera">2.2.</a> По умолчанию добавлена проверка версии браузера</h4><p>Rails теперь добавляет возможность указывать версии браузеров, которым будет разрешен доступ ко всем экшнам (или некоторым из них, ограниченным <code>only:</code> или <code>except:</code>).</p><p>Только браузеры, соответствующие хэшу или именованному набору, переданному в <code>versions:</code>, будут заблокированы, если их версии ниже указанных.</p><p>Это означает, что всем другим неизвестным браузерам, а также агентам, которые не сообщают заголовок user-agent, будет разрешен доступ.</p><p>Заблокированному браузеру по умолчанию будет предоставлен файл <code>public/406-unsupported-browser.html</code> с HTTP-кодом состояния &quot;406 Not Acceptable&quot;.</p><p>Примеры:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="c1"># Разрешить только браузеры с родной поддержкой webp images, web push, badges, import maps, CSS nesting + :has</span>
+  <span class="n">allow_browser</span> <span class="ss">versions: :modern</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="c1"># Все версии Chrome и Opera будут разрешены, но ни одна версия "internet explorer" (ie). Safari должен быть версии 16.4 и выше, а Firefox - 121 и выше.</span>
+  <span class="n">allow_browser</span> <span class="ss">versions: </span><span class="p">{</span> <span class="ss">safari: </span><span class="mf">16.4</span><span class="p">,</span> <span class="ss">firefox: </span><span class="mi">121</span><span class="p">,</span> <span class="ss">ie: </span><span class="kp">false</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">MessagesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="c1"># В дополнение к браузерам, заблокированным в ApplicationController, также блокируется Opera ниже версии 104 и Chrome ниже версии 119 для действия show.</span>
+  <span class="n">allow_browser</span> <span class="ss">versions: </span><span class="p">{</span> <span class="ss">opera: </span><span class="mi">104</span><span class="p">,</span> <span class="ss">chrome: </span><span class="mi">119</span> <span class="p">},</span> <span class="ss">only: :show</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>В новых приложениях эта защита установлена в <code>ApplicationController</code>.</p><p>Для получения дополнительной информации смотрите документацию по <a href="https://api.rubyonrails.org/classes/ActionController/AllowBrowser/ClassMethods.html#method-i-allow_browser">allow_browser</a>.</p><h4 id='ruby-3-1-sdelan-novoy-minimalnoy-versiey' class='inside_page_header'><a href="#ruby-3-1-sdelan-novoy-minimalnoy-versiey">2.3.</a> Ruby 3.1 сделан новой минимальной версией</h4><p>До сих пор Rails прекращал поддержку старых версий Ruby только при выпуске новых мажорных версий. Мы меняем эту политику, потому что она вынуждает нас либо поддерживать устаревшие версии Ruby, либо слишком часто выпускать новые мажорные версии Rails, а также отказываться от нескольких версий Ruby одновременно при переходе на новую мажорную версию.</p><p>Теперь мы будем прекращать поддержку версий Ruby, достигших конца жизненного цикла, на минорных версиях Rails во время их выпуска.</p><p>Для Rails 7.2 минимальной версией Ruby становится 3.1.</p><h4 id='fayly-progressivnogo-veb-prilozheniya-pwa-po-umolchaniyu' class='inside_page_header'><a href="#fayly-progressivnogo-veb-prilozheniya-pwa-po-umolchaniyu">2.4.</a> Файлы прогрессивного веб-приложения (PWA) по умолчанию</h4><p>Для подготовки к более эффективной поддержке создания PWA-приложений с Rails, мы теперь генерируем стандартные PWA-файлы для манифеста и service worker. Эти файлы доступны из <code>app/views/pwa</code> и могут динамически рендериться с помощью ERB. Эти файлы монтируются явно в корневом каталоге с использованием стандартных маршрутов в сгенерированном файле маршрутов.</p><p>Для получения дополнительной информации смотрите <a href="https://github.com/rails/rails/pull/50528">пул реквест на включение функции</a>.</p><h4 id='po-umolchaniyu-dobavleny-pravila-omakase-rubocop' class='inside_page_header'><a href="#po-umolchaniyu-dobavleny-pravila-omakase-rubocop">2.5.</a> По умолчанию добавлены правила omakase RuboCop</h4><p>Rails теперь поставляется с <a href="https://rubocop.org/">RuboCop</a>, настроенным с набором правил из <a href="https://github.com/rails/rubocop-rails-omakase">rubocop-rails-omakase</a> по умолчанию.</p><p>Ruby - это красивый и выразительный язык, который не только допускает множество различных диалектов, но и приветствует их многообразие. Он никогда не задумывался как язык, который нужно писать исключительно в одном стиле во всех библиотеках, фреймворках или приложениях. Если у вас или вашей команды есть свой особый стиль, который вам нравится, вам следует его ценить.</p><p>Этот набор стилей RuboCop предназначен для тех, кто еще не привержен какому-либо конкретному диалекту. Кто просто хочет иметь разумную отправную точку и кому будут полезны некоторые правила по умолчанию, чтобы хотя бы начать последовательный подход к стилизации Ruby.</p><p>Эти конкретные правила не являются ни правильными, ни неправильными, а просто отражают идиосинкразические эстетические чувства создателя Rails. Используйте их целиком, используйте их как отправную точку, используйте их как вдохновение или как вам будет угодно.</p><h4 id='po-umolchaniyu-dobavlen-rabochiy-protsess-github-ci-v-novye-prilozheniya' class='inside_page_header'><a href="#po-umolchaniyu-dobavlen-rabochiy-protsess-github-ci-v-novye-prilozheniya">2.6.</a> По умолчанию добавлен рабочий процесс GitHub CI в новые приложения</h4><p>Rails теперь по умолчанию добавляет файл рабочего процесса GitHub CI в новые приложения. Это, безусловно, поможет новичкам начать работу с автоматическим сканированием, анализом кода и тестированием. Мы считаем это естественным продолжением для современной эпохи того, что мы делали с самого начала с юнит-тестами.</p><p>Конечно, верно, что GitHub Actions - это коммерческий облачный продукт для частных репозиториев после того, как вы потратили бесплатные токены. Однако, учитывая связь между GitHub и Rails, подавляющее использование платформы новичками и ценность обучения их хорошим привычкам CI, мы считаем это приемлемым компромиссом.</p><h4 id='po-umolchaniyu-dobavlen-brakeman-v-novye-prilozheniya' class='inside_page_header'><a href="#po-umolchaniyu-dobavlen-brakeman-v-novye-prilozheniya">2.7.</a> По умолчанию добавлен Brakeman в новые приложения</h4><p><a href="https://brakemanscanner.org/">Brakeman</a> - это отличный способ предотвратить попадание в production распространенных уязвимостей безопасности в Rails.</p><p>Brakeman по умолчанию установлен в новых приложениях и в сочетании с рабочим процессом GitHub CI будет автоматически запускаться при каждом push-е.</p><h4 id='ustanovleno-novoe-znachenie-po-umolchaniyu-dlya-kolichestva-tredov-puma' class='inside_page_header'><a href="#ustanovleno-novoe-znachenie-po-umolchaniyu-dlya-kolichestva-tredov-puma">2.8.</a> Установлено новое значение по умолчанию для количества тредов Puma</h4><p>Rails изменил количество тредов по умолчанию в Puma с 5 на 3.</p><p>Из-за природы хорошо оптимизированных приложений Rails, с быстрыми SQL-запросами и медленными вызовами сторонних библиотек, работающих через задания, Ruby может тратить значительное время, ожидая освобождения Global VM Lock (GVL), когда количество тредов слишком велико, что негативно влияет на задержку (время ответа на запросы).</p><p>После тщательного рассмотрения, изучения и на основе опыта, полученного в приложениях, работающих в production, мы решили, что значение по умолчанию 3 треда - это хороший баланс между параллелизмом и производительностью.</p><p>Вы можете ознакомиться с очень подробным обсуждением этого изменения в <a href="https://github.com/rails/rails/issues/50450">этой проблеме</a>.</p><h4 id='predotvrascheno-planirovanie-zadaniy-vnutri-tranzaktsiy' class='inside_page_header'><a href="#predotvrascheno-planirovanie-zadaniy-vnutri-tranzaktsiy">2.9.</a> Предотвращено планирование заданий внутри транзакций</h4><p>Частая ошибка при работе с Active Job заключается в том, что задания ставятся в очередь внутри транзакции, что может привести к тому, что другой процесс подхватит и выполнит задание до завершения транзакции, что, в свою очередь, может вызвать различные ошибки.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Topic</span><span class="p">.</span><span class="nf">transaction</span> <span class="k">do</span>
+  <span class="n">topic</span> <span class="o">=</span> <span class="no">Topic</span><span class="p">.</span><span class="nf">create</span>
+
+  <span class="no">NewTopicNotificationJob</span><span class="p">.</span><span class="nf">perform_later</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Теперь Active Job автоматически откладывает постановку в очередь до завершения транзакции. Если транзакция откатывается, задание будет сброшено.</p><p>Некоторые реализации очередей могут отключить это поведение. Пользователи также могут отключить его или принудительно включить для отдельных заданий:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">NewTopicNotificationJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">enqueue_after_transaction_commit</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id='kolbeki-podtverzhdeniya-i-otkata-tranzaktsiy' class='inside_page_header'><a href="#kolbeki-podtverzhdeniya-i-otkata-tranzaktsiy">2.10.</a> Колбэки подтверждения и отката транзакций</h4><p>Эта возможность появилась благодаря новой функции, позволяющей регистрировать колбэки транзакций вне записи.</p><p>Теперь <code>ActiveRecord::Base.transaction</code> возвращает объект <code>ActiveRecord::Transaction</code>, который позволяет регистрировать на нем колбэки.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Article</span><span class="p">.</span><span class="nf">transaction</span> <span class="k">do</span> <span class="o">|</span><span class="n">transaction</span><span class="o">|</span>
+  <span class="n">article</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="ss">published: </span><span class="kp">true</span><span class="p">)</span>
+
+  <span class="n">transaction</span><span class="p">.</span><span class="nf">after_commit</span> <span class="k">do</span>
+    <span class="no">PublishNotificationMailer</span><span class="p">.</span><span class="nf">with</span><span class="p">(</span><span class="ss">article: </span><span class="n">article</span><span class="p">).</span><span class="nf">deliver_later</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Также добавлен метод <code>ActiveRecord::Base.current_transaction</code>, который позволяет регистрировать колбэки на текущей транзакции.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Article</span><span class="p">.</span><span class="nf">current_transaction</span><span class="p">.</span><span class="nf">after_commit</span> <span class="k">do</span>
+  <span class="no">PublishNotificationMailer</span><span class="p">.</span><span class="nf">with</span><span class="p">(</span><span class="ss">article: </span><span class="n">article</span><span class="p">).</span><span class="nf">deliver_later</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>И, наконец, был добавлен <code>ActiveRecord.after_all_transactions_commit</code> для кода, который может выполняться как внутри, так и вне транзакции, и которому необходимо выполнить работу после того, как изменения состояния будут успешно сохранены.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">publish_article</span><span class="p">(</span><span class="n">article</span><span class="p">)</span>
+  <span class="n">article</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="ss">published: </span><span class="kp">true</span><span class="p">)</span>
+
+  <span class="no">ActiveRecord</span><span class="p">.</span><span class="nf">after_all_transactions_commit</span> <span class="k">do</span>
+    <span class="no">PublishNotificationMailer</span><span class="p">.</span><span class="nf">with</span><span class="p">(</span><span class="ss">article: </span><span class="n">article</span><span class="p">).</span><span class="nf">deliver_later</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Подробности смотрите в <a href="https://github.com/rails/rails/pull/51474">#51474</a> и <a href="https://github.com/rails/rails/pull/51426">#51426</a>.</p><h4 id='vklyuchen-yjit-po-umolchaniyu-pri-rabote-s-ruby-3-3' class='inside_page_header'><a href="#vklyuchen-yjit-po-umolchaniyu-pri-rabote-s-ruby-3-3">2.11.</a> Включен YJIT по умолчанию при работе с Ruby 3.3+</h4><p>YJIT, компилятор JIT Ruby, доступный в CRuby начиная с версии 3.1. Он может значительно повысить производительность Rails-приложений, сокращая задержки на 15-25%.</p><p>В Rails 7.2 YJIT включен по умолчанию при использовании Ruby 3.3 или более поздней версии.</p><p>Однако вы можете отключить YJIT с помощью:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">yjit</span> <span class="o">=</span> <span class="kp">false</span>
+</code></pre>
+</div>
+<h4 id='novyy-dizayn-rukovodstv-po-rails' class='inside_page_header'><a href="#novyy-dizayn-rukovodstv-po-rails">2.12.</a> Новый дизайн руководств по Rails</h4><p>Когда Rails 7.0 вышел в декабре 2021 года, он появился с новой домашней страницей и новым экраном загрузки. Однако дизайн руководств оставался практически нетронутым с 2009 года, что не осталось незамеченным (мы услышали ваши отзывы).</p><p>Поскольку сейчас ведется большая работа по устранению сложности фреймворка Rails и обеспечению единообразия, ясности и актуальности документации, пришло время заняться дизайном руководств и сделать их такими же современными, простыми и свежими.</p><p>Мы сотрудничали с UX-дизайнером <a href="https://meticulous.com/">John Athayde</a>, чтобы перенести внешний вид домашней страницы на руководства по Rails, сделав их чистыми, элегантными и современными.</p><p>Разметка останется прежней, но с сегодняшнего дня вы увидите следующие изменения в руководствах:</p><ul><li>Более чистый и менее загруженный дизайн.
+</li><li>Шрифты, цветовая схема и логотип больше соответствуют главной странице.
+</li><li>Обновленная иконография.
+</li><li>Упрощенная навигация.
+</li><li>Панель навигации &quot;Chapters&quot; с фиксацией при прокрутке.
+</li></ul><p>Посмотрите <a href="https://rubyonrails.org/2024/3/20/rails-guides-get-a-facelift">сообщение блога с анонсом, где представлены изображения до и после изменений</a>.</p><h4 id='nastroen-jemalloc-v-dockerfile-po-umolchaniyu-dlya-optimizatsii-vydeleniya-pamyati' class='inside_page_header'><a href="#nastroen-jemalloc-v-dockerfile-po-umolchaniyu-dlya-optimizatsii-vydeleniya-pamyati">2.13.</a> Настроен jemalloc в Dockerfile по умолчанию для оптимизации выделения памяти</h4><p>Использование malloc в Ruby может привести к проблемам фрагментации памяти, особенно при использовании нескольких потоков
+<a href="https://www.speedshop.co/2017/12/04/malloc-doubles-ruby-memory.html">Использование <code>malloc</code> в Ruby может привести к проблемам фрагментации памяти, особенно при использовании нескольких тредов</a> как в Puma. Переключение на выделение памяти, которое использует другие шаблоны для избежания фрагментации, может значительно снизить использование памяти.</p><p>Rails 7.2 теперь включает <a href="https://jemalloc.net/">jemalloc</a> в Dockerfile по умолчанию для оптимизации выделения памяти.</p><h4 id='predlozhena-konfiguratsiyu-puma-dev-v-bin-setup' class='inside_page_header'><a href="#predlozhena-konfiguratsiyu-puma-dev-v-bin-setup">2.14.</a> Предложена конфигурацию puma-dev в bin/setup</h4><p><a href="https://github.com/puma/puma-dev">Puma-dev</a> — это золотой стандарт для локальной разработки нескольких Rails-приложений, если вы не используете Docker.</p><p>Rails теперь предлагает, как получить эту конфигурацию, в новом комментарии, который вы найдете в файле <code>bin/setup</code>.</p><h3 id='railties' class='inside_page_header'><a href="#railties">3.</a> Railties</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/7-2-stable/railties/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno' class='inside_page_header'><a href="#udaleno">3.1.</a> Удалено</h4><ul><li><p>  Удален устаревший <code>Rails::Generators::Testing::Behaviour</code>.</p></li><li><p>  Удален устаревший <code>Rails.application.secrets</code>.</p></li><li><p>  Удален устаревший <code>Rails.config.enable_dependency_loading</code>.</p></li><li><p>  Удален устаревший хелпер консоли <code>find_cmd_and_exec</code>.</p></li><li><p>  Удалена поддержка <code>oracle</code>, <code>sqlserver</code> и адаптеров, специфичных для JRuby, из команд <code>rails</code> <code>new</code> и <code>db:system:change</code>.</p></li><li><p>  Удалена опция <code>config.public_file_server.enabled</code> из генераторов.</p></li></ul><h4 id='ustarelo' class='inside_page_header'><a href="#ustarelo">3.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya' class='inside_page_header'><a href="#znachimye-izmeneniya">3.3.</a> Значимые изменения</h4><ul><li><p>  Добавлен RuboCop с правилами из <a href="https://github.com/rails/rubocop-rails-omakase">rubocop-rails-omakase</a> по умолчанию как в новых приложениях, так и плагинов.</p></li><li><p>  Добавлен Brakeman с конфигурацией по умолчанию для проверок безопасности в новых приложениях.</p></li><li><p>  Добавлены файлы GitHub CI для Dependabot, Brakeman, RuboCop и запуска тестов по умолчанию для новых приложений и плагинов.</p></li><li><p>  YJIT теперь включен по умолчанию для новых приложений, запущенных на Ruby 3.3+.</p></li><li><p>  Генерируется папка <code>.devcontainer</code> для запуска приложения в контейнере с помощью Visual Studio Code.</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new myapp <span class="nt">--devcontainer</span>
+</code></pre>
+</div>
+</li><li><p>  Представлен <code>Rails::Generators::Testing::Assertions#assert_initializer</code> для инициализаторов теста.</p></li><li><p>  Системные тесты теперь используют Headless Chrome по умолчанию для новых приложений.</p></li><li><p>  Поддержка переменной среды <code>BACKTRACE</code> для отключения очистки трассировки при обычных запусках сервера. Ранее это было доступно только для тестирования.</p></li><li><p>  По умолчанию добавлены файлы Progressive Web App (PWA) для манифеста и service worker, доступные из <code>app/views/pwa</code>, и их возможно динамически рендерить в ERB.</p></li></ul><h3 id='action-cable' class='inside_page_header'><a href="#action-cable">4.</a> Action Cable</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/7-2-stable/actioncable/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno2' class='inside_page_header'><a href="#udaleno2">4.1.</a> Удалено</h4><h4 id='ustarelo2' class='inside_page_header'><a href="#ustarelo2">4.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya2' class='inside_page_header'><a href="#znachimye-izmeneniya2">4.3.</a> Значимые изменения</h4><h3 id='action-pack' class='inside_page_header'><a href="#action-pack">5.</a> Action Pack</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/7-2-stable/actionpack/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno3' class='inside_page_header'><a href="#udaleno3">5.1.</a> Удалено</h4><ul><li><p>  Удалена устаревшая константа <code>ActionDispatch::IllegalStateError</code>.</p></li><li><p>  Удалена устаревшая константа <code>AbstractController::Helpers::MissingHelperError</code>.</p></li><li><p>  Удалено устаревшее сравнение между <code>ActionController::Parameters</code> и <code>Hash</code>.</p></li><li><p>  Удален устаревший <code>Rails.application.config.action_dispatch.return_only_request_media_type_on_content_type</code>.</p></li><li><p>  Удалены устаревшие директивы политики разрешений <code>speaker</code>, <code>vibrate</code> и <code>vr</code>.</p></li><li><p>  Удалена устаревшая поддержка назначения <code>Rails.application.config.action_dispatch.show_exceptions</code> как <code>true</code> и <code>false</code>.</p></li></ul><h4 id='ustarelo3' class='inside_page_header'><a href="#ustarelo3">5.2.</a> Устарело</h4><ul><li>  Устарел <code>Rails.application.config.action_controller.allow_deprecated_parameters_hash_equality</code>.
+</li></ul><h4 id='znachimye-izmeneniya3' class='inside_page_header'><a href="#znachimye-izmeneniya3">5.3.</a> Значимые изменения</h4><h3 id='action-view' class='inside_page_header'><a href="#action-view">6.</a> Action View</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/7-2-stable/actionview/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno4' class='inside_page_header'><a href="#udaleno4">6.1.</a> Удалено</h4><ul><li>  Удален устаревший <code>@rails/ujs</code> в пользу Turbo.
+</li></ul><h4 id='ustarelo4' class='inside_page_header'><a href="#ustarelo4">6.2.</a> Устарело</h4><ul><li> Устарела передача контекста в пустые элементы при использовании билдеров типа тега <code>tag.br</code>.
+</li></ul><h4 id='znachimye-izmeneniya4' class='inside_page_header'><a href="#znachimye-izmeneniya4">6.3.</a> Значимые изменения</h4><h3 id='action-mailer' class='inside_page_header'><a href="#action-mailer">7.</a> Action Mailer</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/7-2-stable/actionmailer/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno5' class='inside_page_header'><a href="#udaleno5">7.1.</a> Удалено</h4><ul><li><p>  Удален устаревший <code>config.action_mailer.preview_path</code>.</p></li><li><p>  Удалены устаревшие параметры с помощью <code>:args</code> для <code>assert_enqueued_email_with</code>.</p></li></ul><h4 id='ustarelo5' class='inside_page_header'><a href="#ustarelo5">7.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya5' class='inside_page_header'><a href="#znachimye-izmeneniya5">7.3.</a> Значимые изменения</h4><h3 id='active-record' class='inside_page_header'><a href="#active-record">8.</a> Active Record</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/7-2-stable/activerecord/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno6' class='inside_page_header'><a href="#udaleno6">8.1.</a> Удалено</h4><ul><li><p>  Удален устаревший <code>Rails.application.config.active_record.suppress_multiple_database_warning</code>.</p></li><li><p>  Удалена устаревшая поддержка вызова <code>alias_attribute</code> с несуществующими именами атрибута.</p></li><li><p>  Удален устаревший аргумент <code>name</code> из <code>ActiveRecord::Base.remove_connection</code>.</p></li><li><p>  Удален устаревший <code>ActiveRecord::Base.clear_active_connections!</code>.</p></li><li><p>  Удален устаревший <code>ActiveRecord::Base.clear_reloadable_connections!</code>.</p></li><li><p>  Удален устаревший <code>ActiveRecord::Base.clear_all_connections!</code>.</p></li><li><p>  Удален устаревший <code>ActiveRecord::Base.flush_idle_connections!</code>.</p></li><li><p>  Удален устаревший <code>ActiveRecord::ActiveJobRequiredError</code>.</p></li><li><p>  Удалена устаревшая поддержка определения <code>explain</code> в адаптере соединения с 2 аргументами.</p></li><li><p>  Удален устаревший метод <code>ActiveRecord::LogSubscriber.runtime</code>.</p></li><li><p>  Удален устаревший метод <code>ActiveRecord::LogSubscriber.runtime=</code>.</p></li><li><p>  Удален устаревший метод <code>ActiveRecord::LogSubscriber.reset_runtime</code>.</p></li><li><p>  Удален устаревший метод <code>ActiveRecord::Migration.check_pending</code>.</p></li><li><p>  Удалена устаревшая поддержка передачи классов <code>SchemaMigration</code> и <code>InternalMetadata</code> в качестве аргентов в <code>ActiveRecord::MigrationContext</code>.</p></li><li><p>  Удалено устаревшее поведение поддержки ссылки на одиночную связь по ее множественному имени.</p></li><li><p>  Удален устаревший <code>TestFixtures.fixture_path</code>.</p></li><li><p>  Удалена устаревшая поддержка <code>ActiveRecord::Base#read_attribute(:id)</code> возвращения значения пользовательского первичного ключа.</p></li><li><p>  Удалена устаревшая поддержка передачи кодировщика и класса в качестве второго аргумента в <code>serialize</code>.</p></li><li><p>  Удален устаревший <code>#all_foreign_keys_valid?</code> из адаптеров базы данных.</p></li><li><p>  Удален устаревший <code>ActiveRecord::ConnectionAdapters::SchemaCache.load_from</code>.</p></li><li><p>  Удален устаревший <code>ActiveRecord::ConnectionAdapters::SchemaCache#data_sources</code>.</p></li><li><p>  Удален устаревший <code>#all_connection_pools</code>.</p></li><li><p>  Удалена устаревшая поддержка применения <code>#connection_pool_list</code>, <code>#active_connections?</code>, <code>#clear_active_connections!</code>,     <code>#clear_reloadable_connections!</code>, <code>#clear_all_connections!</code> и <code>#flush_idle_connections!</code> на пуле соединений для текущей роли, когда не предоставлен аргумент <code>role</code>.</p></li><li><p>  Удален устаревший <code>ActiveRecord::ConnectionAdapters::ConnectionPool#connection_klass</code>.</p></li><li><p>  Удален устаревший <code>#quote_bound_value</code>.</p></li><li><p>  Удалена устаревшая поддержка экранирования <code>ActiveSupport::Duration</code>.</p></li><li><p>  Удалена устаревшая поддержка передачи <code>deferrable: true</code> в <code>add_foreign_key</code>.</p></li><li><p>  Удалена устаревшая поддержка передачи <code>rewhere</code> в <code>ActiveRecord::Relation#merge</code>.</p></li><li><p>  Удалена устаревшая поддержка, откатывающая блок транзакции при выходе с помощью <code>return</code>, <code>break</code> или <code>throw</code>.</p></li></ul><h4 id='ustarelo6' class='inside_page_header'><a href="#ustarelo6">8.2.</a> Устарело</h4><ul><li><p>  Устарел <code>Rails.application.config.active_record.allow_deprecated_singular_associations_name</code></p></li><li><p>  Устарел <code>Rails.application.config.active_record.commit_transaction_on_non_local_return</code></p></li></ul><h4 id='znachimye-izmeneniya6' class='inside_page_header'><a href="#znachimye-izmeneniya6">8.3.</a> Значимые изменения</h4><h3 id='active-storage' class='inside_page_header'><a href="#active-storage">9.</a> Active Storage</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/7-2-stable/activestorage/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno7' class='inside_page_header'><a href="#udaleno7">9.1.</a> Удалено</h4><ul><li><p>  Удален устаревший <code>config.active_storage.replace_on_assign_to_many</code>.</p></li><li><p>  Удален устаревший <code>config.active_storage.silence_invalid_content_types_warning</code>.</p></li></ul><h4 id='ustarelo7' class='inside_page_header'><a href="#ustarelo7">9.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya7' class='inside_page_header'><a href="#znachimye-izmeneniya7">9.3.</a> Значимые изменения</h4><h3 id='active-model' class='inside_page_header'><a href="#active-model">10.</a> Active Model</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/7-2-stable/activemodel/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno8' class='inside_page_header'><a href="#udaleno8">10.1.</a> Удалено</h4><h4 id='ustarelo8' class='inside_page_header'><a href="#ustarelo8">10.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya8' class='inside_page_header'><a href="#znachimye-izmeneniya8">10.3.</a> Значимые изменения</h4><h3 id='active-support' class='inside_page_header'><a href="#active-support">11.</a> Active Support</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/7-2-stable/activesupport/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno9' class='inside_page_header'><a href="#udaleno9">11.1.</a> Удалено</h4><ul><li><p>  Удалены устаревшие <code>ActiveSupport::Notifications::Event#children</code> и  <code>ActiveSupport::Notifications::Event#parent_of?</code>.</p></li><li><p>  Удалена устаревшая поддержка вызова следующих методов без передачи депрекатора:</p><ul><li><code>deprecate</code>
+</li><li><code>deprecate_constant</code>
+</li><li><code>ActiveSupport::Deprecation::DeprecatedObjectProxy.new</code>
+</li><li><code>ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy.new</code>
+</li><li><code>ActiveSupport::Deprecation::DeprecatedConstantProxy.new</code>
+</li><li><code>assert_deprecated</code>
+</li><li><code>assert_not_deprecated</code>
+</li><li><code>collect_deprecations</code>
+</li></ul></li><li><p>  Удалена устаревшая делегация <code>ActiveSupport::Deprecation</code> на экземпляр.</p></li><li><p>  Удален устаревший <code>SafeBuffer#clone_empty</code>.</p></li><li><p>  Удален устаревший <code>#to_default_s</code> из <code>Array</code>, <code>Date</code>, <code>DateTime</code> и <code>Time</code>.</p></li><li><p>  Удалены устаревшие опции <code>:pool_size</code> и <code>:pool_timeout</code> для хранилища кэша.</p></li><li><p>  Удалена устаревшая поддержка <code>config.active_support.cache_format_version = 6.1</code>.</p></li><li><p>  Удалены устаревшие константы <code>ActiveSupport::LogSubscriber::CLEAR</code> и <code>ActiveSupport::LogSubscriber::BOLD</code>.</p></li><li><p>  Удалена устаревшая поддержка жирного текста с помощью позиционного флага в <code>ActiveSupport::LogSubscriber#color</code>.</p></li><li><p>  Удален устаревший <code>config.active_support.disable_to_s_conversion</code>.</p></li><li><p>  Удален устаревший <code>config.active_support.remove_deprecated_time_with_zone_name</code>.</p></li><li><p>  Удален устаревший <code>config.active_support.use_rfc4122_namespaced_uuids</code>.</p></li><li><p>  Удалена устаревшая поддержка передачи экземпляров <code>Dalli::Client</code> в <code>MemCacheStore</code>.</p></li><li><p>  Удалена устаревшая поддержка поведения до Ruby 2.4 метода <code>to_time</code>, возвращающего объект <code>Time</code> с местной временной зоной.</p></li></ul><h4 id='ustarelo9' class='inside_page_header'><a href="#ustarelo9">11.2.</a> Устарело</h4><ul><li><p>  Устарел <code>config.active_support.to_time_preserves_timezone</code>.</p></li><li><p>  Устарел <code>DateAndTime::Compatibility.preserve_timezone</code>.</p></li></ul><h4 id='znachimye-izmeneniya9' class='inside_page_header'><a href="#znachimye-izmeneniya9">11.3.</a> Значимые изменения</h4><h3 id='active-job' class='inside_page_header'><a href="#active-job">12.</a> Active Job</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/7-2-stable/activejob/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno10' class='inside_page_header'><a href="#udaleno10">12.1.</a> Удалено</h4><ul><li><p>  Удален устаревший примитивный сериализатор для аргументов <code>BigDecimal</code>.</p></li><li><p>  Удалена устаревшая поддержка установки числовых значений атрибуту <code>scheduled_at</code>.</p></li><li><p>  Удалено устаревшее значение <code>:exponentially_longer</code> для <code>:wait</code> в <code>retry_on</code>.</p></li></ul><h4 id='ustarelo10' class='inside_page_header'><a href="#ustarelo10">12.2.</a> Устарело</h4><ul><li>  Устарел <code>Rails.application.config.active_job.use_big_decimal_serialize</code>.
+</li></ul><h4 id='znachimye-izmeneniya10' class='inside_page_header'><a href="#znachimye-izmeneniya10">12.3.</a> Значимые изменения</h4><h3 id='action-text' class='inside_page_header'><a href="#action-text">13.</a> Action Text</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/7-2-stable/actiontext/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno11' class='inside_page_header'><a href="#udaleno11">13.1.</a> Удалено</h4><h4 id='ustarelo11' class='inside_page_header'><a href="#ustarelo11">13.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya11' class='inside_page_header'><a href="#znachimye-izmeneniya11">13.3.</a> Значимые изменения</h4><h3 id='action-mailbox' class='inside_page_header'><a href="#action-mailbox">14.</a> Action Mailbox</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/7-2-stable/actionmailbox/CHANGELOG.md">Changelog</a>.</p><h4 id='udaleno12' class='inside_page_header'><a href="#udaleno12">14.1.</a> Удалено</h4><h4 id='ustarelo12' class='inside_page_header'><a href="#ustarelo12">14.2.</a> Устарело</h4><h4 id='znachimye-izmeneniya12' class='inside_page_header'><a href="#znachimye-izmeneniya12">14.3.</a> Значимые изменения</h4><h3 id='ruby-on-rails-guides' class='inside_page_header'><a href="#ruby-on-rails-guides">15.</a> Ruby on Rails Guides</h3><p>За подробностями обратитесь к <a href="https://github.com/rails/rails/blob/7-2-stable/guides/CHANGELOG.md">Changelog</a>.</p><h4 id='znachimye-izmeneniya13' class='inside_page_header'><a href="#znachimye-izmeneniya13">15.1.</a> Значимые изменения</h4><h3 id='credits' class='inside_page_header'><a href="#credits">16.</a> Credits</h3><p>Взгляните <a href="http://contributors.rubyonrails.org/">на полный список контрибьюторов Rails</a>, на людей, которые потратили много часов, сделав Rails стабильнее и надёжнее. Спасибо им всем.</p>
+
+            <div class="banner">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+   <!-- bottom rusrails -->
+   <ins class="adsbygoogle"
+        style="display:inline-block;width:580px;height:400px"
+        data-ad-client="ca-pub-7764391801669990"
+        data-ad-slot="7566253867"></ins>
+
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="footer">
+            <p>
+              <a target="blank" href="https://github.com/rusrails/rusrails"><img src="/assets/github-7cc23602a5ac2465f14c19492358a5a67dc24636761cc723e4d621cea0c09225.png" /></a>
+              <a target="blank" href="http://twitter.com/rusrails"><img src="/assets/twitter-50e0e767c8793dec313a7dc5cfbcfe2067e3e89ea6ec64784eb7c6640f578758.png" /></a>
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">Лицензия CC BY-SA 4.0</a>
+              "Rails", "Ruby on Rails" и логотип Rails - торговые марки DHH
+              <!-- Yandex.Metrika counter -->
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1006929 = new Ya.Metrika({id:1006929,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<noscript>
+  <div>
+    <img style="position:absolute; left:-9999px;" alt="" src="//mc.yandex.ru/watch/1006929" />
+  </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64955373-1', 'auto');
+  ga('send', 'pageview');
+
+  var trackOutboundLink = function(url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function(){ }
+    });
+  }
+</script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="to_top" style="display: block">
+      <div class="to_top_panel"></div>
+    </div>
+    <script src="/assets/application-8ee447905888b153d8458707061a14b1f15f69b6733e871a3ad91d80ae89e87b.js"></script>
+  </body>
+</html>

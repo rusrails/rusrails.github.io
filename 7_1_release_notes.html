@@ -59,8 +59,8 @@
 </li><li><a href="/testing">Тестирование приложений на Rails</a>
 </li><li><a href="/security">Безопасность приложений на Rails</a>
 </li><li><a href="/error-reporting">Отчет об ошибках в приложениях Rails</a>
-</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
-</li><li><a href="/configuring">Конфигурирование приложений на Rails</a>
+</li><li><a href="/debugging-rails-applications">Отладка приложений на Rails</a>
+</li></ul></li></ul><p>next_column</p><ul><li><p><strong>Копаем глубже</strong></p><ul><li><a href="/configuring">Конфигурирование приложений на Rails</a>
 </li><li><a href="/command-line">Командная строка Rails</a>
 </li><li><a href="/asset-pipeline">Asset Pipeline</a>
 </li><li><a href="/working-with-javascript-in-rails">Работа с JavaScript в Rails</a>
@@ -85,6 +85,7 @@
 </li><li><a href="/development_dependencies_install">Установка зависимостей для разработки</a>
 </li><li><a href="/maintenance-policy">Политика поддержки (версий)</a>
 </li></ul></li><li><p><strong>Заметки о релизах</strong></p><ul><li><a href="/upgrading-ruby-on-rails">Апгрейд Ruby on Rails</a>
+</li><li><a href="/7_2_release_notes">Версия 7.2 - ?</a>
 </li><li><a href="/7_1_release_notes">Версия 7.1 - Октябрь 2023</a>
 </li><li><a href="/7_0_release_notes">Версия 7.0 - Декабрь 2021</a>
 </li><li><a href="/6_1_release_notes">Версия 6.1 - Декабрь 2020</a>
@@ -417,9 +418,23 @@
 </script>
 
             </div>
-              <h2 id='zametki-o-relize-ruby-on-rails-7-1' class='inside_page_header'> Заметки о релизе Ruby on Rails 7.1</h2><p>Ключевые новинки в Rails 7.1:</p>
+              <h2 id='zametki-o-relize-ruby-on-rails-7-1' class='inside_page_header'> Заметки о релизе Ruby on Rails 7.1</h2><p>Ключевые новинки в Rails 7.1:</p><ul><li>Генерация Dockerfile для новых приложений Rails
+</li><li>Добавлен <code>ActiveRecord::Base.normalizes</code>
+</li><li>Добавлен <code>ActiveRecord::Base.generates_token_for</code>
+</li><li>Добавлен <code>perform_all_later</code> для одновременной постановки в очередь нескольких заданий
+</li><li>Составные первичные ключи
+</li><li>Представлен адаптер для <code>Trilogy</code>
+</li><li>Добавлен <code>ActiveSupport::MessagePack</code>
+</li><li>Представлены <code>config.autoload_lib</code> и <code>config.autoload_lib_once</code> для улучшенной автозагрузки
+</li><li>API Active Record для обычных асинхронных запросов
+</li><li>Возможность для шаблонов устанавливать строгие <code>locals</code>
+</li><li>Добавлен <code>Rails.application.deprecators</code>
+</li><li>Поддержка сопоставления с образцом для JSON <code>response.parsed_body</code>
+</li><li>Расширение <code>response.parsed_body</code> для парсинга HTML с помощью Nokogiri
+</li><li>Представлен <code>ActionView::TestCase.register_parser</code>
+</li></ul><p>Эти заметки о релизе покрывают только основные изменения. Чтобы узнать о других обновлениях, различных исправлениях программных ошибок и изменениях, обратитесь к логам изменений или к <a href="https://github.com/rails/rails/commits/7-1-stable">списку коммитов</a> в главном репозитории Rails на GitHub.</p>
 <hr>
-<h3 id='apgreyd-do-rails-7-1' class='inside_page_header'><a href="#apgreyd-do-rails-7-1">1.</a> Апгрейд до Rails 7.1</h3><p>Прежде чем апгрейднуть существующее приложение, было бы хорошо иметь перед этим покрытие тестами. Также, до попытки обновиться до Rails 7.1, необходимо сначала произвести апгрейд до Rails 7.0 и убедиться, что приложение все еще выполняется так, как нужно. Список вещей, которые нужно выполнить для апгрейда доступен в руководстве <a href="/upgrading-ruby-on-rails#upgrading-from-rails-7-0-to-rails-7-1">Апгрейд Ruby on Rails</a>.</p><h3 id='osnovnye-osobennosti' class='inside_page_header'><a href="#osnovnye-osobennosti">2.</a> Основные особенности</h3><h4 id='generatsiya-dockerfile-dlya-novyh-prilozheniy-rails' class='inside_page_header'><a href="#generatsiya-dockerfile-dlya-novyh-prilozheniy-rails">2.1.</a> Генерация Dockerfile для новых приложений Rails</h4><p><a href="https://github.com/rails/rails/pull/46762">Поддержка Docker по умолчанию</a> для новых приложений rails. При генерации нового приложения, Rails теперь включит файлы для Docker в приложение.</p><p>Эти файлы служат основополагающей настройкой для развертывания вашего приложения Rails в среде production с помощью Docker. Важно отметить, что эти файлы не предназначены для целей разработки.</p><p>Вот быстрый пример того, как собрать и запустить ваше приложение Rails с помощью этих файлов Docker:</p><div class="code_container">
+<h3 id='apgreyd-do-rails-7-1' class='inside_page_header'><a href="#apgreyd-do-rails-7-1">1.</a> Апгрейд до Rails 7.1</h3><p>Прежде чем апгрейднуть существующее приложение, было бы хорошо иметь перед этим покрытие тестами. Также, до попытки обновиться до Rails 7.1, необходимо сначала произвести апгрейд до Rails 7.0 и убедиться, что приложение все еще выполняется так, как нужно. Список вещей, которые нужно выполнить для апгрейда доступен в руководстве <a href="/upgrading-ruby-on-rails#upgrading-from-rails-7-0-to-rails-7-1">Апгрейд Ruby on Rails</a>.</p><h3 id='osnovnye-osobennosti' class='inside_page_header'><a href="#osnovnye-osobennosti">2.</a> Основные особенности</h3><h4 id='generatsiya-dockerfile-dlya-novyh-prilozheniy-rails' class='inside_page_header'><a href="#generatsiya-dockerfile-dlya-novyh-prilozheniy-rails">2.1.</a> Генерация Dockerfile для новых приложений Rails</h4><p><a href="https://github.com/rails/rails/pull/46762">Поддержка Docker по умолчанию</a> для новых приложений Rails. При генерации нового приложения, Rails теперь включит файлы для Docker в приложение.</p><p>Эти файлы служат основополагающей настройкой для развертывания вашего приложения Rails в среде production с помощью Docker. Важно отметить, что эти файлы не предназначены для целей разработки.</p><p>Вот быстрый пример того, как собрать и запустить ваше приложение Rails с помощью этих файлов Docker:</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span>docker build <span class="nt">-t</span> app <span class="nb">.</span>
 <span class="gp">$</span><span class="w"> </span>docker volume create app-storage
 <span class="gp">$</span><span class="w"> </span>docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> app-storage:/rails/storage <span class="nt">-p</span> 3000:3000 <span class="nt">--env</span> <span class="nv">RAILS_MASTER_KEY</span><span class="o">=</span>&lt;your-config-master-key&gt; app
@@ -563,11 +578,16 @@
 <span class="cp">&lt;%=</span> <span class="n">message</span> <span class="cp">%&gt;</span>
 </code></pre>
 </div>
+<p>Необязательные ключевые аргументы могут быть расплющены:</p><div class="code_container">
+  <pre><code class="highlight erb"><span class="c">&lt;%# locals: (message: "Hello, world!", **attributes) -%&gt;</span>
+<span class="cp">&lt;%=</span> <span class="n">tag</span><span class="p">.</span><span class="nf">p</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">attributes</span><span class="p">)</span> <span class="cp">%&gt;</span>
+</code></pre>
+</div>
 <p>Если хотите отключить использование локальных переменных полностью, это можно сделать так:</p><div class="code_container">
   <pre><code class="highlight erb"><span class="c">&lt;%# locals: () %&gt;</span>
 </code></pre>
 </div>
-<h4 id='dobavlen-rails-application-deprecators' class='inside_page_header'><a href="#dobavlen-rails-application-deprecators">2.11.</a> Добавлен <code>Rails.application.deprecators</code></h4><p>Новый <a href="https://github.com/rails/rails/pull/46049">метод <code>Rails.application.deprecators</code></a> возвращает коллекцию управляемых депрекаторов в вашем приложении и позволяет добавлять и получать отдельные депрекаторы:</p><div class="code_container">
+<p>Action View будет обрабатывать магический комментарий <code>locals:</code> в любом шаблонизаторе, который поддерживает комментарии с префиксом <code>#</code>. Он может считывать этот комментарий с любой строки в партиале.</p><div class="warning"><p>Поддерживаются только ключевые аргументы. Определение позиционных или блочных аргументов вызовет ошибку Action View во время отрисовки.</p></div><h4 id='dobavlen-rails-application-deprecators' class='inside_page_header'><a href="#dobavlen-rails-application-deprecators">2.11.</a> Добавлен <code>Rails.application.deprecators</code></h4><p>Новый <a href="https://github.com/rails/rails/pull/46049">метод <code>Rails.application.deprecators</code></a> возвращает коллекцию управляемых депрекаторов в вашем приложении и позволяет добавлять и получать отдельные депрекаторы:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">deprecators</span><span class="p">[</span><span class="ss">:my_gem</span><span class="p">]</span> <span class="o">=</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Deprecation</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"2.0"</span><span class="p">,</span> <span class="s2">"MyGem"</span><span class="p">)</span>
 <span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">deprecators</span><span class="p">[</span><span class="ss">:other_gem</span><span class="p">]</span> <span class="o">=</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Deprecation</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"3.0"</span><span class="p">,</span> <span class="s2">"OtherGem"</span><span class="p">)</span>
 </code></pre>
