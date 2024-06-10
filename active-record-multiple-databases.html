@@ -204,12 +204,12 @@
 </li><li>Какие особенности уже поддерживаются, а какие пока еще разрабатываются.
 </li></ul>
 <hr>
-<p>По мере роста популярности и использования приложения, вам будет нужно масштабировать приложения для поддержки новых пользователей и их данных. Одно из направлений, в котором приложение может быть масштабировано, находится на уровне базы данных. Теперь в Rails есть поддержка нескольких баз данных, поэтому вам не нужно хранить все данные в одном месте.</p><p>В настоящее время поддерживаются следующие особенности:</p><ul><li>Несколько пишущих баз данных и реплики для каждой
+<p>По мере роста популярности и использования приложения, вам будет нужно масштабировать приложения для поддержки новых пользователей и их данных. Одно из направлений, в котором приложение может быть масштабировано, находится на уровне базы данных. Rails поддерживает использование нескольких баз данных, поэтому вам не нужно хранить все данные в одном месте.</p><p>В настоящее время поддерживаются следующие особенности:</p><ul><li>Несколько пишущих баз данных и реплики для каждой
 </li><li>Автоматическое переключение соединения для модели, с которой вы работаете
 </li><li>Автоматическое переключение между пишущей базой и репликой, в зависимости от метода HTTP и последних записей
 </li><li>Задания Rails для создания, удаления, миграции и взаимодействия с несколькими базами данных
 </li></ul><p>Следующие особенности (пока) не поддерживаются:</p><ul><li>Нагрузочная балансировка реплик
-</li></ul><h3 id='nastroyka-prilozheniya' class='inside_page_header'><a href="#nastroyka-prilozheniya">1.</a> Настройка приложения</h3><p>Хотя Rails старается сделать максимум работы за вас, все же требуется несколько шагов, чтобы подготовить приложение к нескольким базам данных.</p><p>Предположим, у нас есть приложение с одной пишущей базой данных, и мы хотим добавить новую базу данных для нескольких новых таблиц. Имя новой базы данных будет &quot;animals&quot;.</p><p><code>database.yml</code> выглядит так:</p><div class="code_container">
+</li></ul><h3 id='nastroyka-prilozheniya' class='inside_page_header'><a href="#nastroyka-prilozheniya">1.</a> Настройка приложения</h3><p>Хотя Rails старается сделать максимум работы за вас, все же требуется несколько шагов, чтобы подготовить приложение к нескольким базам данных.</p><p>Предположим, у нас есть приложение с одной пишущей базой данных, и мы хотим добавить новую базу данных для нескольких новых таблиц. Имя новой базы данных будет &quot;animals&quot;.</p><p><code>config/database.yml</code> выглядит так:</p><div class="code_container">
   <pre><code class="highlight yaml"><span class="na">production</span><span class="pi">:</span>
   <span class="na">database</span><span class="pi">:</span> <span class="s">my_primary_database</span>
   <span class="na">adapter</span><span class="pi">:</span> <span class="s">mysql2</span>
@@ -217,7 +217,7 @@
   <span class="na">password</span><span class="pi">:</span> <span class="s">&lt;%= ENV['ROOT_PASSWORD'] %&gt;</span>
 </code></pre>
 </div>
-<p>Давайте добавим реплику для первой конфигурации, и вторую базу данных с именем animals, а также реплику для нее. Для этого нам нужно изменить конфигурацию <code>database.yml</code> из 2-уровневой в 3-уровневую.</p><p>Если предоставлена конфигурация primary, она будет использована как конфигурация &quot;по умолчанию&quot;. Если нет конфигурации с именем <code>&quot;primary&quot;</code>, Rails использует первую конфигурацию как &quot;по умолчанию&quot; для каждой среды. Конфигурации по умолчанию будут использовать имена файлов Rails по умолчанию. Например, основные конфигурации будут использовать <code>schema.rb</code> для файла схемы, в то время как все остальные записи будут использовать имена файлов <code>[CONFIGURATION_NAMESPACE]_schema.rb</code>.</p><div class="code_container">
+<p>Давайте вторую базу данных с именем &quot;animals&quot;, а также реплики для обоих баз данных. Для этого нам нужно изменить конфигурацию <code>config/database.yml</code> из 2-уровневой в 3-уровневую.</p><p>Если предоставлена конфигурация <code>primary</code>, она будет использована как конфигурация &quot;по умолчанию&quot;. Если нет конфигурации с именем <code>primary</code>, Rails использует первую конфигурацию как &quot;по умолчанию&quot; для каждой среды. Конфигурации по умолчанию будут использовать имена файлов Rails по умолчанию. Например, основные конфигурации будут использовать <code>db/schema.rb</code> для файла схемы, в то время как все остальные записи будут использовать имена файлов <code>db/[CONFIGURATION_NAMESPACE]_schema.rb</code>.</p><div class="code_container">
   <pre><code class="highlight yaml"><span class="na">production</span><span class="pi">:</span>
   <span class="na">primary</span><span class="pi">:</span>
     <span class="na">database</span><span class="pi">:</span> <span class="s">my_primary_database</span>
@@ -244,15 +244,7 @@
     <span class="na">replica</span><span class="pi">:</span> <span class="no">true</span>
 </code></pre>
 </div>
-<p>При использовании нескольких баз данных есть ряд важных настроек.</p><p>Во-первых, имя базы данных для <code>primary</code> и <code>primary_replica</code> должно быть тем же самым, так как они содержат те же самые данные. То же самое для <code>animals</code> и <code>animals_replica</code>.</p><p>Во-вторых, имя пользователя для пишущей базы и реплики должно быть различным, и права пользователя реплики базы данных должны быть установлены только для чтения, но не для записи.</p><p>При использовании реплики базы данных нужно добавить запись <code>replica: true</code> для реплики в <code>database.yml</code>. Это нужно, потому что в противном случае Rails не сможет узнать, какая из них реплика, а какая пишущая. Rails не будет запускать определенные задачи, такие как миграции, на репликах.</p><p>Наконец, для новой пишущей базы данных необходимо установить в <code>migrations_paths</code> директорию, в которой вы будете хранить миграции для этой базы данных. Мы рассмотрим <code>migrations_paths</code> позже в этом руководстве.</p><p>Теперь, когда у нас есть новая база данных, давайте настроим модель соединения. Чтобы использовать новую базу данных, нам нужно создать новый абстрактный класс и соединить с базами данных животных.</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">AnimalsRecord</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="nb">self</span><span class="p">.</span><span class="nf">abstract_class</span> <span class="o">=</span> <span class="kp">true</span>
-
-  <span class="n">connects_to</span> <span class="ss">database: </span><span class="p">{</span> <span class="ss">writing: :animals</span><span class="p">,</span> <span class="ss">reading: :animals_replica</span> <span class="p">}</span>
-<span class="k">end</span>
-</code></pre>
-</div>
-<p>Затем нужно обновить <code>ApplicationRecord</code>, чтобы он знал о нашей реплике.</p><div class="code_container">
+<p>При использовании нескольких баз данных есть ряд важных настроек.</p><p>Во-первых, имя базы данных для <code>primary</code> и <code>primary_replica</code> должно быть тем же самым, так как они содержат те же самые данные. То же самое для <code>animals</code> и <code>animals_replica</code>.</p><p>Во-вторых, имя пользователя для пишущей базы и реплики должно быть различным, и права пользователя реплики базы данных должны быть установлены только для чтения, но не для записи.</p><p>При использовании реплики базы данных нужно добавить запись <code>replica: true</code> для реплики в <code>config/database.yml</code>. Это нужно, потому что в противном случае Rails не сможет узнать, какая из них реплика, а какая пишущая. Rails не будет запускать определенные задачи, такие как миграции, на репликах.</p><p>Наконец, для новой пишущей базы данных необходимо установить в ключе <code>migrations_paths</code> директорию, в которой вы будете хранить миграции для этой базы данных. Мы рассмотрим <code>migrations_paths</code> позже в этом руководстве.</p><p>Вы также можете настроить файл дампа схемы, установив <code>schema_dump</code> на имя файла пользовательской схемы или полностью пропустить дамп схемы, установив <code>schema_dump: false</code>.</p><p>Теперь, когда у нас есть новая база данных, давайте настроим модель соединения.</p><p>Основную реплику базы данных можно настроить в <code>ApplicationRecord</code> следующим образом:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationRecord</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="nb">self</span><span class="p">.</span><span class="nf">abstract_class</span> <span class="o">=</span> <span class="kp">true</span>
 
@@ -262,12 +254,28 @@
 </div>
 <p>При использовании по-другому названного класса в вашем приложении необходимо вместо этого установить <code>primary_abstract_class</code>, таким образом Rails будет знать, с каким классом должен делиться соединением <code>ActiveRecord::Base</code>.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">PrimaryApplicationRecord</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
-  <span class="nb">self</span><span class="p">.</span><span class="nf">primary_abstract_class</span> <span class="o">=</span> <span class="kp">true</span>
+  <span class="n">primary_abstract_class</span>
+
+  <span class="n">connects_to</span> <span class="ss">database: </span><span class="p">{</span> <span class="ss">writing: :primary</span><span class="p">,</span> <span class="ss">reading: :primary_replica</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Классы, соединяющиеся к primary/primary_replica могут наследоваться от вашего основного абстрактного класса, как в стандартных приложениях Rails:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+<p>В этом случае классы, которые подключаются к <code>primary</code>/<code>primary_replica</code>, могут наследоваться от вашего основного абстрактного класса, так же как стандартные приложения Rails делают это с помощью <code>ApplicationRecord</code>.</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">PrimaryApplicationRecord</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>С другой стороны, нам нужно настроить наши модели, сохраняемые в базе данных &quot;animals&quot;:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">AnimalsRecord</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">abstract_class</span> <span class="o">=</span> <span class="kp">true</span>
+
+  <span class="n">connects_to</span> <span class="ss">database: </span><span class="p">{</span> <span class="ss">writing: :animals</span><span class="p">,</span> <span class="ss">reading: :animals_replica</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p>Эти модели должны наследоваться от этого общего абстрактного класса:</p><div class="code_container">
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Car</span> <span class="o">&lt;</span> <span class="no">AnimalsRecord</span>
+  <span class="c1"># Автоматически общается с базой данных animals.</span>
 <span class="k">end</span>
 </code></pre>
 </div>
@@ -276,36 +284,38 @@
 <span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">reading_role</span> <span class="o">=</span> <span class="ss">:readonly</span>
 </code></pre>
 </div>
-<p>Важно, что нужно соединяться с базой данных в единственной модели, а затем наследоваться от этой модели, а не соединять несколько отдельных моделей с той же самой базой данных. У клиентов базы данных есть ограничение на количество доступных открытых соединений, и, если вы сделаете так, это умножит количество соединений, так как Rails использует имя класса модели в качестве имени спецификации соединения.</p><p>Теперь, когда у нас есть <code>database.yml</code>, и настроена новая модель, пришло время создать базы данных. Rails 6.0 поставляется со всеми задачами rails, нужными для использования нескольких баз данных в Rails.</p><p>Можно запустить <code>bin/rails -T</code> для просмотра всех заданий, которые можно выполнить. Вы должны увидеть следующее:</p><div class="code_container">
-  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails</span> <span class="nt">-T</span>
-<span class="gp">rails db:create                          #</span><span class="w"> </span>Creates the database from DATABASE_URL or config/database.yml <span class="k">for </span>the ...
-<span class="gp">rails db:create:animals                  #</span><span class="w"> </span>Create animals database <span class="k">for </span>current environment
-<span class="gp">rails db:create:primary                  #</span><span class="w"> </span>Create primary database <span class="k">for </span>current environment
-<span class="gp">rails db:drop                            #</span><span class="w"> </span>Drops the database from DATABASE_URL or config/database.yml <span class="k">for </span>the cu...
-<span class="gp">rails db:drop:animals                    #</span><span class="w"> </span>Drop animals database <span class="k">for </span>current environment
-<span class="gp">rails db:drop:primary                    #</span><span class="w"> </span>Drop primary database <span class="k">for </span>current environment
-<span class="gp">rails db:migrate                         #</span><span class="w"> </span>Migrate the database <span class="o">(</span>options: <span class="nv">VERSION</span><span class="o">=</span>x, <span class="nv">VERBOSE</span><span class="o">=</span><span class="nb">false</span>, <span class="nv">SCOPE</span><span class="o">=</span>blog<span class="o">)</span>
-<span class="gp">rails db:migrate:animals                 #</span><span class="w"> </span>Migrate animals database <span class="k">for </span>current environment
-<span class="gp">rails db:migrate:primary                 #</span><span class="w"> </span>Migrate primary database <span class="k">for </span>current environment
-<span class="gp">rails db:migrate:status                  #</span><span class="w"> </span>Display status of migrations
-<span class="gp">rails db:migrate:status:animals          #</span><span class="w"> </span>Display status of migrations <span class="k">for </span>animals database
-<span class="gp">rails db:migrate:status:primary          #</span><span class="w"> </span>Display status of migrations <span class="k">for </span>primary database
-<span class="gp">rails db:reset                           #</span><span class="w"> </span>Drops and recreates all databases from their schema <span class="k">for </span>the current environment and loads the seeds
-<span class="gp">rails db:reset:animals                   #</span><span class="w"> </span>Drops and recreates the animals database from its schema <span class="k">for </span>the current environment and loads the seeds
-<span class="gp">rails db:reset:primary                   #</span><span class="w"> </span>Drops and recreates the primary database from its schema <span class="k">for </span>the current environment and loads the seeds
-<span class="gp">rails db:rollback                        #</span><span class="w"> </span>Rolls the schema back to the previous version <span class="o">(</span>specify steps w/ <span class="nv">STEP</span><span class="o">=</span>n<span class="o">)</span>
-<span class="gp">rails db:rollback:animals                #</span><span class="w"> </span>Rollback animals database <span class="k">for </span>current environment <span class="o">(</span>specify steps w/ <span class="nv">STEP</span><span class="o">=</span>n<span class="o">)</span>
-<span class="gp">rails db:rollback:primary                #</span><span class="w"> </span>Rollback primary database <span class="k">for </span>current environment <span class="o">(</span>specify steps w/ <span class="nv">STEP</span><span class="o">=</span>n<span class="o">)</span>
-<span class="gp">rails db:schema:dump                     #</span><span class="w"> </span>Creates a database schema file <span class="o">(</span>either db/schema.rb or db/structure.sql  ...
-<span class="gp">rails db:schema:dump:animals             #</span><span class="w"> </span>Creates a database schema file <span class="o">(</span>either db/schema.rb or db/structure.sql  ...
-<span class="gp">rails db:schema:dump:primary             #</span><span class="w"> </span>Creates a db/schema.rb file that is portable against any DB supported  ...
-<span class="gp">rails db:schema:load                     #</span><span class="w"> </span>Loads a database schema file <span class="o">(</span>either db/schema.rb or db/structure.sql  ...
-<span class="gp">rails db:schema:load:animals             #</span><span class="w"> </span>Loads a database schema file <span class="o">(</span>either db/schema.rb or db/structure.sql  ...
-<span class="gp">rails db:schema:load:primary             #</span><span class="w"> </span>Loads a database schema file <span class="o">(</span>either db/schema.rb or db/structure.sql  ...
-<span class="gp">rails db:setup                           #</span><span class="w"> </span>Creates all databases, loads all schemas, and initializes with the seed data <span class="o">(</span>use db:reset to also drop all databases first<span class="o">)</span>
-<span class="gp">rails db:setup:animals                   #</span><span class="w"> </span>Creates the animals database, loads the schema, and initializes with the seed data <span class="o">(</span>use db:reset:animals to also drop the database first<span class="o">)</span>
-<span class="gp">rails db:setup:primary                   #</span><span class="w"> </span>Creates the primary database, loads the schema, and initializes with the seed data <span class="o">(</span>use db:reset:primary to also drop the database first<span class="o">)</span>
-</code></pre>
+<p>Важно, что нужно соединяться с базой данных в единственной модели, а затем наследоваться от этой модели, а не соединять несколько отдельных моделей с той же самой базой данных. У клиентов базы данных есть ограничение на количество доступных открытых соединений, и, если вы сделаете так, это умножит количество соединений, так как Rails использует имя класса модели в качестве имени спецификации соединения.</p><p>Теперь, когда у нас есть <code>config/database.yml</code>, и настроена новая модель, пришло время создать базы данных. Rails поставляется со всеми командами, нужными для использования нескольких баз данных.</p><p>Можно запустить <code>bin/rails --help</code> для просмотра всех заданий, которые можно выполнить. Вы должны увидеть следующее:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails</span> <span class="nt">--help</span>
+<span class="c">...
+</span><span class="gp">db:create                          #</span><span class="w"> </span>Create the database from DATABASE_URL or config/database.yml <span class="k">for </span>the ...
+<span class="gp">db:create:animals                  #</span><span class="w"> </span>Create animals database <span class="k">for </span>current environment
+<span class="gp">db:create:primary                  #</span><span class="w"> </span>Create primary database <span class="k">for </span>current environment
+<span class="gp">db:drop                            #</span><span class="w"> </span>Drop the database from DATABASE_URL or config/database.yml <span class="k">for </span>the cu...
+<span class="gp">db:drop:animals                    #</span><span class="w"> </span>Drop animals database <span class="k">for </span>current environment
+<span class="gp">db:drop:primary                    #</span><span class="w"> </span>Drop primary database <span class="k">for </span>current environment
+<span class="gp">db:migrate                         #</span><span class="w"> </span>Migrate the database <span class="o">(</span>options: <span class="nv">VERSION</span><span class="o">=</span>x, <span class="nv">VERBOSE</span><span class="o">=</span><span class="nb">false</span>, <span class="nv">SCOPE</span><span class="o">=</span>blog<span class="o">)</span>
+<span class="gp">db:migrate:animals                 #</span><span class="w"> </span>Migrate animals database <span class="k">for </span>current environment
+<span class="gp">db:migrate:primary                 #</span><span class="w"> </span>Migrate primary database <span class="k">for </span>current environment
+<span class="gp">db:migrate:status                  #</span><span class="w"> </span>Display status of migrations
+<span class="gp">db:migrate:status:animals          #</span><span class="w"> </span>Display status of migrations <span class="k">for </span>animals database
+<span class="gp">db:migrate:status:primary          #</span><span class="w"> </span>Display status of migrations <span class="k">for </span>primary database
+<span class="gp">db:reset                           #</span><span class="w"> </span>Drop and recreates all databases from their schema <span class="k">for </span>the current environment and loads the seeds
+<span class="gp">db:reset:animals                   #</span><span class="w"> </span>Drop and recreates the animals database from its schema <span class="k">for </span>the current environment and loads the seeds
+<span class="gp">db:reset:primary                   #</span><span class="w"> </span>Drop and recreates the primary database from its schema <span class="k">for </span>the current environment and loads the seeds
+<span class="gp">db:rollback                        #</span><span class="w"> </span>Roll the schema back to the previous version <span class="o">(</span>specify steps w/ <span class="nv">STEP</span><span class="o">=</span>n<span class="o">)</span>
+<span class="gp">db:rollback:animals                #</span><span class="w"> </span>Rollback animals database <span class="k">for </span>current environment <span class="o">(</span>specify steps w/ <span class="nv">STEP</span><span class="o">=</span>n<span class="o">)</span>
+<span class="gp">db:rollback:primary                #</span><span class="w"> </span>Rollback primary database <span class="k">for </span>current environment <span class="o">(</span>specify steps w/ <span class="nv">STEP</span><span class="o">=</span>n<span class="o">)</span>
+<span class="gp">db:schema:dump                     #</span><span class="w"> </span>Create a database schema file <span class="o">(</span>either db/schema.rb or db/structure.sql  ...
+<span class="gp">db:schema:dump:animals             #</span><span class="w"> </span>Create a database schema file <span class="o">(</span>either db/schema.rb or db/structure.sql  ...
+<span class="gp">db:schema:dump:primary             #</span><span class="w"> </span>Create a db/schema.rb file that is portable against any DB supported  ...
+<span class="gp">db:schema:load                     #</span><span class="w"> </span>Load a database schema file <span class="o">(</span>either db/schema.rb or db/structure.sql  ...
+<span class="gp">db:schema:load:animals             #</span><span class="w"> </span>Load a database schema file <span class="o">(</span>either db/schema.rb or db/structure.sql  ...
+<span class="gp">db:schema:load:primary             #</span><span class="w"> </span>Load a database schema file <span class="o">(</span>either db/schema.rb or db/structure.sql  ...
+<span class="gp">db:setup                           #</span><span class="w"> </span>Create all databases, loads all schemas, and initializes with the seed data <span class="o">(</span>use db:reset to also drop all databases first<span class="o">)</span>
+<span class="gp">db:setup:animals                   #</span><span class="w"> </span>Create the animals database, loads the schema, and initializes with the seed data <span class="o">(</span>use db:reset:animals to also drop the database first<span class="o">)</span>
+<span class="gp">db:setup:primary                   #</span><span class="w"> </span>Create the primary database, loads the schema, and initializes with the seed data <span class="o">(</span>use db:reset:primary to also drop the database first<span class="o">)</span>
+<span class="c">...
+</span></code></pre>
 </div>
 <p>Запуск команды <code>bin/rails db:create</code> создаст и основную базу, и базу животных. Отметьте, что нет команды для создания пользователей базы данных, и вам нужно это сделать вручную для поддержки пользователей только для чтения в репликах. Если нужно создать базу животных, можно выполнить <code>bin/rails db:create:animals</code>.</p><h3 id='soedinenie-s-bazami-dannyh-bez-upravleniya-shemoy-i-migratsiyami' class='inside_page_header'><a href="#soedinenie-s-bazami-dannyh-bez-upravleniya-shemoy-i-migratsiyami">2.</a> Соединение с базами данных без управления схемой и миграциями</h3><p>Если вы хотите соединиться с внешней базой данных без каких-либо задач управления базой данных, таких как управление схемой, миграции, сиды, и т.д., можно установить для базы данных конфигурационную настройку <code>database_tasks: false</code>. По умолчанию она установлена как true.</p><div class="code_container">
   <pre><code class="highlight yaml"><span class="na">production</span><span class="pi">:</span>
@@ -326,7 +336,7 @@
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate scaffold Dog name:string <span class="nt">--database</span> animals
 </code></pre>
 </div>
-<p>Будет создан класс с именем базы данных плюс <code>Record</code>. В данном примере база данных <code>Animals</code>, поэтому получаем <code>AnimalsRecord</code>:</p><div class="code_container">
+<p>Будет создан класс с camelized именем базы данных плюс <code>Record</code>. В данном примере база данных <code>animals</code>, поэтому получаем <code>AnimalsRecord</code>:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">AnimalsRecord</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="nb">self</span><span class="p">.</span><span class="nf">abstract_class</span> <span class="o">=</span> <span class="kp">true</span>
 
@@ -339,12 +349,12 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Note: Так как Rails не знает, какая база данных является репликой для пишущей базы, необходимо это добавить в абстрактный класс по завершении.</p><p>Rails сгенерирует новый класс единожды. Он не будет переписан новыми скаффолдами или удален при удалении скаффолда.</p><p>Если у вас уже есть абстрактный класс, и его имя отличается от <code>AnimalsRecord</code>, можно передать опцию <code>--parent</code> для обозначения, что нужен иной абстрактный класс:</p><div class="code_container">
+<div class="note"><p>Так как Rails не знает, какая база данных является репликой для пишущей базы, необходимо это добавить в абстрактный класс по завершении.</p></div><p>Rails сгенерирует <code>AnimalsRecord</code> единожды. Он не будет переписан новыми скаффолдами или удален при удалении скаффолда.</p><p>Если у вас уже есть абстрактный класс, и его имя отличается от <code>AnimalsRecord</code>, можно передать опцию <code>--parent</code> для обозначения, что нужен иной абстрактный класс:</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>generate scaffold Dog name:string <span class="nt">--database</span> animals <span class="nt">--parent</span> Animals::Record
 </code></pre>
 </div>
-<p>Это пропустит генерацию <code>AnimalsRecord</code>, так как вы обозначили Rails, что хотите использовать другой родительский класс.</p><h3 id='aktivatsiya-avtomaticheskogo-pereklyucheniya-roli' class='inside_page_header'><a href="#aktivatsiya-avtomaticheskogo-pereklyucheniya-roli">4.</a> Активация автоматического переключения роли</h3><p>Наконец, чтобы использовать реплику только для чтения, нужно активировать промежуточную программу для автоматического переключения.</p><p>Автоматическое переключение позволяет приложению переключаться с пишущей базы на реплику или с реплики на пишущую, основываясь на методе HTTP, и того, была ли недавно запись запрашивающим пользователем.</p><p>Если приложение получает запрос POST, PUT, DELETE или PATCH, приложение автоматически будет писать в пишущую базу данных. За указанное время после записи, приложение будет читать из основной базы. Для запроса GET или HEAD приложение будет читать из реплики, если нет недавней записи.</p><p>Чтобы активировать промежуточную программу автоматического переключения соединений, можно запустить генератор автоматического переключения:</p><div class="code_container">
-  <pre><code class="highlight plaintext">$ bin/rails g active_record:multi_db
+<p>Это пропустит генерацию <code>AnimalsRecord</code>, так как вы обозначили Rails, что хотите использовать другой родительский класс.</p><h3 id='aktivatsiya-avtomaticheskogo-pereklyucheniya-roli' class='inside_page_header'><a href="#aktivatsiya-avtomaticheskogo-pereklyucheniya-roli">4.</a> Активация автоматического переключения роли</h3><p>Наконец, чтобы использовать реплику только для чтения, нужно активировать промежуточную программу для автоматического переключения.</p><p>Автоматическое переключение позволяет приложению переключаться с пишущей базы на реплику или с реплики на пишущую, основываясь на методе HTTP, и того, была ли недавно запись запрашивающим пользователем.</p><p>Если приложение получает запрос POST, PUT, DELETE или PATCH, приложение автоматически будет писать в пишущую базу данных. Если запрос не относится к одному из перечисленных методов, но приложение недавно совершало запись, то дополнительно будет использована база данных для записи. Все остальные запросы будут использовать базу данных-реплику.</p><p>Чтобы активировать промежуточную программу автоматического переключения соединений, можно запустить генератор автоматического переключения:</p><div class="code_container">
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>g active_record:multi_db
 </code></pre>
 </div>
 <p>А затем раскомментируйте следующие строчки.</p><div class="code_container">
@@ -356,8 +366,27 @@
 </code></pre>
 </div>
 <p>Rails гарантирует &quot;чтение ваших собственных записей&quot; и пошлет ваши запросы GET или HEAD в пишущую базу, если они в пределах диапазона <code>delay</code>. По умолчанию задержка установлена 2 секунды. Ее следует изменить на основе инфраструктуры вашей базы данных. Rails не гарантирует &quot;чтение недавних записей&quot; для других пользователей в пределах диапазона задержки и пошлет запросы GET и HEAD в реплику, если эти пользователи не писали недавно.</p><p>Автоматическое переключение соединения в Rails относительно примитивное и специально не делает слишком многого. Целью этой системы является демонстрация, как осуществить автоматическое переключение соединения, достаточно гибкое, чтобы быть настроенным разработчиками приложения.</p><p>Настройка в Rails позволяет легко изменить, как выполняется переключение и на каких параметрах оно базируется. Скажем, вы хотите использовать куки вместо сессии, чтобы решить, когда поменять соединение. Можно написать свой класс:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">MyCookieResolver</span>
-  <span class="c1"># код вашего класса для куки</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">MyCookieResolver</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Middleware</span><span class="o">::</span><span class="no">DatabaseSelector</span><span class="o">::</span><span class="no">Resolver</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="n">new</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">cookies</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">cookies</span><span class="p">)</span>
+    <span class="vi">@cookies</span> <span class="o">=</span> <span class="n">cookies</span>
+  <span class="k">end</span>
+
+  <span class="nb">attr_reader</span> <span class="ss">:cookies</span>
+
+  <span class="k">def</span> <span class="nf">last_write_timestamp</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">convert_timestamp_to_time</span><span class="p">(</span><span class="n">cookies</span><span class="p">[</span><span class="ss">:last_write</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">update_last_write_timestamp</span>
+    <span class="n">cookies</span><span class="p">[</span><span class="ss">:last_write</span><span class="p">]</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">convert_time_to_timestamp</span><span class="p">(</span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
 </div>
@@ -369,13 +398,13 @@
 </div>
 <h3 id='ispolzovanie-ruchnogo-pereklyucheniya-soedineniya' class='inside_page_header'><a href="#ispolzovanie-ruchnogo-pereklyucheniya-soedineniya">5.</a> Использование ручного переключения соединения</h3><p>Имеется ряд случаев, когда хочется, чтобы приложение соединялось с пишущей базой или репликой, и автоматического переключения не достаточно. Например, вы знаете, что для определенного запроса нужно всегда отправлять запрос к реплике, даже если это в запросе POST.</p><p>Для этого Rails предоставляет метод <code>connected_to</code>, который переключит на нужное вам соединение.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span><span class="p">.</span><span class="nf">connected_to</span><span class="p">(</span><span class="ss">role: :reading</span><span class="p">)</span> <span class="k">do</span>
-  <span class="c1"># весь код в этом блоке будет соединен с ролью reading</span>
+  <span class="c1"># Весь код в этом блоке будет соединен с ролью reading.</span>
 <span class="k">end</span>
 </code></pre>
 </div>
 <p>&quot;role&quot; в вызове <code>connected_to</code> ищет соединения, связанные с обработчиком этого соединения (или роли). Обработчик соединения <code>reading</code> содержит все соединения, связанные с помощью <code>connects_to</code> с именем роли <code>reading</code>.</p><p>Отметьте, что <code>connected_to</code> с ролью будет искать существующее соединение и переключать с помощью указанного имени соединения. Это означает, что, если вы передали неизвестную роль, наподобие <code>connected_to(role: :nonexistent)</code>, то получите ошибку, сообщающую <code>ActiveRecord::ConnectionNotEstablished (No connection pool with &#39;AnimalsBase&#39; found for the &#39;nonexistent&#39; role.)</code></p><p>Если хотите, чтобы Rails убедился, что любые выполняемые запросы только читают, передайте <code>prevent_writes: true</code>. Это только предотвратит запросы, выглядящие как запись, от отправления в базу данных. Вы также должны настроить свою реплику базы данных запускаться в режиме только для чтения.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span><span class="p">.</span><span class="nf">connected_to</span><span class="p">(</span><span class="ss">role: :reading</span><span class="p">,</span> <span class="ss">prevent_writes: </span><span class="kp">true</span><span class="p">)</span> <span class="k">do</span>
-  <span class="c1"># Rails проверит каждый запрос, чтобы убедиться, что он читает</span>
+  <span class="c1"># Rails проверит каждый запрос, чтобы убедиться, что он читает.</span>
 <span class="k">end</span>
 </code></pre>
 </div>
@@ -391,46 +420,65 @@
   <span class="na">primary_shard_one</span><span class="pi">:</span>
     <span class="na">database</span><span class="pi">:</span> <span class="s">my_primary_shard_one</span>
     <span class="na">adapter</span><span class="pi">:</span> <span class="s">mysql2</span>
+    <span class="na">migrations_paths</span><span class="pi">:</span> <span class="s">db/migrate_shards</span>
   <span class="na">primary_shard_one_replica</span><span class="pi">:</span>
     <span class="na">database</span><span class="pi">:</span> <span class="s">my_primary_shard_one</span>
+    <span class="na">adapter</span><span class="pi">:</span> <span class="s">mysql2</span>
+    <span class="na">replica</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">primary_shard_two</span><span class="pi">:</span>
+    <span class="na">database</span><span class="pi">:</span> <span class="s">my_primary_shard_two</span>
+    <span class="na">adapter</span><span class="pi">:</span> <span class="s">mysql2</span>
+    <span class="na">migrations_paths</span><span class="pi">:</span> <span class="s">db/migrate_shards</span>
+  <span class="na">primary_shard_two_replica</span><span class="pi">:</span>
+    <span class="na">database</span><span class="pi">:</span> <span class="s">my_primary_shard_two</span>
     <span class="na">adapter</span><span class="pi">:</span> <span class="s">mysql2</span>
     <span class="na">replica</span><span class="pi">:</span> <span class="no">true</span>
 </code></pre>
 </div>
 <p>Затем модели соединяются с помощью ключа <code>shards</code> в API <code>connects_to</code>:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ApplicationRecord</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">primary_abstract_class</span>
+
+  <span class="n">connects_to</span> <span class="ss">database: </span><span class="p">{</span> <span class="ss">writing: :primary</span><span class="p">,</span> <span class="ss">reading: :primary_replica</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">ShardRecord</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="nb">self</span><span class="p">.</span><span class="nf">abstract_class</span> <span class="o">=</span> <span class="kp">true</span>
 
   <span class="n">connects_to</span> <span class="ss">shards: </span><span class="p">{</span>
-    <span class="ss">default: </span><span class="p">{</span> <span class="ss">writing: :primary</span><span class="p">,</span> <span class="ss">reading: :primary_replica</span> <span class="p">},</span>
-    <span class="ss">shard_one: </span><span class="p">{</span> <span class="ss">writing: :primary_shard_one</span><span class="p">,</span> <span class="ss">reading: :primary_shard_one_replica</span> <span class="p">}</span>
+    <span class="ss">shard_one: </span><span class="p">{</span> <span class="ss">writing: :primary_shard_one</span><span class="p">,</span> <span class="ss">reading: :primary_shard_one_replica</span> <span class="p">},</span>
+    <span class="ss">shard_two: </span><span class="p">{</span> <span class="ss">writing: :primary_shard_two</span><span class="p">,</span> <span class="ss">reading: :primary_shard_two_replica</span> <span class="p">}</span>
   <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
 </div>
-<p>Затем в моделях можно вручную переключать соединения с помощью API <code>connected_to</code>. При использования шардинга должны быть переданы обе <code>role</code> и <code>shard</code>:</p><div class="code_container">
+<p>Если вы используете шардинг, убедитесь, что параметры <code>migrations_paths</code> и <code>schema_dump</code> остаются одинаковыми для всех шардов. При генерации миграции вы можете передать опцию <code>--database</code> и использовать одно из имен шардов. Поскольку все они указывают на один и тот же путь, не имеет значения, какой из них вы выберете.</p><div class="code_container">
+  <pre><code class="highlight plaintext">$ bin/rails g scaffold Dog name:string --database primary_shard_one
+</code></pre>
+</div>
+<p>Затем в моделях можно вручную переключать шарды с помощью API <code>connected_to</code>. При использования шардинга должны быть переданы обе <code>role</code> и <code>shard</code>:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span><span class="p">.</span><span class="nf">connected_to</span><span class="p">(</span><span class="ss">role: :writing</span><span class="p">,</span> <span class="ss">shard: :default</span><span class="p">)</span> <span class="k">do</span>
-  <span class="vi">@id</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">create!</span> <span class="c1"># Создаст запись в shard default</span>
+  <span class="vi">@id</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">create!</span> <span class="c1"># Создаст запись в шард с именем ":default".</span>
 <span class="k">end</span>
 
 <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span><span class="p">.</span><span class="nf">connected_to</span><span class="p">(</span><span class="ss">role: :writing</span><span class="p">,</span> <span class="ss">shard: :shard_one</span><span class="p">)</span> <span class="k">do</span>
   <span class="no">Person</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="vi">@id</span><span class="p">)</span> <span class="c1"># Не найдет запись, не существует, так как было создано</span>
-                   <span class="c1"># в shard default</span>
+                   <span class="c1"># в шарде с именем ":default".</span>
 <span class="k">end</span>
 </code></pre>
 </div>
 <p>API горизонтального шардинга также поддерживает чтение из реплик. Можно переключить роли и шард с помощью API <code>connected_to</code>.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span><span class="p">.</span><span class="nf">connected_to</span><span class="p">(</span><span class="ss">role: :reading</span><span class="p">,</span> <span class="ss">shard: :shard_one</span><span class="p">)</span> <span class="k">do</span>
-  <span class="no">Person</span><span class="p">.</span><span class="nf">first</span> <span class="c1"># Ищет запись в реплике shard one</span>
+  <span class="no">Person</span><span class="p">.</span><span class="nf">first</span> <span class="c1"># Ищет запись в реплике shard one.</span>
 <span class="k">end</span>
 </code></pre>
 </div>
 <h3 id='aktivizatsiya-avtomaticheskogo-pereklyucheniya-sharda' class='inside_page_header'><a href="#aktivizatsiya-avtomaticheskogo-pereklyucheniya-sharda">7.</a> Активизация автоматического переключения шарда</h3><p>Приложения могут автоматически переключать шарды для запроса с помощью предоставленной промежуточной программы.</p><p>Промежуточная программа <code>ShardSelector</code> предоставляет фреймворк для автоматического переключения шардов. Rails предоставляет базовый фреймворк для определения, на какой шард переключиться, и позволяет по необходимости писать в приложениях пользовательские стратегии для переключения.</p><p><code>ShardSelector</code> принимает ряд опций (в настоящее время поддерживается только <code>lock</code>), которые могут быть использованы промежуточной программой для изменения поведения. <code>lock</code> по умолчанию true, и запретит запросу переключать шарды пока внутри блока. Если <code>lock</code> false, то переключение шарда будет разрешено.
 Для шардинга, основанного на tenant, <code>lock</code> должен всегда быть true для предотвращения кода приложения от ошибочного переключения между tenant.</p><p>Тот же генератор, что и для выбора базы данных, может быть использован для генерации файла для автоматического переключения шарда:</p><div class="code_container">
-  <pre><code class="highlight plaintext">$ bin/rails g active_record:multi_db
+  <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bin/rails </span>g active_record:multi_db
 </code></pre>
 </div>
-<p>Затем в файле раскомментируйте следующее:</p><div class="code_container">
+<p>Затем в сгенерированном <code>config/initializers/multi_db.rb</code> раскомментируйте следующее:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">shard_selector</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">lock: </span><span class="kp">true</span> <span class="p">}</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">shard_resolver</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="no">Tenant</span><span class="p">.</span><span class="nf">find_by!</span><span class="p">(</span><span class="ss">host: </span><span class="n">request</span><span class="p">.</span><span class="nf">host</span><span class="p">).</span><span class="nf">shard</span> <span class="p">}</span>
@@ -445,25 +493,28 @@
 <span class="p">}</span>
 </code></pre>
 </div>
-<h3 id='granulirovannoe-pereklyuchenie-soedineniya-s-bazoy-dannyh' class='inside_page_header'><a href="#granulirovannoe-pereklyuchenie-soedineniya-s-bazoy-dannyh">8.</a> Гранулированное переключение соединения с базой данных</h3><p>В Rails 6.1 возможно переключать соединения для одной базы данных вместо глобального для всех баз данных.</p><p>С гранулированным переключением соединения с базой данных, любой абстрактный класс будет способен переключать соединения, не затрагивая другие соединения. Это полезно для переключения запросов <code>AnimalsRecord</code> на чтение из реплики, в то время как запросы <code>ApplicationRecord</code> идут в основную базу.</p><div class="code_container">
+<h3 id='granulirovannoe-pereklyuchenie-soedineniya-s-bazoy-dannyh' class='inside_page_header'><a href="#granulirovannoe-pereklyuchenie-soedineniya-s-bazoy-dannyh">8.</a> Гранулированное переключение соединения с базой данных</h3><p>Начиная с Rails 6.1, возможно переключать соединения для одной базы данных вместо глобального для всех баз данных.</p><p>С гранулированным переключением соединения с базой данных, любой абстрактный класс будет способен переключать соединения, не затрагивая другие соединения. Это полезно для переключения запросов <code>AnimalsRecord</code> на чтение из реплики, в то время как запросы <code>ApplicationRecord</code> идут в основную базу.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">AnimalsRecord</span><span class="p">.</span><span class="nf">connected_to</span><span class="p">(</span><span class="ss">role: :reading</span><span class="p">)</span> <span class="k">do</span>
-  <span class="no">Dog</span><span class="p">.</span><span class="nf">first</span> <span class="c1"># Читает из animals_replica</span>
-  <span class="no">Person</span><span class="p">.</span><span class="nf">first</span>  <span class="c1"># Читает из primary</span>
+  <span class="no">Dog</span><span class="p">.</span><span class="nf">first</span> <span class="c1"># Читает из animals_replica.</span>
+  <span class="no">Person</span><span class="p">.</span><span class="nf">first</span>  <span class="c1"># Читает из primary.</span>
 <span class="k">end</span>
 </code></pre>
 </div>
 <p>Также возможно гранулировано менять соединения для шардов.</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">AnimalsRecord</span><span class="p">.</span><span class="nf">connected_to</span><span class="p">(</span><span class="ss">role: :reading</span><span class="p">,</span> <span class="ss">shard: :shard_one</span><span class="p">)</span> <span class="k">do</span>
-  <span class="no">Dog</span><span class="p">.</span><span class="nf">first</span> <span class="c1"># Прочитает из shard_one_replica. Если не существует соединения</span>
-  <span class="c1">#  для shard_one_replica, будет вызвана ошибка ConnectionNotEstablished</span>
-  <span class="no">Person</span><span class="p">.</span><span class="nf">first</span> <span class="c1"># Прочитает из основной пишущей базы</span>
+  <span class="c1"># Прочитает из shard_one_replica. Если не существует соединения для shard_one_replica,</span>
+  <span class="c1"># будет вызвана ошибка ConnectionNotEstablished.</span>
+  <span class="no">Dog</span><span class="p">.</span><span class="nf">first</span>
+
+  <span class="c1"># Прочитает из основной пишущей базы.</span>
+  <span class="no">Person</span><span class="p">.</span><span class="nf">first</span>
 <span class="k">end</span>
 </code></pre>
 </div>
 <p>Чтоб переключить только основной кластер базы данных, используйте <code>ApplicationRecord</code>:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="no">ApplicationRecord</span><span class="p">.</span><span class="nf">connected_to</span><span class="p">(</span><span class="ss">role: :reading</span><span class="p">,</span> <span class="ss">shard: :shard_one</span><span class="p">)</span> <span class="k">do</span>
-  <span class="no">Person</span><span class="p">.</span><span class="nf">first</span> <span class="c1"># Читает из primary_shard_one_replica</span>
-  <span class="no">Dog</span><span class="p">.</span><span class="nf">first</span> <span class="c1"># Читает из animals_primary</span>
+  <span class="no">Person</span><span class="p">.</span><span class="nf">first</span> <span class="c1"># Читает из primary_shard_one_replica.</span>
+  <span class="no">Dog</span><span class="p">.</span><span class="nf">first</span> <span class="c1"># Читает из animals_primary.</span>
 <span class="k">end</span>
 </code></pre>
 </div>
@@ -496,9 +547,10 @@
 <span class="k">SELECT</span> <span class="nv">"yards"</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="nv">"yards"</span> <span class="k">WHERE</span> <span class="nv">"yards"</span><span class="p">.</span><span class="nv">"home_id"</span> <span class="o">=</span> <span class="o">?</span> <span class="p">[[</span><span class="nv">"home_id"</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
 </code></pre>
 </div>
-<p>Есть ряд важных вещей, которые нужно знать об этой опции:</p><p>1) Может быть влияние на производительность, сейчас будут выполняться два или более запросов (в зависимости от связи) вместо соединения. Если выборка для <code>humans</code> возвратит большое количество ID, в выборку для <code>treats</code> может быть послано слишком много ID.
-2) Поскольку мы больше не выполняем соединения, запросы с сортировкой или лимитом теперь сортируются в памяти, так как упорядочивание из одной таблицы не может быть применено к другой таблице.
-3) Эта настройка должна быть добавлена ко всем связям, где вы хотите отключить соединение. Rails не может угадать это, так как загрузка связей ленивая, и чтобы загрузить <code>treats</code> in <code>@dog.treats</code> Rails уже нужно знать, какой SQL должен быть сгенерирован.</p><h4 id='keshirovanie-shemy' class='inside_page_header'><a href="#keshirovanie-shemy">8.2.</a> Кэширование схемы</h4><p>Если вы хотите загрузить кэш схемы для каждой базы данных, вам нужно установить <code>schema_cache_path</code> в каждой конфигурации базы данных и установить <code>config.active_record.lazily_load_schema_cache = true</code> в конфигурации приложения. Отметьте, что это лениво загрузит кэш при установлении соединений с базами данных.</p><h3 id='predosterezheniya' class='inside_page_header'><a href="#predosterezheniya">9.</a> Предостережения</h3><h4 id='nagruzochnaya-balansirovka-replik' class='inside_page_header'><a href="#nagruzochnaya-balansirovka-replik">9.1.</a> Нагрузочная балансировка реплик</h4><p>Rails также не поддерживает автоматическую нагрузочную балансировку реплик. Это очень зависит от вашей инфраструктуры. В будущем может быть будет реализована базовая, примитивная нагрузочная балансировка, но для масштабирования приложения должно быть что-то, что управляет вашим приложением вне Rails.</p>
+<p>Есть ряд важных вещей, которые нужно знать об этой опции:</p><ul><li>Может быть влияние на производительность, сейчас будут выполняться два или более запросов (в зависимости от связи) вместо соединения. Если выборка для <code>humans</code> возвратит большое количество ID, в выборку для <code>treats</code> может быть послано слишком много ID.
+</li><li>Поскольку мы больше не выполняем соединения, запросы с сортировкой или лимитом теперь сортируются в памяти, так как упорядочивание из одной таблицы не может быть применено к другой таблице.
+</li><li>Эта настройка должна быть добавлена ко всем связям, где вы хотите отключить соединение. Rails не может угадать это, так как загрузка связей ленивая, и чтобы загрузить <code>treats</code> in <code>@dog.treats</code> Rails уже нужно знать, какой SQL должен быть сгенерирован.
+</li></ul><h4 id='keshirovanie-shemy' class='inside_page_header'><a href="#keshirovanie-shemy">8.2.</a> Кэширование схемы</h4><p>Если вы хотите загрузить кэш схемы для каждой базы данных, вам нужно установить <code>schema_cache_path</code> в каждой конфигурации базы данных и установить <code>config.active_record.lazily_load_schema_cache = true</code> в конфигурации приложения. Отметьте, что это лениво загрузит кэш при установлении соединений с базами данных.</p><h3 id='predosterezheniya' class='inside_page_header'><a href="#predosterezheniya">9.</a> Предостережения</h3><h4 id='nagruzochnaya-balansirovka-replik' class='inside_page_header'><a href="#nagruzochnaya-balansirovka-replik">9.1.</a> Нагрузочная балансировка реплик</h4><p>Rails не поддерживает автоматическую нагрузочную балансировку реплик. Это очень зависит от вашей инфраструктуры. В будущем может быть будет реализована базовая, примитивная нагрузочная балансировка, но для масштабирования приложения должно быть что-то, что управляет вашим приложением вне Rails.</p>
 
             <div class="banner">
               <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
