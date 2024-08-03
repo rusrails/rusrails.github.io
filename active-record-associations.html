@@ -145,7 +145,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#svyaz-has_and_belongs_to_many">2.6. Связь <code>has_and_belongs_to_many</code></a>
+          <a href="#the-has-and-belongs-to-many-association">2.6. Связь <code>has_and_belongs_to_many</code></a>
 </h5>      </li>
       <li>
         <h5>
@@ -1128,7 +1128,7 @@
 <span class="k">end</span>
 </code></pre>
 </div>
-<h4 id='svyaz-has_and_belongs_to_many' class='inside_page_header'><a href="#svyaz-has_and_belongs_to_many">2.6.</a> Связь <code>has_and_belongs_to_many</code></h4><p>Связь <a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html#method-i-has_and_belongs_to_many"><code>has_and_belongs_to_many</code></a> создает прямое соединение многие-ко-многим с другой моделью, без промежуточной модели. Эта связь показывает, что каждый экземпляр объявляющей модели ссылается на ноль или более записей другой модели. Например, если ваше приложение включает сборки (assemblies) и детали (parts), где каждый узел имеет много деталей, и каждая деталь встречается во многих сборках, модели можно объявить таким образом:</p><div class="code_container">
+<h4 id='the-has-and-belongs-to-many-association' class='inside_page_header'><a href="#the-has-and-belongs-to-many-association">2.6.</a> Связь <code>has_and_belongs_to_many</code></h4><p>Связь <a href="https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html#method-i-has_and_belongs_to_many"><code>has_and_belongs_to_many</code></a> создает прямое соединение многие-ко-многим с другой моделью, без промежуточной модели. Эта связь показывает, что каждый экземпляр объявляющей модели ссылается на ноль или более записей другой модели. Например, если ваше приложение включает сборки (assemblies) и детали (parts), где каждый узел имеет много деталей, и каждая деталь встречается во многих сборках, модели можно объявить таким образом:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Assembly</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">has_and_belongs_to_many</span> <span class="ss">:parts</span>
 <span class="k">end</span>
