@@ -346,10 +346,10 @@
 </li><li>SQLite3
 </li></ul><h5 id='ustanovka-ruby' class='inside_page_header'><a href="#ustanovka-ruby">3.1.1.</a> Установка Ruby</h5><p>Откройте приложения для командной строки. На macOS откройте Terminal.app; на Windows выберите &quot;Run&quot; в меню Start и напишите <code>cmd.exe</code>. Любые команды, начинающиеся со знака доллара <code>$</code> должны быть запущены в командной строке. Убедитесь, что у вас установлена текущая версия Ruby:</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">ruby</span> <span class="nt">--version</span>
-<span class="go">ruby 2.7.0
+<span class="go">ruby 3.1.0
 </span></code></pre>
 </div>
-<p>Rails требует, чтобы был установлен Ruby версии 2.7.0 или новее. Предпочтительно использовать последнюю версию Ruby. Если номер версии меньше этой (такие как 2.3.7 или 1.8.7), нужно будет установить новую копию Ruby.</p><p>Чтобы установить Ruby на Windows, сначала нужно установить <a href="https://rubyinstaller.org">Ruby Installer</a>.</p><p>Дополнительные методы установки для большинства операционных систем можно увидеть на <a href="https://www.ruby-lang.org/en/documentation/installation/">ruby-lang.org</a>.</p><h5 id='ustanovka-sqlite3' class='inside_page_header'><a href="#ustanovka-sqlite3">3.1.2.</a> Установка SQLite3</h5><p>Вам также понадобится установка базы данных SQLite3.</p><p>Многие популярные UNIX-подобные ОС поставляются с приемлемой версией SQLite3. Прочие пользователи могут обратиться к инструкциям по установке на <a href="https://www.sqlite.org">сайте SQLite3</a>.</p><p>Проверьте, что он правильно установлен и содержится в вашем <code>PATH</code> загрузки:</p><div class="code_container">
+<p>Rails требует, чтобы был установлен Ruby версии 3.1.0 или новее. Предпочтительно использовать последнюю версию Ruby. Если номер версии меньше этой (такие как 2.3.7 или 1.8.7), нужно будет установить новую копию Ruby.</p><p>Чтобы установить Ruby на Windows, сначала нужно установить <a href="https://rubyinstaller.org">Ruby Installer</a>.</p><p>Дополнительные методы установки для большинства операционных систем можно увидеть на <a href="https://www.ruby-lang.org/en/documentation/installation/">ruby-lang.org</a>.</p><h5 id='ustanovka-sqlite3' class='inside_page_header'><a href="#ustanovka-sqlite3">3.1.2.</a> Установка SQLite3</h5><p>Вам также понадобится установка базы данных SQLite3.</p><p>Многие популярные UNIX-подобные ОС поставляются с приемлемой версией SQLite3. Прочие пользователи могут обратиться к инструкциям по установке на <a href="https://www.sqlite.org">сайте SQLite3</a>.</p><p>Проверьте, что он правильно установлен и содержится в вашем <code>PATH</code> загрузки:</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">sqlite3</span> <span class="nt">--version</span>
 </code></pre>
 </div>
@@ -359,9 +359,10 @@
 </div>
 <p>Чтобы проверить, что все установлено верно, нужно выполнить следующее в новом терминале:</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails</span> <span class="nt">--version</span>
-</code></pre>
+<span class="go">Rails 7.2.0
+</span></code></pre>
 </div>
-<p>Если выводится что-то вроде &quot;Rails 7.0.0&quot;, можно продолжать.</p><h4 id='sozdanie-prilozheniya-blog' class='inside_page_header'><a href="#sozdanie-prilozheniya-blog">3.2.</a> Создание приложения Blog</h4><p>Rails поставляется с рядом скриптов, названных генераторами, разработанных для облегчения жизни разработчика, создавая все, что необходимо для начала работы над определенной задачей. Одним из них является генератор нового приложения, предоставляющий вам основу приложения Rails, таким образом, вам не нужно писать его самим.</p><p>Для использования этого генератора, откройте терминал, войдите в папку, в которой у вас есть права на создание файлов и запустите:</p><div class="code_container">
+<p>Если выводится что-то вроде &quot;Rails 7.2.0&quot;, можно продолжать.</p><h4 id='sozdanie-prilozheniya-blog' class='inside_page_header'><a href="#sozdanie-prilozheniya-blog">3.2.</a> Создание приложения Blog</h4><p>Rails поставляется с рядом скриптов, названных генераторами, разработанных для облегчения жизни разработчика, создавая все, что необходимо для начала работы над определенной задачей. Одним из них является генератор нового приложения, предоставляющий вам основу приложения Rails, таким образом, вам не нужно писать его самим.</p><p>Для использования этого генератора, откройте терминал, войдите в папку, в которой у вас есть права на создание файлов и запустите:</p><div class="code_container">
   <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new blog
 </code></pre>
 </div>
@@ -392,6 +393,10 @@
 <tr>
 <td>db/</td>
 <td>Содержит текущую схему вашей базы данных, а также миграции базы данных.</td>
+</tr>
+<tr>
+<td>Dockerfile</td>
+<td>Файл конфигурации для Docker.</td>
 </tr>
 <tr>
 <td>Gemfile<br>Gemfile.lock</td>
@@ -434,12 +439,24 @@
 <td>Место для кода сторонних разработчиков. В типичном приложении на Rails включает внешние гемы.</td>
 </tr>
 <tr>
+<td>.dockerignore</td>
+<td>Этот файл сообщает Docker, какие файлы не должны копироваться в контейнер.</td>
+</tr>
+<tr>
 <td>.gitattributes</td>
 <td>Этот файл определяет метаданные для определенных путей в репозитории git. Эти метаданные могут быть использованы git и другими инструментами для улучшения их поведения. Подробности смотрите в <a href="https://git-scm.com/docs/gitattributes">документации gitattributes</a>.</td>
 </tr>
 <tr>
+<td>.github/</td>
+<td>Содержит файлы, специфичные для GitHub.</td>
+</tr>
+<tr>
 <td>.gitignore</td>
 <td>Этот файл сообщает git, какие файлы (явно или по шаблону) ему следует игнорировать. Подробнее об игнорировании файлов смотрите <a href="https://help.github.com/articles/ignoring-files">GitHub - Ignoring files</a>.</td>
+</tr>
+<tr>
+<td>.rubocop.yml</td>
+<td>Содержит конфигурацию для RuboCop.</td>
 </tr>
 <tr>
 <td>.ruby-version</td>
@@ -512,7 +529,7 @@ invoke    test_unit
 </code></pre>
 </div>
 <p>Два файла, на которых мы сфокусируемся, это файл миграции (<code>db/migrate/&lt;timestamp&gt;_create_articles.rb</code>) и файл модели (<code>app/models/article.rb</code>).</p><h4 id='migratsii-bazy-dannyh' class='inside_page_header'><a href="#migratsii-bazy-dannyh">6.2.</a> Миграции базы данных</h4><p><em>Миграции</em> используются для изменения структуры базы данных приложения. В приложениях Rails миграции написаны на Ruby, поэтому они могут быть не зависящими от базы данных.</p><p>Давайте посмотрим на содержимое нового файла миграции:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateArticles</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.0</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateArticles</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:articles</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:title</span>
@@ -540,7 +557,7 @@ invoke    test_unit
 </code></pre>
 </div>
 <p>Вы должны увидеть интерфейс <code>irb</code> наподобие:</p><div class="code_container">
-  <pre><code class="highlight irb"><span class="go">Loading development environment (Rails 7.0.0)
+  <pre><code class="highlight irb"><span class="go">Loading development environment (Rails 7.2.0)
 </span><span class="gp">irb(main):001:0&gt;</span><span class="w">
 </span></code></pre>
 </div>
@@ -591,7 +608,7 @@ Article Create (0.4ms)  INSERT INTO "articles" ("title", "body", "created_at", "
 <span class="nt">&lt;/ul&gt;</span>
 </code></pre>
 </div>
-<p>Вышеприведенный код это смесь HTML и <em>ERB</em>. ERB это система шаблонирования, которая вычисляет код Ruby, вложенный в документ. Тут мы видим два типа тегов ERB: <code>&lt;% %&gt;</code> и <code>&lt;%= %&gt;</code>. Тег <code>&lt;% %&gt;</code> означает &quot;вычислить заключенный код Ruby&quot;. Тег <code>&lt;%= %&gt;</code> означает &quot;вычислить заключенный код Ruby и вывести значение, которое он возвратит&quot;. Все, что можно написать в обычной программе на Ruby, можно вложить в эти теги ERB, хотя обычно лучше сохранять содержимое тегов ERB кратким, для читаемости.</p><p>Так как мы не хотим вывести значение, возвращаемое <code>@articles.each</code>, мы заключили этот код в <code>&lt;% %&gt;</code>. Но, поскольку мы <em>хотим</em> вывести значение, возвращаемое <code>article.title</code> (для каждой статьи), мы заключили этот код в <code>&lt;%= %&gt;</code>.</p><p>Окончательный результат можно увидеть, посетив <a href="http://localhost:3000">http://localhost:3000</a>. (Помните, что <code>bin/rails server</code> должен быть запущен!) Вот что произойдет при этом:</p><ul><li>Браузер сделает запрос: <code>GET http://localhost:3000</code>.
+<p>Вышеприведенный код это смесь HTML и <em>ERB</em>. ERB, сокращение для <a href="https://docs.ruby-lang.org/en/3.2/ERB.html">Embedded Ruby</a>, это система шаблонирования, которая вычисляет код Ruby, вложенный в документ. Тут мы видим два типа тегов ERB: <code>&lt;% %&gt;</code> и <code>&lt;%= %&gt;</code>. Тег <code>&lt;% %&gt;</code> означает &quot;вычислить заключенный код Ruby&quot;. Тег <code>&lt;%= %&gt;</code> означает &quot;вычислить заключенный код Ruby и вывести значение, которое он возвратит&quot;. Все, что можно написать в обычной программе на Ruby, можно вложить в эти теги ERB, хотя обычно лучше сохранять содержимое тегов ERB кратким, для читаемости.</p><p>Так как мы не хотим вывести значение, возвращаемое <code>@articles.each</code>, мы заключили этот код в <code>&lt;% %&gt;</code>. Но, поскольку мы <em>хотим</em> вывести значение, возвращаемое <code>article.title</code> (для каждой статьи), мы заключили этот код в <code>&lt;%= %&gt;</code>.</p><p>Окончательный результат можно увидеть, посетив <a href="http://localhost:3000">http://localhost:3000</a>. (Помните, что <code>bin/rails server</code> должен быть запущен!) Вот что произойдет при этом:</p><ul><li>Браузер сделает запрос: <code>GET http://localhost:3000</code>.
 </li><li>Наше приложение Rails получит этот запрос.
 </li><li>Роутер Rails свяжет корневой маршрут с экшном <code>index</code> в <code>ArticlesController</code>.
 </li><li>Экшн <code>index</code> использует модель <code>Article</code> для извлечения всех статей из базы данных.
@@ -1034,7 +1051,7 @@ Article Create (0.4ms)  INSERT INTO "articles" ("title", "body", "created_at", "
 </code></pre>
 </div>
 <p>Это очень похоже на модель <code>Article</code>, которую мы видели ранее. Разница в строчке <code>belongs_to :article</code>, которая устанавливает <em>связь</em> Active Record. Вы ознакомитесь со связями в следующем разделе руководства.</p><p>Ключевое слово (<code>:references</code>), использованное в команде консоли, это специальный тип данных для моделей. Он создает новый столбец в вашей базе данных с именем представленной модели с добавленным <code>_id</code>, который может содержать числовые значения. Чтобы лучше понять, проанализируйте файл <code>db/schema.rb</code> после выполнения миграции.</p><p>В дополнение к модели, Rails также сделал миграцию для создания соответствующей таблицы базы данных:</p><div class="code_container">
-  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateComments</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.0</span><span class="p">]</span>
+  <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CreateComments</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.2</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">change</span>
     <span class="n">create_table</span> <span class="ss">:comments</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
       <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:commenter</span>
@@ -1196,7 +1213,7 @@ Article Create (0.4ms)  INSERT INTO "articles" ("title", "body", "created_at", "
 <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
 </code></pre>
 </div>
-<p>Теперь в вашем блоге можно добавлять статьи и комментарии и отображать их в нужных местах.</p><p><img src='/assets/getting_started/article_with_comments-7e5d8551c9ac02f2d28992374b44445c847727aa8d5be1e26dd2db3bded2bc4e.png' title='' alt='Статья с комментариями' class='img-polaroid' /></p><h3 id='refaktoring' class='inside_page_header'><a href="#refaktoring">9.</a> Рефакторинг</h3><p>Теперь, когда у нас есть работающие статьи и комментарии, взглянем на шаблон <code>app/views/articles/show.html.erb</code>. Он стал длинным и неудобным. Давайте воспользуемся партиалами, чтобы разгрузить его.</p><h4 id='rendering-kollektsiy-partialov' class='inside_page_header'><a href="#rendering-kollektsiy-partialov">9.1.</a> Рендеринг коллекций партиалов</h4><p>Сначала сделаем партиал для комментариев, показывающий все комментарии для статьи. Создайте файл <code>app/views/comments/_comment.html.erb</code> и поместите в него следующее:</p><div class="code_container">
+<p>Теперь в вашем блоге можно добавлять статьи и комментарии и отображать их в нужных местах.</p><p><img src='/assets/getting_started/article_with_comments-c476562d5ca228722da98ab3a721ee29d7e7edc49fc31cd3d5ab2ebfec5ef8b6.png' title='' alt='Статья с комментариями' class='img-polaroid' /></p><h3 id='refaktoring' class='inside_page_header'><a href="#refaktoring">9.</a> Рефакторинг</h3><p>Теперь, когда у нас есть работающие статьи и комментарии, взглянем на шаблон <code>app/views/articles/show.html.erb</code>. Он стал длинным и неудобным. Давайте воспользуемся партиалами, чтобы разгрузить его.</p><h4 id='rendering-kollektsiy-partialov' class='inside_page_header'><a href="#rendering-kollektsiy-partialov">9.1.</a> Рендеринг коллекций партиалов</h4><p>Сначала сделаем партиал для комментариев, показывающий все комментарии для статьи. Создайте файл <code>app/views/comments/_comment.html.erb</code> и поместите в него следующее:</p><div class="code_container">
   <pre><code class="highlight erb"><span class="nt">&lt;p&gt;</span>
   <span class="nt">&lt;strong&gt;</span>Commenter:<span class="nt">&lt;/strong&gt;</span>
   <span class="cp">&lt;%=</span> <span class="n">comment</span><span class="p">.</span><span class="nf">commenter</span> <span class="cp">%&gt;</span>
@@ -1291,14 +1308,16 @@ app/models/concerns
 </code></pre>
 </div>
 <p>Чтобы выбрать статус для существующих статей и комментариев, можно добавить значение по умолчанию в сгенерированные файлы миграции, добавив опцию <code>default: &quot;public&quot;</code> и запустив миграции заново. Также можно вызвать в консоли rails <code>Article.update_all(status: &quot;public&quot;)</code> и <code>Comment.update_all(status: &quot;public&quot;)</code>.</p><div class="info"><p>Чтобы узнать больше о миграциях, смотрите <a href="/active-record-migrations">Миграции Active Record</a>.</p></div><p>Также нужно разрешить ключ <code>:status</code>, как часть strong parameter, в <code>app/controllers/articles_controller.rb</code>:</p><div class="code_container">
-  <pre><code class="highlight ruby">  <span class="kp">private</span>
+  <pre><code class="highlight ruby">
+  <span class="kp">private</span>
     <span class="k">def</span> <span class="nf">article_params</span>
       <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:article</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">:status</span><span class="p">)</span>
     <span class="k">end</span>
 </code></pre>
 </div>
 <p>и в <code>app/controllers/comments_controller.rb</code>:</p><div class="code_container">
-  <pre><code class="highlight ruby">  <span class="kp">private</span>
+  <pre><code class="highlight ruby">
+  <span class="kp">private</span>
     <span class="k">def</span> <span class="nf">comment_params</span>
       <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:comment</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:commenter</span><span class="p">,</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">:status</span><span class="p">)</span>
     <span class="k">end</span>
@@ -1448,17 +1467,17 @@ Our blog has <span class="cp">&lt;%=</span> <span class="no">Article</span><span
 <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"New Article"</span><span class="p">,</span> <span class="n">new_article_path</span> <span class="cp">%&gt;</span>
 </code></pre>
 </div>
-<p>Наконец, добавим список выбора в формы и разрешим пользователю выбирать статус при создании новой статьи или публикации нового комментария. Также можно указать статус по умолчанию как <code>public</code>. В <code>app/views/articles/_form.html.erb</code> можно добавить:</p><div class="code_container">
+<p>Наконец, добавим список выбора в формы и разрешим пользователю выбирать статус при создании новой статьи или публикации нового комментария. Также можно указать статус объекта, или по умолчанию <code>public</code>, если не указан. В <code>app/views/articles/_form.html.erb</code> можно добавить:</p><div class="code_container">
   <pre><code class="highlight erb"><span class="nt">&lt;div&gt;</span>
   <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:status</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
-  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">select</span> <span class="ss">:status</span><span class="p">,</span> <span class="p">[</span><span class="s1">'public'</span><span class="p">,</span> <span class="s1">'private'</span><span class="p">,</span> <span class="s1">'archived'</span><span class="p">],</span> <span class="ss">selected: </span><span class="s1">'public'</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">select</span> <span class="ss">:status</span><span class="p">,</span> <span class="no">Visible</span><span class="o">::</span><span class="no">VALID_STATUSES</span><span class="p">,</span> <span class="ss">selected: </span><span class="n">article</span><span class="p">.</span><span class="nf">status</span> <span class="o">||</span> <span class="s1">'public'</span> <span class="cp">%&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 </div>
 <p>и в <code>app/views/comments/_form.html.erb</code>:</p><div class="code_container">
   <pre><code class="highlight erb"><span class="nt">&lt;p&gt;</span>
   <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:status</span> <span class="cp">%&gt;</span><span class="nt">&lt;br&gt;</span>
-  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">select</span> <span class="ss">:status</span><span class="p">,</span> <span class="p">[</span><span class="s1">'public'</span><span class="p">,</span> <span class="s1">'private'</span><span class="p">,</span> <span class="s1">'archived'</span><span class="p">],</span> <span class="ss">selected: </span><span class="s1">'public'</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">select</span> <span class="ss">:status</span><span class="p">,</span> <span class="no">Visible</span><span class="o">::</span><span class="no">VALID_STATUSES</span><span class="p">,</span> <span class="ss">selected: </span><span class="s1">'public'</span> <span class="cp">%&gt;</span>
 <span class="nt">&lt;/p&gt;</span>
 </code></pre>
 </div>
@@ -1519,7 +1538,6 @@ Our blog has <span class="cp">&lt;%=</span> <span class="no">Article</span><span
 </div>
 <h3 id='bezopasnost' class='inside_page_header'><a href="#bezopasnost">11.</a> Безопасность</h3><h4 id='basic-authentication' class='inside_page_header'><a href="#basic-authentication">11.1.</a> Базовая аутентификация</h4><p>Если вы опубликуете свой блог онлайн, любой сможет добавлять, редактировать и удалять статьи или удалять комментарии.</p><p>Rails предоставляет аутентификационную систему HTTP, которая хорошо работает в этой ситуации.</p><p>В <code>ArticlesController</code> нам нужен способ блокировать доступ к различным экшнам, если пользователь не аутентифицирован. Тут мы можем использовать метод Rails <code>http_basic_authenticate_with</code>, разрешающий доступ к требуемым экшнам, если метод позволит это.</p><p>Чтобы использовать систему аутентификации, мы определим ее вверху нашего <code>ArticlesController</code> в <code>app/controllers/articles_controller.rb</code>. В нашем случае, мы хотим, чтобы пользователь был аутентифицирован для каждого экшна, кроме <code>index</code> и <code>show</code>, поэтому напишем так:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ArticlesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
-
   <span class="n">http_basic_authenticate_with</span> <span class="ss">name: </span><span class="s2">"dhh"</span><span class="p">,</span> <span class="ss">password: </span><span class="s2">"secret"</span><span class="p">,</span> <span class="ss">except: </span><span class="p">[</span><span class="ss">:index</span><span class="p">,</span> <span class="ss">:show</span><span class="p">]</span>
 
   <span class="k">def</span> <span class="nf">index</span>
@@ -1527,11 +1545,11 @@ Our blog has <span class="cp">&lt;%=</span> <span class="no">Article</span><span
   <span class="k">end</span>
 
   <span class="c1"># пропущено для краткости</span>
+<span class="k">end</span>
 </code></pre>
 </div>
 <p>Мы также хотим позволить только аутентифицированным пользователям удалять комментарии, поэтому в <code>CommentsController</code> (<code>app/controllers/comments_controller.rb</code>) мы напишем:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">CommentsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
-
   <span class="n">http_basic_authenticate_with</span> <span class="ss">name: </span><span class="s2">"dhh"</span><span class="p">,</span> <span class="ss">password: </span><span class="s2">"secret"</span><span class="p">,</span> <span class="ss">only: :destroy</span>
 
   <span class="k">def</span> <span class="nf">create</span>
@@ -1540,6 +1558,7 @@ Our blog has <span class="cp">&lt;%=</span> <span class="no">Article</span><span
   <span class="k">end</span>
 
   <span class="c1"># пропущено для краткости</span>
+<span class="k">end</span>
 </code></pre>
 </div>
 <p>Теперь, если попытаетесь создать новую статью, то встретитесь с вызовом базовой аутентификации HTTP:</p><p><img src='/assets/getting_started/challenge-f112fb88a11ab2263c2f7a017e2cbeba089f799477c33d5a09c968bcc90fd62b.png' title='' alt='Вызов базовой аутентификации HTTP' class='img-polaroid' /></p><p>После ввода правильного имени пользователя и пароля, вы останетесь аутентифицированным, пока не потребуется другое имя пользователя и пароль, или браузер будет закрыт.</p><p>Также для приложений на Rails доступны иные методы аутентификации. Двумя популярными дополнениями для Rails, среди прочих, являются <a href="https://github.com/plataformatec/devise">Devise</a> и <a href="https://github.com/binarylogic/authlogic">Authlogic</a>.</p><h4 id='prochie-mysli-o-bezopasnosti' class='inside_page_header'><a href="#prochie-mysli-o-bezopasnosti">11.2.</a> Прочие мысли о безопасности</h4><p>Безопасность, особенно в веб-приложениях, это обширная и детализированная область. Безопасность вашего приложения Rails раскрывается более детально в руководстве <a href="/security">Безопасность приложений на Rails</a>.</p><h3 id='chto-dalshe' class='inside_page_header'><a href="#chto-dalshe">12.</a> Что дальше?</h3><p>После того, как вы создали свое первое приложение на Rails, можете свободно его модифицировать и экспериментировать на свое усмотрение.</p><p>Помните, что вы не сможете сделать без посторонней помощи все, что угодно. Так же, как вы обращались к этому руководству &quot;Rails для начинающих&quot;, далее можете так же свободно пользоваться этими ресурсами:</p><ul><li><a href="http://guides.rubyonrails.org/">Ruby on Rails Guides</a>
