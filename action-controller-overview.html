@@ -136,7 +136,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#parametry-sostavnogo-klyucha">4.4. Параметры составного ключа</a>
+          <a href="#composite-key-parameters">4.4. Параметры составного ключа</a>
 </h5>      </li>
       <li>
         <h5>
@@ -416,7 +416,7 @@
   <pre><code class="highlight ruby"><span class="n">get</span> <span class="s1">'/clients/:status'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'clients#index'</span><span class="p">,</span> <span class="ss">foo: </span><span class="s1">'bar'</span>
 </code></pre>
 </div>
-<p>В этом случае, когда пользователь откроет URL <code>/clients/active</code>, <code>params[:status]</code> будет установлен в &quot;active&quot;. Когда использован этот маршрут, <code>params[:foo]</code> также будет установлен в &quot;bar&quot;, как будто он был передан в строке запроса. Ваш контроллер также получит <code>params[:action]</code> как &quot;index&quot; и <code>params[:controller]</code> как &quot;clients&quot;.</p><h4 id='parametry-sostavnogo-klyucha' class='inside_page_header'><a href="#parametry-sostavnogo-klyucha">4.4.</a> Параметры составного ключа</h4><p>Параметры составного ключа содержат несколько значений в одном параметре. По этой причине нам нужно иметь возможность извлекать каждое значение и передавать их в Active Record. Для этого случая мы можем использовать метод <code>extract_value</code>.</p><p>Рассмотрим следующий контроллер:</p><div class="code_container">
+<p>В этом случае, когда пользователь откроет URL <code>/clients/active</code>, <code>params[:status]</code> будет установлен в &quot;active&quot;. Когда использован этот маршрут, <code>params[:foo]</code> также будет установлен в &quot;bar&quot;, как будто он был передан в строке запроса. Ваш контроллер также получит <code>params[:action]</code> как &quot;index&quot; и <code>params[:controller]</code> как &quot;clients&quot;.</p><h4 id='composite-key-parameters' class='inside_page_header'><a href="#composite-key-parameters">4.4.</a> Параметры составного ключа</h4><p>Параметры составного ключа содержат несколько значений в одном параметре. По этой причине нам нужно иметь возможность извлекать каждое значение и передавать их в Active Record. Для этого случая мы можем использовать метод <code>extract_value</code>.</p><p>Рассмотрим следующий контроллер:</p><div class="code_container">
   <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">BooksController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="k">def</span> <span class="nf">show</span>
     <span class="c1"># Извлекаем значение составного ID из параметров URL.</span>

@@ -136,7 +136,7 @@
 </h5>      </li>
       <li>
         <h5>
-          <a href="#put-i-helpery-url">2.3. Путь и хелперы URL</a>
+          <a href="#path-and-url-helpers">2.3. Путь и хелперы URL</a>
 </h5>      </li>
       <li>
         <h5>
@@ -474,7 +474,7 @@
 <td>photos#destroy</td>
 <td>удаляет определенное фото</td>
 </tr>
-</table><div class="note"><p>Поскольку роутер использует как метод HTTP, так и URL, для сопоставления с входящими запросами, четыре URL соединяют с семью различными экшнами.</p></div><div class="note"><p>Маршруты Rails сравниваются в том порядке, в котором они определены, поэтому, если имеется <code>resources :photos</code> до <code>get &#39;photos/poll&#39;</code> маршрут для экшна <code>show</code> в строчке <code>resources</code> совпадет до строчки <code>get</code>. Чтобы это исправить, переместите строчку <code>get</code> <strong>выше</strong> строчки <code>resources</code>, чтобы она сравнивалась первой.</p></div><h4 id='put-i-helpery-url' class='inside_page_header'><a href="#put-i-helpery-url">2.3.</a> Путь и хелперы URL</h4><p>Создание ресурсного маршрута также сделает доступными множество хелперов в контроллере вашего приложения. В случае с <code>resources :photos</code>:</p><ul><li><code>photos_path</code> возвращает <code>/photos</code>
+</table><div class="note"><p>Поскольку роутер использует как метод HTTP, так и URL, для сопоставления с входящими запросами, четыре URL соединяют с семью различными экшнами.</p></div><div class="note"><p>Маршруты Rails сравниваются в том порядке, в котором они определены, поэтому, если имеется <code>resources :photos</code> до <code>get &#39;photos/poll&#39;</code> маршрут для экшна <code>show</code> в строчке <code>resources</code> совпадет до строчки <code>get</code>. Чтобы это исправить, переместите строчку <code>get</code> <strong>выше</strong> строчки <code>resources</code>, чтобы она сравнивалась первой.</p></div><h4 id='path-and-url-helpers' class='inside_page_header'><a href="#path-and-url-helpers">2.3.</a> Путь и хелперы URL</h4><p>Создание ресурсного маршрута также сделает доступными множество хелперов в контроллере вашего приложения. В случае с <code>resources :photos</code>:</p><ul><li><code>photos_path</code> возвращает <code>/photos</code>
 </li><li><code>new_photo_path</code> возвращает <code>/photos/new</code>
 </li><li><code>edit_photo_path(:id)</code> возвращает <code>/photos/:id/edit</code> (например, <code>edit_photo_path(10)</code> возвращает <code>/photos/10/edit</code>)
 </li><li><code>photo_path(:id)</code> возвращает <code>/photos/:id</code> (например, <code>photo_path(10)</code> возвращает <code>/photos/10</code>)
